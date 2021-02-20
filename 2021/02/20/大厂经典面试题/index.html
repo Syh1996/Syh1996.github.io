@@ -9,7 +9,7 @@
     
     <title>
         
-            新的一年，新的一天 |
+            大厂经典面试题 |
         
         邵预鸿|前端开发技术笔记
     </title>
@@ -121,7 +121,7 @@
     <div class="article-content-container">
 
         <div class="article-title">
-            <span class="title-hover-animation">新的一年，新的一天</span>
+            <span class="title-hover-animation">大厂经典面试题</span>
         </div>
 
         
@@ -139,20 +139,9 @@
                     <div class="meta-info">
                         <div class="article-meta-info">
     <span class="article-date article-meta-item">
-        <i class="fas fa-edit"></i>&nbsp;2021-02-20 21:08:52
+        <i class="fas fa-edit"></i>&nbsp;2021-02-20 22:23:44
     </span>
     
-    
-        <span class="article-tags article-meta-item">
-            <i class="fas fa-tags"></i>&nbsp;
-            <ul>
-                
-                    <li>
-                        <a href="/tags/%E7%BD%91%E7%AB%99%E5%BC%80%E5%A7%8B/">网站开始</a>&nbsp;
-                    </li>
-                
-            </ul>
-        </span>
     
 
     
@@ -167,7 +156,29 @@
         
 
         <div class="article-content markdown-body">
-            <h3 id="新的一年，新的开始"><a href="#新的一年，新的开始" class="headerlink" title="新的一年，新的开始"></a>新的一年，新的开始</h3><p>今天是2021/2/20 20：08分，为了更好的记录生活提升自己的专业技能，创建了这个网站，加油</p>
+            <h2 id="大厂经典面试题"><a href="#大厂经典面试题" class="headerlink" title="大厂经典面试题"></a>大厂经典面试题</h2><h3 id="css性能问题-以下代码性能最好的是"><a href="#css性能问题-以下代码性能最好的是" class="headerlink" title="css性能问题,以下代码性能最好的是?"></a>css性能问题,以下代码性能最好的是?</h3><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">a</span>&#123;</span><br><span class="line">  <span class="attribute">color</span>:red;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-tag">li</span> <span class="selector-tag">a</span>&#123;</span><br><span class="line">  <span class="attribute">color</span>:blue;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"> 答案: 第一个，原因浏览器渲染机制选择器从右向左匹配，以下选择器会首先匹配a，然后li,li进行的是二次匹配</span><br></pre></td></tr></table></figure>
+
+
+<h3 id="symbol问题"><a href="#symbol问题" class="headerlink" title="symbol问题"></a>symbol问题</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a = &#123;&#125;,b=<span class="built_in">Symbol</span>(<span class="string">&#x27;1&#x27;</span>),c=<span class="built_in">Symbol</span>(<span class="number">1</span>);</span><br><span class="line">a[b] = <span class="string">&#x27;培训&#x27;</span>;</span><br><span class="line">a[c]= <span class="string">&#x27;计划&#x27;</span>;</span><br><span class="line"><span class="built_in">console</span>.log(a[b]);</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+<h3 id="以下代码将输出"><a href="#以下代码将输出" class="headerlink" title="以下代码将输出"></a>以下代码将输出</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> test =(<span class="function"><span class="keyword">function</span>(<span class="params">i</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">        <span class="built_in">console</span>.log(i*=<span class="number">2</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;)(<span class="number">5</span>);</span><br><span class="line">test(<span class="number">10</span>);</span><br></pre></td></tr></table></figure>
+
+
+<h3 id="valueOf与toString的区别"><a href="#valueOf与toString的区别" class="headerlink" title="valueOf与toString的区别"></a>valueOf与toString的区别</h3><p>参考链接:<a class="link"   target="_blank" rel="noopener" href="https://www.cnblogs.com/chorkiu/p/10367359.html" >链接<i class="fas fa-external-link-alt"></i></a></p>
+<h3 id="HTTPS和HTTP有什么区别"><a href="#HTTPS和HTTP有什么区别" class="headerlink" title="HTTPS和HTTP有什么区别?"></a>HTTPS和HTTP有什么区别?</h3><p>http协议传输的数据都bai是未加密的，du也就是明文的，因此使用zhihttp协议传输隐私dao信息非常不安全。为了保证这些隐私数据能加密传输，于是网景公司设计了ssl(Secure Sockets Layer)协议用于对http协议传输的数据进行加密，从而就诞生了https。</p>
+<p>简单zhuan说，https协议是由ssl+http协议构建的可进行加密传输、身份认证的网络协议，要比http协议安全。</p>
+<p>https和http的主要区别：</p>
+<p>一、https协议需要到ca机构申请ssl证书(如沃通CA)，另外沃通CA还提供3年期的免费ssl证书，高级别的ssl证书需要一定费用。</p>
+<p>二、http是超文本传输协议，信息是明文传输，https 则是具有安全性的ssl加密传输协议。</p>
+<p>三、http和https使用的是完全不同的连接方式，用的端口也不一样，http是80端口，https是443端口。</p>
+<p>四、http的连接很简单，是无状态的;https协议是由ssl+http协议构建的可进行加密传输、身份认证的网络协议，比http协议安全。</p>
+<h3 id="写出执行结果，并解释原因"><a href="#写出执行结果，并解释原因" class="headerlink" title="写出执行结果，并解释原因"></a>写出执行结果，并解释原因</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">var</span> a = (b = <span class="number">5</span>);</span><br><span class="line">&#125;)();</span><br><span class="line"><span class="built_in">console</span>.log(b);</span><br><span class="line"><span class="built_in">console</span>.log(a);</span><br><span class="line"><span class="comment">// 写出执行结果，并解释原因</span></span><br></pre></td></tr></table></figure>
+<p>答案5 Error, a is not defined</p>
+<blockquote>
+<p>解析</p>
+</blockquote>
+<p>在这个立即执行函数表达式（IIFE）中包括两个赋值操作，其中<code>a</code>使用<code>var</code>关键字进行声明，因此其属于函数内部的局部变量（仅存在于函数中），相反，<code>b</code>被分配到全局命名空间。<strong>window.b</strong>另一个需要注意的是，这里没有在函数内部使用<a class="link"   target="_blank" rel="noopener" href="http://cjihrig.com/blog/javascripts-strict-mode-and-why-you-should-use-it/" >严格模式<i class="fas fa-external-link-alt"></i></a>(<code>use strict</code>;)。如果启用了严格模式，代码会在输出 b 时报错<code>Uncaught ReferenceError: b is not defined</code>,需要记住的是，严格模式要求你显式的引用全局作用域。</p>
 
         </div>
 
@@ -175,11 +186,11 @@
             <div class="post-copyright-info">
                 <div class="article-copyright-info-container">
     <ul>
-        <li>Post title：新的一年，新的一天</li>
+        <li>Post title：大厂经典面试题</li>
         <li>Post author：邵预鸿</li>
-        <li>Create time：2021-02-20 21:08:52</li>
+        <li>Create time：2021-02-20 22:23:44</li>
         <li>
-            Post link：/images/logo.jpg2021/02/20/新的一年，新的一天/
+            Post link：/images/logo.jpg2021/02/20/大厂经典面试题/
         </li>
         <li>
             Copyright Notice：All articles in this blog are licensed under <a class="license" target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">BY-NC-SA</a> unless stating additionally.
@@ -193,21 +204,21 @@
         
             <div class="article-nav">
                 
-                    <div class="article-prev">
-                        <a class="prev"
-                           rel="prev"
-                           href="/2021/02/20/%E5%A4%A7%E5%8E%82%E7%BB%8F%E5%85%B8%E9%9D%A2%E8%AF%95%E9%A2%98/"
+                
+                    <div class="article-next">
+                        <a class="next"
+                           rel="next"
+                           href="/2021/02/20/%E6%96%B0%E7%9A%84%E4%B8%80%E5%B9%B4%EF%BC%8C%E6%96%B0%E7%9A%84%E4%B8%80%E5%A4%A9/"
                         >
-                            <span class="left arrow-icon flex-center">
-                              <i class="fas fa-chevron-left"></i>
-                            </span>
                             <span class="title flex-center">
-                                <span class="post-nav-title-item">大厂经典面试题</span>
-                                <span class="post-nav-item">Prev posts</span>
+                                <span class="post-nav-title-item">新的一年，新的一天</span>
+                                <span class="post-nav-item">Next posts</span>
+                            </span>
+                            <span class="right arrow-icon flex-center">
+                              <i class="fas fa-chevron-right"></i>
                             </span>
                         </a>
                     </div>
-                
                 
             </div>
         
