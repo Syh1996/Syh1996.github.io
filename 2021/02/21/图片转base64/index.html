@@ -10,7 +10,7 @@
     
     <title>
         
-            新的一年，新的一天 |
+            图片转base64 |
         
         邵预鸿|前端开发技术笔记
     </title>
@@ -122,7 +122,7 @@
     <div class="article-content-container">
 
         <div class="article-title">
-            <span class="title-hover-animation">新的一年，新的一天</span>
+            <span class="title-hover-animation">图片转base64</span>
         </div>
 
         
@@ -140,7 +140,7 @@
                     <div class="meta-info">
                         <div class="article-meta-info">
     <span class="article-date article-meta-item">
-        <i class="fas fa-edit"></i>&nbsp;2021-02-20 21:08:52
+        <i class="fas fa-edit"></i>&nbsp;2021-02-21 12:02:14
     </span>
     
     
@@ -149,7 +149,7 @@
             <ul>
                 
                     <li>
-                        <a href="/tags/%E7%BD%91%E7%AB%99%E5%BC%80%E5%A7%8B/">网站开始</a>&nbsp;
+                        <a href="/tags/js/">js</a>&nbsp;
                     </li>
                 
             </ul>
@@ -168,7 +168,7 @@
         
 
         <div class="article-content markdown-body">
-            <h3 id="新的一年，新的开始"><a href="#新的一年，新的开始" class="headerlink" title="新的一年，新的开始"></a>新的一年，新的开始</h3><p>今天是2021/2/20 20：08分，为了更好的记录生活提升自己的专业技能，创建了这个网站，加油</p>
+            <h2 id="图片转base64"><a href="#图片转base64" class="headerlink" title="图片转base64"></a>图片转base64</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html lang=<span class="string">&quot;en&quot;</span>&gt;</span><br><span class="line"></span><br><span class="line">&lt;head&gt;</span><br><span class="line">    &lt;meta charset=<span class="string">&quot;UTF-8&quot;</span>&gt;</span><br><span class="line">    &lt;meta name=<span class="string">&quot;viewport&quot;</span> content=<span class="string">&quot;width=device-width, initial-scale=1.0&quot;</span>&gt;</span><br><span class="line">    &lt;title&gt;Document&lt;/title&gt;</span><br><span class="line">&lt;/head&gt;</span><br><span class="line"></span><br><span class="line">&lt;body&gt;</span><br><span class="line"></span><br><span class="line">&lt;/body&gt;</span><br><span class="line"></span><br><span class="line">&lt;/html&gt;</span><br><span class="line">&lt;script&gt;</span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">createCanvas</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="keyword">var</span> canvas = <span class="built_in">document</span>.createElement(<span class="string">&quot;canvas&quot;</span>);</span><br><span class="line">        canvas.width = <span class="number">100</span>;</span><br><span class="line">        canvas.height = <span class="number">100</span>;</span><br><span class="line">        canvas.style.border = <span class="string">&quot;1px solid red&quot;</span>;</span><br><span class="line">        <span class="built_in">document</span>.body.appendChild(canvas);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">setCanvasBg</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="keyword">var</span> canvas = <span class="built_in">document</span>.querySelector(<span class="string">&quot;canvas&quot;</span>);</span><br><span class="line">        <span class="keyword">var</span> ctx = canvas.getContext(<span class="string">&quot;2d&quot;</span>);</span><br><span class="line">        ctx.drawImage(image, <span class="number">0</span>, <span class="number">0</span>, <span class="number">100</span>, <span class="number">100</span>);</span><br><span class="line">        ctx.lineWidth = <span class="number">1</span>;</span><br><span class="line">        ctx.lineCap = <span class="string">&quot;round&quot;</span>;</span><br><span class="line">        ctx.strokeStyle = <span class="string">&#x27;red&#x27;</span>;</span><br><span class="line">        ctx.moveTo(<span class="number">20</span>, <span class="number">80</span>);</span><br><span class="line">        ctx.lineTo(<span class="number">80</span>, <span class="number">80</span>);</span><br><span class="line">        ctx.stroke();</span><br><span class="line">        ctx.fillStyle = <span class="string">&#x27;#fff&#x27;</span>;</span><br><span class="line">        ctx.font = <span class="string">&quot;16px Georgia&quot;</span>;</span><br><span class="line">        ctx.textAlign = <span class="string">&quot;center&quot;</span>;</span><br><span class="line">        ctx.fillText(<span class="string">&quot;shao&quot;</span>, <span class="number">50</span>, <span class="number">95</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">toBase64</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="keyword">var</span> canvas = <span class="built_in">document</span>.querySelector(<span class="string">&quot;canvas&quot;</span>);</span><br><span class="line">        <span class="keyword">var</span> base64 = canvas.toDataURL(<span class="string">&quot;image/jpeg&quot;</span>);</span><br><span class="line">        <span class="keyword">return</span> base64;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">var</span> image = <span class="keyword">new</span> Image();</span><br><span class="line">    image.src = <span class="string">&quot;./u=1610542142,718703573&amp;fm=26&amp;gp=0.jpg&quot;</span>;</span><br><span class="line">    image.setAttribute(<span class="string">&#x27;crossOrigin&#x27;</span>, <span class="string">&#x27;anonymous&#x27;</span>);</span><br><span class="line">    image.onload = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">        createCanvas();</span><br><span class="line">        setCanvasBg();</span><br><span class="line">        <span class="built_in">document</span>.body.style.backgroundImage = <span class="string">`url(<span class="subst">$&#123;toBase64()&#125;</span>)`</span>;</span><br><span class="line">        <span class="built_in">document</span>.querySelector(<span class="string">&quot;canvas&quot;</span>).remove();</span><br><span class="line">    &#125;</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
 
         </div>
 
@@ -176,11 +176,11 @@
             <div class="post-copyright-info">
                 <div class="article-copyright-info-container">
     <ul>
-        <li>本文标题：新的一年，新的一天</li>
+        <li>本文标题：图片转base64</li>
         <li>本文作者：邵预鸿</li>
-        <li>创建时间：2021-02-20 21:08:52</li>
+        <li>创建时间：2021-02-21 12:02:14</li>
         <li>
-            本文链接：/images/logo.jpg2021/02/20/新的一年，新的一天/
+            本文链接：/images/logo.jpg2021/02/21/图片转base64/
         </li>
         <li>
             版权声明：本博客所有文章除特别声明外，均采用 <a class="license" target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">BY-NC-SA</a> 许可协议。转载请注明出处！
@@ -197,18 +197,33 @@
                     <div class="article-prev">
                         <a class="prev"
                            rel="prev"
-                           href="/2021/02/20/%E5%A4%A7%E5%8E%82%E7%BB%8F%E5%85%B8%E9%9D%A2%E8%AF%95%E9%A2%98/"
+                           href="/2021/02/21/hooks%E4%BD%BF%E7%94%A8useEffect%E7%9B%91%E5%90%ACpagination%E5%BF%AB%E9%80%9F%E7%82%B9%E5%87%BB%E5%88%86%E9%A1%B5%E4%B8%80%E7%9B%B4%E8%AF%B7%E6%B1%82%E8%AE%B0%E5%BD%95/"
                         >
                             <span class="left arrow-icon flex-center">
                               <i class="fas fa-chevron-left"></i>
                             </span>
                             <span class="title flex-center">
-                                <span class="post-nav-title-item">大厂经典面试题</span>
+                                <span class="post-nav-title-item">hooks使用useEffect监听pagination快速点击分页一直请求记录</span>
                                 <span class="post-nav-item">上一篇</span>
                             </span>
                         </a>
                     </div>
                 
+                
+                    <div class="article-next">
+                        <a class="next"
+                           rel="next"
+                           href="/2021/02/21/requestAnimationFrame%E8%AF%A6%E8%A7%A3/"
+                        >
+                            <span class="title flex-center">
+                                <span class="post-nav-title-item">requestAnimationFrame详解</span>
+                                <span class="post-nav-item">下一篇</span>
+                            </span>
+                            <span class="right arrow-icon flex-center">
+                              <i class="fas fa-chevron-right"></i>
+                            </span>
+                        </a>
+                    </div>
                 
             </div>
         

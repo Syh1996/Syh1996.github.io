@@ -10,7 +10,7 @@
     
     <title>
         
-            新的一年，新的一天 |
+            html5拖动，上传进度，div可编辑新增API |
         
         邵预鸿|前端开发技术笔记
     </title>
@@ -122,7 +122,7 @@
     <div class="article-content-container">
 
         <div class="article-title">
-            <span class="title-hover-animation">新的一年，新的一天</span>
+            <span class="title-hover-animation">html5拖动，上传进度，div可编辑新增API</span>
         </div>
 
         
@@ -140,7 +140,7 @@
                     <div class="meta-info">
                         <div class="article-meta-info">
     <span class="article-date article-meta-item">
-        <i class="fas fa-edit"></i>&nbsp;2021-02-20 21:08:52
+        <i class="fas fa-edit"></i>&nbsp;2021-02-21 12:59:14
     </span>
     
     
@@ -149,7 +149,7 @@
             <ul>
                 
                     <li>
-                        <a href="/tags/%E7%BD%91%E7%AB%99%E5%BC%80%E5%A7%8B/">网站开始</a>&nbsp;
+                        <a href="/tags/javascript/">javascript</a>&nbsp;
                     </li>
                 
             </ul>
@@ -168,19 +168,28 @@
         
 
         <div class="article-content markdown-body">
-            <h3 id="新的一年，新的开始"><a href="#新的一年，新的开始" class="headerlink" title="新的一年，新的开始"></a>新的一年，新的开始</h3><p>今天是2021/2/20 20：08分，为了更好的记录生活提升自己的专业技能，创建了这个网站，加油</p>
+            <h2 id="html5拖动，上传进度，div可编辑新增API"><a href="#html5拖动，上传进度，div可编辑新增API" class="headerlink" title="html5拖动，上传进度，div可编辑新增API"></a>html5拖动，上传进度，div可编辑新增API</h2><p>上传进度：</p>
+<p>   ev.loaded //已上传的大小</p>
+<p>   ev.total //总大小</p>
+<p>//一定要放在xhr.send之前，之后无作用</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">xhr.upload.onprogress = <span class="function"><span class="keyword">function</span>(<span class="params">ev</span>)</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">&#x27;进度：&#x27;</span>+(<span class="number">100</span>*ev.loaded/ev.total).toFixed(<span class="number">2</span>)+<span class="string">&#x27;%&#x27;</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">contenteditable&#x3D;&quot;true&quot;属性让div+css可以相当于Input     &#x2F;&#x2F;&lt;div&gt;....标签均可修改内容 不限标签</span><br><span class="line">输入框 &lt;input type&#x3D;&quot;text&quot; x-webkit-speech &#x2F;&gt;  &#x2F;&#x2F;语音输入</span><br></pre></td></tr></table></figure>
+
+
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//桌面提醒</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">showNotification</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">               <span class="comment">// window.Notification.permission = &quot;granted&quot;;</span></span><br><span class="line">               </span><br><span class="line">                <span class="keyword">if</span>(<span class="built_in">window</span>.Notification) &#123;</span><br><span class="line">                    <span class="keyword">if</span>(<span class="built_in">window</span>.Notification.permission == <span class="string">&quot;granted&quot;</span>) &#123;</span><br><span class="line">                        <span class="keyword">var</span> notification = <span class="keyword">new</span> Notification(<span class="string">&#x27;你有一条新信息&#x27;</span>, &#123;</span><br><span class="line">                            body: <span class="string">&quot;你好我是王小婷&quot;</span>,</span><br><span class="line"></span><br><span class="line">                            icon: <span class="string">&quot;https://ss2.bdstatic.com/70cFvnSh_Q1YnxGkpoWK1HF6hhy/it/u=1422784010,1847471088&amp;fm=27&amp;gp=0.jpg&quot;</span></span><br><span class="line">                        &#125;);</span><br><span class="line">                        <span class="built_in">setTimeout</span>(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123; notification.close(); &#125;, <span class="number">50000</span>);</span><br><span class="line">                    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                        <span class="built_in">window</span>.Notification.requestPermission();</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125; <span class="keyword">else</span> alert(<span class="string">&#x27;你的浏览器不支持此消息提示功能，请使用chrome内核的浏览器！&#x27;</span>);</span><br><span class="line">            &#125;;</span><br></pre></td></tr></table></figure>
         </div>
 
         
             <div class="post-copyright-info">
                 <div class="article-copyright-info-container">
     <ul>
-        <li>本文标题：新的一年，新的一天</li>
+        <li>本文标题：html5拖动，上传进度，div可编辑新增API</li>
         <li>本文作者：邵预鸿</li>
-        <li>创建时间：2021-02-20 21:08:52</li>
+        <li>创建时间：2021-02-21 12:59:14</li>
         <li>
-            本文链接：/images/logo.jpg2021/02/20/新的一年，新的一天/
+            本文链接：/images/logo.jpg2021/02/21/html5拖动，上传进度，div可编辑新增API/
         </li>
         <li>
             版权声明：本博客所有文章除特别声明外，均采用 <a class="license" target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">BY-NC-SA</a> 许可协议。转载请注明出处！
@@ -194,21 +203,21 @@
         
             <div class="article-nav">
                 
-                    <div class="article-prev">
-                        <a class="prev"
-                           rel="prev"
-                           href="/2021/02/20/%E5%A4%A7%E5%8E%82%E7%BB%8F%E5%85%B8%E9%9D%A2%E8%AF%95%E9%A2%98/"
+                
+                    <div class="article-next">
+                        <a class="next"
+                           rel="next"
+                           href="/2021/02/21/%E5%89%8D%E7%AB%AF%E5%AE%9E%E7%8E%B0%E5%9C%A8%E7%BA%BF%E9%A2%84%E8%A7%88pdf%E3%80%81word%E3%80%81xls%E3%80%81ppt%E7%AD%89%E6%96%87%E4%BB%B6/"
                         >
-                            <span class="left arrow-icon flex-center">
-                              <i class="fas fa-chevron-left"></i>
-                            </span>
                             <span class="title flex-center">
-                                <span class="post-nav-title-item">大厂经典面试题</span>
-                                <span class="post-nav-item">上一篇</span>
+                                <span class="post-nav-title-item">前端实现在线预览pdf、word、xls、ppt等文件</span>
+                                <span class="post-nav-item">下一篇</span>
+                            </span>
+                            <span class="right arrow-icon flex-center">
+                              <i class="fas fa-chevron-right"></i>
                             </span>
                         </a>
                     </div>
-                
                 
             </div>
         

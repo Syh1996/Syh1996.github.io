@@ -10,7 +10,7 @@
     
     <title>
         
-            新的一年，新的一天 |
+            vue双向绑定原理分析 |
         
         邵预鸿|前端开发技术笔记
     </title>
@@ -122,7 +122,7 @@
     <div class="article-content-container">
 
         <div class="article-title">
-            <span class="title-hover-animation">新的一年，新的一天</span>
+            <span class="title-hover-animation">vue双向绑定原理分析</span>
         </div>
 
         
@@ -140,7 +140,7 @@
                     <div class="meta-info">
                         <div class="article-meta-info">
     <span class="article-date article-meta-item">
-        <i class="fas fa-edit"></i>&nbsp;2021-02-20 21:08:52
+        <i class="fas fa-edit"></i>&nbsp;2021-02-21 12:45:23
     </span>
     
     
@@ -149,7 +149,7 @@
             <ul>
                 
                     <li>
-                        <a href="/tags/%E7%BD%91%E7%AB%99%E5%BC%80%E5%A7%8B/">网站开始</a>&nbsp;
+                        <a href="/tags/vue/">vue</a>&nbsp;
                     </li>
                 
             </ul>
@@ -168,7 +168,19 @@
         
 
         <div class="article-content markdown-body">
-            <h3 id="新的一年，新的开始"><a href="#新的一年，新的开始" class="headerlink" title="新的一年，新的开始"></a>新的一年，新的开始</h3><p>今天是2021/2/20 20：08分，为了更好的记录生活提升自己的专业技能，创建了这个网站，加油</p>
+            <h2 id="vue双向绑定原理分析"><a href="#vue双向绑定原理分析" class="headerlink" title="vue双向绑定原理分析"></a>vue双向绑定原理分析</h2><p><strong>1.vue双向绑定原理</strong></p>
+<p>vue.js 则是采用数据劫持结合发布者-订阅者模式的方式，通过<code>Object.defineProperty()</code>来劫持各个属性的<code>setter</code>，<code>getter</code>，在数据变动时发布消息给订阅者，触发相应的监听回调。我们先来看Object.defineProperty()这个方法：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">var obj  &#x3D; &#123;&#125;;</span><br><span class="line">Object.defineProperty(obj, &#39;name&#39;, &#123;</span><br><span class="line">        get: function() &#123;</span><br><span class="line">            console.log(&#39;我被获取了&#39;)</span><br><span class="line">            return val;</span><br><span class="line">        &#125;,</span><br><span class="line">        set: function (newVal) &#123;</span><br><span class="line">            console.log(&#39;我被设置了&#39;)</span><br><span class="line">        &#125;</span><br><span class="line">&#125;)</span><br><span class="line">obj.name &#x3D; &#39;fei&#39;;&#x2F;&#x2F;在给obj设置name属性的时候，触发了set这个方法</span><br><span class="line">var val &#x3D; obj.name;&#x2F;&#x2F;在得到obj的name属性，会触发get方法</span><br></pre></td></tr></table></figure>
+
+
+<p>已经了解到vue是通过数据劫持的方式来做数据绑定的，其中最核心的方法便是通过<code>Object.defineProperty()</code>来实现对属性的劫持，那么在设置或者获取的时候我们就可以在get或者set方法里假如其他的触发函数，达到监听数据变动的目的，无疑这个方法是本文中最重要、最基础的内容之一。</p>
+<p><strong>2.实现最简单的双向绑定</strong></p>
+<p>我们知道通过Object.defineProperty()可以实现数据劫持，是的属性在赋值的时候触发set方法，</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line">&lt;!doctype html&gt;</span><br><span class="line">&lt;html lang&#x3D;&quot;en&quot;&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">    &lt;meta charset&#x3D;&quot;UTF-8&quot;&gt;</span><br><span class="line">    &lt;title&gt;Document&lt;&#x2F;title&gt;</span><br><span class="line">&lt;&#x2F;head&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line">    &lt;div id&#x3D;&quot;demo&quot;&gt;&lt;&#x2F;div&gt;</span><br><span class="line">    &lt;input type&#x3D;&quot;text&quot; id&#x3D;&quot;inp&quot;&gt;</span><br><span class="line">    &lt;script&gt;</span><br><span class="line">        var obj  &#x3D; &#123;&#125;;</span><br><span class="line">        var demo &#x3D; document.querySelector(&#39;#demo&#39;)</span><br><span class="line">        var inp &#x3D; document.querySelector(&#39;#inp&#39;)</span><br><span class="line">        Object.defineProperty(obj, &#39;name&#39;, &#123;</span><br><span class="line">            get: function() &#123;</span><br><span class="line">                return val;</span><br><span class="line">            &#125;,</span><br><span class="line">            set: function (newVal) &#123;&#x2F;&#x2F;当该属性被赋值的时候触发</span><br><span class="line">                inp.value &#x3D; newVal;</span><br><span class="line">                demo.innerHTML &#x3D; newVal;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;)</span><br><span class="line">        inp.addEventListener(&#39;input&#39;, function(e) &#123;</span><br><span class="line">            &#x2F;&#x2F; 给obj的name属性赋值，进而触发该属性的set方法</span><br><span class="line">            obj.name &#x3D; e.target.value;</span><br><span class="line">        &#125;);</span><br><span class="line">        obj.name &#x3D; &#39;fei&#39;;&#x2F;&#x2F;在给obj设置name属性的时候，触发了set这个方法</span><br><span class="line">    &lt;&#x2F;script&gt;</span><br><span class="line">&lt;&#x2F;body&gt;</span><br><span class="line">&lt;&#x2F;html&gt;</span><br></pre></td></tr></table></figure>
+
+
+<p>当然要是这么粗暴，肯定不行，性能会出很多的问题</p>
+<p>原文地址:<a class="link"   target="_blank" rel="noopener" href="https://www.cnblogs.com/zhenfei-jiang/p/7542900.html" >https://www.cnblogs.com/zhenfei-jiang/p/7542900.html<i class="fas fa-external-link-alt"></i></a></p>
 
         </div>
 
@@ -176,11 +188,11 @@
             <div class="post-copyright-info">
                 <div class="article-copyright-info-container">
     <ul>
-        <li>本文标题：新的一年，新的一天</li>
+        <li>本文标题：vue双向绑定原理分析</li>
         <li>本文作者：邵预鸿</li>
-        <li>创建时间：2021-02-20 21:08:52</li>
+        <li>创建时间：2021-02-21 12:45:23</li>
         <li>
-            本文链接：/images/logo.jpg2021/02/20/新的一年，新的一天/
+            本文链接：/images/logo.jpg2021/02/21/vue双向绑定原理分析/
         </li>
         <li>
             版权声明：本博客所有文章除特别声明外，均采用 <a class="license" target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">BY-NC-SA</a> 许可协议。转载请注明出处！
@@ -197,18 +209,33 @@
                     <div class="article-prev">
                         <a class="prev"
                            rel="prev"
-                           href="/2021/02/20/%E5%A4%A7%E5%8E%82%E7%BB%8F%E5%85%B8%E9%9D%A2%E8%AF%95%E9%A2%98/"
+                           href="/2021/02/21/Git%E5%B7%A5%E4%BD%9C%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/"
                         >
                             <span class="left arrow-icon flex-center">
                               <i class="fas fa-chevron-left"></i>
                             </span>
                             <span class="title flex-center">
-                                <span class="post-nav-title-item">大厂经典面试题</span>
+                                <span class="post-nav-title-item">Git工作常用命令</span>
                                 <span class="post-nav-item">上一篇</span>
                             </span>
                         </a>
                     </div>
                 
+                
+                    <div class="article-next">
+                        <a class="next"
+                           rel="next"
+                           href="/2021/02/21/%E4%BA%86%E8%A7%A3%E4%B8%8Bangular%E7%AC%AC%E4%B8%80%E5%BC%B9/"
+                        >
+                            <span class="title flex-center">
+                                <span class="post-nav-title-item">了解下angular第一弹</span>
+                                <span class="post-nav-item">下一篇</span>
+                            </span>
+                            <span class="right arrow-icon flex-center">
+                              <i class="fas fa-chevron-right"></i>
+                            </span>
+                        </a>
+                    </div>
                 
             </div>
         

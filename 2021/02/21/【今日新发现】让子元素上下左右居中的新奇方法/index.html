@@ -10,7 +10,7 @@
     
     <title>
         
-            新的一年，新的一天 |
+            【今日新发现】让子元素上下左右居中的新奇方法 |
         
         邵预鸿|前端开发技术笔记
     </title>
@@ -122,7 +122,7 @@
     <div class="article-content-container">
 
         <div class="article-title">
-            <span class="title-hover-animation">新的一年，新的一天</span>
+            <span class="title-hover-animation">【今日新发现】让子元素上下左右居中的新奇方法</span>
         </div>
 
         
@@ -140,7 +140,7 @@
                     <div class="meta-info">
                         <div class="article-meta-info">
     <span class="article-date article-meta-item">
-        <i class="fas fa-edit"></i>&nbsp;2021-02-20 21:08:52
+        <i class="fas fa-edit"></i>&nbsp;2021-02-21 12:37:49
     </span>
     
     
@@ -149,7 +149,7 @@
             <ul>
                 
                     <li>
-                        <a href="/tags/%E7%BD%91%E7%AB%99%E5%BC%80%E5%A7%8B/">网站开始</a>&nbsp;
+                        <a href="/tags/css/">css</a>&nbsp;
                     </li>
                 
             </ul>
@@ -168,7 +168,7 @@
         
 
         <div class="article-content markdown-body">
-            <h3 id="新的一年，新的开始"><a href="#新的一年，新的开始" class="headerlink" title="新的一年，新的开始"></a>新的一年，新的开始</h3><p>今天是2021/2/20 20：08分，为了更好的记录生活提升自己的专业技能，创建了这个网站，加油</p>
+            <h2 id="【今日新发现】让子元素上下左右居中的新奇方法"><a href="#【今日新发现】让子元素上下左右居中的新奇方法" class="headerlink" title="【今日新发现】让子元素上下左右居中的新奇方法"></a>【今日新发现】让子元素上下左右居中的新奇方法</h2><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">style</span>&gt;</span></span><br><span class="line"> *&#123;</span><br><span class="line"><span class="css"> <span class="attribute">margin</span>:<span class="number">0</span>;</span></span><br><span class="line"><span class="css"> <span class="attribute">padding</span>:<span class="number">0</span>;</span></span><br><span class="line"> &#125;</span><br><span class="line"> #app&#123;</span><br><span class="line"><span class="css">  <span class="attribute">background-color</span>:<span class="number">#ddd</span>;</span></span><br><span class="line"><span class="css">  <span class="attribute">height</span>:<span class="number">600px</span>;</span></span><br><span class="line"><span class="css">  <span class="attribute">position</span>:relative;</span></span><br><span class="line"> &#125;</span><br><span class="line"><span class="css"> <span class="selector-id">#app</span> <span class="selector-tag">div</span>&#123;</span></span><br><span class="line"><span class="css">  <span class="attribute">width</span>:<span class="number">100px</span>;</span></span><br><span class="line"><span class="css">  <span class="attribute">height</span>:<span class="number">100px</span>;</span></span><br><span class="line"><span class="css">  <span class="attribute">background-color</span>:red;</span></span><br><span class="line"><span class="css">  <span class="attribute">position</span>:absolute;</span></span><br><span class="line"><span class="css">  <span class="attribute">top</span>:<span class="number">0</span>;</span></span><br><span class="line"><span class="css">  <span class="attribute">left</span>:<span class="number">0</span>;</span></span><br><span class="line"><span class="css">  <span class="attribute">right</span>:<span class="number">0</span>;</span></span><br><span class="line"><span class="css">  <span class="attribute">bottom</span>:<span class="number">0</span>;</span></span><br><span class="line"><span class="css">  <span class="attribute">margin</span>:auto;</span></span><br><span class="line"> &#125;</span><br><span class="line"><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">&quot;app&quot;</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span>&gt;</span>111<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br><span class="line"></span><br><span class="line">【注意】需要注意的是，此方法只对子元素有宽高的情况起作用，如果没有宽高则不起作用。</span><br></pre></td></tr></table></figure>
 
         </div>
 
@@ -176,11 +176,11 @@
             <div class="post-copyright-info">
                 <div class="article-copyright-info-container">
     <ul>
-        <li>本文标题：新的一年，新的一天</li>
+        <li>本文标题：【今日新发现】让子元素上下左右居中的新奇方法</li>
         <li>本文作者：邵预鸿</li>
-        <li>创建时间：2021-02-20 21:08:52</li>
+        <li>创建时间：2021-02-21 12:37:49</li>
         <li>
-            本文链接：/images/logo.jpg2021/02/20/新的一年，新的一天/
+            本文链接：/images/logo.jpg2021/02/21/【今日新发现】让子元素上下左右居中的新奇方法/
         </li>
         <li>
             版权声明：本博客所有文章除特别声明外，均采用 <a class="license" target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">BY-NC-SA</a> 许可协议。转载请注明出处！
@@ -197,18 +197,33 @@
                     <div class="article-prev">
                         <a class="prev"
                            rel="prev"
-                           href="/2021/02/20/%E5%A4%A7%E5%8E%82%E7%BB%8F%E5%85%B8%E9%9D%A2%E8%AF%95%E9%A2%98/"
+                           href="/2021/02/21/%E3%80%90%E4%BB%8A%E6%97%A5%E9%97%AE%E9%A2%98%E3%80%91%E8%BE%93%E5%85%A5-1-2-3-%EF%BC%8C%E8%BE%93%E5%87%BA%E5%B1%82%E7%BA%A7-name-1-child-child-name-3/"
                         >
                             <span class="left arrow-icon flex-center">
                               <i class="fas fa-chevron-left"></i>
                             </span>
                             <span class="title flex-center">
-                                <span class="post-nav-title-item">大厂经典面试题</span>
+                                <span class="post-nav-title-item">【今日问题】输入[1,2,3]，输出层级{name:1,child:child:{name:3}</span>
                                 <span class="post-nav-item">上一篇</span>
                             </span>
                         </a>
                     </div>
                 
+                
+                    <div class="article-next">
+                        <a class="next"
+                           rel="next"
+                           href="/2021/02/21/%E6%9C%89%E8%B6%A3%E7%9A%84svg%E5%8A%A8%E7%94%BB/"
+                        >
+                            <span class="title flex-center">
+                                <span class="post-nav-title-item">有趣的svg动画</span>
+                                <span class="post-nav-item">下一篇</span>
+                            </span>
+                            <span class="right arrow-icon flex-center">
+                              <i class="fas fa-chevron-right"></i>
+                            </span>
+                        </a>
+                    </div>
                 
             </div>
         

@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="baidu-site-verification" content="code-YfBAOEVVQH" />
+    <meta name="keywords" content="邵预鸿,前端开发工程师,技术博客,生活记录,生活日常,个人简历,日常规划">
+    <meta name="description" content="入职中兴通讯，一名低调资深ctrl+c and ctrl+v开发者">
+    <meta name="author" content="邵预鸿">
+    
+    <title>
+        
+            vue3.x学习笔记 |
+        
+        邵预鸿|前端开发技术笔记
+    </title>
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="shortcut icon" href="/images/logo.jpg">
+    <link rel="stylesheet" href="/css/font-awesome.min.css">
+    <script id="hexo-configurations">
+    let KEEP = window.KEEP || {};
+    KEEP.hexo_config = {"hostname":"github.com","root":"/","language":"zh-CN","path":"search.xml"};
+    KEEP.theme_config = {"toc":{"enable":false,"number":false,"expand_all":false,"init_open":false},"style":{"primary_color":"#0066CC","avatar":"/images/logo.jpg","favicon":"/images/logo.jpg","article_img_align":"left","left_side_width":"260px","content_max_width":"920px","hover":{"shadow":true,"scale":false},"first_screen":{"enable":true,"background_img":"/images/bg.svg","description":"积累硅步，可至千里；千里之行，始于足下"},"scroll":{"progress_bar":{"enable":true},"percent":{"enable":true}}},"local_search":{"enable":true,"preload":true},"code_copy":{"enable":true,"style":"default"},"pjax":{"enable":false},"lazyload":{"enable":true},"version":"3.4.0"};
+    KEEP.language_ago = {"second":"%s 秒前","minute":"%s 分钟前","hour":"%s 小时前","day":"%s 天前","week":"%s 周前","month":"%s 月前","year":"%s 年前"};
+  </script>
+<meta name="generator" content="Hexo 5.3.0"></head>
+
+
+<body>
+<div class="progress-bar-container">
+    
+        <span class="scroll-progress-bar"></span>
+    
+
+    
+</div>
+
+
+<main class="page-container">
+
+    
+
+    <div class="page-main-content">
+
+        <div class="page-main-content-top">
+            <header class="header-wrapper">
+
+    <div class="header-content">
+        <div class="left">
+            <a class="logo-title" href="/">
+                邵预鸿|前端开发技术笔记
+            </a>
+        </div>
+
+        <div class="right">
+            <div class="pc">
+                <ul class="menu-list">
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/"
+                            >
+                                主页
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/archives"
+                            >
+                                历年汇总
+                            </a>
+                        </li>
+                    
+                    
+                        <li class="menu-item search search-popup-trigger">
+                            <i class="fas fa-search"></i>
+                        </li>
+                    
+                </ul>
+            </div>
+            <div class="mobile">
+                
+                    <div class="icon-item search search-popup-trigger"><i class="fas fa-search"></i></div>
+                
+                <div class="icon-item menu-bar">
+                    <div class="menu-bar-middle"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="header-drawer">
+        <ul class="drawer-menu-list">
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/">主页</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/archives">历年汇总</a>
+                </li>
+            
+        </ul>
+    </div>
+
+    <div class="window-mask"></div>
+
+</header>
+
+
+        </div>
+
+        <div class="page-main-content-middle">
+
+            <div class="main-content">
+
+                
+                    <div class="fade-in-down-animation">
+    <div class="article-content-container">
+
+        <div class="article-title">
+            <span class="title-hover-animation">vue3.x学习笔记</span>
+        </div>
+
+        
+            <div class="article-header">
+                <div class="avatar">
+                    <img src="/images/logo.jpg">
+                </div>
+                <div class="info">
+                    <div class="author">
+                        <span class="name">邵预鸿</span>
+                        
+                            <span class="author-label">Lv3</span>
+                        
+                    </div>
+                    <div class="meta-info">
+                        <div class="article-meta-info">
+    <span class="article-date article-meta-item">
+        <i class="fas fa-edit"></i>&nbsp;2021-02-21 11:45:25
+    </span>
+    
+    
+        <span class="article-tags article-meta-item">
+            <i class="fas fa-tags"></i>&nbsp;
+            <ul>
+                
+                    <li>
+                        <a href="/tags/vue/">vue</a>&nbsp;
+                    </li>
+                
+            </ul>
+        </span>
+    
+
+    
+    
+    
+    
+</div>
+
+                    </div>
+                </div>
+            </div>
+        
+
+        <div class="article-content markdown-body">
+            <blockquote>
+<p>vue2.x文档<a class="link"   target="_blank" rel="noopener" href="https://cn.vuejs.org/v2/guide/components-props.html" >https://cn.vuejs.org/v2/guide/components-props.html<i class="fas fa-external-link-alt"></i></a></p>
+</blockquote>
+<blockquote>
+<p>vue3.x文档<a class="link"   target="_blank" rel="noopener" href="https://www.vue3js.cn/docs/zh/api/application-config.html#errorhandler" >https://www.vue3js.cn/docs/zh/api/application-config.html#errorhandler<i class="fas fa-external-link-alt"></i></a></p>
+</blockquote>
+<blockquote>
+<p>vite是一个Web开发构建工具，由于其本机ES模块导入方法，因此可以闪电般快速地提供代码。通过在终端中运行以下命令，可以使用Vite快速设置Vue项目。1.npm init vite-app <project-name> 2.npm install</p>
+</blockquote>
+<blockquote>
+<p>vue create 项目名</p>
+</blockquote>
+<blockquote>
+<p><strong>setup**</strong>用法1，使用ref代替vue2中的data+methods**</p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line">&lt;ol&gt;</span><br><span class="line">    &lt;li v-<span class="keyword">for</span>=<span class="string">&quot;(item,index) in list&quot;</span> </span><br><span class="line">        :key=<span class="string">&quot;index&quot;</span> </span><br><span class="line">        :<span class="class"><span class="keyword">class</span></span>=<span class="string">&quot;[activeIndex ===index?&#x27;active&#x27;:&#x27;&#x27;]&quot;</span></span><br><span class="line">        @click=<span class="string">&quot;setIndex(index)&quot;</span>&gt;&#123;&#123;item&#125;&#125;&lt;/li&gt;</span><br><span class="line">  &lt;/ol&gt;</span><br><span class="line"></span><br><span class="line">  <span class="function"><span class="title">setup</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">const</span> list = ref([<span class="string">&quot;test1&quot;</span>,<span class="string">&#x27;xiaoming&#x27;</span>,<span class="string">&#x27;xiaohong&#x27;</span>,<span class="string">&#x27;lichen&#x27;</span>]);</span><br><span class="line">    <span class="keyword">const</span> activeIndex = ref(-<span class="number">1</span>);</span><br><span class="line">    <span class="keyword">const</span> setIndex = <span class="function"><span class="params">index</span>=&gt;</span>&#123;</span><br><span class="line">       activeIndex.value = index;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> &#123;</span><br><span class="line">      list,</span><br><span class="line">      activeIndex,</span><br><span class="line">      setIndex</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//使用ref创建 的数据是一个对象对他进行设置时，需要.value</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//vue3使用ref创建 的响应数据，也可如vue2中在template直接设置变量值实现响应</span></span><br><span class="line"> &lt;button @click=<span class="string">&quot;msg+=&#x27;+添加了1&#x27;&quot;</span>&gt;添加&lt;/button&gt;</span><br><span class="line">    <span class="function"><span class="title">setup</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">       <span class="keyword">let</span> msg = ref(<span class="string">&quot;how are you&quot;</span>);</span><br><span class="line">       <span class="keyword">const</span> addMsg = <span class="function">()=&gt;</span>&#123;</span><br><span class="line">           msg.value +=<span class="string">&quot;+添加了&quot;</span></span><br><span class="line">       &#125;</span><br><span class="line">       <span class="keyword">return</span> &#123;</span><br><span class="line">           msg,</span><br><span class="line">           addMsg</span><br><span class="line">       &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//vue3使用reactive创建 的响应数据，也可如上，直接在template设置变量的值 实现响应</span></span><br><span class="line">未使用toRefs: <span class="xml"><span class="tag">&lt;<span class="name">button</span> @<span class="attr">click</span>=<span class="string">&quot;data.msg+=&#x27;|OK&#x27;&quot;</span>&gt;</span>添加<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span></span><br><span class="line">使用toRefs:<span class="xml"><span class="tag">&lt;<span class="name">button</span> @<span class="attr">click</span>=<span class="string">&quot;msg+=&#x27;|OK&#x27;&quot;</span>&gt;</span>添加<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span></span><br><span class="line"> </span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="title">setup</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">  <span class="keyword">let</span> count=<span class="number">0</span>;</span><br><span class="line">  <span class="keyword">let</span> fn = <span class="function">()=&gt;</span>&#123;</span><br><span class="line">   count++;  </span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> &#123;</span><br><span class="line">     count,</span><br><span class="line">     fn,</span><br><span class="line">   &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//此处页面将展示一次后，count改变将不会触发render视图更新</span></span><br></pre></td></tr></table></figure>
+
+
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">   <span class="function"><span class="title">setup</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">     <span class="keyword">const</span> obj = &#123;</span><br><span class="line">           xing:<span class="string">&#x27;&#x27;</span>,</span><br><span class="line">           ming:<span class="string">&#x27;&#x27;</span></span><br><span class="line">     &#125;</span><br><span class="line">     <span class="keyword">const</span>  user = ref(obj);</span><br><span class="line">     <span class="keyword">const</span> name = computed(<span class="function">()=&gt;</span>&#123;</span><br><span class="line">         <span class="keyword">return</span> user.value.xing+<span class="string">&quot;_&quot;</span>+user.value.ming</span><br><span class="line">     &#125;);</span><br><span class="line">     <span class="keyword">return</span> &#123;</span><br><span class="line">         user,</span><br><span class="line">         name</span><br><span class="line">     &#125;</span><br><span class="line">   &#125;</span><br><span class="line"><span class="comment">//ref也可以创建响应对象数据，此时用法上几乎与reactive一致，在setup获取栽个数据时，依然使用user.value.xxx.</span></span><br><span class="line"><span class="comment">//ref里面存放的数据是一个对象时，内部将经过reactive处理为proxy对象</span></span><br></pre></td></tr></table></figure>
+
+
+<blockquote>
+<p><strong>reactive用法</strong>，使用reactive代替ref</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"> &lt;ol&gt;</span><br><span class="line">    &lt;li v-for&#x3D;&quot;(item,index) in liData.list&quot; </span><br><span class="line">            :key&#x3D;&quot;index&quot;</span><br><span class="line">            :class&#x3D;&quot;[liData.activeIndex &#x3D;&#x3D;&#x3D;index?&#39;active&#39;:&#39;&#39;]&quot;</span><br><span class="line">           @click&#x3D;&quot;liData.setIndex(index)&quot;&gt;&#123;&#123;item&#125;&#125;&lt;&#x2F;li&gt;</span><br><span class="line">  &lt;&#x2F;ol&gt;</span><br><span class="line"></span><br><span class="line">  setup()&#123;</span><br><span class="line">       const liData &#x3D; reactive(&#123;</span><br><span class="line">      list:[&quot;test1&quot;,&#39;xiaoming&#39;,&#39;xiaohong&#39;,&#39;lichen&#39;],</span><br><span class="line">      activeIndex:-1,</span><br><span class="line">      setIndex:index&#x3D;&gt;&#123;</span><br><span class="line">        liData.activeIndex &#x3D; index;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;);</span><br><span class="line">    return &#123;</span><br><span class="line">      liData</span><br><span class="line">    &#125;;</span><br><span class="line">     &#125;</span><br><span class="line">&#x2F;&#x2F;注意： 使用reactive时，数据方法将在一个对象统一管理，设置访问一个值时需要带顶层liData</span><br><span class="line">&#x2F;&#x2F;通过测试,liData.activeIndex &#x3D; index,将liData更换为this,代码报错,此处 不能使用this</span><br></pre></td></tr></table></figure>
+
+
+<blockquote>
+<p>上面代码遍历时每次都需要写liData?使用<strong>toRefs</strong></p>
+</blockquote>
+<p>官方说法：由于<code>props</code>是反应性的，您不能使用ES6解构，因为它会删除道具的反应性。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> liData = reactive(&#123;</span><br><span class="line">  list:[<span class="string">&quot;test1&quot;</span>,<span class="string">&#x27;xiaoming&#x27;</span>,<span class="string">&#x27;xiaohong&#x27;</span>,<span class="string">&#x27;lichen&#x27;</span>],</span><br><span class="line">  activeIndex:-<span class="number">1</span>,</span><br><span class="line">  setIndex:<span class="function"><span class="params">index</span>=&gt;</span>&#123;</span><br><span class="line">    liData.activeIndex = index;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;);</span><br><span class="line"><span class="keyword">const</span> liData1 = toRefs(liData); <span class="comment">//此处变量名不可写toRefs中的变量重名，否则会报错，亲测</span></span><br><span class="line"><span class="keyword">return</span> &#123;</span><br><span class="line">  ...liData1</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+
+<blockquote>
+<p>ref与reactive的区别</p>
+</blockquote>
+<p>ref用于创建简单的响应式数据，reactive用于创建复杂的响应式数据</p>
+<blockquote>
+<p>vue2与vue3的生命周期</p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">选件API	钩在里面 setup</span><br><span class="line">  beforeCreate	    setup</span><br><span class="line">  created	        setup</span><br><span class="line">  beforeMount	    onBeforeMount</span><br><span class="line">  mounted	        onMounted</span><br><span class="line">  beforeUpdate	    onBeforeUpdate</span><br><span class="line">  updated	        onUpdated</span><br><span class="line">  beforeUnmount   	onBeforeUnmount</span><br><span class="line">  unmounted	        onUnmounted</span><br><span class="line">  errorCaptured	    onErrorCaptured</span><br><span class="line">  renderTracked	    onRenderTracked</span><br><span class="line">  renderTriggered	onRenderTriggered</span><br><span class="line"></span><br><span class="line"> 执行顺序vue3的生命周期在vue2之前</span><br><span class="line"> setup&gt;beforeCreate&gt;created&gt;onBeforeMound&gt;beforeMount&gt;onMounted&gt;mounted......</span><br></pre></td></tr></table></figure>
+
+
+<blockquote>
+<p>computed</p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">       <span class="keyword">const</span> num1 = ref(<span class="number">0</span>);</span><br><span class="line">       <span class="keyword">const</span> num2 = ref(<span class="number">0</span>);</span><br><span class="line">       <span class="keyword">const</span> sum = computed(&#123;</span><br><span class="line">           get:<span class="function">()=&gt;</span><span class="built_in">Number</span>(num1.value)+<span class="built_in">Number</span>(num2.value),</span><br><span class="line">           set:<span class="function"><span class="params">value</span>=&gt;</span>value</span><br><span class="line">       &#125;);</span><br><span class="line"><span class="comment">//get &amp;&amp; set</span></span><br></pre></td></tr></table></figure>
+
+
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">       <span class="keyword">const</span> num1 = ref(<span class="number">0</span>);</span><br><span class="line">       <span class="keyword">const</span> num2 = ref(<span class="number">0</span>);</span><br><span class="line">       <span class="keyword">const</span> sum = computed(<span class="function">()=&gt;</span><span class="built_in">Number</span>(num1.value)+<span class="built_in">Number</span>(num2.value));</span><br><span class="line"><span class="comment">//简单get时</span></span><br></pre></td></tr></table></figure>
+
+
+<blockquote>
+<p><strong>watch</strong></p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// watching a getter</span></span><br><span class="line"><span class="keyword">const</span> state = reactive(&#123; <span class="attr">count</span>: <span class="number">0</span> &#125;)</span><br><span class="line">watch(</span><br><span class="line">  () =&gt; state.count,</span><br><span class="line">  (count, prevCount) =&gt; &#123;</span><br><span class="line">    <span class="comment">/* ... */</span></span><br><span class="line">  &#125;</span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"><span class="comment">// directly watching a ref</span></span><br><span class="line"><span class="keyword">const</span> count = ref(<span class="number">0</span>)</span><br><span class="line">watch(count, <span class="function">(<span class="params">count, prevCount</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="comment">/* ... */</span></span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> firstName = ref(<span class="string">&#x27;&#x27;</span>);</span><br><span class="line"><span class="keyword">const</span> lastName= ref(<span class="string">&#x27;&#x27;</span>);</span><br><span class="line"><span class="keyword">const</span> state = reactive(&#123; <span class="attr">count</span>:<span class="number">1</span> &#125;);</span><br><span class="line">watch([firstName, lastName,<span class="function">()=&gt;</span>state.count], <span class="function">(<span class="params">newValues, prevValues</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(newValues, prevValues);</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line">firstName.value = <span class="string">&quot;John&quot;</span>; <span class="comment">// logs: [&quot;John&quot;,&quot;&quot;] [&quot;&quot;, &quot;&quot;]</span></span><br><span class="line">lastName.value = <span class="string">&quot;Smith&quot;</span>; <span class="comment">// logs: [&quot;John&quot;, &quot;Smith&quot;] [&quot;John&quot;, &quot;&quot;]</span></span><br></pre></td></tr></table></figure>
+
+
+<p>//注意使用reactive时，需要在监听的对象上构造一次，如使用ref创建 的数据，可直接监听</p>
+<p>相关链接: <a class="link"   target="_blank" rel="noopener" href="https://v3.vuejs.org/guide/reactivity-computed-watchers.html#watch" >https://v3.vuejs.org/guide/reactivity-computed-watchers.html#watch<i class="fas fa-external-link-alt"></i></a></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> state = reactive(&#123;</span><br><span class="line">            num1:<span class="number">0</span>,</span><br><span class="line">            num2:<span class="number">0</span>,</span><br><span class="line">            sum:<span class="string">&#x27;&#x27;</span></span><br><span class="line">        &#125;);    </span><br><span class="line">watchEffect(<span class="function">()=&gt;</span>&#123;</span><br><span class="line">            state.sum = <span class="built_in">Number</span>(state.num1) +<span class="built_in">Number</span>(state.num2);</span><br><span class="line">        &#125;);</span><br></pre></td></tr></table></figure>
+<p>watchEffetc添加了第三个配置项immediate:true,deep:true</p>
+<blockquote>
+<p>vue3.x自定义Hooks</p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//useGetMousePosition.js</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> &#123; reactive, onMounted, onBeforeUnmount,ref &#125; <span class="keyword">from</span> <span class="string">&#x27;vue&#x27;</span>;</span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="function"><span class="keyword">function</span> <span class="title">getMousePosition</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line"><span class="comment">/*   const state = reactive(&#123;</span></span><br><span class="line"><span class="comment">      x:0,</span></span><br><span class="line"><span class="comment">      y:0</span></span><br><span class="line"><span class="comment">  &#125;); */</span></span><br><span class="line">  <span class="keyword">const</span> x = ref(<span class="number">0</span>);</span><br><span class="line">  <span class="keyword">const</span> y = ref(<span class="number">0</span>);</span><br><span class="line">  <span class="keyword">const</span> getPosition = <span class="function">()=&gt;</span>&#123;</span><br><span class="line">      <span class="built_in">window</span>.addEventListener(<span class="string">&quot;mousemove&quot;</span>,<span class="function"><span class="params">e</span>=&gt;</span>&#123;</span><br><span class="line">          x.value = e.pageX;</span><br><span class="line">          y.value = e.pageY;</span><br><span class="line">      &#125;);</span><br><span class="line">  &#125;</span><br><span class="line">  onMounted(<span class="function">()=&gt;</span>&#123;</span><br><span class="line">       getPosition();</span><br><span class="line">  &#125;);</span><br><span class="line">  onBeforeUnmount(<span class="function">()=&gt;</span>&#123;</span><br><span class="line">     </span><br><span class="line">  &#125;);</span><br><span class="line">   <span class="keyword">return</span> &#123;</span><br><span class="line">       x,</span><br><span class="line">       y</span><br><span class="line">   &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//Test.vue</span></span><br><span class="line"><span class="comment">//引入useGetMousePosition方法</span></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> &#123;</span><br><span class="line">  name: <span class="string">&quot;test6&quot;</span>,</span><br><span class="line">  <span class="function"><span class="title">setup</span>(<span class="params"></span>)</span> &#123;</span><br><span class="line">    <span class="keyword">const</span> &#123;x,y&#125; = useGetMousePosition();</span><br><span class="line">    <span class="keyword">return</span> &#123;</span><br><span class="line">        x,y</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;,</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+
+<blockquote>
+<p>vue3中的两种子传父</p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//方法1</span></span><br><span class="line"> &lt;父组件 :方法名=<span class="string">&quot;回调函数&quot;</span>&gt;   回调函数中修改父组件的值，子组件接收父组件传输的方法，这种方式与react相同</span><br><span class="line"></span><br><span class="line"><span class="comment">//方法2</span></span><br><span class="line">  vue3中的不再是<span class="built_in">this</span>.$emit,测试中<span class="built_in">this</span>已经不再是指向vue实例，而是undefind,而emit在vue3中将其放在setup(props,context);第二个参数中</span><br><span class="line">  调用方式context.emit(事件名,参数 ); </span><br><span class="line">  &lt;父组件  @事件名=<span class="string">&quot;方法&quot;</span>/&gt;</span><br><span class="line"></span><br><span class="line"><span class="comment">//需要注意的是</span></span><br><span class="line"><span class="comment">//vue2中对接收props并没有硬性规定，对指定接收的类型可写可不写</span></span><br><span class="line"><span class="comment">//但是在vue3中必须在props:&#123;&#125;中申请需要接收的参数，否则setup(props,context)中的props将是空的，找不到相关方法与变量</span></span><br></pre></td></tr></table></figure>
+        </div>
+
+        
+            <div class="post-copyright-info">
+                <div class="article-copyright-info-container">
+    <ul>
+        <li>本文标题：vue3.x学习笔记</li>
+        <li>本文作者：邵预鸿</li>
+        <li>创建时间：2021-02-21 11:45:25</li>
+        <li>
+            本文链接：/images/logo.jpg2021/02/21/vue3-x学习笔记/
+        </li>
+        <li>
+            版权声明：本博客所有文章除特别声明外，均采用 <a class="license" target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">BY-NC-SA</a> 许可协议。转载请注明出处！
+        </li>
+    </ul>
+</div>
+
+            </div>
+        
+
+        
+            <div class="article-nav">
+                
+                    <div class="article-prev">
+                        <a class="prev"
+                           rel="prev"
+                           href="/2021/02/21/requestAnimationFrame%E8%AF%A6%E8%A7%A3/"
+                        >
+                            <span class="left arrow-icon flex-center">
+                              <i class="fas fa-chevron-left"></i>
+                            </span>
+                            <span class="title flex-center">
+                                <span class="post-nav-title-item">requestAnimationFrame详解</span>
+                                <span class="post-nav-item">上一篇</span>
+                            </span>
+                        </a>
+                    </div>
+                
+                
+                    <div class="article-next">
+                        <a class="next"
+                           rel="next"
+                           href="/2021/02/20/%E5%A4%A7%E5%8E%82%E7%BB%8F%E5%85%B8%E9%9D%A2%E8%AF%95%E9%A2%98/"
+                        >
+                            <span class="title flex-center">
+                                <span class="post-nav-title-item">大厂经典面试题</span>
+                                <span class="post-nav-item">下一篇</span>
+                            </span>
+                            <span class="right arrow-icon flex-center">
+                              <i class="fas fa-chevron-right"></i>
+                            </span>
+                        </a>
+                    </div>
+                
+            </div>
+        
+
+        
+    </div>
+</div>
+
+
+                
+            </div>
+
+        </div>
+
+        <div class="page-main-content-bottom">
+            <footer class="footer">
+    <div class="info-container">
+        <div class="copyright-info info-item">
+            &copy;
+            
+              <span>2020</span>&nbsp;-&nbsp;
+            
+            2021&nbsp;<i class="fas fa-heart icon-animate"></i>&nbsp;<a href="/">邵预鸿</a>
+        </div>
+        
+       
+        
+    </div>
+</footer>
+
+        </div>
+    </div>
+
+    
+        <div class="post-tools">
+            <div class="post-tools-container">
+    <ul class="tools-list">
+        <!-- TOC aside toggle -->
+        
+
+        <!-- go comment -->
+        
+    </ul>
+</div>
+
+        </div>
+    
+
+    <div class="right-bottom-side-tools">
+        <div class="side-tools-container">
+    <ul class="side-tools-list">
+        <li class="tools-item tool-font-adjust-plus flex-center">
+            <i class="fas fa-search-plus"></i>
+        </li>
+
+        <li class="tools-item tool-font-adjust-minus flex-center">
+            <i class="fas fa-search-minus"></i>
+        </li>
+
+        <li class="tools-item tool-expand-width flex-center">
+            <i class="fas fa-arrows-alt-h"></i>
+        </li>
+
+        <li class="tools-item tool-dark-light-toggle flex-center">
+            <i class="fas fa-moon"></i>
+        </li>
+
+        <!-- rss -->
+        
+
+        
+
+        <li class="tools-item tool-scroll-to-bottom flex-center">
+            <i class="fas fa-arrow-down"></i>
+        </li>
+    </ul>
+
+    <ul class="exposed-tools-list">
+        <li class="tools-item tool-toggle-show flex-center">
+            <i class="fas fa-cog fa-spin"></i>
+        </li>
+        
+            <li class="tools-item tool-scroll-to-top flex-center">
+                <i class="arrow-up fas fa-arrow-up"></i>
+                <span class="percent"></span>
+            </li>
+        
+    </ul>
+</div>
+
+    </div>
+
+    
+
+    <div class="image-viewer-container">
+    <img src="">
+</div>
+
+
+    
+        <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+          <span class="search-input-field-pre">
+            <i class="fas fa-keyboard"></i>
+          </span>
+            <div class="search-input-container">
+                <input autocomplete="off"
+                       autocorrect="off"
+                       autocapitalize="off"
+                       placeholder="搜索..."
+                       spellcheck="false"
+                       type="search"
+                       class="search-input"
+                >
+            </div>
+            <span class="popup-btn-close">
+                <i class="fas fa-times"></i>
+            </span>
+        </div>
+        <div id="search-result">
+            <div id="no-result">
+                <i class="fas fa-spinner fa-pulse fa-5x fa-fw"></i>
+            </div>
+        </div>
+    </div>
+</div>
+
+    
+
+</main>
+
+
+
+<script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="/js/header-shrink.js"></script><script src="/js/back2top.js"></script><script src="/js/dark-light-toggle.js"></script>
+
+
+    <script src="/js/local-search.js"></script>
+
+
+
+    <script src="/js/code-copy.js"></script>
+
+
+
+    <script src="/js/lazyload.js"></script>
+
+
+<div class="post-scripts">
+    
+</div>
+
+
+
+</body>
+</html>
