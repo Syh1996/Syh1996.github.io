@@ -1,6 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>JS实现网站内容的禁止复制和粘贴、另存为</title>
+    <url>/2021/02/21/JS%E5%AE%9E%E7%8E%B0%E7%BD%91%E7%AB%99%E5%86%85%E5%AE%B9%E7%9A%84%E7%A6%81%E6%AD%A2%E5%A4%8D%E5%88%B6%E5%92%8C%E7%B2%98%E8%B4%B4%E3%80%81%E5%8F%A6%E5%AD%98%E4%B8%BA/</url>
+    <content><![CDATA[<h2 id="JS实现网站内容的禁止复制和粘贴、另存为"><a href="#JS实现网站内容的禁止复制和粘贴、另存为" class="headerlink" title="JS实现网站内容的禁止复制和粘贴、另存为"></a>JS实现网站内容的禁止复制和粘贴、另存为</h2><figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE <span class="meta-keyword">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">&quot;utf-8&quot;</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">title</span>&gt;</span>菜鸟教程(runoob.com)<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">p</span> <span class="attr">id</span>=<span class="string">&quot;p&quot;</span>&gt;</span><span class="tag">&lt;<span class="name">strong</span>&gt;</span>注意：<span class="tag">&lt;/<span class="name">strong</span>&gt;</span> 该实例如果在 Chrome, Firefox 和 Opera 浏览器中可能无法工作。<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="javascript"><span class="function"><span class="keyword">function</span> <span class="title">myFunction</span>(<span class="params">e</span>) </span>&#123;</span></span><br><span class="line"><span class="javascript">	<span class="built_in">console</span>.log(e);</span></span><br><span class="line"><span class="javascript">  <span class="keyword">return</span> <span class="literal">false</span>;</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="javascript">	<span class="built_in">document</span>.querySelector(<span class="string">&quot;#p&quot;</span>).oncopy=myFunction;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+]]></content>
+      <tags>
+        <tag>javascript</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>CSS伪类与伪元素</title>
     <url>/2021/02/21/CSS%E4%BC%AA%E7%B1%BB%E4%B8%8E%E4%BC%AA%E5%85%83%E7%B4%A0/</url>
     <content><![CDATA[<h2 id="CSS伪类与伪元素"><a href="#CSS伪类与伪元素" class="headerlink" title="CSS伪类与伪元素"></a>CSS伪类与伪元素</h2><h3 id="为什么要引入伪类与伪元素？"><a href="#为什么要引入伪类与伪元素？" class="headerlink" title="为什么要引入伪类与伪元素？"></a>为什么要引入伪类与伪元素？</h3><p>css引入伪类和伪元素概念是为了格式化文档树以外的信息。也就是说，伪类和伪元素是用来修饰不在文档树中的部分，比如，一句话中的第一个字母，或是列表中的第一个元素，又或者是鼠标悬停在某个超链接上时要设置的样式。</p>
@@ -138,15 +147,6 @@
 ]]></content>
       <tags>
         <tag>git</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>JS实现网站内容的禁止复制和粘贴、另存为</title>
-    <url>/2021/02/21/JS%E5%AE%9E%E7%8E%B0%E7%BD%91%E7%AB%99%E5%86%85%E5%AE%B9%E7%9A%84%E7%A6%81%E6%AD%A2%E5%A4%8D%E5%88%B6%E5%92%8C%E7%B2%98%E8%B4%B4%E3%80%81%E5%8F%A6%E5%AD%98%E4%B8%BA/</url>
-    <content><![CDATA[<h2 id="JS实现网站内容的禁止复制和粘贴、另存为"><a href="#JS实现网站内容的禁止复制和粘贴、另存为" class="headerlink" title="JS实现网站内容的禁止复制和粘贴、另存为"></a>JS实现网站内容的禁止复制和粘贴、另存为</h2><figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE <span class="meta-keyword">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">&quot;utf-8&quot;</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">title</span>&gt;</span>菜鸟教程(runoob.com)<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">p</span> <span class="attr">id</span>=<span class="string">&quot;p&quot;</span>&gt;</span><span class="tag">&lt;<span class="name">strong</span>&gt;</span>注意：<span class="tag">&lt;/<span class="name">strong</span>&gt;</span> 该实例如果在 Chrome, Firefox 和 Opera 浏览器中可能无法工作。<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="javascript"><span class="function"><span class="keyword">function</span> <span class="title">myFunction</span>(<span class="params">e</span>) </span>&#123;</span></span><br><span class="line"><span class="javascript">	<span class="built_in">console</span>.log(e);</span></span><br><span class="line"><span class="javascript">  <span class="keyword">return</span> <span class="literal">false</span>;</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="javascript">	<span class="built_in">document</span>.querySelector(<span class="string">&quot;#p&quot;</span>).oncopy=myFunction;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
-]]></content>
-      <tags>
-        <tag>javascript</tag>
       </tags>
   </entry>
   <entry>
@@ -345,15 +345,6 @@
       </tags>
   </entry>
   <entry>
-    <title>【今日新发现】让子元素上下左右居中的新奇方法</title>
-    <url>/2021/02/21/%E3%80%90%E4%BB%8A%E6%97%A5%E6%96%B0%E5%8F%91%E7%8E%B0%E3%80%91%E8%AE%A9%E5%AD%90%E5%85%83%E7%B4%A0%E4%B8%8A%E4%B8%8B%E5%B7%A6%E5%8F%B3%E5%B1%85%E4%B8%AD%E7%9A%84%E6%96%B0%E5%A5%87%E6%96%B9%E6%B3%95/</url>
-    <content><![CDATA[<h2 id="【今日新发现】让子元素上下左右居中的新奇方法"><a href="#【今日新发现】让子元素上下左右居中的新奇方法" class="headerlink" title="【今日新发现】让子元素上下左右居中的新奇方法"></a>【今日新发现】让子元素上下左右居中的新奇方法</h2><figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">style</span>&gt;</span></span><br><span class="line"> *&#123;</span><br><span class="line"><span class="css"> <span class="attribute">margin</span>:<span class="number">0</span>;</span></span><br><span class="line"><span class="css"> <span class="attribute">padding</span>:<span class="number">0</span>;</span></span><br><span class="line"> &#125;</span><br><span class="line"> #app&#123;</span><br><span class="line"><span class="css">  <span class="attribute">background-color</span>:<span class="number">#ddd</span>;</span></span><br><span class="line"><span class="css">  <span class="attribute">height</span>:<span class="number">600px</span>;</span></span><br><span class="line"><span class="css">  <span class="attribute">position</span>:relative;</span></span><br><span class="line"> &#125;</span><br><span class="line"><span class="css"> <span class="selector-id">#app</span> <span class="selector-tag">div</span>&#123;</span></span><br><span class="line"><span class="css">  <span class="attribute">width</span>:<span class="number">100px</span>;</span></span><br><span class="line"><span class="css">  <span class="attribute">height</span>:<span class="number">100px</span>;</span></span><br><span class="line"><span class="css">  <span class="attribute">background-color</span>:red;</span></span><br><span class="line"><span class="css">  <span class="attribute">position</span>:absolute;</span></span><br><span class="line"><span class="css">  <span class="attribute">top</span>:<span class="number">0</span>;</span></span><br><span class="line"><span class="css">  <span class="attribute">left</span>:<span class="number">0</span>;</span></span><br><span class="line"><span class="css">  <span class="attribute">right</span>:<span class="number">0</span>;</span></span><br><span class="line"><span class="css">  <span class="attribute">bottom</span>:<span class="number">0</span>;</span></span><br><span class="line"><span class="css">  <span class="attribute">margin</span>:auto;</span></span><br><span class="line"> &#125;</span><br><span class="line"><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">&quot;app&quot;</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span>&gt;</span>111<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br><span class="line"></span><br><span class="line">【注意】需要注意的是，此方法只对子元素有宽高的情况起作用，如果没有宽高则不起作用。</span><br></pre></td></tr></table></figure>
-]]></content>
-      <tags>
-        <tag>css</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>【今日问题】输入[1,2,3]，输出层级{name:1,child:child:{name:3}</title>
     <url>/2021/02/21/%E3%80%90%E4%BB%8A%E6%97%A5%E9%97%AE%E9%A2%98%E3%80%91%E8%BE%93%E5%85%A5-1-2-3-%EF%BC%8C%E8%BE%93%E5%87%BA%E5%B1%82%E7%BA%A7-name-1-child-child-name-3/</url>
     <content><![CDATA[<h2 id="【今日问题】输入-1-2-3-，输出层级-name-1-child-name-2-child-name-3"><a href="#【今日问题】输入-1-2-3-，输出层级-name-1-child-name-2-child-name-3" class="headerlink" title="【今日问题】输入[1,2,3]，输出层级{name:1,child:{name:2,child:{name:3}}"></a>【今日问题】输入[1,2,3]，输出层级{name:1,child:{name:2,child:{name:3}}</h2><blockquote>
@@ -371,6 +362,15 @@
 <h4 id="感谢余大佬提点"><a href="#感谢余大佬提点" class="headerlink" title="感谢余大佬提点"></a>感谢余大佬提点</h4>]]></content>
       <tags>
         <tag>算法</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>【今日新发现】让子元素上下左右居中的新奇方法</title>
+    <url>/2021/02/21/%E3%80%90%E4%BB%8A%E6%97%A5%E6%96%B0%E5%8F%91%E7%8E%B0%E3%80%91%E8%AE%A9%E5%AD%90%E5%85%83%E7%B4%A0%E4%B8%8A%E4%B8%8B%E5%B7%A6%E5%8F%B3%E5%B1%85%E4%B8%AD%E7%9A%84%E6%96%B0%E5%A5%87%E6%96%B9%E6%B3%95/</url>
+    <content><![CDATA[<h2 id="【今日新发现】让子元素上下左右居中的新奇方法"><a href="#【今日新发现】让子元素上下左右居中的新奇方法" class="headerlink" title="【今日新发现】让子元素上下左右居中的新奇方法"></a>【今日新发现】让子元素上下左右居中的新奇方法</h2><figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">style</span>&gt;</span></span><br><span class="line"> *&#123;</span><br><span class="line"><span class="css"> <span class="attribute">margin</span>:<span class="number">0</span>;</span></span><br><span class="line"><span class="css"> <span class="attribute">padding</span>:<span class="number">0</span>;</span></span><br><span class="line"> &#125;</span><br><span class="line"> #app&#123;</span><br><span class="line"><span class="css">  <span class="attribute">background-color</span>:<span class="number">#ddd</span>;</span></span><br><span class="line"><span class="css">  <span class="attribute">height</span>:<span class="number">600px</span>;</span></span><br><span class="line"><span class="css">  <span class="attribute">position</span>:relative;</span></span><br><span class="line"> &#125;</span><br><span class="line"><span class="css"> <span class="selector-id">#app</span> <span class="selector-tag">div</span>&#123;</span></span><br><span class="line"><span class="css">  <span class="attribute">width</span>:<span class="number">100px</span>;</span></span><br><span class="line"><span class="css">  <span class="attribute">height</span>:<span class="number">100px</span>;</span></span><br><span class="line"><span class="css">  <span class="attribute">background-color</span>:red;</span></span><br><span class="line"><span class="css">  <span class="attribute">position</span>:absolute;</span></span><br><span class="line"><span class="css">  <span class="attribute">top</span>:<span class="number">0</span>;</span></span><br><span class="line"><span class="css">  <span class="attribute">left</span>:<span class="number">0</span>;</span></span><br><span class="line"><span class="css">  <span class="attribute">right</span>:<span class="number">0</span>;</span></span><br><span class="line"><span class="css">  <span class="attribute">bottom</span>:<span class="number">0</span>;</span></span><br><span class="line"><span class="css">  <span class="attribute">margin</span>:auto;</span></span><br><span class="line"> &#125;</span><br><span class="line"><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">&quot;app&quot;</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span>&gt;</span>111<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br><span class="line"></span><br><span class="line">【注意】需要注意的是，此方法只对子元素有宽高的情况起作用，如果没有宽高则不起作用。</span><br></pre></td></tr></table></figure>
+]]></content>
+      <tags>
+        <tag>css</tag>
       </tags>
   </entry>
   <entry>
@@ -398,6 +398,81 @@
 ]]></content>
       <tags>
         <tag>html</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>关于百度地图那些事</title>
+    <url>/2021/02/21/%E5%85%B3%E4%BA%8E%E7%99%BE%E5%BA%A6%E5%9C%B0%E5%9B%BE%E9%82%A3%E4%BA%9B%E4%BA%8B/</url>
+    <content><![CDATA[<h2 id="关于百度地图那些事"><a href="#关于百度地图那些事" class="headerlink" title="关于百度地图那些事"></a>关于百度地图那些事</h2><blockquote>
+<p>监听百度地图缩放级别</p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">map.addEventListener(<span class="string">&quot;zoomend&quot;</span>, <span class="function"><span class="keyword">function</span>(<span class="params">e</span>)</span>&#123;</span><br><span class="line">  <span class="keyword">var</span> ZoomNum = map.getZoom(); <span class="comment">//ZoomNum为层级,区间1-18</span></span><br><span class="line">  $(<span class="string">&quot;#ZoomNum&quot;</span>).html(ZoomNum);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+
+<blockquote>
+<p>百度地图如何删除所有Marker呢？</p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">map.clearOverlays();    <span class="comment">//清除地图上所有覆盖物</span></span><br></pre></td></tr></table></figure>
+
+
+<blockquote>
+<p>销毁百度地图</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">destroy()销毁地图，当使用 WebGL 渲染地图时，如果确认不再使用该地图实例，则需要调用本方法销毁该地图实例</span><br></pre></td></tr></table></figure>
+
+
+<blockquote>
+<p>删除全部或者部分</p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">clearAll</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">            <span class="comment">//for (var i = 0; i &lt; map.getOverlays().length; i++) &#123;</span></span><br><span class="line">            <span class="comment">//    map.removeOverlay(map.getOverlays()[i]);</span></span><br><span class="line">            <span class="comment">//&#125;</span></span><br><span class="line">            <span class="comment">//overlays.length = 0; </span></span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; map.getOverlays().length; i++) &#123;</span><br><span class="line">                <span class="keyword">if</span> (map.getOverlays()[i].GO == <span class="string">&quot;Marker&quot;</span>)</span><br><span class="line">                    map.removeOverlay(map.getOverlays()[i]);</span><br><span class="line">            &#125;</span><br><span class="line">            overlays.length = <span class="number">0</span>; </span><br><span class="line">        &#125;</span><br></pre></td></tr></table></figure>
+
+
+<blockquote>
+<p>在React中使用百度地图API</p>
+</blockquote>
+<ol>
+<li>首先，找到public/index.html文件，在<code>&lt;body&gt;···&lt;/body&gt;</code>中引入百度地图<code>API</code></li>
+</ol>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">	&lt;script</span><br><span class="line">		type=&quot;text/javascript&quot;</span><br><span class="line">		src=&quot;http://api.map.baidu.com/api?v=2.0&amp;ak=&#x27;这里填写你的密钥&quot;&gt;</span><br><span class="line">	<span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>到这一步我们已经在React项目中引入了百度地图的API，那么应该怎么使用呢？</p>
+<ol>
+<li>初学React的同学可能会想到使用<code>import</code>的方式导入，但是这里你会发现，如果你直接导入就会报错，解决办法分两种：</li>
+</ol>
+<ul>
+<li>第一种：用Window对象保存BMap变量，实现HTML文件和JS文件间的变量传递：</li>
+<li>在刚才的HTML的body中再加入一段代码：</li>
+</ul>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">	&lt;script</span><br><span class="line">		type=&quot;text/javascript&quot;</span><br><span class="line">		src=&quot;http://api.map.baidu.com/api?v=2.0&amp;ak=&#x27;这里填写你的密钥&quot;&gt;</span><br><span class="line">	<span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="javascript">		<span class="built_in">window</span>.BMap = BMap</span></span><br><span class="line">	<span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<blockquote>
+<p><strong>将BMap对象保存到全局对象window中，需要使用的时候在将他从全局对象window中取出来：</strong></p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">const BMap &#x3D; window.BMap;</span><br><span class="line">const myGeo &#x3D; new BMap.Geocoder();&#x2F;&#x2F; 此处是百度地图提供的获取地址经纬度信息的API</span><br></pre></td></tr></table></figure>
+<p>这个API的用法如下：</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://img-blog.csdnimg.cn/2019040618053232.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzI2Mzc3NTQ3,size_16,color_FFFFFF,t_70"
+                      alt="在这里插入图片描述"
+                ></p>
+<p>链接：<a class="link"   href="http://lbsyun.baidu.com/cms/jsapi/reference/jsapi_reference.html#a7b27" >http://lbsyun.baidu.com/cms/jsapi/reference/jsapi_reference.html#a7b27<i class="fas fa-external-link-alt"></i></a></p>
+<p>不过我相信有部分人跟我一样看不懂这个文档，于是我决定举个例子：</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> myGeo = <span class="keyword">new</span> BMap.Geocoder();</span><br><span class="line">myGeo.getPoint(<span class="string">&#x27;北京市海淀区上地10街10号&#x27;</span>, <span class="function">(<span class="params">point</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="keyword">if</span> (point) &#123;</span><br><span class="line">    <span class="comment">// 这个point就是解析地址获得的百度地图坐标系</span></span><br><span class="line">    <span class="built_in">console</span>.log(point); <span class="comment">// &#123;lat: 40.057339, lng: 116.306941&#125;</span></span><br><span class="line">  &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">&#x27;解析失败&#x27;</span>);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;, <span class="string">&#x27;北京市&#x27;</span>);</span><br></pre></td></tr></table></figure>
+<p>不过实际应用的过程中我发现第三个参数好像可以跟第一个参数一样：</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> myGeo = <span class="keyword">new</span> BMap.Geocoder();</span><br><span class="line">myGeo.getPoint(<span class="string">&#x27;长沙市&#x27;</span>, <span class="function">(<span class="params">point</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="keyword">if</span> (point) &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(point); <span class="comment">// &#123;lng: 112.945473, lat: 28.234889&#125;</span></span><br><span class="line">  &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">&#x27;解析失败&#x27;</span>);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;, <span class="string">&#x27;长沙市&#x27;</span>);</span><br></pre></td></tr></table></figure>
+<p>应该是百度地图的API会对参数进行解析</p>
+<blockquote>
+<p><strong>第二种：通过webpack的externals加载BMap使它可以通过require或import引入</strong></p>
+</blockquote>
+<p>到webpack.config.js中</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="built_in">module</span>.exports = &#123;</span><br><span class="line"><span class="comment">/*此处省略了entry，output,modules等配置*/</span></span><br><span class="line">  externals:&#123;</span><br><span class="line">    <span class="string">&#x27;BMap&#x27;</span>:<span class="string">&#x27;BMap&#x27;</span></span><br><span class="line">  &#125;,</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>在使用的过程中就可以直接使用<code>import</code>的方式引入：</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> BMap <span class="keyword">from</span> <span class="string">&#x27;BMap&#x27;</span></span><br><span class="line"><span class="keyword">const</span> myGeo = <span class="keyword">new</span> BMap.Geocoder(); <span class="comment">// 调用Geocoder()</span></span><br></pre></td></tr></table></figure>
+
+
+<p>原文地址:<a class="link"   href="https://blog.csdn.net/qq_26377547/article/details/89058721" >https://blog.csdn.net/qq_26377547/article/details/89058721<i class="fas fa-external-link-alt"></i></a></p>
+]]></content>
+      <tags>
+        <tag>百度地图</tag>
       </tags>
   </entry>
   <entry>
@@ -497,81 +572,6 @@
 <figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">iframe</span> <span class="attr">src</span>=<span class="string">&#x27;https://view.officeapps.live.com/op/view.aspx?src=http://storage.xuetangx.com/public_assets/xuetangx/PDF/1.xls&#x27;</span> <span class="attr">width</span>=<span class="string">&#x27;100%&#x27;</span> <span class="attr">height</span>=<span class="string">&#x27;100%&#x27;</span> <span class="attr">frameborder</span>=<span class="string">&#x27;1&#x27;</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;/<span class="name">iframe</span>&gt;</span></span><br></pre></td></tr></table></figure>]]></content>
       <tags>
         <tag>html</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>关于百度地图那些事</title>
-    <url>/2021/02/21/%E5%85%B3%E4%BA%8E%E7%99%BE%E5%BA%A6%E5%9C%B0%E5%9B%BE%E9%82%A3%E4%BA%9B%E4%BA%8B/</url>
-    <content><![CDATA[<h2 id="关于百度地图那些事"><a href="#关于百度地图那些事" class="headerlink" title="关于百度地图那些事"></a>关于百度地图那些事</h2><blockquote>
-<p>监听百度地图缩放级别</p>
-</blockquote>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">map.addEventListener(<span class="string">&quot;zoomend&quot;</span>, <span class="function"><span class="keyword">function</span>(<span class="params">e</span>)</span>&#123;</span><br><span class="line">  <span class="keyword">var</span> ZoomNum = map.getZoom(); <span class="comment">//ZoomNum为层级,区间1-18</span></span><br><span class="line">  $(<span class="string">&quot;#ZoomNum&quot;</span>).html(ZoomNum);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
-
-
-<blockquote>
-<p>百度地图如何删除所有Marker呢？</p>
-</blockquote>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">map.clearOverlays();    <span class="comment">//清除地图上所有覆盖物</span></span><br></pre></td></tr></table></figure>
-
-
-<blockquote>
-<p>销毁百度地图</p>
-</blockquote>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">destroy()销毁地图，当使用 WebGL 渲染地图时，如果确认不再使用该地图实例，则需要调用本方法销毁该地图实例</span><br></pre></td></tr></table></figure>
-
-
-<blockquote>
-<p>删除全部或者部分</p>
-</blockquote>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">clearAll</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">            <span class="comment">//for (var i = 0; i &lt; map.getOverlays().length; i++) &#123;</span></span><br><span class="line">            <span class="comment">//    map.removeOverlay(map.getOverlays()[i]);</span></span><br><span class="line">            <span class="comment">//&#125;</span></span><br><span class="line">            <span class="comment">//overlays.length = 0; </span></span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; map.getOverlays().length; i++) &#123;</span><br><span class="line">                <span class="keyword">if</span> (map.getOverlays()[i].GO == <span class="string">&quot;Marker&quot;</span>)</span><br><span class="line">                    map.removeOverlay(map.getOverlays()[i]);</span><br><span class="line">            &#125;</span><br><span class="line">            overlays.length = <span class="number">0</span>; </span><br><span class="line">        &#125;</span><br></pre></td></tr></table></figure>
-
-
-<blockquote>
-<p>在React中使用百度地图API</p>
-</blockquote>
-<ol>
-<li>首先，找到public/index.html文件，在<code>&lt;body&gt;···&lt;/body&gt;</code>中引入百度地图<code>API</code></li>
-</ol>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">	&lt;script</span><br><span class="line">		type=&quot;text/javascript&quot;</span><br><span class="line">		src=&quot;http://api.map.baidu.com/api?v=2.0&amp;ak=&#x27;这里填写你的密钥&quot;&gt;</span><br><span class="line">	<span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<p>到这一步我们已经在React项目中引入了百度地图的API，那么应该怎么使用呢？</p>
-<ol>
-<li>初学React的同学可能会想到使用<code>import</code>的方式导入，但是这里你会发现，如果你直接导入就会报错，解决办法分两种：</li>
-</ol>
-<ul>
-<li>第一种：用Window对象保存BMap变量，实现HTML文件和JS文件间的变量传递：</li>
-<li>在刚才的HTML的body中再加入一段代码：</li>
-</ul>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">	&lt;script</span><br><span class="line">		type=&quot;text/javascript&quot;</span><br><span class="line">		src=&quot;http://api.map.baidu.com/api?v=2.0&amp;ak=&#x27;这里填写你的密钥&quot;&gt;</span><br><span class="line">	<span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="javascript">		<span class="built_in">window</span>.BMap = BMap</span></span><br><span class="line">	<span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<blockquote>
-<p><strong>将BMap对象保存到全局对象window中，需要使用的时候在将他从全局对象window中取出来：</strong></p>
-</blockquote>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">const BMap &#x3D; window.BMap;</span><br><span class="line">const myGeo &#x3D; new BMap.Geocoder();&#x2F;&#x2F; 此处是百度地图提供的获取地址经纬度信息的API</span><br></pre></td></tr></table></figure>
-<p>这个API的用法如下：</p>
-<p><img  
-                     lazyload
-                     src="/images/loading.svg"
-                     data-src="https://img-blog.csdnimg.cn/2019040618053232.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzI2Mzc3NTQ3,size_16,color_FFFFFF,t_70"
-                      alt="在这里插入图片描述"
-                ></p>
-<p>链接：<a class="link"   href="http://lbsyun.baidu.com/cms/jsapi/reference/jsapi_reference.html#a7b27" >http://lbsyun.baidu.com/cms/jsapi/reference/jsapi_reference.html#a7b27<i class="fas fa-external-link-alt"></i></a></p>
-<p>不过我相信有部分人跟我一样看不懂这个文档，于是我决定举个例子：</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> myGeo = <span class="keyword">new</span> BMap.Geocoder();</span><br><span class="line">myGeo.getPoint(<span class="string">&#x27;北京市海淀区上地10街10号&#x27;</span>, <span class="function">(<span class="params">point</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="keyword">if</span> (point) &#123;</span><br><span class="line">    <span class="comment">// 这个point就是解析地址获得的百度地图坐标系</span></span><br><span class="line">    <span class="built_in">console</span>.log(point); <span class="comment">// &#123;lat: 40.057339, lng: 116.306941&#125;</span></span><br><span class="line">  &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">&#x27;解析失败&#x27;</span>);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;, <span class="string">&#x27;北京市&#x27;</span>);</span><br></pre></td></tr></table></figure>
-<p>不过实际应用的过程中我发现第三个参数好像可以跟第一个参数一样：</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> myGeo = <span class="keyword">new</span> BMap.Geocoder();</span><br><span class="line">myGeo.getPoint(<span class="string">&#x27;长沙市&#x27;</span>, <span class="function">(<span class="params">point</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="keyword">if</span> (point) &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(point); <span class="comment">// &#123;lng: 112.945473, lat: 28.234889&#125;</span></span><br><span class="line">  &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">&#x27;解析失败&#x27;</span>);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;, <span class="string">&#x27;长沙市&#x27;</span>);</span><br></pre></td></tr></table></figure>
-<p>应该是百度地图的API会对参数进行解析</p>
-<blockquote>
-<p><strong>第二种：通过webpack的externals加载BMap使它可以通过require或import引入</strong></p>
-</blockquote>
-<p>到webpack.config.js中</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="built_in">module</span>.exports = &#123;</span><br><span class="line"><span class="comment">/*此处省略了entry，output,modules等配置*/</span></span><br><span class="line">  externals:&#123;</span><br><span class="line">    <span class="string">&#x27;BMap&#x27;</span>:<span class="string">&#x27;BMap&#x27;</span></span><br><span class="line">  &#125;,</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>在使用的过程中就可以直接使用<code>import</code>的方式引入：</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> BMap <span class="keyword">from</span> <span class="string">&#x27;BMap&#x27;</span></span><br><span class="line"><span class="keyword">const</span> myGeo = <span class="keyword">new</span> BMap.Geocoder(); <span class="comment">// 调用Geocoder()</span></span><br></pre></td></tr></table></figure>
-
-
-<p>原文地址:<a class="link"   href="https://blog.csdn.net/qq_26377547/article/details/89058721" >https://blog.csdn.net/qq_26377547/article/details/89058721<i class="fas fa-external-link-alt"></i></a></p>
-]]></content>
-      <tags>
-        <tag>百度地图</tag>
       </tags>
   </entry>
   <entry>
@@ -1032,6 +1032,14 @@
 <p>vw逻辑非常清晰，”1vw ＝ 1/100th viewport width”，用viewport width的百分比来设置element width。</p>
 <p>vw被支持的太晚是其并不流行的根本原因，而当时移动端web app/page的开发需求已经十分旺盛，弹性布局是一种不错的移动端界面兼容展现方式，对于rem机遇就此而来，便成为一个实现弹性布局效果的极佳方案。</p>
 <h3 id="百度面试题记-写一个函数实现返回数据类型，包含基本数据类型，引用数据类型，日期型，正则"><a href="#百度面试题记-写一个函数实现返回数据类型，包含基本数据类型，引用数据类型，日期型，正则" class="headerlink" title="百度面试题记-写一个函数实现返回数据类型，包含基本数据类型，引用数据类型，日期型，正则"></a>百度面试题记-写一个函数实现返回数据类型，包含基本数据类型，引用数据类型，日期型，正则</h3><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">&lt;script&gt;</span><br><span class="line">  <span class="function"><span class="keyword">function</span> <span class="title">checkDataType</span>(<span class="params">data</span>)</span>&#123;</span><br><span class="line">   <span class="keyword">let</span> dataType = <span class="built_in">Object</span>.prototype.toString.call(data);</span><br><span class="line">   <span class="keyword">let</span> substrType = dataType.substring(<span class="number">8</span>,dataType.length-<span class="number">1</span>);</span><br><span class="line">   <span class="keyword">return</span> subStrType;</span><br><span class="line">  &#125;</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+
+
+<h3 id="时间复杂度"><a href="#时间复杂度" class="headerlink" title="时间复杂度"></a>时间复杂度</h3><p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://gitee.com/xian_hong_xiao/assets/raw/master/img/1.png"
+                      alt="图片"
+                ></p>
 ]]></content>
   </entry>
   <entry>
