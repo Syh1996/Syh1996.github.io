@@ -1,6 +1,63 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>CSS伪类与伪元素</title>
+    <url>/2021/02/21/CSS%E4%BC%AA%E7%B1%BB%E4%B8%8E%E4%BC%AA%E5%85%83%E7%B4%A0/</url>
+    <content><![CDATA[<h2 id="CSS伪类与伪元素"><a href="#CSS伪类与伪元素" class="headerlink" title="CSS伪类与伪元素"></a>CSS伪类与伪元素</h2><h3 id="为什么要引入伪类与伪元素？"><a href="#为什么要引入伪类与伪元素？" class="headerlink" title="为什么要引入伪类与伪元素？"></a>为什么要引入伪类与伪元素？</h3><p>css引入伪类和伪元素概念是为了格式化文档树以外的信息。也就是说，伪类和伪元素是用来修饰不在文档树中的部分，比如，一句话中的第一个字母，或是列表中的第一个元素，又或者是鼠标悬停在某个超链接上时要设置的样式。</p>
+<h3 id="什么是伪类，伪元素？"><a href="#什么是伪类，伪元素？" class="headerlink" title="什么是伪类，伪元素？"></a>什么是伪类，伪元素？</h3><ul>
+<li>伪类：用于当已有元素处于的某个状态时，为其添加对应的样式，这个状态是根据用户行为而动态变化的。比如说，当用户悬停在指定的元素时，我们可以通过:hover来描述这个元素的状态。虽然它和普通的css类相似，可以为已有的元素添加样式，但是它只有处于dom树无法描述的状态下才能为元素添加样式，所以将其称为伪类。</li>
+<li>伪元素：用于创建一些不在文档树中的元素，并为其添加样式。实际上，伪元素就是选取某些元素前面或后面这种普通选择器无法完成的工作。控制的内容和元素是相同的，但它本身是基于元素的抽象，并不存在于文档结构中。比如说，我们可以通过:before来在一个元素前增加一些文本，并为这些文本添加样式。</li>
+</ul>
+<h3 id="伪类的分类：状态伪类和结构性伪类"><a href="#伪类的分类：状态伪类和结构性伪类" class="headerlink" title="伪类的分类：状态伪类和结构性伪类"></a>伪类的分类：状态伪类和结构性伪类</h3><ul>
+<li><p>状态伪类：是基于元素当前状态进行选择的。在与用户的交互过程中元素的状态是动态变化的，因此该元素会根据其状态呈现不同的样式。当元素处于某状态时会呈现该样式，而进入另一状态后，该样式也会失去。</p>
+<p>常见的状态伪类主要包括：</p>
+</li>
+</ul>
+<ol>
+<li> :link 应用于未被访问过的链接； </li>
+<li> :hover 应用于鼠标悬停到的元素；</li>
+<li> :active 应用于被激活的元素；</li>
+<li> :visited 应用于被访问过的链接，与:link互斥。</li>
+<li> :focus 应用于拥有键盘输入焦点的元素。</li>
+</ol>
+<ul>
+<li><p>结构性伪类：是css3新增选择器，利用dom树进行元素过滤，通过文档结构的互相关系来匹配元素，能够减少class和id属性的定义，使文档结构更简洁。</p>
+<p>常见的结构性伪类包括：</p>
+</li>
+</ul>
+<ol>
+<li> :first-child 选择某个元素的第一个子元素； </li>
+<li> :last-child 选择某个元素的最后一个子元素；</li>
+<li> :nth-child() 选择某个元素的一个或多个特定的子元素；</li>
+<li> :nth-last-child() 选择某个元素的一个或多个特定的子元素，从这个元素的最后一个子元素开始算；</li>
+<li> :nth-of-type() 选择指定的元素；</li>
+<li> :nth-last-of-type() 选择指定的元素，从元素的最后一个开始计算；</li>
+<li> :first-of-type 选择一个上级元素下的第一个同类子元素；</li>
+<li> :last-of-type 选择一个上级元素的最后一个同类子元素；</li>
+<li> :only-child 选择的元素是它的父元素的唯一一个子元素；</li>
+<li> :only-of-type 选择一个元素是它的上级元素的唯一一个相同类型的子元素；</li>
+<li> :empty 选择的元素里面没有任何内容。</li>
+<li> :checked匹配被选中的input元素，这个input元素包括radio和checkbox。</li>
+<li> :default匹配默认选中的元素，例如：提交按钮总是表单的默认按钮。</li>
+<li> :disabled匹配禁用的表单元素。</li>
+<li> :enabled匹配没有设置disabled属性的表单元素。</li>
+<li> :valid匹配条件验证正确的表单元素。</li>
+</ol>
+<h3 id="常见的伪元素选择器："><a href="#常见的伪元素选择器：" class="headerlink" title="常见的伪元素选择器："></a>常见的伪元素选择器：</h3><ol>
+<li> ::first-letter 选择元素文本的第一个字（母）。</li>
+<li> ::first-line 选择元素文本的第一行。</li>
+<li> ::before 在元素内容的最前面添加新内容。</li>
+<li> ::after 在元素内容的最后面添加新内容。</li>
+<li> ::selection匹配用户被用户选中或者处于高亮状态的部分</li>
+<li> ::placeholder匹配占位符的文本，只有元素设置了placeholder属性时，该伪元素才能生效</li>
+</ol>
+<p>注意：你会发现伪类元素使用了两个冒号 (::) 而不是一个冒号 (:)，这是 CSS3 规范中的一部分要求，目的是为了区分伪类和伪元素，大多数浏览器都支持这两种表示方式。单冒号(:)用于 CSS3 伪类，双冒号(::)用于 CSS3 伪元素。对于 CSS2 中已经有的伪元素，例如 :before，单冒号和双冒号的写法 ::before 作用是一样的。</p>
+]]></content>
+      <tags>
+        <tag>css</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Git工作常用命令</title>
     <url>/2021/02/21/Git%E5%B7%A5%E4%BD%9C%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/</url>
     <content><![CDATA[<h2 id="Git工作常用命令"><a href="#Git工作常用命令" class="headerlink" title="Git工作常用命令"></a>Git工作常用命令</h2><ul>
@@ -84,72 +141,6 @@
       </tags>
   </entry>
   <entry>
-    <title>CSS伪类与伪元素</title>
-    <url>/2021/02/21/CSS%E4%BC%AA%E7%B1%BB%E4%B8%8E%E4%BC%AA%E5%85%83%E7%B4%A0/</url>
-    <content><![CDATA[<h2 id="CSS伪类与伪元素"><a href="#CSS伪类与伪元素" class="headerlink" title="CSS伪类与伪元素"></a>CSS伪类与伪元素</h2><h3 id="为什么要引入伪类与伪元素？"><a href="#为什么要引入伪类与伪元素？" class="headerlink" title="为什么要引入伪类与伪元素？"></a>为什么要引入伪类与伪元素？</h3><p>css引入伪类和伪元素概念是为了格式化文档树以外的信息。也就是说，伪类和伪元素是用来修饰不在文档树中的部分，比如，一句话中的第一个字母，或是列表中的第一个元素，又或者是鼠标悬停在某个超链接上时要设置的样式。</p>
-<h3 id="什么是伪类，伪元素？"><a href="#什么是伪类，伪元素？" class="headerlink" title="什么是伪类，伪元素？"></a>什么是伪类，伪元素？</h3><ul>
-<li>伪类：用于当已有元素处于的某个状态时，为其添加对应的样式，这个状态是根据用户行为而动态变化的。比如说，当用户悬停在指定的元素时，我们可以通过:hover来描述这个元素的状态。虽然它和普通的css类相似，可以为已有的元素添加样式，但是它只有处于dom树无法描述的状态下才能为元素添加样式，所以将其称为伪类。</li>
-<li>伪元素：用于创建一些不在文档树中的元素，并为其添加样式。实际上，伪元素就是选取某些元素前面或后面这种普通选择器无法完成的工作。控制的内容和元素是相同的，但它本身是基于元素的抽象，并不存在于文档结构中。比如说，我们可以通过:before来在一个元素前增加一些文本，并为这些文本添加样式。</li>
-</ul>
-<h3 id="伪类的分类：状态伪类和结构性伪类"><a href="#伪类的分类：状态伪类和结构性伪类" class="headerlink" title="伪类的分类：状态伪类和结构性伪类"></a>伪类的分类：状态伪类和结构性伪类</h3><ul>
-<li><p>状态伪类：是基于元素当前状态进行选择的。在与用户的交互过程中元素的状态是动态变化的，因此该元素会根据其状态呈现不同的样式。当元素处于某状态时会呈现该样式，而进入另一状态后，该样式也会失去。</p>
-<p>常见的状态伪类主要包括：</p>
-</li>
-</ul>
-<ol>
-<li> :link 应用于未被访问过的链接； </li>
-<li> :hover 应用于鼠标悬停到的元素；</li>
-<li> :active 应用于被激活的元素；</li>
-<li> :visited 应用于被访问过的链接，与:link互斥。</li>
-<li> :focus 应用于拥有键盘输入焦点的元素。</li>
-</ol>
-<ul>
-<li><p>结构性伪类：是css3新增选择器，利用dom树进行元素过滤，通过文档结构的互相关系来匹配元素，能够减少class和id属性的定义，使文档结构更简洁。</p>
-<p>常见的结构性伪类包括：</p>
-</li>
-</ul>
-<ol>
-<li> :first-child 选择某个元素的第一个子元素； </li>
-<li> :last-child 选择某个元素的最后一个子元素；</li>
-<li> :nth-child() 选择某个元素的一个或多个特定的子元素；</li>
-<li> :nth-last-child() 选择某个元素的一个或多个特定的子元素，从这个元素的最后一个子元素开始算；</li>
-<li> :nth-of-type() 选择指定的元素；</li>
-<li> :nth-last-of-type() 选择指定的元素，从元素的最后一个开始计算；</li>
-<li> :first-of-type 选择一个上级元素下的第一个同类子元素；</li>
-<li> :last-of-type 选择一个上级元素的最后一个同类子元素；</li>
-<li> :only-child 选择的元素是它的父元素的唯一一个子元素；</li>
-<li> :only-of-type 选择一个元素是它的上级元素的唯一一个相同类型的子元素；</li>
-<li> :empty 选择的元素里面没有任何内容。</li>
-<li> :checked匹配被选中的input元素，这个input元素包括radio和checkbox。</li>
-<li> :default匹配默认选中的元素，例如：提交按钮总是表单的默认按钮。</li>
-<li> :disabled匹配禁用的表单元素。</li>
-<li> :enabled匹配没有设置disabled属性的表单元素。</li>
-<li> :valid匹配条件验证正确的表单元素。</li>
-</ol>
-<h3 id="常见的伪元素选择器："><a href="#常见的伪元素选择器：" class="headerlink" title="常见的伪元素选择器："></a>常见的伪元素选择器：</h3><ol>
-<li> ::first-letter 选择元素文本的第一个字（母）。</li>
-<li> ::first-line 选择元素文本的第一行。</li>
-<li> ::before 在元素内容的最前面添加新内容。</li>
-<li> ::after 在元素内容的最后面添加新内容。</li>
-<li> ::selection匹配用户被用户选中或者处于高亮状态的部分</li>
-<li> ::placeholder匹配占位符的文本，只有元素设置了placeholder属性时，该伪元素才能生效</li>
-</ol>
-<p>注意：你会发现伪类元素使用了两个冒号 (::) 而不是一个冒号 (:)，这是 CSS3 规范中的一部分要求，目的是为了区分伪类和伪元素，大多数浏览器都支持这两种表示方式。单冒号(:)用于 CSS3 伪类，双冒号(::)用于 CSS3 伪元素。对于 CSS2 中已经有的伪元素，例如 :before，单冒号和双冒号的写法 ::before 作用是一样的。</p>
-]]></content>
-      <tags>
-        <tag>css</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>JS实现网站内容的禁止复制和粘贴、另存为</title>
-    <url>/2021/02/21/JS%E5%AE%9E%E7%8E%B0%E7%BD%91%E7%AB%99%E5%86%85%E5%AE%B9%E7%9A%84%E7%A6%81%E6%AD%A2%E5%A4%8D%E5%88%B6%E5%92%8C%E7%B2%98%E8%B4%B4%E3%80%81%E5%8F%A6%E5%AD%98%E4%B8%BA/</url>
-    <content><![CDATA[<h2 id="JS实现网站内容的禁止复制和粘贴、另存为"><a href="#JS实现网站内容的禁止复制和粘贴、另存为" class="headerlink" title="JS实现网站内容的禁止复制和粘贴、另存为"></a>JS实现网站内容的禁止复制和粘贴、另存为</h2><figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE <span class="meta-keyword">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">&quot;utf-8&quot;</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">title</span>&gt;</span>菜鸟教程(runoob.com)<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">p</span> <span class="attr">id</span>=<span class="string">&quot;p&quot;</span>&gt;</span><span class="tag">&lt;<span class="name">strong</span>&gt;</span>注意：<span class="tag">&lt;/<span class="name">strong</span>&gt;</span> 该实例如果在 Chrome, Firefox 和 Opera 浏览器中可能无法工作。<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="javascript"><span class="function"><span class="keyword">function</span> <span class="title">myFunction</span>(<span class="params">e</span>) </span>&#123;</span></span><br><span class="line"><span class="javascript">	<span class="built_in">console</span>.log(e);</span></span><br><span class="line"><span class="javascript">  <span class="keyword">return</span> <span class="literal">false</span>;</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="javascript">	<span class="built_in">document</span>.querySelector(<span class="string">&quot;#p&quot;</span>).oncopy=myFunction;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
-]]></content>
-      <tags>
-        <tag>javascript</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>html5拖动，上传进度，div可编辑新增API</title>
     <url>/2021/02/21/html5%E6%8B%96%E5%8A%A8%EF%BC%8C%E4%B8%8A%E4%BC%A0%E8%BF%9B%E5%BA%A6%EF%BC%8Cdiv%E5%8F%AF%E7%BC%96%E8%BE%91%E6%96%B0%E5%A2%9EAPI/</url>
     <content><![CDATA[<h2 id="html5拖动，上传进度，div可编辑新增API"><a href="#html5拖动，上传进度，div可编辑新增API" class="headerlink" title="html5拖动，上传进度，div可编辑新增API"></a>html5拖动，上传进度，div可编辑新增API</h2><p>上传进度：</p>
@@ -168,25 +159,12 @@
       </tags>
   </entry>
   <entry>
-    <title>redux-saga代码参考</title>
-    <url>/2021/02/21/redux-saga%E4%BB%A3%E7%A0%81%E5%8F%82%E8%80%83/</url>
-    <content><![CDATA[<h2 id="redux-saga代码参考"><a href="#redux-saga代码参考" class="headerlink" title="redux-saga代码参考"></a>redux-saga代码参考</h2><h4 id="saga-js"><a href="#saga-js" class="headerlink" title="saga.js"></a>saga.js</h4><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; call, put,takeEvery, select,takeLatest &#125; <span class="keyword">from</span> <span class="string">&#x27;redux-saga/effects&#x27;</span>;</span><br><span class="line"><span class="keyword">import</span> axios <span class="keyword">from</span> <span class="string">&#x27;axios&#x27;</span>;</span><br><span class="line"><span class="keyword">const</span> handleAddCountFn = <span class="function"><span class="keyword">function</span> *(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">const</span> page = <span class="keyword">yield</span> select(<span class="function"><span class="params">state</span>=&gt;</span>state.payload.count);</span><br><span class="line">    <span class="keyword">const</span> num = <span class="keyword">yield</span> select(<span class="function"><span class="params">state</span>=&gt;</span>state.count);</span><br><span class="line">    <span class="keyword">const</span> result = <span class="keyword">yield</span> call(axios.get,<span class="string">&quot;http://www.shaoyuhong.cn/lx104.php&quot;</span>,&#123;<span class="attr">params</span>:&#123;<span class="attr">page</span>:page+num&#125;&#125;);</span><br><span class="line">    <span class="keyword">yield</span> put(&#123;</span><br><span class="line">        type:<span class="string">&#x27;addCount&#x27;</span>,</span><br><span class="line">        payload:&#123;</span><br><span class="line">             num:page</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;);</span><br><span class="line">    <span class="keyword">yield</span> put(&#123;</span><br><span class="line">        type:<span class="string">&#x27;setList&#x27;</span>,</span><br><span class="line">        payload:&#123;</span><br><span class="line">            list:result.data</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;)</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-
-
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> handleSubCountFn = <span class="function"><span class="keyword">function</span> *(<span class="params"></span>)</span>&#123;</span><br><span class="line">  <span class="keyword">const</span> page = <span class="keyword">yield</span> select(<span class="function"><span class="params">state</span>=&gt;</span>state.payload.count);</span><br><span class="line">  <span class="keyword">const</span> num  = <span class="keyword">yield</span> select(<span class="function"><span class="params">state</span>=&gt;</span>state.count);</span><br><span class="line">  <span class="keyword">const</span> result = <span class="keyword">yield</span> call(axios.get,<span class="string">&quot;http://www.shaoyuhong.cn/lx104.php&quot;</span>,&#123;<span class="attr">params</span>:&#123;<span class="attr">page</span>:num - page&#125;&#125;);</span><br><span class="line">  <span class="keyword">yield</span> put(&#123;</span><br><span class="line">      type:<span class="string">&#x27;subCount&#x27;</span>,</span><br><span class="line">      payload:&#123;</span><br><span class="line">          num:page</span><br><span class="line">      &#125;</span><br><span class="line">  &#125;);</span><br><span class="line">  <span class="keyword">yield</span> put(&#123;</span><br><span class="line">      type:<span class="string">&#x27;setList&#x27;</span>,</span><br><span class="line">      payload:&#123;</span><br><span class="line">          list:result.data</span><br><span class="line">      &#125;</span><br><span class="line">  &#125;)</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> *<span class="title">saga</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">   <span class="keyword">yield</span> takeEvery(<span class="string">&#x27;requestAddCount&#x27;</span>,handleAddCountFn);</span><br><span class="line">   <span class="keyword">yield</span> takeLatest(<span class="string">&#x27;requestSubCount&#x27;</span>,handleSubCountFn)</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> saga;</span><br></pre></td></tr></table></figure>
-
-
-<h4 id="app-js提交请求"><a href="#app-js提交请求" class="headerlink" title="app.js提交请求"></a>app.js提交请求</h4><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">@connect(</span><br><span class="line">  state=&gt;&#123;</span><br><span class="line">    <span class="keyword">return</span> &#123;</span><br><span class="line">       count:state.count,</span><br><span class="line">       list:state.list</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;,</span><br><span class="line">  dispatch=&gt;&#123;</span><br><span class="line">    <span class="keyword">return</span> &#123;</span><br><span class="line">        <span class="function"><span class="title">addCount</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">          dispatch(&#123;<span class="attr">type</span>:<span class="string">&#x27;requestAddCount&#x27;</span>,<span class="attr">payload</span>:&#123;<span class="attr">count</span>:<span class="built_in">parseInt</span>(<span class="built_in">Math</span>.random() * <span class="number">100</span>)&#125;&#125;)</span><br><span class="line">        &#125;,</span><br><span class="line">        <span class="function"><span class="title">subCount</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">          dispatch(&#123;<span class="attr">type</span>:<span class="string">&#x27;requestSubCount&#x27;</span>,<span class="attr">payload</span>:&#123; <span class="attr">count</span>:<span class="number">100</span> &#125;&#125;)</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">)</span><br></pre></td></tr></table></figure>
-
-
-<h4 id="reducer-js-参考"><a href="#reducer-js-参考" class="headerlink" title="reducer.js 参考"></a>reducer.js 参考</h4><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> defaultState = &#123;</span><br><span class="line">      count:<span class="number">100</span>,</span><br><span class="line">      list:[<span class="string">&#x27;test&#x27;</span>]</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="function"><span class="keyword">function</span>(<span class="params">state = <span class="built_in">Object</span>.assign(&#123;&#125;,defaultState),action = &#123;type:<span class="string">&#x27;&#x27;</span>,payload:&#123;&#125;&#125;</span>)</span>&#123;</span><br><span class="line">     <span class="keyword">let</span> &#123; type,payload&#125; = action;</span><br><span class="line">     <span class="keyword">if</span>(type === <span class="string">&#x27;addCount&#x27;</span>)&#123;</span><br><span class="line">         <span class="keyword">let</span> obj = <span class="built_in">Object</span>.assign(&#123;&#125;,state);</span><br><span class="line">         obj.count +=action.payload.num;</span><br><span class="line">         <span class="keyword">return</span> obj;</span><br><span class="line">     &#125;</span><br><span class="line">     <span class="keyword">if</span>(type ===<span class="string">&#x27;subCount&#x27;</span>)&#123;</span><br><span class="line">         <span class="keyword">let</span> obj = <span class="built_in">Object</span>.assign(&#123;&#125;,state);</span><br><span class="line">         obj.count -=action.payload.num;</span><br><span class="line">         <span class="keyword">return</span> obj;</span><br><span class="line">     &#125;</span><br><span class="line">     <span class="keyword">if</span>(type === <span class="string">&#x27;setList&#x27;</span>)&#123;</span><br><span class="line">         <span class="keyword">let</span> obj = <span class="built_in">Object</span>.assign(&#123;&#125;,state);</span><br><span class="line">         obj.list = action.payload.list;</span><br><span class="line">         <span class="keyword">return</span> obj;</span><br><span class="line">     &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">Object</span>.assign(&#123;&#125;,state,action);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-<p>//注: app.js dispatch提交的事件名可以和reducer.js action.type名不同，dispatch提交的事件将在saga.js的takeEvery中被监听</p>
-<p>使用saga.js需要在reducer中默认返回Object.assign({},state,action);</p>
+    <title>JS实现网站内容的禁止复制和粘贴、另存为</title>
+    <url>/2021/02/21/JS%E5%AE%9E%E7%8E%B0%E7%BD%91%E7%AB%99%E5%86%85%E5%AE%B9%E7%9A%84%E7%A6%81%E6%AD%A2%E5%A4%8D%E5%88%B6%E5%92%8C%E7%B2%98%E8%B4%B4%E3%80%81%E5%8F%A6%E5%AD%98%E4%B8%BA/</url>
+    <content><![CDATA[<h2 id="JS实现网站内容的禁止复制和粘贴、另存为"><a href="#JS实现网站内容的禁止复制和粘贴、另存为" class="headerlink" title="JS实现网站内容的禁止复制和粘贴、另存为"></a>JS实现网站内容的禁止复制和粘贴、另存为</h2><figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE <span class="meta-keyword">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">&quot;utf-8&quot;</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">title</span>&gt;</span>菜鸟教程(runoob.com)<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">p</span> <span class="attr">id</span>=<span class="string">&quot;p&quot;</span>&gt;</span><span class="tag">&lt;<span class="name">strong</span>&gt;</span>注意：<span class="tag">&lt;/<span class="name">strong</span>&gt;</span> 该实例如果在 Chrome, Firefox 和 Opera 浏览器中可能无法工作。<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="javascript"><span class="function"><span class="keyword">function</span> <span class="title">myFunction</span>(<span class="params">e</span>) </span>&#123;</span></span><br><span class="line"><span class="javascript">	<span class="built_in">console</span>.log(e);</span></span><br><span class="line"><span class="javascript">  <span class="keyword">return</span> <span class="literal">false</span>;</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="javascript">	<span class="built_in">document</span>.querySelector(<span class="string">&quot;#p&quot;</span>).oncopy=myFunction;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
 ]]></content>
       <tags>
-        <tag>react</tag>
+        <tag>javascript</tag>
       </tags>
   </entry>
   <entry>
@@ -225,6 +203,28 @@
 <figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">&lt;!doctype html&gt;</span><br><span class="line">&lt;html lang=<span class="string">&quot;en&quot;</span>&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">    &lt;title&gt;Document&lt;/title&gt;</span><br><span class="line">    &lt;style&gt;</span><br><span class="line">        #e&#123;</span><br><span class="line">            width: 100px;</span><br><span class="line">            height: 100px;</span><br><span class="line">            background: red;</span><br><span class="line">            position: absolute;</span><br><span class="line">            left: <span class="number">0</span>;</span><br><span class="line">            top: <span class="number">0</span>;</span><br><span class="line">            zoom: <span class="number">1</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &lt;/style&gt;</span><br><span class="line">&lt;/head&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line">&lt;div id=<span class="string">&quot;e&quot;</span>&gt;&lt;/div&gt;</span><br><span class="line">&lt;script&gt;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="keyword">var</span> e = <span class="built_in">document</span>.getElementById(<span class="string">&quot;e&quot;</span>);</span><br><span class="line">    <span class="keyword">var</span> flag = <span class="literal">true</span>;</span><br><span class="line">    <span class="keyword">var</span> left = <span class="number">0</span>;</span><br><span class="line">    <span class="comment">//当前执行时间</span></span><br><span class="line">    <span class="keyword">var</span> nowTime = <span class="number">0</span>;</span><br><span class="line">    <span class="comment">//记录每次动画执行结束的时间</span></span><br><span class="line">    <span class="keyword">var</span> lastTime = <span class="built_in">Date</span>.now();</span><br><span class="line">    <span class="comment">//我们自己定义的动画时间差值</span></span><br><span class="line">    <span class="keyword">var</span> diffTime = <span class="number">40</span>;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">render</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(flag == <span class="literal">true</span>)&#123;</span><br><span class="line">            <span class="keyword">if</span>(left&gt;=<span class="number">100</span>)&#123;</span><br><span class="line">                flag = <span class="literal">false</span></span><br><span class="line">            &#125;</span><br><span class="line">            e.style.left = <span class="string">` <span class="subst">$&#123;left++&#125;</span>px`</span></span><br><span class="line">        &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">            <span class="keyword">if</span>(left&lt;=<span class="number">0</span>)&#123;</span><br><span class="line">                flag = <span class="literal">true</span></span><br><span class="line">            &#125;</span><br><span class="line">            e.style.left = <span class="string">` <span class="subst">$&#123;left--&#125;</span>px`</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//requestAnimationFrame效果</span></span><br><span class="line">    (<span class="function"><span class="keyword">function</span> <span class="title">animloop</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="comment">//记录当前时间</span></span><br><span class="line">        nowTime = <span class="built_in">Date</span>.now()</span><br><span class="line">        <span class="comment">// 当前时间-上次执行时间如果大于diffTime，那么执行动画，并更新上次执行时间</span></span><br><span class="line">        <span class="keyword">if</span>(nowTime-lastTime &gt; diffTime)&#123;</span><br><span class="line">            lastTime = nowTime</span><br><span class="line">            render();</span><br><span class="line">        &#125;</span><br><span class="line">        requestAnimationFrame(animloop);</span><br><span class="line"></span><br><span class="line">    &#125;)()</span><br><span class="line">&lt;/script&gt;</span><br><span class="line">&lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure>]]></content>
       <tags>
         <tag>JavaScript</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>redux-saga代码参考</title>
+    <url>/2021/02/21/redux-saga%E4%BB%A3%E7%A0%81%E5%8F%82%E8%80%83/</url>
+    <content><![CDATA[<h2 id="redux-saga代码参考"><a href="#redux-saga代码参考" class="headerlink" title="redux-saga代码参考"></a>redux-saga代码参考</h2><h4 id="saga-js"><a href="#saga-js" class="headerlink" title="saga.js"></a>saga.js</h4><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; call, put,takeEvery, select,takeLatest &#125; <span class="keyword">from</span> <span class="string">&#x27;redux-saga/effects&#x27;</span>;</span><br><span class="line"><span class="keyword">import</span> axios <span class="keyword">from</span> <span class="string">&#x27;axios&#x27;</span>;</span><br><span class="line"><span class="keyword">const</span> handleAddCountFn = <span class="function"><span class="keyword">function</span> *(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">const</span> page = <span class="keyword">yield</span> select(<span class="function"><span class="params">state</span>=&gt;</span>state.payload.count);</span><br><span class="line">    <span class="keyword">const</span> num = <span class="keyword">yield</span> select(<span class="function"><span class="params">state</span>=&gt;</span>state.count);</span><br><span class="line">    <span class="keyword">const</span> result = <span class="keyword">yield</span> call(axios.get,<span class="string">&quot;http://www.shaoyuhong.cn/lx104.php&quot;</span>,&#123;<span class="attr">params</span>:&#123;<span class="attr">page</span>:page+num&#125;&#125;);</span><br><span class="line">    <span class="keyword">yield</span> put(&#123;</span><br><span class="line">        type:<span class="string">&#x27;addCount&#x27;</span>,</span><br><span class="line">        payload:&#123;</span><br><span class="line">             num:page</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;);</span><br><span class="line">    <span class="keyword">yield</span> put(&#123;</span><br><span class="line">        type:<span class="string">&#x27;setList&#x27;</span>,</span><br><span class="line">        payload:&#123;</span><br><span class="line">            list:result.data</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;)</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> handleSubCountFn = <span class="function"><span class="keyword">function</span> *(<span class="params"></span>)</span>&#123;</span><br><span class="line">  <span class="keyword">const</span> page = <span class="keyword">yield</span> select(<span class="function"><span class="params">state</span>=&gt;</span>state.payload.count);</span><br><span class="line">  <span class="keyword">const</span> num  = <span class="keyword">yield</span> select(<span class="function"><span class="params">state</span>=&gt;</span>state.count);</span><br><span class="line">  <span class="keyword">const</span> result = <span class="keyword">yield</span> call(axios.get,<span class="string">&quot;http://www.shaoyuhong.cn/lx104.php&quot;</span>,&#123;<span class="attr">params</span>:&#123;<span class="attr">page</span>:num - page&#125;&#125;);</span><br><span class="line">  <span class="keyword">yield</span> put(&#123;</span><br><span class="line">      type:<span class="string">&#x27;subCount&#x27;</span>,</span><br><span class="line">      payload:&#123;</span><br><span class="line">          num:page</span><br><span class="line">      &#125;</span><br><span class="line">  &#125;);</span><br><span class="line">  <span class="keyword">yield</span> put(&#123;</span><br><span class="line">      type:<span class="string">&#x27;setList&#x27;</span>,</span><br><span class="line">      payload:&#123;</span><br><span class="line">          list:result.data</span><br><span class="line">      &#125;</span><br><span class="line">  &#125;)</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> *<span class="title">saga</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">   <span class="keyword">yield</span> takeEvery(<span class="string">&#x27;requestAddCount&#x27;</span>,handleAddCountFn);</span><br><span class="line">   <span class="keyword">yield</span> takeLatest(<span class="string">&#x27;requestSubCount&#x27;</span>,handleSubCountFn)</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> saga;</span><br></pre></td></tr></table></figure>
+
+
+<h4 id="app-js提交请求"><a href="#app-js提交请求" class="headerlink" title="app.js提交请求"></a>app.js提交请求</h4><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">@connect(</span><br><span class="line">  state=&gt;&#123;</span><br><span class="line">    <span class="keyword">return</span> &#123;</span><br><span class="line">       count:state.count,</span><br><span class="line">       list:state.list</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;,</span><br><span class="line">  dispatch=&gt;&#123;</span><br><span class="line">    <span class="keyword">return</span> &#123;</span><br><span class="line">        <span class="function"><span class="title">addCount</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">          dispatch(&#123;<span class="attr">type</span>:<span class="string">&#x27;requestAddCount&#x27;</span>,<span class="attr">payload</span>:&#123;<span class="attr">count</span>:<span class="built_in">parseInt</span>(<span class="built_in">Math</span>.random() * <span class="number">100</span>)&#125;&#125;)</span><br><span class="line">        &#125;,</span><br><span class="line">        <span class="function"><span class="title">subCount</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">          dispatch(&#123;<span class="attr">type</span>:<span class="string">&#x27;requestSubCount&#x27;</span>,<span class="attr">payload</span>:&#123; <span class="attr">count</span>:<span class="number">100</span> &#125;&#125;)</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">)</span><br></pre></td></tr></table></figure>
+
+
+<h4 id="reducer-js-参考"><a href="#reducer-js-参考" class="headerlink" title="reducer.js 参考"></a>reducer.js 参考</h4><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> defaultState = &#123;</span><br><span class="line">      count:<span class="number">100</span>,</span><br><span class="line">      list:[<span class="string">&#x27;test&#x27;</span>]</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="function"><span class="keyword">function</span>(<span class="params">state = <span class="built_in">Object</span>.assign(&#123;&#125;,defaultState),action = &#123;type:<span class="string">&#x27;&#x27;</span>,payload:&#123;&#125;&#125;</span>)</span>&#123;</span><br><span class="line">     <span class="keyword">let</span> &#123; type,payload&#125; = action;</span><br><span class="line">     <span class="keyword">if</span>(type === <span class="string">&#x27;addCount&#x27;</span>)&#123;</span><br><span class="line">         <span class="keyword">let</span> obj = <span class="built_in">Object</span>.assign(&#123;&#125;,state);</span><br><span class="line">         obj.count +=action.payload.num;</span><br><span class="line">         <span class="keyword">return</span> obj;</span><br><span class="line">     &#125;</span><br><span class="line">     <span class="keyword">if</span>(type ===<span class="string">&#x27;subCount&#x27;</span>)&#123;</span><br><span class="line">         <span class="keyword">let</span> obj = <span class="built_in">Object</span>.assign(&#123;&#125;,state);</span><br><span class="line">         obj.count -=action.payload.num;</span><br><span class="line">         <span class="keyword">return</span> obj;</span><br><span class="line">     &#125;</span><br><span class="line">     <span class="keyword">if</span>(type === <span class="string">&#x27;setList&#x27;</span>)&#123;</span><br><span class="line">         <span class="keyword">let</span> obj = <span class="built_in">Object</span>.assign(&#123;&#125;,state);</span><br><span class="line">         obj.list = action.payload.list;</span><br><span class="line">         <span class="keyword">return</span> obj;</span><br><span class="line">     &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">Object</span>.assign(&#123;&#125;,state,action);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+<p>//注: app.js dispatch提交的事件名可以和reducer.js action.type名不同，dispatch提交的事件将在saga.js的takeEvery中被监听</p>
+<p>使用saga.js需要在reducer中默认返回Object.assign({},state,action);</p>
+]]></content>
+      <tags>
+        <tag>react</tag>
       </tags>
   </entry>
   <entry>
@@ -315,6 +315,15 @@
       </tags>
   </entry>
   <entry>
+    <title>svg有趣的路径跟随动画</title>
+    <url>/2021/02/21/svg%E6%9C%89%E8%B6%A3%E7%9A%84%E8%B7%AF%E5%BE%84%E8%B7%9F%E9%9A%8F%E5%8A%A8%E7%94%BB/</url>
+    <content><![CDATA[<h2 id="svg有趣的路径跟随动画"><a href="#svg有趣的路径跟随动画" class="headerlink" title="svg有趣的路径跟随动画"></a>svg有趣的路径跟随动画</h2><figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE <span class="meta-keyword">html</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">html</span> <span class="attr">lang</span>=<span class="string">&quot;en&quot;</span>&gt;</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">&quot;UTF-8&quot;</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">&quot;viewport&quot;</span> <span class="attr">content</span>=<span class="string">&quot;width=device-width, initial-scale=1.0&quot;</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">title</span>&gt;</span>Document<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">style</span>&gt;</span></span><br><span class="line">            svg &#123;</span><br><span class="line"><span class="css">                <span class="attribute">width</span>: <span class="number">1000px</span>;</span></span><br><span class="line"><span class="css">                <span class="attribute">height</span>: <span class="number">500px</span>;</span></span><br><span class="line"><span class="css">                <span class="attribute">display</span>: block;</span></span><br><span class="line"><span class="css">                <span class="attribute">position</span>: absolute;</span></span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">            .ball &#123;</span><br><span class="line"><span class="css">                <span class="attribute">width</span>: <span class="number">30px</span>;</span></span><br><span class="line"><span class="css">                <span class="attribute">height</span>: <span class="number">30px</span>;</span></span><br><span class="line"><span class="css">                <span class="attribute">background-image</span>: <span class="built_in">url</span>(<span class="string">&quot;https://dss0.bdstatic.com/70cFuHSh_Q1YnxGkpoWK1HF6hhy/it/u=2659492506,3701770076&amp;fm=26&amp;gp=0.jpg&quot;</span>);</span></span><br><span class="line"><span class="css">                <span class="attribute">background-size</span>: cover;</span></span><br><span class="line"><span class="css">                <span class="attribute">background-color</span>: red;</span></span><br><span class="line"><span class="css">                <span class="attribute">border-radius</span>: <span class="number">50%</span>;</span></span><br><span class="line"><span class="css">                offset-path: <span class="built_in">path</span>(<span class="string">&#x27;m152.02274,236.91799c-1.38803,-4.14452 -1.51792,-8.59026 -1.51792,-8.59026c0,0 -17.49699,-13.80733 -26.08854,-21.6324c-7.24246,-6.60176 -19.26251,-25.52326 -19.26251,-25.52326c0,0 -0.63907,-4.782 0.48242,-4.91598c1.81903,-0.21222 11.24944,7.24974 20.4524,11.6062c9.47942,4.48786 20.35709,7.4396 20.35709,7.4396l11.89783,0c0,0 -9.77257,-23.28491 2.76343,-20.23326c4.52924,0.34634 7.03229,9.15509 13.93094,10.12379c8.08327,-1.80095 12.06365,-22.91908 12.06365,-22.91908c0,0 -2.45825,-3.93202 -2.34761,-7.66586c0.08915,-2.46869 2.76869,-5.28659 2.76869,-5.28659c0,0 -5.71537,0.86306 -9.63321,-0.27915c-3.53058,-1.03057 -8.92424,-5.03811 -10.35225,-8.00089c-1.76747,-3.66746 -1.30895,-7.72488 -3.18647,-10.05645c-0.18626,-1.82971 2.41195,-2.45343 3.79186,-1.59473c5.19447,3.2328 12.07883,3.57669 13.56458,4.23843c6.21673,2.76951 16.70173,3.15579 18.23062,2.6009c-13.75896,-15.53591 3.69685,-18.76134 6.12894,-19.09065c3.04365,2.99986 7.63002,6.60639 8.94483,9.88335c1.74266,1.99423 1.6009,-0.84057 1.6009,-0.84057c0,0 0.08915,-8.36127 4.06216,-14.62241c0.91583,-1.46061 5.97846,-6.12402 9.35359,-6.53211c1.22356,-0.14789 3.81817,-0.48114 6.57889,-2.72821c7.05349,-5.74142 26.29976,-4.78118 26.29976,-4.78118c0,0 1.5579,0.65343 4.47091,0.64225c2.5719,-0.01377 47.8293,-2.43475 66.33804,3.59986c12.44098,4.05619 34.69257,2.84311 61.4955,-4.09681c8.45986,-2.19036 32.89398,-2.75915 32.89398,-2.75915c0,0 9.24114,0.46465 16.74172,2.76337c11.69368,3.58377 33.9621,2.19636 47.60831,3.50894c5.26663,0.50827 15.35024,4.98291 23.69404,9.15986c26.23317,13.13182 41.52101,42.53899 39.67266,52.55482c-3.60229,19.52041 -25.05801,52.96005 -34.53653,67.6637c-3.8347,5.9486 -5.80933,14.98102 -4.97017,21.84925c0.24444,2.00022 -2.90294,7.00303 -8.87117,10.41356c-8.411,4.80667 -2.07099,11.85495 -1.29347,15.09443c0.77422,3.23102 0.51609,7.37541 -1.76702,8.29708c-2.27364,0.91581 -34.77059,6.07305 -35.72386,-0.80159c-4.75925,-7.76141 18.61051,-19.55026 15.93834,-33.25223c-7.64701,-9.11638 -9.42304,-29.42557 -10.64721,-32.54264c-1.28039,-14.02623 -26.33314,7.94719 -38.9658,12.44405c-36.307,12.92424 -77.27824,7.09817 -80.50049,6.01266c-4.4216,12.18262 0.24595,18.20523 0.54706,19.68819c-0.99385,8.30771 8.79029,21.62422 10.97584,29.78622c1.78927,6.54151 -28.78613,6.54151 -37.17127,6.28077c-6.90255,-1.68114 3.4742,-13.92864 5.1653,-15.29533c2.30251,-10.52192 -10.53912,-19.95439 -10.53912,-19.95439c0,0 -0.91718,9.43247 -3.46969,17.35171c0.10644,3.73275 4.20046,6.44542 4.79669,9.77417c0.63305,3.55501 -2.34761,4.01857 -2.34761,4.01857c0,0 -23.43967,3.81126 -29.34491,-0.61717c-2.96172,-0.84275 -5.54339,0.53062 -7.61754,-0.92998c-1.4411,-1.02212 0.93718,-6.86973 2.72254,-8.48681c1.52709,-1.39055 11.71743,-1.69068 11.79636,-12.88239c-2.525,-19.88011 -23.31625,-28.20281 -24.86483,-35.936c-10.07008,3.57178 -20.6582,-3.14147 -20.6582,-3.14147c0,0 -2.76854,2.90704 -5.81685,3.45701c-2.44592,0.43576 -11.41872,-4.78909 -14.42358,-7.83324c-0.9698,11.92174 -11.80853,8.74101 -11.80853,8.74101c0,0 -3.83185,5.85742 -9.92215,8.68785c-15.01244,6.97713 -17.76429,6.42225 -23.96133,11.74605c-3.49014,2.99822 -9.62419,-1.43171 -13.67703,-0.05275c-14.67614,4.99367 -23.54295,-1.38714 -22.843,-15.55267z&#x27;</span>);</span></span><br><span class="line"><span class="css">                offset-distance: <span class="number">0%</span>;</span></span><br><span class="line"><span class="css">                <span class="attribute">animation</span>: red-ball1 <span class="number">30s</span> linear <span class="number">1</span>;</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">            &#125;</span><br><span class="line">    </span><br><span class="line">            #svg_2&#123;</span><br><span class="line"><span class="css">                stroke-dasharray: <span class="number">1700px</span>;</span></span><br><span class="line"><span class="css">                stroke-dashoffset: <span class="number">1700px</span>;</span></span><br><span class="line"><span class="css">                <span class="attribute">animation</span>: change <span class="number">29s</span>  linear <span class="number">1</span>;</span></span><br><span class="line">            &#125;</span><br><span class="line"><span class="css">            <span class="keyword">@keyframes</span>  change &#123;</span></span><br><span class="line">                0%&#123;</span><br><span class="line"><span class="css">                    stroke-dashoffset: <span class="number">1700px</span>;</span></span><br><span class="line">                &#125;</span><br><span class="line">                100%&#123;</span><br><span class="line"><span class="css">                    stroke-dashoffset: <span class="number">0</span>;</span></span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line"><span class="css">            <span class="keyword">@keyframes</span> red-ball1 &#123;</span></span><br><span class="line"><span class="css">                <span class="selector-tag">from</span> &#123;</span></span><br><span class="line"><span class="css">                    offset-distance: <span class="number">0%</span>;</span></span><br><span class="line">                &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="css">                <span class="selector-tag">to</span> &#123;</span></span><br><span class="line"><span class="css">                    offset-distance: <span class="number">100%</span>;</span></span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        <span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">svg</span> <span class="attr">width</span>=<span class="string">&quot;600&quot;</span> <span class="attr">height</span>=<span class="string">&quot;400&quot;</span> <span class="attr">xmlns</span>=<span class="string">&quot;http://www.w3.org/2000/svg&quot;</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">path</span> <span class="attr">id</span>=<span class="string">&quot;svg_2&quot;</span></span></span><br><span class="line"><span class="tag">                <span class="attr">d</span>=<span class="string">&quot;m152.02274,236.91799c-1.38803,-4.14452 -1.51792,-8.59026 -1.51792,-8.59026c0,0 -17.49699,-13.80733 -26.08854,-21.6324c-7.24246,-6.60176 -19.26251,-25.52326 -19.26251,-25.52326c0,0 -0.63907,-4.782 0.48242,-4.91598c1.81903,-0.21222 11.24944,7.24974 20.4524,11.6062c9.47942,4.48786 20.35709,7.4396 20.35709,7.4396l11.89783,0c0,0 -9.77257,-23.28491 2.76343,-20.23326c4.52924,0.34634 7.03229,9.15509 13.93094,10.12379c8.08327,-1.80095 12.06365,-22.91908 12.06365,-22.91908c0,0 -2.45825,-3.93202 -2.34761,-7.66586c0.08915,-2.46869 2.76869,-5.28659 2.76869,-5.28659c0,0 -5.71537,0.86306 -9.63321,-0.27915c-3.53058,-1.03057 -8.92424,-5.03811 -10.35225,-8.00089c-1.76747,-3.66746 -1.30895,-7.72488 -3.18647,-10.05645c-0.18626,-1.82971 2.41195,-2.45343 3.79186,-1.59473c5.19447,3.2328 12.07883,3.57669 13.56458,4.23843c6.21673,2.76951 16.70173,3.15579 18.23062,2.6009c-13.75896,-15.53591 3.69685,-18.76134 6.12894,-19.09065c3.04365,2.99986 7.63002,6.60639 8.94483,9.88335c1.74266,1.99423 1.6009,-0.84057 1.6009,-0.84057c0,0 0.08915,-8.36127 4.06216,-14.62241c0.91583,-1.46061 5.97846,-6.12402 9.35359,-6.53211c1.22356,-0.14789 3.81817,-0.48114 6.57889,-2.72821c7.05349,-5.74142 26.29976,-4.78118 26.29976,-4.78118c0,0 1.5579,0.65343 4.47091,0.64225c2.5719,-0.01377 47.8293,-2.43475 66.33804,3.59986c12.44098,4.05619 34.69257,2.84311 61.4955,-4.09681c8.45986,-2.19036 32.89398,-2.75915 32.89398,-2.75915c0,0 9.24114,0.46465 16.74172,2.76337c11.69368,3.58377 33.9621,2.19636 47.60831,3.50894c5.26663,0.50827 15.35024,4.98291 23.69404,9.15986c26.23317,13.13182 41.52101,42.53899 39.67266,52.55482c-3.60229,19.52041 -25.05801,52.96005 -34.53653,67.6637c-3.8347,5.9486 -5.80933,14.98102 -4.97017,21.84925c0.24444,2.00022 -2.90294,7.00303 -8.87117,10.41356c-8.411,4.80667 -2.07099,11.85495 -1.29347,15.09443c0.77422,3.23102 0.51609,7.37541 -1.76702,8.29708c-2.27364,0.91581 -34.77059,6.07305 -35.72386,-0.80159c-4.75925,-7.76141 18.61051,-19.55026 15.93834,-33.25223c-7.64701,-9.11638 -9.42304,-29.42557 -10.64721,-32.54264c-1.28039,-14.02623 -26.33314,7.94719 -38.9658,12.44405c-36.307,12.92424 -77.27824,7.09817 -80.50049,6.01266c-4.4216,12.18262 0.24595,18.20523 0.54706,19.68819c-0.99385,8.30771 8.79029,21.62422 10.97584,29.78622c1.78927,6.54151 -28.78613,6.54151 -37.17127,6.28077c-6.90255,-1.68114 3.4742,-13.92864 5.1653,-15.29533c2.30251,-10.52192 -10.53912,-19.95439 -10.53912,-19.95439c0,0 -0.91718,9.43247 -3.46969,17.35171c0.10644,3.73275 4.20046,6.44542 4.79669,9.77417c0.63305,3.55501 -2.34761,4.01857 -2.34761,4.01857c0,0 -23.43967,3.81126 -29.34491,-0.61717c-2.96172,-0.84275 -5.54339,0.53062 -7.61754,-0.92998c-1.4411,-1.02212 0.93718,-6.86973 2.72254,-8.48681c1.52709,-1.39055 11.71743,-1.69068 11.79636,-12.88239c-2.525,-19.88011 -23.31625,-28.20281 -24.86483,-35.936c-10.07008,3.57178 -20.6582,-3.14147 -20.6582,-3.14147c0,0 -2.76854,2.90704 -5.81685,3.45701c-2.44592,0.43576 -11.41872,-4.78909 -14.42358,-7.83324c-0.9698,11.92174 -11.80853,8.74101 -11.80853,8.74101c0,0 -3.83185,5.85742 -9.92215,8.68785c-15.01244,6.97713 -17.76429,6.42225 -23.96133,11.74605c-3.49014,2.99822 -9.62419,-1.43171 -13.67703,-0.05275c-14.67614,4.99367 -23.54295,-1.38714 -22.843,-15.55267z&quot;</span></span></span><br><span class="line"><span class="tag">                <span class="attr">stroke-width</span>=<span class="string">&quot;1.5&quot;</span> <span class="attr">stroke</span>=<span class="string">&quot;#000&quot;</span> <span class="attr">fill</span>=<span class="string">&quot;#fff&quot;</span> /&gt;</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">        <span class="tag">&lt;/<span class="name">svg</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;ball bar1&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+]]></content>
+      <tags>
+        <tag>svg</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>vue双向绑定原理分析</title>
     <url>/2021/02/21/vue%E5%8F%8C%E5%90%91%E7%BB%91%E5%AE%9A%E5%8E%9F%E7%90%86%E5%88%86%E6%9E%90/</url>
     <content><![CDATA[<h2 id="vue双向绑定原理分析"><a href="#vue双向绑定原理分析" class="headerlink" title="vue双向绑定原理分析"></a>vue双向绑定原理分析</h2><p><strong>1.vue双向绑定原理</strong></p>
@@ -333,15 +342,6 @@
 ]]></content>
       <tags>
         <tag>vue</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>svg有趣的路径跟随动画</title>
-    <url>/2021/02/21/svg%E6%9C%89%E8%B6%A3%E7%9A%84%E8%B7%AF%E5%BE%84%E8%B7%9F%E9%9A%8F%E5%8A%A8%E7%94%BB/</url>
-    <content><![CDATA[<h2 id="svg有趣的路径跟随动画"><a href="#svg有趣的路径跟随动画" class="headerlink" title="svg有趣的路径跟随动画"></a>svg有趣的路径跟随动画</h2><figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE <span class="meta-keyword">html</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">html</span> <span class="attr">lang</span>=<span class="string">&quot;en&quot;</span>&gt;</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">&quot;UTF-8&quot;</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">&quot;viewport&quot;</span> <span class="attr">content</span>=<span class="string">&quot;width=device-width, initial-scale=1.0&quot;</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">title</span>&gt;</span>Document<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">style</span>&gt;</span></span><br><span class="line">            svg &#123;</span><br><span class="line"><span class="css">                <span class="attribute">width</span>: <span class="number">1000px</span>;</span></span><br><span class="line"><span class="css">                <span class="attribute">height</span>: <span class="number">500px</span>;</span></span><br><span class="line"><span class="css">                <span class="attribute">display</span>: block;</span></span><br><span class="line"><span class="css">                <span class="attribute">position</span>: absolute;</span></span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">            .ball &#123;</span><br><span class="line"><span class="css">                <span class="attribute">width</span>: <span class="number">30px</span>;</span></span><br><span class="line"><span class="css">                <span class="attribute">height</span>: <span class="number">30px</span>;</span></span><br><span class="line"><span class="css">                <span class="attribute">background-image</span>: <span class="built_in">url</span>(<span class="string">&quot;https://dss0.bdstatic.com/70cFuHSh_Q1YnxGkpoWK1HF6hhy/it/u=2659492506,3701770076&amp;fm=26&amp;gp=0.jpg&quot;</span>);</span></span><br><span class="line"><span class="css">                <span class="attribute">background-size</span>: cover;</span></span><br><span class="line"><span class="css">                <span class="attribute">background-color</span>: red;</span></span><br><span class="line"><span class="css">                <span class="attribute">border-radius</span>: <span class="number">50%</span>;</span></span><br><span class="line"><span class="css">                offset-path: <span class="built_in">path</span>(<span class="string">&#x27;m152.02274,236.91799c-1.38803,-4.14452 -1.51792,-8.59026 -1.51792,-8.59026c0,0 -17.49699,-13.80733 -26.08854,-21.6324c-7.24246,-6.60176 -19.26251,-25.52326 -19.26251,-25.52326c0,0 -0.63907,-4.782 0.48242,-4.91598c1.81903,-0.21222 11.24944,7.24974 20.4524,11.6062c9.47942,4.48786 20.35709,7.4396 20.35709,7.4396l11.89783,0c0,0 -9.77257,-23.28491 2.76343,-20.23326c4.52924,0.34634 7.03229,9.15509 13.93094,10.12379c8.08327,-1.80095 12.06365,-22.91908 12.06365,-22.91908c0,0 -2.45825,-3.93202 -2.34761,-7.66586c0.08915,-2.46869 2.76869,-5.28659 2.76869,-5.28659c0,0 -5.71537,0.86306 -9.63321,-0.27915c-3.53058,-1.03057 -8.92424,-5.03811 -10.35225,-8.00089c-1.76747,-3.66746 -1.30895,-7.72488 -3.18647,-10.05645c-0.18626,-1.82971 2.41195,-2.45343 3.79186,-1.59473c5.19447,3.2328 12.07883,3.57669 13.56458,4.23843c6.21673,2.76951 16.70173,3.15579 18.23062,2.6009c-13.75896,-15.53591 3.69685,-18.76134 6.12894,-19.09065c3.04365,2.99986 7.63002,6.60639 8.94483,9.88335c1.74266,1.99423 1.6009,-0.84057 1.6009,-0.84057c0,0 0.08915,-8.36127 4.06216,-14.62241c0.91583,-1.46061 5.97846,-6.12402 9.35359,-6.53211c1.22356,-0.14789 3.81817,-0.48114 6.57889,-2.72821c7.05349,-5.74142 26.29976,-4.78118 26.29976,-4.78118c0,0 1.5579,0.65343 4.47091,0.64225c2.5719,-0.01377 47.8293,-2.43475 66.33804,3.59986c12.44098,4.05619 34.69257,2.84311 61.4955,-4.09681c8.45986,-2.19036 32.89398,-2.75915 32.89398,-2.75915c0,0 9.24114,0.46465 16.74172,2.76337c11.69368,3.58377 33.9621,2.19636 47.60831,3.50894c5.26663,0.50827 15.35024,4.98291 23.69404,9.15986c26.23317,13.13182 41.52101,42.53899 39.67266,52.55482c-3.60229,19.52041 -25.05801,52.96005 -34.53653,67.6637c-3.8347,5.9486 -5.80933,14.98102 -4.97017,21.84925c0.24444,2.00022 -2.90294,7.00303 -8.87117,10.41356c-8.411,4.80667 -2.07099,11.85495 -1.29347,15.09443c0.77422,3.23102 0.51609,7.37541 -1.76702,8.29708c-2.27364,0.91581 -34.77059,6.07305 -35.72386,-0.80159c-4.75925,-7.76141 18.61051,-19.55026 15.93834,-33.25223c-7.64701,-9.11638 -9.42304,-29.42557 -10.64721,-32.54264c-1.28039,-14.02623 -26.33314,7.94719 -38.9658,12.44405c-36.307,12.92424 -77.27824,7.09817 -80.50049,6.01266c-4.4216,12.18262 0.24595,18.20523 0.54706,19.68819c-0.99385,8.30771 8.79029,21.62422 10.97584,29.78622c1.78927,6.54151 -28.78613,6.54151 -37.17127,6.28077c-6.90255,-1.68114 3.4742,-13.92864 5.1653,-15.29533c2.30251,-10.52192 -10.53912,-19.95439 -10.53912,-19.95439c0,0 -0.91718,9.43247 -3.46969,17.35171c0.10644,3.73275 4.20046,6.44542 4.79669,9.77417c0.63305,3.55501 -2.34761,4.01857 -2.34761,4.01857c0,0 -23.43967,3.81126 -29.34491,-0.61717c-2.96172,-0.84275 -5.54339,0.53062 -7.61754,-0.92998c-1.4411,-1.02212 0.93718,-6.86973 2.72254,-8.48681c1.52709,-1.39055 11.71743,-1.69068 11.79636,-12.88239c-2.525,-19.88011 -23.31625,-28.20281 -24.86483,-35.936c-10.07008,3.57178 -20.6582,-3.14147 -20.6582,-3.14147c0,0 -2.76854,2.90704 -5.81685,3.45701c-2.44592,0.43576 -11.41872,-4.78909 -14.42358,-7.83324c-0.9698,11.92174 -11.80853,8.74101 -11.80853,8.74101c0,0 -3.83185,5.85742 -9.92215,8.68785c-15.01244,6.97713 -17.76429,6.42225 -23.96133,11.74605c-3.49014,2.99822 -9.62419,-1.43171 -13.67703,-0.05275c-14.67614,4.99367 -23.54295,-1.38714 -22.843,-15.55267z&#x27;</span>);</span></span><br><span class="line"><span class="css">                offset-distance: <span class="number">0%</span>;</span></span><br><span class="line"><span class="css">                <span class="attribute">animation</span>: red-ball1 <span class="number">30s</span> linear <span class="number">1</span>;</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">            &#125;</span><br><span class="line">    </span><br><span class="line">            #svg_2&#123;</span><br><span class="line"><span class="css">                stroke-dasharray: <span class="number">1700px</span>;</span></span><br><span class="line"><span class="css">                stroke-dashoffset: <span class="number">1700px</span>;</span></span><br><span class="line"><span class="css">                <span class="attribute">animation</span>: change <span class="number">29s</span>  linear <span class="number">1</span>;</span></span><br><span class="line">            &#125;</span><br><span class="line"><span class="css">            <span class="keyword">@keyframes</span>  change &#123;</span></span><br><span class="line">                0%&#123;</span><br><span class="line"><span class="css">                    stroke-dashoffset: <span class="number">1700px</span>;</span></span><br><span class="line">                &#125;</span><br><span class="line">                100%&#123;</span><br><span class="line"><span class="css">                    stroke-dashoffset: <span class="number">0</span>;</span></span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line"><span class="css">            <span class="keyword">@keyframes</span> red-ball1 &#123;</span></span><br><span class="line"><span class="css">                <span class="selector-tag">from</span> &#123;</span></span><br><span class="line"><span class="css">                    offset-distance: <span class="number">0%</span>;</span></span><br><span class="line">                &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="css">                <span class="selector-tag">to</span> &#123;</span></span><br><span class="line"><span class="css">                    offset-distance: <span class="number">100%</span>;</span></span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        <span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">svg</span> <span class="attr">width</span>=<span class="string">&quot;600&quot;</span> <span class="attr">height</span>=<span class="string">&quot;400&quot;</span> <span class="attr">xmlns</span>=<span class="string">&quot;http://www.w3.org/2000/svg&quot;</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">path</span> <span class="attr">id</span>=<span class="string">&quot;svg_2&quot;</span></span></span><br><span class="line"><span class="tag">                <span class="attr">d</span>=<span class="string">&quot;m152.02274,236.91799c-1.38803,-4.14452 -1.51792,-8.59026 -1.51792,-8.59026c0,0 -17.49699,-13.80733 -26.08854,-21.6324c-7.24246,-6.60176 -19.26251,-25.52326 -19.26251,-25.52326c0,0 -0.63907,-4.782 0.48242,-4.91598c1.81903,-0.21222 11.24944,7.24974 20.4524,11.6062c9.47942,4.48786 20.35709,7.4396 20.35709,7.4396l11.89783,0c0,0 -9.77257,-23.28491 2.76343,-20.23326c4.52924,0.34634 7.03229,9.15509 13.93094,10.12379c8.08327,-1.80095 12.06365,-22.91908 12.06365,-22.91908c0,0 -2.45825,-3.93202 -2.34761,-7.66586c0.08915,-2.46869 2.76869,-5.28659 2.76869,-5.28659c0,0 -5.71537,0.86306 -9.63321,-0.27915c-3.53058,-1.03057 -8.92424,-5.03811 -10.35225,-8.00089c-1.76747,-3.66746 -1.30895,-7.72488 -3.18647,-10.05645c-0.18626,-1.82971 2.41195,-2.45343 3.79186,-1.59473c5.19447,3.2328 12.07883,3.57669 13.56458,4.23843c6.21673,2.76951 16.70173,3.15579 18.23062,2.6009c-13.75896,-15.53591 3.69685,-18.76134 6.12894,-19.09065c3.04365,2.99986 7.63002,6.60639 8.94483,9.88335c1.74266,1.99423 1.6009,-0.84057 1.6009,-0.84057c0,0 0.08915,-8.36127 4.06216,-14.62241c0.91583,-1.46061 5.97846,-6.12402 9.35359,-6.53211c1.22356,-0.14789 3.81817,-0.48114 6.57889,-2.72821c7.05349,-5.74142 26.29976,-4.78118 26.29976,-4.78118c0,0 1.5579,0.65343 4.47091,0.64225c2.5719,-0.01377 47.8293,-2.43475 66.33804,3.59986c12.44098,4.05619 34.69257,2.84311 61.4955,-4.09681c8.45986,-2.19036 32.89398,-2.75915 32.89398,-2.75915c0,0 9.24114,0.46465 16.74172,2.76337c11.69368,3.58377 33.9621,2.19636 47.60831,3.50894c5.26663,0.50827 15.35024,4.98291 23.69404,9.15986c26.23317,13.13182 41.52101,42.53899 39.67266,52.55482c-3.60229,19.52041 -25.05801,52.96005 -34.53653,67.6637c-3.8347,5.9486 -5.80933,14.98102 -4.97017,21.84925c0.24444,2.00022 -2.90294,7.00303 -8.87117,10.41356c-8.411,4.80667 -2.07099,11.85495 -1.29347,15.09443c0.77422,3.23102 0.51609,7.37541 -1.76702,8.29708c-2.27364,0.91581 -34.77059,6.07305 -35.72386,-0.80159c-4.75925,-7.76141 18.61051,-19.55026 15.93834,-33.25223c-7.64701,-9.11638 -9.42304,-29.42557 -10.64721,-32.54264c-1.28039,-14.02623 -26.33314,7.94719 -38.9658,12.44405c-36.307,12.92424 -77.27824,7.09817 -80.50049,6.01266c-4.4216,12.18262 0.24595,18.20523 0.54706,19.68819c-0.99385,8.30771 8.79029,21.62422 10.97584,29.78622c1.78927,6.54151 -28.78613,6.54151 -37.17127,6.28077c-6.90255,-1.68114 3.4742,-13.92864 5.1653,-15.29533c2.30251,-10.52192 -10.53912,-19.95439 -10.53912,-19.95439c0,0 -0.91718,9.43247 -3.46969,17.35171c0.10644,3.73275 4.20046,6.44542 4.79669,9.77417c0.63305,3.55501 -2.34761,4.01857 -2.34761,4.01857c0,0 -23.43967,3.81126 -29.34491,-0.61717c-2.96172,-0.84275 -5.54339,0.53062 -7.61754,-0.92998c-1.4411,-1.02212 0.93718,-6.86973 2.72254,-8.48681c1.52709,-1.39055 11.71743,-1.69068 11.79636,-12.88239c-2.525,-19.88011 -23.31625,-28.20281 -24.86483,-35.936c-10.07008,3.57178 -20.6582,-3.14147 -20.6582,-3.14147c0,0 -2.76854,2.90704 -5.81685,3.45701c-2.44592,0.43576 -11.41872,-4.78909 -14.42358,-7.83324c-0.9698,11.92174 -11.80853,8.74101 -11.80853,8.74101c0,0 -3.83185,5.85742 -9.92215,8.68785c-15.01244,6.97713 -17.76429,6.42225 -23.96133,11.74605c-3.49014,2.99822 -9.62419,-1.43171 -13.67703,-0.05275c-14.67614,4.99367 -23.54295,-1.38714 -22.843,-15.55267z&quot;</span></span></span><br><span class="line"><span class="tag">                <span class="attr">stroke-width</span>=<span class="string">&quot;1.5&quot;</span> <span class="attr">stroke</span>=<span class="string">&quot;#000&quot;</span> <span class="attr">fill</span>=<span class="string">&quot;#fff&quot;</span> /&gt;</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">        <span class="tag">&lt;/<span class="name">svg</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;ball bar1&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
-]]></content>
-      <tags>
-        <tag>svg</tag>
       </tags>
   </entry>
   <entry>
@@ -371,6 +371,218 @@
 <h4 id="感谢余大佬提点"><a href="#感谢余大佬提点" class="headerlink" title="感谢余大佬提点"></a>感谢余大佬提点</h4>]]></content>
       <tags>
         <tag>算法</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>不爱你，不度生</title>
+    <url>/2021/02/21/%E4%B8%8D%E7%88%B1%E4%BD%A0%EF%BC%8C%E4%B8%8D%E5%BA%A6%E7%94%9F/</url>
+    <content><![CDATA[<h2 id="不爱你，不度生"><a href="#不爱你，不度生" class="headerlink" title="不爱你，不度生"></a>不爱你，不度生</h2><blockquote>
+<p>你是否和我一样，因为一则故事，记忆犹新</p>
+</blockquote>
+<p>18岁，你读了大学。</p>
+<p>20岁，你大二结束，开始悔恨</p>
+<p>自己前两年幼稚的行为</p>
+<p>于是开始努力</p>
+<p>22岁你大学毕业了，却发现</p>
+<p>找不到一份令自己满意的工作</p>
+<p>26岁，你看着身边的人都结了婚</p>
+<p>婚礼的份子钱逐年递增</p>
+<p>春节回家，父母从带你串亲戚</p>
+<p>变成了带你去见相亲对象</p>
+<p>见了十几个姑娘</p>
+<p>你每次都觉得和那个她比</p>
+<p>差了一点</p>
+<p>28岁那年，你遇到了一个和你遭遇差不多的姑娘</p>
+<p>你们有一搭没一搭的聊着</p>
+<p>她说：你还不错</p>
+<p>你喝了一口可乐说：你也是</p>
+<p>你还不确定喜不喜欢她</p>
+<p>双方家长就已经摆好了订婚宴</p>
+<p>结婚的前一周，你和朋友出去喝酒</p>
+<p>你说，不想结婚</p>
+<p>朋友说，你啊，就是想太多。谁不是这么过来的？</p>
+<p>29岁，你们终于结了婚</p>
+<p>婚礼办的不大不小，朋友来的不多不少</p>
+<p>攒了几年想要去实现理想的钱</p>
+<p>搭在了这一场百人的私人庙会上</p>
+<p>婚礼进行到中间</p>
+<p>司仪带着标准的商业化微笑</p>
+<p>对着台下的亲朋喊道</p>
+<p>要不要让他们亲一个！</p>
+<p>台下那些人跟着一起起哄</p>
+<p>不知道为什么</p>
+<p>你简简单单的亲了一口</p>
+<p>俩人恢复到了一开始的站位</p>
+<p>你小声说了一句：我爱你</p>
+<p>那个昨天还看不惯你倒腾模型的新娘</p>
+<p>愣了一下说：我也爱你</p>
+<p>你不确定她是不是对你说的</p>
+<p>就像你不确定是不是对她说的一样</p>
+<p>婚礼结束后，并没有你想象的浪漫</p>
+<p>你听着外屋的新娘一笔一笔的算着份子钱</p>
+<p>想着不过才两年，怎么就变成这样了</p>
+<p>想着想着，洞房夜就睡着了</p>
+<p>30岁，她怀孕了</p>
+<p>辞掉了工作，在家养胎</p>
+<p>你在公司逐渐有了点地位</p>
+<p>手里管着十来个人</p>
+<p>独立负责一个项目</p>
+<p>结婚前陪嫁的那辆20万左右的车</p>
+<p>也变成了你一个人的独享</p>
+<p>但你依然不敢放松</p>
+<p>每次加班</p>
+<p>电话那头都是抱怨与委屈</p>
+<p>但你不能争辩什么</p>
+<p>谁让她怀了你的孩子</p>
+<p>在这一刻</p>
+<p>不论是她的父母还是你的父母</p>
+<p>都无条件的站在这一边</p>
+<p>31岁，孩子落地了</p>
+<p>前前后后连孕检带住院费花了10万块钱</p>
+<p>不过无所谓</p>
+<p>你看着你的孩子，怎么看怎么喜欢</p>
+<p>高兴的仿佛这是你的新生</p>
+<p>32岁，这是人生最不愿意重复的一年</p>
+<p>平均睡眠3小时</p>
+<p>孩子每一个小时都要闹腾一次</p>
+<p>第二天拖着睡不醒的眼睛去上班</p>
+<p>老板说你上班不干活</p>
+<p>回家媳妇说你不干活</p>
+<p>你想了半天不明白，那谁干活呢？</p>
+<p>那辆开了3年的车</p>
+<p>成为了你真正的家</p>
+<p>你不在抱怨路上拥堵的交通</p>
+<p>你甚至开始希望</p>
+<p>再多堵一会</p>
+<p>回到家，你关了发动机</p>
+<p>在车上点了一根烟</p>
+<p>这是你每天最幸福的十分钟</p>
+<p>车前是功名利禄，车尾是柴米油盐</p>
+<p>35岁 你因为身体越来越差</p>
+<p>加班越来越少</p>
+<p>晋升的速度也越来越缓慢</p>
+<p>那天下班，媳妇告诉你</p>
+<p>孩子要上幼儿园了</p>
+<p>双语的一个月3000</p>
+<p>你皱了皱眉头，那边就已经不耐烦了</p>
+<p>“四单元的老王家孩子，一个月6000”</p>
+<p>“你已经这样了，你想让孩子也输？”</p>
+<p>你没说话，回屋给媳妇转了6000块钱</p>
+<p>这笔钱，你原本打算给自己过个生日，买个新电脑</p>
+<p>38岁，孩子上了一年级</p>
+<p>老师说一年级最关键，打好基础很重要</p>
+<p>你笑着说，是是是，老师您多照顾</p>
+<p>新生接待的老师看着你不明事理的脸</p>
+<p>给你指了一条明路</p>
+<p>“课外辅导班，一个月2200”</p>
+<p>40岁的时候，孩子上了三年级</p>
+<p>老师说，三年级，最关键，承上启下很重要</p>
+<p>你笑着说：是是是，正打算再报个补习班</p>
+<p>44岁，孩子上了初中</p>
+<p>有一天回到家，她对你说</p>
+<p>爸爸，我想学钢琴</p>
+<p>你没什么犹豫的</p>
+<p>你以为这些年，你已经习惯了</p>
+<p>但那句“爸爸现在买不起”你始终说不出口</p>
+<p>好在孩子比较懂事</p>
+<p>她说：爸爸没事，要不我先学陶笛也可以</p>
+<p>你看着这么懂事的孩子，却开心不起来</p>
+<p>46岁，孩子上了一个不好不差的高中</p>
+<p>有一天你在开会，接到了老师的电话</p>
+<p>电话里说你的孩子在学校打架了</p>
+<p>叫你去一趟</p>
+<p>你唯唯诺诺的</p>
+<p>和那个比你还小5岁的领导请了个假</p>
+<p>到学校又被老师训了一通</p>
+<p>无非台词就是那一句</p>
+<p>你们做家长的就知道工作，能不能陪陪孩子</p>
+<p>你看着这个老师，有点可笑</p>
+<p>好像当时说：</p>
+<p>家长在外辛苦点</p>
+<p>多赚点钱让孩子多补补课的和他不是一个人</p>
+<p>50岁，孩子上了大学</p>
+<p>很争气，是一个一本</p>
+<p>他学的专业你有点看不懂</p>
+<p>你只知道工作不一定好找</p>
+<p>而且学费还死贵</p>
+<p>你和他深夜想聊聊</p>
+<p>准备了半斤白酒，一碟花生米</p>
+<p>你说着那些曾经你最讨厌的话</p>
+<p>还是要为以后工作着想</p>
+<p>挑个热门的专业</p>
+<p>活着比热爱重要</p>
+<p>你们从交流变成了争吵</p>
+<p>你发现，你老了</p>
+<p>老到可能都打不过这个18岁的孩子</p>
+<p>你说不过他，只能说一句：我是你爸爸！</p>
+<p>孩子看着你，知道再怎么争辩都没用</p>
+<p>这场确立你最后威严的酒局不欢而散</p>
+<p>你听的不真切</p>
+<p>在孩子回自己屋的路上好像叨叨了一句</p>
+<p>“我不想活的像你一样”</p>
+<p>怎么就哭了呢？50岁的人了</p>
+<p>一定是酒太辣了，对不对</p>
+<p>一定是酒太辣了</p>
+<p>55岁，孩子工作了，似乎有一点理解你了</p>
+<p>但你却反了过来，你说不要妥协</p>
+<p>56岁，孩子也结婚了</p>
+<p>你问他喜欢那个姑娘么</p>
+<p>他愣了愣说：喜欢吧</p>
+<p>60岁，辛苦了一辈子，想出去走走</p>
+<p>身边的那个人过了30年</p>
+<p>你依旧分不清到底喜不喜欢</p>
+<p>你们开始规划旅游路线</p>
+<p>这么多年了</p>
+<p>你们还是存在分歧，还是在争吵</p>
+<p>某个瞬间，你觉得</p>
+<p>这样可能也挺好</p>
+<p>一切都准备好了</p>
+<p>儿子说：爸妈，我工作太忙了</p>
+<p>可以帮我照顾一下孩子么</p>
+<p>你们退了机票，又回到了30年前</p>
+<p>70岁，孩子的孩子也长大了，不用天天操心了</p>
+<p>你下定决心说：一定要去玩一趟</p>
+<p>可是手边的拐杖</p>
+<p>只能支持你走到楼下的花园</p>
+<p>75岁，你在医院的病床上</p>
+<p>身边聚满了人，你迷迷糊糊的看见医生摇了摇头</p>
+<p>周围那些人神情肃穆</p>
+<p>你明白了，你要死掉了</p>
+<p>你没有感到一丝害怕</p>
+<p>你突然问自己，我到底是什么时候死掉的呢？</p>
+<p>你想起来30岁的那场婚礼</p>
+<p>原来，那时候，你就死掉了吧</p>
+<p>依照惯例</p>
+<p>死前的3秒，你的大脑要走马灯</p>
+<p>倒叙你这75个年头的一生</p>
+<p>画面一张一张的过</p>
+<p>1秒</p>
+<p>2秒</p>
+<p>两秒过去了</p>
+<p>你面无表情的看着这两秒内的回忆</p>
+<p>第3秒</p>
+<p>突然你笑了</p>
+<p>原来已经回到了15岁的那一年</p>
+<p>你看见一个男孩</p>
+<p>他叼着一袋牛奶，背着书包</p>
+<p>从另一个女孩家的阳台下跑过</p>
+<p>那个男孩朝窗户里看了看</p>
+<p>那是15岁的你暗恋的那个女孩子</p>
+<p>你想不起来她长什么样子了</p>
+<p>最后一秒你努力的回忆着</p>
+<p>然后终于笑了出来</p>
+<p>3秒过去了</p>
+<p>身边的人突然间开始嚎啕大哭</p>
+<p>你可能听不清了</p>
+<p>你最后听到的嘈杂的声音</p>
+<p>是一群十五六的少年 起着哄说的</p>
+<p>答应他</p>
+<p>答应他</p>
+<p>答应他</p>
+<p>不爱你，不度生</p>
+]]></content>
+      <tags>
+        <tag>情感</tag>
       </tags>
   </entry>
   <entry>
@@ -478,248 +690,6 @@
 <p>“好咧——阳春面三碗——”可泪流满面的丈夫却应不出声来。</p>
 <p>店里，突然爆发出一阵欢呼声和鼓掌声。</p>
 <p>店外，刚才还在纷纷扬扬的飘着的雪，此刻也停了。皑皑白雪映着明净的窗子，那写着“北海亭”的布帘子，在正月的清风中，摇曳着，飘着……</p>
-]]></content>
-      <tags>
-        <tag>情感</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>不爱你，不度生</title>
-    <url>/2021/02/21/%E4%B8%8D%E7%88%B1%E4%BD%A0%EF%BC%8C%E4%B8%8D%E5%BA%A6%E7%94%9F/</url>
-    <content><![CDATA[<h2 id="不爱你，不度生"><a href="#不爱你，不度生" class="headerlink" title="不爱你，不度生"></a>不爱你，不度生</h2><blockquote>
-<p>你是否和我一样，因为一则故事，记忆犹新</p>
-</blockquote>
-<p>18岁，你读了大学。</p>
-<p>20岁，你大二结束，开始悔恨</p>
-<p>自己前两年幼稚的行为</p>
-<p>于是开始努力</p>
-<p>22岁你大学毕业了，却发现</p>
-<p>找不到一份令自己满意的工作</p>
-<p>26岁，你看着身边的人都结了婚</p>
-<p>婚礼的份子钱逐年递增</p>
-<p>春节回家，父母从带你串亲戚</p>
-<p>变成了带你去见相亲对象</p>
-<p>见了十几个姑娘</p>
-<p>你每次都觉得和那个她比</p>
-<p>差了一点</p>
-<p>28岁那年，你遇到了一个和你遭遇差不多的姑娘</p>
-<p>你们有一搭没一搭的聊着</p>
-<p>她说：你还不错</p>
-<p>你喝了一口可乐说：你也是</p>
-<p>你还不确定喜不喜欢她</p>
-<p>双方家长就已经摆好了订婚宴</p>
-<p>结婚的前一周，你和朋友出去喝酒</p>
-<p>你说，不想结婚</p>
-<p>朋友说，你啊，就是想太多。谁不是这么过来的？</p>
-<p><img  
-                     lazyload
-                     src="/images/loading.svg"
-                     data-src="https://upload-images.jianshu.io/upload_images/6908365-6e5ff76934daea8b.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1200/format/webp"
-                      alt="img"
-                ></p>
-<p>29岁，你们终于结了婚</p>
-<p>婚礼办的不大不小，朋友来的不多不少</p>
-<p>攒了几年想要去实现理想的钱</p>
-<p>搭在了这一场百人的私人庙会上</p>
-<p>婚礼进行到中间</p>
-<p>司仪带着标准的商业化微笑</p>
-<p>对着台下的亲朋喊道</p>
-<p>要不要让他们亲一个！</p>
-<p>台下那些人跟着一起起哄</p>
-<p>不知道为什么</p>
-<p>你简简单单的亲了一口</p>
-<p>俩人恢复到了一开始的站位</p>
-<p>你小声说了一句：我爱你</p>
-<p>那个昨天还看不惯你倒腾模型的新娘</p>
-<p>愣了一下说：我也爱你</p>
-<p>你不确定她是不是对你说的</p>
-<p>就像你不确定是不是对她说的一样</p>
-<p>婚礼结束后，并没有你想象的浪漫</p>
-<p>你听着外屋的新娘一笔一笔的算着份子钱</p>
-<p>想着不过才两年，怎么就变成这样了</p>
-<p>想着想着，洞房夜就睡着了</p>
-<p><img  
-                     lazyload
-                     src="/images/loading.svg"
-                     data-src="https://upload-images.jianshu.io/upload_images/6908365-f4cc379b670bdf84.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1200/format/webp"
-                      alt="img"
-                ></p>
-<p>30岁，她怀孕了</p>
-<p>辞掉了工作，在家养胎</p>
-<p>你在公司逐渐有了点地位</p>
-<p>手里管着十来个人</p>
-<p>独立负责一个项目</p>
-<p>结婚前陪嫁的那辆20万左右的车</p>
-<p>也变成了你一个人的独享</p>
-<p>但你依然不敢放松</p>
-<p>每次加班</p>
-<p>电话那头都是抱怨与委屈</p>
-<p>但你不能争辩什么</p>
-<p>谁让她怀了你的孩子</p>
-<p>在这一刻</p>
-<p>不论是她的父母还是你的父母</p>
-<p>都无条件的站在这一边</p>
-<p>31岁，孩子落地了</p>
-<p>前前后后连孕检带住院费花了10万块钱</p>
-<p>不过无所谓</p>
-<p>你看着你的孩子，怎么看怎么喜欢</p>
-<p>高兴的仿佛这是你的新生</p>
-<p>32岁，这是人生最不愿意重复的一年</p>
-<p>平均睡眠3小时</p>
-<p>孩子每一个小时都要闹腾一次</p>
-<p>第二天拖着睡不醒的眼睛去上班</p>
-<p>老板说你上班不干活</p>
-<p>回家媳妇说你不干活</p>
-<p>你想了半天不明白，那谁干活呢？</p>
-<p>那辆开了3年的车</p>
-<p>成为了你真正的家</p>
-<p>你不在抱怨路上拥堵的交通</p>
-<p>你甚至开始希望</p>
-<p>再多堵一会</p>
-<p>回到家，你关了发动机</p>
-<p>在车上点了一根烟</p>
-<p>这是你每天最幸福的十分钟</p>
-<p>车前是功名利禄，车尾是柴米油盐</p>
-<p>35岁 你因为身体越来越差</p>
-<p>加班越来越少</p>
-<p>晋升的速度也越来越缓慢</p>
-<p>那天下班，媳妇告诉你</p>
-<p>孩子要上幼儿园了</p>
-<p>双语的一个月3000</p>
-<p>你皱了皱眉头，那边就已经不耐烦了</p>
-<p>“四单元的老王家孩子，一个月6000”</p>
-<p>“你已经这样了，你想让孩子也输？”</p>
-<p>你没说话，回屋给媳妇转了6000块钱</p>
-<p>这笔钱，你原本打算给自己过个生日，买个新电脑</p>
-<p>38岁，孩子上了一年级</p>
-<p>老师说一年级最关键，打好基础很重要</p>
-<p>你笑着说，是是是，老师您多照顾</p>
-<p>新生接待的老师看着你不明事理的脸</p>
-<p>给你指了一条明路</p>
-<p>“课外辅导班，一个月2200”</p>
-<p>40岁的时候，孩子上了三年级</p>
-<p>老师说，三年级，最关键，承上启下很重要</p>
-<p>你笑着说：是是是，正打算再报个补习班</p>
-<p><img  
-                     lazyload
-                     src="/images/loading.svg"
-                     data-src="https://upload-images.jianshu.io/upload_images/6908365-66af20b1b060fae0.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/960/format/webp"
-                      alt="img"
-                ></p>
-<p>44岁，孩子上了初中</p>
-<p>有一天回到家，她对你说</p>
-<p>爸爸，我想学钢琴</p>
-<p>你没什么犹豫的</p>
-<p>你以为这些年，你已经习惯了</p>
-<p>但那句“爸爸现在买不起”你始终说不出口</p>
-<p>好在孩子比较懂事</p>
-<p>她说：爸爸没事，要不我先学陶笛也可以</p>
-<p>你看着这么懂事的孩子，却开心不起来</p>
-<p>46岁，孩子上了一个不好不差的高中</p>
-<p>有一天你在开会，接到了老师的电话</p>
-<p>电话里说你的孩子在学校打架了</p>
-<p>叫你去一趟</p>
-<p>你唯唯诺诺的</p>
-<p>和那个比你还小5岁的领导请了个假</p>
-<p>到学校又被老师训了一通</p>
-<p>无非台词就是那一句</p>
-<p>你们做家长的就知道工作，能不能陪陪孩子</p>
-<p>你看着这个老师，有点可笑</p>
-<p>好像当时说：</p>
-<p>家长在外辛苦点</p>
-<p>多赚点钱让孩子多补补课的和他不是一个人</p>
-<p>50岁，孩子上了大学</p>
-<p>很争气，是一个一本</p>
-<p>他学的专业你有点看不懂</p>
-<p>你只知道工作不一定好找</p>
-<p>而且学费还死贵</p>
-<p>你和他深夜想聊聊</p>
-<p>准备了半斤白酒，一碟花生米</p>
-<p>你说着那些曾经你最讨厌的话</p>
-<p>还是要为以后工作着想</p>
-<p>挑个热门的专业</p>
-<p>活着比热爱重要</p>
-<p>你们从交流变成了争吵</p>
-<p>你发现，你老了</p>
-<p>老到可能都打不过这个18岁的孩子</p>
-<p>你说不过他，只能说一句：我是你爸爸！</p>
-<p>孩子看着你，知道再怎么争辩都没用</p>
-<p>这场确立你最后威严的酒局不欢而散</p>
-<p>你听的不真切</p>
-<p>在孩子回自己屋的路上好像叨叨了一句</p>
-<p>“我不想活的像你一样”</p>
-<p>怎么就哭了呢？50岁的人了</p>
-<p>一定是酒太辣了，对不对</p>
-<p>一定是酒太辣了</p>
-<p><img  
-                     lazyload
-                     src="/images/loading.svg"
-                     data-src="https://upload-images.jianshu.io/upload_images/6908365-c668412015e46ffe.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1200/format/webp"
-                      alt="img"
-                ></p>
-<p>55岁，孩子工作了，似乎有一点理解你了</p>
-<p>但你却反了过来，你说不要妥协</p>
-<p>56岁，孩子也结婚了</p>
-<p>你问他喜欢那个姑娘么</p>
-<p>他愣了愣说：喜欢吧</p>
-<p>60岁，辛苦了一辈子，想出去走走</p>
-<p>身边的那个人过了30年</p>
-<p>你依旧分不清到底喜不喜欢</p>
-<p>你们开始规划旅游路线</p>
-<p>这么多年了</p>
-<p>你们还是存在分歧，还是在争吵</p>
-<p>某个瞬间，你觉得</p>
-<p>这样可能也挺好</p>
-<p>一切都准备好了</p>
-<p>儿子说：爸妈，我工作太忙了</p>
-<p>可以帮我照顾一下孩子么</p>
-<p>你们退了机票，又回到了30年前</p>
-<p>70岁，孩子的孩子也长大了，不用天天操心了</p>
-<p>你下定决心说：一定要去玩一趟</p>
-<p>可是手边的拐杖</p>
-<p>只能支持你走到楼下的花园</p>
-<p>75岁，你在医院的病床上</p>
-<p>身边聚满了人，你迷迷糊糊的看见医生摇了摇头</p>
-<p>周围那些人神情肃穆</p>
-<p>你明白了，你要死掉了</p>
-<p>你没有感到一丝害怕</p>
-<p>你突然问自己，我到底是什么时候死掉的呢？</p>
-<p>你想起来30岁的那场婚礼</p>
-<p>原来，那时候，你就死掉了吧</p>
-<p>依照惯例</p>
-<p>死前的3秒，你的大脑要走马灯</p>
-<p>倒叙你这75个年头的一生</p>
-<p>画面一张一张的过</p>
-<p>1秒</p>
-<p>2秒</p>
-<p>两秒过去了</p>
-<p>你面无表情的看着这两秒内的回忆</p>
-<p>第3秒</p>
-<p>突然你笑了</p>
-<p>原来已经回到了15岁的那一年</p>
-<p><img  
-                     lazyload
-                     src="/images/loading.svg"
-                     data-src="https://upload-images.jianshu.io/upload_images/6908365-076960c12b060ff7.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1200/format/webp"
-                      alt="img"
-                ></p>
-<p>你看见一个男孩</p>
-<p>他叼着一袋牛奶，背着书包</p>
-<p>从另一个女孩家的阳台下跑过</p>
-<p>那个男孩朝窗户里看了看</p>
-<p>那是15岁的你暗恋的那个女孩子</p>
-<p>你想不起来她长什么样子了</p>
-<p>最后一秒你努力的回忆着</p>
-<p>然后终于笑了出来</p>
-<p>3秒过去了</p>
-<p>身边的人突然间开始嚎啕大哭</p>
-<p>你可能听不清了</p>
-<p>你最后听到的嘈杂的声音</p>
-<p>是一群十五六的少年 起着哄说的</p>
-<p>答应他</p>
-<p>答应他</p>
-<p>答应他</p>
-<p>不爱你，不度生</p>
 ]]></content>
       <tags>
         <tag>情感</tag>
@@ -842,6 +812,16 @@
       </tags>
   </entry>
   <entry>
+    <title>前端实现在线预览pdf、word、xls、ppt等文件</title>
+    <url>/2021/02/21/%E5%89%8D%E7%AB%AF%E5%AE%9E%E7%8E%B0%E5%9C%A8%E7%BA%BF%E9%A2%84%E8%A7%88pdf%E3%80%81word%E3%80%81xls%E3%80%81ppt%E7%AD%89%E6%96%87%E4%BB%B6/</url>
+    <content><![CDATA[<h2 id="前端实现在线预览pdf、word、xls、ppt等文件"><a href="#前端实现在线预览pdf、word、xls、ppt等文件" class="headerlink" title="前端实现在线预览pdf、word、xls、ppt等文件"></a>前端实现在线预览pdf、word、xls、ppt等文件</h2><h3 id="1、前端实现pdf文件在线预览功能"><a href="#1、前端实现pdf文件在线预览功能" class="headerlink" title="1、前端实现pdf文件在线预览功能"></a>1、前端实现pdf文件在线预览功能</h3><p>方式一、pdf文件理论上可以在浏览器直接打开预览但是需要打开新页面。在仅仅是预览pdf文件且UI要求不高的情况下可以直接通过a标签href属性实现预览</p>
+<h3 id="2、word、xls、ppt文件在线预览功能"><a href="#2、word、xls、ppt文件在线预览功能" class="headerlink" title="2、word、xls、ppt文件在线预览功能"></a>2、word、xls、ppt文件在线预览功能</h3><p>word、ppt、xls文件实现在线预览的方式比较简单可以直接通过调用微软的在线预览功能实现 (预览前提：资源必须是公共可访问的)</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">iframe</span> <span class="attr">src</span>=<span class="string">&#x27;https://view.officeapps.live.com/op/view.aspx?src=http://storage.xuetangx.com/public_assets/xuetangx/PDF/1.xls&#x27;</span> <span class="attr">width</span>=<span class="string">&#x27;100%&#x27;</span> <span class="attr">height</span>=<span class="string">&#x27;100%&#x27;</span> <span class="attr">frameborder</span>=<span class="string">&#x27;1&#x27;</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;/<span class="name">iframe</span>&gt;</span></span><br></pre></td></tr></table></figure>]]></content>
+      <tags>
+        <tag>html</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>关于百度地图那些事</title>
     <url>/2021/02/21/%E5%85%B3%E4%BA%8E%E7%99%BE%E5%BA%A6%E5%9C%B0%E5%9B%BE%E9%82%A3%E4%BA%9B%E4%BA%8B/</url>
     <content><![CDATA[<h2 id="关于百度地图那些事"><a href="#关于百度地图那些事" class="headerlink" title="关于百度地图那些事"></a>关于百度地图那些事</h2><blockquote>
@@ -917,13 +897,12 @@
       </tags>
   </entry>
   <entry>
-    <title>前端实现在线预览pdf、word、xls、ppt等文件</title>
-    <url>/2021/02/21/%E5%89%8D%E7%AB%AF%E5%AE%9E%E7%8E%B0%E5%9C%A8%E7%BA%BF%E9%A2%84%E8%A7%88pdf%E3%80%81word%E3%80%81xls%E3%80%81ppt%E7%AD%89%E6%96%87%E4%BB%B6/</url>
-    <content><![CDATA[<h2 id="前端实现在线预览pdf、word、xls、ppt等文件"><a href="#前端实现在线预览pdf、word、xls、ppt等文件" class="headerlink" title="前端实现在线预览pdf、word、xls、ppt等文件"></a>前端实现在线预览pdf、word、xls、ppt等文件</h2><h3 id="1、前端实现pdf文件在线预览功能"><a href="#1、前端实现pdf文件在线预览功能" class="headerlink" title="1、前端实现pdf文件在线预览功能"></a>1、前端实现pdf文件在线预览功能</h3><p>方式一、pdf文件理论上可以在浏览器直接打开预览但是需要打开新页面。在仅仅是预览pdf文件且UI要求不高的情况下可以直接通过a标签href属性实现预览</p>
-<h3 id="2、word、xls、ppt文件在线预览功能"><a href="#2、word、xls、ppt文件在线预览功能" class="headerlink" title="2、word、xls、ppt文件在线预览功能"></a>2、word、xls、ppt文件在线预览功能</h3><p>word、ppt、xls文件实现在线预览的方式比较简单可以直接通过调用微软的在线预览功能实现 (预览前提：资源必须是公共可访问的)</p>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">iframe</span> <span class="attr">src</span>=<span class="string">&#x27;https://view.officeapps.live.com/op/view.aspx?src=http://storage.xuetangx.com/public_assets/xuetangx/PDF/1.xls&#x27;</span> <span class="attr">width</span>=<span class="string">&#x27;100%&#x27;</span> <span class="attr">height</span>=<span class="string">&#x27;100%&#x27;</span> <span class="attr">frameborder</span>=<span class="string">&#x27;1&#x27;</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;/<span class="name">iframe</span>&gt;</span></span><br></pre></td></tr></table></figure>]]></content>
+    <title>图片转base64</title>
+    <url>/2021/02/21/%E5%9B%BE%E7%89%87%E8%BD%ACbase64/</url>
+    <content><![CDATA[<h2 id="图片转base64"><a href="#图片转base64" class="headerlink" title="图片转base64"></a>图片转base64</h2><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html lang=<span class="string">&quot;en&quot;</span>&gt;</span><br><span class="line"></span><br><span class="line">&lt;head&gt;</span><br><span class="line">    &lt;meta charset=<span class="string">&quot;UTF-8&quot;</span>&gt;</span><br><span class="line">    &lt;meta name=<span class="string">&quot;viewport&quot;</span> content=<span class="string">&quot;width=device-width, initial-scale=1.0&quot;</span>&gt;</span><br><span class="line">    &lt;title&gt;Document&lt;/title&gt;</span><br><span class="line">&lt;/head&gt;</span><br><span class="line"></span><br><span class="line">&lt;body&gt;</span><br><span class="line"></span><br><span class="line">&lt;/body&gt;</span><br><span class="line"></span><br><span class="line">&lt;/html&gt;</span><br><span class="line">&lt;script&gt;</span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">createCanvas</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="keyword">var</span> canvas = <span class="built_in">document</span>.createElement(<span class="string">&quot;canvas&quot;</span>);</span><br><span class="line">        canvas.width = <span class="number">100</span>;</span><br><span class="line">        canvas.height = <span class="number">100</span>;</span><br><span class="line">        canvas.style.border = <span class="string">&quot;1px solid red&quot;</span>;</span><br><span class="line">        <span class="built_in">document</span>.body.appendChild(canvas);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">setCanvasBg</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="keyword">var</span> canvas = <span class="built_in">document</span>.querySelector(<span class="string">&quot;canvas&quot;</span>);</span><br><span class="line">        <span class="keyword">var</span> ctx = canvas.getContext(<span class="string">&quot;2d&quot;</span>);</span><br><span class="line">        ctx.drawImage(image, <span class="number">0</span>, <span class="number">0</span>, <span class="number">100</span>, <span class="number">100</span>);</span><br><span class="line">        ctx.lineWidth = <span class="number">1</span>;</span><br><span class="line">        ctx.lineCap = <span class="string">&quot;round&quot;</span>;</span><br><span class="line">        ctx.strokeStyle = <span class="string">&#x27;red&#x27;</span>;</span><br><span class="line">        ctx.moveTo(<span class="number">20</span>, <span class="number">80</span>);</span><br><span class="line">        ctx.lineTo(<span class="number">80</span>, <span class="number">80</span>);</span><br><span class="line">        ctx.stroke();</span><br><span class="line">        ctx.fillStyle = <span class="string">&#x27;#fff&#x27;</span>;</span><br><span class="line">        ctx.font = <span class="string">&quot;16px Georgia&quot;</span>;</span><br><span class="line">        ctx.textAlign = <span class="string">&quot;center&quot;</span>;</span><br><span class="line">        ctx.fillText(<span class="string">&quot;shao&quot;</span>, <span class="number">50</span>, <span class="number">95</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">toBase64</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="keyword">var</span> canvas = <span class="built_in">document</span>.querySelector(<span class="string">&quot;canvas&quot;</span>);</span><br><span class="line">        <span class="keyword">var</span> base64 = canvas.toDataURL(<span class="string">&quot;image/jpeg&quot;</span>);</span><br><span class="line">        <span class="keyword">return</span> base64;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">var</span> image = <span class="keyword">new</span> Image();</span><br><span class="line">    image.src = <span class="string">&quot;./u=1610542142,718703573&amp;fm=26&amp;gp=0.jpg&quot;</span>;</span><br><span class="line">    image.setAttribute(<span class="string">&#x27;crossOrigin&#x27;</span>, <span class="string">&#x27;anonymous&#x27;</span>);</span><br><span class="line">    image.onload = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">        createCanvas();</span><br><span class="line">        setCanvasBg();</span><br><span class="line">        <span class="built_in">document</span>.body.style.backgroundImage = <span class="string">`url(<span class="subst">$&#123;toBase64()&#125;</span>)`</span>;</span><br><span class="line">        <span class="built_in">document</span>.querySelector(<span class="string">&quot;canvas&quot;</span>).remove();</span><br><span class="line">    &#125;</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+]]></content>
       <tags>
-        <tag>html</tag>
+        <tag>js</tag>
       </tags>
   </entry>
   <entry>
@@ -989,15 +968,6 @@
 ]]></content>
       <tags>
         <tag>javascript</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>图片转base64</title>
-    <url>/2021/02/21/%E5%9B%BE%E7%89%87%E8%BD%ACbase64/</url>
-    <content><![CDATA[<h2 id="图片转base64"><a href="#图片转base64" class="headerlink" title="图片转base64"></a>图片转base64</h2><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html lang=<span class="string">&quot;en&quot;</span>&gt;</span><br><span class="line"></span><br><span class="line">&lt;head&gt;</span><br><span class="line">    &lt;meta charset=<span class="string">&quot;UTF-8&quot;</span>&gt;</span><br><span class="line">    &lt;meta name=<span class="string">&quot;viewport&quot;</span> content=<span class="string">&quot;width=device-width, initial-scale=1.0&quot;</span>&gt;</span><br><span class="line">    &lt;title&gt;Document&lt;/title&gt;</span><br><span class="line">&lt;/head&gt;</span><br><span class="line"></span><br><span class="line">&lt;body&gt;</span><br><span class="line"></span><br><span class="line">&lt;/body&gt;</span><br><span class="line"></span><br><span class="line">&lt;/html&gt;</span><br><span class="line">&lt;script&gt;</span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">createCanvas</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="keyword">var</span> canvas = <span class="built_in">document</span>.createElement(<span class="string">&quot;canvas&quot;</span>);</span><br><span class="line">        canvas.width = <span class="number">100</span>;</span><br><span class="line">        canvas.height = <span class="number">100</span>;</span><br><span class="line">        canvas.style.border = <span class="string">&quot;1px solid red&quot;</span>;</span><br><span class="line">        <span class="built_in">document</span>.body.appendChild(canvas);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">setCanvasBg</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="keyword">var</span> canvas = <span class="built_in">document</span>.querySelector(<span class="string">&quot;canvas&quot;</span>);</span><br><span class="line">        <span class="keyword">var</span> ctx = canvas.getContext(<span class="string">&quot;2d&quot;</span>);</span><br><span class="line">        ctx.drawImage(image, <span class="number">0</span>, <span class="number">0</span>, <span class="number">100</span>, <span class="number">100</span>);</span><br><span class="line">        ctx.lineWidth = <span class="number">1</span>;</span><br><span class="line">        ctx.lineCap = <span class="string">&quot;round&quot;</span>;</span><br><span class="line">        ctx.strokeStyle = <span class="string">&#x27;red&#x27;</span>;</span><br><span class="line">        ctx.moveTo(<span class="number">20</span>, <span class="number">80</span>);</span><br><span class="line">        ctx.lineTo(<span class="number">80</span>, <span class="number">80</span>);</span><br><span class="line">        ctx.stroke();</span><br><span class="line">        ctx.fillStyle = <span class="string">&#x27;#fff&#x27;</span>;</span><br><span class="line">        ctx.font = <span class="string">&quot;16px Georgia&quot;</span>;</span><br><span class="line">        ctx.textAlign = <span class="string">&quot;center&quot;</span>;</span><br><span class="line">        ctx.fillText(<span class="string">&quot;shao&quot;</span>, <span class="number">50</span>, <span class="number">95</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">toBase64</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="keyword">var</span> canvas = <span class="built_in">document</span>.querySelector(<span class="string">&quot;canvas&quot;</span>);</span><br><span class="line">        <span class="keyword">var</span> base64 = canvas.toDataURL(<span class="string">&quot;image/jpeg&quot;</span>);</span><br><span class="line">        <span class="keyword">return</span> base64;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">var</span> image = <span class="keyword">new</span> Image();</span><br><span class="line">    image.src = <span class="string">&quot;./u=1610542142,718703573&amp;fm=26&amp;gp=0.jpg&quot;</span>;</span><br><span class="line">    image.setAttribute(<span class="string">&#x27;crossOrigin&#x27;</span>, <span class="string">&#x27;anonymous&#x27;</span>);</span><br><span class="line">    image.onload = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">        createCanvas();</span><br><span class="line">        setCanvasBg();</span><br><span class="line">        <span class="built_in">document</span>.body.style.backgroundImage = <span class="string">`url(<span class="subst">$&#123;toBase64()&#125;</span>)`</span>;</span><br><span class="line">        <span class="built_in">document</span>.querySelector(<span class="string">&quot;canvas&quot;</span>).remove();</span><br><span class="line">    &#125;</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
-]]></content>
-      <tags>
-        <tag>js</tag>
       </tags>
   </entry>
   <entry>
