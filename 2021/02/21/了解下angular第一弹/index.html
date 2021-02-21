@@ -181,7 +181,7 @@
         
 
         <div class="article-content markdown-body">
-            <h2 id="了解下angular第一弹"><a href="#了解下angular第一弹" class="headerlink" title="了解下angular第一弹"></a>了解下angular第一弹</h2><blockquote>
+            <blockquote>
 <p>*ngFor=”let item of list; let index = index;let odd = odd;trackBy: trackByItems “</p>
 </blockquote>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">let index &#x3D; index; &#x2F;&#x2F;获取当前下标项</span><br><span class="line">let odd &#x3D; odd; &#x2F;&#x2F;判断是否为奇偶数，返回true&#x2F;false;  o&#x3D;&gt;false 1&#x3D;&gt;true</span><br><span class="line">trackBy: trackByItems; &#x2F;&#x2F;官方解释 如果将 NgFor 与大型列表一起使用，则对某个条目的较小更改（例如删除或添加一项）就会触发一系列 DOM 操作。 例如，重新查询服务器可能会重置包含所有新条目对象的列表，即使先前已显示这些条目也是如此。在这种情况下，Angular 只能看到由新的对象引用组成的新列表，它别无选择，只能用所有新的 DOM 元素替换旧的 DOM 元素。</span><br><span class="line">你可以使用 trackBy 来让它更加高效。向该组件添加一个方法，该方法返回 NgFor 应该跟踪的值。这个例子中，该值是英雄的 id。如果 id 已经被渲染，Angular 就会跟踪它，而不会重新向服务器查询相同的 id。</span><br></pre></td></tr></table></figure>

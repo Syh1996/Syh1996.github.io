@@ -181,7 +181,7 @@
         
 
         <div class="article-content markdown-body">
-            <h2 id="关于百度地图那些事"><a href="#关于百度地图那些事" class="headerlink" title="关于百度地图那些事"></a>关于百度地图那些事</h2><blockquote>
+            <blockquote>
 <p>监听百度地图缩放级别</p>
 </blockquote>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">map.addEventListener(<span class="string">&quot;zoomend&quot;</span>, <span class="function"><span class="keyword">function</span>(<span class="params">e</span>)</span>&#123;</span><br><span class="line">  <span class="keyword">var</span> ZoomNum = map.getZoom(); <span class="comment">//ZoomNum为层级,区间1-18</span></span><br><span class="line">  $(<span class="string">&quot;#ZoomNum&quot;</span>).html(ZoomNum);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
