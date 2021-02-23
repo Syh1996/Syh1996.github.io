@@ -539,6 +539,9 @@
 <p>解决,利用数据劫持，监听window对象</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> current = <span class="number">0</span>;</span><br><span class="line"><span class="built_in">Object</span>.definePrototype(<span class="built_in">this</span>,<span class="string">&#x27;a&#x27;</span>,&#123;</span><br><span class="line">    get:<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">        <span class="keyword">return</span> ++current;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;)</span><br><span class="line"><span class="keyword">if</span>(a===<span class="number">1</span> &amp;&amp; a===<span class="number">2</span> &amp;&amp; a===<span class="number">3</span>)&#123;</span><br><span class="line">	<span class="built_in">console</span>.log(<span class="string">&#x27;success&#x27;</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>以上代码，a ===1获取a时必然触发数据劫持中的get方法,this指向的window，a也是全局变量，挂载到了window中，实际中window.a ===a，所以每一个判断都会调get方法返回数据，只需要在get方法中累加并返回</p>
+<blockquote>
+<p>感谢吴黎明大佬分享该题，2021/2/23 22:10修改</p>
+</blockquote>
 
         </div>
 
