@@ -1,72 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>JS实现网站内容的禁止复制和粘贴、另存为</title>
-    <url>/2021/02/21/JS%E5%AE%9E%E7%8E%B0%E7%BD%91%E7%AB%99%E5%86%85%E5%AE%B9%E7%9A%84%E7%A6%81%E6%AD%A2%E5%A4%8D%E5%88%B6%E5%92%8C%E7%B2%98%E8%B4%B4%E3%80%81%E5%8F%A6%E5%AD%98%E4%B8%BA/</url>
-    <content><![CDATA[<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE <span class="meta-keyword">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">&quot;utf-8&quot;</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">title</span>&gt;</span>菜鸟教程(runoob.com)<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">p</span> <span class="attr">id</span>=<span class="string">&quot;p&quot;</span>&gt;</span><span class="tag">&lt;<span class="name">strong</span>&gt;</span>注意：<span class="tag">&lt;/<span class="name">strong</span>&gt;</span> 该实例如果在 Chrome, Firefox 和 Opera 浏览器中可能无法工作。<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="javascript"><span class="function"><span class="keyword">function</span> <span class="title">myFunction</span>(<span class="params">e</span>) </span>&#123;</span></span><br><span class="line"><span class="javascript">	<span class="built_in">console</span>.log(e);</span></span><br><span class="line"><span class="javascript">  <span class="keyword">return</span> <span class="literal">false</span>;</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="javascript">	<span class="built_in">document</span>.querySelector(<span class="string">&quot;#p&quot;</span>).oncopy=myFunction;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
-]]></content>
-      <tags>
-        <tag>javascript</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>CSS伪类与伪元素</title>
-    <url>/2021/02/21/CSS%E4%BC%AA%E7%B1%BB%E4%B8%8E%E4%BC%AA%E5%85%83%E7%B4%A0/</url>
-    <content><![CDATA[<h3 id="为什么要引入伪类与伪元素？"><a href="#为什么要引入伪类与伪元素？" class="headerlink" title="为什么要引入伪类与伪元素？"></a>为什么要引入伪类与伪元素？</h3><p>css引入伪类和伪元素概念是为了格式化文档树以外的信息。也就是说，伪类和伪元素是用来修饰不在文档树中的部分，比如，一句话中的第一个字母，或是列表中的第一个元素，又或者是鼠标悬停在某个超链接上时要设置的样式。</p>
-<h3 id="什么是伪类，伪元素？"><a href="#什么是伪类，伪元素？" class="headerlink" title="什么是伪类，伪元素？"></a>什么是伪类，伪元素？</h3><ul>
-<li>伪类：用于当已有元素处于的某个状态时，为其添加对应的样式，这个状态是根据用户行为而动态变化的。比如说，当用户悬停在指定的元素时，我们可以通过:hover来描述这个元素的状态。虽然它和普通的css类相似，可以为已有的元素添加样式，但是它只有处于dom树无法描述的状态下才能为元素添加样式，所以将其称为伪类。</li>
-<li>伪元素：用于创建一些不在文档树中的元素，并为其添加样式。实际上，伪元素就是选取某些元素前面或后面这种普通选择器无法完成的工作。控制的内容和元素是相同的，但它本身是基于元素的抽象，并不存在于文档结构中。比如说，我们可以通过:before来在一个元素前增加一些文本，并为这些文本添加样式。</li>
-</ul>
-<h3 id="伪类的分类：状态伪类和结构性伪类"><a href="#伪类的分类：状态伪类和结构性伪类" class="headerlink" title="伪类的分类：状态伪类和结构性伪类"></a>伪类的分类：状态伪类和结构性伪类</h3><ul>
-<li><p>状态伪类：是基于元素当前状态进行选择的。在与用户的交互过程中元素的状态是动态变化的，因此该元素会根据其状态呈现不同的样式。当元素处于某状态时会呈现该样式，而进入另一状态后，该样式也会失去。</p>
-<p>常见的状态伪类主要包括：</p>
-</li>
-</ul>
-<ol>
-<li> :link 应用于未被访问过的链接； </li>
-<li> :hover 应用于鼠标悬停到的元素；</li>
-<li> :active 应用于被激活的元素；</li>
-<li> :visited 应用于被访问过的链接，与:link互斥。</li>
-<li> :focus 应用于拥有键盘输入焦点的元素。</li>
-</ol>
-<ul>
-<li><p>结构性伪类：是css3新增选择器，利用dom树进行元素过滤，通过文档结构的互相关系来匹配元素，能够减少class和id属性的定义，使文档结构更简洁。</p>
-<p>常见的结构性伪类包括：</p>
-</li>
-</ul>
-<ol>
-<li> :first-child 选择某个元素的第一个子元素； </li>
-<li> :last-child 选择某个元素的最后一个子元素；</li>
-<li> :nth-child() 选择某个元素的一个或多个特定的子元素；</li>
-<li> :nth-last-child() 选择某个元素的一个或多个特定的子元素，从这个元素的最后一个子元素开始算；</li>
-<li> :nth-of-type() 选择指定的元素；</li>
-<li> :nth-last-of-type() 选择指定的元素，从元素的最后一个开始计算；</li>
-<li> :first-of-type 选择一个上级元素下的第一个同类子元素；</li>
-<li> :last-of-type 选择一个上级元素的最后一个同类子元素；</li>
-<li> :only-child 选择的元素是它的父元素的唯一一个子元素；</li>
-<li> :only-of-type 选择一个元素是它的上级元素的唯一一个相同类型的子元素；</li>
-<li> :empty 选择的元素里面没有任何内容。</li>
-<li> :checked匹配被选中的input元素，这个input元素包括radio和checkbox。</li>
-<li> :default匹配默认选中的元素，例如：提交按钮总是表单的默认按钮。</li>
-<li> :disabled匹配禁用的表单元素。</li>
-<li> :enabled匹配没有设置disabled属性的表单元素。</li>
-<li> :valid匹配条件验证正确的表单元素。</li>
-</ol>
-<h3 id="常见的伪元素选择器："><a href="#常见的伪元素选择器：" class="headerlink" title="常见的伪元素选择器："></a>常见的伪元素选择器：</h3><ol>
-<li> ::first-letter 选择元素文本的第一个字（母）。</li>
-<li> ::first-line 选择元素文本的第一行。</li>
-<li> ::before 在元素内容的最前面添加新内容。</li>
-<li> ::after 在元素内容的最后面添加新内容。</li>
-<li> ::selection匹配用户被用户选中或者处于高亮状态的部分</li>
-<li> ::placeholder匹配占位符的文本，只有元素设置了placeholder属性时，该伪元素才能生效</li>
-</ol>
-<p>注意：你会发现伪类元素使用了两个冒号 (::) 而不是一个冒号 (:)，这是 CSS3 规范中的一部分要求，目的是为了区分伪类和伪元素，大多数浏览器都支持这两种表示方式。单冒号(:)用于 CSS3 伪类，双冒号(::)用于 CSS3 伪元素。对于 CSS2 中已经有的伪元素，例如 :before，单冒号和双冒号的写法 ::before 作用是一样的。</p>
-]]></content>
-      <tags>
-        <tag>css</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Git工作常用命令</title>
     <url>/2021/02/21/Git%E5%B7%A5%E4%BD%9C%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/</url>
     <content><![CDATA[<ul>
@@ -147,6 +81,72 @@
 ]]></content>
       <tags>
         <tag>git</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>JS实现网站内容的禁止复制和粘贴、另存为</title>
+    <url>/2021/02/21/JS%E5%AE%9E%E7%8E%B0%E7%BD%91%E7%AB%99%E5%86%85%E5%AE%B9%E7%9A%84%E7%A6%81%E6%AD%A2%E5%A4%8D%E5%88%B6%E5%92%8C%E7%B2%98%E8%B4%B4%E3%80%81%E5%8F%A6%E5%AD%98%E4%B8%BA/</url>
+    <content><![CDATA[<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE <span class="meta-keyword">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">&quot;utf-8&quot;</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">title</span>&gt;</span>菜鸟教程(runoob.com)<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">p</span> <span class="attr">id</span>=<span class="string">&quot;p&quot;</span>&gt;</span><span class="tag">&lt;<span class="name">strong</span>&gt;</span>注意：<span class="tag">&lt;/<span class="name">strong</span>&gt;</span> 该实例如果在 Chrome, Firefox 和 Opera 浏览器中可能无法工作。<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="javascript"><span class="function"><span class="keyword">function</span> <span class="title">myFunction</span>(<span class="params">e</span>) </span>&#123;</span></span><br><span class="line"><span class="javascript">	<span class="built_in">console</span>.log(e);</span></span><br><span class="line"><span class="javascript">  <span class="keyword">return</span> <span class="literal">false</span>;</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="javascript">	<span class="built_in">document</span>.querySelector(<span class="string">&quot;#p&quot;</span>).oncopy=myFunction;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+]]></content>
+      <tags>
+        <tag>javascript</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>CSS伪类与伪元素</title>
+    <url>/2021/02/21/CSS%E4%BC%AA%E7%B1%BB%E4%B8%8E%E4%BC%AA%E5%85%83%E7%B4%A0/</url>
+    <content><![CDATA[<h3 id="为什么要引入伪类与伪元素？"><a href="#为什么要引入伪类与伪元素？" class="headerlink" title="为什么要引入伪类与伪元素？"></a>为什么要引入伪类与伪元素？</h3><p>css引入伪类和伪元素概念是为了格式化文档树以外的信息。也就是说，伪类和伪元素是用来修饰不在文档树中的部分，比如，一句话中的第一个字母，或是列表中的第一个元素，又或者是鼠标悬停在某个超链接上时要设置的样式。</p>
+<h3 id="什么是伪类，伪元素？"><a href="#什么是伪类，伪元素？" class="headerlink" title="什么是伪类，伪元素？"></a>什么是伪类，伪元素？</h3><ul>
+<li>伪类：用于当已有元素处于的某个状态时，为其添加对应的样式，这个状态是根据用户行为而动态变化的。比如说，当用户悬停在指定的元素时，我们可以通过:hover来描述这个元素的状态。虽然它和普通的css类相似，可以为已有的元素添加样式，但是它只有处于dom树无法描述的状态下才能为元素添加样式，所以将其称为伪类。</li>
+<li>伪元素：用于创建一些不在文档树中的元素，并为其添加样式。实际上，伪元素就是选取某些元素前面或后面这种普通选择器无法完成的工作。控制的内容和元素是相同的，但它本身是基于元素的抽象，并不存在于文档结构中。比如说，我们可以通过:before来在一个元素前增加一些文本，并为这些文本添加样式。</li>
+</ul>
+<h3 id="伪类的分类：状态伪类和结构性伪类"><a href="#伪类的分类：状态伪类和结构性伪类" class="headerlink" title="伪类的分类：状态伪类和结构性伪类"></a>伪类的分类：状态伪类和结构性伪类</h3><ul>
+<li><p>状态伪类：是基于元素当前状态进行选择的。在与用户的交互过程中元素的状态是动态变化的，因此该元素会根据其状态呈现不同的样式。当元素处于某状态时会呈现该样式，而进入另一状态后，该样式也会失去。</p>
+<p>常见的状态伪类主要包括：</p>
+</li>
+</ul>
+<ol>
+<li> :link 应用于未被访问过的链接； </li>
+<li> :hover 应用于鼠标悬停到的元素；</li>
+<li> :active 应用于被激活的元素；</li>
+<li> :visited 应用于被访问过的链接，与:link互斥。</li>
+<li> :focus 应用于拥有键盘输入焦点的元素。</li>
+</ol>
+<ul>
+<li><p>结构性伪类：是css3新增选择器，利用dom树进行元素过滤，通过文档结构的互相关系来匹配元素，能够减少class和id属性的定义，使文档结构更简洁。</p>
+<p>常见的结构性伪类包括：</p>
+</li>
+</ul>
+<ol>
+<li> :first-child 选择某个元素的第一个子元素； </li>
+<li> :last-child 选择某个元素的最后一个子元素；</li>
+<li> :nth-child() 选择某个元素的一个或多个特定的子元素；</li>
+<li> :nth-last-child() 选择某个元素的一个或多个特定的子元素，从这个元素的最后一个子元素开始算；</li>
+<li> :nth-of-type() 选择指定的元素；</li>
+<li> :nth-last-of-type() 选择指定的元素，从元素的最后一个开始计算；</li>
+<li> :first-of-type 选择一个上级元素下的第一个同类子元素；</li>
+<li> :last-of-type 选择一个上级元素的最后一个同类子元素；</li>
+<li> :only-child 选择的元素是它的父元素的唯一一个子元素；</li>
+<li> :only-of-type 选择一个元素是它的上级元素的唯一一个相同类型的子元素；</li>
+<li> :empty 选择的元素里面没有任何内容。</li>
+<li> :checked匹配被选中的input元素，这个input元素包括radio和checkbox。</li>
+<li> :default匹配默认选中的元素，例如：提交按钮总是表单的默认按钮。</li>
+<li> :disabled匹配禁用的表单元素。</li>
+<li> :enabled匹配没有设置disabled属性的表单元素。</li>
+<li> :valid匹配条件验证正确的表单元素。</li>
+</ol>
+<h3 id="常见的伪元素选择器："><a href="#常见的伪元素选择器：" class="headerlink" title="常见的伪元素选择器："></a>常见的伪元素选择器：</h3><ol>
+<li> ::first-letter 选择元素文本的第一个字（母）。</li>
+<li> ::first-line 选择元素文本的第一行。</li>
+<li> ::before 在元素内容的最前面添加新内容。</li>
+<li> ::after 在元素内容的最后面添加新内容。</li>
+<li> ::selection匹配用户被用户选中或者处于高亮状态的部分</li>
+<li> ::placeholder匹配占位符的文本，只有元素设置了placeholder属性时，该伪元素才能生效</li>
+</ol>
+<p>注意：你会发现伪类元素使用了两个冒号 (::) 而不是一个冒号 (:)，这是 CSS3 规范中的一部分要求，目的是为了区分伪类和伪元素，大多数浏览器都支持这两种表示方式。单冒号(:)用于 CSS3 伪类，双冒号(::)用于 CSS3 伪元素。对于 CSS2 中已经有的伪元素，例如 :before，单冒号和双冒号的写法 ::before 作用是一样的。</p>
+]]></content>
+      <tags>
+        <tag>css</tag>
       </tags>
   </entry>
   <entry>
@@ -637,6 +637,15 @@
       </tags>
   </entry>
   <entry>
+    <title>【今日新发现】让子元素上下左右居中的新奇方法</title>
+    <url>/2021/02/21/%E3%80%90%E4%BB%8A%E6%97%A5%E6%96%B0%E5%8F%91%E7%8E%B0%E3%80%91%E8%AE%A9%E5%AD%90%E5%85%83%E7%B4%A0%E4%B8%8A%E4%B8%8B%E5%B7%A6%E5%8F%B3%E5%B1%85%E4%B8%AD%E7%9A%84%E6%96%B0%E5%A5%87%E6%96%B9%E6%B3%95/</url>
+    <content><![CDATA[<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">style</span>&gt;</span></span><br><span class="line"> *&#123;</span><br><span class="line"><span class="css"> <span class="attribute">margin</span>:<span class="number">0</span>;</span></span><br><span class="line"><span class="css"> <span class="attribute">padding</span>:<span class="number">0</span>;</span></span><br><span class="line"> &#125;</span><br><span class="line"> #app&#123;</span><br><span class="line"><span class="css">  <span class="attribute">background-color</span>:<span class="number">#ddd</span>;</span></span><br><span class="line"><span class="css">  <span class="attribute">height</span>:<span class="number">600px</span>;</span></span><br><span class="line"><span class="css">  <span class="attribute">position</span>:relative;</span></span><br><span class="line"> &#125;</span><br><span class="line"><span class="css"> <span class="selector-id">#app</span> <span class="selector-tag">div</span>&#123;</span></span><br><span class="line"><span class="css">  <span class="attribute">width</span>:<span class="number">100px</span>;</span></span><br><span class="line"><span class="css">  <span class="attribute">height</span>:<span class="number">100px</span>;</span></span><br><span class="line"><span class="css">  <span class="attribute">background-color</span>:red;</span></span><br><span class="line"><span class="css">  <span class="attribute">position</span>:absolute;</span></span><br><span class="line"><span class="css">  <span class="attribute">top</span>:<span class="number">0</span>;</span></span><br><span class="line"><span class="css">  <span class="attribute">left</span>:<span class="number">0</span>;</span></span><br><span class="line"><span class="css">  <span class="attribute">right</span>:<span class="number">0</span>;</span></span><br><span class="line"><span class="css">  <span class="attribute">bottom</span>:<span class="number">0</span>;</span></span><br><span class="line"><span class="css">  <span class="attribute">margin</span>:auto;</span></span><br><span class="line"> &#125;</span><br><span class="line"><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">&quot;app&quot;</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span>&gt;</span>111<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br><span class="line"></span><br><span class="line">【注意】需要注意的是，此方法只对子元素有宽高的情况起作用，如果没有宽高则不起作用。</span><br></pre></td></tr></table></figure>
+]]></content>
+      <tags>
+        <tag>css</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>【今日问题】输入[1,2,3]，输出层级{name:1,child:child:{name:3}</title>
     <url>/2021/02/21/%E3%80%90%E4%BB%8A%E6%97%A5%E9%97%AE%E9%A2%98%E3%80%91%E8%BE%93%E5%85%A5-1-2-3-%EF%BC%8C%E8%BE%93%E5%87%BA%E5%B1%82%E7%BA%A7-name-1-child-child-name-3/</url>
     <content><![CDATA[<blockquote>
@@ -654,15 +663,6 @@
 <h4 id="感谢余大佬提点"><a href="#感谢余大佬提点" class="headerlink" title="感谢余大佬提点"></a>感谢余大佬提点</h4>]]></content>
       <tags>
         <tag>算法</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>【今日新发现】让子元素上下左右居中的新奇方法</title>
-    <url>/2021/02/21/%E3%80%90%E4%BB%8A%E6%97%A5%E6%96%B0%E5%8F%91%E7%8E%B0%E3%80%91%E8%AE%A9%E5%AD%90%E5%85%83%E7%B4%A0%E4%B8%8A%E4%B8%8B%E5%B7%A6%E5%8F%B3%E5%B1%85%E4%B8%AD%E7%9A%84%E6%96%B0%E5%A5%87%E6%96%B9%E6%B3%95/</url>
-    <content><![CDATA[<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">style</span>&gt;</span></span><br><span class="line"> *&#123;</span><br><span class="line"><span class="css"> <span class="attribute">margin</span>:<span class="number">0</span>;</span></span><br><span class="line"><span class="css"> <span class="attribute">padding</span>:<span class="number">0</span>;</span></span><br><span class="line"> &#125;</span><br><span class="line"> #app&#123;</span><br><span class="line"><span class="css">  <span class="attribute">background-color</span>:<span class="number">#ddd</span>;</span></span><br><span class="line"><span class="css">  <span class="attribute">height</span>:<span class="number">600px</span>;</span></span><br><span class="line"><span class="css">  <span class="attribute">position</span>:relative;</span></span><br><span class="line"> &#125;</span><br><span class="line"><span class="css"> <span class="selector-id">#app</span> <span class="selector-tag">div</span>&#123;</span></span><br><span class="line"><span class="css">  <span class="attribute">width</span>:<span class="number">100px</span>;</span></span><br><span class="line"><span class="css">  <span class="attribute">height</span>:<span class="number">100px</span>;</span></span><br><span class="line"><span class="css">  <span class="attribute">background-color</span>:red;</span></span><br><span class="line"><span class="css">  <span class="attribute">position</span>:absolute;</span></span><br><span class="line"><span class="css">  <span class="attribute">top</span>:<span class="number">0</span>;</span></span><br><span class="line"><span class="css">  <span class="attribute">left</span>:<span class="number">0</span>;</span></span><br><span class="line"><span class="css">  <span class="attribute">right</span>:<span class="number">0</span>;</span></span><br><span class="line"><span class="css">  <span class="attribute">bottom</span>:<span class="number">0</span>;</span></span><br><span class="line"><span class="css">  <span class="attribute">margin</span>:auto;</span></span><br><span class="line"> &#125;</span><br><span class="line"><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">&quot;app&quot;</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span>&gt;</span>111<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br><span class="line"></span><br><span class="line">【注意】需要注意的是，此方法只对子元素有宽高的情况起作用，如果没有宽高则不起作用。</span><br></pre></td></tr></table></figure>
-]]></content>
-      <tags>
-        <tag>css</tag>
       </tags>
   </entry>
   <entry>
@@ -1179,15 +1179,6 @@
       </tags>
   </entry>
   <entry>
-    <title>图片转base64</title>
-    <url>/2021/02/21/%E5%9B%BE%E7%89%87%E8%BD%ACbase64/</url>
-    <content><![CDATA[<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html lang=<span class="string">&quot;en&quot;</span>&gt;</span><br><span class="line"></span><br><span class="line">&lt;head&gt;</span><br><span class="line">    &lt;meta charset=<span class="string">&quot;UTF-8&quot;</span>&gt;</span><br><span class="line">    &lt;meta name=<span class="string">&quot;viewport&quot;</span> content=<span class="string">&quot;width=device-width, initial-scale=1.0&quot;</span>&gt;</span><br><span class="line">    &lt;title&gt;Document&lt;/title&gt;</span><br><span class="line">&lt;/head&gt;</span><br><span class="line"></span><br><span class="line">&lt;body&gt;</span><br><span class="line"></span><br><span class="line">&lt;/body&gt;</span><br><span class="line"></span><br><span class="line">&lt;/html&gt;</span><br><span class="line">&lt;script&gt;</span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">createCanvas</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="keyword">var</span> canvas = <span class="built_in">document</span>.createElement(<span class="string">&quot;canvas&quot;</span>);</span><br><span class="line">        canvas.width = <span class="number">100</span>;</span><br><span class="line">        canvas.height = <span class="number">100</span>;</span><br><span class="line">        canvas.style.border = <span class="string">&quot;1px solid red&quot;</span>;</span><br><span class="line">        <span class="built_in">document</span>.body.appendChild(canvas);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">setCanvasBg</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="keyword">var</span> canvas = <span class="built_in">document</span>.querySelector(<span class="string">&quot;canvas&quot;</span>);</span><br><span class="line">        <span class="keyword">var</span> ctx = canvas.getContext(<span class="string">&quot;2d&quot;</span>);</span><br><span class="line">        ctx.drawImage(image, <span class="number">0</span>, <span class="number">0</span>, <span class="number">100</span>, <span class="number">100</span>);</span><br><span class="line">        ctx.lineWidth = <span class="number">1</span>;</span><br><span class="line">        ctx.lineCap = <span class="string">&quot;round&quot;</span>;</span><br><span class="line">        ctx.strokeStyle = <span class="string">&#x27;red&#x27;</span>;</span><br><span class="line">        ctx.moveTo(<span class="number">20</span>, <span class="number">80</span>);</span><br><span class="line">        ctx.lineTo(<span class="number">80</span>, <span class="number">80</span>);</span><br><span class="line">        ctx.stroke();</span><br><span class="line">        ctx.fillStyle = <span class="string">&#x27;#fff&#x27;</span>;</span><br><span class="line">        ctx.font = <span class="string">&quot;16px Georgia&quot;</span>;</span><br><span class="line">        ctx.textAlign = <span class="string">&quot;center&quot;</span>;</span><br><span class="line">        ctx.fillText(<span class="string">&quot;shao&quot;</span>, <span class="number">50</span>, <span class="number">95</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">toBase64</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="keyword">var</span> canvas = <span class="built_in">document</span>.querySelector(<span class="string">&quot;canvas&quot;</span>);</span><br><span class="line">        <span class="keyword">var</span> base64 = canvas.toDataURL(<span class="string">&quot;image/jpeg&quot;</span>);</span><br><span class="line">        <span class="keyword">return</span> base64;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">var</span> image = <span class="keyword">new</span> Image();</span><br><span class="line">    image.src = <span class="string">&quot;./u=1610542142,718703573&amp;fm=26&amp;gp=0.jpg&quot;</span>;</span><br><span class="line">    image.setAttribute(<span class="string">&#x27;crossOrigin&#x27;</span>, <span class="string">&#x27;anonymous&#x27;</span>);</span><br><span class="line">    image.onload = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">        createCanvas();</span><br><span class="line">        setCanvasBg();</span><br><span class="line">        <span class="built_in">document</span>.body.style.backgroundImage = <span class="string">`url(<span class="subst">$&#123;toBase64()&#125;</span>)`</span>;</span><br><span class="line">        <span class="built_in">document</span>.querySelector(<span class="string">&quot;canvas&quot;</span>).remove();</span><br><span class="line">    &#125;</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
-]]></content>
-      <tags>
-        <tag>js</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>前端实现在线预览pdf、word、xls、ppt等文件</title>
     <url>/2021/02/21/%E5%89%8D%E7%AB%AF%E5%AE%9E%E7%8E%B0%E5%9C%A8%E7%BA%BF%E9%A2%84%E8%A7%88pdf%E3%80%81word%E3%80%81xls%E3%80%81ppt%E7%AD%89%E6%96%87%E4%BB%B6/</url>
     <content><![CDATA[<h3 id="1、前端实现pdf文件在线预览功能"><a href="#1、前端实现pdf文件在线预览功能" class="headerlink" title="1、前端实现pdf文件在线预览功能"></a>1、前端实现pdf文件在线预览功能</h3><p>方式一、pdf文件理论上可以在浏览器直接打开预览但是需要打开新页面。在仅仅是预览pdf文件且UI要求不高的情况下可以直接通过a标签href属性实现预览</p>
@@ -1195,6 +1186,15 @@
 <figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">iframe</span> <span class="attr">src</span>=<span class="string">&#x27;https://view.officeapps.live.com/op/view.aspx?src=http://storage.xuetangx.com/public_assets/xuetangx/PDF/1.xls&#x27;</span> <span class="attr">width</span>=<span class="string">&#x27;100%&#x27;</span> <span class="attr">height</span>=<span class="string">&#x27;100%&#x27;</span> <span class="attr">frameborder</span>=<span class="string">&#x27;1&#x27;</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;/<span class="name">iframe</span>&gt;</span></span><br></pre></td></tr></table></figure>]]></content>
       <tags>
         <tag>html</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>图片转base64</title>
+    <url>/2021/02/21/%E5%9B%BE%E7%89%87%E8%BD%ACbase64/</url>
+    <content><![CDATA[<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html lang=<span class="string">&quot;en&quot;</span>&gt;</span><br><span class="line"></span><br><span class="line">&lt;head&gt;</span><br><span class="line">    &lt;meta charset=<span class="string">&quot;UTF-8&quot;</span>&gt;</span><br><span class="line">    &lt;meta name=<span class="string">&quot;viewport&quot;</span> content=<span class="string">&quot;width=device-width, initial-scale=1.0&quot;</span>&gt;</span><br><span class="line">    &lt;title&gt;Document&lt;/title&gt;</span><br><span class="line">&lt;/head&gt;</span><br><span class="line"></span><br><span class="line">&lt;body&gt;</span><br><span class="line"></span><br><span class="line">&lt;/body&gt;</span><br><span class="line"></span><br><span class="line">&lt;/html&gt;</span><br><span class="line">&lt;script&gt;</span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">createCanvas</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="keyword">var</span> canvas = <span class="built_in">document</span>.createElement(<span class="string">&quot;canvas&quot;</span>);</span><br><span class="line">        canvas.width = <span class="number">100</span>;</span><br><span class="line">        canvas.height = <span class="number">100</span>;</span><br><span class="line">        canvas.style.border = <span class="string">&quot;1px solid red&quot;</span>;</span><br><span class="line">        <span class="built_in">document</span>.body.appendChild(canvas);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">setCanvasBg</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="keyword">var</span> canvas = <span class="built_in">document</span>.querySelector(<span class="string">&quot;canvas&quot;</span>);</span><br><span class="line">        <span class="keyword">var</span> ctx = canvas.getContext(<span class="string">&quot;2d&quot;</span>);</span><br><span class="line">        ctx.drawImage(image, <span class="number">0</span>, <span class="number">0</span>, <span class="number">100</span>, <span class="number">100</span>);</span><br><span class="line">        ctx.lineWidth = <span class="number">1</span>;</span><br><span class="line">        ctx.lineCap = <span class="string">&quot;round&quot;</span>;</span><br><span class="line">        ctx.strokeStyle = <span class="string">&#x27;red&#x27;</span>;</span><br><span class="line">        ctx.moveTo(<span class="number">20</span>, <span class="number">80</span>);</span><br><span class="line">        ctx.lineTo(<span class="number">80</span>, <span class="number">80</span>);</span><br><span class="line">        ctx.stroke();</span><br><span class="line">        ctx.fillStyle = <span class="string">&#x27;#fff&#x27;</span>;</span><br><span class="line">        ctx.font = <span class="string">&quot;16px Georgia&quot;</span>;</span><br><span class="line">        ctx.textAlign = <span class="string">&quot;center&quot;</span>;</span><br><span class="line">        ctx.fillText(<span class="string">&quot;shao&quot;</span>, <span class="number">50</span>, <span class="number">95</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">toBase64</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="keyword">var</span> canvas = <span class="built_in">document</span>.querySelector(<span class="string">&quot;canvas&quot;</span>);</span><br><span class="line">        <span class="keyword">var</span> base64 = canvas.toDataURL(<span class="string">&quot;image/jpeg&quot;</span>);</span><br><span class="line">        <span class="keyword">return</span> base64;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">var</span> image = <span class="keyword">new</span> Image();</span><br><span class="line">    image.src = <span class="string">&quot;./u=1610542142,718703573&amp;fm=26&amp;gp=0.jpg&quot;</span>;</span><br><span class="line">    image.setAttribute(<span class="string">&#x27;crossOrigin&#x27;</span>, <span class="string">&#x27;anonymous&#x27;</span>);</span><br><span class="line">    image.onload = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">        createCanvas();</span><br><span class="line">        setCanvasBg();</span><br><span class="line">        <span class="built_in">document</span>.body.style.backgroundImage = <span class="string">`url(<span class="subst">$&#123;toBase64()&#125;</span>)`</span>;</span><br><span class="line">        <span class="built_in">document</span>.querySelector(<span class="string">&quot;canvas&quot;</span>).remove();</span><br><span class="line">    &#125;</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+]]></content>
+      <tags>
+        <tag>js</tag>
       </tags>
   </entry>
   <entry>
