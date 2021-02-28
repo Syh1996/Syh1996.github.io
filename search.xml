@@ -1,6 +1,72 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>JS实现网站内容的禁止复制和粘贴、另存为</title>
+    <url>/2021/02/21/JS%E5%AE%9E%E7%8E%B0%E7%BD%91%E7%AB%99%E5%86%85%E5%AE%B9%E7%9A%84%E7%A6%81%E6%AD%A2%E5%A4%8D%E5%88%B6%E5%92%8C%E7%B2%98%E8%B4%B4%E3%80%81%E5%8F%A6%E5%AD%98%E4%B8%BA/</url>
+    <content><![CDATA[<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE <span class="meta-keyword">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">&quot;utf-8&quot;</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">title</span>&gt;</span>菜鸟教程(runoob.com)<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">p</span> <span class="attr">id</span>=<span class="string">&quot;p&quot;</span>&gt;</span><span class="tag">&lt;<span class="name">strong</span>&gt;</span>注意：<span class="tag">&lt;/<span class="name">strong</span>&gt;</span> 该实例如果在 Chrome, Firefox 和 Opera 浏览器中可能无法工作。<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="javascript"><span class="function"><span class="keyword">function</span> <span class="title">myFunction</span>(<span class="params">e</span>) </span>&#123;</span></span><br><span class="line"><span class="javascript">	<span class="built_in">console</span>.log(e);</span></span><br><span class="line"><span class="javascript">  <span class="keyword">return</span> <span class="literal">false</span>;</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="javascript">	<span class="built_in">document</span>.querySelector(<span class="string">&quot;#p&quot;</span>).oncopy=myFunction;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+]]></content>
+      <tags>
+        <tag>javascript</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>CSS伪类与伪元素</title>
+    <url>/2021/02/21/CSS%E4%BC%AA%E7%B1%BB%E4%B8%8E%E4%BC%AA%E5%85%83%E7%B4%A0/</url>
+    <content><![CDATA[<h3 id="为什么要引入伪类与伪元素？"><a href="#为什么要引入伪类与伪元素？" class="headerlink" title="为什么要引入伪类与伪元素？"></a>为什么要引入伪类与伪元素？</h3><p>css引入伪类和伪元素概念是为了格式化文档树以外的信息。也就是说，伪类和伪元素是用来修饰不在文档树中的部分，比如，一句话中的第一个字母，或是列表中的第一个元素，又或者是鼠标悬停在某个超链接上时要设置的样式。</p>
+<h3 id="什么是伪类，伪元素？"><a href="#什么是伪类，伪元素？" class="headerlink" title="什么是伪类，伪元素？"></a>什么是伪类，伪元素？</h3><ul>
+<li>伪类：用于当已有元素处于的某个状态时，为其添加对应的样式，这个状态是根据用户行为而动态变化的。比如说，当用户悬停在指定的元素时，我们可以通过:hover来描述这个元素的状态。虽然它和普通的css类相似，可以为已有的元素添加样式，但是它只有处于dom树无法描述的状态下才能为元素添加样式，所以将其称为伪类。</li>
+<li>伪元素：用于创建一些不在文档树中的元素，并为其添加样式。实际上，伪元素就是选取某些元素前面或后面这种普通选择器无法完成的工作。控制的内容和元素是相同的，但它本身是基于元素的抽象，并不存在于文档结构中。比如说，我们可以通过:before来在一个元素前增加一些文本，并为这些文本添加样式。</li>
+</ul>
+<h3 id="伪类的分类：状态伪类和结构性伪类"><a href="#伪类的分类：状态伪类和结构性伪类" class="headerlink" title="伪类的分类：状态伪类和结构性伪类"></a>伪类的分类：状态伪类和结构性伪类</h3><ul>
+<li><p>状态伪类：是基于元素当前状态进行选择的。在与用户的交互过程中元素的状态是动态变化的，因此该元素会根据其状态呈现不同的样式。当元素处于某状态时会呈现该样式，而进入另一状态后，该样式也会失去。</p>
+<p>常见的状态伪类主要包括：</p>
+</li>
+</ul>
+<ol>
+<li> :link 应用于未被访问过的链接； </li>
+<li> :hover 应用于鼠标悬停到的元素；</li>
+<li> :active 应用于被激活的元素；</li>
+<li> :visited 应用于被访问过的链接，与:link互斥。</li>
+<li> :focus 应用于拥有键盘输入焦点的元素。</li>
+</ol>
+<ul>
+<li><p>结构性伪类：是css3新增选择器，利用dom树进行元素过滤，通过文档结构的互相关系来匹配元素，能够减少class和id属性的定义，使文档结构更简洁。</p>
+<p>常见的结构性伪类包括：</p>
+</li>
+</ul>
+<ol>
+<li> :first-child 选择某个元素的第一个子元素； </li>
+<li> :last-child 选择某个元素的最后一个子元素；</li>
+<li> :nth-child() 选择某个元素的一个或多个特定的子元素；</li>
+<li> :nth-last-child() 选择某个元素的一个或多个特定的子元素，从这个元素的最后一个子元素开始算；</li>
+<li> :nth-of-type() 选择指定的元素；</li>
+<li> :nth-last-of-type() 选择指定的元素，从元素的最后一个开始计算；</li>
+<li> :first-of-type 选择一个上级元素下的第一个同类子元素；</li>
+<li> :last-of-type 选择一个上级元素的最后一个同类子元素；</li>
+<li> :only-child 选择的元素是它的父元素的唯一一个子元素；</li>
+<li> :only-of-type 选择一个元素是它的上级元素的唯一一个相同类型的子元素；</li>
+<li> :empty 选择的元素里面没有任何内容。</li>
+<li> :checked匹配被选中的input元素，这个input元素包括radio和checkbox。</li>
+<li> :default匹配默认选中的元素，例如：提交按钮总是表单的默认按钮。</li>
+<li> :disabled匹配禁用的表单元素。</li>
+<li> :enabled匹配没有设置disabled属性的表单元素。</li>
+<li> :valid匹配条件验证正确的表单元素。</li>
+</ol>
+<h3 id="常见的伪元素选择器："><a href="#常见的伪元素选择器：" class="headerlink" title="常见的伪元素选择器："></a>常见的伪元素选择器：</h3><ol>
+<li> ::first-letter 选择元素文本的第一个字（母）。</li>
+<li> ::first-line 选择元素文本的第一行。</li>
+<li> ::before 在元素内容的最前面添加新内容。</li>
+<li> ::after 在元素内容的最后面添加新内容。</li>
+<li> ::selection匹配用户被用户选中或者处于高亮状态的部分</li>
+<li> ::placeholder匹配占位符的文本，只有元素设置了placeholder属性时，该伪元素才能生效</li>
+</ol>
+<p>注意：你会发现伪类元素使用了两个冒号 (::) 而不是一个冒号 (:)，这是 CSS3 规范中的一部分要求，目的是为了区分伪类和伪元素，大多数浏览器都支持这两种表示方式。单冒号(:)用于 CSS3 伪类，双冒号(::)用于 CSS3 伪元素。对于 CSS2 中已经有的伪元素，例如 :before，单冒号和双冒号的写法 ::before 作用是一样的。</p>
+]]></content>
+      <tags>
+        <tag>css</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Git工作常用命令</title>
     <url>/2021/02/21/Git%E5%B7%A5%E4%BD%9C%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/</url>
     <content><![CDATA[<ul>
@@ -84,72 +150,6 @@
       </tags>
   </entry>
   <entry>
-    <title>CSS伪类与伪元素</title>
-    <url>/2021/02/21/CSS%E4%BC%AA%E7%B1%BB%E4%B8%8E%E4%BC%AA%E5%85%83%E7%B4%A0/</url>
-    <content><![CDATA[<h3 id="为什么要引入伪类与伪元素？"><a href="#为什么要引入伪类与伪元素？" class="headerlink" title="为什么要引入伪类与伪元素？"></a>为什么要引入伪类与伪元素？</h3><p>css引入伪类和伪元素概念是为了格式化文档树以外的信息。也就是说，伪类和伪元素是用来修饰不在文档树中的部分，比如，一句话中的第一个字母，或是列表中的第一个元素，又或者是鼠标悬停在某个超链接上时要设置的样式。</p>
-<h3 id="什么是伪类，伪元素？"><a href="#什么是伪类，伪元素？" class="headerlink" title="什么是伪类，伪元素？"></a>什么是伪类，伪元素？</h3><ul>
-<li>伪类：用于当已有元素处于的某个状态时，为其添加对应的样式，这个状态是根据用户行为而动态变化的。比如说，当用户悬停在指定的元素时，我们可以通过:hover来描述这个元素的状态。虽然它和普通的css类相似，可以为已有的元素添加样式，但是它只有处于dom树无法描述的状态下才能为元素添加样式，所以将其称为伪类。</li>
-<li>伪元素：用于创建一些不在文档树中的元素，并为其添加样式。实际上，伪元素就是选取某些元素前面或后面这种普通选择器无法完成的工作。控制的内容和元素是相同的，但它本身是基于元素的抽象，并不存在于文档结构中。比如说，我们可以通过:before来在一个元素前增加一些文本，并为这些文本添加样式。</li>
-</ul>
-<h3 id="伪类的分类：状态伪类和结构性伪类"><a href="#伪类的分类：状态伪类和结构性伪类" class="headerlink" title="伪类的分类：状态伪类和结构性伪类"></a>伪类的分类：状态伪类和结构性伪类</h3><ul>
-<li><p>状态伪类：是基于元素当前状态进行选择的。在与用户的交互过程中元素的状态是动态变化的，因此该元素会根据其状态呈现不同的样式。当元素处于某状态时会呈现该样式，而进入另一状态后，该样式也会失去。</p>
-<p>常见的状态伪类主要包括：</p>
-</li>
-</ul>
-<ol>
-<li> :link 应用于未被访问过的链接； </li>
-<li> :hover 应用于鼠标悬停到的元素；</li>
-<li> :active 应用于被激活的元素；</li>
-<li> :visited 应用于被访问过的链接，与:link互斥。</li>
-<li> :focus 应用于拥有键盘输入焦点的元素。</li>
-</ol>
-<ul>
-<li><p>结构性伪类：是css3新增选择器，利用dom树进行元素过滤，通过文档结构的互相关系来匹配元素，能够减少class和id属性的定义，使文档结构更简洁。</p>
-<p>常见的结构性伪类包括：</p>
-</li>
-</ul>
-<ol>
-<li> :first-child 选择某个元素的第一个子元素； </li>
-<li> :last-child 选择某个元素的最后一个子元素；</li>
-<li> :nth-child() 选择某个元素的一个或多个特定的子元素；</li>
-<li> :nth-last-child() 选择某个元素的一个或多个特定的子元素，从这个元素的最后一个子元素开始算；</li>
-<li> :nth-of-type() 选择指定的元素；</li>
-<li> :nth-last-of-type() 选择指定的元素，从元素的最后一个开始计算；</li>
-<li> :first-of-type 选择一个上级元素下的第一个同类子元素；</li>
-<li> :last-of-type 选择一个上级元素的最后一个同类子元素；</li>
-<li> :only-child 选择的元素是它的父元素的唯一一个子元素；</li>
-<li> :only-of-type 选择一个元素是它的上级元素的唯一一个相同类型的子元素；</li>
-<li> :empty 选择的元素里面没有任何内容。</li>
-<li> :checked匹配被选中的input元素，这个input元素包括radio和checkbox。</li>
-<li> :default匹配默认选中的元素，例如：提交按钮总是表单的默认按钮。</li>
-<li> :disabled匹配禁用的表单元素。</li>
-<li> :enabled匹配没有设置disabled属性的表单元素。</li>
-<li> :valid匹配条件验证正确的表单元素。</li>
-</ol>
-<h3 id="常见的伪元素选择器："><a href="#常见的伪元素选择器：" class="headerlink" title="常见的伪元素选择器："></a>常见的伪元素选择器：</h3><ol>
-<li> ::first-letter 选择元素文本的第一个字（母）。</li>
-<li> ::first-line 选择元素文本的第一行。</li>
-<li> ::before 在元素内容的最前面添加新内容。</li>
-<li> ::after 在元素内容的最后面添加新内容。</li>
-<li> ::selection匹配用户被用户选中或者处于高亮状态的部分</li>
-<li> ::placeholder匹配占位符的文本，只有元素设置了placeholder属性时，该伪元素才能生效</li>
-</ol>
-<p>注意：你会发现伪类元素使用了两个冒号 (::) 而不是一个冒号 (:)，这是 CSS3 规范中的一部分要求，目的是为了区分伪类和伪元素，大多数浏览器都支持这两种表示方式。单冒号(:)用于 CSS3 伪类，双冒号(::)用于 CSS3 伪元素。对于 CSS2 中已经有的伪元素，例如 :before，单冒号和双冒号的写法 ::before 作用是一样的。</p>
-]]></content>
-      <tags>
-        <tag>css</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>JS实现网站内容的禁止复制和粘贴、另存为</title>
-    <url>/2021/02/21/JS%E5%AE%9E%E7%8E%B0%E7%BD%91%E7%AB%99%E5%86%85%E5%AE%B9%E7%9A%84%E7%A6%81%E6%AD%A2%E5%A4%8D%E5%88%B6%E5%92%8C%E7%B2%98%E8%B4%B4%E3%80%81%E5%8F%A6%E5%AD%98%E4%B8%BA/</url>
-    <content><![CDATA[<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE <span class="meta-keyword">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">&quot;utf-8&quot;</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">title</span>&gt;</span>菜鸟教程(runoob.com)<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">p</span> <span class="attr">id</span>=<span class="string">&quot;p&quot;</span>&gt;</span><span class="tag">&lt;<span class="name">strong</span>&gt;</span>注意：<span class="tag">&lt;/<span class="name">strong</span>&gt;</span> 该实例如果在 Chrome, Firefox 和 Opera 浏览器中可能无法工作。<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="javascript"><span class="function"><span class="keyword">function</span> <span class="title">myFunction</span>(<span class="params">e</span>) </span>&#123;</span></span><br><span class="line"><span class="javascript">	<span class="built_in">console</span>.log(e);</span></span><br><span class="line"><span class="javascript">  <span class="keyword">return</span> <span class="literal">false</span>;</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="javascript">	<span class="built_in">document</span>.querySelector(<span class="string">&quot;#p&quot;</span>).oncopy=myFunction;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
-]]></content>
-      <tags>
-        <tag>javascript</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>html5拖动，上传进度，div可编辑新增API</title>
     <url>/2021/02/21/html5%E6%8B%96%E5%8A%A8%EF%BC%8C%E4%B8%8A%E4%BC%A0%E8%BF%9B%E5%BA%A6%EF%BC%8Cdiv%E5%8F%AF%E7%BC%96%E8%BE%91%E6%96%B0%E5%A2%9EAPI/</url>
     <content><![CDATA[<p>上传进度：</p>
@@ -216,6 +216,34 @@
       </tags>
   </entry>
   <entry>
+    <title>js常见算法数组去重</title>
+    <url>/2021/02/23/js%E5%B8%B8%E8%A7%81%E7%AE%97%E6%B3%95%E6%95%B0%E7%BB%84%E5%8E%BB%E9%87%8D/</url>
+    <content><![CDATA[<ol>
+<li>ES6 new Set去重</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">[...new Set(arr)]</span><br></pre></td></tr></table></figure>
+<ol start="2">
+<li>利用object key不重复的特性去重</li>
+</ol>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">let</span> arr = [................]</span><br><span class="line"><span class="keyword">let</span> obj = &#123;&#125;;</span><br><span class="line">arr.forEach(<span class="function">(<span class="params">item,index</span>)=&gt;</span>&#123;</span><br><span class="line">    obj[item] = 任意值 </span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line"><span class="comment">//最后通过obj key生成数组   Object.keys(obj)</span></span><br></pre></td></tr></table></figure>
+<ol start="3">
+<li><p>利用双重循环删除多余值</p>
+</li>
+<li><p>利用includes() find() findIndex() filter()这类方法push到一个全新的数组</p>
+</li>
+<li><p>利用相邻节点相同删除的方法</p>
+<ul>
+<li>对数据排序 </li>
+<li>循环数组，如下一项与记录的一项相同则删除，不同则重新记录当前项</li>
+</ul>
+</li>
+</ol>
+]]></content>
+      <tags>
+        <tag>javascript</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>js防抖与节流</title>
     <url>/2021/02/23/js%E9%98%B2%E6%8A%96%E4%B8%8E%E8%8A%82%E6%B5%81/</url>
     <content><![CDATA[<p>防抖和节流严格算起来应该属于性能优化的知识，但实际上遇到的频率相当高，处理不当或者放任不管就容易引起浏览器卡死。所以还是很有必要早点掌握的。（信我，你看完肯定就懂了）</p>
@@ -267,34 +295,6 @@
 <blockquote>
 <p>原文来自: <a class="link"   href="https://segmentfault.com/a/1190000018428170" >https://segmentfault.com/a/1190000018428170<i class="fas fa-external-link-alt"></i></a></p>
 </blockquote>
-]]></content>
-      <tags>
-        <tag>javascript</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>js常见算法数组去重</title>
-    <url>/2021/02/23/js%E5%B8%B8%E8%A7%81%E7%AE%97%E6%B3%95%E6%95%B0%E7%BB%84%E5%8E%BB%E9%87%8D/</url>
-    <content><![CDATA[<ol>
-<li>ES6 new Set去重</li>
-</ol>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">[...new Set(arr)]</span><br></pre></td></tr></table></figure>
-<ol start="2">
-<li>利用object key不重复的特性去重</li>
-</ol>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">let</span> arr = [................]</span><br><span class="line"><span class="keyword">let</span> obj = &#123;&#125;;</span><br><span class="line">arr.forEach(<span class="function">(<span class="params">item,index</span>)=&gt;</span>&#123;</span><br><span class="line">    obj[item] = 任意值 </span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line"><span class="comment">//最后通过obj key生成数组   Object.keys(obj)</span></span><br></pre></td></tr></table></figure>
-<ol start="3">
-<li><p>利用双重循环删除多余值</p>
-</li>
-<li><p>利用includes() find() findIndex() filter()这类方法push到一个全新的数组</p>
-</li>
-<li><p>利用相邻节点相同删除的方法</p>
-<ul>
-<li>对数据排序 </li>
-<li>循环数组，如下一项与记录的一项相同则删除，不同则重新记录当前项</li>
-</ul>
-</li>
-</ol>
 ]]></content>
       <tags>
         <tag>javascript</tag>
@@ -529,27 +529,6 @@
       </tags>
   </entry>
   <entry>
-    <title>vue双向绑定原理分析</title>
-    <url>/2021/02/21/vue%E5%8F%8C%E5%90%91%E7%BB%91%E5%AE%9A%E5%8E%9F%E7%90%86%E5%88%86%E6%9E%90/</url>
-    <content><![CDATA[<p><strong>1.vue双向绑定原理</strong></p>
-<p>vue.js 则是采用数据劫持结合发布者-订阅者模式的方式，通过<code>Object.defineProperty()</code>来劫持各个属性的<code>setter</code>，<code>getter</code>，在数据变动时发布消息给订阅者，触发相应的监听回调。我们先来看Object.defineProperty()这个方法：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">var obj  &#x3D; &#123;&#125;;</span><br><span class="line">Object.defineProperty(obj, &#39;name&#39;, &#123;</span><br><span class="line">        get: function() &#123;</span><br><span class="line">            console.log(&#39;我被获取了&#39;)</span><br><span class="line">            return val;</span><br><span class="line">        &#125;,</span><br><span class="line">        set: function (newVal) &#123;</span><br><span class="line">            console.log(&#39;我被设置了&#39;)</span><br><span class="line">        &#125;</span><br><span class="line">&#125;)</span><br><span class="line">obj.name &#x3D; &#39;fei&#39;;&#x2F;&#x2F;在给obj设置name属性的时候，触发了set这个方法</span><br><span class="line">var val &#x3D; obj.name;&#x2F;&#x2F;在得到obj的name属性，会触发get方法</span><br></pre></td></tr></table></figure>
-
-
-<p>已经了解到vue是通过数据劫持的方式来做数据绑定的，其中最核心的方法便是通过<code>Object.defineProperty()</code>来实现对属性的劫持，那么在设置或者获取的时候我们就可以在get或者set方法里假如其他的触发函数，达到监听数据变动的目的，无疑这个方法是本文中最重要、最基础的内容之一。</p>
-<p><strong>2.实现最简单的双向绑定</strong></p>
-<p>我们知道通过Object.defineProperty()可以实现数据劫持，是的属性在赋值的时候触发set方法，</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;!doctype html&gt;</span><br><span class="line">&lt;html lang&#x3D;&quot;en&quot;&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">    &lt;meta charset&#x3D;&quot;UTF-8&quot;&gt;</span><br><span class="line">    &lt;title&gt;Document&lt;&#x2F;title&gt;</span><br><span class="line">&lt;&#x2F;head&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line">    &lt;div id&#x3D;&quot;demo&quot;&gt;&lt;&#x2F;div&gt;</span><br><span class="line">    &lt;input type&#x3D;&quot;text&quot; id&#x3D;&quot;inp&quot;&gt;</span><br><span class="line">    &lt;script&gt;</span><br><span class="line">        var obj  &#x3D; &#123;&#125;;</span><br><span class="line">        var demo &#x3D; document.querySelector(&#39;#demo&#39;)</span><br><span class="line">        var inp &#x3D; document.querySelector(&#39;#inp&#39;)</span><br><span class="line">        Object.defineProperty(obj, &#39;name&#39;, &#123;</span><br><span class="line">            get: function() &#123;</span><br><span class="line">                return val;</span><br><span class="line">            &#125;,</span><br><span class="line">            set: function (newVal) &#123;&#x2F;&#x2F;当该属性被赋值的时候触发</span><br><span class="line">                inp.value &#x3D; newVal;</span><br><span class="line">                demo.innerHTML &#x3D; newVal;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;)</span><br><span class="line">        inp.addEventListener(&#39;input&#39;, function(e) &#123;</span><br><span class="line">            &#x2F;&#x2F; 给obj的name属性赋值，进而触发该属性的set方法</span><br><span class="line">            obj.name &#x3D; e.target.value;</span><br><span class="line">        &#125;);</span><br><span class="line">        obj.name &#x3D; &#39;fei&#39;;&#x2F;&#x2F;在给obj设置name属性的时候，触发了set这个方法</span><br><span class="line">    &lt;&#x2F;script&gt;</span><br><span class="line">&lt;&#x2F;body&gt;</span><br><span class="line">&lt;&#x2F;html&gt;</span><br></pre></td></tr></table></figure>
-
-
-<p>当然要是这么粗暴，肯定不行，性能会出很多的问题</p>
-<p>原文地址:<a class="link"   href="https://www.cnblogs.com/zhenfei-jiang/p/7542900.html" >https://www.cnblogs.com/zhenfei-jiang/p/7542900.html<i class="fas fa-external-link-alt"></i></a></p>
-]]></content>
-      <tags>
-        <tag>vue</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>vue3.x学习笔记</title>
     <url>/2021/02/21/vue3-x%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</url>
     <content><![CDATA[<blockquote>
@@ -637,12 +616,24 @@
       </tags>
   </entry>
   <entry>
-    <title>【今日新发现】让子元素上下左右居中的新奇方法</title>
-    <url>/2021/02/21/%E3%80%90%E4%BB%8A%E6%97%A5%E6%96%B0%E5%8F%91%E7%8E%B0%E3%80%91%E8%AE%A9%E5%AD%90%E5%85%83%E7%B4%A0%E4%B8%8A%E4%B8%8B%E5%B7%A6%E5%8F%B3%E5%B1%85%E4%B8%AD%E7%9A%84%E6%96%B0%E5%A5%87%E6%96%B9%E6%B3%95/</url>
-    <content><![CDATA[<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">style</span>&gt;</span></span><br><span class="line"> *&#123;</span><br><span class="line"><span class="css"> <span class="attribute">margin</span>:<span class="number">0</span>;</span></span><br><span class="line"><span class="css"> <span class="attribute">padding</span>:<span class="number">0</span>;</span></span><br><span class="line"> &#125;</span><br><span class="line"> #app&#123;</span><br><span class="line"><span class="css">  <span class="attribute">background-color</span>:<span class="number">#ddd</span>;</span></span><br><span class="line"><span class="css">  <span class="attribute">height</span>:<span class="number">600px</span>;</span></span><br><span class="line"><span class="css">  <span class="attribute">position</span>:relative;</span></span><br><span class="line"> &#125;</span><br><span class="line"><span class="css"> <span class="selector-id">#app</span> <span class="selector-tag">div</span>&#123;</span></span><br><span class="line"><span class="css">  <span class="attribute">width</span>:<span class="number">100px</span>;</span></span><br><span class="line"><span class="css">  <span class="attribute">height</span>:<span class="number">100px</span>;</span></span><br><span class="line"><span class="css">  <span class="attribute">background-color</span>:red;</span></span><br><span class="line"><span class="css">  <span class="attribute">position</span>:absolute;</span></span><br><span class="line"><span class="css">  <span class="attribute">top</span>:<span class="number">0</span>;</span></span><br><span class="line"><span class="css">  <span class="attribute">left</span>:<span class="number">0</span>;</span></span><br><span class="line"><span class="css">  <span class="attribute">right</span>:<span class="number">0</span>;</span></span><br><span class="line"><span class="css">  <span class="attribute">bottom</span>:<span class="number">0</span>;</span></span><br><span class="line"><span class="css">  <span class="attribute">margin</span>:auto;</span></span><br><span class="line"> &#125;</span><br><span class="line"><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">&quot;app&quot;</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span>&gt;</span>111<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br><span class="line"></span><br><span class="line">【注意】需要注意的是，此方法只对子元素有宽高的情况起作用，如果没有宽高则不起作用。</span><br></pre></td></tr></table></figure>
+    <title>vue双向绑定原理分析</title>
+    <url>/2021/02/21/vue%E5%8F%8C%E5%90%91%E7%BB%91%E5%AE%9A%E5%8E%9F%E7%90%86%E5%88%86%E6%9E%90/</url>
+    <content><![CDATA[<p><strong>1.vue双向绑定原理</strong></p>
+<p>vue.js 则是采用数据劫持结合发布者-订阅者模式的方式，通过<code>Object.defineProperty()</code>来劫持各个属性的<code>setter</code>，<code>getter</code>，在数据变动时发布消息给订阅者，触发相应的监听回调。我们先来看Object.defineProperty()这个方法：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">var obj  &#x3D; &#123;&#125;;</span><br><span class="line">Object.defineProperty(obj, &#39;name&#39;, &#123;</span><br><span class="line">        get: function() &#123;</span><br><span class="line">            console.log(&#39;我被获取了&#39;)</span><br><span class="line">            return val;</span><br><span class="line">        &#125;,</span><br><span class="line">        set: function (newVal) &#123;</span><br><span class="line">            console.log(&#39;我被设置了&#39;)</span><br><span class="line">        &#125;</span><br><span class="line">&#125;)</span><br><span class="line">obj.name &#x3D; &#39;fei&#39;;&#x2F;&#x2F;在给obj设置name属性的时候，触发了set这个方法</span><br><span class="line">var val &#x3D; obj.name;&#x2F;&#x2F;在得到obj的name属性，会触发get方法</span><br></pre></td></tr></table></figure>
+
+
+<p>已经了解到vue是通过数据劫持的方式来做数据绑定的，其中最核心的方法便是通过<code>Object.defineProperty()</code>来实现对属性的劫持，那么在设置或者获取的时候我们就可以在get或者set方法里假如其他的触发函数，达到监听数据变动的目的，无疑这个方法是本文中最重要、最基础的内容之一。</p>
+<p><strong>2.实现最简单的双向绑定</strong></p>
+<p>我们知道通过Object.defineProperty()可以实现数据劫持，是的属性在赋值的时候触发set方法，</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;!doctype html&gt;</span><br><span class="line">&lt;html lang&#x3D;&quot;en&quot;&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">    &lt;meta charset&#x3D;&quot;UTF-8&quot;&gt;</span><br><span class="line">    &lt;title&gt;Document&lt;&#x2F;title&gt;</span><br><span class="line">&lt;&#x2F;head&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line">    &lt;div id&#x3D;&quot;demo&quot;&gt;&lt;&#x2F;div&gt;</span><br><span class="line">    &lt;input type&#x3D;&quot;text&quot; id&#x3D;&quot;inp&quot;&gt;</span><br><span class="line">    &lt;script&gt;</span><br><span class="line">        var obj  &#x3D; &#123;&#125;;</span><br><span class="line">        var demo &#x3D; document.querySelector(&#39;#demo&#39;)</span><br><span class="line">        var inp &#x3D; document.querySelector(&#39;#inp&#39;)</span><br><span class="line">        Object.defineProperty(obj, &#39;name&#39;, &#123;</span><br><span class="line">            get: function() &#123;</span><br><span class="line">                return val;</span><br><span class="line">            &#125;,</span><br><span class="line">            set: function (newVal) &#123;&#x2F;&#x2F;当该属性被赋值的时候触发</span><br><span class="line">                inp.value &#x3D; newVal;</span><br><span class="line">                demo.innerHTML &#x3D; newVal;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;)</span><br><span class="line">        inp.addEventListener(&#39;input&#39;, function(e) &#123;</span><br><span class="line">            &#x2F;&#x2F; 给obj的name属性赋值，进而触发该属性的set方法</span><br><span class="line">            obj.name &#x3D; e.target.value;</span><br><span class="line">        &#125;);</span><br><span class="line">        obj.name &#x3D; &#39;fei&#39;;&#x2F;&#x2F;在给obj设置name属性的时候，触发了set这个方法</span><br><span class="line">    &lt;&#x2F;script&gt;</span><br><span class="line">&lt;&#x2F;body&gt;</span><br><span class="line">&lt;&#x2F;html&gt;</span><br></pre></td></tr></table></figure>
+
+
+<p>当然要是这么粗暴，肯定不行，性能会出很多的问题</p>
+<p>原文地址:<a class="link"   href="https://www.cnblogs.com/zhenfei-jiang/p/7542900.html" >https://www.cnblogs.com/zhenfei-jiang/p/7542900.html<i class="fas fa-external-link-alt"></i></a></p>
 ]]></content>
       <tags>
-        <tag>css</tag>
+        <tag>vue</tag>
       </tags>
   </entry>
   <entry>
@@ -663,6 +654,15 @@
 <h4 id="感谢余大佬提点"><a href="#感谢余大佬提点" class="headerlink" title="感谢余大佬提点"></a>感谢余大佬提点</h4>]]></content>
       <tags>
         <tag>算法</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>【今日新发现】让子元素上下左右居中的新奇方法</title>
+    <url>/2021/02/21/%E3%80%90%E4%BB%8A%E6%97%A5%E6%96%B0%E5%8F%91%E7%8E%B0%E3%80%91%E8%AE%A9%E5%AD%90%E5%85%83%E7%B4%A0%E4%B8%8A%E4%B8%8B%E5%B7%A6%E5%8F%B3%E5%B1%85%E4%B8%AD%E7%9A%84%E6%96%B0%E5%A5%87%E6%96%B9%E6%B3%95/</url>
+    <content><![CDATA[<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">style</span>&gt;</span></span><br><span class="line"> *&#123;</span><br><span class="line"><span class="css"> <span class="attribute">margin</span>:<span class="number">0</span>;</span></span><br><span class="line"><span class="css"> <span class="attribute">padding</span>:<span class="number">0</span>;</span></span><br><span class="line"> &#125;</span><br><span class="line"> #app&#123;</span><br><span class="line"><span class="css">  <span class="attribute">background-color</span>:<span class="number">#ddd</span>;</span></span><br><span class="line"><span class="css">  <span class="attribute">height</span>:<span class="number">600px</span>;</span></span><br><span class="line"><span class="css">  <span class="attribute">position</span>:relative;</span></span><br><span class="line"> &#125;</span><br><span class="line"><span class="css"> <span class="selector-id">#app</span> <span class="selector-tag">div</span>&#123;</span></span><br><span class="line"><span class="css">  <span class="attribute">width</span>:<span class="number">100px</span>;</span></span><br><span class="line"><span class="css">  <span class="attribute">height</span>:<span class="number">100px</span>;</span></span><br><span class="line"><span class="css">  <span class="attribute">background-color</span>:red;</span></span><br><span class="line"><span class="css">  <span class="attribute">position</span>:absolute;</span></span><br><span class="line"><span class="css">  <span class="attribute">top</span>:<span class="number">0</span>;</span></span><br><span class="line"><span class="css">  <span class="attribute">left</span>:<span class="number">0</span>;</span></span><br><span class="line"><span class="css">  <span class="attribute">right</span>:<span class="number">0</span>;</span></span><br><span class="line"><span class="css">  <span class="attribute">bottom</span>:<span class="number">0</span>;</span></span><br><span class="line"><span class="css">  <span class="attribute">margin</span>:auto;</span></span><br><span class="line"> &#125;</span><br><span class="line"><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">&quot;app&quot;</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span>&gt;</span>111<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br><span class="line"></span><br><span class="line">【注意】需要注意的是，此方法只对子元素有宽高的情况起作用，如果没有宽高则不起作用。</span><br></pre></td></tr></table></figure>
+]]></content>
+      <tags>
+        <tag>css</tag>
       </tags>
   </entry>
   <entry>
@@ -1188,6 +1188,16 @@
       </tags>
   </entry>
   <entry>
+    <title>前端实现在线预览pdf、word、xls、ppt等文件</title>
+    <url>/2021/02/21/%E5%89%8D%E7%AB%AF%E5%AE%9E%E7%8E%B0%E5%9C%A8%E7%BA%BF%E9%A2%84%E8%A7%88pdf%E3%80%81word%E3%80%81xls%E3%80%81ppt%E7%AD%89%E6%96%87%E4%BB%B6/</url>
+    <content><![CDATA[<h3 id="1、前端实现pdf文件在线预览功能"><a href="#1、前端实现pdf文件在线预览功能" class="headerlink" title="1、前端实现pdf文件在线预览功能"></a>1、前端实现pdf文件在线预览功能</h3><p>方式一、pdf文件理论上可以在浏览器直接打开预览但是需要打开新页面。在仅仅是预览pdf文件且UI要求不高的情况下可以直接通过a标签href属性实现预览</p>
+<h3 id="2、word、xls、ppt文件在线预览功能"><a href="#2、word、xls、ppt文件在线预览功能" class="headerlink" title="2、word、xls、ppt文件在线预览功能"></a>2、word、xls、ppt文件在线预览功能</h3><p>word、ppt、xls文件实现在线预览的方式比较简单可以直接通过调用微软的在线预览功能实现 (预览前提：资源必须是公共可访问的)</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">iframe</span> <span class="attr">src</span>=<span class="string">&#x27;https://view.officeapps.live.com/op/view.aspx?src=http://storage.xuetangx.com/public_assets/xuetangx/PDF/1.xls&#x27;</span> <span class="attr">width</span>=<span class="string">&#x27;100%&#x27;</span> <span class="attr">height</span>=<span class="string">&#x27;100%&#x27;</span> <span class="attr">frameborder</span>=<span class="string">&#x27;1&#x27;</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;/<span class="name">iframe</span>&gt;</span></span><br></pre></td></tr></table></figure>]]></content>
+      <tags>
+        <tag>html</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>图解 script 标签中的 async 和 defer 属性</title>
     <url>/2021/02/21/%E5%9B%BE%E8%A7%A3%20script%20%E6%A0%87%E7%AD%BE%E4%B8%AD%E7%9A%84%20async%20%E5%92%8C%20defer%20%E5%B1%9E%E6%80%A7/</url>
     <content><![CDATA[<p>在 HTML 中会遇到以下三类 script：</p>
@@ -1250,16 +1260,6 @@
 ]]></content>
       <tags>
         <tag>javascript</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>前端实现在线预览pdf、word、xls、ppt等文件</title>
-    <url>/2021/02/21/%E5%89%8D%E7%AB%AF%E5%AE%9E%E7%8E%B0%E5%9C%A8%E7%BA%BF%E9%A2%84%E8%A7%88pdf%E3%80%81word%E3%80%81xls%E3%80%81ppt%E7%AD%89%E6%96%87%E4%BB%B6/</url>
-    <content><![CDATA[<h3 id="1、前端实现pdf文件在线预览功能"><a href="#1、前端实现pdf文件在线预览功能" class="headerlink" title="1、前端实现pdf文件在线预览功能"></a>1、前端实现pdf文件在线预览功能</h3><p>方式一、pdf文件理论上可以在浏览器直接打开预览但是需要打开新页面。在仅仅是预览pdf文件且UI要求不高的情况下可以直接通过a标签href属性实现预览</p>
-<h3 id="2、word、xls、ppt文件在线预览功能"><a href="#2、word、xls、ppt文件在线预览功能" class="headerlink" title="2、word、xls、ppt文件在线预览功能"></a>2、word、xls、ppt文件在线预览功能</h3><p>word、ppt、xls文件实现在线预览的方式比较简单可以直接通过调用微软的在线预览功能实现 (预览前提：资源必须是公共可访问的)</p>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">iframe</span> <span class="attr">src</span>=<span class="string">&#x27;https://view.officeapps.live.com/op/view.aspx?src=http://storage.xuetangx.com/public_assets/xuetangx/PDF/1.xls&#x27;</span> <span class="attr">width</span>=<span class="string">&#x27;100%&#x27;</span> <span class="attr">height</span>=<span class="string">&#x27;100%&#x27;</span> <span class="attr">frameborder</span>=<span class="string">&#x27;1&#x27;</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;/<span class="name">iframe</span>&gt;</span></span><br></pre></td></tr></table></figure>]]></content>
-      <tags>
-        <tag>html</tag>
       </tags>
   </entry>
   <entry>
