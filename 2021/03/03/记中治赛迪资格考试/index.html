@@ -10,7 +10,7 @@
     
     <title>
         
-            关于 |
+            记中治赛迪资格考试 |
         
         邵预鸿|前端开发技术笔记
     </title>
@@ -73,7 +73,7 @@
                         </li>
                     
                         <li class="menu-item">
-                            <a class="active"
+                            <a class=""
                                href="/about"
                             >
                                 关于我
@@ -112,7 +112,7 @@
                 </li>
             
                 <li class="drawer-menu-item flex-center">
-                    <a class="active"
+                    <a class=""
                        href="/about">关于我</a>
                 </li>
             
@@ -132,38 +132,185 @@
 
                 
                     <div class="fade-in-down-animation">
-    <div class="page-template-container">
-        
-        
-        <div class="page-template-content markdown-body">
-            
-                <h3 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h3><ul>
-<li><p>一名深资ctrl+c and ctrl+v开发者，互联网代码搬运工，我不生产代码，我只是互联网的搬运工。</p>
-</li>
-<li><p>兴趣广泛，骑行/摄影/航拍/游泳/爬山….曾为拍广阔的天空去往高山树林深处，被野猪追了几百米….</p>
-</li>
-<li><p>喜欢探险，各种奇伟险俊，我都热爱。</p>
-</li>
-<li><p>适合到处行走，山水之间，高山丛林，风光摄影师才是我最想做的职业，不管有多苦。</p>
-</li>
-</ul>
-<p><img  
-                     lazyload
-                     src="/images/loading.svg"
-                     data-src="https://gitee.com/xian_hong_xiao/assets/raw/master/img/my.jpg"
-                      alt="邵预鸿"
-                ></p>
-<h3 id="其它"><a href="#其它" class="headerlink" title="其它"></a>其它</h3><ul>
-<li>邮箱：<a class="link"   href="mailto:&#49;&#48;&#52;&#53;&#55;&#x34;&#57;&#x37;&#50;&#x35;&#x40;&#113;&#x71;&#46;&#99;&#x6f;&#109;" >&#49;&#48;&#52;&#53;&#55;&#x34;&#57;&#x37;&#50;&#x35;&#x40;&#113;&#x71;&#46;&#99;&#x6f;&#109;<i class="fas fa-external-link-alt"></i></a></li>
-<li>电话：18875025132</li>
-<li>个人网站：<a class="link"   target="_blank" rel="noopener" href="https://www.shaoyuhong.cn/" >htttps://www.shaoyuhong.cn<i class="fas fa-external-link-alt"></i></a></li>
-</ul>
+    <div class="article-content-container">
 
-            
+        <div class="article-title">
+            <span class="title-hover-animation">记中治赛迪资格考试</span>
         </div>
-        <div class="page-template-comments">
-            
+
+        
+            <div class="article-header">
+                <div class="avatar">
+                    <img src="/images/logo.jpg">
+                </div>
+                <div class="info">
+                    <div class="author">
+                        <span class="name">邵预鸿</span>
+                        
+                            <span class="author-label">Lv3</span>
+                        
+                    </div>
+                    <div class="meta-info">
+                        <div class="article-meta-info">
+    <span class="article-date article-meta-item">
+        <i class="fas fa-edit"></i>&nbsp;2021-03-03 21:09:32
+    </span>
+    
+    
+        <span class="article-tags article-meta-item">
+            <i class="fas fa-tags"></i>&nbsp;
+            <ul>
+                
+                    <li>
+                        <a href="/tags/%E6%97%A5%E5%B8%B8/">日常</a>&nbsp;
+                    </li>
+                
+            </ul>
+        </span>
+    
+
+    
+    
+    
+    
+</div>
+
+                    </div>
+                </div>
+            </div>
+        
+
+        <div class="article-content markdown-body">
+            <p>2021年3月2日，有幸参加公司组织的关于中治赛迪公司的资格考试。</p>
+<p>公司地址位于重庆市金童路，办公环境特别好，公司气氛融洽。</p>
+<p>本次参加的是前端工程师开发岗位，共分两轮，一轮笔试，一轮面试。面试为3位面1人，共分3组，同时面试。</p>
+<h3 id="面试过程中问题如下"><a href="#面试过程中问题如下" class="headerlink" title="面试过程中问题如下"></a>面试过程中问题如下</h3><ul>
+<li>const定义的对象为什么能修改</li>
+</ul>
+<p>答:对象是引用类型的，const定义的对象t中保存的是指向对象t的指针，这里的“不变”指的是指向对象的<strong>指针</strong>不变，而修改对象中的属性并不会让指向对象的指针发生变化，所以用const定义对象，对象的属性是可以改变的。</p>
+<ul>
+<li>sessionStroge什么时候能在新标签页中共享数据？</li>
+</ul>
+<p>答：这里我之前没有注意过，特意写了一个事例，最后总结为当手动打开一个标签页时，sessionStroge不能共享数据，但是使用<a>标签，或者 **window.open ** </p>
+<p>可以共享数据</p>
+<ul>
+<li>vue3.x ref与reactive区别</li>
+</ul>
+<p>答: ref面向基本数据类型，rective面向复杂数据类型。但是ref可以接收复杂数据类型，此时vue会转为rective数据</p>
+<ul>
+<li>关于闭包的缺点</li>
+</ul>
+<p>这个问题当时把我问蒙了，因为平时都会问”为什么用闭包，闭包的作用什么的”，结果问这个问题。</p>
+<p>答：闭包会常驻内存，增加内存开销。使用不当会造成内存泄露</p>
+<ul>
+<li><p>http与https区别</p>
+</li>
+<li><p>判断数据类型的几种方法</p>
+</li>
+</ul>
+<p>答: instanceof  constructor  typeof  Object.prototype.toString.call(数据)</p>
+<ul>
+<li>.bind()方法会返回什么样的值 </li>
+<li>关于for 与map的性能问题</li>
+</ul>
+<p>本次采用遍历1000w数据，每个值*9，并返回新数组,参考代码如下</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//map遍历</span></span><br><span class="line"><span class="keyword">let</span> arr1 = [...new <span class="built_in">Array</span>(<span class="number">10000000</span>).keys()];</span><br><span class="line"><span class="keyword">let</span> arr2 = arr1.map(<span class="function">(<span class="params">item,index,newArray</span>)=&gt;</span>&#123;</span><br><span class="line">    <span class="keyword">return</span> item * <span class="number">9</span>;</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">var</span> i=<span class="number">0</span>,length=arr1.length;i&lt;length;i++)&#123;</span><br><span class="line">    arr1[i]*=<span class="number">9</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>使用9次执行时间(单位ms)对比如下:</p>
+<ul>
+<li><table>
+<thead>
+<tr>
+<th>for</th>
+<th>map</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>4435</td>
+<td>5125</td>
+</tr>
+<tr>
+<td>4522</td>
+<td>5236</td>
+</tr>
+<tr>
+<td>4606</td>
+<td>4921</td>
+</tr>
+<tr>
+<td>4405</td>
+<td>4666</td>
+</tr>
+<tr>
+<td>4415</td>
+<td>4686</td>
+</tr>
+<tr>
+<td>4574</td>
+<td>4532</td>
+</tr>
+<tr>
+<td>4495</td>
+<td>4580</td>
+</tr>
+<tr>
+<td>4505</td>
+<td>4608</td>
+</tr>
+<tr>
+<td>4086</td>
+<td>4664</td>
+</tr>
+</tbody></table>
+<p>总结： 当数据量小时，两者之间并没有多少区别。当数据比较大时，for遍历 数据略快于map遍历 .</p>
+</li>
+</ul>
+<h3 id="反思"><a href="#反思" class="headerlink" title="反思"></a>反思</h3><p>这次考试完后应当反思几点。1.还是没能特别的落落大方，多少有些口吃。 2. 许多问题还是不知道，需要不断学习。3.我发现在回答问题时，第一句话总喜欢以”嗯~……”开头，多少有点不自信的感觉，这点一定要改。</p>
+<p>最后希望自己能早日完成我想做的几件事。</p>
+
         </div>
+
+        
+            <div class="post-copyright-info">
+                <div class="article-copyright-info-container">
+    <ul>
+        <li>本文标题：记中治赛迪资格考试</li>
+        <li>本文作者：邵预鸿</li>
+        <li>创建时间：2021-03-03 21:09:32</li>
+        <li>
+            本文链接：/images/logo.jpg2021/03/03/记中治赛迪资格考试/
+        </li>
+        <li>
+            版权声明：本博客所有文章除特别声明外，均采用 <a class="license" target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">BY-NC-SA</a> 许可协议。转载请注明出处！
+        </li>
+    </ul>
+</div>
+
+            </div>
+        
+
+        
+            <div class="article-nav">
+                
+                
+                    <div class="article-next">
+                        <a class="next"
+                           rel="next"
+                           href="/2021/02/25/js%E5%8E%9F%E7%94%9Fdom%E7%AF%87/"
+                        >
+                            <span class="title flex-center">
+                                <span class="post-nav-title-item">js原生dom篇</span>
+                                <span class="post-nav-item">下一篇</span>
+                            </span>
+                            <span class="right arrow-icon flex-center">
+                              <i class="fas fa-chevron-right"></i>
+                            </span>
+                        </a>
+                    </div>
+                
+            </div>
+        
+
+        
     </div>
 </div>
 
@@ -193,6 +340,19 @@
         </div>
     </div>
 
+    
+        <div class="post-tools">
+            <div class="post-tools-container">
+    <ul class="tools-list">
+        <!-- TOC aside toggle -->
+        
+
+        <!-- go comment -->
+        
+    </ul>
+</div>
+
+        </div>
     
 
     <div class="right-bottom-side-tools">
