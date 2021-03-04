@@ -539,9 +539,29 @@
 <p>解决,利用数据劫持，监听window对象</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> current = <span class="number">0</span>;</span><br><span class="line"><span class="built_in">Object</span>.definePrototype(<span class="built_in">this</span>,<span class="string">&#x27;a&#x27;</span>,&#123;</span><br><span class="line">    get:<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">        <span class="keyword">return</span> ++current;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;)</span><br><span class="line"><span class="keyword">if</span>(a===<span class="number">1</span> &amp;&amp; a===<span class="number">2</span> &amp;&amp; a===<span class="number">3</span>)&#123;</span><br><span class="line">	<span class="built_in">console</span>.log(<span class="string">&#x27;success&#x27;</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>以上代码，a ===1获取a时必然触发数据劫持中的get方法,this指向的window，a也是全局变量，挂载到了window中，实际中window.a ===a，所以每一个判断都会调get方法返回数据，只需要在get方法中累加并返回</p>
-<blockquote>
 <p>感谢吴黎明大佬分享该题，2021/2/23 22:10修改</p>
-</blockquote>
+<h3 id="JavaScript-有几种类型"><a href="#JavaScript-有几种类型" class="headerlink" title="JavaScript 有几种类型"></a>JavaScript 有几种类型</h3><ul>
+<li>基本数据类型：undefined、null、boolean、number、string、symbol(es6的新数据类型)</li>
+<li>引用数据类型：object、array、function(统称为object)</li>
+</ul>
+<h3 id="数据类型检测"><a href="#数据类型检测" class="headerlink" title="数据类型检测"></a>数据类型检测</h3><p><code>typeof</code> 对于基本数据类型来说，除了 <code>null</code> 都可以显示正确的类型，typeof 对于对象来说，除了函数都会显示 object</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">typeof</span> <span class="number">5</span> <span class="comment">// &#x27;number&#x27;</span></span><br><span class="line"><span class="keyword">typeof</span> <span class="string">&#x27;5&#x27;</span> <span class="comment">// &#x27;string&#x27;</span></span><br><span class="line"><span class="keyword">typeof</span> <span class="literal">undefined</span> <span class="comment">// &#x27;undefined&#x27;</span></span><br><span class="line"><span class="keyword">typeof</span> <span class="literal">false</span><span class="comment">// &#x27;boolean&#x27;</span></span><br><span class="line"><span class="keyword">typeof</span> <span class="built_in">Symbol</span>() <span class="comment">// &#x27;symbol&#x27;</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="keyword">typeof</span> <span class="literal">null</span>)  <span class="comment">//object</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="keyword">typeof</span> <span class="literal">NaN</span>)   <span class="comment">//number</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">typeof</span> [] <span class="comment">// &#x27;object&#x27;</span></span><br><span class="line"><span class="keyword">typeof</span> &#123;&#125; <span class="comment">// &#x27;object&#x27;</span></span><br><span class="line"><span class="keyword">typeof</span> <span class="built_in">console</span>.log <span class="comment">// &#x27;function&#x27;</span></span><br></pre></td></tr></table></figure>
+
+
+<h3 id="new-操作符具体干了什么？"><a href="#new-操作符具体干了什么？" class="headerlink" title="new 操作符具体干了什么？"></a>new 操作符具体干了什么？</h3><ul>
+<li>首先是创建实例对象{}</li>
+<li>this 变量引用该对象，同时还继承了构造函数的原型</li>
+<li>其次属性和方法被加入到 this 引用的对象中</li>
+<li>并且新创建的对象由 this 所引用，最后隐式的返回 this</li>
+</ul>
+<h3 id="this-对象的理解"><a href="#this-对象的理解" class="headerlink" title="this 对象的理解"></a>this 对象的理解</h3><ul>
+<li>this 总是指向函数的直接调用者</li>
+<li>如果有 new 关键字，this 指向 new 出来的实例对象</li>
+<li>在事件中，this 指向触发这个事件的对象</li>
+<li>IE 下 attachEvent 中的 this 总是指向全局对象 Window</li>
+<li>箭头函数中，函数体内的this对象，就是定义时所在作用域的对象，而不是使用时所在的作用域的对象。</li>
+</ul>
+<h3 id="关于cookie与session"><a href="#关于cookie与session" class="headerlink" title="关于cookie与session"></a>关于cookie与session</h3><p>cookie与session如果没有配置有效时间，则当前页面未关闭有效，页面关闭后便失效</p>
 
         </div>
 
