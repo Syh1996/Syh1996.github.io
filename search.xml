@@ -67,24 +67,6 @@
       </tags>
   </entry>
   <entry>
-    <title>html5拖动，上传进度，div可编辑新增API</title>
-    <url>/2021/02/21/html5%E6%8B%96%E5%8A%A8%EF%BC%8C%E4%B8%8A%E4%BC%A0%E8%BF%9B%E5%BA%A6%EF%BC%8Cdiv%E5%8F%AF%E7%BC%96%E8%BE%91%E6%96%B0%E5%A2%9EAPI/</url>
-    <content><![CDATA[<p>上传进度：</p>
-<p>   ev.loaded //已上传的大小</p>
-<p>   ev.total //总大小</p>
-<p>//一定要放在xhr.send之前，之后无作用</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">xhr.upload.onprogress = <span class="function"><span class="keyword">function</span>(<span class="params">ev</span>)</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">&#x27;进度：&#x27;</span>+(<span class="number">100</span>*ev.loaded/ev.total).toFixed(<span class="number">2</span>)+<span class="string">&#x27;%&#x27;</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">contenteditable&#x3D;&quot;true&quot;属性让div+css可以相当于Input     &#x2F;&#x2F;&lt;div&gt;....标签均可修改内容 不限标签</span><br><span class="line">输入框 &lt;input type&#x3D;&quot;text&quot; x-webkit-speech &#x2F;&gt;  &#x2F;&#x2F;语音输入</span><br></pre></td></tr></table></figure>
-
-
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">//桌面提醒</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">showNotification</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">               <span class="comment">// window.Notification.permission = &quot;granted&quot;;</span></span><br><span class="line">               </span><br><span class="line">                <span class="keyword">if</span>(<span class="built_in">window</span>.Notification) &#123;</span><br><span class="line">                    <span class="keyword">if</span>(<span class="built_in">window</span>.Notification.permission == <span class="string">&quot;granted&quot;</span>) &#123;</span><br><span class="line">                        <span class="keyword">var</span> notification = <span class="keyword">new</span> Notification(<span class="string">&#x27;你有一条新信息&#x27;</span>, &#123;</span><br><span class="line">                            body: <span class="string">&quot;你好我是王小婷&quot;</span>,</span><br><span class="line"></span><br><span class="line">                            icon: <span class="string">&quot;https://ss2.bdstatic.com/70cFvnSh_Q1YnxGkpoWK1HF6hhy/it/u=1422784010,1847471088&amp;fm=27&amp;gp=0.jpg&quot;</span></span><br><span class="line">                        &#125;);</span><br><span class="line">                        <span class="built_in">setTimeout</span>(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123; notification.close(); &#125;, <span class="number">50000</span>);</span><br><span class="line">                    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                        <span class="built_in">window</span>.Notification.requestPermission();</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125; <span class="keyword">else</span> alert(<span class="string">&#x27;你的浏览器不支持此消息提示功能，请使用chrome内核的浏览器！&#x27;</span>);</span><br><span class="line">            &#125;;</span><br></pre></td></tr></table></figure>]]></content>
-      <tags>
-        <tag>javascript</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Git工作常用命令</title>
     <url>/2021/02/21/Git%E5%B7%A5%E4%BD%9C%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/</url>
     <content><![CDATA[<ul>
@@ -168,6 +150,24 @@
       </tags>
   </entry>
   <entry>
+    <title>html5拖动，上传进度，div可编辑新增API</title>
+    <url>/2021/02/21/html5%E6%8B%96%E5%8A%A8%EF%BC%8C%E4%B8%8A%E4%BC%A0%E8%BF%9B%E5%BA%A6%EF%BC%8Cdiv%E5%8F%AF%E7%BC%96%E8%BE%91%E6%96%B0%E5%A2%9EAPI/</url>
+    <content><![CDATA[<p>上传进度：</p>
+<p>   ev.loaded //已上传的大小</p>
+<p>   ev.total //总大小</p>
+<p>//一定要放在xhr.send之前，之后无作用</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">xhr.upload.onprogress = <span class="function"><span class="keyword">function</span>(<span class="params">ev</span>)</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">&#x27;进度：&#x27;</span>+(<span class="number">100</span>*ev.loaded/ev.total).toFixed(<span class="number">2</span>)+<span class="string">&#x27;%&#x27;</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">contenteditable&#x3D;&quot;true&quot;属性让div+css可以相当于Input     &#x2F;&#x2F;&lt;div&gt;....标签均可修改内容 不限标签</span><br><span class="line">输入框 &lt;input type&#x3D;&quot;text&quot; x-webkit-speech &#x2F;&gt;  &#x2F;&#x2F;语音输入</span><br></pre></td></tr></table></figure>
+
+
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">//桌面提醒</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">showNotification</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">               <span class="comment">// window.Notification.permission = &quot;granted&quot;;</span></span><br><span class="line">               </span><br><span class="line">                <span class="keyword">if</span>(<span class="built_in">window</span>.Notification) &#123;</span><br><span class="line">                    <span class="keyword">if</span>(<span class="built_in">window</span>.Notification.permission == <span class="string">&quot;granted&quot;</span>) &#123;</span><br><span class="line">                        <span class="keyword">var</span> notification = <span class="keyword">new</span> Notification(<span class="string">&#x27;你有一条新信息&#x27;</span>, &#123;</span><br><span class="line">                            body: <span class="string">&quot;你好我是王小婷&quot;</span>,</span><br><span class="line"></span><br><span class="line">                            icon: <span class="string">&quot;https://ss2.bdstatic.com/70cFvnSh_Q1YnxGkpoWK1HF6hhy/it/u=1422784010,1847471088&amp;fm=27&amp;gp=0.jpg&quot;</span></span><br><span class="line">                        &#125;);</span><br><span class="line">                        <span class="built_in">setTimeout</span>(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123; notification.close(); &#125;, <span class="number">50000</span>);</span><br><span class="line">                    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                        <span class="built_in">window</span>.Notification.requestPermission();</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125; <span class="keyword">else</span> alert(<span class="string">&#x27;你的浏览器不支持此消息提示功能，请使用chrome内核的浏览器！&#x27;</span>);</span><br><span class="line">            &#125;;</span><br></pre></td></tr></table></figure>]]></content>
+      <tags>
+        <tag>javascript</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>js原生dom篇</title>
     <url>/2021/02/25/js%E5%8E%9F%E7%94%9Fdom%E7%AF%87/</url>
     <content><![CDATA[<p><a href="https://www.runoob.com/jsref/prop-node-attributes.html"><em>element</em>.attributes</a> 返回一个元素的属性集合，{onclick:{},type:’xxx’}</p>
@@ -244,41 +244,6 @@
       </tags>
   </entry>
   <entry>
-    <title>linux常用命令</title>
-    <url>/2021/02/23/linux%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/</url>
-    <content><![CDATA[<ul>
-<li>ls [-l][-a][-la] 列出当前工作区目录文件 -l 列出详细信息，如创建时间，占用空间等。 -a 将隐藏文件也列出</li>
-<li>pwd 查看当前用户工作路径，例指向C:/user/用户名</li>
-<li>cd 路径 切换到该路径下</li>
-<li>linux ~号， 切换到用户工作路径，cd ~</li>
-<li>mkdir [-p] 目录1 目前2 创建目录 -p 可创建多级目录/a/b/c mkdir可同时创建多个目录</li>
-<li>touch 路径/文件名 创建一个文件</li>
-<li>cp 文件 目标位置/文件名 [-r] 复制文件，-r 递归复制 目标位置的文件名可重命名，如不填默认使用复制的文件名</li>
-<li>mv 文件 目标位置/文件名 移动文件 文件名可重命名 linux重命名也用该命令</li>
-<li>rm 路径/文件名 [-f][-r][-rf] 删除文件，-r 递归 -f (force)强制</li>
-<li>rm 路径/linux* 删除该 路径下以linux开头的文件和文件夹</li>
-<li>vim 路径/文件名 打开一个文件，类似于document.write会把当前窗口内容重新覆盖</li>
-<li>cat 路径/文件名 打开一个文件，在命令行追加的方式</li>
-<li>cat 文件名1 文件2 &gt; 文件 合并文件名1文件2 到一个新的文件去</li>
-<li>df -h 查看磁盘剩余空间 [-h] 更加可视化，会换算为GB，不加默认是字节展示</li>
-<li>输出 &gt; &gt;&gt; &gt;以替换的方式 &gt;&gt;以追加的方式</li>
-<li>sudo 以管理员运行，例sudo mv 文件 目标位置</li>
-<li>head -n(1,2,3,) 文件位置 用于查询文件的前N行</li>
-<li>tail -n(1,2,3) 文件位置 用于查看文件的尾N行</li>
-<li>windows : calc =&gt;打开计算器 notepad =》打开记事本</li>
-<li>find 路径 [-name] 文件名 在路径下查找文件名为….</li>
-<li>find / -name <em>.jpg | find</em> 查询所有jpg文件 | 查询所有find开关的文件或者文件夹</li>
-<li>unzip node_modules.zip 解压zip文件 参数:-o直接覆盖，不必询问</li>
-<li>sudo su 切换root身份，不携带当前用户环境变量。</li>
-<li>sudo su - 切换root身份，携带当前用户环境变量。</li>
-<li>Linux chmod（英文全拼：change mode）命令是控制用户对文件的权限的命令 755 777,chmod -R(递归层级) 777/755 被修改权限的目标</li>
-</ul>
-]]></content>
-      <tags>
-        <tag>linux</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>js防抖与节流</title>
     <url>/2021/02/23/js%E9%98%B2%E6%8A%96%E4%B8%8E%E8%8A%82%E6%B5%81/</url>
     <content><![CDATA[<p>防抖和节流严格算起来应该属于性能优化的知识，但实际上遇到的频率相当高，处理不当或者放任不管就容易引起浏览器卡死。所以还是很有必要早点掌握的。（信我，你看完肯定就懂了）</p>
@@ -336,11 +301,55 @@
       </tags>
   </entry>
   <entry>
+    <title>linux常用命令</title>
+    <url>/2021/02/23/linux%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/</url>
+    <content><![CDATA[<ul>
+<li>ls [-l][-a][-la] 列出当前工作区目录文件 -l 列出详细信息，如创建时间，占用空间等。 -a 将隐藏文件也列出</li>
+<li>pwd 查看当前用户工作路径，例指向C:/user/用户名</li>
+<li>cd 路径 切换到该路径下</li>
+<li>linux ~号， 切换到用户工作路径，cd ~</li>
+<li>mkdir [-p] 目录1 目前2 创建目录 -p 可创建多级目录/a/b/c mkdir可同时创建多个目录</li>
+<li>touch 路径/文件名 创建一个文件</li>
+<li>cp 文件 目标位置/文件名 [-r] 复制文件，-r 递归复制 目标位置的文件名可重命名，如不填默认使用复制的文件名</li>
+<li>mv 文件 目标位置/文件名 移动文件 文件名可重命名 linux重命名也用该命令</li>
+<li>rm 路径/文件名 [-f][-r][-rf] 删除文件，-r 递归 -f (force)强制</li>
+<li>rm 路径/linux* 删除该 路径下以linux开头的文件和文件夹</li>
+<li>vim 路径/文件名 打开一个文件，类似于document.write会把当前窗口内容重新覆盖</li>
+<li>cat 路径/文件名 打开一个文件，在命令行追加的方式</li>
+<li>cat 文件名1 文件2 &gt; 文件 合并文件名1文件2 到一个新的文件去</li>
+<li>df -h 查看磁盘剩余空间 [-h] 更加可视化，会换算为GB，不加默认是字节展示</li>
+<li>输出 &gt; &gt;&gt; &gt;以替换的方式 &gt;&gt;以追加的方式</li>
+<li>sudo 以管理员运行，例sudo mv 文件 目标位置</li>
+<li>head -n(1,2,3,) 文件位置 用于查询文件的前N行</li>
+<li>tail -n(1,2,3) 文件位置 用于查看文件的尾N行</li>
+<li>windows : calc =&gt;打开计算器 notepad =》打开记事本</li>
+<li>find 路径 [-name] 文件名 在路径下查找文件名为….</li>
+<li>find / -name <em>.jpg | find</em> 查询所有jpg文件 | 查询所有find开关的文件或者文件夹</li>
+<li>unzip node_modules.zip 解压zip文件 参数:-o直接覆盖，不必询问</li>
+<li>sudo su 切换root身份，不携带当前用户环境变量。</li>
+<li>sudo su - 切换root身份，携带当前用户环境变量。</li>
+<li>Linux chmod（英文全拼：change mode）命令是控制用户对文件的权限的命令 755 777,chmod -R(递归层级) 777/755 被修改权限的目标</li>
+</ul>
+]]></content>
+      <tags>
+        <tag>linux</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>node那点事</title>
     <url>/2021/03/12/node%E9%82%A3%E7%82%B9%E4%BA%8B/</url>
-    <content><![CDATA[<h3 id="http模块创建服务器"><a href="#http模块创建服务器" class="headerlink" title="http模块创建服务器"></a>http模块创建服务器</h3><p>createServer() 创建一个服务器</p>
+    <content><![CDATA[<h3 id="关于node的几项问题"><a href="#关于node的几项问题" class="headerlink" title="关于node的几项问题"></a>关于node的几项问题</h3><ul>
+<li><p>nodejs作为运行在服务器，虽然是使用js作为开发语言，但是无法获取Dom,Bom</p>
+</li>
+<li><p>nodejs的变量作用于当前文件，例如A.js定义的全局变量无法在B.js文件中直接使用，如果需要调B.js的变量方法，需要使用module.exports导出,或者exports.变量名=值 </p>
+</li>
+</ul>
+<h3 id="http模块创建服务器"><a href="#http模块创建服务器" class="headerlink" title="http模块创建服务器"></a>http模块创建服务器</h3><p>createServer() 创建一个服务器</p>
 <p>end(string),end只能发送字符串类型，如果是对象数组可使用JSON.stringify转换为字符串</p>
 <figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> http = <span class="built_in">require</span>(<span class="string">&quot;http&quot;</span>);</span><br><span class="line"><span class="keyword">const</span> server = http.createServer();</span><br><span class="line">server.on(<span class="string">&quot;request&quot;</span>,<span class="function">(<span class="params">resquest,response</span>)=&gt;</span>&#123;</span><br><span class="line">      response.setHeader(<span class="string">&quot;Content-Type&quot;</span>,<span class="string">&quot;text/plain;charset=utf-8&quot;</span>);</span><br><span class="line">      response.end(<span class="string">&#x27;这是一个测试&#x27;</span>)</span><br><span class="line">&#125;);</span><br><span class="line">server.listen(<span class="number">3000</span>);</span><br></pre></td></tr></table></figure>
+<h4 id="上述代码可简写"><a href="#上述代码可简写" class="headerlink" title="上述代码可简写"></a>上述代码可简写</h4><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> http = <span class="built_in">require</span>(<span class="string">&quot;http&quot;</span>);</span><br><span class="line"><span class="keyword">const</span> server = http.createServer(<span class="function">(<span class="params">resquest,response</span>)=&gt;</span>&#123;</span><br><span class="line">    .....</span><br><span class="line">&#125;).listen(<span class="number">3000</span>,<span class="function"><span class="params">err</span>=&gt;</span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(err)&#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">&quot;启动服务器出错&quot;</span>);</span><br><span class="line">        <span class="keyword">return</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">&quot;启动服务器成功&quot;</span>)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+
 <h4 id="使用write写入数据"><a href="#使用write写入数据" class="headerlink" title="使用write写入数据"></a>使用write写入数据</h4><p>除了使用end发送数据外，也可以使用write写入</p>
 <figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> http = <span class="built_in">require</span>(<span class="string">&quot;http&quot;</span>);</span><br><span class="line"><span class="keyword">const</span> server = http.createServer();</span><br><span class="line">server.on(<span class="string">&quot;request&quot;</span>,<span class="function">(<span class="params">resquest,response</span>)=&gt;</span>&#123;</span><br><span class="line">      response.setHeader(<span class="string">&quot;Content-Type&quot;</span>,<span class="string">&quot;text/plain;charset=utf-8&quot;</span>);</span><br><span class="line">      response.write(<span class="string">&#x27;这是一个测试&#x27;</span>); </span><br><span class="line">      response.end()</span><br><span class="line">&#125;);</span><br><span class="line">server.listen(<span class="number">3000</span>);</span><br></pre></td></tr></table></figure>
 <h4 id="使用writeHead写入响应头部"><a href="#使用writeHead写入响应头部" class="headerlink" title="使用writeHead写入响应头部"></a>使用writeHead写入响应头部</h4><p>writeHead与setHeader效果相同，都是设置响应头部，writeHead(状态码,{….});</p>
@@ -361,9 +370,19 @@
 <li>fs.mkdirSync(path[, options])  同上</li>
 <li>fs.readFile(path[, options], callback)  异步地读取文件的全部内容。</li>
 <li>fs.readFileSync(path[, options])   同步同上</li>
+<li>fs.appendFileSync(path,data)   追加数据到某个文件，某该文件不存在，则创建</li>
 </ul>
 <h4 id="读取某个位置的所有文件-目录"><a href="#读取某个位置的所有文件-目录" class="headerlink" title="读取某个位置的所有文件/目录"></a>读取某个位置的所有文件/目录</h4><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> fs = <span class="built_in">require</span>(<span class="string">&#x27;fs&#x27;</span>);</span><br><span class="line"><span class="keyword">const</span> files = fs.readdirSync(<span class="string">&quot;../&quot;</span>);</span><br><span class="line"><span class="built_in">console</span>.log(files);</span><br></pre></td></tr></table></figure>
 <h4 id="读取某个文件的数据"><a href="#读取某个文件的数据" class="headerlink" title="读取某个文件的数据"></a>读取某个文件的数据</h4><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> fs = <span class="built_in">require</span>(<span class="string">&#x27;fs&#x27;</span>);</span><br><span class="line"><span class="keyword">const</span> files = fs.readFileSync(<span class="string">&quot;./node.js&quot;</span>);</span><br><span class="line"><span class="built_in">console</span>.log(files);</span><br><span class="line"><span class="comment">//输出 &lt;Buffer 63 6f 6e 73 74 20 68 74 74 70 20 3d 20 72 65 71 75 69 72 65 28 22 68 74 74 70 22 29 3b 0d 0a 63 6f 6e 73 74 20 73 65 72 76 65 72 20 3d 20 68 74 74 70 ... 240 more bytes&gt;  二进制的数据</span></span><br><span class="line"><span class="comment">//使用tostring()将二进制转为我们能认识的数据 </span></span><br><span class="line"><span class="built_in">console</span>.log(files.toString())</span><br><span class="line"><span class="comment">/* const http = require(&quot;http&quot;);</span></span><br><span class="line"><span class="comment">const server = http.createServer();</span></span><br><span class="line"><span class="comment">server.on(&quot;request&quot;,(resquest,response)=&gt;&#123;</span></span><br><span class="line"><span class="comment">      response.writeHead(200,&#123;</span></span><br><span class="line"><span class="comment">          &#x27;Content-Type&#x27;:&#x27;text/plain; charset=utf-8&#x27;</span></span><br><span class="line"><span class="comment">      &#125;);</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">      response.end(&#x27;&lt;h1&gt;是一个测试&lt;/h1&gt;&#x27;)</span></span><br><span class="line"><span class="comment">&#125;);</span></span><br><span class="line"><span class="comment">server.listen(3000);</span></span><br><span class="line"><span class="comment">*/</span></span><br></pre></td></tr></table></figure>
+<h3 id="使用模板引擎-art-template"><a href="#使用模板引擎-art-template" class="headerlink" title="使用模板引擎 art-template"></a>使用模板引擎 art-template</h3><p>相关链接: <a class="link"   href="http://aui.github.io/art-template/zh-cn/index.html" >链接<i class="fas fa-external-link-alt"></i></a></p>
+<h3 id="处理静态资源"><a href="#处理静态资源" class="headerlink" title="处理静态资源"></a>处理静态资源</h3><ol>
+<li><p>将css/js/image/video文件放到public公共文件夹中</p>
+</li>
+<li><p>请求响应中匹配/public/开头，并读取相关文件返回,参考以下代码</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> http = <span class="built_in">require</span>(<span class="string">&quot;http&quot;</span>);</span><br><span class="line"><span class="keyword">const</span> fs = <span class="built_in">require</span>(<span class="string">&quot;fs&quot;</span>);</span><br><span class="line"><span class="keyword">const</span> server = http.createSever(<span class="function">(<span class="params">request,response</span>)=&gt;</span>&#123;</span><br><span class="line">      <span class="keyword">let</span> url = request.url;</span><br><span class="line">      <span class="keyword">if</span>(<span class="regexp">/^\/public\//</span>.test(url))&#123;</span><br><span class="line">           <span class="keyword">const</span> file = fs.readFileSync(<span class="string">&#x27;.&#x27;</span>+url);</span><br><span class="line">           response.end(file);</span><br><span class="line">      &#125;<span class="keyword">else</span> <span class="keyword">if</span>(url === <span class="string">&#x27;/&#x27;</span>)&#123;</span><br><span class="line">          <span class="keyword">const</span> file = fs.readFileSync(<span class="string">&#x27;./page/1.html&#x27;</span>);</span><br><span class="line">          response.setHeader(<span class="string">&quot;Content-Type&quot;</span>,<span class="string">&quot;text/html;charset=utf-8&quot;</span>);</span><br><span class="line">          response.end(file);</span><br><span class="line">      &#125;</span><br><span class="line">&#125;).listen(<span class="number">3000</span>,<span class="function"><span class="params">err</span>=&gt;</span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(!err)&#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">&quot;服务器启动成功&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">&quot;/public/1.jpg&quot;</span>/&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">link</span> <span class="attr">href</span>=<span class="string">&quot;/public/css/1.css&quot;</span>/&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">&quot;/public/js/1.js&quot;</span>/&gt;</span></span><br><span class="line"><span class="handlebars"><span class="xml"><span class="tag">&lt;<span class="name">video</span> <span class="attr">src</span>=<span class="string">&quot;/public/video/1.mp4&quot;</span>/&gt;</span></span></span></span><br></pre></td></tr></table></figure>
+</li>
+</ol>
 ]]></content>
       <tags>
         <tag>node</tag>
@@ -563,15 +582,6 @@
       </tags>
   </entry>
   <entry>
-    <title>【今日新发现】让子元素上下左右居中的新奇方法</title>
-    <url>/2021/02/21/%E3%80%90%E4%BB%8A%E6%97%A5%E6%96%B0%E5%8F%91%E7%8E%B0%E3%80%91%E8%AE%A9%E5%AD%90%E5%85%83%E7%B4%A0%E4%B8%8A%E4%B8%8B%E5%B7%A6%E5%8F%B3%E5%B1%85%E4%B8%AD%E7%9A%84%E6%96%B0%E5%A5%87%E6%96%B9%E6%B3%95/</url>
-    <content><![CDATA[<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">style</span>&gt;</span></span><br><span class="line"> *&#123;</span><br><span class="line"><span class="css"> <span class="attribute">margin</span>:<span class="number">0</span>;</span></span><br><span class="line"><span class="css"> <span class="attribute">padding</span>:<span class="number">0</span>;</span></span><br><span class="line"> &#125;</span><br><span class="line"> #app&#123;</span><br><span class="line"><span class="css">  <span class="attribute">background-color</span>:<span class="number">#ddd</span>;</span></span><br><span class="line"><span class="css">  <span class="attribute">height</span>:<span class="number">600px</span>;</span></span><br><span class="line"><span class="css">  <span class="attribute">position</span>:relative;</span></span><br><span class="line"> &#125;</span><br><span class="line"><span class="css"> <span class="selector-id">#app</span> <span class="selector-tag">div</span>&#123;</span></span><br><span class="line"><span class="css">  <span class="attribute">width</span>:<span class="number">100px</span>;</span></span><br><span class="line"><span class="css">  <span class="attribute">height</span>:<span class="number">100px</span>;</span></span><br><span class="line"><span class="css">  <span class="attribute">background-color</span>:red;</span></span><br><span class="line"><span class="css">  <span class="attribute">position</span>:absolute;</span></span><br><span class="line"><span class="css">  <span class="attribute">top</span>:<span class="number">0</span>;</span></span><br><span class="line"><span class="css">  <span class="attribute">left</span>:<span class="number">0</span>;</span></span><br><span class="line"><span class="css">  <span class="attribute">right</span>:<span class="number">0</span>;</span></span><br><span class="line"><span class="css">  <span class="attribute">bottom</span>:<span class="number">0</span>;</span></span><br><span class="line"><span class="css">  <span class="attribute">margin</span>:auto;</span></span><br><span class="line"> &#125;</span><br><span class="line"><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">&quot;app&quot;</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span>&gt;</span>111<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br><span class="line"></span><br><span class="line">【注意】需要注意的是，此方法只对子元素有宽高的情况起作用，如果没有宽高则不起作用。</span><br></pre></td></tr></table></figure>
-]]></content>
-      <tags>
-        <tag>css</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>vue3.x学习笔记</title>
     <url>/2021/02/21/vue3-x%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</url>
     <content><![CDATA[<blockquote>
@@ -677,6 +687,15 @@
 ]]></content>
       <tags>
         <tag>vue</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>【今日新发现】让子元素上下左右居中的新奇方法</title>
+    <url>/2021/02/21/%E3%80%90%E4%BB%8A%E6%97%A5%E6%96%B0%E5%8F%91%E7%8E%B0%E3%80%91%E8%AE%A9%E5%AD%90%E5%85%83%E7%B4%A0%E4%B8%8A%E4%B8%8B%E5%B7%A6%E5%8F%B3%E5%B1%85%E4%B8%AD%E7%9A%84%E6%96%B0%E5%A5%87%E6%96%B9%E6%B3%95/</url>
+    <content><![CDATA[<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">style</span>&gt;</span></span><br><span class="line"> *&#123;</span><br><span class="line"><span class="css"> <span class="attribute">margin</span>:<span class="number">0</span>;</span></span><br><span class="line"><span class="css"> <span class="attribute">padding</span>:<span class="number">0</span>;</span></span><br><span class="line"> &#125;</span><br><span class="line"> #app&#123;</span><br><span class="line"><span class="css">  <span class="attribute">background-color</span>:<span class="number">#ddd</span>;</span></span><br><span class="line"><span class="css">  <span class="attribute">height</span>:<span class="number">600px</span>;</span></span><br><span class="line"><span class="css">  <span class="attribute">position</span>:relative;</span></span><br><span class="line"> &#125;</span><br><span class="line"><span class="css"> <span class="selector-id">#app</span> <span class="selector-tag">div</span>&#123;</span></span><br><span class="line"><span class="css">  <span class="attribute">width</span>:<span class="number">100px</span>;</span></span><br><span class="line"><span class="css">  <span class="attribute">height</span>:<span class="number">100px</span>;</span></span><br><span class="line"><span class="css">  <span class="attribute">background-color</span>:red;</span></span><br><span class="line"><span class="css">  <span class="attribute">position</span>:absolute;</span></span><br><span class="line"><span class="css">  <span class="attribute">top</span>:<span class="number">0</span>;</span></span><br><span class="line"><span class="css">  <span class="attribute">left</span>:<span class="number">0</span>;</span></span><br><span class="line"><span class="css">  <span class="attribute">right</span>:<span class="number">0</span>;</span></span><br><span class="line"><span class="css">  <span class="attribute">bottom</span>:<span class="number">0</span>;</span></span><br><span class="line"><span class="css">  <span class="attribute">margin</span>:auto;</span></span><br><span class="line"> &#125;</span><br><span class="line"><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">&quot;app&quot;</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span>&gt;</span>111<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br><span class="line"></span><br><span class="line">【注意】需要注意的是，此方法只对子元素有宽高的情况起作用，如果没有宽高则不起作用。</span><br></pre></td></tr></table></figure>
+]]></content>
+      <tags>
+        <tag>css</tag>
       </tags>
   </entry>
   <entry>
@@ -1049,81 +1068,6 @@
       </tags>
   </entry>
   <entry>
-    <title>关于百度地图那些事</title>
-    <url>/2021/02/21/%E5%85%B3%E4%BA%8E%E7%99%BE%E5%BA%A6%E5%9C%B0%E5%9B%BE%E9%82%A3%E4%BA%9B%E4%BA%8B/</url>
-    <content><![CDATA[<blockquote>
-<p>监听百度地图缩放级别</p>
-</blockquote>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">map.addEventListener(<span class="string">&quot;zoomend&quot;</span>, <span class="function"><span class="keyword">function</span>(<span class="params">e</span>)</span>&#123;</span><br><span class="line">  <span class="keyword">var</span> ZoomNum = map.getZoom(); <span class="comment">//ZoomNum为层级,区间1-18</span></span><br><span class="line">  $(<span class="string">&quot;#ZoomNum&quot;</span>).html(ZoomNum);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
-
-
-<blockquote>
-<p>百度地图如何删除所有Marker呢？</p>
-</blockquote>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">map.clearOverlays();    <span class="comment">//清除地图上所有覆盖物</span></span><br></pre></td></tr></table></figure>
-
-
-<blockquote>
-<p>销毁百度地图</p>
-</blockquote>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">destroy()销毁地图，当使用 WebGL 渲染地图时，如果确认不再使用该地图实例，则需要调用本方法销毁该地图实例</span><br></pre></td></tr></table></figure>
-
-
-<blockquote>
-<p>删除全部或者部分</p>
-</blockquote>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">clearAll</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">            <span class="comment">//for (var i = 0; i &lt; map.getOverlays().length; i++) &#123;</span></span><br><span class="line">            <span class="comment">//    map.removeOverlay(map.getOverlays()[i]);</span></span><br><span class="line">            <span class="comment">//&#125;</span></span><br><span class="line">            <span class="comment">//overlays.length = 0; </span></span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; map.getOverlays().length; i++) &#123;</span><br><span class="line">                <span class="keyword">if</span> (map.getOverlays()[i].GO == <span class="string">&quot;Marker&quot;</span>)</span><br><span class="line">                    map.removeOverlay(map.getOverlays()[i]);</span><br><span class="line">            &#125;</span><br><span class="line">            overlays.length = <span class="number">0</span>; </span><br><span class="line">        &#125;</span><br></pre></td></tr></table></figure>
-
-
-<blockquote>
-<p>在React中使用百度地图API</p>
-</blockquote>
-<ol>
-<li>首先，找到public/index.html文件，在<code>&lt;body&gt;···&lt;/body&gt;</code>中引入百度地图<code>API</code></li>
-</ol>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">	&lt;script</span><br><span class="line">		type=&quot;text/javascript&quot;</span><br><span class="line">		src=&quot;http://api.map.baidu.com/api?v=2.0&amp;ak=&#x27;这里填写你的密钥&quot;&gt;</span><br><span class="line">	<span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<p>到这一步我们已经在React项目中引入了百度地图的API，那么应该怎么使用呢？</p>
-<ol>
-<li>初学React的同学可能会想到使用<code>import</code>的方式导入，但是这里你会发现，如果你直接导入就会报错，解决办法分两种：</li>
-</ol>
-<ul>
-<li>第一种：用Window对象保存BMap变量，实现HTML文件和JS文件间的变量传递：</li>
-<li>在刚才的HTML的body中再加入一段代码：</li>
-</ul>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">	&lt;script</span><br><span class="line">		type=&quot;text/javascript&quot;</span><br><span class="line">		src=&quot;http://api.map.baidu.com/api?v=2.0&amp;ak=&#x27;这里填写你的密钥&quot;&gt;</span><br><span class="line">	<span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="javascript">		<span class="built_in">window</span>.BMap = BMap</span></span><br><span class="line">	<span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<blockquote>
-<p><strong>将BMap对象保存到全局对象window中，需要使用的时候在将他从全局对象window中取出来：</strong></p>
-</blockquote>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">const BMap &#x3D; window.BMap;</span><br><span class="line">const myGeo &#x3D; new BMap.Geocoder();&#x2F;&#x2F; 此处是百度地图提供的获取地址经纬度信息的API</span><br></pre></td></tr></table></figure>
-<p>这个API的用法如下：</p>
-<p><img  
-                     lazyload
-                     src="/images/loading.svg"
-                     data-src="https://img-blog.csdnimg.cn/2019040618053232.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzI2Mzc3NTQ3,size_16,color_FFFFFF,t_70"
-                      alt="在这里插入图片描述"
-                ></p>
-<p>链接：<a class="link"   href="http://lbsyun.baidu.com/cms/jsapi/reference/jsapi_reference.html#a7b27" >http://lbsyun.baidu.com/cms/jsapi/reference/jsapi_reference.html#a7b27<i class="fas fa-external-link-alt"></i></a></p>
-<p>不过我相信有部分人跟我一样看不懂这个文档，于是我决定举个例子：</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> myGeo = <span class="keyword">new</span> BMap.Geocoder();</span><br><span class="line">myGeo.getPoint(<span class="string">&#x27;北京市海淀区上地10街10号&#x27;</span>, <span class="function">(<span class="params">point</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="keyword">if</span> (point) &#123;</span><br><span class="line">    <span class="comment">// 这个point就是解析地址获得的百度地图坐标系</span></span><br><span class="line">    <span class="built_in">console</span>.log(point); <span class="comment">// &#123;lat: 40.057339, lng: 116.306941&#125;</span></span><br><span class="line">  &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">&#x27;解析失败&#x27;</span>);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;, <span class="string">&#x27;北京市&#x27;</span>);</span><br></pre></td></tr></table></figure>
-<p>不过实际应用的过程中我发现第三个参数好像可以跟第一个参数一样：</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> myGeo = <span class="keyword">new</span> BMap.Geocoder();</span><br><span class="line">myGeo.getPoint(<span class="string">&#x27;长沙市&#x27;</span>, <span class="function">(<span class="params">point</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="keyword">if</span> (point) &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(point); <span class="comment">// &#123;lng: 112.945473, lat: 28.234889&#125;</span></span><br><span class="line">  &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">&#x27;解析失败&#x27;</span>);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;, <span class="string">&#x27;长沙市&#x27;</span>);</span><br></pre></td></tr></table></figure>
-<p>应该是百度地图的API会对参数进行解析</p>
-<blockquote>
-<p><strong>第二种：通过webpack的externals加载BMap使它可以通过require或import引入</strong></p>
-</blockquote>
-<p>到webpack.config.js中</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="built_in">module</span>.exports = &#123;</span><br><span class="line"><span class="comment">/*此处省略了entry，output,modules等配置*/</span></span><br><span class="line">  externals:&#123;</span><br><span class="line">    <span class="string">&#x27;BMap&#x27;</span>:<span class="string">&#x27;BMap&#x27;</span></span><br><span class="line">  &#125;,</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>在使用的过程中就可以直接使用<code>import</code>的方式引入：</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> BMap <span class="keyword">from</span> <span class="string">&#x27;BMap&#x27;</span></span><br><span class="line"><span class="keyword">const</span> myGeo = <span class="keyword">new</span> BMap.Geocoder(); <span class="comment">// 调用Geocoder()</span></span><br></pre></td></tr></table></figure>
-
-
-<p>原文地址:<a class="link"   href="https://blog.csdn.net/qq_26377547/article/details/89058721" >https://blog.csdn.net/qq_26377547/article/details/89058721<i class="fas fa-external-link-alt"></i></a></p>
-]]></content>
-      <tags>
-        <tag>百度地图</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>了解下angular第一弹</title>
     <url>/2021/02/21/%E4%BA%86%E8%A7%A3%E4%B8%8Bangular%E7%AC%AC%E4%B8%80%E5%BC%B9/</url>
     <content><![CDATA[<blockquote>
@@ -1213,6 +1157,81 @@
       </tags>
   </entry>
   <entry>
+    <title>关于百度地图那些事</title>
+    <url>/2021/02/21/%E5%85%B3%E4%BA%8E%E7%99%BE%E5%BA%A6%E5%9C%B0%E5%9B%BE%E9%82%A3%E4%BA%9B%E4%BA%8B/</url>
+    <content><![CDATA[<blockquote>
+<p>监听百度地图缩放级别</p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">map.addEventListener(<span class="string">&quot;zoomend&quot;</span>, <span class="function"><span class="keyword">function</span>(<span class="params">e</span>)</span>&#123;</span><br><span class="line">  <span class="keyword">var</span> ZoomNum = map.getZoom(); <span class="comment">//ZoomNum为层级,区间1-18</span></span><br><span class="line">  $(<span class="string">&quot;#ZoomNum&quot;</span>).html(ZoomNum);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+
+<blockquote>
+<p>百度地图如何删除所有Marker呢？</p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">map.clearOverlays();    <span class="comment">//清除地图上所有覆盖物</span></span><br></pre></td></tr></table></figure>
+
+
+<blockquote>
+<p>销毁百度地图</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">destroy()销毁地图，当使用 WebGL 渲染地图时，如果确认不再使用该地图实例，则需要调用本方法销毁该地图实例</span><br></pre></td></tr></table></figure>
+
+
+<blockquote>
+<p>删除全部或者部分</p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">clearAll</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">            <span class="comment">//for (var i = 0; i &lt; map.getOverlays().length; i++) &#123;</span></span><br><span class="line">            <span class="comment">//    map.removeOverlay(map.getOverlays()[i]);</span></span><br><span class="line">            <span class="comment">//&#125;</span></span><br><span class="line">            <span class="comment">//overlays.length = 0; </span></span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; map.getOverlays().length; i++) &#123;</span><br><span class="line">                <span class="keyword">if</span> (map.getOverlays()[i].GO == <span class="string">&quot;Marker&quot;</span>)</span><br><span class="line">                    map.removeOverlay(map.getOverlays()[i]);</span><br><span class="line">            &#125;</span><br><span class="line">            overlays.length = <span class="number">0</span>; </span><br><span class="line">        &#125;</span><br></pre></td></tr></table></figure>
+
+
+<blockquote>
+<p>在React中使用百度地图API</p>
+</blockquote>
+<ol>
+<li>首先，找到public/index.html文件，在<code>&lt;body&gt;···&lt;/body&gt;</code>中引入百度地图<code>API</code></li>
+</ol>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">	&lt;script</span><br><span class="line">		type=&quot;text/javascript&quot;</span><br><span class="line">		src=&quot;http://api.map.baidu.com/api?v=2.0&amp;ak=&#x27;这里填写你的密钥&quot;&gt;</span><br><span class="line">	<span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>到这一步我们已经在React项目中引入了百度地图的API，那么应该怎么使用呢？</p>
+<ol>
+<li>初学React的同学可能会想到使用<code>import</code>的方式导入，但是这里你会发现，如果你直接导入就会报错，解决办法分两种：</li>
+</ol>
+<ul>
+<li>第一种：用Window对象保存BMap变量，实现HTML文件和JS文件间的变量传递：</li>
+<li>在刚才的HTML的body中再加入一段代码：</li>
+</ul>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">	&lt;script</span><br><span class="line">		type=&quot;text/javascript&quot;</span><br><span class="line">		src=&quot;http://api.map.baidu.com/api?v=2.0&amp;ak=&#x27;这里填写你的密钥&quot;&gt;</span><br><span class="line">	<span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="javascript">		<span class="built_in">window</span>.BMap = BMap</span></span><br><span class="line">	<span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<blockquote>
+<p><strong>将BMap对象保存到全局对象window中，需要使用的时候在将他从全局对象window中取出来：</strong></p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">const BMap &#x3D; window.BMap;</span><br><span class="line">const myGeo &#x3D; new BMap.Geocoder();&#x2F;&#x2F; 此处是百度地图提供的获取地址经纬度信息的API</span><br></pre></td></tr></table></figure>
+<p>这个API的用法如下：</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://img-blog.csdnimg.cn/2019040618053232.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzI2Mzc3NTQ3,size_16,color_FFFFFF,t_70"
+                      alt="在这里插入图片描述"
+                ></p>
+<p>链接：<a class="link"   href="http://lbsyun.baidu.com/cms/jsapi/reference/jsapi_reference.html#a7b27" >http://lbsyun.baidu.com/cms/jsapi/reference/jsapi_reference.html#a7b27<i class="fas fa-external-link-alt"></i></a></p>
+<p>不过我相信有部分人跟我一样看不懂这个文档，于是我决定举个例子：</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> myGeo = <span class="keyword">new</span> BMap.Geocoder();</span><br><span class="line">myGeo.getPoint(<span class="string">&#x27;北京市海淀区上地10街10号&#x27;</span>, <span class="function">(<span class="params">point</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="keyword">if</span> (point) &#123;</span><br><span class="line">    <span class="comment">// 这个point就是解析地址获得的百度地图坐标系</span></span><br><span class="line">    <span class="built_in">console</span>.log(point); <span class="comment">// &#123;lat: 40.057339, lng: 116.306941&#125;</span></span><br><span class="line">  &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">&#x27;解析失败&#x27;</span>);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;, <span class="string">&#x27;北京市&#x27;</span>);</span><br></pre></td></tr></table></figure>
+<p>不过实际应用的过程中我发现第三个参数好像可以跟第一个参数一样：</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> myGeo = <span class="keyword">new</span> BMap.Geocoder();</span><br><span class="line">myGeo.getPoint(<span class="string">&#x27;长沙市&#x27;</span>, <span class="function">(<span class="params">point</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="keyword">if</span> (point) &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(point); <span class="comment">// &#123;lng: 112.945473, lat: 28.234889&#125;</span></span><br><span class="line">  &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">&#x27;解析失败&#x27;</span>);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;, <span class="string">&#x27;长沙市&#x27;</span>);</span><br></pre></td></tr></table></figure>
+<p>应该是百度地图的API会对参数进行解析</p>
+<blockquote>
+<p><strong>第二种：通过webpack的externals加载BMap使它可以通过require或import引入</strong></p>
+</blockquote>
+<p>到webpack.config.js中</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="built_in">module</span>.exports = &#123;</span><br><span class="line"><span class="comment">/*此处省略了entry，output,modules等配置*/</span></span><br><span class="line">  externals:&#123;</span><br><span class="line">    <span class="string">&#x27;BMap&#x27;</span>:<span class="string">&#x27;BMap&#x27;</span></span><br><span class="line">  &#125;,</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>在使用的过程中就可以直接使用<code>import</code>的方式引入：</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> BMap <span class="keyword">from</span> <span class="string">&#x27;BMap&#x27;</span></span><br><span class="line"><span class="keyword">const</span> myGeo = <span class="keyword">new</span> BMap.Geocoder(); <span class="comment">// 调用Geocoder()</span></span><br></pre></td></tr></table></figure>
+
+
+<p>原文地址:<a class="link"   href="https://blog.csdn.net/qq_26377547/article/details/89058721" >https://blog.csdn.net/qq_26377547/article/details/89058721<i class="fas fa-external-link-alt"></i></a></p>
+]]></content>
+      <tags>
+        <tag>百度地图</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>前端实现在线预览pdf、word、xls、ppt等文件</title>
     <url>/2021/02/21/%E5%89%8D%E7%AB%AF%E5%AE%9E%E7%8E%B0%E5%9C%A8%E7%BA%BF%E9%A2%84%E8%A7%88pdf%E3%80%81word%E3%80%81xls%E3%80%81ppt%E7%AD%89%E6%96%87%E4%BB%B6/</url>
     <content><![CDATA[<h3 id="1、前端实现pdf文件在线预览功能"><a href="#1、前端实现pdf文件在线预览功能" class="headerlink" title="1、前端实现pdf文件在线预览功能"></a>1、前端实现pdf文件在线预览功能</h3><p>方式一、pdf文件理论上可以在浏览器直接打开预览但是需要打开新页面。在仅仅是预览pdf文件且UI要求不高的情况下可以直接通过a标签href属性实现预览</p>
@@ -1220,6 +1239,15 @@
 <figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">iframe</span> <span class="attr">src</span>=<span class="string">&#x27;https://view.officeapps.live.com/op/view.aspx?src=http://storage.xuetangx.com/public_assets/xuetangx/PDF/1.xls&#x27;</span> <span class="attr">width</span>=<span class="string">&#x27;100%&#x27;</span> <span class="attr">height</span>=<span class="string">&#x27;100%&#x27;</span> <span class="attr">frameborder</span>=<span class="string">&#x27;1&#x27;</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;/<span class="name">iframe</span>&gt;</span></span><br></pre></td></tr></table></figure>]]></content>
       <tags>
         <tag>html</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>图片转base64</title>
+    <url>/2021/02/21/%E5%9B%BE%E7%89%87%E8%BD%ACbase64/</url>
+    <content><![CDATA[<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html lang=<span class="string">&quot;en&quot;</span>&gt;</span><br><span class="line"></span><br><span class="line">&lt;head&gt;</span><br><span class="line">    &lt;meta charset=<span class="string">&quot;UTF-8&quot;</span>&gt;</span><br><span class="line">    &lt;meta name=<span class="string">&quot;viewport&quot;</span> content=<span class="string">&quot;width=device-width, initial-scale=1.0&quot;</span>&gt;</span><br><span class="line">    &lt;title&gt;Document&lt;/title&gt;</span><br><span class="line">&lt;/head&gt;</span><br><span class="line"></span><br><span class="line">&lt;body&gt;</span><br><span class="line"></span><br><span class="line">&lt;/body&gt;</span><br><span class="line"></span><br><span class="line">&lt;/html&gt;</span><br><span class="line">&lt;script&gt;</span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">createCanvas</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="keyword">var</span> canvas = <span class="built_in">document</span>.createElement(<span class="string">&quot;canvas&quot;</span>);</span><br><span class="line">        canvas.width = <span class="number">100</span>;</span><br><span class="line">        canvas.height = <span class="number">100</span>;</span><br><span class="line">        canvas.style.border = <span class="string">&quot;1px solid red&quot;</span>;</span><br><span class="line">        <span class="built_in">document</span>.body.appendChild(canvas);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">setCanvasBg</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="keyword">var</span> canvas = <span class="built_in">document</span>.querySelector(<span class="string">&quot;canvas&quot;</span>);</span><br><span class="line">        <span class="keyword">var</span> ctx = canvas.getContext(<span class="string">&quot;2d&quot;</span>);</span><br><span class="line">        ctx.drawImage(image, <span class="number">0</span>, <span class="number">0</span>, <span class="number">100</span>, <span class="number">100</span>);</span><br><span class="line">        ctx.lineWidth = <span class="number">1</span>;</span><br><span class="line">        ctx.lineCap = <span class="string">&quot;round&quot;</span>;</span><br><span class="line">        ctx.strokeStyle = <span class="string">&#x27;red&#x27;</span>;</span><br><span class="line">        ctx.moveTo(<span class="number">20</span>, <span class="number">80</span>);</span><br><span class="line">        ctx.lineTo(<span class="number">80</span>, <span class="number">80</span>);</span><br><span class="line">        ctx.stroke();</span><br><span class="line">        ctx.fillStyle = <span class="string">&#x27;#fff&#x27;</span>;</span><br><span class="line">        ctx.font = <span class="string">&quot;16px Georgia&quot;</span>;</span><br><span class="line">        ctx.textAlign = <span class="string">&quot;center&quot;</span>;</span><br><span class="line">        ctx.fillText(<span class="string">&quot;shao&quot;</span>, <span class="number">50</span>, <span class="number">95</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">toBase64</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="keyword">var</span> canvas = <span class="built_in">document</span>.querySelector(<span class="string">&quot;canvas&quot;</span>);</span><br><span class="line">        <span class="keyword">var</span> base64 = canvas.toDataURL(<span class="string">&quot;image/jpeg&quot;</span>);</span><br><span class="line">        <span class="keyword">return</span> base64;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">var</span> image = <span class="keyword">new</span> Image();</span><br><span class="line">    image.src = <span class="string">&quot;./u=1610542142,718703573&amp;fm=26&amp;gp=0.jpg&quot;</span>;</span><br><span class="line">    image.setAttribute(<span class="string">&#x27;crossOrigin&#x27;</span>, <span class="string">&#x27;anonymous&#x27;</span>);</span><br><span class="line">    image.onload = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">        createCanvas();</span><br><span class="line">        setCanvasBg();</span><br><span class="line">        <span class="built_in">document</span>.body.style.backgroundImage = <span class="string">`url(<span class="subst">$&#123;toBase64()&#125;</span>)`</span>;</span><br><span class="line">        <span class="built_in">document</span>.querySelector(<span class="string">&quot;canvas&quot;</span>).remove();</span><br><span class="line">    &#125;</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+]]></content>
+      <tags>
+        <tag>js</tag>
       </tags>
   </entry>
   <entry>
@@ -1285,24 +1313,6 @@
 ]]></content>
       <tags>
         <tag>javascript</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>图片转base64</title>
-    <url>/2021/02/21/%E5%9B%BE%E7%89%87%E8%BD%ACbase64/</url>
-    <content><![CDATA[<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html lang=<span class="string">&quot;en&quot;</span>&gt;</span><br><span class="line"></span><br><span class="line">&lt;head&gt;</span><br><span class="line">    &lt;meta charset=<span class="string">&quot;UTF-8&quot;</span>&gt;</span><br><span class="line">    &lt;meta name=<span class="string">&quot;viewport&quot;</span> content=<span class="string">&quot;width=device-width, initial-scale=1.0&quot;</span>&gt;</span><br><span class="line">    &lt;title&gt;Document&lt;/title&gt;</span><br><span class="line">&lt;/head&gt;</span><br><span class="line"></span><br><span class="line">&lt;body&gt;</span><br><span class="line"></span><br><span class="line">&lt;/body&gt;</span><br><span class="line"></span><br><span class="line">&lt;/html&gt;</span><br><span class="line">&lt;script&gt;</span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">createCanvas</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="keyword">var</span> canvas = <span class="built_in">document</span>.createElement(<span class="string">&quot;canvas&quot;</span>);</span><br><span class="line">        canvas.width = <span class="number">100</span>;</span><br><span class="line">        canvas.height = <span class="number">100</span>;</span><br><span class="line">        canvas.style.border = <span class="string">&quot;1px solid red&quot;</span>;</span><br><span class="line">        <span class="built_in">document</span>.body.appendChild(canvas);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">setCanvasBg</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="keyword">var</span> canvas = <span class="built_in">document</span>.querySelector(<span class="string">&quot;canvas&quot;</span>);</span><br><span class="line">        <span class="keyword">var</span> ctx = canvas.getContext(<span class="string">&quot;2d&quot;</span>);</span><br><span class="line">        ctx.drawImage(image, <span class="number">0</span>, <span class="number">0</span>, <span class="number">100</span>, <span class="number">100</span>);</span><br><span class="line">        ctx.lineWidth = <span class="number">1</span>;</span><br><span class="line">        ctx.lineCap = <span class="string">&quot;round&quot;</span>;</span><br><span class="line">        ctx.strokeStyle = <span class="string">&#x27;red&#x27;</span>;</span><br><span class="line">        ctx.moveTo(<span class="number">20</span>, <span class="number">80</span>);</span><br><span class="line">        ctx.lineTo(<span class="number">80</span>, <span class="number">80</span>);</span><br><span class="line">        ctx.stroke();</span><br><span class="line">        ctx.fillStyle = <span class="string">&#x27;#fff&#x27;</span>;</span><br><span class="line">        ctx.font = <span class="string">&quot;16px Georgia&quot;</span>;</span><br><span class="line">        ctx.textAlign = <span class="string">&quot;center&quot;</span>;</span><br><span class="line">        ctx.fillText(<span class="string">&quot;shao&quot;</span>, <span class="number">50</span>, <span class="number">95</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">toBase64</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="keyword">var</span> canvas = <span class="built_in">document</span>.querySelector(<span class="string">&quot;canvas&quot;</span>);</span><br><span class="line">        <span class="keyword">var</span> base64 = canvas.toDataURL(<span class="string">&quot;image/jpeg&quot;</span>);</span><br><span class="line">        <span class="keyword">return</span> base64;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">var</span> image = <span class="keyword">new</span> Image();</span><br><span class="line">    image.src = <span class="string">&quot;./u=1610542142,718703573&amp;fm=26&amp;gp=0.jpg&quot;</span>;</span><br><span class="line">    image.setAttribute(<span class="string">&#x27;crossOrigin&#x27;</span>, <span class="string">&#x27;anonymous&#x27;</span>);</span><br><span class="line">    image.onload = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">        createCanvas();</span><br><span class="line">        setCanvasBg();</span><br><span class="line">        <span class="built_in">document</span>.body.style.backgroundImage = <span class="string">`url(<span class="subst">$&#123;toBase64()&#125;</span>)`</span>;</span><br><span class="line">        <span class="built_in">document</span>.querySelector(<span class="string">&quot;canvas&quot;</span>).remove();</span><br><span class="line">    &#125;</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
-]]></content>
-      <tags>
-        <tag>js</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>微信公众号在ios授权登录时，无法重写向问题？</title>
-    <url>/2021/02/21/%E5%BE%AE%E4%BF%A1%E5%85%AC%E4%BC%97%E5%8F%B7%E5%9C%A8ios%E6%8E%88%E6%9D%83%E7%99%BB%E5%BD%95%E6%97%B6%EF%BC%8C%E6%97%A0%E6%B3%95%E9%87%8D%E5%86%99%E5%90%91%E9%97%AE%E9%A2%98%EF%BC%9F/</url>
-    <content><![CDATA[<p><a class="link"   href="https://open.weixin.qq.com/connect/oauth2/authorize%EF%BC%9F%E5%9C%A8IOS%E4%B8%AD%EF%BC%8C%E8%AE%BF%E9%97%AE%E5%BE%AE%E4%BF%A1%E6%8E%88%E6%9D%83%E7%9A%84%E9%93%BE%E6%8E%A5" >Https://open.weixin.qq.com/connect/oauth2/authorize？在IOS中，访问微信授权的链接<i class="fas fa-external-link-alt"></i></a><br>Appid=APPID&amp;redirect_uri=REDIRECT_URI&amp;response_type=code&amp;scope=SCOPE&amp;state=STA<br>按照道理是会回调到重定向_uri_的，我写了我自己域名下的一个接口来接收<br>应该返回的代码，获取授权后会跳转到这里，可是IOS下授权后卡在自动登录那个界面，无法跳转，<br>进不到后台去.使用android和web开发者工具都是没问题的<br>解决方案<br>已经完成了，搞了2天，需要适配到IOS的时候，重定向_uri一定要使用http不能使用https。同时android也能使用http的。Android也能使用的</p>
-]]></content>
-      <tags>
-        <tag>微信小程序</tag>
       </tags>
   </entry>
   <entry>
@@ -1399,12 +1409,12 @@
       </tags>
   </entry>
   <entry>
-    <title>新的一年，新的一天</title>
-    <url>/2021/02/20/%E6%96%B0%E7%9A%84%E4%B8%80%E5%B9%B4%EF%BC%8C%E6%96%B0%E7%9A%84%E4%B8%80%E5%A4%A9/</url>
-    <content><![CDATA[<p>今天是2021/2/20 20：08分，为了更好的记录生活提升自己的专业技能，创建了这个网站，加油</p>
+    <title>微信公众号在ios授权登录时，无法重写向问题？</title>
+    <url>/2021/02/21/%E5%BE%AE%E4%BF%A1%E5%85%AC%E4%BC%97%E5%8F%B7%E5%9C%A8ios%E6%8E%88%E6%9D%83%E7%99%BB%E5%BD%95%E6%97%B6%EF%BC%8C%E6%97%A0%E6%B3%95%E9%87%8D%E5%86%99%E5%90%91%E9%97%AE%E9%A2%98%EF%BC%9F/</url>
+    <content><![CDATA[<p><a class="link"   href="https://open.weixin.qq.com/connect/oauth2/authorize%EF%BC%9F%E5%9C%A8IOS%E4%B8%AD%EF%BC%8C%E8%AE%BF%E9%97%AE%E5%BE%AE%E4%BF%A1%E6%8E%88%E6%9D%83%E7%9A%84%E9%93%BE%E6%8E%A5" >Https://open.weixin.qq.com/connect/oauth2/authorize？在IOS中，访问微信授权的链接<i class="fas fa-external-link-alt"></i></a><br>Appid=APPID&amp;redirect_uri=REDIRECT_URI&amp;response_type=code&amp;scope=SCOPE&amp;state=STA<br>按照道理是会回调到重定向_uri_的，我写了我自己域名下的一个接口来接收<br>应该返回的代码，获取授权后会跳转到这里，可是IOS下授权后卡在自动登录那个界面，无法跳转，<br>进不到后台去.使用android和web开发者工具都是没问题的<br>解决方案<br>已经完成了，搞了2天，需要适配到IOS的时候，重定向_uri一定要使用http不能使用https。同时android也能使用http的。Android也能使用的</p>
 ]]></content>
       <tags>
-        <tag>网站开始</tag>
+        <tag>微信小程序</tag>
       </tags>
   </entry>
   <entry>
@@ -1414,6 +1424,15 @@
 ]]></content>
       <tags>
         <tag>javascript</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>新的一年，新的一天</title>
+    <url>/2021/02/20/%E6%96%B0%E7%9A%84%E4%B8%80%E5%B9%B4%EF%BC%8C%E6%96%B0%E7%9A%84%E4%B8%80%E5%A4%A9/</url>
+    <content><![CDATA[<p>今天是2021/2/20 20：08分，为了更好的记录生活提升自己的专业技能，创建了这个网站，加油</p>
+]]></content>
+      <tags>
+        <tag>网站开始</tag>
       </tags>
   </entry>
   <entry>
