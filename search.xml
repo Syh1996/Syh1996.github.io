@@ -1,72 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>CSS伪类与伪元素</title>
-    <url>/2021/02/21/CSS%E4%BC%AA%E7%B1%BB%E4%B8%8E%E4%BC%AA%E5%85%83%E7%B4%A0/</url>
-    <content><![CDATA[<h3 id="为什么要引入伪类与伪元素？"><a href="#为什么要引入伪类与伪元素？" class="headerlink" title="为什么要引入伪类与伪元素？"></a>为什么要引入伪类与伪元素？</h3><p>css引入伪类和伪元素概念是为了格式化文档树以外的信息。也就是说，伪类和伪元素是用来修饰不在文档树中的部分，比如，一句话中的第一个字母，或是列表中的第一个元素，又或者是鼠标悬停在某个超链接上时要设置的样式。</p>
-<h3 id="什么是伪类，伪元素？"><a href="#什么是伪类，伪元素？" class="headerlink" title="什么是伪类，伪元素？"></a>什么是伪类，伪元素？</h3><ul>
-<li>伪类：用于当已有元素处于的某个状态时，为其添加对应的样式，这个状态是根据用户行为而动态变化的。比如说，当用户悬停在指定的元素时，我们可以通过:hover来描述这个元素的状态。虽然它和普通的css类相似，可以为已有的元素添加样式，但是它只有处于dom树无法描述的状态下才能为元素添加样式，所以将其称为伪类。</li>
-<li>伪元素：用于创建一些不在文档树中的元素，并为其添加样式。实际上，伪元素就是选取某些元素前面或后面这种普通选择器无法完成的工作。控制的内容和元素是相同的，但它本身是基于元素的抽象，并不存在于文档结构中。比如说，我们可以通过:before来在一个元素前增加一些文本，并为这些文本添加样式。</li>
-</ul>
-<h3 id="伪类的分类：状态伪类和结构性伪类"><a href="#伪类的分类：状态伪类和结构性伪类" class="headerlink" title="伪类的分类：状态伪类和结构性伪类"></a>伪类的分类：状态伪类和结构性伪类</h3><ul>
-<li><p>状态伪类：是基于元素当前状态进行选择的。在与用户的交互过程中元素的状态是动态变化的，因此该元素会根据其状态呈现不同的样式。当元素处于某状态时会呈现该样式，而进入另一状态后，该样式也会失去。</p>
-<p>常见的状态伪类主要包括：</p>
-</li>
-</ul>
-<ol>
-<li> :link 应用于未被访问过的链接； </li>
-<li> :hover 应用于鼠标悬停到的元素；</li>
-<li> :active 应用于被激活的元素；</li>
-<li> :visited 应用于被访问过的链接，与:link互斥。</li>
-<li> :focus 应用于拥有键盘输入焦点的元素。</li>
-</ol>
-<ul>
-<li><p>结构性伪类：是css3新增选择器，利用dom树进行元素过滤，通过文档结构的互相关系来匹配元素，能够减少class和id属性的定义，使文档结构更简洁。</p>
-<p>常见的结构性伪类包括：</p>
-</li>
-</ul>
-<ol>
-<li> :first-child 选择某个元素的第一个子元素； </li>
-<li> :last-child 选择某个元素的最后一个子元素；</li>
-<li> :nth-child() 选择某个元素的一个或多个特定的子元素；</li>
-<li> :nth-last-child() 选择某个元素的一个或多个特定的子元素，从这个元素的最后一个子元素开始算；</li>
-<li> :nth-of-type() 选择指定的元素；</li>
-<li> :nth-last-of-type() 选择指定的元素，从元素的最后一个开始计算；</li>
-<li> :first-of-type 选择一个上级元素下的第一个同类子元素；</li>
-<li> :last-of-type 选择一个上级元素的最后一个同类子元素；</li>
-<li> :only-child 选择的元素是它的父元素的唯一一个子元素；</li>
-<li> :only-of-type 选择一个元素是它的上级元素的唯一一个相同类型的子元素；</li>
-<li> :empty 选择的元素里面没有任何内容。</li>
-<li> :checked匹配被选中的input元素，这个input元素包括radio和checkbox。</li>
-<li> :default匹配默认选中的元素，例如：提交按钮总是表单的默认按钮。</li>
-<li> :disabled匹配禁用的表单元素。</li>
-<li> :enabled匹配没有设置disabled属性的表单元素。</li>
-<li> :valid匹配条件验证正确的表单元素。</li>
-</ol>
-<h3 id="常见的伪元素选择器："><a href="#常见的伪元素选择器：" class="headerlink" title="常见的伪元素选择器："></a>常见的伪元素选择器：</h3><ol>
-<li> ::first-letter 选择元素文本的第一个字（母）。</li>
-<li> ::first-line 选择元素文本的第一行。</li>
-<li> ::before 在元素内容的最前面添加新内容。</li>
-<li> ::after 在元素内容的最后面添加新内容。</li>
-<li> ::selection匹配用户被用户选中或者处于高亮状态的部分</li>
-<li> ::placeholder匹配占位符的文本，只有元素设置了placeholder属性时，该伪元素才能生效</li>
-</ol>
-<p>注意：你会发现伪类元素使用了两个冒号 (::) 而不是一个冒号 (:)，这是 CSS3 规范中的一部分要求，目的是为了区分伪类和伪元素，大多数浏览器都支持这两种表示方式。单冒号(:)用于 CSS3 伪类，双冒号(::)用于 CSS3 伪元素。对于 CSS2 中已经有的伪元素，例如 :before，单冒号和双冒号的写法 ::before 作用是一样的。</p>
-]]></content>
-      <tags>
-        <tag>css</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>JS实现网站内容的禁止复制和粘贴、另存为</title>
-    <url>/2021/02/21/JS%E5%AE%9E%E7%8E%B0%E7%BD%91%E7%AB%99%E5%86%85%E5%AE%B9%E7%9A%84%E7%A6%81%E6%AD%A2%E5%A4%8D%E5%88%B6%E5%92%8C%E7%B2%98%E8%B4%B4%E3%80%81%E5%8F%A6%E5%AD%98%E4%B8%BA/</url>
-    <content><![CDATA[<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE <span class="meta-keyword">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">&quot;utf-8&quot;</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">title</span>&gt;</span>菜鸟教程(runoob.com)<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">p</span> <span class="attr">id</span>=<span class="string">&quot;p&quot;</span>&gt;</span><span class="tag">&lt;<span class="name">strong</span>&gt;</span>注意：<span class="tag">&lt;/<span class="name">strong</span>&gt;</span> 该实例如果在 Chrome, Firefox 和 Opera 浏览器中可能无法工作。<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="javascript"><span class="function"><span class="keyword">function</span> <span class="title">myFunction</span>(<span class="params">e</span>) </span>&#123;</span></span><br><span class="line"><span class="javascript">	<span class="built_in">console</span>.log(e);</span></span><br><span class="line"><span class="javascript">  <span class="keyword">return</span> <span class="literal">false</span>;</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="javascript">	<span class="built_in">document</span>.querySelector(<span class="string">&quot;#p&quot;</span>).oncopy=myFunction;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
-]]></content>
-      <tags>
-        <tag>javascript</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Git工作常用命令</title>
     <url>/2021/02/21/Git%E5%B7%A5%E4%BD%9C%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/</url>
     <content><![CDATA[<ul>
@@ -147,6 +81,72 @@
 ]]></content>
       <tags>
         <tag>git</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>CSS伪类与伪元素</title>
+    <url>/2021/02/21/CSS%E4%BC%AA%E7%B1%BB%E4%B8%8E%E4%BC%AA%E5%85%83%E7%B4%A0/</url>
+    <content><![CDATA[<h3 id="为什么要引入伪类与伪元素？"><a href="#为什么要引入伪类与伪元素？" class="headerlink" title="为什么要引入伪类与伪元素？"></a>为什么要引入伪类与伪元素？</h3><p>css引入伪类和伪元素概念是为了格式化文档树以外的信息。也就是说，伪类和伪元素是用来修饰不在文档树中的部分，比如，一句话中的第一个字母，或是列表中的第一个元素，又或者是鼠标悬停在某个超链接上时要设置的样式。</p>
+<h3 id="什么是伪类，伪元素？"><a href="#什么是伪类，伪元素？" class="headerlink" title="什么是伪类，伪元素？"></a>什么是伪类，伪元素？</h3><ul>
+<li>伪类：用于当已有元素处于的某个状态时，为其添加对应的样式，这个状态是根据用户行为而动态变化的。比如说，当用户悬停在指定的元素时，我们可以通过:hover来描述这个元素的状态。虽然它和普通的css类相似，可以为已有的元素添加样式，但是它只有处于dom树无法描述的状态下才能为元素添加样式，所以将其称为伪类。</li>
+<li>伪元素：用于创建一些不在文档树中的元素，并为其添加样式。实际上，伪元素就是选取某些元素前面或后面这种普通选择器无法完成的工作。控制的内容和元素是相同的，但它本身是基于元素的抽象，并不存在于文档结构中。比如说，我们可以通过:before来在一个元素前增加一些文本，并为这些文本添加样式。</li>
+</ul>
+<h3 id="伪类的分类：状态伪类和结构性伪类"><a href="#伪类的分类：状态伪类和结构性伪类" class="headerlink" title="伪类的分类：状态伪类和结构性伪类"></a>伪类的分类：状态伪类和结构性伪类</h3><ul>
+<li><p>状态伪类：是基于元素当前状态进行选择的。在与用户的交互过程中元素的状态是动态变化的，因此该元素会根据其状态呈现不同的样式。当元素处于某状态时会呈现该样式，而进入另一状态后，该样式也会失去。</p>
+<p>常见的状态伪类主要包括：</p>
+</li>
+</ul>
+<ol>
+<li> :link 应用于未被访问过的链接； </li>
+<li> :hover 应用于鼠标悬停到的元素；</li>
+<li> :active 应用于被激活的元素；</li>
+<li> :visited 应用于被访问过的链接，与:link互斥。</li>
+<li> :focus 应用于拥有键盘输入焦点的元素。</li>
+</ol>
+<ul>
+<li><p>结构性伪类：是css3新增选择器，利用dom树进行元素过滤，通过文档结构的互相关系来匹配元素，能够减少class和id属性的定义，使文档结构更简洁。</p>
+<p>常见的结构性伪类包括：</p>
+</li>
+</ul>
+<ol>
+<li> :first-child 选择某个元素的第一个子元素； </li>
+<li> :last-child 选择某个元素的最后一个子元素；</li>
+<li> :nth-child() 选择某个元素的一个或多个特定的子元素；</li>
+<li> :nth-last-child() 选择某个元素的一个或多个特定的子元素，从这个元素的最后一个子元素开始算；</li>
+<li> :nth-of-type() 选择指定的元素；</li>
+<li> :nth-last-of-type() 选择指定的元素，从元素的最后一个开始计算；</li>
+<li> :first-of-type 选择一个上级元素下的第一个同类子元素；</li>
+<li> :last-of-type 选择一个上级元素的最后一个同类子元素；</li>
+<li> :only-child 选择的元素是它的父元素的唯一一个子元素；</li>
+<li> :only-of-type 选择一个元素是它的上级元素的唯一一个相同类型的子元素；</li>
+<li> :empty 选择的元素里面没有任何内容。</li>
+<li> :checked匹配被选中的input元素，这个input元素包括radio和checkbox。</li>
+<li> :default匹配默认选中的元素，例如：提交按钮总是表单的默认按钮。</li>
+<li> :disabled匹配禁用的表单元素。</li>
+<li> :enabled匹配没有设置disabled属性的表单元素。</li>
+<li> :valid匹配条件验证正确的表单元素。</li>
+</ol>
+<h3 id="常见的伪元素选择器："><a href="#常见的伪元素选择器：" class="headerlink" title="常见的伪元素选择器："></a>常见的伪元素选择器：</h3><ol>
+<li> ::first-letter 选择元素文本的第一个字（母）。</li>
+<li> ::first-line 选择元素文本的第一行。</li>
+<li> ::before 在元素内容的最前面添加新内容。</li>
+<li> ::after 在元素内容的最后面添加新内容。</li>
+<li> ::selection匹配用户被用户选中或者处于高亮状态的部分</li>
+<li> ::placeholder匹配占位符的文本，只有元素设置了placeholder属性时，该伪元素才能生效</li>
+</ol>
+<p>注意：你会发现伪类元素使用了两个冒号 (::) 而不是一个冒号 (:)，这是 CSS3 规范中的一部分要求，目的是为了区分伪类和伪元素，大多数浏览器都支持这两种表示方式。单冒号(:)用于 CSS3 伪类，双冒号(::)用于 CSS3 伪元素。对于 CSS2 中已经有的伪元素，例如 :before，单冒号和双冒号的写法 ::before 作用是一样的。</p>
+]]></content>
+      <tags>
+        <tag>css</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>JS实现网站内容的禁止复制和粘贴、另存为</title>
+    <url>/2021/02/21/JS%E5%AE%9E%E7%8E%B0%E7%BD%91%E7%AB%99%E5%86%85%E5%AE%B9%E7%9A%84%E7%A6%81%E6%AD%A2%E5%A4%8D%E5%88%B6%E5%92%8C%E7%B2%98%E8%B4%B4%E3%80%81%E5%8F%A6%E5%AD%98%E4%B8%BA/</url>
+    <content><![CDATA[<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE <span class="meta-keyword">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">&quot;utf-8&quot;</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">title</span>&gt;</span>菜鸟教程(runoob.com)<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">p</span> <span class="attr">id</span>=<span class="string">&quot;p&quot;</span>&gt;</span><span class="tag">&lt;<span class="name">strong</span>&gt;</span>注意：<span class="tag">&lt;/<span class="name">strong</span>&gt;</span> 该实例如果在 Chrome, Firefox 和 Opera 浏览器中可能无法工作。<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="javascript"><span class="function"><span class="keyword">function</span> <span class="title">myFunction</span>(<span class="params">e</span>) </span>&#123;</span></span><br><span class="line"><span class="javascript">	<span class="built_in">console</span>.log(e);</span></span><br><span class="line"><span class="javascript">  <span class="keyword">return</span> <span class="literal">false</span>;</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="javascript">	<span class="built_in">document</span>.querySelector(<span class="string">&quot;#p&quot;</span>).oncopy=myFunction;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+]]></content>
+      <tags>
+        <tag>javascript</tag>
       </tags>
   </entry>
   <entry>
@@ -244,6 +244,41 @@
       </tags>
   </entry>
   <entry>
+    <title>linux常用命令</title>
+    <url>/2021/02/23/linux%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/</url>
+    <content><![CDATA[<ul>
+<li>ls [-l][-a][-la] 列出当前工作区目录文件 -l 列出详细信息，如创建时间，占用空间等。 -a 将隐藏文件也列出</li>
+<li>pwd 查看当前用户工作路径，例指向C:/user/用户名</li>
+<li>cd 路径 切换到该路径下</li>
+<li>linux ~号， 切换到用户工作路径，cd ~</li>
+<li>mkdir [-p] 目录1 目前2 创建目录 -p 可创建多级目录/a/b/c mkdir可同时创建多个目录</li>
+<li>touch 路径/文件名 创建一个文件</li>
+<li>cp 文件 目标位置/文件名 [-r] 复制文件，-r 递归复制 目标位置的文件名可重命名，如不填默认使用复制的文件名</li>
+<li>mv 文件 目标位置/文件名 移动文件 文件名可重命名 linux重命名也用该命令</li>
+<li>rm 路径/文件名 [-f][-r][-rf] 删除文件，-r 递归 -f (force)强制</li>
+<li>rm 路径/linux* 删除该 路径下以linux开头的文件和文件夹</li>
+<li>vim 路径/文件名 打开一个文件，类似于document.write会把当前窗口内容重新覆盖</li>
+<li>cat 路径/文件名 打开一个文件，在命令行追加的方式</li>
+<li>cat 文件名1 文件2 &gt; 文件 合并文件名1文件2 到一个新的文件去</li>
+<li>df -h 查看磁盘剩余空间 [-h] 更加可视化，会换算为GB，不加默认是字节展示</li>
+<li>输出 &gt; &gt;&gt; &gt;以替换的方式 &gt;&gt;以追加的方式</li>
+<li>sudo 以管理员运行，例sudo mv 文件 目标位置</li>
+<li>head -n(1,2,3,) 文件位置 用于查询文件的前N行</li>
+<li>tail -n(1,2,3) 文件位置 用于查看文件的尾N行</li>
+<li>windows : calc =&gt;打开计算器 notepad =》打开记事本</li>
+<li>find 路径 [-name] 文件名 在路径下查找文件名为….</li>
+<li>find / -name <em>.jpg | find</em> 查询所有jpg文件 | 查询所有find开关的文件或者文件夹</li>
+<li>unzip node_modules.zip 解压zip文件 参数:-o直接覆盖，不必询问</li>
+<li>sudo su 切换root身份，不携带当前用户环境变量。</li>
+<li>sudo su - 切换root身份，携带当前用户环境变量。</li>
+<li>Linux chmod（英文全拼：change mode）命令是控制用户对文件的权限的命令 755 777,chmod -R(递归层级) 777/755 被修改权限的目标</li>
+</ul>
+]]></content>
+      <tags>
+        <tag>linux</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>js防抖与节流</title>
     <url>/2021/02/23/js%E9%98%B2%E6%8A%96%E4%B8%8E%E8%8A%82%E6%B5%81/</url>
     <content><![CDATA[<p>防抖和节流严格算起来应该属于性能优化的知识，但实际上遇到的频率相当高，处理不当或者放任不管就容易引起浏览器卡死。所以还是很有必要早点掌握的。（信我，你看完肯定就懂了）</p>
@@ -301,41 +336,6 @@
       </tags>
   </entry>
   <entry>
-    <title>linux常用命令</title>
-    <url>/2021/02/23/linux%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/</url>
-    <content><![CDATA[<ul>
-<li>ls [-l][-a][-la] 列出当前工作区目录文件 -l 列出详细信息，如创建时间，占用空间等。 -a 将隐藏文件也列出</li>
-<li>pwd 查看当前用户工作路径，例指向C:/user/用户名</li>
-<li>cd 路径 切换到该路径下</li>
-<li>linux ~号， 切换到用户工作路径，cd ~</li>
-<li>mkdir [-p] 目录1 目前2 创建目录 -p 可创建多级目录/a/b/c mkdir可同时创建多个目录</li>
-<li>touch 路径/文件名 创建一个文件</li>
-<li>cp 文件 目标位置/文件名 [-r] 复制文件，-r 递归复制 目标位置的文件名可重命名，如不填默认使用复制的文件名</li>
-<li>mv 文件 目标位置/文件名 移动文件 文件名可重命名 linux重命名也用该命令</li>
-<li>rm 路径/文件名 [-f][-r][-rf] 删除文件，-r 递归 -f (force)强制</li>
-<li>rm 路径/linux* 删除该 路径下以linux开头的文件和文件夹</li>
-<li>vim 路径/文件名 打开一个文件，类似于document.write会把当前窗口内容重新覆盖</li>
-<li>cat 路径/文件名 打开一个文件，在命令行追加的方式</li>
-<li>cat 文件名1 文件2 &gt; 文件 合并文件名1文件2 到一个新的文件去</li>
-<li>df -h 查看磁盘剩余空间 [-h] 更加可视化，会换算为GB，不加默认是字节展示</li>
-<li>输出 &gt; &gt;&gt; &gt;以替换的方式 &gt;&gt;以追加的方式</li>
-<li>sudo 以管理员运行，例sudo mv 文件 目标位置</li>
-<li>head -n(1,2,3,) 文件位置 用于查询文件的前N行</li>
-<li>tail -n(1,2,3) 文件位置 用于查看文件的尾N行</li>
-<li>windows : calc =&gt;打开计算器 notepad =》打开记事本</li>
-<li>find 路径 [-name] 文件名 在路径下查找文件名为….</li>
-<li>find / -name <em>.jpg | find</em> 查询所有jpg文件 | 查询所有find开关的文件或者文件夹</li>
-<li>unzip node_modules.zip 解压zip文件 参数:-o直接覆盖，不必询问</li>
-<li>sudo su 切换root身份，不携带当前用户环境变量。</li>
-<li>sudo su - 切换root身份，携带当前用户环境变量。</li>
-<li>Linux chmod（英文全拼：change mode）命令是控制用户对文件的权限的命令 755 777,chmod -R(递归层级) 777/755 被修改权限的目标</li>
-</ul>
-]]></content>
-      <tags>
-        <tag>linux</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>node那点事</title>
     <url>/2021/03/12/node%E9%82%A3%E7%82%B9%E4%BA%8B/</url>
     <content><![CDATA[<h3 id="关于node的几项问题"><a href="#关于node的几项问题" class="headerlink" title="关于node的几项问题"></a>关于node的几项问题</h3><ul>
@@ -390,6 +390,29 @@
 
 
 <h3 id="接收post参数"><a href="#接收post参数" class="headerlink" title="接收post参数"></a>接收post参数</h3><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> http = <span class="built_in">require</span>(<span class="string">&#x27;http&#x27;</span>);</span><br><span class="line"><span class="keyword">const</span> queryString = <span class="built_in">require</span>(<span class="string">&quot;queryString&quot;</span>);</span><br><span class="line">http.createSever(<span class="function">(<span class="params">request,response</span>)=&gt;</span>&#123;</span><br><span class="line">    <span class="keyword">let</span> post = <span class="string">&#x27;&#x27;</span>; <span class="comment">//接收的数据 </span></span><br><span class="line">    request.on(<span class="string">&quot;data&quot;</span>,<span class="function"><span class="params">chunk</span>=&gt;</span>&#123;</span><br><span class="line">        post+=chunk;</span><br><span class="line">    &#125;);</span><br><span class="line">    request.on(<span class="string">&quot;end&quot;</span>,<span class="function">()=&gt;</span>&#123;</span><br><span class="line">        <span class="keyword">let</span> opt = queryString.parse(post); <span class="comment">//opt = &#123;name:&#x27;&#x27;,age:&#x27;&#x27;&#125;</span></span><br><span class="line">    &#125;)</span><br><span class="line">&#125;).listen(<span class="number">3000</span>);</span><br></pre></td></tr></table></figure>
+
+
+<h3 id="url模块"><a href="#url模块" class="headerlink" title="url模块"></a>url模块</h3><p>url.parse(url,[true/false]);   //将url格式化，用于获取参数，第二个参数为是否将query转为一个对象</p>
+<h3 id="queryString模块"><a href="#queryString模块" class="headerlink" title="queryString模块"></a>queryString模块</h3><p>queryString.parse(url，分割符，切割符);  解析字符串为一个对象</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">queryString.parse(<span class="string">&#x27;name=shao.yuhong&amp;age=24&#x27;</span>);</span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">   &#123;name:&#x27;shao.yuhong&#x27;,age:24&#125;</span></span><br><span class="line"><span class="comment">*/</span></span><br></pre></td></tr></table></figure>
+<p>需注意</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">queryString.parse(<span class="string">&#x27;?name=shao.yuhong&amp;age=24&#x27;</span>);</span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">   &#123;?name:&#x27;shao.yuhong&#x27;,age:24&#125;</span></span><br><span class="line"><span class="comment">*/</span></span><br></pre></td></tr></table></figure>
+<p>针对其它切割字符串的情况</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">queryString.parse(<span class="string">&#x27;name/shao.yuhong&amp;age/4&#x27;</span>,<span class="string">&#x27;&amp;&#x27;</span>,<span class="string">&#x27;/&#x27;</span>);</span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">  &#123;name:&#x27;shao.yuhong&#x27;,age:4&#125; </span></span><br><span class="line"><span class="comment">*/</span></span><br></pre></td></tr></table></figure>
+
+
+<h3 id="express基于nodejs的开发框架"><a href="#express基于nodejs的开发框架" class="headerlink" title="express基于nodejs的开发框架"></a>express基于nodejs的开发框架</h3><h4 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h4><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">npm install express --save</span><br></pre></td></tr></table></figure>
+<h4 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h4><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> express = <span class="built_in">require</span>(<span class="string">&#x27;express&#x27;</span>)</span><br><span class="line"><span class="keyword">const</span> app = express()</span><br><span class="line"><span class="keyword">const</span> port = <span class="number">3000</span></span><br><span class="line"></span><br><span class="line">app.get(<span class="string">&#x27;/&#x27;</span>, <span class="function">(<span class="params">req, res</span>) =&gt;</span> &#123;</span><br><span class="line">  res.send(<span class="string">&#x27;Hello World!&#x27;</span>)</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line">app.listen(port, <span class="function">() =&gt;</span> &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">`Example app listening at http://localhost:<span class="subst">$&#123;port&#125;</span>`</span>)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<h4 id="express获取-GET参数"><a href="#express获取-GET参数" class="headerlink" title="express获取 GET参数"></a>express获取 GET参数</h4><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> express = <span class="built_in">require</span>(<span class="string">&#x27;express&#x27;</span>)</span><br><span class="line"><span class="keyword">const</span> app = express()</span><br><span class="line"><span class="keyword">const</span> port = <span class="number">3000</span></span><br><span class="line"></span><br><span class="line">app.get(<span class="string">&#x27;/&#x27;</span>, <span class="function">(<span class="params">req, res</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="keyword">let</span> opt = req.query; <span class="comment">//获取 GET的参数</span></span><br><span class="line">  res.send(<span class="string">&#x27;Hello World!&#x27;</span>)</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line">app.listen(port, <span class="function">() =&gt;</span> &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">`Example app listening at http://localhost:<span class="subst">$&#123;port&#125;</span>`</span>)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+
+<h4 id="获取POST参数"><a href="#获取POST参数" class="headerlink" title="获取POST参数"></a>获取POST参数</h4><p>获取POST参数，需要安装body-parser，body-parser会将post的参数封装到req.body中</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">npm install body-parser</span><br></pre></td></tr></table></figure>
+<p>使用方法</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> bodyParser = <span class="built_in">require</span>(<span class="string">&#x27;body-parser&#x27;</span>)</span><br><span class="line"><span class="comment">// parse application/x-www-form-urlencoded</span></span><br><span class="line">app.use(bodyParser.urlencoded(&#123; <span class="attr">extended</span>: <span class="literal">false</span> &#125;))</span><br><span class="line"></span><br><span class="line"><span class="comment">// parse application/json</span></span><br><span class="line">app.use(bodyParser.json())</span><br><span class="line">app.use(<span class="function"><span class="keyword">function</span> (<span class="params">req, res</span>) </span>&#123;</span><br><span class="line">   req.body; <span class="comment">//post参数</span></span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+
+<h4 id="将css-image-js设置为公共资源返回"><a href="#将css-image-js设置为公共资源返回" class="headerlink" title="将css/image/js设置为公共资源返回"></a>将css/image/js设置为公共资源返回</h4><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">app.use(<span class="string">&#x27;/public&#x27;</span>,express.static(<span class="string">&#x27;路径&#x27;</span>))</span><br></pre></td></tr></table></figure>
 ]]></content>
       <tags>
         <tag>node</tag>
@@ -726,116 +749,6 @@
       </tags>
   </entry>
   <entry>
-    <title>一碗清汤荞麦面</title>
-    <url>/2021/02/21/%E4%B8%80%E7%A2%97%E6%B8%85%E6%B1%A4%E8%8D%9E%E9%BA%A6%E9%9D%A2/</url>
-    <content><![CDATA[<blockquote>
-<p>你是否和我一样，因为一则故事，记忆犹新</p>
-</blockquote>
-<p>对于面馆来说，最忙的时候，要算是大年夜了。北海亭面馆的这一天，也是从早就忙得不亦乐乎。</p>
-<p>平时直到深夜12点还很热闹的大街，大年夜晚上一过10点，就很宁静了。北海亭面馆的顾客，此时也像是突然都失踪了似的。</p>
-<p>就在最后一位顾客出了门，店主要说关门打烊的时候，店门被咯吱咯吱地拉开了。一个女人带着两个孩子走了进来。6岁和10岁左右的两个男孩子，一身崭新的运动服。女人却穿着不合时令的斜格子短大衣。</p>
-<p>“欢迎光临！”老板娘上前去招呼。</p>
-<p>“啊……清汤荞麦面……一碗……可以吗？”女人怯生生地问。那两个小男孩躲在妈妈的身后，也怯生生地望着老板娘。</p>
-<p>“行啊，请，请这边坐。”老板娘说着，领他们母子三人坐到靠近暖气的二号桌，一边向柜台里面喊着，“清汤荞麦面一碗！”</p>
-<p>听到喊声的老板，抬头瞥了他们三人一眼，应声回答道：“好咧！清汤荞麦面一碗——”</p>
-<p>案板上早就准备好了面条，一堆堆像小山，一堆是一人份。老板抓起一堆面，继而又加了半堆，一起放进锅里。老板娘立刻领悟到，这是丈夫特意多给这母子三人的。</p>
-<p>热腾腾香喷喷的清汤荞麦面一上桌，母子三人立即围着这碗面，头碰头地吃了起来。</p>
-<p>“真好吃啊！”哥哥说。</p>
-<p>“妈妈也吃呀！”弟弟夹了一筷子面，送到妈妈口中。</p>
-<p>不一会，面吃完了，付了150元钱。</p>
-<p>“承蒙款待。”母子三人一起点头谢过，出了店门。</p>
-<p>“谢谢，祝你们过个好年！”老板和老板娘应声答道。</p>
-<p>过了新年的北海亭面馆，每天照样忙忙碌碌。一年很快过去了，转眼又是大年夜。</p>
-<p>和以前的大年夜一样，忙得不亦乐乎的这一天就要结束了。过了晚上10点，正想打烊，店门又被拉开了，一个女人带着两个男孩走了进来。</p>
-<p>老板娘看那女人身上那件不合时令的斜格子短大衣，就想起去年大年夜最后那三位顾客。</p>
-<p>“……这个……清汤荞麦面一碗……可以吗？”</p>
-<p>“请，请到里边坐，”老板娘又将他们带到去年的那张二号桌，“清汤荞麦面一碗——”“好咧，清汤荞麦面一碗——”老板应声回答着，并将已经熄灭的炉火重新点燃起来。</p>
-<p>“喂，孩子他爹，给他们下三碗，好吗？”</p>
-<p>老板娘在老板耳边轻声说道。</p>
-<p>“不行，如果这样的话，他们也许会尴尬的。”</p>
-<p>老板说着，抓了一份半的面下了锅。</p>
-<p>桌上放着一碗清汤荞麦面，母子三人边吃边谈着，柜台里的老板和老板娘也能听到他们的声音。</p>
-<p>“真好吃……”</p>
-<p>“今年又能吃到北海亭的清汤荞麦面了。”</p>
-<p>“明年还能来吃就好了……”</p>
-<p>吃完后，付了150元钱。老板娘对着他们的背影说道：“谢谢，祝你们过个好年！”</p>
-<p>这一天，被这句说过几十遍乃至几百遍的祝福送走了。</p>
-<p>生意日渐兴隆的北海亭面馆，又迎来了第三个大年夜。</p>
-<p>从九点半开始，老板和老板娘虽然谁都没说什么，但都显得有点心神不定。十点刚过，雇工们下班走了，老板和老板娘立刻把墙上挂着的各种面的价格牌一一翻了过来，赶紧写好“清汤荞麦面150元”。其实，从当年夏天起，随着物价的上涨，清汤荞麦面的价格已经是200元一碗了。</p>
-<p>二号桌上，在30分钟以前，老板娘就已经摆好了“预约”的牌子。</p>
-<p>到十点半，店里已经没有客人了，但老板和老板娘还在等候着那母子三人的到来。他们来了。哥哥穿着中学生的制服，弟弟穿着去年哥哥穿的那件略有些大的旧衣服，兄弟二人都长大了，有点认不出来了。母亲还是穿着那件不合时令的有些退色的短大衣。</p>
-<p>“欢迎光临。”老板娘笑着迎上前去。</p>
-<p>“……啊……清汤荞麦面两碗……可以吗?”母亲怯生生地问。</p>
-<p>“行，请，请里边坐!”</p>
-<p>老板娘把他们领到二号桌，顺手将桌上那块预约牌藏了起来，对柜台喊道：</p>
-<p>“清汤荞麦面两碗!”</p>
-<p>“好咧，清汤荞麦面两碗——”</p>
-<p>老板应声答道，把三碗面的分量放进锅里。</p>
-<p>母子三人吃着两碗清汤荞麦面，说着，笑着。</p>
-<p>“大儿，淳儿，今天，妈妈我想要向你们道谢。”</p>
-<p>“道谢?向我们?……为什么?”</p>
-<p>“你们也知道，你们的父亲死于交通事故，生前欠下了八个人的钱。我把抚恤金全部还了债，还不够的部分，就每月五万元分期偿还。”</p>
-<p>“是呀，这些我们都知道。”</p>
-<p>老板和老板娘在柜台里，一动不动地凝神听着。</p>
-<p>“剩下的债，本来约定到明年三月还清，可实际上，今天就可以全部还清了。”</p>
-<p>“啊，这是真的吗，妈妈?”</p>
-<p>“是真的。大儿每天送报支持我，淳儿每天买菜烧饭帮我忙，所以我能够安心工作。因为我努力工作，得到了公司的特别津贴，所以现在能够全部还清债款。”</p>
-<p>“好啊!妈妈，哥哥，从现在起，每天烧饭的事还是包给我了!”</p>
-<p>“我也继续送报。弟弟，我们一起努力吧!”</p>
-<p>“谢谢，真是谢……谢……”</p>
-<p>“我和弟弟也有一件事瞒着妈妈，今天可以说了。那是在十一月的一个星期天，我到弟弟学校去参加家长会。那时，弟弟已经藏了一封老师给他*的信……弟弟写的作文如果被选为<a class="link"   href="https://link.jianshu.com/?t=http://blog.sina.com.cn/lm/z/sakura/" >北海道<i class="fas fa-external-link-alt"></i></a>的代表，就能参加全国的作文比赛。正因为这样，家长会的那天，老师要弟弟自己朗读这篇作文。老师的信如果给妈妈看了，妈妈一定会向公司请假，去听弟弟朗读作文，于是，弟弟就没有把这封信交给妈妈。这事，我还是从弟弟的朋友那里听来的。所以，家长会那天，是我去了。”</p>
-<p>“哦，是这样……那后来呢?”</p>
-<p>“老师出的作文题目是，‘你将来想成为怎样的人’。全体学生都写了，弟弟的题目是《一碗清汤荞麦面》，一听这题目，我就知道写的是北海亭面馆的事。当时我就想，弟弟这家伙，怎么把这种难为情的事都写出来了。</p>
-<p>“作文写的是，父亲死于交通事故，留下一大笔债。妈妈每天从早到晚拼命工作，我去送早报和晚报……弟弟全写了出来。接着又写，十二月三十一日的晚上，母子三人吃一碗清汤荞麦面，非常好吃……三个人只买一碗清汤荞麦面，面馆的叔叔阿姨还是很热情地接待我们，谢谢我们，还祝福我们过个好年。在弟弟听来，那祝福的声音分明是在对他说：不要低头!加油啊!要好好活着!因此，弟弟长大成人后，想开一家日本第一的面馆，也要对顾客说：‘加油啊!’‘祝你幸福!’ ‘谢谢!’弟弟大声地朗读着作文……”</p>
-<p>此刻，柜台里竖着耳朵，全神贯注听母子三人说话的老板和老板娘不见了。在柜台后面，只见他们两人面对面地蹲着，一条毛巾，各执一端，正在擦着夺眶而出的眼泪。</p>
-<p>“作文朗读完后，老师说：‘今天淳君的哥哥代替他母亲来参加我们的家长会，现在我们请他来说几句话……’”</p>
-<p>“这时哥哥都说了些什么?”</p>
-<p>“因为突然被叫上去发言，一开始，我什么也说不出……‘大家一直和我弟弟很要好，在此，我谢谢大家。弟弟每天要做晚饭，只能放弃兴趣小组的活动，中途回家，我做哥哥的，感到很难为情。刚才，弟弟刚开始朗读《一碗清汤荞麦面》的时候，我感到很丢脸，但是，当我看到弟弟激动地大声朗读的样子，我心里更感到羞愧。这时我想，决不能忘记妈妈买一碗清汤荞麦面的勇气。我们兄弟二人一定要齐心协力，照顾好我们的妈妈!希望大家以后也能够和我弟弟做好朋友。’我就说了这些……”</p>
-<p>母子三人，静静地，互相握着手，良久。继而又欢快地笑了起来。和去年相比，像是完全变了个模样。</p>
-<p>作为年夜饭的清汤荞麦面吃完了，付了300元。</p>
-<p>“承蒙款待。”母子三人深深地低头道谢，走出了店门。</p>
-<p>“谢谢，祝你们过个好年!”</p>
-<p>老板和老板娘大声向他们祝福，目送他们远去……</p>
-<p>又是一年的大年夜降临了。北海亭面馆里，晚上九点一过，二号桌上又摆上了’预约席“的牌子，等待着母子三人的到来。可是，没看到那三人的身影。</p>
-<p>一年，又是一年，二号桌始终默默地等待着。可母子三人还是没有出现。　　北海亭面馆因为生意越来越兴隆，店内重又进行了装修。桌子、椅子都有换了机关报的。可二号桌却仍然好故。老板夫妇不但没感到不协调，反而把二</p>
-<p>号桌安放在店堂中央。</p>
-<p>“为什么把这张旧桌子放在店堂中央？”有的顾客感到奇怪。</p>
-<p>于是，老板夫妇就把“一碗阳春面”的事告诉他们。并说，看到这张桌子，就是对自己的激励。而且说不定哪天那母子三人还会来，这个时候，想用这张桌子来迎接他们。</p>
-<p>就这样，关于二号桌的故事，使二号桌成了“幸福的桌子”。顾客们到处传诵着。有人特意从远方赶来。有女学生，也有年轻的情侣，都要到二号桌上吃一碗阳春面。二号桌也因此而名声大振。</p>
-<p>时光流逝，年复一年。这一年的大年夜又来到了。</p>
-<p>这时，北海亭面馆已经是同一条街的商店会的主要成员。大年夜这天，亲如家人的朋友、近邻、同行，结束了一天的工作后，都来到了北海亭。在北海亭吃了过年面，听着除夕夜的钟声，然后亲朋好友聚集起来，一起到附近的神</p>
-<p>社去烧香磕头，以求神明保佑在新的一年里万事如意，厄除运开。这种情形，已经有五六年的历史了。</p>
-<p>今年的大年夜当然也不例外。九点半一过，以鱼店老板夫妇双手捧着装满生鱼片的大盆子进来为信号，平时亲如家人的朋友们大约三十多人，也都带着酒菜，陆陆续续地会集到北海亭，店里的气氛，一下子热闹起来。</p>
-<p>知道二号桌由来的朋友们，嘴里虽然没说什么，可心里都有在想着，今年二号桌也许又要空等了吧。那块“预约席”的牌子，早已悄悄地站在二号桌上。</p>
-<p>狭窄的座席之间，客人们一点一点地移动着身子坐下，有人还招呼着迟到的朋友。吃着面，喝着酒，互相夹着菜。有人到柜台里去帮忙，有人随意拉开冰箱拿来东西。什么廉价出售的生意啦，海水浴的艳闻轶事啦，什么添了孙</p>
-<p>子的事啦。十点半时，北海亭里的热闹气氛到达了顶点。就在这时，店门被咯吱咯吱地拉开了。人们都向门口望去，屋子里突然静</p>
-<p>了下来。</p>
-<p>两位西装笔挺，手臂上搭着大衣的青年走了进来。这时，大伙都松了口气，随着轻轻的叹息声，店里又恢复了刚才的热闹。</p>
-<p>“真不凑巧，店里已经坐满了。”老板娘面带着歉意说。</p>
-<p>就在她拒绝两位青年的时候，一位身穿和服的妇人，深深低着头走了进来，站在两位青年的中间。</p>
-<p>店里的人们，一下子都屏住了呼吸，耳朵也竖起来了。</p>
-<p>“唔……三碗阳春面，可以吗？”穿和服的妇人平静地说。</p>
-<p>听了这话，老板娘的脸色一下子变了。十几年前留在脑海中的母子三人的印象，和眼前这三人的形象重叠起来了。</p>
-<p>老板娘指着三位来客，目光和正在柜台里找韭菜的丈夫的目光撞到一处。</p>
-<p>“啊！啊……孩子他爹！”</p>
-<p>面对不知所措的老板娘，青年中的一位开口了。</p>
-<p>“我们就是14年前的大年夜，母子三人共吃一碗阳春面的的顾客。那时，就是这一碗阳春面的鼓励，使我们三人同心合力，度过了艰难的岁月。这以后，我们搬到母亲的亲家滋贺县去了。”</p>
-<p>“我今年通过了医生的国家考试，现在<a class="link"   href="https://link.jianshu.com/?t=http://blog.sina.com.cn/lm/z/sakura/" >京都<i class="fas fa-external-link-alt"></i></a>的大学医院里当实习医生。明年四月，我将到札幌的综合医院工作。还没有开面馆的弟弟，现在<a class="link"   href="https://link.jianshu.com/?t=http://blog.sina.com.cn/lm/z/sakura/" >京都<i class="fas fa-external-link-alt"></i></a>银行里工作。我和弟弟商谈，计划了这生平第一次的<a class="link"   href="https://link.jianshu.com/?t=http://www.ckedu.com/zxzx/midschool/chinese5/d3c/text15.htm#[%E5%A5%A2%E4%BE%88%E7%9A%84%E8%A1%8C%E5%8A%A8]#[%E5%A5%A2%E4%BE%88%E7%9A%84%E8%A1%8C%E5%8A%A8]" >奢侈的行动<i class="fas fa-external-link-alt"></i></a>。就这样，今天我们</p>
-<p>母子三人，特意来拜访，想要麻烦你们烧三碗阳春面。”</p>
-<p>边听边点头的老板夫妇，泪珠一串串地掉下来。</p>
-<p>坐在靠近门口桌上的蔬菜店老板，嘴里含着一口面听着，直到这时，才把面咽下去，站起身来。</p>
-<p>“喂喂！老板娘，你呆站着干什么！这十年的每一个大年夜，你都为等待他们的到来而准备着，这十年后的预约席，不是吗？快！请他们上座，快！”</p>
-<p>被蔬菜店老板用肩一撞，老板娘这才清醒过来。</p>
-<p>“欢……欢迎，请，请坐……孩子他爹，二号桌阳春面三碗——”</p>
-<p>“好咧——阳春面三碗——”可泪流满面的丈夫却应不出声来。</p>
-<p>店里，突然爆发出一阵欢呼声和鼓掌声。</p>
-<p>店外，刚才还在纷纷扬扬的飘着的雪，此刻也停了。皑皑白雪映着明净的窗子，那写着“北海亭”的布帘子，在正月的清风中，摇曳着，飘着……</p>
-]]></content>
-      <tags>
-        <tag>情感</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>不爱你，不度生</title>
     <url>/2021/02/21/%E4%B8%8D%E7%88%B1%E4%BD%A0%EF%BC%8C%E4%B8%8D%E5%BA%A6%E7%94%9F/</url>
     <content><![CDATA[<blockquote>
@@ -1048,6 +961,116 @@
       </tags>
   </entry>
   <entry>
+    <title>一碗清汤荞麦面</title>
+    <url>/2021/02/21/%E4%B8%80%E7%A2%97%E6%B8%85%E6%B1%A4%E8%8D%9E%E9%BA%A6%E9%9D%A2/</url>
+    <content><![CDATA[<blockquote>
+<p>你是否和我一样，因为一则故事，记忆犹新</p>
+</blockquote>
+<p>对于面馆来说，最忙的时候，要算是大年夜了。北海亭面馆的这一天，也是从早就忙得不亦乐乎。</p>
+<p>平时直到深夜12点还很热闹的大街，大年夜晚上一过10点，就很宁静了。北海亭面馆的顾客，此时也像是突然都失踪了似的。</p>
+<p>就在最后一位顾客出了门，店主要说关门打烊的时候，店门被咯吱咯吱地拉开了。一个女人带着两个孩子走了进来。6岁和10岁左右的两个男孩子，一身崭新的运动服。女人却穿着不合时令的斜格子短大衣。</p>
+<p>“欢迎光临！”老板娘上前去招呼。</p>
+<p>“啊……清汤荞麦面……一碗……可以吗？”女人怯生生地问。那两个小男孩躲在妈妈的身后，也怯生生地望着老板娘。</p>
+<p>“行啊，请，请这边坐。”老板娘说着，领他们母子三人坐到靠近暖气的二号桌，一边向柜台里面喊着，“清汤荞麦面一碗！”</p>
+<p>听到喊声的老板，抬头瞥了他们三人一眼，应声回答道：“好咧！清汤荞麦面一碗——”</p>
+<p>案板上早就准备好了面条，一堆堆像小山，一堆是一人份。老板抓起一堆面，继而又加了半堆，一起放进锅里。老板娘立刻领悟到，这是丈夫特意多给这母子三人的。</p>
+<p>热腾腾香喷喷的清汤荞麦面一上桌，母子三人立即围着这碗面，头碰头地吃了起来。</p>
+<p>“真好吃啊！”哥哥说。</p>
+<p>“妈妈也吃呀！”弟弟夹了一筷子面，送到妈妈口中。</p>
+<p>不一会，面吃完了，付了150元钱。</p>
+<p>“承蒙款待。”母子三人一起点头谢过，出了店门。</p>
+<p>“谢谢，祝你们过个好年！”老板和老板娘应声答道。</p>
+<p>过了新年的北海亭面馆，每天照样忙忙碌碌。一年很快过去了，转眼又是大年夜。</p>
+<p>和以前的大年夜一样，忙得不亦乐乎的这一天就要结束了。过了晚上10点，正想打烊，店门又被拉开了，一个女人带着两个男孩走了进来。</p>
+<p>老板娘看那女人身上那件不合时令的斜格子短大衣，就想起去年大年夜最后那三位顾客。</p>
+<p>“……这个……清汤荞麦面一碗……可以吗？”</p>
+<p>“请，请到里边坐，”老板娘又将他们带到去年的那张二号桌，“清汤荞麦面一碗——”“好咧，清汤荞麦面一碗——”老板应声回答着，并将已经熄灭的炉火重新点燃起来。</p>
+<p>“喂，孩子他爹，给他们下三碗，好吗？”</p>
+<p>老板娘在老板耳边轻声说道。</p>
+<p>“不行，如果这样的话，他们也许会尴尬的。”</p>
+<p>老板说着，抓了一份半的面下了锅。</p>
+<p>桌上放着一碗清汤荞麦面，母子三人边吃边谈着，柜台里的老板和老板娘也能听到他们的声音。</p>
+<p>“真好吃……”</p>
+<p>“今年又能吃到北海亭的清汤荞麦面了。”</p>
+<p>“明年还能来吃就好了……”</p>
+<p>吃完后，付了150元钱。老板娘对着他们的背影说道：“谢谢，祝你们过个好年！”</p>
+<p>这一天，被这句说过几十遍乃至几百遍的祝福送走了。</p>
+<p>生意日渐兴隆的北海亭面馆，又迎来了第三个大年夜。</p>
+<p>从九点半开始，老板和老板娘虽然谁都没说什么，但都显得有点心神不定。十点刚过，雇工们下班走了，老板和老板娘立刻把墙上挂着的各种面的价格牌一一翻了过来，赶紧写好“清汤荞麦面150元”。其实，从当年夏天起，随着物价的上涨，清汤荞麦面的价格已经是200元一碗了。</p>
+<p>二号桌上，在30分钟以前，老板娘就已经摆好了“预约”的牌子。</p>
+<p>到十点半，店里已经没有客人了，但老板和老板娘还在等候着那母子三人的到来。他们来了。哥哥穿着中学生的制服，弟弟穿着去年哥哥穿的那件略有些大的旧衣服，兄弟二人都长大了，有点认不出来了。母亲还是穿着那件不合时令的有些退色的短大衣。</p>
+<p>“欢迎光临。”老板娘笑着迎上前去。</p>
+<p>“……啊……清汤荞麦面两碗……可以吗?”母亲怯生生地问。</p>
+<p>“行，请，请里边坐!”</p>
+<p>老板娘把他们领到二号桌，顺手将桌上那块预约牌藏了起来，对柜台喊道：</p>
+<p>“清汤荞麦面两碗!”</p>
+<p>“好咧，清汤荞麦面两碗——”</p>
+<p>老板应声答道，把三碗面的分量放进锅里。</p>
+<p>母子三人吃着两碗清汤荞麦面，说着，笑着。</p>
+<p>“大儿，淳儿，今天，妈妈我想要向你们道谢。”</p>
+<p>“道谢?向我们?……为什么?”</p>
+<p>“你们也知道，你们的父亲死于交通事故，生前欠下了八个人的钱。我把抚恤金全部还了债，还不够的部分，就每月五万元分期偿还。”</p>
+<p>“是呀，这些我们都知道。”</p>
+<p>老板和老板娘在柜台里，一动不动地凝神听着。</p>
+<p>“剩下的债，本来约定到明年三月还清，可实际上，今天就可以全部还清了。”</p>
+<p>“啊，这是真的吗，妈妈?”</p>
+<p>“是真的。大儿每天送报支持我，淳儿每天买菜烧饭帮我忙，所以我能够安心工作。因为我努力工作，得到了公司的特别津贴，所以现在能够全部还清债款。”</p>
+<p>“好啊!妈妈，哥哥，从现在起，每天烧饭的事还是包给我了!”</p>
+<p>“我也继续送报。弟弟，我们一起努力吧!”</p>
+<p>“谢谢，真是谢……谢……”</p>
+<p>“我和弟弟也有一件事瞒着妈妈，今天可以说了。那是在十一月的一个星期天，我到弟弟学校去参加家长会。那时，弟弟已经藏了一封老师给他*的信……弟弟写的作文如果被选为<a class="link"   href="https://link.jianshu.com/?t=http://blog.sina.com.cn/lm/z/sakura/" >北海道<i class="fas fa-external-link-alt"></i></a>的代表，就能参加全国的作文比赛。正因为这样，家长会的那天，老师要弟弟自己朗读这篇作文。老师的信如果给妈妈看了，妈妈一定会向公司请假，去听弟弟朗读作文，于是，弟弟就没有把这封信交给妈妈。这事，我还是从弟弟的朋友那里听来的。所以，家长会那天，是我去了。”</p>
+<p>“哦，是这样……那后来呢?”</p>
+<p>“老师出的作文题目是，‘你将来想成为怎样的人’。全体学生都写了，弟弟的题目是《一碗清汤荞麦面》，一听这题目，我就知道写的是北海亭面馆的事。当时我就想，弟弟这家伙，怎么把这种难为情的事都写出来了。</p>
+<p>“作文写的是，父亲死于交通事故，留下一大笔债。妈妈每天从早到晚拼命工作，我去送早报和晚报……弟弟全写了出来。接着又写，十二月三十一日的晚上，母子三人吃一碗清汤荞麦面，非常好吃……三个人只买一碗清汤荞麦面，面馆的叔叔阿姨还是很热情地接待我们，谢谢我们，还祝福我们过个好年。在弟弟听来，那祝福的声音分明是在对他说：不要低头!加油啊!要好好活着!因此，弟弟长大成人后，想开一家日本第一的面馆，也要对顾客说：‘加油啊!’‘祝你幸福!’ ‘谢谢!’弟弟大声地朗读着作文……”</p>
+<p>此刻，柜台里竖着耳朵，全神贯注听母子三人说话的老板和老板娘不见了。在柜台后面，只见他们两人面对面地蹲着，一条毛巾，各执一端，正在擦着夺眶而出的眼泪。</p>
+<p>“作文朗读完后，老师说：‘今天淳君的哥哥代替他母亲来参加我们的家长会，现在我们请他来说几句话……’”</p>
+<p>“这时哥哥都说了些什么?”</p>
+<p>“因为突然被叫上去发言，一开始，我什么也说不出……‘大家一直和我弟弟很要好，在此，我谢谢大家。弟弟每天要做晚饭，只能放弃兴趣小组的活动，中途回家，我做哥哥的，感到很难为情。刚才，弟弟刚开始朗读《一碗清汤荞麦面》的时候，我感到很丢脸，但是，当我看到弟弟激动地大声朗读的样子，我心里更感到羞愧。这时我想，决不能忘记妈妈买一碗清汤荞麦面的勇气。我们兄弟二人一定要齐心协力，照顾好我们的妈妈!希望大家以后也能够和我弟弟做好朋友。’我就说了这些……”</p>
+<p>母子三人，静静地，互相握着手，良久。继而又欢快地笑了起来。和去年相比，像是完全变了个模样。</p>
+<p>作为年夜饭的清汤荞麦面吃完了，付了300元。</p>
+<p>“承蒙款待。”母子三人深深地低头道谢，走出了店门。</p>
+<p>“谢谢，祝你们过个好年!”</p>
+<p>老板和老板娘大声向他们祝福，目送他们远去……</p>
+<p>又是一年的大年夜降临了。北海亭面馆里，晚上九点一过，二号桌上又摆上了’预约席“的牌子，等待着母子三人的到来。可是，没看到那三人的身影。</p>
+<p>一年，又是一年，二号桌始终默默地等待着。可母子三人还是没有出现。　　北海亭面馆因为生意越来越兴隆，店内重又进行了装修。桌子、椅子都有换了机关报的。可二号桌却仍然好故。老板夫妇不但没感到不协调，反而把二</p>
+<p>号桌安放在店堂中央。</p>
+<p>“为什么把这张旧桌子放在店堂中央？”有的顾客感到奇怪。</p>
+<p>于是，老板夫妇就把“一碗阳春面”的事告诉他们。并说，看到这张桌子，就是对自己的激励。而且说不定哪天那母子三人还会来，这个时候，想用这张桌子来迎接他们。</p>
+<p>就这样，关于二号桌的故事，使二号桌成了“幸福的桌子”。顾客们到处传诵着。有人特意从远方赶来。有女学生，也有年轻的情侣，都要到二号桌上吃一碗阳春面。二号桌也因此而名声大振。</p>
+<p>时光流逝，年复一年。这一年的大年夜又来到了。</p>
+<p>这时，北海亭面馆已经是同一条街的商店会的主要成员。大年夜这天，亲如家人的朋友、近邻、同行，结束了一天的工作后，都来到了北海亭。在北海亭吃了过年面，听着除夕夜的钟声，然后亲朋好友聚集起来，一起到附近的神</p>
+<p>社去烧香磕头，以求神明保佑在新的一年里万事如意，厄除运开。这种情形，已经有五六年的历史了。</p>
+<p>今年的大年夜当然也不例外。九点半一过，以鱼店老板夫妇双手捧着装满生鱼片的大盆子进来为信号，平时亲如家人的朋友们大约三十多人，也都带着酒菜，陆陆续续地会集到北海亭，店里的气氛，一下子热闹起来。</p>
+<p>知道二号桌由来的朋友们，嘴里虽然没说什么，可心里都有在想着，今年二号桌也许又要空等了吧。那块“预约席”的牌子，早已悄悄地站在二号桌上。</p>
+<p>狭窄的座席之间，客人们一点一点地移动着身子坐下，有人还招呼着迟到的朋友。吃着面，喝着酒，互相夹着菜。有人到柜台里去帮忙，有人随意拉开冰箱拿来东西。什么廉价出售的生意啦，海水浴的艳闻轶事啦，什么添了孙</p>
+<p>子的事啦。十点半时，北海亭里的热闹气氛到达了顶点。就在这时，店门被咯吱咯吱地拉开了。人们都向门口望去，屋子里突然静</p>
+<p>了下来。</p>
+<p>两位西装笔挺，手臂上搭着大衣的青年走了进来。这时，大伙都松了口气，随着轻轻的叹息声，店里又恢复了刚才的热闹。</p>
+<p>“真不凑巧，店里已经坐满了。”老板娘面带着歉意说。</p>
+<p>就在她拒绝两位青年的时候，一位身穿和服的妇人，深深低着头走了进来，站在两位青年的中间。</p>
+<p>店里的人们，一下子都屏住了呼吸，耳朵也竖起来了。</p>
+<p>“唔……三碗阳春面，可以吗？”穿和服的妇人平静地说。</p>
+<p>听了这话，老板娘的脸色一下子变了。十几年前留在脑海中的母子三人的印象，和眼前这三人的形象重叠起来了。</p>
+<p>老板娘指着三位来客，目光和正在柜台里找韭菜的丈夫的目光撞到一处。</p>
+<p>“啊！啊……孩子他爹！”</p>
+<p>面对不知所措的老板娘，青年中的一位开口了。</p>
+<p>“我们就是14年前的大年夜，母子三人共吃一碗阳春面的的顾客。那时，就是这一碗阳春面的鼓励，使我们三人同心合力，度过了艰难的岁月。这以后，我们搬到母亲的亲家滋贺县去了。”</p>
+<p>“我今年通过了医生的国家考试，现在<a class="link"   href="https://link.jianshu.com/?t=http://blog.sina.com.cn/lm/z/sakura/" >京都<i class="fas fa-external-link-alt"></i></a>的大学医院里当实习医生。明年四月，我将到札幌的综合医院工作。还没有开面馆的弟弟，现在<a class="link"   href="https://link.jianshu.com/?t=http://blog.sina.com.cn/lm/z/sakura/" >京都<i class="fas fa-external-link-alt"></i></a>银行里工作。我和弟弟商谈，计划了这生平第一次的<a class="link"   href="https://link.jianshu.com/?t=http://www.ckedu.com/zxzx/midschool/chinese5/d3c/text15.htm#[%E5%A5%A2%E4%BE%88%E7%9A%84%E8%A1%8C%E5%8A%A8]#[%E5%A5%A2%E4%BE%88%E7%9A%84%E8%A1%8C%E5%8A%A8]" >奢侈的行动<i class="fas fa-external-link-alt"></i></a>。就这样，今天我们</p>
+<p>母子三人，特意来拜访，想要麻烦你们烧三碗阳春面。”</p>
+<p>边听边点头的老板夫妇，泪珠一串串地掉下来。</p>
+<p>坐在靠近门口桌上的蔬菜店老板，嘴里含着一口面听着，直到这时，才把面咽下去，站起身来。</p>
+<p>“喂喂！老板娘，你呆站着干什么！这十年的每一个大年夜，你都为等待他们的到来而准备着，这十年后的预约席，不是吗？快！请他们上座，快！”</p>
+<p>被蔬菜店老板用肩一撞，老板娘这才清醒过来。</p>
+<p>“欢……欢迎，请，请坐……孩子他爹，二号桌阳春面三碗——”</p>
+<p>“好咧——阳春面三碗——”可泪流满面的丈夫却应不出声来。</p>
+<p>店里，突然爆发出一阵欢呼声和鼓掌声。</p>
+<p>店外，刚才还在纷纷扬扬的飘着的雪，此刻也停了。皑皑白雪映着明净的窗子，那写着“北海亭”的布帘子，在正月的清风中，摇曳着，飘着……</p>
+]]></content>
+      <tags>
+        <tag>情感</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>两边固定中间自适应布局解决方案5种</title>
     <url>/2021/02/21/%E4%B8%A4%E8%BE%B9%E5%9B%BA%E5%AE%9A%E4%B8%AD%E9%97%B4%E8%87%AA%E9%80%82%E5%BA%94%E5%B8%83%E5%B1%80%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%885%E7%A7%8D/</url>
     <content><![CDATA[<figure class="highlight css"><table><tr><td class="code"><pre><span class="line">&lt;!--弹性布局--&gt;</span><br><span class="line">&lt;!--   &lt;style&gt;</span><br><span class="line">      <span class="selector-class">.container</span>&#123;</span><br><span class="line">          <span class="attribute">display</span>: flex;</span><br><span class="line">          <span class="attribute">align-items</span>: center;</span><br><span class="line">          <span class="attribute">justify-content</span>: space-between;</span><br><span class="line">      &#125;</span><br><span class="line">      <span class="selector-class">.left</span>,<span class="selector-class">.right</span>&#123;</span><br><span class="line">          <span class="attribute">flex</span>:<span class="number">0</span> <span class="number">0</span> <span class="number">200px</span>;</span><br><span class="line">      &#125;</span><br><span class="line">      <span class="selector-class">.center</span>&#123;</span><br><span class="line">          <span class="attribute">flex</span>:<span class="number">1</span>;</span><br><span class="line">      &#125;</span><br><span class="line">  &lt;/style&gt; --&gt;</span><br></pre></td></tr></table></figure>
@@ -1164,6 +1187,16 @@
       </tags>
   </entry>
   <entry>
+    <title>前端实现在线预览pdf、word、xls、ppt等文件</title>
+    <url>/2021/02/21/%E5%89%8D%E7%AB%AF%E5%AE%9E%E7%8E%B0%E5%9C%A8%E7%BA%BF%E9%A2%84%E8%A7%88pdf%E3%80%81word%E3%80%81xls%E3%80%81ppt%E7%AD%89%E6%96%87%E4%BB%B6/</url>
+    <content><![CDATA[<h3 id="1、前端实现pdf文件在线预览功能"><a href="#1、前端实现pdf文件在线预览功能" class="headerlink" title="1、前端实现pdf文件在线预览功能"></a>1、前端实现pdf文件在线预览功能</h3><p>方式一、pdf文件理论上可以在浏览器直接打开预览但是需要打开新页面。在仅仅是预览pdf文件且UI要求不高的情况下可以直接通过a标签href属性实现预览</p>
+<h3 id="2、word、xls、ppt文件在线预览功能"><a href="#2、word、xls、ppt文件在线预览功能" class="headerlink" title="2、word、xls、ppt文件在线预览功能"></a>2、word、xls、ppt文件在线预览功能</h3><p>word、ppt、xls文件实现在线预览的方式比较简单可以直接通过调用微软的在线预览功能实现 (预览前提：资源必须是公共可访问的)</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">iframe</span> <span class="attr">src</span>=<span class="string">&#x27;https://view.officeapps.live.com/op/view.aspx?src=http://storage.xuetangx.com/public_assets/xuetangx/PDF/1.xls&#x27;</span> <span class="attr">width</span>=<span class="string">&#x27;100%&#x27;</span> <span class="attr">height</span>=<span class="string">&#x27;100%&#x27;</span> <span class="attr">frameborder</span>=<span class="string">&#x27;1&#x27;</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;/<span class="name">iframe</span>&gt;</span></span><br></pre></td></tr></table></figure>]]></content>
+      <tags>
+        <tag>html</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>关于百度地图那些事</title>
     <url>/2021/02/21/%E5%85%B3%E4%BA%8E%E7%99%BE%E5%BA%A6%E5%9C%B0%E5%9B%BE%E9%82%A3%E4%BA%9B%E4%BA%8B/</url>
     <content><![CDATA[<blockquote>
@@ -1236,16 +1269,6 @@
 ]]></content>
       <tags>
         <tag>百度地图</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>前端实现在线预览pdf、word、xls、ppt等文件</title>
-    <url>/2021/02/21/%E5%89%8D%E7%AB%AF%E5%AE%9E%E7%8E%B0%E5%9C%A8%E7%BA%BF%E9%A2%84%E8%A7%88pdf%E3%80%81word%E3%80%81xls%E3%80%81ppt%E7%AD%89%E6%96%87%E4%BB%B6/</url>
-    <content><![CDATA[<h3 id="1、前端实现pdf文件在线预览功能"><a href="#1、前端实现pdf文件在线预览功能" class="headerlink" title="1、前端实现pdf文件在线预览功能"></a>1、前端实现pdf文件在线预览功能</h3><p>方式一、pdf文件理论上可以在浏览器直接打开预览但是需要打开新页面。在仅仅是预览pdf文件且UI要求不高的情况下可以直接通过a标签href属性实现预览</p>
-<h3 id="2、word、xls、ppt文件在线预览功能"><a href="#2、word、xls、ppt文件在线预览功能" class="headerlink" title="2、word、xls、ppt文件在线预览功能"></a>2、word、xls、ppt文件在线预览功能</h3><p>word、ppt、xls文件实现在线预览的方式比较简单可以直接通过调用微软的在线预览功能实现 (预览前提：资源必须是公共可访问的)</p>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">iframe</span> <span class="attr">src</span>=<span class="string">&#x27;https://view.officeapps.live.com/op/view.aspx?src=http://storage.xuetangx.com/public_assets/xuetangx/PDF/1.xls&#x27;</span> <span class="attr">width</span>=<span class="string">&#x27;100%&#x27;</span> <span class="attr">height</span>=<span class="string">&#x27;100%&#x27;</span> <span class="attr">frameborder</span>=<span class="string">&#x27;1&#x27;</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;/<span class="name">iframe</span>&gt;</span></span><br></pre></td></tr></table></figure>]]></content>
-      <tags>
-        <tag>html</tag>
       </tags>
   </entry>
   <entry>
@@ -1416,21 +1439,21 @@
       </tags>
   </entry>
   <entry>
-    <title>微信公众号在ios授权登录时，无法重写向问题？</title>
-    <url>/2021/02/21/%E5%BE%AE%E4%BF%A1%E5%85%AC%E4%BC%97%E5%8F%B7%E5%9C%A8ios%E6%8E%88%E6%9D%83%E7%99%BB%E5%BD%95%E6%97%B6%EF%BC%8C%E6%97%A0%E6%B3%95%E9%87%8D%E5%86%99%E5%90%91%E9%97%AE%E9%A2%98%EF%BC%9F/</url>
-    <content><![CDATA[<p><a class="link"   href="https://open.weixin.qq.com/connect/oauth2/authorize%EF%BC%9F%E5%9C%A8IOS%E4%B8%AD%EF%BC%8C%E8%AE%BF%E9%97%AE%E5%BE%AE%E4%BF%A1%E6%8E%88%E6%9D%83%E7%9A%84%E9%93%BE%E6%8E%A5" >Https://open.weixin.qq.com/connect/oauth2/authorize？在IOS中，访问微信授权的链接<i class="fas fa-external-link-alt"></i></a><br>Appid=APPID&amp;redirect_uri=REDIRECT_URI&amp;response_type=code&amp;scope=SCOPE&amp;state=STA<br>按照道理是会回调到重定向_uri_的，我写了我自己域名下的一个接口来接收<br>应该返回的代码，获取授权后会跳转到这里，可是IOS下授权后卡在自动登录那个界面，无法跳转，<br>进不到后台去.使用android和web开发者工具都是没问题的<br>解决方案<br>已经完成了，搞了2天，需要适配到IOS的时候，重定向_uri一定要使用http不能使用https。同时android也能使用http的。Android也能使用的</p>
-]]></content>
-      <tags>
-        <tag>微信小程序</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>快速排序</title>
     <url>/2021/02/21/%E5%BF%AB%E9%80%9F%E6%8E%92%E5%BA%8F/</url>
     <content><![CDATA[<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">&lt;meta charset=<span class="string">&quot;utf-8&quot;</span>&gt;</span><br><span class="line">&lt;title&gt;菜鸟教程(runoob.com)&lt;/title&gt;</span><br><span class="line">&lt;/head&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line">&lt;script&gt;</span><br><span class="line">	 <span class="function"><span class="keyword">function</span> <span class="title">setRandomArray</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">		 <span class="keyword">return</span> <span class="built_in">Array</span>.from(&#123;<span class="attr">length</span>:<span class="number">10</span>&#125;,<span class="function"><span class="params">item</span>=&gt;</span><span class="built_in">parseInt</span>(<span class="built_in">Math</span>.random() * <span class="number">100</span>))</span><br><span class="line">	 &#125;</span><br><span class="line">	<span class="keyword">let</span> arr1 = setRandomArray();</span><br><span class="line">	<span class="built_in">console</span>.log(arr1);</span><br><span class="line">	<span class="keyword">let</span> arr2 = orderData(arr1.concat());</span><br><span class="line">	<span class="built_in">console</span>.log(arr2);</span><br><span class="line">	<span class="function"><span class="keyword">function</span> <span class="title">orderData</span>(<span class="params">arr</span>)</span>&#123;</span><br><span class="line">	 <span class="keyword">let</span> left=[],right=[];</span><br><span class="line">	 <span class="keyword">let</span> current = arr[<span class="number">0</span>];</span><br><span class="line">	 <span class="keyword">if</span>(arr.length &lt;=<span class="number">1</span>)&#123;</span><br><span class="line">	  <span class="keyword">return</span> arr;</span><br><span class="line">	 &#125;</span><br><span class="line">   <span class="keyword">for</span>(<span class="keyword">let</span> i=<span class="number">1</span>,length = arr.length;i&lt;length;i++)&#123;</span><br><span class="line">	   <span class="keyword">if</span>(arr[i] &gt; current)&#123;</span><br><span class="line">		   right.push(arr[i]);</span><br><span class="line">		 &#125;</span><br><span class="line">		 <span class="keyword">else</span>&#123;</span><br><span class="line">			 left.push(arr[i])</span><br><span class="line">		 &#125;</span><br><span class="line">		</span><br><span class="line">	 &#125;</span><br><span class="line">		 <span class="keyword">return</span> [...orderData(left),current,...orderData(right)]</span><br><span class="line">	&#125;</span><br><span class="line">	&lt;/script&gt;</span><br><span class="line"></span><br><span class="line">&lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 ]]></content>
       <tags>
         <tag>javascript</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>微信公众号在ios授权登录时，无法重写向问题？</title>
+    <url>/2021/02/21/%E5%BE%AE%E4%BF%A1%E5%85%AC%E4%BC%97%E5%8F%B7%E5%9C%A8ios%E6%8E%88%E6%9D%83%E7%99%BB%E5%BD%95%E6%97%B6%EF%BC%8C%E6%97%A0%E6%B3%95%E9%87%8D%E5%86%99%E5%90%91%E9%97%AE%E9%A2%98%EF%BC%9F/</url>
+    <content><![CDATA[<p><a class="link"   href="https://open.weixin.qq.com/connect/oauth2/authorize%EF%BC%9F%E5%9C%A8IOS%E4%B8%AD%EF%BC%8C%E8%AE%BF%E9%97%AE%E5%BE%AE%E4%BF%A1%E6%8E%88%E6%9D%83%E7%9A%84%E9%93%BE%E6%8E%A5" >Https://open.weixin.qq.com/connect/oauth2/authorize？在IOS中，访问微信授权的链接<i class="fas fa-external-link-alt"></i></a><br>Appid=APPID&amp;redirect_uri=REDIRECT_URI&amp;response_type=code&amp;scope=SCOPE&amp;state=STA<br>按照道理是会回调到重定向_uri_的，我写了我自己域名下的一个接口来接收<br>应该返回的代码，获取授权后会跳转到这里，可是IOS下授权后卡在自动登录那个界面，无法跳转，<br>进不到后台去.使用android和web开发者工具都是没问题的<br>解决方案<br>已经完成了，搞了2天，需要适配到IOS的时候，重定向_uri一定要使用http不能使用https。同时android也能使用http的。Android也能使用的</p>
+]]></content>
+      <tags>
+        <tag>微信小程序</tag>
       </tags>
   </entry>
   <entry>
