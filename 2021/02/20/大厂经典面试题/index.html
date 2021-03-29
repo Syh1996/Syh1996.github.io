@@ -562,6 +562,9 @@
 <li>箭头函数中，函数体内的this对象，就是定义时所在作用域的对象，而不是使用时所在的作用域的对象。</li>
 </ul>
 <h3 id="关于cookie与session"><a href="#关于cookie与session" class="headerlink" title="关于cookie与session"></a>关于cookie与session</h3><p>cookie与session如果没有配置有效时间，则当前页面未关闭有效，页面关闭后便失效</p>
+<h3 id="输出以下结果"><a href="#输出以下结果" class="headerlink" title="输出以下结果"></a>输出以下结果</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">var</span> a= b = <span class="number">100</span>;</span><br><span class="line">    <span class="built_in">console</span>.log(a,b);</span><br><span class="line">&#125;)();</span><br><span class="line"><span class="built_in">console</span>.log(a,b);</span><br></pre></td></tr></table></figure>
+<p>结果为: 100,100    报错 100</p>
+<p>原因是var a 定义的变量只在自执行函数中有效，自执行函数本身具体独立的作用域。b没有使用var定义，所以实现访问的是window.b = 100</p>
 
         </div>
 
