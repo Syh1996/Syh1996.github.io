@@ -234,6 +234,9 @@
 <p>Require statement not part of import statement.(@typescript-eslint/no-var-requires)<br>解决办法：</p>
 <p>.eslintrc.js中的 rules 属性新增以下内容：</p>
   <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">rules: &#123;</span><br><span class="line">    <span class="string">&#x27;@typescript-eslint/no-var-requires&#x27;</span>: <span class="number">0</span></span><br><span class="line"></span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
+<h4 id="vue报错Unexpected-aliasing-of-‘this‘-to-local-variable-typescript-eslint-no-this-alias"><a href="#vue报错Unexpected-aliasing-of-‘this‘-to-local-variable-typescript-eslint-no-this-alias" class="headerlink" title="vue报错Unexpected aliasing of ‘this‘ to local variable @typescript-eslint/no-this-alias"></a>vue报错Unexpected aliasing of ‘this‘ to local variable @typescript-eslint/no-this-alias</h4><p>因是在vue中使用_this = this,总是报错Unexpected aliasing of ‘this’ to local variable @typescript-eslint/no-this-alias</p>
+<p>原因是 eslint 为了防止this变量和局部变量混淆（大概吧）</p>
+<p>解决方法：在.eslintrc.js中的rules添加   “@typescript-eslint/no-this-alias”: [“off”]</p>
 
         </div>
 
@@ -258,6 +261,21 @@
 
         
             <div class="article-nav">
+                
+                    <div class="article-prev">
+                        <a class="prev"
+                           rel="prev"
+                           href="/2021/05/17/%E4%BD%A0%E4%B8%8D%E7%9F%A5%E9%81%93%E7%9A%84css/"
+                        >
+                            <span class="left arrow-icon flex-center">
+                              <i class="fas fa-chevron-left"></i>
+                            </span>
+                            <span class="title flex-center">
+                                <span class="post-nav-title-item">你不知道的css</span>
+                                <span class="post-nav-item">上一篇</span>
+                            </span>
+                        </a>
+                    </div>
                 
                 
                     <div class="article-next">
