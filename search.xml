@@ -1,14 +1,60 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>2021年5月13日离开中兴通讯，离开的身影是我向前的脚步</title>
-    <url>/2021/05/17/2021%E5%B9%B45%E6%9C%8813%E6%97%A5%E7%A6%BB%E5%BC%80%E4%B8%AD%E5%85%B4%E9%80%9A%E8%AE%AF%EF%BC%8C%E7%A6%BB%E5%BC%80%E7%9A%84%E8%BA%AB%E5%BD%B1%E6%98%AF%E6%88%91%E5%90%91%E5%89%8D%E7%9A%84%E8%84%9A%E6%AD%A5/</url>
-    <content><![CDATA[<p>2021年5月13日，我离开了中兴通讯，下午，收拾好我的小物品，提着袋子我迈出了中兴大楼。</p>
-<p>人生总是这样，不断的错过，不断的遇见。</p>
-<p>感谢这一年中兴对自己的培养，阳光照亮的前方，便是我向前的方向，去经历，去热爱。</p>
+    <title>CSS伪类与伪元素</title>
+    <url>/2021/02/21/CSS%E4%BC%AA%E7%B1%BB%E4%B8%8E%E4%BC%AA%E5%85%83%E7%B4%A0/</url>
+    <content><![CDATA[<h3 id="为什么要引入伪类与伪元素？"><a href="#为什么要引入伪类与伪元素？" class="headerlink" title="为什么要引入伪类与伪元素？"></a>为什么要引入伪类与伪元素？</h3><p>css引入伪类和伪元素概念是为了格式化文档树以外的信息。也就是说，伪类和伪元素是用来修饰不在文档树中的部分，比如，一句话中的第一个字母，或是列表中的第一个元素，又或者是鼠标悬停在某个超链接上时要设置的样式。</p>
+<h3 id="什么是伪类，伪元素？"><a href="#什么是伪类，伪元素？" class="headerlink" title="什么是伪类，伪元素？"></a>什么是伪类，伪元素？</h3><ul>
+<li>伪类：用于当已有元素处于的某个状态时，为其添加对应的样式，这个状态是根据用户行为而动态变化的。比如说，当用户悬停在指定的元素时，我们可以通过:hover来描述这个元素的状态。虽然它和普通的css类相似，可以为已有的元素添加样式，但是它只有处于dom树无法描述的状态下才能为元素添加样式，所以将其称为伪类。</li>
+<li>伪元素：用于创建一些不在文档树中的元素，并为其添加样式。实际上，伪元素就是选取某些元素前面或后面这种普通选择器无法完成的工作。控制的内容和元素是相同的，但它本身是基于元素的抽象，并不存在于文档结构中。比如说，我们可以通过:before来在一个元素前增加一些文本，并为这些文本添加样式。</li>
+</ul>
+<h3 id="伪类的分类：状态伪类和结构性伪类"><a href="#伪类的分类：状态伪类和结构性伪类" class="headerlink" title="伪类的分类：状态伪类和结构性伪类"></a>伪类的分类：状态伪类和结构性伪类</h3><ul>
+<li><p>状态伪类：是基于元素当前状态进行选择的。在与用户的交互过程中元素的状态是动态变化的，因此该元素会根据其状态呈现不同的样式。当元素处于某状态时会呈现该样式，而进入另一状态后，该样式也会失去。</p>
+<p>常见的状态伪类主要包括：</p>
+</li>
+</ul>
+<ol>
+<li> :link 应用于未被访问过的链接； </li>
+<li> :hover 应用于鼠标悬停到的元素；</li>
+<li> :active 应用于被激活的元素；</li>
+<li> :visited 应用于被访问过的链接，与:link互斥。</li>
+<li> :focus 应用于拥有键盘输入焦点的元素。</li>
+</ol>
+<ul>
+<li><p>结构性伪类：是css3新增选择器，利用dom树进行元素过滤，通过文档结构的互相关系来匹配元素，能够减少class和id属性的定义，使文档结构更简洁。</p>
+<p>常见的结构性伪类包括：</p>
+</li>
+</ul>
+<ol>
+<li> :first-child 选择某个元素的第一个子元素； </li>
+<li> :last-child 选择某个元素的最后一个子元素；</li>
+<li> :nth-child() 选择某个元素的一个或多个特定的子元素；</li>
+<li> :nth-last-child() 选择某个元素的一个或多个特定的子元素，从这个元素的最后一个子元素开始算；</li>
+<li> :nth-of-type() 选择指定的元素；</li>
+<li> :nth-last-of-type() 选择指定的元素，从元素的最后一个开始计算；</li>
+<li> :first-of-type 选择一个上级元素下的第一个同类子元素；</li>
+<li> :last-of-type 选择一个上级元素的最后一个同类子元素；</li>
+<li> :only-child 选择的元素是它的父元素的唯一一个子元素；</li>
+<li> :only-of-type 选择一个元素是它的上级元素的唯一一个相同类型的子元素；</li>
+<li> :empty 选择的元素里面没有任何内容。</li>
+<li> :checked匹配被选中的input元素，这个input元素包括radio和checkbox。</li>
+<li> :default匹配默认选中的元素，例如：提交按钮总是表单的默认按钮。</li>
+<li> :disabled匹配禁用的表单元素。</li>
+<li> :enabled匹配没有设置disabled属性的表单元素。</li>
+<li> :valid匹配条件验证正确的表单元素。</li>
+</ol>
+<h3 id="常见的伪元素选择器："><a href="#常见的伪元素选择器：" class="headerlink" title="常见的伪元素选择器："></a>常见的伪元素选择器：</h3><ol>
+<li> ::first-letter 选择元素文本的第一个字（母）。</li>
+<li> ::first-line 选择元素文本的第一行。</li>
+<li> ::before 在元素内容的最前面添加新内容。</li>
+<li> ::after 在元素内容的最后面添加新内容。</li>
+<li> ::selection匹配用户被用户选中或者处于高亮状态的部分</li>
+<li> ::placeholder匹配占位符的文本，只有元素设置了placeholder属性时，该伪元素才能生效</li>
+</ol>
+<p>注意：你会发现伪类元素使用了两个冒号 (::) 而不是一个冒号 (:)，这是 CSS3 规范中的一部分要求，目的是为了区分伪类和伪元素，大多数浏览器都支持这两种表示方式。单冒号(:)用于 CSS3 伪类，双冒号(::)用于 CSS3 伪元素。对于 CSS2 中已经有的伪元素，例如 :before，单冒号和双冒号的写法 ::before 作用是一样的。</p>
 ]]></content>
       <tags>
-        <tag>记实</tag>
+        <tag>css</tag>
       </tags>
   </entry>
   <entry>
@@ -95,60 +141,23 @@
       </tags>
   </entry>
   <entry>
-    <title>CSS伪类与伪元素</title>
-    <url>/2021/02/21/CSS%E4%BC%AA%E7%B1%BB%E4%B8%8E%E4%BC%AA%E5%85%83%E7%B4%A0/</url>
-    <content><![CDATA[<h3 id="为什么要引入伪类与伪元素？"><a href="#为什么要引入伪类与伪元素？" class="headerlink" title="为什么要引入伪类与伪元素？"></a>为什么要引入伪类与伪元素？</h3><p>css引入伪类和伪元素概念是为了格式化文档树以外的信息。也就是说，伪类和伪元素是用来修饰不在文档树中的部分，比如，一句话中的第一个字母，或是列表中的第一个元素，又或者是鼠标悬停在某个超链接上时要设置的样式。</p>
-<h3 id="什么是伪类，伪元素？"><a href="#什么是伪类，伪元素？" class="headerlink" title="什么是伪类，伪元素？"></a>什么是伪类，伪元素？</h3><ul>
-<li>伪类：用于当已有元素处于的某个状态时，为其添加对应的样式，这个状态是根据用户行为而动态变化的。比如说，当用户悬停在指定的元素时，我们可以通过:hover来描述这个元素的状态。虽然它和普通的css类相似，可以为已有的元素添加样式，但是它只有处于dom树无法描述的状态下才能为元素添加样式，所以将其称为伪类。</li>
-<li>伪元素：用于创建一些不在文档树中的元素，并为其添加样式。实际上，伪元素就是选取某些元素前面或后面这种普通选择器无法完成的工作。控制的内容和元素是相同的，但它本身是基于元素的抽象，并不存在于文档结构中。比如说，我们可以通过:before来在一个元素前增加一些文本，并为这些文本添加样式。</li>
-</ul>
-<h3 id="伪类的分类：状态伪类和结构性伪类"><a href="#伪类的分类：状态伪类和结构性伪类" class="headerlink" title="伪类的分类：状态伪类和结构性伪类"></a>伪类的分类：状态伪类和结构性伪类</h3><ul>
-<li><p>状态伪类：是基于元素当前状态进行选择的。在与用户的交互过程中元素的状态是动态变化的，因此该元素会根据其状态呈现不同的样式。当元素处于某状态时会呈现该样式，而进入另一状态后，该样式也会失去。</p>
-<p>常见的状态伪类主要包括：</p>
-</li>
-</ul>
-<ol>
-<li> :link 应用于未被访问过的链接； </li>
-<li> :hover 应用于鼠标悬停到的元素；</li>
-<li> :active 应用于被激活的元素；</li>
-<li> :visited 应用于被访问过的链接，与:link互斥。</li>
-<li> :focus 应用于拥有键盘输入焦点的元素。</li>
-</ol>
-<ul>
-<li><p>结构性伪类：是css3新增选择器，利用dom树进行元素过滤，通过文档结构的互相关系来匹配元素，能够减少class和id属性的定义，使文档结构更简洁。</p>
-<p>常见的结构性伪类包括：</p>
-</li>
-</ul>
-<ol>
-<li> :first-child 选择某个元素的第一个子元素； </li>
-<li> :last-child 选择某个元素的最后一个子元素；</li>
-<li> :nth-child() 选择某个元素的一个或多个特定的子元素；</li>
-<li> :nth-last-child() 选择某个元素的一个或多个特定的子元素，从这个元素的最后一个子元素开始算；</li>
-<li> :nth-of-type() 选择指定的元素；</li>
-<li> :nth-last-of-type() 选择指定的元素，从元素的最后一个开始计算；</li>
-<li> :first-of-type 选择一个上级元素下的第一个同类子元素；</li>
-<li> :last-of-type 选择一个上级元素的最后一个同类子元素；</li>
-<li> :only-child 选择的元素是它的父元素的唯一一个子元素；</li>
-<li> :only-of-type 选择一个元素是它的上级元素的唯一一个相同类型的子元素；</li>
-<li> :empty 选择的元素里面没有任何内容。</li>
-<li> :checked匹配被选中的input元素，这个input元素包括radio和checkbox。</li>
-<li> :default匹配默认选中的元素，例如：提交按钮总是表单的默认按钮。</li>
-<li> :disabled匹配禁用的表单元素。</li>
-<li> :enabled匹配没有设置disabled属性的表单元素。</li>
-<li> :valid匹配条件验证正确的表单元素。</li>
-</ol>
-<h3 id="常见的伪元素选择器："><a href="#常见的伪元素选择器：" class="headerlink" title="常见的伪元素选择器："></a>常见的伪元素选择器：</h3><ol>
-<li> ::first-letter 选择元素文本的第一个字（母）。</li>
-<li> ::first-line 选择元素文本的第一行。</li>
-<li> ::before 在元素内容的最前面添加新内容。</li>
-<li> ::after 在元素内容的最后面添加新内容。</li>
-<li> ::selection匹配用户被用户选中或者处于高亮状态的部分</li>
-<li> ::placeholder匹配占位符的文本，只有元素设置了placeholder属性时，该伪元素才能生效</li>
-</ol>
-<p>注意：你会发现伪类元素使用了两个冒号 (::) 而不是一个冒号 (:)，这是 CSS3 规范中的一部分要求，目的是为了区分伪类和伪元素，大多数浏览器都支持这两种表示方式。单冒号(:)用于 CSS3 伪类，双冒号(::)用于 CSS3 伪元素。对于 CSS2 中已经有的伪元素，例如 :before，单冒号和双冒号的写法 ::before 作用是一样的。</p>
+    <title>2021年5月13日离开中兴通讯，离开的身影是我向前的脚步</title>
+    <url>/2021/05/17/2021%E5%B9%B45%E6%9C%8813%E6%97%A5%E7%A6%BB%E5%BC%80%E4%B8%AD%E5%85%B4%E9%80%9A%E8%AE%AF%EF%BC%8C%E7%A6%BB%E5%BC%80%E7%9A%84%E8%BA%AB%E5%BD%B1%E6%98%AF%E6%88%91%E5%90%91%E5%89%8D%E7%9A%84%E8%84%9A%E6%AD%A5/</url>
+    <content><![CDATA[<p>2021年5月13日，我离开了中兴通讯，下午，收拾好我的小物品，提着袋子我迈出了中兴大楼。</p>
+<p>人生总是这样，不断的错过，不断的遇见。</p>
+<p>感谢这一年中兴对自己的培养，阳光照亮的前方，便是我向前的方向，去经历，去热爱。</p>
 ]]></content>
       <tags>
-        <tag>css</tag>
+        <tag>记实</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>JS实现网站内容的禁止复制和粘贴、另存为</title>
+    <url>/2021/02/21/JS%E5%AE%9E%E7%8E%B0%E7%BD%91%E7%AB%99%E5%86%85%E5%AE%B9%E7%9A%84%E7%A6%81%E6%AD%A2%E5%A4%8D%E5%88%B6%E5%92%8C%E7%B2%98%E8%B4%B4%E3%80%81%E5%8F%A6%E5%AD%98%E4%B8%BA/</url>
+    <content><![CDATA[<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE <span class="meta-keyword">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">&quot;utf-8&quot;</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">title</span>&gt;</span>菜鸟教程(runoob.com)<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">p</span> <span class="attr">id</span>=<span class="string">&quot;p&quot;</span>&gt;</span><span class="tag">&lt;<span class="name">strong</span>&gt;</span>注意：<span class="tag">&lt;/<span class="name">strong</span>&gt;</span> 该实例如果在 Chrome, Firefox 和 Opera 浏览器中可能无法工作。<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="javascript"><span class="function"><span class="keyword">function</span> <span class="title">myFunction</span>(<span class="params">e</span>) </span>&#123;</span></span><br><span class="line"><span class="javascript">	<span class="built_in">console</span>.log(e);</span></span><br><span class="line"><span class="javascript">  <span class="keyword">return</span> <span class="literal">false</span>;</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="javascript">	<span class="built_in">document</span>.querySelector(<span class="string">&quot;#p&quot;</span>).oncopy=myFunction;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+]]></content>
+      <tags>
+        <tag>javascript</tag>
       </tags>
   </entry>
   <entry>
@@ -165,15 +174,6 @@
 
 
 <figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">//桌面提醒</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">showNotification</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">               <span class="comment">// window.Notification.permission = &quot;granted&quot;;</span></span><br><span class="line">               </span><br><span class="line">                <span class="keyword">if</span>(<span class="built_in">window</span>.Notification) &#123;</span><br><span class="line">                    <span class="keyword">if</span>(<span class="built_in">window</span>.Notification.permission == <span class="string">&quot;granted&quot;</span>) &#123;</span><br><span class="line">                        <span class="keyword">var</span> notification = <span class="keyword">new</span> Notification(<span class="string">&#x27;你有一条新信息&#x27;</span>, &#123;</span><br><span class="line">                            body: <span class="string">&quot;你好我是王小婷&quot;</span>,</span><br><span class="line"></span><br><span class="line">                            icon: <span class="string">&quot;https://ss2.bdstatic.com/70cFvnSh_Q1YnxGkpoWK1HF6hhy/it/u=1422784010,1847471088&amp;fm=27&amp;gp=0.jpg&quot;</span></span><br><span class="line">                        &#125;);</span><br><span class="line">                        <span class="built_in">setTimeout</span>(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123; notification.close(); &#125;, <span class="number">50000</span>);</span><br><span class="line">                    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                        <span class="built_in">window</span>.Notification.requestPermission();</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125; <span class="keyword">else</span> alert(<span class="string">&#x27;你的浏览器不支持此消息提示功能，请使用chrome内核的浏览器！&#x27;</span>);</span><br><span class="line">            &#125;;</span><br></pre></td></tr></table></figure>]]></content>
-      <tags>
-        <tag>javascript</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>JS实现网站内容的禁止复制和粘贴、另存为</title>
-    <url>/2021/02/21/JS%E5%AE%9E%E7%8E%B0%E7%BD%91%E7%AB%99%E5%86%85%E5%AE%B9%E7%9A%84%E7%A6%81%E6%AD%A2%E5%A4%8D%E5%88%B6%E5%92%8C%E7%B2%98%E8%B4%B4%E3%80%81%E5%8F%A6%E5%AD%98%E4%B8%BA/</url>
-    <content><![CDATA[<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE <span class="meta-keyword">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">&quot;utf-8&quot;</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">title</span>&gt;</span>菜鸟教程(runoob.com)<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">p</span> <span class="attr">id</span>=<span class="string">&quot;p&quot;</span>&gt;</span><span class="tag">&lt;<span class="name">strong</span>&gt;</span>注意：<span class="tag">&lt;/<span class="name">strong</span>&gt;</span> 该实例如果在 Chrome, Firefox 和 Opera 浏览器中可能无法工作。<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="javascript"><span class="function"><span class="keyword">function</span> <span class="title">myFunction</span>(<span class="params">e</span>) </span>&#123;</span></span><br><span class="line"><span class="javascript">	<span class="built_in">console</span>.log(e);</span></span><br><span class="line"><span class="javascript">  <span class="keyword">return</span> <span class="literal">false</span>;</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="javascript">	<span class="built_in">document</span>.querySelector(<span class="string">&quot;#p&quot;</span>).oncopy=myFunction;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
-]]></content>
       <tags>
         <tag>javascript</tag>
       </tags>
@@ -224,6 +224,44 @@
 <figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">   <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;box&quot;</span>&gt;</span></span><br><span class="line">       <span class="tag">&lt;<span class="name">div</span> <span class="attr">draggable</span>=<span class="string">&quot;true&quot;</span> <span class="attr">class</span>=<span class="string">&quot;red&quot;</span>&gt;</span>1<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">       <span class="tag">&lt;<span class="name">div</span> <span class="attr">draggable</span>=<span class="string">&quot;true&quot;</span> <span class="attr">class</span>=<span class="string">&quot;blue&quot;</span>&gt;</span>2<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">       <span class="tag">&lt;<span class="name">div</span> <span class="attr">draggable</span>=<span class="string">&quot;true&quot;</span> <span class="attr">class</span>=<span class="string">&quot;dark&quot;</span>&gt;</span>3<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">       <span class="tag">&lt;<span class="name">div</span> <span class="attr">draggable</span>=<span class="string">&quot;true&quot;</span> <span class="attr">class</span>=<span class="string">&quot;saddle&quot;</span>&gt;</span>4<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span></span><br><span class="line">    </span><br><span class="line"><span class="javascript">      (<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span></span><br><span class="line"><span class="javascript">           <span class="keyword">var</span> current = <span class="literal">null</span>,index=<span class="number">0</span>;</span></span><br><span class="line"><span class="javascript">           <span class="keyword">var</span> oBox = <span class="built_in">document</span>.querySelector(<span class="string">&quot;.box&quot;</span>);</span></span><br><span class="line"><span class="javascript">           <span class="keyword">var</span> oDiv = oBox.getElementsByTagName(<span class="string">&quot;div&quot;</span>);</span></span><br><span class="line"><span class="javascript">           <span class="keyword">for</span>(<span class="keyword">let</span> i=<span class="number">0</span>,length = oDiv.length;i&lt;length;i++)&#123;</span></span><br><span class="line"><span class="javascript">               oDiv[i].ondragstart = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span></span><br><span class="line"><span class="javascript">                   current = <span class="built_in">this</span>;</span></span><br><span class="line">                   index = i;</span><br><span class="line">               &#125;</span><br><span class="line"><span class="javascript">              oDiv[i].ondragover = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span></span><br><span class="line">                 event.preventDefault();</span><br><span class="line"><span class="javascript">                 <span class="keyword">if</span>(!<span class="built_in">this</span>.classList.value.includes(<span class="string">&#x27;active&#x27;</span>) &amp;&amp; <span class="built_in">this</span>!==current)&#123;</span></span><br><span class="line"><span class="javascript">                    <span class="built_in">this</span>.className +=<span class="string">&quot; active&quot;</span>;</span></span><br><span class="line">                 &#125;</span><br><span class="line">                </span><br><span class="line">              &#125;</span><br><span class="line"><span class="javascript">              oDiv[i].ondragleave = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span></span><br><span class="line"><span class="javascript">                  <span class="built_in">this</span>.className = <span class="built_in">this</span>.classList[<span class="number">0</span>];</span></span><br><span class="line">              &#125;</span><br><span class="line"><span class="javascript">              oDiv[i].ondrop = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span></span><br><span class="line"><span class="javascript">                <span class="keyword">if</span>(<span class="built_in">this</span> &amp;&amp; current)&#123;</span></span><br><span class="line"><span class="javascript">                    oBox.insertBefore(current,<span class="built_in">this</span>);</span></span><br><span class="line"><span class="javascript">                    <span class="built_in">this</span>.className=<span class="built_in">this</span>.classList[<span class="number">0</span>];</span></span><br><span class="line">                &#125;</span><br><span class="line">        </span><br><span class="line">              &#125;</span><br><span class="line">           &#125;</span><br><span class="line">      &#125;)();</span><br><span class="line"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>]]></content>
       <tags>
         <tag>javascript</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>js常见算法数组去重</title>
+    <url>/2021/02/23/js%E5%B8%B8%E8%A7%81%E7%AE%97%E6%B3%95%E6%95%B0%E7%BB%84%E5%8E%BB%E9%87%8D/</url>
+    <content><![CDATA[<ol>
+<li>ES6 new Set去重</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">[...new Set(arr)]</span><br></pre></td></tr></table></figure>
+<ol start="2">
+<li>利用object key不重复的特性去重</li>
+</ol>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">let</span> arr = [................]</span><br><span class="line"><span class="keyword">let</span> obj = &#123;&#125;;</span><br><span class="line">arr.forEach(<span class="function">(<span class="params">item,index</span>)=&gt;</span>&#123;</span><br><span class="line">    obj[item] = 任意值 </span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line"><span class="comment">//最后通过obj key生成数组   Object.keys(obj)</span></span><br></pre></td></tr></table></figure>
+<ol start="3">
+<li><p>利用双重循环删除多余值</p>
+</li>
+<li><p>利用includes() find() findIndex() filter()这类方法push到一个全新的数组</p>
+</li>
+<li><p>利用相邻节点相同删除的方法</p>
+<ul>
+<li>对数据排序 </li>
+<li>循环数组，如下一项与记录的一项相同则删除，不同则重新记录当前项</li>
+</ul>
+</li>
+</ol>
+]]></content>
+      <tags>
+        <tag>javascript</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>iframe的通信</title>
+    <url>/2021/05/25/iframe%E7%9A%84%E9%80%9A%E4%BF%A1/</url>
+    <content><![CDATA[<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE <span class="meta-keyword">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">lang</span>=<span class="string">&quot;en&quot;</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">&quot;UTF-8&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">http-equiv</span>=<span class="string">&quot;X-UA-Compatible&quot;</span> <span class="attr">content</span>=<span class="string">&quot;IE=edge&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">&quot;viewport&quot;</span> <span class="attr">content</span>=<span class="string">&quot;width=device-width, initial-scale=1.0&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span>Document<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;text&quot;</span> <span class="attr">id</span>=<span class="string">&quot;text&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">button</span> <span class="attr">id</span>=<span class="string">&quot;btn&quot;</span>&gt;</span>发送<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">ul</span> <span class="attr">id</span>=<span class="string">&quot;ul&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">ul</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">hr</span>/&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">iframe</span> <span class="attr">src</span>=<span class="string">&quot;./2.html&quot;</span> <span class="attr">width</span>=<span class="string">&quot;1000&quot;</span> <span class="attr">height</span>=<span class="string">&quot;400&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">iframe</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="javascript">       <span class="keyword">var</span> oText = <span class="built_in">document</span>.querySelector(<span class="string">&quot;#text&quot;</span>);</span></span><br><span class="line"><span class="javascript">       <span class="keyword">var</span> oBtn = <span class="built_in">document</span>.querySelector(<span class="string">&quot;#btn&quot;</span>);</span></span><br><span class="line"><span class="javascript">       oBtn.onclick=<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span></span><br><span class="line">            if(oText.value)&#123;</span><br><span class="line"><span class="javascript">                  <span class="keyword">var</span> oIframe = <span class="built_in">document</span>.querySelector(<span class="string">&quot;iframe&quot;</span>);</span></span><br><span class="line">                  oIframe.contentWindow.postMessage(oText.value);</span><br><span class="line">            &#125;</span><br><span class="line">       &#125;</span><br><span class="line"><span class="javascript">       <span class="built_in">window</span>.addEventListener(<span class="string">&quot;message&quot;</span>,<span class="function">(<span class="params">&#123;data&#125;</span>)=&gt;</span>&#123;</span></span><br><span class="line"><span class="javascript">              <span class="keyword">var</span> oLi = <span class="built_in">document</span>.createElement(<span class="string">&quot;li&quot;</span>);</span></span><br><span class="line"><span class="javascript">              <span class="keyword">var</span> oText = <span class="built_in">document</span>.createTextNode(data);</span></span><br><span class="line">              oLi.appendChild(oText);</span><br><span class="line"><span class="javascript">              <span class="built_in">document</span>.querySelector(<span class="string">&quot;#ul&quot;</span>).appendChild(oLi);  </span></span><br><span class="line">       &#125;)</span><br><span class="line"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE <span class="meta-keyword">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">lang</span>=<span class="string">&quot;en&quot;</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">&quot;UTF-8&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">http-equiv</span>=<span class="string">&quot;X-UA-Compatible&quot;</span> <span class="attr">content</span>=<span class="string">&quot;IE=edge&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">&quot;viewport&quot;</span> <span class="attr">content</span>=<span class="string">&quot;width=device-width, initial-scale=1.0&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span>Document<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">h4</span>&gt;</span>收到的消息是<span class="tag">&lt;/<span class="name">h4</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">ul</span> <span class="attr">id</span>=<span class="string">&quot;ul&quot;</span>&gt;</span></span><br><span class="line">      </span><br><span class="line">    <span class="tag">&lt;/<span class="name">ul</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;text&quot;</span> <span class="attr">id</span>=<span class="string">&quot;text&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">button</span> <span class="attr">id</span>=<span class="string">&quot;btn&quot;</span>&gt;</span>给父级发送消息<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="javascript">    <span class="built_in">window</span>.addEventListener(<span class="string">&quot;message&quot;</span>,<span class="function"><span class="keyword">function</span>(<span class="params">&#123;data&#125;</span>)</span>&#123;</span></span><br><span class="line"><span class="javascript">        <span class="keyword">var</span> oUl = <span class="built_in">document</span>.querySelector(<span class="string">&quot;#ul&quot;</span>);</span></span><br><span class="line"><span class="javascript">        <span class="keyword">var</span> oLi = <span class="built_in">document</span>.createElement(<span class="string">&quot;li&quot;</span>);</span></span><br><span class="line"><span class="javascript">        <span class="keyword">var</span> oText = <span class="built_in">document</span>.createTextNode(data);</span></span><br><span class="line">        oLi.appendChild(oText);</span><br><span class="line">        oUl.appendChild(oLi);</span><br><span class="line"></span><br><span class="line">    &#125;)</span><br><span class="line"></span><br><span class="line"><span class="javascript">   <span class="keyword">var</span> oBtn = <span class="built_in">document</span>.querySelector(<span class="string">&quot;#btn&quot;</span>);</span></span><br><span class="line"><span class="javascript">   <span class="keyword">var</span> oText = <span class="built_in">document</span>.querySelector(<span class="string">&quot;#text&quot;</span>);</span></span><br><span class="line"><span class="javascript">   oBtn.onclick=<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span></span><br><span class="line"><span class="javascript">         <span class="keyword">var</span> value = oText.value;</span></span><br><span class="line">         if(value)&#123;</span><br><span class="line">             parent.postMessage(value);</span><br><span class="line">         &#125;</span><br><span class="line">        &#125;</span><br><span class="line"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+]]></content>
+      <tags>
+        <tag>html</tag>
       </tags>
   </entry>
   <entry>
@@ -410,34 +448,6 @@
       </tags>
   </entry>
   <entry>
-    <title>js常见算法数组去重</title>
-    <url>/2021/02/23/js%E5%B8%B8%E8%A7%81%E7%AE%97%E6%B3%95%E6%95%B0%E7%BB%84%E5%8E%BB%E9%87%8D/</url>
-    <content><![CDATA[<ol>
-<li>ES6 new Set去重</li>
-</ol>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">[...new Set(arr)]</span><br></pre></td></tr></table></figure>
-<ol start="2">
-<li>利用object key不重复的特性去重</li>
-</ol>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">let</span> arr = [................]</span><br><span class="line"><span class="keyword">let</span> obj = &#123;&#125;;</span><br><span class="line">arr.forEach(<span class="function">(<span class="params">item,index</span>)=&gt;</span>&#123;</span><br><span class="line">    obj[item] = 任意值 </span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line"><span class="comment">//最后通过obj key生成数组   Object.keys(obj)</span></span><br></pre></td></tr></table></figure>
-<ol start="3">
-<li><p>利用双重循环删除多余值</p>
-</li>
-<li><p>利用includes() find() findIndex() filter()这类方法push到一个全新的数组</p>
-</li>
-<li><p>利用相邻节点相同删除的方法</p>
-<ul>
-<li>对数据排序 </li>
-<li>循环数组，如下一项与记录的一项相同则删除，不同则重新记录当前项</li>
-</ul>
-</li>
-</ol>
-]]></content>
-      <tags>
-        <tag>javascript</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>requestAnimationFrame详解</title>
     <url>/2021/02/21/requestAnimationFrame%E8%AF%A6%E8%A7%A3/</url>
     <content><![CDATA[<p>为什么要说它，源于看到的一道面试题：问题是用js实现一个无限循环的动画。</p>
@@ -473,28 +483,6 @@
 <figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">&lt;!doctype html&gt;</span><br><span class="line">&lt;html lang=<span class="string">&quot;en&quot;</span>&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">    &lt;title&gt;Document&lt;/title&gt;</span><br><span class="line">    &lt;style&gt;</span><br><span class="line">        #e&#123;</span><br><span class="line">            width: 100px;</span><br><span class="line">            height: 100px;</span><br><span class="line">            background: red;</span><br><span class="line">            position: absolute;</span><br><span class="line">            left: <span class="number">0</span>;</span><br><span class="line">            top: <span class="number">0</span>;</span><br><span class="line">            zoom: <span class="number">1</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &lt;/style&gt;</span><br><span class="line">&lt;/head&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line">&lt;div id=<span class="string">&quot;e&quot;</span>&gt;&lt;/div&gt;</span><br><span class="line">&lt;script&gt;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="keyword">var</span> e = <span class="built_in">document</span>.getElementById(<span class="string">&quot;e&quot;</span>);</span><br><span class="line">    <span class="keyword">var</span> flag = <span class="literal">true</span>;</span><br><span class="line">    <span class="keyword">var</span> left = <span class="number">0</span>;</span><br><span class="line">    <span class="comment">//当前执行时间</span></span><br><span class="line">    <span class="keyword">var</span> nowTime = <span class="number">0</span>;</span><br><span class="line">    <span class="comment">//记录每次动画执行结束的时间</span></span><br><span class="line">    <span class="keyword">var</span> lastTime = <span class="built_in">Date</span>.now();</span><br><span class="line">    <span class="comment">//我们自己定义的动画时间差值</span></span><br><span class="line">    <span class="keyword">var</span> diffTime = <span class="number">40</span>;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">render</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(flag == <span class="literal">true</span>)&#123;</span><br><span class="line">            <span class="keyword">if</span>(left&gt;=<span class="number">100</span>)&#123;</span><br><span class="line">                flag = <span class="literal">false</span></span><br><span class="line">            &#125;</span><br><span class="line">            e.style.left = <span class="string">` <span class="subst">$&#123;left++&#125;</span>px`</span></span><br><span class="line">        &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">            <span class="keyword">if</span>(left&lt;=<span class="number">0</span>)&#123;</span><br><span class="line">                flag = <span class="literal">true</span></span><br><span class="line">            &#125;</span><br><span class="line">            e.style.left = <span class="string">` <span class="subst">$&#123;left--&#125;</span>px`</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//requestAnimationFrame效果</span></span><br><span class="line">    (<span class="function"><span class="keyword">function</span> <span class="title">animloop</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="comment">//记录当前时间</span></span><br><span class="line">        nowTime = <span class="built_in">Date</span>.now()</span><br><span class="line">        <span class="comment">// 当前时间-上次执行时间如果大于diffTime，那么执行动画，并更新上次执行时间</span></span><br><span class="line">        <span class="keyword">if</span>(nowTime-lastTime &gt; diffTime)&#123;</span><br><span class="line">            lastTime = nowTime</span><br><span class="line">            render();</span><br><span class="line">        &#125;</span><br><span class="line">        requestAnimationFrame(animloop);</span><br><span class="line"></span><br><span class="line">    &#125;)()</span><br><span class="line">&lt;/script&gt;</span><br><span class="line">&lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure>]]></content>
       <tags>
         <tag>JavaScript</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>redux-saga代码参考</title>
-    <url>/2021/02/21/redux-saga%E4%BB%A3%E7%A0%81%E5%8F%82%E8%80%83/</url>
-    <content><![CDATA[<h4 id="saga-js"><a href="#saga-js" class="headerlink" title="saga.js"></a>saga.js</h4><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; call, put,takeEvery, select,takeLatest &#125; <span class="keyword">from</span> <span class="string">&#x27;redux-saga/effects&#x27;</span>;</span><br><span class="line"><span class="keyword">import</span> axios <span class="keyword">from</span> <span class="string">&#x27;axios&#x27;</span>;</span><br><span class="line"><span class="keyword">const</span> handleAddCountFn = <span class="function"><span class="keyword">function</span> *(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">const</span> page = <span class="keyword">yield</span> select(<span class="function"><span class="params">state</span>=&gt;</span>state.payload.count);</span><br><span class="line">    <span class="keyword">const</span> num = <span class="keyword">yield</span> select(<span class="function"><span class="params">state</span>=&gt;</span>state.count);</span><br><span class="line">    <span class="keyword">const</span> result = <span class="keyword">yield</span> call(axios.get,<span class="string">&quot;http://www.shaoyuhong.cn/lx104.php&quot;</span>,&#123;<span class="attr">params</span>:&#123;<span class="attr">page</span>:page+num&#125;&#125;);</span><br><span class="line">    <span class="keyword">yield</span> put(&#123;</span><br><span class="line">        type:<span class="string">&#x27;addCount&#x27;</span>,</span><br><span class="line">        payload:&#123;</span><br><span class="line">             num:page</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;);</span><br><span class="line">    <span class="keyword">yield</span> put(&#123;</span><br><span class="line">        type:<span class="string">&#x27;setList&#x27;</span>,</span><br><span class="line">        payload:&#123;</span><br><span class="line">            list:result.data</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;)</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-
-
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> handleSubCountFn = <span class="function"><span class="keyword">function</span> *(<span class="params"></span>)</span>&#123;</span><br><span class="line">  <span class="keyword">const</span> page = <span class="keyword">yield</span> select(<span class="function"><span class="params">state</span>=&gt;</span>state.payload.count);</span><br><span class="line">  <span class="keyword">const</span> num  = <span class="keyword">yield</span> select(<span class="function"><span class="params">state</span>=&gt;</span>state.count);</span><br><span class="line">  <span class="keyword">const</span> result = <span class="keyword">yield</span> call(axios.get,<span class="string">&quot;http://www.shaoyuhong.cn/lx104.php&quot;</span>,&#123;<span class="attr">params</span>:&#123;<span class="attr">page</span>:num - page&#125;&#125;);</span><br><span class="line">  <span class="keyword">yield</span> put(&#123;</span><br><span class="line">      type:<span class="string">&#x27;subCount&#x27;</span>,</span><br><span class="line">      payload:&#123;</span><br><span class="line">          num:page</span><br><span class="line">      &#125;</span><br><span class="line">  &#125;);</span><br><span class="line">  <span class="keyword">yield</span> put(&#123;</span><br><span class="line">      type:<span class="string">&#x27;setList&#x27;</span>,</span><br><span class="line">      payload:&#123;</span><br><span class="line">          list:result.data</span><br><span class="line">      &#125;</span><br><span class="line">  &#125;)</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> *<span class="title">saga</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">   <span class="keyword">yield</span> takeEvery(<span class="string">&#x27;requestAddCount&#x27;</span>,handleAddCountFn);</span><br><span class="line">   <span class="keyword">yield</span> takeLatest(<span class="string">&#x27;requestSubCount&#x27;</span>,handleSubCountFn)</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> saga;</span><br></pre></td></tr></table></figure>
-
-
-<h4 id="app-js提交请求"><a href="#app-js提交请求" class="headerlink" title="app.js提交请求"></a>app.js提交请求</h4><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">@connect(</span><br><span class="line">  state=&gt;&#123;</span><br><span class="line">    <span class="keyword">return</span> &#123;</span><br><span class="line">       count:state.count,</span><br><span class="line">       list:state.list</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;,</span><br><span class="line">  dispatch=&gt;&#123;</span><br><span class="line">    <span class="keyword">return</span> &#123;</span><br><span class="line">        <span class="function"><span class="title">addCount</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">          dispatch(&#123;<span class="attr">type</span>:<span class="string">&#x27;requestAddCount&#x27;</span>,<span class="attr">payload</span>:&#123;<span class="attr">count</span>:<span class="built_in">parseInt</span>(<span class="built_in">Math</span>.random() * <span class="number">100</span>)&#125;&#125;)</span><br><span class="line">        &#125;,</span><br><span class="line">        <span class="function"><span class="title">subCount</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">          dispatch(&#123;<span class="attr">type</span>:<span class="string">&#x27;requestSubCount&#x27;</span>,<span class="attr">payload</span>:&#123; <span class="attr">count</span>:<span class="number">100</span> &#125;&#125;)</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">)</span><br></pre></td></tr></table></figure>
-
-
-<h4 id="reducer-js-参考"><a href="#reducer-js-参考" class="headerlink" title="reducer.js 参考"></a>reducer.js 参考</h4><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> defaultState = &#123;</span><br><span class="line">      count:<span class="number">100</span>,</span><br><span class="line">      list:[<span class="string">&#x27;test&#x27;</span>]</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="function"><span class="keyword">function</span>(<span class="params">state = <span class="built_in">Object</span>.assign(&#123;&#125;,defaultState),action = &#123;type:<span class="string">&#x27;&#x27;</span>,payload:&#123;&#125;&#125;</span>)</span>&#123;</span><br><span class="line">     <span class="keyword">let</span> &#123; type,payload&#125; = action;</span><br><span class="line">     <span class="keyword">if</span>(type === <span class="string">&#x27;addCount&#x27;</span>)&#123;</span><br><span class="line">         <span class="keyword">let</span> obj = <span class="built_in">Object</span>.assign(&#123;&#125;,state);</span><br><span class="line">         obj.count +=action.payload.num;</span><br><span class="line">         <span class="keyword">return</span> obj;</span><br><span class="line">     &#125;</span><br><span class="line">     <span class="keyword">if</span>(type ===<span class="string">&#x27;subCount&#x27;</span>)&#123;</span><br><span class="line">         <span class="keyword">let</span> obj = <span class="built_in">Object</span>.assign(&#123;&#125;,state);</span><br><span class="line">         obj.count -=action.payload.num;</span><br><span class="line">         <span class="keyword">return</span> obj;</span><br><span class="line">     &#125;</span><br><span class="line">     <span class="keyword">if</span>(type === <span class="string">&#x27;setList&#x27;</span>)&#123;</span><br><span class="line">         <span class="keyword">let</span> obj = <span class="built_in">Object</span>.assign(&#123;&#125;,state);</span><br><span class="line">         obj.list = action.payload.list;</span><br><span class="line">         <span class="keyword">return</span> obj;</span><br><span class="line">     &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">Object</span>.assign(&#123;&#125;,state,action);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-<p>//注: app.js dispatch提交的事件名可以和reducer.js action.type名不同，dispatch提交的事件将在saga.js的takeEvery中被监听</p>
-<p>使用saga.js需要在reducer中默认返回Object.assign({},state,action);</p>
-]]></content>
-      <tags>
-        <tag>react</tag>
       </tags>
   </entry>
   <entry>
@@ -628,6 +616,28 @@
 ]]></content>
       <tags>
         <tag>svg</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>redux-saga代码参考</title>
+    <url>/2021/02/21/redux-saga%E4%BB%A3%E7%A0%81%E5%8F%82%E8%80%83/</url>
+    <content><![CDATA[<h4 id="saga-js"><a href="#saga-js" class="headerlink" title="saga.js"></a>saga.js</h4><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; call, put,takeEvery, select,takeLatest &#125; <span class="keyword">from</span> <span class="string">&#x27;redux-saga/effects&#x27;</span>;</span><br><span class="line"><span class="keyword">import</span> axios <span class="keyword">from</span> <span class="string">&#x27;axios&#x27;</span>;</span><br><span class="line"><span class="keyword">const</span> handleAddCountFn = <span class="function"><span class="keyword">function</span> *(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">const</span> page = <span class="keyword">yield</span> select(<span class="function"><span class="params">state</span>=&gt;</span>state.payload.count);</span><br><span class="line">    <span class="keyword">const</span> num = <span class="keyword">yield</span> select(<span class="function"><span class="params">state</span>=&gt;</span>state.count);</span><br><span class="line">    <span class="keyword">const</span> result = <span class="keyword">yield</span> call(axios.get,<span class="string">&quot;http://www.shaoyuhong.cn/lx104.php&quot;</span>,&#123;<span class="attr">params</span>:&#123;<span class="attr">page</span>:page+num&#125;&#125;);</span><br><span class="line">    <span class="keyword">yield</span> put(&#123;</span><br><span class="line">        type:<span class="string">&#x27;addCount&#x27;</span>,</span><br><span class="line">        payload:&#123;</span><br><span class="line">             num:page</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;);</span><br><span class="line">    <span class="keyword">yield</span> put(&#123;</span><br><span class="line">        type:<span class="string">&#x27;setList&#x27;</span>,</span><br><span class="line">        payload:&#123;</span><br><span class="line">            list:result.data</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;)</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> handleSubCountFn = <span class="function"><span class="keyword">function</span> *(<span class="params"></span>)</span>&#123;</span><br><span class="line">  <span class="keyword">const</span> page = <span class="keyword">yield</span> select(<span class="function"><span class="params">state</span>=&gt;</span>state.payload.count);</span><br><span class="line">  <span class="keyword">const</span> num  = <span class="keyword">yield</span> select(<span class="function"><span class="params">state</span>=&gt;</span>state.count);</span><br><span class="line">  <span class="keyword">const</span> result = <span class="keyword">yield</span> call(axios.get,<span class="string">&quot;http://www.shaoyuhong.cn/lx104.php&quot;</span>,&#123;<span class="attr">params</span>:&#123;<span class="attr">page</span>:num - page&#125;&#125;);</span><br><span class="line">  <span class="keyword">yield</span> put(&#123;</span><br><span class="line">      type:<span class="string">&#x27;subCount&#x27;</span>,</span><br><span class="line">      payload:&#123;</span><br><span class="line">          num:page</span><br><span class="line">      &#125;</span><br><span class="line">  &#125;);</span><br><span class="line">  <span class="keyword">yield</span> put(&#123;</span><br><span class="line">      type:<span class="string">&#x27;setList&#x27;</span>,</span><br><span class="line">      payload:&#123;</span><br><span class="line">          list:result.data</span><br><span class="line">      &#125;</span><br><span class="line">  &#125;)</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> *<span class="title">saga</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">   <span class="keyword">yield</span> takeEvery(<span class="string">&#x27;requestAddCount&#x27;</span>,handleAddCountFn);</span><br><span class="line">   <span class="keyword">yield</span> takeLatest(<span class="string">&#x27;requestSubCount&#x27;</span>,handleSubCountFn)</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> saga;</span><br></pre></td></tr></table></figure>
+
+
+<h4 id="app-js提交请求"><a href="#app-js提交请求" class="headerlink" title="app.js提交请求"></a>app.js提交请求</h4><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">@connect(</span><br><span class="line">  state=&gt;&#123;</span><br><span class="line">    <span class="keyword">return</span> &#123;</span><br><span class="line">       count:state.count,</span><br><span class="line">       list:state.list</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;,</span><br><span class="line">  dispatch=&gt;&#123;</span><br><span class="line">    <span class="keyword">return</span> &#123;</span><br><span class="line">        <span class="function"><span class="title">addCount</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">          dispatch(&#123;<span class="attr">type</span>:<span class="string">&#x27;requestAddCount&#x27;</span>,<span class="attr">payload</span>:&#123;<span class="attr">count</span>:<span class="built_in">parseInt</span>(<span class="built_in">Math</span>.random() * <span class="number">100</span>)&#125;&#125;)</span><br><span class="line">        &#125;,</span><br><span class="line">        <span class="function"><span class="title">subCount</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">          dispatch(&#123;<span class="attr">type</span>:<span class="string">&#x27;requestSubCount&#x27;</span>,<span class="attr">payload</span>:&#123; <span class="attr">count</span>:<span class="number">100</span> &#125;&#125;)</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">)</span><br></pre></td></tr></table></figure>
+
+
+<h4 id="reducer-js-参考"><a href="#reducer-js-参考" class="headerlink" title="reducer.js 参考"></a>reducer.js 参考</h4><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> defaultState = &#123;</span><br><span class="line">      count:<span class="number">100</span>,</span><br><span class="line">      list:[<span class="string">&#x27;test&#x27;</span>]</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="function"><span class="keyword">function</span>(<span class="params">state = <span class="built_in">Object</span>.assign(&#123;&#125;,defaultState),action = &#123;type:<span class="string">&#x27;&#x27;</span>,payload:&#123;&#125;&#125;</span>)</span>&#123;</span><br><span class="line">     <span class="keyword">let</span> &#123; type,payload&#125; = action;</span><br><span class="line">     <span class="keyword">if</span>(type === <span class="string">&#x27;addCount&#x27;</span>)&#123;</span><br><span class="line">         <span class="keyword">let</span> obj = <span class="built_in">Object</span>.assign(&#123;&#125;,state);</span><br><span class="line">         obj.count +=action.payload.num;</span><br><span class="line">         <span class="keyword">return</span> obj;</span><br><span class="line">     &#125;</span><br><span class="line">     <span class="keyword">if</span>(type ===<span class="string">&#x27;subCount&#x27;</span>)&#123;</span><br><span class="line">         <span class="keyword">let</span> obj = <span class="built_in">Object</span>.assign(&#123;&#125;,state);</span><br><span class="line">         obj.count -=action.payload.num;</span><br><span class="line">         <span class="keyword">return</span> obj;</span><br><span class="line">     &#125;</span><br><span class="line">     <span class="keyword">if</span>(type === <span class="string">&#x27;setList&#x27;</span>)&#123;</span><br><span class="line">         <span class="keyword">let</span> obj = <span class="built_in">Object</span>.assign(&#123;&#125;,state);</span><br><span class="line">         obj.list = action.payload.list;</span><br><span class="line">         <span class="keyword">return</span> obj;</span><br><span class="line">     &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">Object</span>.assign(&#123;&#125;,state,action);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+<p>//注: app.js dispatch提交的事件名可以和reducer.js action.type名不同，dispatch提交的事件将在saga.js的takeEvery中被监听</p>
+<p>使用saga.js需要在reducer中默认返回Object.assign({},state,action);</p>
+]]></content>
+      <tags>
+        <tag>react</tag>
       </tags>
   </entry>
   <entry>
@@ -803,15 +813,6 @@
       </tags>
   </entry>
   <entry>
-    <title>【今日新发现】让子元素上下左右居中的新奇方法</title>
-    <url>/2021/02/21/%E3%80%90%E4%BB%8A%E6%97%A5%E6%96%B0%E5%8F%91%E7%8E%B0%E3%80%91%E8%AE%A9%E5%AD%90%E5%85%83%E7%B4%A0%E4%B8%8A%E4%B8%8B%E5%B7%A6%E5%8F%B3%E5%B1%85%E4%B8%AD%E7%9A%84%E6%96%B0%E5%A5%87%E6%96%B9%E6%B3%95/</url>
-    <content><![CDATA[<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">style</span>&gt;</span></span><br><span class="line"> *&#123;</span><br><span class="line"><span class="css"> <span class="attribute">margin</span>:<span class="number">0</span>;</span></span><br><span class="line"><span class="css"> <span class="attribute">padding</span>:<span class="number">0</span>;</span></span><br><span class="line"> &#125;</span><br><span class="line"> #app&#123;</span><br><span class="line"><span class="css">  <span class="attribute">background-color</span>:<span class="number">#ddd</span>;</span></span><br><span class="line"><span class="css">  <span class="attribute">height</span>:<span class="number">600px</span>;</span></span><br><span class="line"><span class="css">  <span class="attribute">position</span>:relative;</span></span><br><span class="line"> &#125;</span><br><span class="line"><span class="css"> <span class="selector-id">#app</span> <span class="selector-tag">div</span>&#123;</span></span><br><span class="line"><span class="css">  <span class="attribute">width</span>:<span class="number">100px</span>;</span></span><br><span class="line"><span class="css">  <span class="attribute">height</span>:<span class="number">100px</span>;</span></span><br><span class="line"><span class="css">  <span class="attribute">background-color</span>:red;</span></span><br><span class="line"><span class="css">  <span class="attribute">position</span>:absolute;</span></span><br><span class="line"><span class="css">  <span class="attribute">top</span>:<span class="number">0</span>;</span></span><br><span class="line"><span class="css">  <span class="attribute">left</span>:<span class="number">0</span>;</span></span><br><span class="line"><span class="css">  <span class="attribute">right</span>:<span class="number">0</span>;</span></span><br><span class="line"><span class="css">  <span class="attribute">bottom</span>:<span class="number">0</span>;</span></span><br><span class="line"><span class="css">  <span class="attribute">margin</span>:auto;</span></span><br><span class="line"> &#125;</span><br><span class="line"><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">&quot;app&quot;</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span>&gt;</span>111<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br><span class="line"></span><br><span class="line">【注意】需要注意的是，此方法只对子元素有宽高的情况起作用，如果没有宽高则不起作用。</span><br></pre></td></tr></table></figure>
-]]></content>
-      <tags>
-        <tag>css</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>【今日问题】输入[1,2,3]，输出层级{name:1,child:child:{name:3}</title>
     <url>/2021/02/21/%E3%80%90%E4%BB%8A%E6%97%A5%E9%97%AE%E9%A2%98%E3%80%91%E8%BE%93%E5%85%A5-1-2-3-%EF%BC%8C%E8%BE%93%E5%87%BA%E5%B1%82%E7%BA%A7-name-1-child-child-name-3/</url>
     <content><![CDATA[<blockquote>
@@ -829,6 +830,15 @@
 <h4 id="感谢余大佬提点"><a href="#感谢余大佬提点" class="headerlink" title="感谢余大佬提点"></a>感谢余大佬提点</h4>]]></content>
       <tags>
         <tag>算法</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>【今日新发现】让子元素上下左右居中的新奇方法</title>
+    <url>/2021/02/21/%E3%80%90%E4%BB%8A%E6%97%A5%E6%96%B0%E5%8F%91%E7%8E%B0%E3%80%91%E8%AE%A9%E5%AD%90%E5%85%83%E7%B4%A0%E4%B8%8A%E4%B8%8B%E5%B7%A6%E5%8F%B3%E5%B1%85%E4%B8%AD%E7%9A%84%E6%96%B0%E5%A5%87%E6%96%B9%E6%B3%95/</url>
+    <content><![CDATA[<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">style</span>&gt;</span></span><br><span class="line"> *&#123;</span><br><span class="line"><span class="css"> <span class="attribute">margin</span>:<span class="number">0</span>;</span></span><br><span class="line"><span class="css"> <span class="attribute">padding</span>:<span class="number">0</span>;</span></span><br><span class="line"> &#125;</span><br><span class="line"> #app&#123;</span><br><span class="line"><span class="css">  <span class="attribute">background-color</span>:<span class="number">#ddd</span>;</span></span><br><span class="line"><span class="css">  <span class="attribute">height</span>:<span class="number">600px</span>;</span></span><br><span class="line"><span class="css">  <span class="attribute">position</span>:relative;</span></span><br><span class="line"> &#125;</span><br><span class="line"><span class="css"> <span class="selector-id">#app</span> <span class="selector-tag">div</span>&#123;</span></span><br><span class="line"><span class="css">  <span class="attribute">width</span>:<span class="number">100px</span>;</span></span><br><span class="line"><span class="css">  <span class="attribute">height</span>:<span class="number">100px</span>;</span></span><br><span class="line"><span class="css">  <span class="attribute">background-color</span>:red;</span></span><br><span class="line"><span class="css">  <span class="attribute">position</span>:absolute;</span></span><br><span class="line"><span class="css">  <span class="attribute">top</span>:<span class="number">0</span>;</span></span><br><span class="line"><span class="css">  <span class="attribute">left</span>:<span class="number">0</span>;</span></span><br><span class="line"><span class="css">  <span class="attribute">right</span>:<span class="number">0</span>;</span></span><br><span class="line"><span class="css">  <span class="attribute">bottom</span>:<span class="number">0</span>;</span></span><br><span class="line"><span class="css">  <span class="attribute">margin</span>:auto;</span></span><br><span class="line"> &#125;</span><br><span class="line"><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">&quot;app&quot;</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span>&gt;</span>111<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br><span class="line"></span><br><span class="line">【注意】需要注意的是，此方法只对子元素有宽高的情况起作用，如果没有宽高则不起作用。</span><br></pre></td></tr></table></figure>
+]]></content>
+      <tags>
+        <tag>css</tag>
       </tags>
   </entry>
   <entry>
@@ -939,33 +949,6 @@
 ]]></content>
       <tags>
         <tag>情感</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>两边固定中间自适应布局解决方案5种</title>
-    <url>/2021/02/21/%E4%B8%A4%E8%BE%B9%E5%9B%BA%E5%AE%9A%E4%B8%AD%E9%97%B4%E8%87%AA%E9%80%82%E5%BA%94%E5%B8%83%E5%B1%80%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%885%E7%A7%8D/</url>
-    <content><![CDATA[<figure class="highlight css"><table><tr><td class="code"><pre><span class="line">&lt;!--弹性布局--&gt;</span><br><span class="line">&lt;!--   &lt;style&gt;</span><br><span class="line">      <span class="selector-class">.container</span>&#123;</span><br><span class="line">          <span class="attribute">display</span>: flex;</span><br><span class="line">          <span class="attribute">align-items</span>: center;</span><br><span class="line">          <span class="attribute">justify-content</span>: space-between;</span><br><span class="line">      &#125;</span><br><span class="line">      <span class="selector-class">.left</span>,<span class="selector-class">.right</span>&#123;</span><br><span class="line">          <span class="attribute">flex</span>:<span class="number">0</span> <span class="number">0</span> <span class="number">200px</span>;</span><br><span class="line">      &#125;</span><br><span class="line">      <span class="selector-class">.center</span>&#123;</span><br><span class="line">          <span class="attribute">flex</span>:<span class="number">1</span>;</span><br><span class="line">      &#125;</span><br><span class="line">  &lt;/style&gt; --&gt;</span><br></pre></td></tr></table></figure>
-
-
-<figure class="highlight css"><table><tr><td class="code"><pre><span class="line">&lt;!--<span class="selector-tag">table</span>布局--&gt;</span><br><span class="line">  &lt;!-- &lt;style&gt;</span><br><span class="line">      <span class="selector-class">.container</span>&#123;</span><br><span class="line">          <span class="attribute">display</span>: table;</span><br><span class="line">          <span class="attribute">width</span>: <span class="number">100%</span>;</span><br><span class="line">      &#125;</span><br><span class="line">      <span class="selector-class">.container</span>&gt;<span class="selector-tag">div</span>&#123;</span><br><span class="line">          <span class="attribute">display</span>: table-cell;</span><br><span class="line">      &#125;</span><br><span class="line">      <span class="selector-class">.left</span>,<span class="selector-class">.right</span>&#123;</span><br><span class="line">          <span class="attribute">width</span>: <span class="number">200px</span>;</span><br><span class="line">          <span class="attribute">max-width</span>: <span class="number">200px</span>;</span><br><span class="line">          <span class="attribute">min-width</span>: <span class="number">200px</span>;</span><br><span class="line">      &#125;</span><br><span class="line">  &lt;/style&gt; --&gt;</span><br></pre></td></tr></table></figure>
-
-
-<figure class="highlight css"><table><tr><td class="code"><pre><span class="line">&lt;!--常用<span class="number">2</span>--&gt;</span><br><span class="line">  &lt;style&gt;</span><br><span class="line">      <span class="selector-class">.container</span>&#123;</span><br><span class="line">          <span class="attribute">padding</span>: <span class="number">0</span> <span class="number">200px</span>;</span><br><span class="line">          <span class="attribute">box-sizing</span>: border-box;</span><br><span class="line">          <span class="attribute">background-color</span>: <span class="number">#eee</span>;</span><br><span class="line">          <span class="attribute">font-size</span>: <span class="number">0</span>;</span><br><span class="line">          <span class="attribute">position</span>: relative;</span><br><span class="line">      &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">      <span class="selector-class">.center</span>&#123;</span><br><span class="line">          <span class="attribute">width</span>:<span class="number">100%</span>;</span><br><span class="line">         </span><br><span class="line">      &#125;</span><br><span class="line">      <span class="selector-class">.left</span>,<span class="selector-class">.right</span>&#123;</span><br><span class="line">          <span class="attribute">width</span>:<span class="number">200px</span>;</span><br><span class="line">      &#125;</span><br><span class="line">     <span class="selector-class">.left</span>&#123;</span><br><span class="line">         <span class="attribute">position</span>: absolute;</span><br><span class="line">         <span class="attribute">left</span>:<span class="number">0</span>;</span><br><span class="line">         <span class="attribute">top</span>:<span class="number">0</span>;</span><br><span class="line">     &#125;</span><br><span class="line">     <span class="selector-class">.right</span>&#123;</span><br><span class="line">         <span class="attribute">position</span>: absolute;</span><br><span class="line">         <span class="attribute">right</span>: <span class="number">0</span>;</span><br><span class="line">         <span class="attribute">top</span>: <span class="number">0</span>;</span><br><span class="line">     &#125;</span><br><span class="line">  &lt;/style&gt;</span><br></pre></td></tr></table></figure>
-
-
-<figure class="highlight css"><table><tr><td class="code"><pre><span class="line">calc(<span class="number">100%</span> - <span class="number">200px</span>)</span><br></pre></td></tr></table></figure>
-
-
-<figure class="highlight css"><table><tr><td class="code"><pre><span class="line">&lt;!--常用<span class="number">1</span>--&gt;</span><br><span class="line">&lt;!--   &lt;style&gt;</span><br><span class="line">      <span class="selector-class">.container</span>&#123;</span><br><span class="line">          <span class="attribute">padding</span>: <span class="number">0</span> <span class="number">200px</span>;</span><br><span class="line">          <span class="attribute">box-sizing</span>: border-box;</span><br><span class="line">          <span class="attribute">background-color</span>: <span class="number">#eee</span>;</span><br><span class="line">          <span class="attribute">font-size</span>: <span class="number">0</span>;</span><br><span class="line">      &#125;</span><br><span class="line">      <span class="selector-class">.container</span>:after&#123;</span><br><span class="line">          content:<span class="string">&#x27;&#x27;</span>;</span><br><span class="line">           <span class="attribute">display</span>: block;</span><br><span class="line">           <span class="attribute">clear</span>: both;</span><br><span class="line">      &#125;</span><br><span class="line">      <span class="selector-class">.container</span>&gt;<span class="selector-tag">div</span>&#123;</span><br><span class="line">          <span class="attribute">float</span>: left;</span><br><span class="line">          <span class="attribute">font-size</span>: <span class="number">16px</span>;</span><br><span class="line">      &#125;</span><br><span class="line">      <span class="selector-class">.center</span>&#123;</span><br><span class="line">          <span class="attribute">width</span>:<span class="number">100%</span>;</span><br><span class="line">      &#125;</span><br><span class="line">      <span class="selector-class">.left</span>,<span class="selector-class">.right</span>&#123;</span><br><span class="line">          <span class="attribute">width</span>:<span class="number">200px</span>;</span><br><span class="line">      &#125;</span><br><span class="line">      <span class="selector-class">.left</span>&#123;</span><br><span class="line">          <span class="attribute">margin-left</span>: -<span class="number">100%</span>;</span><br><span class="line">          <span class="attribute">position</span>: relative;</span><br><span class="line">          <span class="attribute">left</span>: -<span class="number">200px</span>;</span><br><span class="line">      &#125;</span><br><span class="line">      <span class="selector-class">.right</span>&#123;</span><br><span class="line">          <span class="attribute">margin-left</span>:-<span class="number">200px</span>;</span><br><span class="line">          <span class="attribute">position</span>: relative;</span><br><span class="line">          <span class="attribute">left</span>: <span class="number">200px</span>;</span><br><span class="line">      &#125;</span><br><span class="line">  &lt;/style&gt; --&gt;</span><br></pre></td></tr></table></figure>
-
-
-<blockquote>
-<p>HTML代码如下 </p>
-</blockquote>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;container&quot;</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;center&quot;</span>&gt;</span>center<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">         <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;left&quot;</span>&gt;</span>left<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">         <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;right&quot;</span>&gt;</span>right<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br></pre></td></tr></table></figure>
-]]></content>
-      <tags>
-        <tag>html</tag>
       </tags>
   </entry>
   <entry>
@@ -1181,6 +1164,43 @@
       </tags>
   </entry>
   <entry>
+    <title>两边固定中间自适应布局解决方案5种</title>
+    <url>/2021/02/21/%E4%B8%A4%E8%BE%B9%E5%9B%BA%E5%AE%9A%E4%B8%AD%E9%97%B4%E8%87%AA%E9%80%82%E5%BA%94%E5%B8%83%E5%B1%80%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%885%E7%A7%8D/</url>
+    <content><![CDATA[<figure class="highlight css"><table><tr><td class="code"><pre><span class="line">&lt;!--弹性布局--&gt;</span><br><span class="line">&lt;!--   &lt;style&gt;</span><br><span class="line">      <span class="selector-class">.container</span>&#123;</span><br><span class="line">          <span class="attribute">display</span>: flex;</span><br><span class="line">          <span class="attribute">align-items</span>: center;</span><br><span class="line">          <span class="attribute">justify-content</span>: space-between;</span><br><span class="line">      &#125;</span><br><span class="line">      <span class="selector-class">.left</span>,<span class="selector-class">.right</span>&#123;</span><br><span class="line">          <span class="attribute">flex</span>:<span class="number">0</span> <span class="number">0</span> <span class="number">200px</span>;</span><br><span class="line">      &#125;</span><br><span class="line">      <span class="selector-class">.center</span>&#123;</span><br><span class="line">          <span class="attribute">flex</span>:<span class="number">1</span>;</span><br><span class="line">      &#125;</span><br><span class="line">  &lt;/style&gt; --&gt;</span><br></pre></td></tr></table></figure>
+
+
+<figure class="highlight css"><table><tr><td class="code"><pre><span class="line">&lt;!--<span class="selector-tag">table</span>布局--&gt;</span><br><span class="line">  &lt;!-- &lt;style&gt;</span><br><span class="line">      <span class="selector-class">.container</span>&#123;</span><br><span class="line">          <span class="attribute">display</span>: table;</span><br><span class="line">          <span class="attribute">width</span>: <span class="number">100%</span>;</span><br><span class="line">      &#125;</span><br><span class="line">      <span class="selector-class">.container</span>&gt;<span class="selector-tag">div</span>&#123;</span><br><span class="line">          <span class="attribute">display</span>: table-cell;</span><br><span class="line">      &#125;</span><br><span class="line">      <span class="selector-class">.left</span>,<span class="selector-class">.right</span>&#123;</span><br><span class="line">          <span class="attribute">width</span>: <span class="number">200px</span>;</span><br><span class="line">          <span class="attribute">max-width</span>: <span class="number">200px</span>;</span><br><span class="line">          <span class="attribute">min-width</span>: <span class="number">200px</span>;</span><br><span class="line">      &#125;</span><br><span class="line">  &lt;/style&gt; --&gt;</span><br></pre></td></tr></table></figure>
+
+
+<figure class="highlight css"><table><tr><td class="code"><pre><span class="line">&lt;!--常用<span class="number">2</span>--&gt;</span><br><span class="line">  &lt;style&gt;</span><br><span class="line">      <span class="selector-class">.container</span>&#123;</span><br><span class="line">          <span class="attribute">padding</span>: <span class="number">0</span> <span class="number">200px</span>;</span><br><span class="line">          <span class="attribute">box-sizing</span>: border-box;</span><br><span class="line">          <span class="attribute">background-color</span>: <span class="number">#eee</span>;</span><br><span class="line">          <span class="attribute">font-size</span>: <span class="number">0</span>;</span><br><span class="line">          <span class="attribute">position</span>: relative;</span><br><span class="line">      &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">      <span class="selector-class">.center</span>&#123;</span><br><span class="line">          <span class="attribute">width</span>:<span class="number">100%</span>;</span><br><span class="line">         </span><br><span class="line">      &#125;</span><br><span class="line">      <span class="selector-class">.left</span>,<span class="selector-class">.right</span>&#123;</span><br><span class="line">          <span class="attribute">width</span>:<span class="number">200px</span>;</span><br><span class="line">      &#125;</span><br><span class="line">     <span class="selector-class">.left</span>&#123;</span><br><span class="line">         <span class="attribute">position</span>: absolute;</span><br><span class="line">         <span class="attribute">left</span>:<span class="number">0</span>;</span><br><span class="line">         <span class="attribute">top</span>:<span class="number">0</span>;</span><br><span class="line">     &#125;</span><br><span class="line">     <span class="selector-class">.right</span>&#123;</span><br><span class="line">         <span class="attribute">position</span>: absolute;</span><br><span class="line">         <span class="attribute">right</span>: <span class="number">0</span>;</span><br><span class="line">         <span class="attribute">top</span>: <span class="number">0</span>;</span><br><span class="line">     &#125;</span><br><span class="line">  &lt;/style&gt;</span><br></pre></td></tr></table></figure>
+
+
+<figure class="highlight css"><table><tr><td class="code"><pre><span class="line">calc(<span class="number">100%</span> - <span class="number">200px</span>)</span><br></pre></td></tr></table></figure>
+
+
+<figure class="highlight css"><table><tr><td class="code"><pre><span class="line">&lt;!--常用<span class="number">1</span>--&gt;</span><br><span class="line">&lt;!--   &lt;style&gt;</span><br><span class="line">      <span class="selector-class">.container</span>&#123;</span><br><span class="line">          <span class="attribute">padding</span>: <span class="number">0</span> <span class="number">200px</span>;</span><br><span class="line">          <span class="attribute">box-sizing</span>: border-box;</span><br><span class="line">          <span class="attribute">background-color</span>: <span class="number">#eee</span>;</span><br><span class="line">          <span class="attribute">font-size</span>: <span class="number">0</span>;</span><br><span class="line">      &#125;</span><br><span class="line">      <span class="selector-class">.container</span>:after&#123;</span><br><span class="line">          content:<span class="string">&#x27;&#x27;</span>;</span><br><span class="line">           <span class="attribute">display</span>: block;</span><br><span class="line">           <span class="attribute">clear</span>: both;</span><br><span class="line">      &#125;</span><br><span class="line">      <span class="selector-class">.container</span>&gt;<span class="selector-tag">div</span>&#123;</span><br><span class="line">          <span class="attribute">float</span>: left;</span><br><span class="line">          <span class="attribute">font-size</span>: <span class="number">16px</span>;</span><br><span class="line">      &#125;</span><br><span class="line">      <span class="selector-class">.center</span>&#123;</span><br><span class="line">          <span class="attribute">width</span>:<span class="number">100%</span>;</span><br><span class="line">      &#125;</span><br><span class="line">      <span class="selector-class">.left</span>,<span class="selector-class">.right</span>&#123;</span><br><span class="line">          <span class="attribute">width</span>:<span class="number">200px</span>;</span><br><span class="line">      &#125;</span><br><span class="line">      <span class="selector-class">.left</span>&#123;</span><br><span class="line">          <span class="attribute">margin-left</span>: -<span class="number">100%</span>;</span><br><span class="line">          <span class="attribute">position</span>: relative;</span><br><span class="line">          <span class="attribute">left</span>: -<span class="number">200px</span>;</span><br><span class="line">      &#125;</span><br><span class="line">      <span class="selector-class">.right</span>&#123;</span><br><span class="line">          <span class="attribute">margin-left</span>:-<span class="number">200px</span>;</span><br><span class="line">          <span class="attribute">position</span>: relative;</span><br><span class="line">          <span class="attribute">left</span>: <span class="number">200px</span>;</span><br><span class="line">      &#125;</span><br><span class="line">  &lt;/style&gt; --&gt;</span><br></pre></td></tr></table></figure>
+
+
+<blockquote>
+<p>HTML代码如下 </p>
+</blockquote>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;container&quot;</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;center&quot;</span>&gt;</span>center<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">         <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;left&quot;</span>&gt;</span>left<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">         <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;right&quot;</span>&gt;</span>right<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br></pre></td></tr></table></figure>
+]]></content>
+      <tags>
+        <tag>html</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>你不知道的css</title>
+    <url>/2021/05/17/%E4%BD%A0%E4%B8%8D%E7%9F%A5%E9%81%93%E7%9A%84css/</url>
+    <content><![CDATA[<h3 id="css选择前几个元素或者后几个元素"><a href="#css选择前几个元素或者后几个元素" class="headerlink" title="css选择前几个元素或者后几个元素"></a>css选择前几个元素或者后几个元素</h3><figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">style</span> <span class="attr">type</span>=<span class="string">&quot;text/css&quot;</span>&gt;</span></span><br><span class="line"><span class="css">			<span class="selector-id">#nth-test</span> <span class="selector-tag">div</span><span class="selector-pseudo">:nth-child</span>(-n + <span class="number">4</span>) &#123;</span></span><br><span class="line"><span class="css">				<span class="attribute">background-color</span>: red;</span></span><br><span class="line">			&#125;</span><br><span class="line">		<span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line">#nth-test div:nth-child(n + 3) &#123;</span><br><span class="line">	background-color: red;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+]]></content>
+      <tags>
+        <tag>css</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>了解下angular第一弹</title>
     <url>/2021/02/21/%E4%BA%86%E8%A7%A3%E4%B8%8Bangular%E7%AC%AC%E4%B8%80%E5%BC%B9/</url>
     <content><![CDATA[<blockquote>
@@ -1342,16 +1362,6 @@
 ]]></content>
       <tags>
         <tag>百度地图</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>你不知道的css</title>
-    <url>/2021/05/17/%E4%BD%A0%E4%B8%8D%E7%9F%A5%E9%81%93%E7%9A%84css/</url>
-    <content><![CDATA[<h3 id="css选择前几个元素或者后几个元素"><a href="#css选择前几个元素或者后几个元素" class="headerlink" title="css选择前几个元素或者后几个元素"></a>css选择前几个元素或者后几个元素</h3><figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">style</span> <span class="attr">type</span>=<span class="string">&quot;text/css&quot;</span>&gt;</span></span><br><span class="line"><span class="css">			<span class="selector-id">#nth-test</span> <span class="selector-tag">div</span><span class="selector-pseudo">:nth-child</span>(-n + <span class="number">4</span>) &#123;</span></span><br><span class="line"><span class="css">				<span class="attribute">background-color</span>: red;</span></span><br><span class="line">			&#125;</span><br><span class="line">		<span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line">#nth-test div:nth-child(n + 3) &#123;</span><br><span class="line">	background-color: red;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-]]></content>
-      <tags>
-        <tag>css</tag>
       </tags>
   </entry>
   <entry>
@@ -1532,6 +1542,15 @@
       </tags>
   </entry>
   <entry>
+    <title>微信公众号在ios授权登录时，无法重写向问题？</title>
+    <url>/2021/02/21/%E5%BE%AE%E4%BF%A1%E5%85%AC%E4%BC%97%E5%8F%B7%E5%9C%A8ios%E6%8E%88%E6%9D%83%E7%99%BB%E5%BD%95%E6%97%B6%EF%BC%8C%E6%97%A0%E6%B3%95%E9%87%8D%E5%86%99%E5%90%91%E9%97%AE%E9%A2%98%EF%BC%9F/</url>
+    <content><![CDATA[<p><a class="link"   href="https://open.weixin.qq.com/connect/oauth2/authorize%EF%BC%9F%E5%9C%A8IOS%E4%B8%AD%EF%BC%8C%E8%AE%BF%E9%97%AE%E5%BE%AE%E4%BF%A1%E6%8E%88%E6%9D%83%E7%9A%84%E9%93%BE%E6%8E%A5" >Https://open.weixin.qq.com/connect/oauth2/authorize？在IOS中，访问微信授权的链接<i class="fas fa-external-link-alt"></i></a><br>Appid=APPID&amp;redirect_uri=REDIRECT_URI&amp;response_type=code&amp;scope=SCOPE&amp;state=STA<br>按照道理是会回调到重定向_uri_的，我写了我自己域名下的一个接口来接收<br>应该返回的代码，获取授权后会跳转到这里，可是IOS下授权后卡在自动登录那个界面，无法跳转，<br>进不到后台去.使用android和web开发者工具都是没问题的<br>解决方案<br>已经完成了，搞了2天，需要适配到IOS的时候，重定向_uri一定要使用http不能使用https。同时android也能使用http的。Android也能使用的</p>
+]]></content>
+      <tags>
+        <tag>微信小程序</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>快速排序</title>
     <url>/2021/02/21/%E5%BF%AB%E9%80%9F%E6%8E%92%E5%BA%8F/</url>
     <content><![CDATA[<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">&lt;meta charset=<span class="string">&quot;utf-8&quot;</span>&gt;</span><br><span class="line">&lt;title&gt;菜鸟教程(runoob.com)&lt;/title&gt;</span><br><span class="line">&lt;/head&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line">&lt;script&gt;</span><br><span class="line">	 <span class="function"><span class="keyword">function</span> <span class="title">setRandomArray</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">		 <span class="keyword">return</span> <span class="built_in">Array</span>.from(&#123;<span class="attr">length</span>:<span class="number">10</span>&#125;,<span class="function"><span class="params">item</span>=&gt;</span><span class="built_in">parseInt</span>(<span class="built_in">Math</span>.random() * <span class="number">100</span>))</span><br><span class="line">	 &#125;</span><br><span class="line">	<span class="keyword">let</span> arr1 = setRandomArray();</span><br><span class="line">	<span class="built_in">console</span>.log(arr1);</span><br><span class="line">	<span class="keyword">let</span> arr2 = orderData(arr1.concat());</span><br><span class="line">	<span class="built_in">console</span>.log(arr2);</span><br><span class="line">	<span class="function"><span class="keyword">function</span> <span class="title">orderData</span>(<span class="params">arr</span>)</span>&#123;</span><br><span class="line">	 <span class="keyword">let</span> left=[],right=[];</span><br><span class="line">	 <span class="keyword">let</span> current = arr[<span class="number">0</span>];</span><br><span class="line">	 <span class="keyword">if</span>(arr.length &lt;=<span class="number">1</span>)&#123;</span><br><span class="line">	  <span class="keyword">return</span> arr;</span><br><span class="line">	 &#125;</span><br><span class="line">   <span class="keyword">for</span>(<span class="keyword">let</span> i=<span class="number">1</span>,length = arr.length;i&lt;length;i++)&#123;</span><br><span class="line">	   <span class="keyword">if</span>(arr[i] &gt; current)&#123;</span><br><span class="line">		   right.push(arr[i]);</span><br><span class="line">		 &#125;</span><br><span class="line">		 <span class="keyword">else</span>&#123;</span><br><span class="line">			 left.push(arr[i])</span><br><span class="line">		 &#125;</span><br><span class="line">		</span><br><span class="line">	 &#125;</span><br><span class="line">		 <span class="keyword">return</span> [...orderData(left),current,...orderData(right)]</span><br><span class="line">	&#125;</span><br><span class="line">	&lt;/script&gt;</span><br><span class="line"></span><br><span class="line">&lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
@@ -1541,12 +1560,12 @@
       </tags>
   </entry>
   <entry>
-    <title>微信公众号在ios授权登录时，无法重写向问题？</title>
-    <url>/2021/02/21/%E5%BE%AE%E4%BF%A1%E5%85%AC%E4%BC%97%E5%8F%B7%E5%9C%A8ios%E6%8E%88%E6%9D%83%E7%99%BB%E5%BD%95%E6%97%B6%EF%BC%8C%E6%97%A0%E6%B3%95%E9%87%8D%E5%86%99%E5%90%91%E9%97%AE%E9%A2%98%EF%BC%9F/</url>
-    <content><![CDATA[<p><a class="link"   href="https://open.weixin.qq.com/connect/oauth2/authorize%EF%BC%9F%E5%9C%A8IOS%E4%B8%AD%EF%BC%8C%E8%AE%BF%E9%97%AE%E5%BE%AE%E4%BF%A1%E6%8E%88%E6%9D%83%E7%9A%84%E9%93%BE%E6%8E%A5" >Https://open.weixin.qq.com/connect/oauth2/authorize？在IOS中，访问微信授权的链接<i class="fas fa-external-link-alt"></i></a><br>Appid=APPID&amp;redirect_uri=REDIRECT_URI&amp;response_type=code&amp;scope=SCOPE&amp;state=STA<br>按照道理是会回调到重定向_uri_的，我写了我自己域名下的一个接口来接收<br>应该返回的代码，获取授权后会跳转到这里，可是IOS下授权后卡在自动登录那个界面，无法跳转，<br>进不到后台去.使用android和web开发者工具都是没问题的<br>解决方案<br>已经完成了，搞了2天，需要适配到IOS的时候，重定向_uri一定要使用http不能使用https。同时android也能使用http的。Android也能使用的</p>
+    <title>新的一年，新的一天</title>
+    <url>/2021/02/20/%E6%96%B0%E7%9A%84%E4%B8%80%E5%B9%B4%EF%BC%8C%E6%96%B0%E7%9A%84%E4%B8%80%E5%A4%A9/</url>
+    <content><![CDATA[<p>今天是2021/2/20 20：08分，为了更好的记录生活提升自己的专业技能，创建了这个网站，加油</p>
 ]]></content>
       <tags>
-        <tag>微信小程序</tag>
+        <tag>网站开始</tag>
       </tags>
   </entry>
   <entry>
@@ -1640,15 +1659,6 @@
 ]]></content>
       <tags>
         <tag>日常</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>新的一年，新的一天</title>
-    <url>/2021/02/20/%E6%96%B0%E7%9A%84%E4%B8%80%E5%B9%B4%EF%BC%8C%E6%96%B0%E7%9A%84%E4%B8%80%E5%A4%A9/</url>
-    <content><![CDATA[<p>今天是2021/2/20 20：08分，为了更好的记录生活提升自己的专业技能，创建了这个网站，加油</p>
-]]></content>
-      <tags>
-        <tag>网站开始</tag>
       </tags>
   </entry>
   <entry>
