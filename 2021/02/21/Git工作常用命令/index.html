@@ -251,12 +251,18 @@
 <li>git log -p 与git diff类似 ，将会把提交 日志的具体修改展示出来</li>
 </ul>
 <ul>
-<li>git log –oneline 日志简短输出 [commitid][提交描述]</li>
-</ul>
-<ul>
-<li>git log –graph 日志以图表的形式展示</li>
-<li>git show [commitid]  列出修改的文件详情内容</li>
-<li>git show [commit] –name-only  列出修改的文件，不含内容</li>
+<li><p>git log –oneline 日志简短输出 [commitid][提交描述]</p>
+</li>
+<li><p>git log –author=shao.yuhong  筛选出shao.yuhong提交的日志记录</p>
+</li>
+<li><p>git log –graph 日志以图表的形式展示</p>
+</li>
+<li><p>git log –author=shao.yuhong –name-only  混用查看shao.yuhong提交的日志记录，且只列出提交的文件列表</p>
+</li>
+<li><p>git show [commitid]  列出修改的文件详情内容</p>
+</li>
+<li><p>git show [commit] –name-only  列出修改的文件，不含内容</p>
+</li>
 </ul>
 <ul>
 <li>文件状态：both Modiffed 冲突文件 Moddifile 编辑的文件 new file 新增文件，未被追踪的文件</li>
