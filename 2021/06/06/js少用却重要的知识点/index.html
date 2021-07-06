@@ -198,7 +198,7 @@
 <p>主要关注下第三个参数，可以设置为bool类型（useCapture）或者object类型(options)。</p>
 <ul>
 <li>options包括三个布尔值选项：<ul>
-<li>capture: 默认值为false（即 使用事件冒泡）<strong>btn&gt;box&gt;body&gt;window</strong>. 是否使用事件捕获<strong>window&gt;body&gt;box&gt;btn</strong>；</li>
+<li>capture: 默认值为false（即 使用事件冒泡）<strong>btn&gt;box&gt;body&gt;window</strong>. true是否使用事件捕获<strong>window&gt;body&gt;box&gt;btn</strong>；</li>
 <li>once: 默认值为false. 是否只调用一次，if true，会在调用后自动销毁listener</li>
 <li>passive: if true, 意味着listener不能调用preventDefault方法，如果又确实调用了的话，浏览器只会console一个warning，而不会真的去执行preventDefault方法。<strong>根据规范，默认值为false. 但是chrome, Firefox等浏览器为了保证滚动时的性能，在document-level nodes(Window, Document, Document.body)上针对touchstart和touchmove事件将passive默认值改为了true</strong>， 保证了在页面滚动时不会因为自定义事件中调用了preventDefault而阻塞页面渲染。</li>
 </ul>
@@ -214,6 +214,8 @@
 <h3 id="base64转文件流"><a href="#base64转文件流" class="headerlink" title="base64转文件流"></a>base64转文件流</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> img = <span class="keyword">new</span> Image();</span><br><span class="line">img.src = base64;</span><br><span class="line"><span class="keyword">const</span> fd = <span class="keyword">new</span> formData();</span><br><span class="line">fd.appendChild(<span class="string">&#x27;file&#x27;</span>,fd);</span><br></pre></td></tr></table></figure>
 
 
+<h3 id="bind的用法"><a href="#bind的用法" class="headerlink" title=".bind的用法"></a>.bind的用法</h3><p>.bind除了拥有修改this指针外,还能将额外的参数与原生的事件参数合并一起传入到形参</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> obj = &#123;</span><br><span class="line">    name:<span class="string">&#x27;obj name&#x27;</span></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">fn</span>(<span class="params">...arg</span>)</span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="built_in">this</span>); <span class="comment">//obj</span></span><br><span class="line">  <span class="built_in">console</span>.log(arg);  <span class="comment">//[&#x27;shao.yuhong&#x27;,mouseEvent]</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">document</span>.querySelector(<span class="string">&quot;h1&quot;</span>).onclick=fn.bind(obj,<span class="string">&#x27;shao.yuhong&#x27;</span>);</span><br></pre></td></tr></table></figure>
 
         </div>
 
