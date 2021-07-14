@@ -10,8 +10,6 @@
     
     <title>
         
-            2021年5月13日离开中兴通讯，离开的身影是我向前的脚步 |
-        
         邵预鸿|前端开发技术笔记
     </title>
     <link rel="stylesheet" href="/css/style.css">
@@ -135,7 +133,7 @@
     <div class="article-content-container">
 
         <div class="article-title">
-            <span class="title-hover-animation">2021年5月13日离开中兴通讯，离开的身影是我向前的脚步</span>
+            <span class="title-hover-animation"></span>
         </div>
 
         
@@ -153,20 +151,9 @@
                     <div class="meta-info">
                         <div class="article-meta-info">
     <span class="article-date article-meta-item">
-        <i class="fas fa-edit"></i>&nbsp;2021-05-17 15:45:13
+        <i class="fas fa-edit"></i>&nbsp;2021-07-13 11:10:00
     </span>
     
-    
-        <span class="article-tags article-meta-item">
-            <i class="fas fa-tags"></i>&nbsp;
-            <ul>
-                
-                    <li>
-                        <a href="/tags/%E8%AE%B0%E5%AE%9E/">记实</a>&nbsp;
-                    </li>
-                
-            </ul>
-        </span>
     
 
     
@@ -181,9 +168,42 @@
         
 
         <div class="article-content markdown-body">
-            <p>2021年5月13日，我离开了中兴通讯，下午，收拾好我的小物品，提着袋子我迈出了中兴大楼。</p>
-<p>人生总是这样，不断的错过，不断的遇见。</p>
-<p>感谢这一年中兴对自己的培养，阳光照亮的前方，便是我向前的方向，去经历，去热爱。</p>
+            <p>title: 你不知道的css<br>date: 2021-05-17 10:51:00<br>tags: css</p>
+<h4 id="css选择前几个元素或者后几个元素"><a href="#css选择前几个元素或者后几个元素" class="headerlink" title="css选择前几个元素或者后几个元素"></a>css选择前几个元素或者后几个元素</h4><p>操作前4个元素</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;style type=&quot;text/css&quot;&gt;</span><br><span class="line">			<span class="selector-id">#nth-test</span> <span class="selector-tag">div</span><span class="selector-pseudo">:nth-child</span>(-n + <span class="number">4</span>) &#123;</span><br><span class="line">				<span class="attribute">background-color</span>: red;</span><br><span class="line">			&#125;</span><br><span class="line">		&lt;/style&gt;</span><br></pre></td></tr></table></figure>
+
+
+<p>操作元素3之后的元素</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-id">#nth-test</span> <span class="selector-tag">div</span><span class="selector-pseudo">:nth-child</span>(n + <span class="number">3</span>) &#123;</span><br><span class="line">	<span class="attribute">background-color</span>: red;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+<p><strong>text-decoration: line-through wavy red; **   //三个参数，*** 1：下划线、删除线； 2：wavy代表波浪线; 3:线条颜色*</strong></p>
+<h4 id="给文字加边框"><a href="#给文字加边框" class="headerlink" title="给文字加边框"></a>给文字加边框</h4><p>通常，<code>border</code> 属性是为 HTML 元素加上边框的不二选择，但这个边框是基于盒子模型，即呈现在元素的四周，无法对盒子内的文字生效。</p>
+<p>假设我想让文字带有 1px 的黑色边框，首选 <a class="link"   href="https://link.juejin.cn/?target=https://developer.mozilla.org/en-US/docs/Web/CSS/text-shadow" >text-shadow<i class="fas fa-external-link-alt"></i></a> ，它能设置多个文字阴影，从视觉上达到边框效果。</p>
+<p>HTML 代码如下：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;text&quot;</span>&gt;</span>I Like CSS World<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">复制代码</span><br></pre></td></tr></table></figure>
+<p>CSS 代码很简单，将 <code>text-shadow</code> 的 blur 值设为 <code>0</code>，分别向<strong>右下、左上、右上、左下方向偏移 1px</strong>.</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.text</span> &#123;</span><br><span class="line">  <span class="attribute">color</span>: white;</span><br><span class="line">  <span class="attribute">font-size</span>: <span class="number">4em</span>;</span><br><span class="line">  <span class="attribute">text-shadow</span>: <span class="number">1px</span> <span class="number">1px</span> <span class="number">0px</span> black, -<span class="number">1px</span> -<span class="number">1px</span> <span class="number">0px</span> black, <span class="number">1px</span> -<span class="number">1px</span> <span class="number">0px</span> black, -<span class="number">1px</span></span><br><span class="line">      <span class="number">1px</span> <span class="number">0px</span> black;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/7d5c5826a8794843bf44c41d8df431d2~tplv-k3u1fbpfcp-zoom-1.image"
+                      alt="img"
+                ></p>
+<p><a class="link"   href="https://link.juejin.cn/?target=https://codepen.io/b2d1/pen/GRmqqMa" >CodePen 在线预览地址<i class="fas fa-external-link-alt"></i></a></p>
+<p><code>text-shadow</code> 兼容所有现代浏览器，但仔细观察，会发现边缘处有锯齿状，毕竟是模拟实现，效果差强人意。</p>
+<p>第二种方法选用 <a class="link"   href="https://link.juejin.cn/?target=https://developer.mozilla.org/en-US/docs/Web/CSS/-webkit-text-stroke" >-webkit-text-stroke<i class="fas fa-external-link-alt"></i></a> 属性，字面意思就是为文字加上边框。</p>
+<p>它是 <code>-webkit-text-stroke-width</code> 和 <code>-webkit-text-stroke-text</code> 两个属性的缩写形式。</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.text</span> &#123;</span><br><span class="line">  <span class="attribute">color</span>: white;</span><br><span class="line">  <span class="attribute">font-size</span>: <span class="number">4em</span>;</span><br><span class="line">  -webkit-text-stroke: <span class="number">1px</span> black;</span><br><span class="line">&#125;</span><br><span class="line">复制代码</span><br></pre></td></tr></table></figure>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/406b8ca74a734c1eb6744aa41575b14f~tplv-k3u1fbpfcp-zoom-1.image"
+                      alt="img"
+                ></p>
+<p><a class="link"   href="https://link.juejin.cn/?target=https://codepen.io/b2d1/pen/zYwBBLR" >CodePen 在线预览地址<i class="fas fa-external-link-alt"></i></a></p>
+<p><strong><code>-webkit-text-stroke</code> 使用简单，效果出色。</strong></p>
+<p>但相信你也注意到了 “webkit”，一般带有前缀的属性兼容性较差，又或非 CSS 官方认定的属性（浏览器厂商自己实现），最好不要在生产环境使用它。</p>
 
         </div>
 
@@ -191,11 +211,11 @@
             <div class="post-copyright-info">
                 <div class="article-copyright-info-container">
     <ul>
-        <li>本文标题：2021年5月13日离开中兴通讯，离开的身影是我向前的脚步</li>
+        <li>本文标题：</li>
         <li>本文作者：邵预鸿</li>
-        <li>创建时间：2021-05-17 15:45:13</li>
+        <li>创建时间：2021-07-13 11:10:00</li>
         <li>
-            本文链接：/images/logo.jpg2021/05/17/2021年5月13日离开中兴通讯，离开的身影是我向前的脚步/
+            本文链接：/images/logo.jpg2021/07/13/你不知道的css/
         </li>
         <li>
             版权声明：本博客所有文章除特别声明外，均采用 <a class="license" target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">BY-NC-SA</a> 许可协议。转载请注明出处！
@@ -212,13 +232,13 @@
                     <div class="article-prev">
                         <a class="prev"
                            rel="prev"
-                           href="/2021/05/25/iframe%E7%9A%84%E9%80%9A%E4%BF%A1/"
+                           href="/2021/07/13/%E4%BA%A7%E5%93%81%E7%BB%8F%E7%90%86%EF%BC%9A%E4%BD%A0%E8%83%BD%E4%B8%8D%E8%83%BD%E7%94%A8div%E7%BB%99%E6%88%91%E7%94%BB%E6%9D%A1%E9%BE%99%EF%BC%9F/"
                         >
                             <span class="left arrow-icon flex-center">
                               <i class="fas fa-chevron-left"></i>
                             </span>
                             <span class="title flex-center">
-                                <span class="post-nav-title-item">iframe的通信</span>
+                                <span class="post-nav-title-item">产品经理：你能不能用div给我画条龙？</span>
                                 <span class="post-nav-item">上一篇</span>
                             </span>
                         </a>
@@ -228,10 +248,10 @@
                     <div class="article-next">
                         <a class="next"
                            rel="next"
-                           href="/2021/05/14/vue%E4%BD%BF%E7%94%A8ts%E8%AF%B4%E6%98%8E/"
+                           href="/2021/07/13/js%E5%A4%A7%E6%96%87%E4%BB%B6%E4%B8%8A%E4%BC%A0%E6%97%B6%E7%9A%84%E5%88%87%E7%89%87%E4%B8%8A%E4%BC%A0/"
                         >
                             <span class="title flex-center">
-                                <span class="post-nav-title-item">vue使用ts说明</span>
+                                <span class="post-nav-title-item">js大文件上传时的切片上传</span>
                                 <span class="post-nav-item">下一篇</span>
                             </span>
                             <span class="right arrow-icon flex-center">

@@ -10,7 +10,7 @@
     
     <title>
         
-            你不知道的css |
+            let没有变量提升？X |
         
         邵预鸿|前端开发技术笔记
     </title>
@@ -135,7 +135,7 @@
     <div class="article-content-container">
 
         <div class="article-title">
-            <span class="title-hover-animation">你不知道的css</span>
+            <span class="title-hover-animation">let没有变量提升？X</span>
         </div>
 
         
@@ -153,7 +153,7 @@
                     <div class="meta-info">
                         <div class="article-meta-info">
     <span class="article-date article-meta-item">
-        <i class="fas fa-edit"></i>&nbsp;2021-05-17 10:51:00
+        <i class="fas fa-edit"></i>&nbsp;2021-07-14 10:40:17
     </span>
     
     
@@ -162,7 +162,7 @@
             <ul>
                 
                     <li>
-                        <a href="/tags/css/">css</a>&nbsp;
+                        <a href="/tags/js/">js</a>&nbsp;
                     </li>
                 
             </ul>
@@ -181,9 +181,20 @@
         
 
         <div class="article-content markdown-body">
-            <h3 id="css选择前几个元素或者后几个元素"><a href="#css选择前几个元素或者后几个元素" class="headerlink" title="css选择前几个元素或者后几个元素"></a>css选择前几个元素或者后几个元素</h3><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">style</span> <span class="attr">type</span>=<span class="string">&quot;text/css&quot;</span>&gt;</span></span><br><span class="line"><span class="css">			<span class="selector-id">#nth-test</span> <span class="selector-tag">div</span><span class="selector-pseudo">:nth-child</span>(-n + <span class="number">4</span>) &#123;</span></span><br><span class="line"><span class="css">				<span class="attribute">background-color</span>: red;</span></span><br><span class="line">			&#125;</span><br><span class="line">		<span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">#nth-test div:nth-child(n + 3) &#123;</span><br><span class="line">	background-color: red;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>text-decoration: line-through wavy red;   //三个参数，1：下划线、删除线； 2：wavy代表波浪线; 3:线条颜色</p>
+            <h3 id="证明var声明存在变量提升"><a href="#证明var声明存在变量提升" class="headerlink" title="证明var声明存在变量提升"></a>证明var声明存在变量提升</h3><p>通常我们是这样子来证明var存在变量提升的。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">fn</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(a) <span class="comment">// undefined</span></span><br><span class="line">    <span class="keyword">var</span> a = <span class="number">12</span></span><br><span class="line">&#125;</span><br><span class="line">fn()</span><br><span class="line">复制代码</span><br></pre></td></tr></table></figure>
+<p>为什么这段代码会输出undefined，而不是报错呢？</p>
+<p>原因就是js在创建执行上下文时，会检查代码，找出变量声明和函数声明，并将函数声明完全存储在环境中，而将通过var声明的变量设定为undefined，这就是所谓的变量提升。从字面上理解就是变量和函数声明会被移动到函数或者全局代码的开头位置。</p>
+<p>那么当我们将var替换为let时，结果又会如何？</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">fn</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(a) <span class="comment">// Uncaught ReferenceError: a is not defined</span></span><br><span class="line">    <span class="keyword">let</span> a = <span class="number">12</span></span><br><span class="line">&#125;</span><br><span class="line">fn()</span><br><span class="line">复制代码</span><br></pre></td></tr></table></figure>
+<p>意料之中，代码报错了。很多人通过这个反例，便认为let没有变量提升，但其实这是错误的。上面举的例子只能证明，var存在变量提升，但是并不能证明let不存在变量提升。</p>
+<h3 id="证明let声明存在变量提升"><a href="#证明let声明存在变量提升" class="headerlink" title="证明let声明存在变量提升"></a>证明let声明存在变量提升</h3><p>我们再举一个例子：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> x = <span class="string">&#x27;parent value&#x27;</span>;</span><br><span class="line">(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(x); <span class="comment">// parent value</span></span><br><span class="line">&#125;())</span><br><span class="line">复制代码</span><br></pre></td></tr></table></figure>
+<p>代码会输出parent value，原因很简单，涉及到了<strong>作用域链</strong>的知识。在匿名函数作用域中没有找到x变量，便会沿着作用域链，找到父级作用域，然后便再父级作用域中找到了x变量，并输出。</p>
+<p>接着我们在匿名函数中，加入let进行变量声明，此时结果会是如何呢？</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> x = <span class="string">&#x27;parent value&#x27;</span>;</span><br><span class="line">(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(x); <span class="comment">// Uncaught ReferenceError: x is not defined</span></span><br><span class="line">  <span class="keyword">let</span> x = <span class="string">&#x27;child value&#x27;</span></span><br><span class="line">&#125;())</span><br><span class="line">复制代码</span><br></pre></td></tr></table></figure>
+<p>想不到吧！此时的代码又会报错了，从这里其实可以看出let也是存在<strong>变量提升</strong>的，知识在变量显式赋值之前不能对变量进行读写，否则就会报错，这也就是所谓的let和const的<strong>暂时性死区</strong>。</p>
+<p>作者：37.2℃同志链接：<a class="link"   target="_blank" rel="noopener" href="https://juejin.cn/post/6983702070293430303%E6%9D%A5%E6%BA%90%EF%BC%9A%E6%8E%98%E9%87%91%E8%91%97%E4%BD%9C%E6%9D%83%E5%BD%92%E4%BD%9C%E8%80%85%E6%89%80%E6%9C%89%E3%80%82%E5%95%86%E4%B8%9A%E8%BD%AC%E8%BD%BD%E8%AF%B7%E8%81%94%E7%B3%BB%E4%BD%9C%E8%80%85%E8%8E%B7%E5%BE%97%E6%8E%88%E6%9D%83%EF%BC%8C%E9%9D%9E%E5%95%86%E4%B8%9A%E8%BD%AC%E8%BD%BD%E8%AF%B7%E6%B3%A8%E6%98%8E%E5%87%BA%E5%A4%84%E3%80%82" >https://juejin.cn/post/6983702070293430303来源：掘金著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。<i class="fas fa-external-link-alt"></i></a></p>
 
         </div>
 
@@ -191,11 +202,11 @@
             <div class="post-copyright-info">
                 <div class="article-copyright-info-container">
     <ul>
-        <li>本文标题：你不知道的css</li>
+        <li>本文标题：let没有变量提升？X</li>
         <li>本文作者：邵预鸿</li>
-        <li>创建时间：2021-05-17 10:51:00</li>
+        <li>创建时间：2021-07-14 10:40:17</li>
         <li>
-            本文链接：/images/logo.jpg2021/05/17/你不知道的css/
+            本文链接：/images/logo.jpg2021/07/14/let没有变量提升？X/
         </li>
         <li>
             版权声明：本博客所有文章除特别声明外，均采用 <a class="license" target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">BY-NC-SA</a> 许可协议。转载请注明出处！
@@ -209,29 +220,14 @@
         
             <div class="article-nav">
                 
-                    <div class="article-prev">
-                        <a class="prev"
-                           rel="prev"
-                           href="/2021/05/17/2021%E5%B9%B45%E6%9C%8813%E6%97%A5%E7%A6%BB%E5%BC%80%E4%B8%AD%E5%85%B4%E9%80%9A%E8%AE%AF%EF%BC%8C%E7%A6%BB%E5%BC%80%E7%9A%84%E8%BA%AB%E5%BD%B1%E6%98%AF%E6%88%91%E5%90%91%E5%89%8D%E7%9A%84%E8%84%9A%E6%AD%A5/"
-                        >
-                            <span class="left arrow-icon flex-center">
-                              <i class="fas fa-chevron-left"></i>
-                            </span>
-                            <span class="title flex-center">
-                                <span class="post-nav-title-item">2021年5月13日离开中兴通讯，离开的身影是我向前的脚步</span>
-                                <span class="post-nav-item">上一篇</span>
-                            </span>
-                        </a>
-                    </div>
-                
                 
                     <div class="article-next">
                         <a class="next"
                            rel="next"
-                           href="/2021/05/14/vue%E4%BD%BF%E7%94%A8ts%E8%AF%B4%E6%98%8E/"
+                           href="/2021/07/13/%E4%BA%A7%E5%93%81%E7%BB%8F%E7%90%86%EF%BC%9A%E4%BD%A0%E8%83%BD%E4%B8%8D%E8%83%BD%E7%94%A8div%E7%BB%99%E6%88%91%E7%94%BB%E6%9D%A1%E9%BE%99%EF%BC%9F/"
                         >
                             <span class="title flex-center">
-                                <span class="post-nav-title-item">vue使用ts说明</span>
+                                <span class="post-nav-title-item">产品经理：你能不能用div给我画条龙？</span>
                                 <span class="post-nav-item">下一篇</span>
                             </span>
                             <span class="right arrow-icon flex-center">
