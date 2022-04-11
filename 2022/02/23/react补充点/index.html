@@ -1,0 +1,725 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="baidu-site-verification" content="code-YfBAOEVVQH" />
+    <meta name="keywords" content="邵预鸿,前端开发工程师,技术博客,生活记录,生活日常,个人简历,日常规划">
+    <meta name="description" content="入职中兴通讯，一名低调资深的ctrl+c and ctrl+v开发者">
+    <meta name="author" content="邵预鸿">
+    
+    <title>
+        
+            react补充点 |
+        
+        邵预鸿|前端开发技术笔记
+    </title>
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="shortcut icon" href="/images/logo.jpg">
+    <link rel="stylesheet" href="/css/font-awesome.min.css">
+    <script id="hexo-configurations">
+    let KEEP = window.KEEP || {};
+    KEEP.hexo_config = {"hostname":"github.com","root":"/","language":"zh-CN","path":"search.xml"};
+    KEEP.theme_config = {"toc":{"enable":false,"number":false,"expand_all":false,"init_open":false},"style":{"primary_color":"#0066CC","avatar":"/images/logo.jpg","favicon":"/images/logo.jpg","article_img_align":"left","left_side_width":"260px","content_max_width":"920px","hover":{"shadow":true,"scale":false},"first_screen":{"enable":true,"background_img":"/images/bg.svg","description":"积累硅步，可至千里；千里之行，始于足下"},"scroll":{"progress_bar":{"enable":true},"percent":{"enable":true}}},"local_search":{"enable":true,"preload":true},"code_copy":{"enable":true,"style":"default"},"pjax":{"enable":false},"lazyload":{"enable":true},"version":"3.4.0"};
+    KEEP.language_ago = {"second":"%s 秒前","minute":"%s 分钟前","hour":"%s 小时前","day":"%s 天前","week":"%s 周前","month":"%s 月前","year":"%s 年前"};
+  </script>
+<meta name="generator" content="Hexo 5.3.0"></head>
+
+
+<body>
+<!--
+ * @Description: file content
+ * @Author: yuhongshao
+ * @Date: 2021-02-20 19:33:18
+ * @email: yuhongshao@tencent.com
+ * @LastEditTime: 2022-03-30 10:24:37
+-->
+<div class="progress-bar-container">
+    
+        <span class="scroll-progress-bar"></span>
+    
+
+    
+</div>
+
+
+<main class="page-container">
+
+  
+
+  <div class="page-main-content">
+
+    <div class="page-main-content-top">
+      <header class="header-wrapper">
+
+    <div class="header-content">
+        <div class="left">
+            <a class="logo-title" href="/">
+                邵预鸿|前端开发技术笔记
+            </a>
+        </div>
+
+        <div class="right">
+            <div class="pc">
+                <ul class="menu-list">
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/"
+                            >
+                                主页
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/archives"
+                            >
+                                历年汇总
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/about"
+                            >
+                                关于我
+                            </a>
+                        </li>
+                    
+                    
+                        <li class="menu-item search search-popup-trigger">
+                            <i class="fas fa-search"></i>
+                        </li>
+                    
+                </ul>
+            </div>
+            <div class="mobile">
+                
+                    <div class="icon-item search search-popup-trigger"><i class="fas fa-search"></i></div>
+                
+                <div class="icon-item menu-bar">
+                    <div class="menu-bar-middle"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="header-drawer">
+        <ul class="drawer-menu-list">
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/">主页</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/archives">历年汇总</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/about">关于我</a>
+                </li>
+            
+        </ul>
+    </div>
+
+    <div class="window-mask"></div>
+
+</header>
+
+
+    </div>
+    <style>
+      .article-title-list {
+        position: fixed;
+        left: 80px;
+        top: 110px;
+        z-index: 100;
+        width: 250px;
+        max-height: calc(100% - 144px);
+        overflow: auto;
+      }
+
+      .article-title-list h1,
+      .article-title-list h2,
+      .article-title-list h3,
+      .article-title-list h4,
+      .article-title-list h5,
+      .article-title-list h6 {
+        box-sizing: border-box;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        overflow: hidden;
+        color: #686868;
+        font-weight: normal;
+        line-height: 1;
+        cursor: pointer;
+      }
+
+      .article-title-list h1 {
+        font-size: 22px;
+      }
+
+      .article-title-list h2 {
+        padding-left: 20px;
+        font-size: 20px;
+      }
+
+      .article-title-list h3 {
+        padding-left: 40px;
+        font-size: 18px;
+      }
+
+      .article-title-list h4 {
+        padding-left: 60px;
+        font-size: 16px;
+      }
+
+      .article-title-list h5 {
+        padding-left: 80px;
+        font-size: 14px;
+      }
+
+      .article-title-list h6 {
+        padding-left: 100px;
+        font-size: 12px;
+      }
+
+    </style>
+    <div class="article-title-list">
+    </div>
+
+    <div class="page-main-content-middle">
+
+      <div class="main-content">
+
+        
+        <div class="fade-in-down-animation">
+  <div class="article-content-container">
+
+    <div class="article-title">
+      <span class="title-hover-animation">react补充点</span>
+    </div>
+
+    
+    <div class="article-header">
+      <div class="avatar">
+        <img src="/images/logo.jpg">
+      </div>
+      <div class="info">
+        <div class="author">
+          <span class="name">邵预鸿</span>
+          
+          <span
+            class="author-label">Lv4</span>
+          
+        </div>
+        <div class="meta-info">
+          <div class="article-meta-info">
+    <span class="article-date article-meta-item">
+        <i class="fas fa-edit"></i>&nbsp;2022-02-23 22:15:24
+    </span>
+    
+    
+        <span class="article-tags article-meta-item">
+            <i class="fas fa-tags"></i>&nbsp;
+            <ul>
+                
+                    <li>
+                        <a href="/tags/react/">react</a>&nbsp;
+                    </li>
+                
+            </ul>
+        </span>
+    
+
+    
+    
+    
+    
+</div>
+
+        </div>
+      </div>
+    </div>
+    
+
+    <div class="article-content markdown-body">
+      <h2 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h2><p>如果您熟悉 JavaScript 生态系统、React 和 React Router，这可以作为 React Router v6 的快速概览，其中包含大量代码和最少的解释。</p>
+<ul>
+<li>有关 React Router 的完整介绍，请参阅<a class="link"   target="_blank" rel="noopener" href="https://reactrouter.com/docs/en/v6/getting-started/tutorial" >教程<i class="fas fa-external-link-alt"></i></a></li>
+<li>有关每个 API 的大量文档，请参阅<a class="link"   target="_blank" rel="noopener" href="https://reactrouter.com/docs/en/v6/api" >API 参考<i class="fas fa-external-link-alt"></i></a></li>
+<li>有关概念的更深入理解，请参阅<a class="link"   target="_blank" rel="noopener" href="https://reactrouter.com/docs/en/v6/getting-started/concepts" >主要概念<i class="fas fa-external-link-alt"></i></a></li>
+</ul>
+<h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install react-router-dom@6</span><br></pre></td></tr></table></figure>
+<h2 id="配置路由"><a href="#配置路由" class="headerlink" title="配置路由"></a>配置路由</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; render &#125; <span class="keyword">from</span> <span class="string">&quot;react-dom&quot;</span>;</span><br><span class="line"><span class="keyword">import</span> &#123;</span><br><span class="line">  BrowserRouter,</span><br><span class="line">  Routes,</span><br><span class="line">  Route,</span><br><span class="line">&#125; <span class="keyword">from</span> <span class="string">&quot;react-router-dom&quot;</span>;</span><br><span class="line"><span class="comment">// import your route components too</span></span><br><span class="line"></span><br><span class="line">render(</span><br><span class="line">  &lt;BrowserRouter&gt;</span><br><span class="line">    &lt;Routes&gt;</span><br><span class="line">      &lt;Route path=<span class="string">&quot;/&quot;</span> element=&#123;<span class="xml"><span class="tag">&lt;<span class="name">App</span> /&gt;</span></span>&#125;&gt;</span><br><span class="line">        &lt;Route index element=&#123;<span class="xml"><span class="tag">&lt;<span class="name">Home</span> /&gt;</span></span>&#125; /&gt;</span><br><span class="line">        &lt;Route path=<span class="string">&quot;teams&quot;</span> element=&#123;<span class="xml"><span class="tag">&lt;<span class="name">Teams</span> /&gt;</span></span>&#125;&gt;</span><br><span class="line">          &lt;Route path=<span class="string">&quot;:teamId&quot;</span> element=&#123;<span class="xml"><span class="tag">&lt;<span class="name">Team</span> /&gt;</span></span>&#125; /&gt;</span><br><span class="line">          &lt;Route path=<span class="string">&quot;new&quot;</span> element=&#123;<span class="xml"><span class="tag">&lt;<span class="name">NewTeamForm</span> /&gt;</span></span>&#125; /&gt;</span><br><span class="line">          &lt;Route index element=&#123;<span class="xml"><span class="tag">&lt;<span class="name">LeagueStandings</span> /&gt;</span></span>&#125; /&gt;</span><br><span class="line">        &lt;/Route&gt;</span><br><span class="line">      &lt;/Route&gt;</span><br><span class="line">    &lt;/Routes&gt;</span><br><span class="line">  &lt;/BrowserRouter&gt;,</span><br><span class="line">  <span class="built_in">document</span>.getElementById(<span class="string">&quot;root&quot;</span>)</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
+<p>在以前版本的 React Router 中，当多个路由匹配一个不明确的 URL 时，您必须以某种方式对路由进行排序，以便获得正确的渲染。V6 更智能，并且会选择最具体的匹配，因此您不必再担心了。例如，URL<code>/teams/new</code>匹配这两个路由：</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&lt;Route path=&quot;teams/:teamId&quot; element=&#123;&lt;Team /&gt;&#125; /&gt;</span><br><span class="line">&lt;Route path=&quot;teams/new&quot; element=&#123;&lt;NewTeamForm /&gt;&#125; /&gt;</span><br></pre></td></tr></table></figure>
+<p>但是<code>teams/new</code>是比 更具体的匹配<code>/teams/:teamId</code>，所以<code>&lt;NewTeamForm /&gt;</code>会渲染。</p>
+<h2 id="导航"><a href="#导航" class="headerlink" title="导航"></a>导航</h2><p>用于<code>Link</code>让用户更改 URL 或<code>useNavigate</code>自己进行（例如在表单提交之后）：</p>
+<p>**请注意，react17版本中，定义变量use开头，如果不是hooks或者是高阶组件，将会报错 **</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; Link &#125; <span class="keyword">from</span> <span class="string">&quot;react-router-dom&quot;</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Home</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> (</span><br><span class="line">    &lt;div&gt;</span><br><span class="line">      &lt;h1&gt;Home&lt;/h1&gt;</span><br><span class="line">      &lt;nav&gt;</span><br><span class="line">        &lt;Link to=<span class="string">&quot;/&quot;</span>&gt;Home&lt;/Link&gt; |&#123;<span class="string">&quot; &quot;</span>&#125;</span><br><span class="line">        &lt;Link to=<span class="string">&quot;about&quot;</span>&gt;About&lt;/Link&gt;</span><br><span class="line">      &lt;/nav&gt;</span><br><span class="line">    &lt;/div&gt;</span><br><span class="line">  );</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">import</span> &#123; useNavigate &#125; <span class="keyword">from</span> <span class="string">&quot;react-router-dom&quot;</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Invoices</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">let</span> navigate = useNavigate();</span><br><span class="line">  <span class="keyword">return</span> (</span><br><span class="line">    &lt;div&gt;</span><br><span class="line">      &lt;p  onClick=&#123;<span class="function">()=&gt;</span> navigate(<span class="string">`/invoices/<span class="subst">$&#123;newInvoice.id&#125;</span>`</span>)&#125;</span><br><span class="line">      &gt;&lt;/p&gt;</span><br><span class="line">    &lt;/div&gt;</span><br><span class="line">  );</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><strong><code>navLink</code>取消了v5中的activeClassName</strong></p>
+<p><strong><code>&lt;navLink end&gt;&lt;/navLink&gt;</code>  end添加到父级导航，作用是当子导航 被匹配时，父级导航 将不再高亮</strong></p>
+<p><code>&lt;Link replace&gt;&lt;NavLink replace&gt;</code> 替换方式</p>
+<h3 id="多级路由默认展示页"><a href="#多级路由默认展示页" class="headerlink" title="多级路由默认展示页"></a>多级路由默认展示页</h3><p>path=”about/*”   ?   </p>
+<p>如果path=”about”   react-router-dom只会走一级路由，不会进入二级路由匹配</p>
+<p>如果path=”about/“   同理，react-router-dom不会进入二级路由的匹配</p>
+<p>path=”about/*”后    /about 会重定向到/about/tab1</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">Routes</span>&gt;</span></span><br><span class="line">       &lt;Route path=&quot;/&quot; element=&#123;&lt;App&gt;&lt;/App&gt;&#125;&gt;</span><br><span class="line">           &lt;Route index element=&#123;&lt;Message&gt;&lt;/Message&gt;&#125;&gt;&lt;/Route&gt;</span><br><span class="line">           &lt;Route path=&quot;about/*&quot;  element=&#123;&lt;About&gt;&lt;/About&gt;&#125;&gt;</span><br><span class="line">                 &lt;Route path=&quot;tab1&quot; element=&#123;&lt;AboutView1&gt;&lt;/AboutView1&gt;&#125;&gt;&lt;/Route&gt;</span><br><span class="line">                 &lt;Route path=&quot;tab2&quot; element=&#123;&lt;AboutView2&gt;&lt;/AboutView2&gt;&#125;&gt;&lt;/Route&gt;</span><br><span class="line">                 &lt;Route path=&quot;tab3&quot; element=&#123;&lt;AboutView3&gt;&lt;/AboutView3&gt;&#125;&gt;&lt;/Route&gt;</span><br><span class="line">                 &lt;Route path=&quot;*&quot; element=&#123;&lt;Navigate to=&quot;tab1&quot;&gt;&lt;/Navigate&gt;&#125;&gt;&lt;/Route&gt;</span><br><span class="line">           <span class="tag">&lt;/<span class="name">Route</span>&gt;</span></span><br><span class="line">       <span class="tag">&lt;/<span class="name">Route</span>&gt;</span></span><br><span class="line">       &lt;Route path=&quot;/404&quot; element=&#123;&lt;Error&gt;&lt;/Error&gt;&#125;&gt;&lt;/Route&gt;</span><br><span class="line">       &lt;Route path=&quot;*&quot; element=&#123;&lt;Navigate to=&quot;/404&quot;&gt;&lt;/Navigate&gt;&#125;&gt;&lt;/Route&gt;</span><br><span class="line">      </span><br><span class="line">     <span class="tag">&lt;/<span class="name">Routes</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+
+<h3 id="路由配置表"><a href="#路由配置表" class="headerlink" title="路由配置表"></a>路由配置表</h3><p>配置表router.js</p>
+<ul>
+<li><strong>子路由重定向404效果参考path:‘about/‘</strong></li>
+<li><strong>使用路由配置表时，不能再添加<code>&lt;Routes&gt;组件</code></strong></li>
+<li><strong>使用<code>useRoutes</code> 时，需要要在<code>&lt;BrowserRouter&gt;</code>内，否则报错</strong></li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> routers = [</span><br><span class="line">            &#123;</span><br><span class="line">               path:<span class="string">&#x27;message&#x27;</span>,</span><br><span class="line">               element:<span class="xml"><span class="tag">&lt;<span class="name">Message</span>/&gt;</span></span></span><br><span class="line">            &#125;,</span><br><span class="line">            &#123;</span><br><span class="line">                path:<span class="string">&#x27;about/*&#x27;</span>,</span><br><span class="line">                element:<span class="xml"><span class="tag">&lt;<span class="name">About</span>/&gt;</span></span>,</span><br><span class="line">                children:[</span><br><span class="line">                    &#123;</span><br><span class="line">                        path:<span class="string">&#x27;tab1&#x27;</span>,</span><br><span class="line">                        element:<span class="xml"><span class="tag">&lt;<span class="name">AboutView1</span>/&gt;</span></span></span><br><span class="line">                    &#125;,</span><br><span class="line">                    &#123;</span><br><span class="line">                        path:<span class="string">&#x27;tab2&#x27;</span>,</span><br><span class="line">                        element:<span class="xml"><span class="tag">&lt;<span class="name">AboutView2</span>/&gt;</span></span></span><br><span class="line">                    &#125;,</span><br><span class="line">                    &#123;</span><br><span class="line">                        path:<span class="string">&#x27;tab3&#x27;</span>,</span><br><span class="line">                        element:<span class="xml"><span class="tag">&lt;<span class="name">AboutView3</span>/&gt;</span></span></span><br><span class="line">                    &#125;,</span><br><span class="line">                    &#123;</span><br><span class="line">                        path:<span class="string">&#x27;*&#x27;</span>,</span><br><span class="line">                        element:<span class="xml"><span class="tag">&lt;<span class="name">Navigate</span> <span class="attr">to</span>=<span class="string">&quot;tab1&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">Navigate</span>&gt;</span></span></span><br><span class="line">                    &#125;</span><br><span class="line">                ]</span><br><span class="line">            &#125;,</span><br><span class="line">            &#123;</span><br><span class="line">                path:<span class="string">&#x27;404&#x27;</span>,</span><br><span class="line">                element:<span class="xml"><span class="tag">&lt;<span class="name">Error</span>/&gt;</span></span></span><br><span class="line">            &#125;,</span><br><span class="line">            &#123;</span><br><span class="line">                path:<span class="string">&#x27;*&#x27;</span>,</span><br><span class="line">                element:<span class="xml"><span class="tag">&lt;<span class="name">Navigate</span> <span class="attr">to</span>=<span class="string">&quot;message&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">Navigate</span>&gt;</span></span></span><br><span class="line">            &#125;</span><br><span class="line">]</span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> routers;</span><br></pre></td></tr></table></figure>
+<p>index.js入口文件</p>
+<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">ReactDOM.render(</span><br><span class="line">  &lt;React.StrictMode&gt;</span><br><span class="line">    &lt;BrowserRouter&gt;</span><br><span class="line">      &lt;App&gt;&lt;/App&gt;</span><br><span class="line">    &lt;/BrowserRouter&gt;</span><br><span class="line">  &lt;/React.StrictMode&gt;,</span><br><span class="line">  <span class="built_in">document</span>.getElementById(<span class="string">&#x27;root&#x27;</span>)</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
+
+
+<p>App.js</p>
+<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">App</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">const</span> element = useRoutes(RoutersList);</span><br><span class="line">  <span class="keyword">return</span> (</span><br><span class="line">    &lt;div className=<span class="string">&quot;app&quot;</span>&gt;</span><br><span class="line">        &lt;h2&gt;App.js入口文件&lt;/h2&gt;</span><br><span class="line">        &lt;hr/&gt;</span><br><span class="line">           &lt;main&gt;</span><br><span class="line">                &lt;nav&gt;&lt;/nav&gt;</span><br><span class="line">                &lt;section&gt;</span><br><span class="line">                  &#123;element&#125; </span><br><span class="line">                &lt;/section&gt;</span><br><span class="line">         &lt;/main&gt;</span><br><span class="line">    &lt;/div&gt;</span><br><span class="line">  );</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="读取-URL-参数"><a href="#读取-URL-参数" class="headerlink" title="读取 URL 参数"></a>读取 URL 参数</h2><ul>
+<li><p><strong>useParams() 用于读取 /about/:id的参数</strong></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; Routes, Route, useParams &#125; <span class="keyword">from</span> <span class="string">&quot;react-router-dom&quot;</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">App</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> (</span><br><span class="line">    &lt;Routes&gt;</span><br><span class="line">      &lt;Route</span><br><span class="line">        path=<span class="string">&quot;invoices/:invoiceId&quot;</span></span><br><span class="line">        element=&#123;<span class="xml"><span class="tag">&lt;<span class="name">Invoice</span> /&gt;</span></span>&#125;</span><br><span class="line">      /&gt;</span><br><span class="line">    &lt;/Routes&gt;</span><br><span class="line">  );</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Invoice</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">let</span> params = useParams();</span><br><span class="line">  <span class="keyword">return</span> <span class="xml"><span class="tag">&lt;<span class="name">h1</span>&gt;</span>Invoice &#123;params.invoiceId&#125;<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+</li>
+<li><p><strong>useSearchParams（）用于读取?name=xxx&amp;age=22  URL的参数</strong>    </p>
+<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">&lt;Link to=<span class="string">&quot;../tab3?name=shao.yuhong&amp;age=22&quot;</span>&gt;跳转到tab3.jsx search方式&lt;/Link&gt; </span><br><span class="line"></span><br><span class="line">&lt;!--</span><br><span class="line">   * 读取参数 </span><br><span class="line">   * 请注意 useSearchParams是一个hooks函数</span><br><span class="line">--&gt;</span><br><span class="line"><span class="keyword">import</span> &#123; useParams,useSearchParams,useLocation &#125; <span class="keyword">from</span> <span class="string">&#x27;react-router-dom&#x27;</span>;</span><br><span class="line"><span class="keyword">const</span> [searchParams,setSearchPamras] = useSearchParams();</span><br><span class="line"><span class="keyword">const</span> name = searchParams.get(<span class="string">&#x27;name&#x27;</span>),age = searchParams.get(<span class="string">&#x27;age&#x27;</span>)</span><br><span class="line"></span><br><span class="line">&lt;!--也可以实现设置他当前url参数   ?加不加都无所谓--&gt;</span><br><span class="line">setSearchPamras.set(<span class="string">&#x27;name=xiaoliu&amp;age=10000&#x27;</span>);</span><br><span class="line">setSearchPamras.set(<span class="string">&#x27;?name=xiaoliu&amp;age=10000&#x27;</span>); </span><br></pre></td></tr></table></figure></li>
+<li><p><strong>useLocation（） 用于读取原V5中的state,或者search（?name=xxx&amp;age=22)</strong>     <strong><em>经过测试-》state传参页面刷新参数不会丢失</em></strong></p>
+<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"> &lt;Link to=<span class="string">&quot;../tab3&quot;</span> state=&#123;&#123;<span class="attr">name</span>:<span class="string">&#x27;shao.yuhong&#x27;</span>,<span class="attr">age</span>:<span class="number">25</span>&#125;&#125;&gt;跳转到tab3.jsx state方式&lt;/Link&gt;</span><br><span class="line"> <span class="keyword">const</span> search = useLocation();</span><br><span class="line"></span><br><span class="line">&#123;<span class="comment">/* </span></span><br><span class="line"><span class="comment">   结果如下:</span></span><br><span class="line"><span class="comment">   &#123;pathname: &#x27;/about/tab3&#x27;, search: &#x27;&#x27;, hash: &#x27;&#x27;, state: &#123;…&#125;, key: &#x27;9flq8e3f&#x27;&#125;</span></span><br><span class="line"><span class="comment">	hash: &quot;&quot;</span></span><br><span class="line"><span class="comment">	key: &quot;9flq8e3f&quot;</span></span><br><span class="line"><span class="comment">	pathname: &quot;/about/tab3&quot;</span></span><br><span class="line"><span class="comment">	search: &quot;&quot;</span></span><br><span class="line"><span class="comment">	state: &#123;name: &#x27;shao.yuhong&#x27;, age: 25&#125;</span></span><br><span class="line"><span class="comment">	[[Prototype]]: Object</span></span><br><span class="line"><span class="comment">*/</span>&#125;</span><br></pre></td></tr></table></figure>
+
+
+</li>
+</ul>
+<h3 id="传参跳转"><a href="#传参跳转" class="headerlink" title="传参跳转"></a>传参跳转</h3><p>除了使用<code>Link</code> <code>NavLink</code> 传递参数，也可能使用编程式传参</p>
+<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&lt;Link to=<span class="string">&quot;../tab3&quot;</span> state=&#123;&#123;<span class="attr">name</span>:<span class="string">&#x27;shao.yuhong&#x27;</span>,<span class="attr">age</span>:<span class="number">25</span>&#125;&#125;&gt;跳转到tab3.jsx state方式&lt;/Link&gt;</span><br><span class="line">&lt;Link to=<span class="string">&quot;../tab3?name=shao.yuhong&amp;age=22&quot;</span>&gt;跳转到tab3.jsx search方式&lt;/Link&gt;</span><br><span class="line">&lt;p onClick=&#123;</span><br><span class="line">             ()=&gt;navigateTo(<span class="string">&#x27;../tab3?school=重庆师范大学&#x27;</span>,&#123;<span class="attr">state</span>:&#123;<span class="attr">name</span>:<span class="string">&#x27;shaoyuhong&#x27;</span>,<span class="attr">age</span>:<span class="number">22</span>&#125;&#125;)</span><br><span class="line">               &#125;&gt;P标签事件跳转&lt;/p&gt;</span><br><span class="line">&lt;p onClick=&#123;</span><br><span class="line">             ()=&gt;navigateTo(<span class="string">&#x27;../tab3?school=重庆师范大学&#x27;</span>,&#123;<span class="attr">replace</span>:<span class="literal">true</span>,<span class="attr">state</span>:&#123;<span class="attr">name</span>:<span class="string">&#x27;shaoyuhong&#x27;</span>,<span class="attr">age</span>:<span class="number">22</span>&#125;&#125;)</span><br><span class="line">               &#125;&gt;P标签事件跳转&lt;/p&gt;</span><br></pre></td></tr></table></figure>
+<p><strong>navigate提供的配置项</strong></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">navigate(url,&#123;</span><br><span class="line">  replace:<span class="literal">false</span>/<span class="literal">true</span>,</span><br><span class="line">  state:&#123;&#125;,</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<p>除此之外</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">navigate(1);&#x2F;&#x2F;前进</span><br><span class="line">navigate(-1);&#x2F;&#x2F;后退</span><br></pre></td></tr></table></figure>
+
+
+
+
+<h3 id="嵌套路由"><a href="#嵌套路由" class="headerlink" title="嵌套路由"></a>嵌套路由</h3><p>这是 React Router 最强大的功能之一，因此您不必弄乱复杂的布局代码。你的绝大多数布局都与 URL 的段耦合，React Router 完全接受了这一点。</p>
+<p>路由可以相互嵌套，它们的路径也会嵌套（子继承父）。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">App</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> (</span><br><span class="line">    &lt;Routes&gt;</span><br><span class="line">      &lt;Route path=<span class="string">&quot;invoices&quot;</span> element=&#123;<span class="xml"><span class="tag">&lt;<span class="name">Invoices</span> /&gt;</span></span>&#125;&gt;</span><br><span class="line">        &lt;Route path=<span class="string">&quot;:invoiceId&quot;</span> element=&#123;<span class="xml"><span class="tag">&lt;<span class="name">Invoice</span> /&gt;</span></span>&#125; /&gt;</span><br><span class="line">        &lt;Route path=<span class="string">&quot;sent&quot;</span> element=&#123;<span class="xml"><span class="tag">&lt;<span class="name">SentInvoices</span> /&gt;</span></span>&#125; /&gt;</span><br><span class="line">      &lt;/Route&gt;</span><br><span class="line">    &lt;/Routes&gt;</span><br><span class="line">  );</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>此路由配置定义了三个路由路径：</p>
+<ul>
+<li><code>&quot;/invoices&quot;</code></li>
+<li><code>&quot;/invoices/sent&quot;</code></li>
+<li><code>&quot;/invoices/:invoiceId&quot;</code></li>
+</ul>
+<p>**嵌套路由时,对应的父组件需要使用<code>&lt;Outlet/&gt;</code>标识需要展示的子组件的位置 **</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"> <span class="tag">&lt;<span class="name">BrowserRouter</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">Routes</span>&gt;</span></span><br><span class="line">        &lt;Route path=&quot;/&quot; element=&#123;&lt;App&gt;&lt;/App&gt;&#125;&gt;</span><br><span class="line">            &lt;Route path=&quot;about&quot; element=&#123;&lt;About&gt;&lt;/About&gt;&#125;&gt;&lt;/Route&gt;</span><br><span class="line">        <span class="tag">&lt;/<span class="name">Route</span>&gt;</span></span><br><span class="line">        &lt;Route path=&quot;/404&quot; element=&#123;&lt;Error&gt;&lt;/Error&gt;&#125;&gt;&lt;/Route&gt;</span><br><span class="line">        &lt;Route path=&quot;*&quot; element=&#123;&lt;Navigate to=&quot;/404&quot;&gt;&lt;/Navigate&gt;&#125;&gt;&lt;/Route&gt;</span><br><span class="line">       </span><br><span class="line">      <span class="tag">&lt;/<span class="name">Routes</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">BrowserRouter</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">&lt;!-- App.js --&gt;</span></span><br><span class="line">import &#123; Outlet &#125; from &#x27;react-router-dom&#x27;;</span><br><span class="line"></span><br><span class="line">function App() &#123;</span><br><span class="line">  return (</span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">className</span>=<span class="string">&quot;App&quot;</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">h2</span>&gt;</span>App.js入口文件<span class="tag">&lt;/<span class="name">h2</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">hr</span>/&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">Outlet</span>/&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">  );</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+<h2 id="索引路线"><a href="#索引路线" class="headerlink" title="索引路线"></a>索引路线</h2><p>索引路由可以被认为是“默认子路由”。当父路由有多个子路由，但 URL 就在父路由的路径上时，您可能希望将某些内容渲染到插座中。</p>
+<p><strong>子路由的默认展示 无需path路由， 通过设置index实现； <code>&lt;Route index element=&#123;&lt;Activity /&gt;&#125; /&gt;</code></strong></p>
+<p>考虑这个例子：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">App</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> (</span><br><span class="line">    &lt;Routes&gt;</span><br><span class="line">      &lt;Route path=<span class="string">&quot;/&quot;</span> element=&#123;<span class="xml"><span class="tag">&lt;<span class="name">Layout</span> /&gt;</span></span>&#125;&gt;</span><br><span class="line">        &lt;Route path=<span class="string">&quot;invoices&quot;</span> element=&#123;<span class="xml"><span class="tag">&lt;<span class="name">Invoices</span> /&gt;</span></span>&#125; /&gt;</span><br><span class="line">        &lt;Route path=<span class="string">&quot;activity&quot;</span> element=&#123;<span class="xml"><span class="tag">&lt;<span class="name">Activity</span> /&gt;</span></span>&#125; /&gt;</span><br><span class="line">      &lt;/Route&gt;</span><br><span class="line">    &lt;/Routes&gt;</span><br><span class="line">  );</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Layout</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> (</span><br><span class="line">    &lt;div&gt;</span><br><span class="line">      &lt;GlobalNav /&gt;</span><br><span class="line">      &lt;main&gt;</span><br><span class="line">        &lt;Outlet /&gt;</span><br><span class="line">      &lt;/main&gt;</span><br><span class="line">    &lt;/div&gt;</span><br><span class="line">  );</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>此页面在“/invoices”和“/activity”中看起来很棒，但在“/”中它只是一个空白页面，<code>&lt;main&gt;</code>因为那里没有要渲染的子路由。为此，我们可以添加一个索引路由：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">App</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> (</span><br><span class="line">    &lt;Routes&gt;</span><br><span class="line">      &lt;Route path=<span class="string">&quot;/&quot;</span> element=&#123;<span class="xml"><span class="tag">&lt;<span class="name">Layout</span> /&gt;</span></span>&#125;&gt;</span><br><span class="line">        &lt;Route index element=&#123;<span class="xml"><span class="tag">&lt;<span class="name">Activity</span> /&gt;</span></span>&#125; /&gt;</span><br><span class="line">        &lt;Route path=<span class="string">&quot;invoices&quot;</span> element=&#123;<span class="xml"><span class="tag">&lt;<span class="name">Invoices</span> /&gt;</span></span>&#125; /&gt;</span><br><span class="line">        &lt;Route path=<span class="string">&quot;activity&quot;</span> element=&#123;<span class="xml"><span class="tag">&lt;<span class="name">Activity</span> /&gt;</span></span>&#125; /&gt;</span><br><span class="line">      &lt;/Route&gt;</span><br><span class="line">    &lt;/Routes&gt;</span><br><span class="line">  );</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>现在在“/”处，<code>&lt;Activity&gt;</code>元素将呈现在插座内。</p>
+<p>您可以在路由层次结构的任何级别拥有一个索引路由，当父级匹配但其他子级不匹配时将呈现该索引路由。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">App</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> (</span><br><span class="line">    &lt;Routes&gt;</span><br><span class="line">      &lt;Route index element=&#123;<span class="xml"><span class="tag">&lt;<span class="name">Home</span> /&gt;</span></span>&#125; /&gt;</span><br><span class="line">      &lt;Route path=<span class="string">&quot;dashboard&quot;</span> element=&#123;<span class="xml"><span class="tag">&lt;<span class="name">Dashboard</span> /&gt;</span></span>&#125;&gt;</span><br><span class="line">        &lt;Route index element=&#123;<span class="xml"><span class="tag">&lt;<span class="name">DashboardHome</span> /&gt;</span></span>&#125; /&gt;</span><br><span class="line">        &lt;Route</span><br><span class="line">          path=<span class="string">&quot;invoices&quot;</span></span><br><span class="line">          element=&#123;<span class="xml"><span class="tag">&lt;<span class="name">DashboardInvoices</span> /&gt;</span></span>&#125;</span><br><span class="line">        /&gt;</span><br><span class="line">      &lt;/Route&gt;</span><br><span class="line">    &lt;/Routes&gt;</span><br><span class="line">  );</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="相对链接"><a href="#相对链接" class="headerlink" title="相对链接"></a>相对链接</h2><p>相对<code>&lt;Link to&gt;</code>值（不以 a 开头<code>/</code>）是相对于渲染它们的路径的路径。下面的两个链接将链接到<code>/dashboard/invoices</code>并且<code>/dashboard/team</code>因为它们在<code>&lt;Dashboard&gt;</code>. 当您更改父 URL 或重新排列组件时，这非常好，因为您的所有链接都会自动更新。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123;</span><br><span class="line">  Routes,</span><br><span class="line">  Route,</span><br><span class="line">  Link,</span><br><span class="line">  Outlet,</span><br><span class="line">&#125; <span class="keyword">from</span> <span class="string">&quot;react-router-dom&quot;</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Home</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="xml"><span class="tag">&lt;<span class="name">h1</span>&gt;</span>Home<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Dashboard</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> (</span><br><span class="line">    &lt;div&gt;</span><br><span class="line">      &lt;h1&gt;Dashboard&lt;/h1&gt;</span><br><span class="line">      &lt;nav&gt;</span><br><span class="line">        &lt;Link to=<span class="string">&quot;invoices&quot;</span>&gt;Invoices&lt;/Link&gt;&#123;<span class="string">&quot; &quot;</span>&#125;</span><br><span class="line">        &lt;Link to=<span class="string">&quot;team&quot;</span>&gt;Team&lt;/Link&gt;</span><br><span class="line">      &lt;/nav&gt;</span><br><span class="line">      &lt;hr /&gt;</span><br><span class="line">      &lt;Outlet /&gt;</span><br><span class="line">    &lt;/div&gt;</span><br><span class="line">  );</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Invoices</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="xml"><span class="tag">&lt;<span class="name">h1</span>&gt;</span>Invoices<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Team</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="xml"><span class="tag">&lt;<span class="name">h1</span>&gt;</span>Team<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">App</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> (</span><br><span class="line">    &lt;Routes&gt;</span><br><span class="line">      &lt;Route path=<span class="string">&quot;/&quot;</span> element=&#123;<span class="xml"><span class="tag">&lt;<span class="name">Home</span> /&gt;</span></span>&#125; /&gt;</span><br><span class="line">      &lt;Route path=<span class="string">&quot;dashboard&quot;</span> element=&#123;<span class="xml"><span class="tag">&lt;<span class="name">Dashboard</span> /&gt;</span></span>&#125;&gt;</span><br><span class="line">        &lt;Route path=<span class="string">&quot;invoices&quot;</span> element=&#123;<span class="xml"><span class="tag">&lt;<span class="name">Invoices</span> /&gt;</span></span>&#125; /&gt;</span><br><span class="line">        &lt;Route path=<span class="string">&quot;team&quot;</span> element=&#123;<span class="xml"><span class="tag">&lt;<span class="name">Team</span> /&gt;</span></span>&#125; /&gt;</span><br><span class="line">      &lt;/Route&gt;</span><br><span class="line">    &lt;/Routes&gt;</span><br><span class="line">  );</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="“未找到”路线"><a href="#“未找到”路线" class="headerlink" title="“未找到”路线"></a>“未找到”路线</h2><p>当没有其他路由与 URL 匹配时，您可以使用<code>path=&quot;*&quot;</code>. 此路由将匹配任何 URL，但具有最弱的优先级，因此路由器仅在没有其他路由匹配时才会选择它。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">App</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> (</span><br><span class="line">    &lt;Routes&gt;</span><br><span class="line">      &lt;Route path=<span class="string">&quot;/&quot;</span> element=&#123;<span class="xml"><span class="tag">&lt;<span class="name">Home</span> /&gt;</span></span>&#125; /&gt;</span><br><span class="line">      &lt;Route path=<span class="string">&quot;dashboard&quot;</span> element=&#123;<span class="xml"><span class="tag">&lt;<span class="name">Dashboard</span> /&gt;</span></span>&#125; /&gt;</span><br><span class="line">      &lt;Route path=<span class="string">&quot;*&quot;</span> element=&#123;<span class="xml"><span class="tag">&lt;<span class="name">NotFound</span> /&gt;</span></span>&#125; /&gt;</span><br><span class="line">    &lt;/Routes&gt;</span><br><span class="line">  );</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="多组路由"><a href="#多组路由" class="headerlink" title="多组路由"></a>多组路由</h2><p>尽管您应该只<code>&lt;Router&gt;</code>在应用程序中拥有一个，但您可以在<a class="link"   target="_blank" rel="noopener" href="https://reactrouter.com/docs/en/v6/api#routes" >``<i class="fas fa-external-link-alt"></i></a>任何需要它们的地方拥有尽可能多的。每个<code>&lt;Routes&gt;</code>元素独立于其他元素运行，并选择一个子路由进行渲染。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">App</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> (</span><br><span class="line">    &lt;div&gt;</span><br><span class="line">      &lt;Sidebar&gt;</span><br><span class="line">        &lt;Routes&gt;</span><br><span class="line">          &lt;Route path=<span class="string">&quot;/&quot;</span> element=&#123;<span class="xml"><span class="tag">&lt;<span class="name">MainNav</span> /&gt;</span></span>&#125; /&gt;</span><br><span class="line">          &lt;Route</span><br><span class="line">            path=<span class="string">&quot;dashboard&quot;</span></span><br><span class="line">            element=&#123;<span class="xml"><span class="tag">&lt;<span class="name">DashboardNav</span> /&gt;</span></span>&#125;</span><br><span class="line">          /&gt;</span><br><span class="line">        &lt;/Routes&gt;</span><br><span class="line">      &lt;/Sidebar&gt;</span><br><span class="line"></span><br><span class="line">      &lt;MainContent&gt;</span><br><span class="line">        &lt;Routes&gt;</span><br><span class="line">          &lt;Route path=<span class="string">&quot;/&quot;</span> element=&#123;<span class="xml"><span class="tag">&lt;<span class="name">Home</span> /&gt;</span></span>&#125;&gt;</span><br><span class="line">            &lt;Route path=<span class="string">&quot;about&quot;</span> element=&#123;<span class="xml"><span class="tag">&lt;<span class="name">About</span> /&gt;</span></span>&#125; /&gt;</span><br><span class="line">            &lt;Route path=<span class="string">&quot;support&quot;</span> element=&#123;<span class="xml"><span class="tag">&lt;<span class="name">Support</span> /&gt;</span></span>&#125; /&gt;</span><br><span class="line">          &lt;/Route&gt;</span><br><span class="line">          &lt;Route path=<span class="string">&quot;dashboard&quot;</span> element=&#123;<span class="xml"><span class="tag">&lt;<span class="name">Dashboard</span> /&gt;</span></span>&#125;&gt;</span><br><span class="line">            &lt;Route path=<span class="string">&quot;invoices&quot;</span> element=&#123;<span class="xml"><span class="tag">&lt;<span class="name">Invoices</span> /&gt;</span></span>&#125; /&gt;</span><br><span class="line">            &lt;Route path=<span class="string">&quot;team&quot;</span> element=&#123;<span class="xml"><span class="tag">&lt;<span class="name">Team</span> /&gt;</span></span>&#125; /&gt;</span><br><span class="line">          &lt;/Route&gt;</span><br><span class="line">          &lt;Route path=<span class="string">&quot;*&quot;</span> element=&#123;<span class="xml"><span class="tag">&lt;<span class="name">NotFound</span> /&gt;</span></span>&#125; /&gt;</span><br><span class="line">        &lt;/Routes&gt;</span><br><span class="line">      &lt;/MainContent&gt;</span><br><span class="line">    &lt;/div&gt;</span><br><span class="line">  );</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="后裔-lt-Routes-gt"><a href="#后裔-lt-Routes-gt" class="headerlink" title="后裔&lt;Routes&gt;"></a>后裔<code>&lt;Routes&gt;</code></h2><p>你可以在任何你需要的地方渲染<a class="link"   target="_blank" rel="noopener" href="https://reactrouter.com/docs/en/v6/api#routes" >一个``元素<i class="fas fa-external-link-alt"></i></a>，包括在另一个组件树的深处<code>&lt;Routes&gt;</code>。这些将与任何其他的一样工作<code>&lt;Routes&gt;</code>，除了它们将自动构建在渲染它们的路径的路径上。如果这样做，请*确保在父路由路径的末尾放置一个 **。否则，当父路由的路径长于父路由的路径时，父路由将不会匹配 URL，并且您的后代<code>&lt;Routes&gt;</code>将永远不会出现。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">App</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> (</span><br><span class="line">    &lt;Routes&gt;</span><br><span class="line">      &lt;Route path=<span class="string">&quot;/&quot;</span> element=&#123;<span class="xml"><span class="tag">&lt;<span class="name">Home</span> /&gt;</span></span>&#125; /&gt;</span><br><span class="line">      &lt;Route path=<span class="string">&quot;dashboard/*&quot;</span> element=&#123;<span class="xml"><span class="tag">&lt;<span class="name">Dashboard</span> /&gt;</span></span>&#125; /&gt;</span><br><span class="line">    &lt;/Routes&gt;</span><br><span class="line">  );</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Dashboard</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> (</span><br><span class="line">    &lt;div&gt;</span><br><span class="line">      &lt;p&gt;Look, more routes!&lt;/p&gt;</span><br><span class="line">      &lt;Routes&gt;</span><br><span class="line">        &lt;Route path=<span class="string">&quot;/&quot;</span> element=&#123;<span class="xml"><span class="tag">&lt;<span class="name">DashboardGraphs</span> /&gt;</span></span>&#125; /&gt;</span><br><span class="line">        &lt;Route path=<span class="string">&quot;invoices&quot;</span> element=&#123;<span class="xml"><span class="tag">&lt;<span class="name">InvoiceList</span> /&gt;</span></span>&#125; /&gt;</span><br><span class="line">      &lt;/Routes&gt;</span><br><span class="line">    &lt;/div&gt;</span><br><span class="line">  );</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>仅此而已！我们没有在这里介绍所有 API，但这些绝对是您将使用的最常用的 API。如果您想了解更多信息，请继续学习<a class="link"   target="_blank" rel="noopener" href="https://reactrouter.com/docs/en/v6/getting-started/tutorial" >我们的教程<i class="fas fa-external-link-alt"></i></a>或浏览<a class="link"   target="_blank" rel="noopener" href="https://reactrouter.com/docs/en/v6/api" >完整的 API 参考<i class="fas fa-external-link-alt"></i></a>。</p>
+<h2 id="其它杂项"><a href="#其它杂项" class="headerlink" title="其它杂项"></a>其它杂项</h2><h3 id="useInRouterContext"><a href="#useInRouterContext" class="headerlink" title="useInRouterContext"></a>useInRouterContext</h3><p>useInRouterContext()  只要是在<code>&lt;browseRouter&gt;</code>中，该函数返回true</p>
+<h3 id="useNavigationType"><a href="#useNavigationType" class="headerlink" title="useNavigationType"></a>useNavigationType</h3><p>NavigationType = “POP” | “PUSH” | “REPLACE”;    通过useNavigationType（）返回当前的导航类型或用户如何来到当前页面</p>
+<p><strong>POP代表页面第一次刷新或者第一次进入时，返回POP</strong></p>
+<h3 id="useResolvedPath"><a href="#useResolvedPath" class="headerlink" title="useResolvedPath"></a>useResolvedPath</h3><p>将字符串解析为URL</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; Link,useNavigate,useNavigationType,useResolvedPath &#125; <span class="keyword">from</span> <span class="string">&#x27;react-router-dom&#x27;</span>;</span><br><span class="line">useResolvedPath(<span class="string">&#x27;?keyword=test#h1&#x27;</span>)</span><br></pre></td></tr></table></figure>
+<p>result：*{pathname: ‘/about/tab2’, search: ‘?keyword=test’, hash: ‘#h1’}*</p>
+<p>​        hash**: “#h1”</p>
+<p>​        pathname**: “/about/tab2”</p>
+<p>​       search**: “?keyword=test”</p>
+<p>​       [[Prototype]]: Object</p>
+<hr>
+<h2 id="react父传子组件"><a href="#react父传子组件" class="headerlink" title="react父传子组件"></a>react父传子组件</h2><p>组件通过{…info}将整个对象结构传给子组件</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> info = &#123;</span><br><span class="line">   name:<span class="string">&#x27;shaoyuhong&#x27;</span>,</span><br><span class="line">   age:<span class="number">22</span>,</span><br><span class="line">   school:<span class="string">&#x27;重庆师范大学&#x27;</span></span><br><span class="line">&#125;</span><br><span class="line"> &lt;About &#123;...info&#125;&gt;&lt;/About&gt;</span><br><span class="line"> &lt;About name=&#123;info.name&#125; age=&#123;info.age&#125; school=&#123;info.school&#125;&gt;&lt;/About&gt;</span><br></pre></td></tr></table></figure>
+
+
+<h3 id="设置props的类型约束"><a href="#设置props的类型约束" class="headerlink" title="设置props的类型约束"></a>设置props的类型约束</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">About.propTypes = &#123;</span><br><span class="line">     age:PropTypes.number.isRequired</span><br><span class="line">&#125;</span><br><span class="line">About.defaultProps = &#123;</span><br><span class="line">     money:<span class="string">&#x27;22K&#x27;</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>将类型约束挂载到实例类上是一种方式，另外一种方式是将约束放到类的静态方式中，参考下</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">About</span> <span class="keyword">extends</span> <span class="title">Component</span></span>&#123;</span><br><span class="line">   <span class="keyword">static</span> propTypes = &#123;</span><br><span class="line">        age:PropTypes.number.isRequired</span><br><span class="line">   &#125;</span><br><span class="line">   <span class="keyword">static</span> defaultProps = &#123;</span><br><span class="line">        money:<span class="string">&#x27;22K&#x27;</span></span><br><span class="line">   &#125;</span><br><span class="line">    <span class="function"><span class="title">constructor</span>(<span class="params">props</span>)</span>&#123;</span><br><span class="line">        <span class="built_in">super</span>(props);</span><br><span class="line">        <span class="built_in">console</span>.log(props);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="title">render</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">        <span class="keyword">return</span> (<span class="xml"><span class="tag">&lt;<span class="name">div</span> <span class="attr">className</span>=<span class="string">&#x27;about&#x27;</span>&gt;</span></span></span><br><span class="line"><span class="xml">            <span class="tag">&lt;<span class="name">hr</span>/&gt;</span></span></span><br><span class="line"><span class="xml">             <span class="tag">&lt;<span class="name">h2</span>&gt;</span>this is about.js<span class="tag">&lt;/<span class="name">h2</span>&gt;</span></span></span><br><span class="line"><span class="xml">             <span class="tag">&lt;<span class="name">h3</span>&gt;</span>接收的参数:&#123;JSON.stringify(this.props)&#125;<span class="tag">&lt;/<span class="name">h3</span>&gt;</span></span></span><br><span class="line"><span class="xml">        <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span>)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>参考react网址：<a class="link"   target="_blank" rel="noopener" href="https://react.docschina.org/docs/typechecking-with-proptypes.html" >https://react.docschina.org/docs/typechecking-with-proptypes.html<i class="fas fa-external-link-alt"></i></a></p>
+<h2 id="ref的三种方式"><a href="#ref的三种方式" class="headerlink" title="ref的三种方式"></a>ref的三种方式</h2><ul>
+<li><p>字符串的形式 <strong><em>该方式不建议使用，会在将来版本中或废弃</em></strong></p>
+<p><code> &lt;button className=&#39;btn&#39; ref=&quot;submitBtn&quot; onClick=&#123;this.log&#125;&gt;提交&lt;/button&gt;</code></p>
+<p>取当前dom时</p>
+<p><strong>this.refs.submitBtn</strong></p>
+</li>
+<li><p>回调函数的方式</p>
+<p><code> &lt;button className=&#39;btn&#39; ref=&#123;dom=&gt;this.btn = dom&#125; onClick=&#123;this.log&#125;&gt;提交&lt;/button&gt;</code></p>
+<p>取当前dom时</p>
+<p><strong>this.btn</strong></p>
+</li>
+<li><p>使用react.createRef() 创建ref</p>
+<p>import {createRef} from ‘react’;</p>
+<p> constructor(props){</p>
+<p>​    super(props);</p>
+<p>​    this.submit = createRef();</p>
+<p>  }</p>
+<p><code> &lt;button className=&#39;btn&#39; ref=&#123;this.submit &#125; onClick=&#123;this.log&#125;&gt;提交&lt;/button&gt;</code></p>
+<p>取当前dom时</p>
+<p><strong>this.submit.current</strong></p>
+</li>
+</ul>
+<h3 id="设置对象时，当属性名是变量时"><a href="#设置对象时，当属性名是变量时" class="headerlink" title="设置对象时，当属性名是变量时"></a>设置对象时，当属性名是变量时</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> keys = <span class="string">&#x27;name&#x27;</span>;</span><br><span class="line"><span class="built_in">this</span>.setState(&#123;</span><br><span class="line">      [keys]:<span class="string">&#x27;xxx&#x27;</span></span><br><span class="line">      &#125;)</span><br></pre></td></tr></table></figure>
+
+
+<h2 id="高阶函数定义"><a href="#高阶函数定义" class="headerlink" title="高阶函数定义"></a>高阶函数定义</h2><p>传入的参数是一个函数 or  函数内部的表达式返回了一个函数</p>
+<h2 id="函数柯里化"><a href="#函数柯里化" class="headerlink" title="函数柯里化"></a>函数柯里化</h2><p>通过函数调用返回函数继续处理的方式，实现多次传入参数最终统一处理</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">a</span>(<span class="params">num1</span>)</span>&#123;</span><br><span class="line">         <span class="keyword">return</span> <span class="function"><span class="keyword">function</span>(<span class="params">num2</span>)</span>&#123;</span><br><span class="line">              <span class="keyword">return</span> <span class="function"><span class="keyword">function</span>(<span class="params">num3</span>)</span>&#123;</span><br><span class="line">                    <span class="keyword">return</span> num1+num2+num3;</span><br><span class="line">              &#125;</span><br><span class="line">         &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">console</span>.log(a(<span class="number">1</span>)(<span class="number">2</span>)(<span class="number">3</span>));</span><br></pre></td></tr></table></figure>
+
+
+<h2 id="SPA"><a href="#SPA" class="headerlink" title="SPA"></a>SPA</h2><p>spa：single page application  单页面应用</p>
+<ul>
+<li>整个页面只有一个完整的html页面</li>
+<li>页面切换不会刷新，通过H5中的pushState和replaceState实现对URL修改</li>
+<li>数据通过ajax获取</li>
+</ul>
+<h2 id="this-setState"><a href="#this-setState" class="headerlink" title="this.setState"></a>this.setState</h2><ul>
+<li><p>this.setState({[变量] : 值 })</p>
+</li>
+<li><p>this.setState((prevState,props)=&gt;{</p>
+<pre><code>    return &#123;
+
+​     count:prevState.count + 1  
+</code></pre>
+<p>   }</p>
+<p>});</p>
+</li>
+</ul>
+<h2 id="路由懒加载"><a href="#路由懒加载" class="headerlink" title="路由懒加载"></a>路由懒加载</h2><p>打包是个非常棒的技术，但随着你的应用增长，你的代码包也将随之增长。尤其是在整合了体积巨大的第三方库的情况下。你需要关注你代码包中所包含的代码，以避免因体积过大而导致加载时间过长。</p>
+<p>为了避免搞出大体积的代码包，在前期就思考该问题并对代码包进行分割是个不错的选择。 代码分割是由诸如 <a class="link"   target="_blank" rel="noopener" href="https://webpack.docschina.org/guides/code-splitting/" >Webpack<i class="fas fa-external-link-alt"></i></a>，<a class="link"   target="_blank" rel="noopener" href="https://rollupjs.org/guide/en/#code-splitting" >Rollup<i class="fas fa-external-link-alt"></i></a> 和 Browserify（<a href="https://github.com/browserify/factor-bundle">factor-bundle</a>）这类打包器支持的一项技术，能够创建多个包并在运行时动态加载。</p>
+<p>对你的应用进行代码分割能够帮助你“懒加载”当前用户所需要的内容，能够显著地提高你的应用性能。尽管并没有减少应用整体的代码体积，但你可以避免加载用户永远不需要的代码，并在初始加载的时候减少所需加载的代码量。</p>
+<h4 id="React-lazy"><a href="#React-lazy" class="headerlink" title="React.lazy"></a>React.lazy</h4><p><code>React.lazy</code> 函数能让你像渲染常规组件一样处理动态引入（的组件）。</p>
+<p><strong>使用之前：</strong></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> OtherComponent <span class="keyword">from</span> <span class="string">&#x27;./OtherComponent&#x27;</span>;</span><br></pre></td></tr></table></figure>
+<p><strong>使用之后：</strong></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> OtherComponent = React.lazy(<span class="function">() =&gt;</span> <span class="keyword">import</span>(<span class="string">&#x27;./OtherComponent&#x27;</span>));</span><br></pre></td></tr></table></figure>
+<p>一定是配合<code> &lt;Suspense fallback=&#123;&lt;div&gt;Loading...&lt;/div&gt;&#125;&gt; &#123;element&#125;  &lt;/Suspense&gt;</code>使用，在网页加载太慢时，将优先展示fallback中的组件 </p>
+<h4 id="在v6路由中如何-使用？"><a href="#在v6路由中如何-使用？" class="headerlink" title="在v6路由中如何 使用？"></a>在v6路由中如何 使用？</h4><p>router.js</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; BrowserRouter, HashRouter, Routes, Route,Navigate &#125; <span class="keyword">from</span> <span class="string">&#x27;react-router-dom&#x27;</span>;</span><br><span class="line"><span class="keyword">const</span> <span class="built_in">Error</span> = lazy(<span class="function">()=&gt;</span><span class="keyword">import</span>(<span class="string">&#x27;@/views/404&#x27;</span>));</span><br><span class="line"><span class="keyword">const</span> About = lazy(<span class="function">()=&gt;</span><span class="keyword">import</span>(<span class="string">&#x27;@/views/about&#x27;</span>));</span><br><span class="line"><span class="keyword">const</span> Message = lazy(<span class="function">()=&gt;</span><span class="keyword">import</span>(<span class="string">&#x27;@/views/message&#x27;</span>));</span><br><span class="line"><span class="keyword">const</span> AboutView1 = lazy(<span class="function">()=&gt;</span><span class="keyword">import</span>(<span class="string">&#x27;@/views/about_child1&#x27;</span>));</span><br><span class="line"><span class="keyword">const</span> AboutView2 = lazy(<span class="function">()=&gt;</span><span class="keyword">import</span>(<span class="string">&#x27;@/views/about_child2&#x27;</span>));</span><br><span class="line"><span class="keyword">const</span> AboutView3 = lazy(<span class="function">()=&gt;</span><span class="keyword">import</span>(<span class="string">&#x27;@/views/about_child3&#x27;</span>));</span><br><span class="line"><span class="keyword">const</span> CanvasTest = lazy(<span class="function">()=&gt;</span><span class="keyword">import</span>(<span class="string">&#x27;@/views/canvas&#x27;</span>));</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> routers = [</span><br><span class="line">            &#123;</span><br><span class="line">               path:<span class="string">&#x27;message&#x27;</span>,</span><br><span class="line">               element:<span class="xml"><span class="tag">&lt;<span class="name">Message</span>/&gt;</span></span></span><br><span class="line">            &#125;,</span><br><span class="line">            &#123;</span><br><span class="line">                path:<span class="string">&#x27;ctx&#x27;</span>,</span><br><span class="line">                element:<span class="xml"><span class="tag">&lt;<span class="name">CanvasTest</span>/&gt;</span></span></span><br><span class="line">             &#125;,</span><br><span class="line">            &#123;</span><br><span class="line">                path:<span class="string">&#x27;about/*&#x27;</span>,</span><br><span class="line">                element:<span class="xml"><span class="tag">&lt;<span class="name">About</span>/&gt;</span></span>,</span><br><span class="line">                children:[</span><br><span class="line">                    &#123;</span><br><span class="line">                        path:<span class="string">&#x27;tab1&#x27;</span>,</span><br><span class="line">                        element:<span class="xml"><span class="tag">&lt;<span class="name">AboutView1</span>/&gt;</span></span></span><br><span class="line">                    &#125;,</span><br><span class="line">                    &#123;</span><br><span class="line">                        path:<span class="string">&#x27;tab2&#x27;</span>,</span><br><span class="line">                        element:<span class="xml"><span class="tag">&lt;<span class="name">AboutView2</span>/&gt;</span></span></span><br><span class="line">                    &#125;,</span><br><span class="line">                    &#123;</span><br><span class="line">                        path:<span class="string">&#x27;tab3&#x27;</span>,</span><br><span class="line">                        element:<span class="xml"><span class="tag">&lt;<span class="name">AboutView3</span>/&gt;</span></span></span><br><span class="line">                    &#125;,</span><br><span class="line">                    &#123;</span><br><span class="line">                        path:<span class="string">&#x27;*&#x27;</span>,</span><br><span class="line">                        element:<span class="xml"><span class="tag">&lt;<span class="name">Navigate</span> <span class="attr">to</span>=<span class="string">&quot;tab1&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">Navigate</span>&gt;</span></span></span><br><span class="line">                    &#125;</span><br><span class="line">                ]</span><br><span class="line">            &#125;,</span><br><span class="line">            &#123;</span><br><span class="line">                path:<span class="string">&#x27;404&#x27;</span>,</span><br><span class="line">                element:<span class="xml"><span class="tag">&lt;<span class="name">Error</span>/&gt;</span></span></span><br><span class="line">            &#125;,</span><br><span class="line">            &#123;</span><br><span class="line">                path:<span class="string">&#x27;*&#x27;</span>,</span><br><span class="line">                element:<span class="xml"><span class="tag">&lt;<span class="name">Navigate</span> <span class="attr">to</span>=<span class="string">&quot;message&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">Navigate</span>&gt;</span></span></span><br><span class="line">            &#125;</span><br><span class="line">]</span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> routers;</span><br></pre></td></tr></table></figure>
+
+
+<p>app.js</p>
+<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> React, &#123; Suspense &#125; <span class="keyword">from</span> <span class="string">&#x27;react&#x27;</span>;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">App</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">const</span> element = useRoutes(RoutersList); <span class="comment">//使用路由配置表</span></span><br><span class="line"></span><br><span class="line">  <span class="keyword">return</span> (</span><br><span class="line">    &lt;div className=<span class="string">&quot;app&quot;</span>&gt;</span><br><span class="line">      &lt;main&gt;</span><br><span class="line">        &lt;nav&gt;&lt;/nav&gt;</span><br><span class="line">        &lt;section&gt;</span><br><span class="line">          &lt;Suspense fallback=&#123;<span class="xml"><span class="tag">&lt;<span class="name">div</span>&gt;</span>Loading...<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span>&#125;&gt;</span><br><span class="line">            &#123;element&#125;</span><br><span class="line">          &lt;/Suspense&gt;</span><br><span class="line">        &lt;/section&gt;</span><br><span class="line">      &lt;/main&gt;</span><br><span class="line">    &lt;/div&gt;</span><br><span class="line">  );</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+<p><a class="link"   target="_blank" rel="noopener" href="https://zh-hans.reactjs.org/docs/code-splitting.html" >参考react官方:https://zh-hans.reactjs.org/docs/code-splitting.html<i class="fas fa-external-link-alt"></i></a></p>
+<h2 id="WithRouter"><a href="#WithRouter" class="headerlink" title="WithRouter"></a>WithRouter</h2><p>当某个组件没有在路由配置中，如<code>&lt;Footer&gt;</code> <code>&lt;Header&gt;</code>类型组件，在公共的<code>layout</code>中，这类组件并不在路由配置中，此时这两个组件没有<strong>this.props.history</strong>,使用withRouter(Footer)可以拥有路由实例方法和属性</p>
+<p>针对V5 react-react-dom，v6可以直接使用useNavigate()</p>
+<h2 id="针对react-class类式组件的父孙间传值"><a href="#针对react-class类式组件的父孙间传值" class="headerlink" title="针对react class类式组件的父孙间传值"></a>针对react class类式组件的父孙间传值</h2><ul>
+<li><p>需要一个全局公共变量、可以是模块化导出的变量const ThemeContext = React.createContext(‘’);</p>
+</li>
+<li><p>父组件使用&lt;ThemeContext.provider value={值}&gt;&lt;/ThemeContext.provider&gt;向下暴露值 </p>
+<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;moduleC.Provider value=&#123;fullName&#125;&gt;</span><br><span class="line">        &lt;D&gt;&lt;/D&gt;</span><br><span class="line">    &lt;/moduleC.Provider&gt;</span><br></pre></td></tr></table></figure></li>
+<li><p>子组件接收 <strong>只针对类式组件  static contextType = ThemeContext</strong>   结果将在<strong>this.context中</strong></p>
+<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> E <span class="keyword">from</span> <span class="string">&#x27;./e&#x27;</span>;</span><br><span class="line"><span class="keyword">import</span> &#123; moduleC &#125; <span class="keyword">from</span> <span class="string">&#x27;@/comm&#x27;</span>;</span><br><span class="line"><span class="keyword">import</span> React <span class="keyword">from</span> <span class="string">&#x27;react&#x27;</span>;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">D</span> <span class="keyword">extends</span> <span class="title">React</span>.<span class="title">Component</span> </span>&#123;</span><br><span class="line">    <span class="keyword">static</span> contextType = moduleC;</span><br><span class="line">    <span class="function"><span class="title">constructor</span>(<span class="params">props</span>)</span> &#123;</span><br><span class="line">        <span class="built_in">super</span>(props);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="title">render</span>(<span class="params"></span>)</span> &#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="built_in">this</span>.context);</span><br><span class="line">        <span class="keyword">return</span> (<span class="xml"><span class="tag">&lt;<span class="name">div</span> <span class="attr">className</span>=<span class="string">&quot;d&quot;</span>&gt;</span></span></span><br><span class="line"><span class="xml">            <span class="tag">&lt;<span class="name">h2</span>&gt;</span>这是D组件<span class="tag">&lt;/<span class="name">h2</span>&gt;</span></span></span><br><span class="line"><span class="xml">            <span class="tag">&lt;<span class="name">h3</span>&gt;</span>接收到的值:&#123;this.context&#125;<span class="tag">&lt;/<span class="name">h3</span>&gt;</span></span></span><br><span class="line"><span class="xml">            <span class="tag">&lt;<span class="name">E</span>&gt;</span><span class="tag">&lt;/<span class="name">E</span>&gt;</span></span></span><br><span class="line"><span class="xml">        <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span>)</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> D;</span><br></pre></td></tr></table></figure>
+
+
+</li>
+</ul>
+<h2 id="函数式组件中的每一次update更新，都将触发整个函数执行"><a href="#函数式组件中的每一次update更新，都将触发整个函数执行" class="headerlink" title="函数式组件中的每一次update更新，都将触发整个函数执行"></a>函数式组件中的每一次update更新，都将触发整个函数执行</h2><p>useState中的值第一次执行后会被暂存，update更新时，将使用上一次暂存的值，而不是再重新执行useState(默认值)中的值 </p>
+<h2 id="puleComponent"><a href="#puleComponent" class="headerlink" title="puleComponent"></a>puleComponent</h2><p><code>React.PureComponent</code> 与 <a target="_blank" rel="noopener" href="https://zh-hans.reactjs.org/docs/react-api.html#reactcomponent"><code>React.Component</code></a> 很相似。两者的区别在于 <a target="_blank" rel="noopener" href="https://zh-hans.reactjs.org/docs/react-api.html#reactcomponent"><code>React.Component</code></a> 并未实现 <a target="_blank" rel="noopener" href="https://zh-hans.reactjs.org/docs/react-component.html#shouldcomponentupdate"><code>shouldComponentUpdate()</code></a>，而 <code>React.PureComponent</code> 中以浅层对比 prop 和 state 的方式来实现了该函数。</p>
+<p>如果赋予 React 组件相同的 props 和 state，<code>render()</code> 函数会渲染相同的内容，那么在某些情况下使用 <code>React.PureComponent</code> 可提高性能。</p>
+<h2 id="shouldComponentUpdate"><a href="#shouldComponentUpdate" class="headerlink" title="shouldComponentUpdate"></a>shouldComponentUpdate</h2><p>shouldComponentUpdate(nextProps,nextState)</p>
+<ul>
+<li><p>返回true,子组件更新</p>
+</li>
+<li><p>返回false,子组件不更新</p>
+<p><strong>通过对比当前this.props.xxx的值与下一次nextProps.xxx的值,true更新，false不更新</strong></p>
+</li>
+</ul>
+<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">&lt;!--Parent--&gt;</span><br><span class="line">&lt;Child math=&#123;<span class="built_in">this</span>.state.math&#125;&gt;&lt;/Child&gt;</span><br><span class="line"></span><br><span class="line">&lt;!-- Child --&gt;</span><br><span class="line"><span class="keyword">import</span> React, &#123; Component,PureComponent &#125; <span class="keyword">from</span> <span class="string">&#x27;react&#x27;</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Child</span> <span class="keyword">extends</span> <span class="title">Component</span></span>&#123;</span><br><span class="line">     <span class="function"><span class="title">constructor</span>(<span class="params">props</span>)</span>&#123;</span><br><span class="line">          <span class="built_in">super</span>(props);</span><br><span class="line">     &#125;</span><br><span class="line">     <span class="function"><span class="title">shouldComponentUpdate</span>(<span class="params">nextProps, nextState</span>)</span>&#123;</span><br><span class="line">          <span class="keyword">return</span> nextProps.math !== <span class="built_in">this</span>.props.math;</span><br><span class="line">     &#125;</span><br><span class="line">     <span class="function"><span class="title">render</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">          <span class="built_in">console</span>.log(<span class="string">&#x27;我是child.js render方法&#x27;</span>);</span><br><span class="line">         <span class="keyword">return</span> (<span class="xml"><span class="tag">&lt;<span class="name">section</span> <span class="attr">className</span>=<span class="string">&quot;child&quot;</span>&gt;</span></span></span><br><span class="line"><span class="xml">               <span class="tag">&lt;<span class="name">h1</span>&gt;</span>Child.js<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span></span><br><span class="line"><span class="xml">               <span class="tag">&lt;<span class="name">h3</span>&gt;</span>&#123;this.props.math&#125;<span class="tag">&lt;/<span class="name">h3</span>&gt;</span></span></span><br><span class="line"><span class="xml">         <span class="tag">&lt;/<span class="name">section</span>&gt;</span></span>);</span><br><span class="line">     &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> Child;</span><br></pre></td></tr></table></figure>
+<h4 id="如果是更为复杂的对象时怎么办？"><a href="#如果是更为复杂的对象时怎么办？" class="headerlink" title="如果是更为复杂的对象时怎么办？"></a>如果是更为复杂的对象时怎么办？</h4><p><strong>考虑使用puleComponent</strong></p>
+<h2 id="react中的插曹高级玩法"><a href="#react中的插曹高级玩法" class="headerlink" title="react中的插曹高级玩法"></a>react中的插曹高级玩法</h2><figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&lt;!--App.jsx--&gt;</span><br><span class="line">&lt;div&gt;</span><br><span class="line">  &lt;Child math=&#123;<span class="built_in">this</span>.state.math&#125;&gt;</span><br><span class="line">        &lt;Sun&gt;&lt;/Sun&gt;</span><br><span class="line">   &lt;/Child&gt;</span><br><span class="line">&lt;/div&gt;</span><br></pre></td></tr></table></figure>
+<p><strong><em>有一个需求，我希望不动结构的情况下，sun传入一个chlid组件中的state数据</em></strong></p>
+<p>如何能解决这个问题？</p>
+<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;!--App.jsx--&gt;</span><br><span class="line">&lt;div&gt;</span><br><span class="line">    &lt;Child math=&#123;<span class="built_in">this</span>.state.math&#125; renderFn = &#123;<span class="function">(<span class="params">slotName</span>)=&gt;</span><span class="xml"><span class="tag">&lt;<span class="name">Sun</span> <span class="attr">slotName</span>=<span class="string">&#123;slotName&#125;</span>&gt;</span><span class="tag">&lt;/<span class="name">Sun</span>&gt;</span></span>&#125;&gt;</span><br><span class="line">    &lt;/Child&gt;</span><br><span class="line">&lt;/div&gt; </span><br></pre></td></tr></table></figure>
+<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">&lt;!--Child.jsx--&gt;</span><br><span class="line"><span class="keyword">import</span> React, &#123; Component,PureComponent &#125; <span class="keyword">from</span> <span class="string">&#x27;react&#x27;</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Child</span> <span class="keyword">extends</span> <span class="title">Component</span></span>&#123;</span><br><span class="line">     <span class="function"><span class="title">constructor</span>(<span class="params">props</span>)</span>&#123;</span><br><span class="line">          <span class="built_in">super</span>(props);</span><br><span class="line">     &#125;</span><br><span class="line">     state = &#123;</span><br><span class="line">          slotName:<span class="string">&#x27;我是chlid.js中的slot数据&#x27;</span></span><br><span class="line">     &#125;</span><br><span class="line">     <span class="function"><span class="title">render</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">        </span><br><span class="line">         <span class="keyword">return</span> (<span class="xml"><span class="tag">&lt;<span class="name">section</span> <span class="attr">className</span>=<span class="string">&quot;child&quot;</span>&gt;</span></span></span><br><span class="line"><span class="xml">               <span class="tag">&lt;<span class="name">h1</span>&gt;</span>Child.js<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span></span><br><span class="line"><span class="xml">               <span class="tag">&lt;<span class="name">h3</span>&gt;</span>&#123;this.props.math&#125;<span class="tag">&lt;/<span class="name">h3</span>&gt;</span></span></span><br><span class="line"><span class="xml">               &#123;this.props.renderFn(this.state.slotName)&#125;</span></span><br><span class="line"><span class="xml">         <span class="tag">&lt;/<span class="name">section</span>&gt;</span></span>);</span><br><span class="line">     &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> Child;</span><br></pre></td></tr></table></figure>
+<p><strong>在App.jsx中传入一个自定义函数，函数返回Child组件</strong></p>
+<p>**这样，Child.jsx中通过this.props.renderFn()调用就可以把标签放到指定的位置 **</p>
+<p><strong>this.props.renderFn(child.jsx中的state)传入后，App.jsx自定义函数接收参数，并往Sun组件传入</strong></p>
+<p><strong><em>OK啦</em></strong></p>
+<h2 id="高阶组件问题"><a href="#高阶组件问题" class="headerlink" title="高阶组件问题"></a>高阶组件问题</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 此函数接收一个组件...</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">withSubscription</span>(<span class="params">WrappedComponent, selectData</span>) </span>&#123;</span><br><span class="line">  <span class="comment">// ...并返回另一个组件...</span></span><br><span class="line">  <span class="keyword">return</span> <span class="class"><span class="keyword">class</span> <span class="keyword">extends</span> <span class="title">React</span>.<span class="title">Component</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="title">constructor</span>(<span class="params">props</span>)</span> &#123;</span><br><span class="line">      <span class="built_in">super</span>(props);</span><br><span class="line">      <span class="built_in">this</span>.handleChange = <span class="built_in">this</span>.handleChange.bind(<span class="built_in">this</span>);</span><br><span class="line">      <span class="built_in">this</span>.state = &#123;</span><br><span class="line">        data: selectData(DataSource, props)</span><br><span class="line">      &#125;;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="title">componentDidMount</span>(<span class="params"></span>)</span> &#123;</span><br><span class="line">      <span class="comment">// ...负责订阅相关的操作...</span></span><br><span class="line">      DataSource.addChangeListener(<span class="built_in">this</span>.handleChange);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="title">componentWillUnmount</span>(<span class="params"></span>)</span> &#123;</span><br><span class="line">      DataSource.removeChangeListener(<span class="built_in">this</span>.handleChange);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="title">handleChange</span>(<span class="params"></span>)</span> &#123;</span><br><span class="line">      <span class="built_in">this</span>.setState(&#123;</span><br><span class="line">        data: selectData(DataSource, <span class="built_in">this</span>.props)</span><br><span class="line">      &#125;);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="title">render</span>(<span class="params"></span>)</span> &#123;</span><br><span class="line">      <span class="comment">// ... 并使用新数据渲染被包装的组件!</span></span><br><span class="line">      <span class="comment">// 请注意，我们可能还会传递其他属性</span></span><br><span class="line">      <span class="keyword">return</span> <span class="xml"><span class="tag">&lt;<span class="name">WrappedComponent</span> <span class="attr">data</span>=<span class="string">&#123;this.state.data&#125;</span> &#123;<span class="attr">...this.props</span>&#125; /&gt;</span></span>;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><a class="link"   target="_blank" rel="noopener" href="https://zh-hans.reactjs.org/docs/higher-order-components.html" >react官方文档 高阶组件：https://zh-hans.reactjs.org/docs/higher-order-components.html<i class="fas fa-external-link-alt"></i></a></p>
+<p>与vue中的mixins非常相同，可以集成公共方法，数据</p>
+
+    </div>
+    <h3 style="font-size: 1.6rem;font-weight: 550;">页面关键信息已通过以下代码生成跳转链接</h3>
+    <pre>
+     &lt;script&gt;
+         const context = document.querySelector(".markdown-body");
+         const articleTitleList = document.querySelector(".article-title-list");
+         if(context){
+             const tags = context.querySelectorAll('*');
+             const hTagReg = /^H[1-6]$/;
+             let template = '';
+             tags.forEach(item=>{
+                     if(hTagReg.test(item.tagName.toUpperCase()) && item.innerText){
+                      const tagH = item.tagName.toLowerCase();
+                      const forHash = item.getAttribute("id");
+                     template+=`
+                          <${tagH}>
+                          <a onclick="javascript:void(1)" href="#${forHash}">${item.innerText}</a>
+                         </${tagH}>  
+                      `;
+                  }
+              });
+             articleTitleList.innerHTML=template; 
+          }
+          &lt;/script&gt;
+        </pre>
+    
+    <div class="post-copyright-info">
+      <div class="article-copyright-info-container">
+    <ul>
+        <li>本文标题：react补充点</li>
+        <li>本文作者：邵预鸿</li>
+        <li>创建时间：2022-02-23 22:15:24</li>
+        <li>
+            本文链接：/images/logo.jpg2022/02/23/react补充点/
+        </li>
+        <li>
+            版权声明：本博客所有文章除特别声明外，均采用 <a class="license" target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">BY-NC-SA</a> 许可协议。转载请注明出处！
+        </li>
+    </ul>
+</div>
+
+    </div>
+    
+
+    
+    <div class="article-nav">
+      
+      <div class="article-prev">
+        <a class="prev" rel="prev" href="/2022/04/08/canvas%E6%A1%88%E4%BE%8B/">
+          <span class="left arrow-icon flex-center">
+            <i class="fas fa-chevron-left"></i>
+          </span>
+          <span class="title flex-center">
+            <span class="post-nav-title-item">canvas案例</span>
+            <span class="post-nav-item">上一篇</span>
+          </span>
+        </a>
+      </div>
+      
+      
+      <div class="article-next">
+        <a class="next" rel="next" href="/2022/02/23/typescript%E8%A1%A5%E5%85%85%E7%82%B9/">
+          <span class="title flex-center">
+            <span class="post-nav-title-item">typescript补充点</span>
+            <span class="post-nav-item">下一篇</span>
+          </span>
+          <span class="right arrow-icon flex-center">
+            <i class="fas fa-chevron-right"></i>
+          </span>
+        </a>
+      </div>
+      
+    </div>
+    
+
+    
+  </div>
+</div>
+
+
+        
+      </div>
+
+    </div>
+
+    <div class="page-main-content-bottom">
+      <footer class="footer">
+    <div class="info-container">
+        <div class="copyright-info info-item">
+            &copy;
+            
+              <span>2021</span>&nbsp;-&nbsp;
+            
+            2022&nbsp;<i class="fas fa-heart icon-animate"></i>&nbsp;<a href="/">邵预鸿</a>
+        </div>
+        
+        
+        <div>更多笔记请访问:<a href="https://www.shaoyuhong.cn" target="_blank">邵预鸿|随心记 https://www.shaoyuhong.cn</a></div>
+
+    </div>
+</footer>
+
+    </div>
+  </div>
+
+  
+  <div class="post-tools">
+    <div class="post-tools-container">
+    <ul class="tools-list">
+        <!-- TOC aside toggle -->
+        
+
+        <!-- go comment -->
+        
+    </ul>
+</div>
+
+  </div>
+  
+
+  <div class="right-bottom-side-tools">
+    <div class="side-tools-container">
+    <ul class="side-tools-list">
+        <li class="tools-item tool-font-adjust-plus flex-center">
+            <i class="fas fa-search-plus"></i>
+        </li>
+
+        <li class="tools-item tool-font-adjust-minus flex-center">
+            <i class="fas fa-search-minus"></i>
+        </li>
+
+        <li class="tools-item tool-expand-width flex-center">
+            <i class="fas fa-arrows-alt-h"></i>
+        </li>
+
+        <li class="tools-item tool-dark-light-toggle flex-center">
+            <i class="fas fa-moon"></i>
+        </li>
+
+        <!-- rss -->
+        
+
+        
+
+        <li class="tools-item tool-scroll-to-bottom flex-center">
+            <i class="fas fa-arrow-down"></i>
+        </li>
+    </ul>
+
+    <ul class="exposed-tools-list">
+        <li class="tools-item tool-toggle-show flex-center">
+            <i class="fas fa-cog fa-spin"></i>
+        </li>
+        
+            <li class="tools-item tool-scroll-to-top flex-center">
+                <i class="arrow-up fas fa-arrow-up"></i>
+                <span class="percent"></span>
+            </li>
+        
+    </ul>
+</div>
+
+  </div>
+
+  
+
+  <div class="image-viewer-container">
+    <img src="">
+</div>
+
+
+  
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+          <span class="search-input-field-pre">
+            <i class="fas fa-keyboard"></i>
+          </span>
+            <div class="search-input-container">
+                <input autocomplete="off"
+                       autocorrect="off"
+                       autocapitalize="off"
+                       placeholder="搜索..."
+                       spellcheck="false"
+                       type="search"
+                       class="search-input"
+                >
+            </div>
+            <span class="popup-btn-close">
+                <i class="fas fa-times"></i>
+            </span>
+        </div>
+        <div id="search-result">
+            <div id="no-result">
+                <i class="fas fa-spinner fa-pulse fa-5x fa-fw"></i>
+            </div>
+        </div>
+    </div>
+</div>
+
+  
+
+</main>
+<script>
+  const context = document.querySelector(".markdown-body");
+  const articleTitleList = document.querySelector(".article-title-list");
+  const mainContent = document.querySelector('.main-content');
+
+  if (context) {
+    const tags = context.querySelectorAll('*');
+    const hTagReg = /^H[1-6]$/;
+    let template = '';
+    tags.forEach(item => {
+      if (hTagReg.test(item.tagName.toUpperCase()) && item.innerText) {
+        const tagH = item.tagName.toLowerCase();
+        const forHash = item.getAttribute("id");
+        template += `
+                  <${tagH}>
+                    <a onclick="javascript:void(1)" href="#${forHash}">${item.innerText}</a>
+                  </${tagH}>  
+                `;
+
+      }
+    });
+    articleTitleList.innerHTML = template;
+
+  }
+
+  (function leftNavPositionChange() {
+    const articleTitlePositoinX = (window.innerWidth - mainContent.clientWidth) / 2 - 255;
+    articleTitleList.style.left = articleTitlePositoinX + 'px';
+    window.onresize = function () {
+      leftNavPositionChange();
+    };
+  })();
+
+</script>
+
+<script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="/js/header-shrink.js"></script><script src="/js/back2top.js"></script><script src="/js/dark-light-toggle.js"></script>
+
+
+    <script src="/js/local-search.js"></script>
+
+
+
+    <script src="/js/code-copy.js"></script>
+
+
+
+    <script src="/js/lazyload.js"></script>
+
+
+<div class="post-scripts">
+    
+</div>
+
+
+
+</body>
+</html>

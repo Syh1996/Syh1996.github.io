@@ -1,0 +1,572 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="baidu-site-verification" content="code-YfBAOEVVQH" />
+    <meta name="keywords" content="邵预鸿,前端开发工程师,技术博客,生活记录,生活日常,个人简历,日常规划">
+    <meta name="description" content="入职中兴通讯，一名低调资深的ctrl+c and ctrl+v开发者">
+    <meta name="author" content="邵预鸿">
+    
+    <title>
+        
+            js少用却重要的知识点 |
+        
+        邵预鸿|前端开发技术笔记
+    </title>
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="shortcut icon" href="/images/logo.jpg">
+    <link rel="stylesheet" href="/css/font-awesome.min.css">
+    <script id="hexo-configurations">
+    let KEEP = window.KEEP || {};
+    KEEP.hexo_config = {"hostname":"github.com","root":"/","language":"zh-CN","path":"search.xml"};
+    KEEP.theme_config = {"toc":{"enable":false,"number":false,"expand_all":false,"init_open":false},"style":{"primary_color":"#0066CC","avatar":"/images/logo.jpg","favicon":"/images/logo.jpg","article_img_align":"left","left_side_width":"260px","content_max_width":"920px","hover":{"shadow":true,"scale":false},"first_screen":{"enable":true,"background_img":"/images/bg.svg","description":"积累硅步，可至千里；千里之行，始于足下"},"scroll":{"progress_bar":{"enable":true},"percent":{"enable":true}}},"local_search":{"enable":true,"preload":true},"code_copy":{"enable":true,"style":"default"},"pjax":{"enable":false},"lazyload":{"enable":true},"version":"3.4.0"};
+    KEEP.language_ago = {"second":"%s 秒前","minute":"%s 分钟前","hour":"%s 小时前","day":"%s 天前","week":"%s 周前","month":"%s 月前","year":"%s 年前"};
+  </script>
+<meta name="generator" content="Hexo 5.3.0"></head>
+
+
+<body>
+<!--
+ * @Description: file content
+ * @Author: yuhongshao
+ * @Date: 2021-02-20 19:33:18
+ * @email: yuhongshao@tencent.com
+ * @LastEditTime: 2022-03-30 10:24:37
+-->
+<div class="progress-bar-container">
+    
+        <span class="scroll-progress-bar"></span>
+    
+
+    
+</div>
+
+
+<main class="page-container">
+
+  
+
+  <div class="page-main-content">
+
+    <div class="page-main-content-top">
+      <header class="header-wrapper">
+
+    <div class="header-content">
+        <div class="left">
+            <a class="logo-title" href="/">
+                邵预鸿|前端开发技术笔记
+            </a>
+        </div>
+
+        <div class="right">
+            <div class="pc">
+                <ul class="menu-list">
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/"
+                            >
+                                主页
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/archives"
+                            >
+                                历年汇总
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/about"
+                            >
+                                关于我
+                            </a>
+                        </li>
+                    
+                    
+                        <li class="menu-item search search-popup-trigger">
+                            <i class="fas fa-search"></i>
+                        </li>
+                    
+                </ul>
+            </div>
+            <div class="mobile">
+                
+                    <div class="icon-item search search-popup-trigger"><i class="fas fa-search"></i></div>
+                
+                <div class="icon-item menu-bar">
+                    <div class="menu-bar-middle"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="header-drawer">
+        <ul class="drawer-menu-list">
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/">主页</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/archives">历年汇总</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/about">关于我</a>
+                </li>
+            
+        </ul>
+    </div>
+
+    <div class="window-mask"></div>
+
+</header>
+
+
+    </div>
+    <style>
+      .article-title-list {
+        position: fixed;
+        left: 80px;
+        top: 110px;
+        z-index: 100;
+        width: 250px;
+        max-height: calc(100% - 144px);
+        overflow: auto;
+      }
+
+      .article-title-list h1,
+      .article-title-list h2,
+      .article-title-list h3,
+      .article-title-list h4,
+      .article-title-list h5,
+      .article-title-list h6 {
+        box-sizing: border-box;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        overflow: hidden;
+        color: #686868;
+        font-weight: normal;
+        line-height: 1;
+        cursor: pointer;
+      }
+
+      .article-title-list h1 {
+        font-size: 22px;
+      }
+
+      .article-title-list h2 {
+        padding-left: 20px;
+        font-size: 20px;
+      }
+
+      .article-title-list h3 {
+        padding-left: 40px;
+        font-size: 18px;
+      }
+
+      .article-title-list h4 {
+        padding-left: 60px;
+        font-size: 16px;
+      }
+
+      .article-title-list h5 {
+        padding-left: 80px;
+        font-size: 14px;
+      }
+
+      .article-title-list h6 {
+        padding-left: 100px;
+        font-size: 12px;
+      }
+
+    </style>
+    <div class="article-title-list">
+    </div>
+
+    <div class="page-main-content-middle">
+
+      <div class="main-content">
+
+        
+        <div class="fade-in-down-animation">
+  <div class="article-content-container">
+
+    <div class="article-title">
+      <span class="title-hover-animation">js少用却重要的知识点</span>
+    </div>
+
+    
+    <div class="article-header">
+      <div class="avatar">
+        <img src="/images/logo.jpg">
+      </div>
+      <div class="info">
+        <div class="author">
+          <span class="name">邵预鸿</span>
+          
+          <span
+            class="author-label">Lv4</span>
+          
+        </div>
+        <div class="meta-info">
+          <div class="article-meta-info">
+    <span class="article-date article-meta-item">
+        <i class="fas fa-edit"></i>&nbsp;2021-06-06 15:21:20
+    </span>
+    
+    
+        <span class="article-tags article-meta-item">
+            <i class="fas fa-tags"></i>&nbsp;
+            <ul>
+                
+                    <li>
+                        <a href="/tags/js/">js</a>&nbsp;
+                    </li>
+                
+            </ul>
+        </span>
+    
+
+    
+    
+    
+    
+</div>
+
+        </div>
+      </div>
+    </div>
+    
+
+    <div class="article-content markdown-body">
+      <h4 id="primise问题"><a href="#primise问题" class="headerlink" title="primise问题"></a>primise问题</h4><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> promise = <span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function">(<span class="params">resolve,reject</span>)=&gt;</span>&#123;</span><br><span class="line">              <span class="built_in">setTimeout</span>(<span class="function">()=&gt;</span>&#123;</span><br><span class="line">                    resolve(&#123;<span class="attr">msg</span>:<span class="string">&#x27;我是promise异步数据&#x27;</span>&#125;);</span><br><span class="line">              &#125;,<span class="number">2000</span>);</span><br><span class="line">       &#125;)</span><br></pre></td></tr></table></figure>
+<p>promise 2秒后将得到resolve的数据,且promise会返回resolve的数据</p>
+<h4 id="window-addEventLister问题"><a href="#window-addEventLister问题" class="headerlink" title="window.addEventLister问题"></a>window.addEventLister问题</h4><p>window.addEventLister不能阻止冒泡</p>
+<h4 id="异常捕获问题"><a href="#异常捕获问题" class="headerlink" title="异常捕获问题"></a>异常捕获问题</h4><p>try…catch不能去捕获异步代码，如promise/setTimeout</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">try</span>&#123;</span><br><span class="line">       <span class="built_in">setTimeout</span>(<span class="function">()=&gt;</span>&#123;coslso.log(<span class="string">&#x27;a&#x27;</span>);&#125;,<span class="number">2000</span>)  </span><br><span class="line">      &#125;<span class="keyword">catch</span>(e)&#123;</span><br><span class="line">          <span class="built_in">console</span>.log(e);</span><br><span class="line">      &#125;</span><br></pre></td></tr></table></figure>
+<p>如需解决promise监听异常问题，可使用window.addEventListener(‘unhandledrejection’异常监听</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">try</span> &#123;</span><br><span class="line">       <span class="comment">/*  setTimeout(() =&gt; &#123; coslso.log(&#x27;a&#x27;); &#125;, 2000) */</span></span><br><span class="line">       <span class="built_in">Promise</span>.reject(<span class="string">&#x27;错误&#x27;</span>)</span><br><span class="line">    &#125; <span class="keyword">catch</span> (e) &#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">&#x27;进入catch&#x27;</span>)</span><br><span class="line">        <span class="built_in">console</span>.log(e);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">window</span>.addEventListener(<span class="string">&#x27;unhandledrejection&#x27;</span>, <span class="function"><span class="keyword">function</span> (<span class="params">e</span>) </span>&#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">&#x27;进入unhandledrejection&#x27;</span>);</span><br><span class="line">        <span class="built_in">console</span>.log(e);</span><br><span class="line">    &#125;)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>js代码捕获</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">通过window.addEventListener来实现，网络异常可以在事件捕获的阶段捕捉到，addEventListener第三个参数设置为true</span><br><span class="line">2⃣️ 代码必须放在文档载入之前</span><br><span class="line">3⃣️ 通过e.srcElement来判断网络错误事件发生的元素</span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">window</span>.addEventListener(<span class="string">&quot;error&quot;</span>,<span class="function"><span class="keyword">function</span>(<span class="params">e</span>)</span>&#123;</span><br><span class="line">   <span class="built_in">console</span>.log(e.target.tagName);</span><br><span class="line">    <span class="keyword">if</span>(e.target.tagName &amp;&amp; e.target.tagName.toUpperCase() ===<span class="string">&#x27;IMG&#x27;</span>)&#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">&#x27;给img设置默认&#x27;</span>);</span><br><span class="line">        e.srcElement.src=<span class="string">&quot;https://syh1996.github.io/images/logo.jpg&quot;</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;,<span class="literal">true</span>)</span><br></pre></td></tr></table></figure>
+<p>上述代码将，捕获元素资源和代码报错，例如图片资源为404未找到时，将触发错误捕获，将图片地址重置为<a class="link"   target="_blank" rel="noopener" href="https://syh1996.github.io/images/logo.jpg" >https://syh1996.github.io/images/logo.jpg<i class="fas fa-external-link-alt"></i></a></p>
+<p>如<a class="link"   target="_blank" rel="noopener" href="https://syh1996.github.io/images/logo.jpg%E7%BB%A7%E7%BB%AD%E6%8A%A5%E9%94%99%EF%BC%8C%E5%B0%86%E7%BB%A7%E7%BB%AD%E8%A2%ABwindow.error%E6%8D%95%E8%8E%B7%EF%BC%8C%E7%9B%B4%E5%88%B0%E5%9B%BE%E7%89%87%E8%83%BD%E5%8A%A0%E8%BD%BD%E6%88%90%E5%8A%9F" >https://syh1996.github.io/images/logo.jpg继续报错，将继续被window.error捕获，直到图片能加载成功<i class="fas fa-external-link-alt"></i></a></p>
+<h4 id="原生获取样式"><a href="#原生获取样式" class="headerlink" title="原生获取样式"></a>原生获取样式</h4><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">getStyle</span>(<span class="params">element,attr</span>)</span>&#123;</span><br><span class="line">      <span class="keyword">if</span>(element.currentStyle)&#123;</span><br><span class="line">          <span class="keyword">return</span> element.currentStyle[attr]</span><br><span class="line">      &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">          <span class="built_in">console</span>.log(<span class="built_in">window</span>.getComputedStyle(element));</span><br><span class="line">          <span class="keyword">return</span> <span class="built_in">window</span>.getComputedStyle(element)[attr]</span><br><span class="line">      &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<hr>
+<h4 id="关于transition-animation动画与js获取的问题"><a href="#关于transition-animation动画与js获取的问题" class="headerlink" title="关于transition animation动画与js获取的问题"></a>关于transition animation动画与js获取的问题</h4><p>一个div#id{position:absolute;left:0;top：0；transition:all 10s}，问，一个js  document.querySelector(“#id”).style.left= ‘1500px’后，开一个定时器，每秒获取#id的style.left，10秒触发10次，这10次会输出什么</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">&lt;style&gt;</span><br><span class="line">      *&#123;</span><br><span class="line">          <span class="attribute">margin</span>:<span class="number">0</span>;</span><br><span class="line">          <span class="attribute">padding</span>: <span class="number">0</span>;</span><br><span class="line">      &#125;</span><br><span class="line">      <span class="selector-id">#id</span>&#123;</span><br><span class="line">          <span class="attribute">width</span>: <span class="number">100px</span>;</span><br><span class="line">          <span class="attribute">height</span>: <span class="number">100px</span>;</span><br><span class="line">          <span class="attribute">background</span>: red;</span><br><span class="line">          <span class="attribute">position</span>: absolute;</span><br><span class="line">          <span class="attribute">left</span>: <span class="number">0</span>;</span><br><span class="line">          <span class="attribute">top</span>: <span class="number">100px</span>;</span><br><span class="line">          <span class="attribute">transition</span>: all <span class="number">20s</span>;</span><br><span class="line">      &#125;</span><br><span class="line">&lt;/style&gt;</span><br></pre></td></tr></table></figure>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">button</span> <span class="attr">id</span>=<span class="string">&quot;btn1&quot;</span>&gt;</span>运动<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">&quot;id&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="javascript">      <span class="keyword">var</span> oBtn = <span class="built_in">document</span>.querySelector(<span class="string">&quot;#btn1&quot;</span>);</span></span><br><span class="line"><span class="javascript">      <span class="keyword">var</span> oDiv = <span class="built_in">document</span>.querySelector(<span class="string">&quot;#id&quot;</span>);</span></span><br><span class="line"></span><br><span class="line"><span class="javascript">      <span class="function"><span class="keyword">function</span> <span class="title">getStyle</span>(<span class="params">element,attr</span>)</span>&#123;</span></span><br><span class="line">          if(element.getCurrentStyle)&#123;</span><br><span class="line"><span class="javascript">              <span class="keyword">return</span> element.getCurrentStyle[attr]</span></span><br><span class="line"><span class="javascript">          &#125;<span class="keyword">else</span>&#123;</span></span><br><span class="line"><span class="javascript">               <span class="keyword">return</span> <span class="built_in">window</span>.getComputedStyle(element)[attr]</span></span><br><span class="line">          &#125;</span><br><span class="line">      &#125;</span><br><span class="line"><span class="javascript">      oBtn.onclick=<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span></span><br><span class="line"><span class="javascript">          oDiv.style.left=<span class="string">&quot;1000px&quot;</span>;</span></span><br><span class="line"><span class="javascript">          <span class="built_in">setInterval</span>(<span class="function">()=&gt;</span>&#123;</span></span><br><span class="line"><span class="javascript">                <span class="built_in">console</span>.log(getStyle(oDiv,<span class="string">&#x27;left&#x27;</span>)); <span class="comment">//1px,2px,3px....</span></span></span><br><span class="line"><span class="javascript">                <span class="built_in">console</span>.log(oDiv.style.left); <span class="comment">//1000px,1000px,100px</span></span></span><br><span class="line">          &#125;,500);</span><br><span class="line">      &#125;</span><br><span class="line"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://gitee.com/xian_hong_xiao/assets/raw/master/img/100.png"
+                      alt="图片"
+                ></p>
+<p> getComputedStyle是获取元素最终呈现的样式，style只能拿到行内style属性设置的属性，对于类似于的空标签，style拿不到属性，将返回空字符串。 </p>
+<p>所以上述代码当是  元素.style.left时，会出现打印同一个数，为1000px，而getComputedStyle会打印最后呈现的结果当前位置</p>
+<h3 id="关于window-addEventListenner的第三个参数"><a href="#关于window-addEventListenner的第三个参数" class="headerlink" title="关于window.addEventListenner的第三个参数"></a>关于window.addEventListenner的第三个参数</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> bool = &#123;</span><br><span class="line">      once:<span class="literal">true</span>,</span><br><span class="line">      capture:<span class="literal">true</span>,</span><br><span class="line">      passive:<span class="literal">true</span></span><br><span class="line">&#125;;</span><br><span class="line"><span class="built_in">document</span>.body.addEventListener(<span class="string">&quot;click&quot;</span>,<span class="function"><span class="keyword">function</span>(<span class="params">e</span>)</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">&#x27;body is click&#x27;</span>);</span><br><span class="line">    e.preventDefault();</span><br><span class="line">&#125;,bool)</span><br><span class="line"></span><br><span class="line"><span class="built_in">document</span>.querySelector(<span class="string">&quot;#box&quot;</span>).addEventListener(<span class="string">&quot;click&quot;</span>,<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">&#x27;box is click&#x27;</span>)</span><br><span class="line">&#125;,bool)</span><br><span class="line"></span><br><span class="line"><span class="built_in">document</span>.querySelector(<span class="string">&quot;#btn&quot;</span>).addEventListener(</span><br><span class="line">  <span class="string">&quot;click&quot;</span>,</span><br><span class="line">  <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">&quot;btn is click&quot;</span>);</span><br><span class="line">  &#125;,</span><br><span class="line">  bool</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
+<p>主要关注下第三个参数，可以设置为bool类型（useCapture）或者object类型(options)。</p>
+<ul>
+<li>options包括三个布尔值选项：<ul>
+<li>capture: 默认值为false（即 使用事件冒泡）<strong>btn&gt;box&gt;body&gt;window</strong>. true是否使用事件捕获<strong>window&gt;body&gt;box&gt;btn</strong>；</li>
+<li>once: 默认值为false. 是否只调用一次，if true，会在调用后自动销毁listener</li>
+<li>passive: if true, 意味着listener不能调用preventDefault方法，如果又确实调用了的话，浏览器只会console一个warning，而不会真的去执行preventDefault方法。<strong>根据规范，默认值为false. 但是chrome, Firefox等浏览器为了保证滚动时的性能，在document-level nodes(Window, Document, Document.body)上针对touchstart和touchmove事件将passive默认值改为了true</strong>， 保证了在页面滚动时不会因为自定义事件中调用了preventDefault而阻塞页面渲染。</li>
+</ul>
+</li>
+<li>useCapture: 默认值为false（即 使用事件冒泡），true事件捕获。</li>
+</ul>
+<h3 id="关于vue-methods写法"><a href="#关于vue-methods写法" class="headerlink" title="关于vue methods写法"></a>关于vue methods写法</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">methods:&#123;</span><br><span class="line">    show: <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">&quot;显示内容&quot;</span>)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//vue防抖函数</span></span><br><span class="line">show:(<span class="function">()=&gt;</span>&#123;</span><br><span class="line">     <span class="keyword">let</span> timer1 = <span class="literal">null</span>;</span><br><span class="line">     <span class="keyword">return</span> <span class="function"><span class="keyword">function</span>(<span class="params">fn</span>)</span>&#123;</span><br><span class="line">          <span class="keyword">if</span>(timer1)&#123;</span><br><span class="line">               <span class="built_in">clearTimeout</span>(timer1);</span><br><span class="line">               timer1 = <span class="literal">null</span>;</span><br><span class="line">          &#125;</span><br><span class="line">         timer1= <span class="built_in">setTimeout</span>(<span class="function">()=&gt;</span>&#123;</span><br><span class="line">             fn();</span><br><span class="line">         &#125;,<span class="number">1000</span>)</span><br><span class="line">     &#125;</span><br><span class="line">&#125;)()</span><br></pre></td></tr></table></figure>
+
+
+<h3 id="文件流转base64图片"><a href="#文件流转base64图片" class="headerlink" title="文件流转base64图片"></a>文件流转base64图片</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">初始化一个FileReader 对象</span><br><span class="line">*/</span><br><span class="line"><span class="keyword">const</span> reader= <span class="keyword">new</span>  FileReader()</span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">开始读取指定的Blob中的内容。一旦完成，result属性中将包含一个data: URL格式的字符串以表示所读取文件的内容。</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line">reader.readAsDataURL(file)</span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">在读取后，触发的事件，并获取读取文件的地址</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line">reader.onload = <span class="function">(<span class="params">e</span>) =&gt;</span> &#123;</span><br><span class="line">       img.src = <span class="built_in">this</span>.result</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+<h3 id="base64转文件流"><a href="#base64转文件流" class="headerlink" title="base64转文件流"></a>base64转文件流</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> img = <span class="keyword">new</span> Image();</span><br><span class="line">img.src = base64;</span><br><span class="line"><span class="keyword">const</span> fd = <span class="keyword">new</span> formData();</span><br><span class="line">fd.appendChild(<span class="string">&#x27;file&#x27;</span>,fd);</span><br></pre></td></tr></table></figure>
+
+
+<h3 id="bind的用法"><a href="#bind的用法" class="headerlink" title=".bind的用法"></a>.bind的用法</h3><p>.bind除了拥有修改this指针外,还能将额外的参数与原生的事件参数合并一起传入到形参</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> obj = &#123;</span><br><span class="line">    name:<span class="string">&#x27;obj name&#x27;</span></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">fn</span>(<span class="params">...arg</span>)</span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="built_in">this</span>); <span class="comment">//obj</span></span><br><span class="line">  <span class="built_in">console</span>.log(arg);  <span class="comment">//[&#x27;shao.yuhong&#x27;,mouseEvent]</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">document</span>.querySelector(<span class="string">&quot;h1&quot;</span>).onclick=fn.bind(obj,<span class="string">&#x27;shao.yuhong&#x27;</span>);</span><br></pre></td></tr></table></figure>
+
+
+<h3 id="js模版字符串原生onclick传递对象引用数据"><a href="#js模版字符串原生onclick传递对象引用数据" class="headerlink" title="js模版字符串原生onclick传递对象引用数据"></a>js模版字符串原生onclick传递对象引用数据</h3><p>onclick时，原生js不能直接传递对象数据，如果直接传递obj,log函数中收到的是[object Object]字符串。</p>
+<p>处理方法需要把obj通过JSON.stringify()将对象转为对象字符串。</p>
+<p>因为obj存在单双引号，所以onclick=’’遵循里面双引号，外面单引号。当里面单双引号都存在的情况。考虑使用转义字符 <strong>\ ‘</strong> 对他进行处理</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">&lt;script&gt;</span><br><span class="line">  <span class="keyword">const</span> obj = &#123;</span><br><span class="line">    name:<span class="string">&quot;shao.yuhong&quot;</span>,</span><br><span class="line">    age:<span class="number">22</span>,</span><br><span class="line">    school:<span class="string">&#x27;重庆师范大学&#x27;</span></span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">  <span class="function"><span class="keyword">function</span> <span class="title">log</span>(<span class="params">item</span>)</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(item);</span><br><span class="line">    &#125;</span><br><span class="line">  <span class="built_in">document</span>.body.innerHTML= <span class="string">`&lt;h1&gt;This is heading 1&lt;/h1&gt;</span></span><br><span class="line"><span class="string">&lt;h2 onclick=\&quot;log(<span class="subst">$&#123;<span class="built_in">JSON</span>.stringify(obj)&#125;</span>)\&quot;&gt;This is heading 2&lt;/h2&gt;</span></span><br><span class="line"><span class="string">&lt;h3&gt;This is heading 3&lt;/h3&gt;</span></span><br><span class="line"><span class="string">&lt;h4&gt;This is heading 4&lt;/h4&gt;</span></span><br><span class="line"><span class="string">&lt;h5&gt;This is heading 5&lt;/h5&gt;</span></span><br><span class="line"><span class="string">&lt;h6&gt;This is heading 6&lt;/h6&gt;`</span></span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+
+
+
+
+<h4 id="后台返回文件流，前端下载、并展示接收进度"><a href="#后台返回文件流，前端下载、并展示接收进度" class="headerlink" title="后台返回文件流，前端下载、并展示接收进度"></a>后台返回文件流，前端下载、并展示接收进度</h4><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">&lt;script&gt;</span><br><span class="line">    <span class="keyword">var</span> xhr = <span class="keyword">new</span> XMLHttpRequest();</span><br><span class="line">    xhr.open(<span class="string">&#x27;GET&#x27;</span>, <span class="string">&#x27;http://www.shaoyuhong.cn/download.php&#x27;</span>);</span><br><span class="line">    xhr.responseType = <span class="string">&quot;blob&quot;</span>; <span class="comment">//很关键</span></span><br><span class="line">    xhr.onprogress = <span class="function"><span class="keyword">function</span> (<span class="params">event</span>) </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (event.lengthComputable) &#123;</span><br><span class="line">            <span class="built_in">console</span>.log(event.loaded / event.total * <span class="number">100</span>+<span class="string">&quot;%&quot;</span>);</span><br><span class="line">         </span><br><span class="line">        </span><br><span class="line">        &#125;</span><br><span class="line">    &#125;;</span><br><span class="line">    xhr.onload = <span class="function"><span class="keyword">function</span> (<span class="params">oEvent</span>) </span>&#123;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> (xhr.readyState === <span class="number">4</span> &amp;&amp; xhr.status === <span class="number">200</span>) &#123;</span><br><span class="line">            <span class="comment">// var name = xhr.getResponseHeader(&quot;Content-disposition&quot;);</span></span><br><span class="line">            <span class="comment">// var filename = name.substring(20,name.length);</span></span><br><span class="line">            <span class="keyword">var</span> blob = <span class="keyword">new</span> Blob([xhr.response],&#123;<span class="attr">type</span>:<span class="string">&#x27;image/jpeg&#x27;</span>&#125;);</span><br><span class="line">            <span class="keyword">var</span> csvUrl = URL.createObjectURL(blob);</span><br><span class="line">            <span class="keyword">var</span> link = <span class="built_in">document</span>.createElement(<span class="string">&#x27;a&#x27;</span>);</span><br><span class="line">            link.href = csvUrl;</span><br><span class="line">            link.download = <span class="string">&#x27;abababababba&#x27;</span>;</span><br><span class="line">            link.click();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    xhr.send();</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+
+
+<h3 id="window-open模拟授权效果"><a href="#window-open模拟授权效果" class="headerlink" title="window.open模拟授权效果"></a>window.open模拟授权效果</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">    <span class="keyword">const</span> oBtn = <span class="built_in">document</span>.querySelector(<span class="string">&quot;button&quot;</span>);</span><br><span class="line">    oBtn.onclick=<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">         <span class="keyword">const</span> windowView = <span class="built_in">window</span>.open(<span class="string">&#x27;./20.html&#x27;</span>,<span class="string">&#x27;_blank&#x27;</span>,<span class="string">&#x27;width=200;height=200&#x27;</span>);</span><br><span class="line">       <span class="comment">/*   windowView.document.write(&#x27;&lt;h1&gt;我是一个授权操作&lt;/h1&gt;&#x27;); */</span></span><br><span class="line">     </span><br><span class="line">         <span class="built_in">setTimeout</span>(<span class="function">()=&gt;</span>&#123;</span><br><span class="line">             windowView.close();</span><br><span class="line">         &#125;,<span class="number">5000</span>);</span><br><span class="line">    &#125;</span><br><span class="line"><span class="comment">// window.open(&#x27;http://www.baidu.com&#x27;)  也能实现定时关闭</span></span><br></pre></td></tr></table></figure>
+
+    </div>
+    <h3 style="font-size: 1.6rem;font-weight: 550;">页面关键信息已通过以下代码生成跳转链接</h3>
+    <pre>
+     &lt;script&gt;
+         const context = document.querySelector(".markdown-body");
+         const articleTitleList = document.querySelector(".article-title-list");
+         if(context){
+             const tags = context.querySelectorAll('*');
+             const hTagReg = /^H[1-6]$/;
+             let template = '';
+             tags.forEach(item=>{
+                     if(hTagReg.test(item.tagName.toUpperCase()) && item.innerText){
+                      const tagH = item.tagName.toLowerCase();
+                      const forHash = item.getAttribute("id");
+                     template+=`
+                          <${tagH}>
+                          <a onclick="javascript:void(1)" href="#${forHash}">${item.innerText}</a>
+                         </${tagH}>  
+                      `;
+                  }
+              });
+             articleTitleList.innerHTML=template; 
+          }
+          &lt;/script&gt;
+        </pre>
+    
+    <div class="post-copyright-info">
+      <div class="article-copyright-info-container">
+    <ul>
+        <li>本文标题：js少用却重要的知识点</li>
+        <li>本文作者：邵预鸿</li>
+        <li>创建时间：2021-06-06 15:21:20</li>
+        <li>
+            本文链接：/images/logo.jpg2021/06/06/js少用却重要的知识点/
+        </li>
+        <li>
+            版权声明：本博客所有文章除特别声明外，均采用 <a class="license" target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">BY-NC-SA</a> 许可协议。转载请注明出处！
+        </li>
+    </ul>
+</div>
+
+    </div>
+    
+
+    
+    <div class="article-nav">
+      
+      <div class="article-prev">
+        <a class="prev" rel="prev" href="/2021/06/06/js%E5%8E%9F%E7%94%9F%E4%BA%A4%E6%8D%A2div%E5%9D%97/">
+          <span class="left arrow-icon flex-center">
+            <i class="fas fa-chevron-left"></i>
+          </span>
+          <span class="title flex-center">
+            <span class="post-nav-title-item">js原生交换div块</span>
+            <span class="post-nav-item">上一篇</span>
+          </span>
+        </a>
+      </div>
+      
+      
+      <div class="article-next">
+        <a class="next" rel="next" href="/2021/06/01/http%E8%AF%B7%E6%B1%82%E8%BF%87%E7%A8%8B/">
+          <span class="title flex-center">
+            <span class="post-nav-title-item">http请求过程</span>
+            <span class="post-nav-item">下一篇</span>
+          </span>
+          <span class="right arrow-icon flex-center">
+            <i class="fas fa-chevron-right"></i>
+          </span>
+        </a>
+      </div>
+      
+    </div>
+    
+
+    
+  </div>
+</div>
+
+
+        
+      </div>
+
+    </div>
+
+    <div class="page-main-content-bottom">
+      <footer class="footer">
+    <div class="info-container">
+        <div class="copyright-info info-item">
+            &copy;
+            
+              <span>2021</span>&nbsp;-&nbsp;
+            
+            2022&nbsp;<i class="fas fa-heart icon-animate"></i>&nbsp;<a href="/">邵预鸿</a>
+        </div>
+        
+        
+        <div>更多笔记请访问:<a href="https://www.shaoyuhong.cn" target="_blank">邵预鸿|随心记 https://www.shaoyuhong.cn</a></div>
+
+    </div>
+</footer>
+
+    </div>
+  </div>
+
+  
+  <div class="post-tools">
+    <div class="post-tools-container">
+    <ul class="tools-list">
+        <!-- TOC aside toggle -->
+        
+
+        <!-- go comment -->
+        
+    </ul>
+</div>
+
+  </div>
+  
+
+  <div class="right-bottom-side-tools">
+    <div class="side-tools-container">
+    <ul class="side-tools-list">
+        <li class="tools-item tool-font-adjust-plus flex-center">
+            <i class="fas fa-search-plus"></i>
+        </li>
+
+        <li class="tools-item tool-font-adjust-minus flex-center">
+            <i class="fas fa-search-minus"></i>
+        </li>
+
+        <li class="tools-item tool-expand-width flex-center">
+            <i class="fas fa-arrows-alt-h"></i>
+        </li>
+
+        <li class="tools-item tool-dark-light-toggle flex-center">
+            <i class="fas fa-moon"></i>
+        </li>
+
+        <!-- rss -->
+        
+
+        
+
+        <li class="tools-item tool-scroll-to-bottom flex-center">
+            <i class="fas fa-arrow-down"></i>
+        </li>
+    </ul>
+
+    <ul class="exposed-tools-list">
+        <li class="tools-item tool-toggle-show flex-center">
+            <i class="fas fa-cog fa-spin"></i>
+        </li>
+        
+            <li class="tools-item tool-scroll-to-top flex-center">
+                <i class="arrow-up fas fa-arrow-up"></i>
+                <span class="percent"></span>
+            </li>
+        
+    </ul>
+</div>
+
+  </div>
+
+  
+
+  <div class="image-viewer-container">
+    <img src="">
+</div>
+
+
+  
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+          <span class="search-input-field-pre">
+            <i class="fas fa-keyboard"></i>
+          </span>
+            <div class="search-input-container">
+                <input autocomplete="off"
+                       autocorrect="off"
+                       autocapitalize="off"
+                       placeholder="搜索..."
+                       spellcheck="false"
+                       type="search"
+                       class="search-input"
+                >
+            </div>
+            <span class="popup-btn-close">
+                <i class="fas fa-times"></i>
+            </span>
+        </div>
+        <div id="search-result">
+            <div id="no-result">
+                <i class="fas fa-spinner fa-pulse fa-5x fa-fw"></i>
+            </div>
+        </div>
+    </div>
+</div>
+
+  
+
+</main>
+<script>
+  const context = document.querySelector(".markdown-body");
+  const articleTitleList = document.querySelector(".article-title-list");
+  const mainContent = document.querySelector('.main-content');
+
+  if (context) {
+    const tags = context.querySelectorAll('*');
+    const hTagReg = /^H[1-6]$/;
+    let template = '';
+    tags.forEach(item => {
+      if (hTagReg.test(item.tagName.toUpperCase()) && item.innerText) {
+        const tagH = item.tagName.toLowerCase();
+        const forHash = item.getAttribute("id");
+        template += `
+                  <${tagH}>
+                    <a onclick="javascript:void(1)" href="#${forHash}">${item.innerText}</a>
+                  </${tagH}>  
+                `;
+
+      }
+    });
+    articleTitleList.innerHTML = template;
+
+  }
+
+  (function leftNavPositionChange() {
+    const articleTitlePositoinX = (window.innerWidth - mainContent.clientWidth) / 2 - 255;
+    articleTitleList.style.left = articleTitlePositoinX + 'px';
+    window.onresize = function () {
+      leftNavPositionChange();
+    };
+  })();
+
+</script>
+
+<script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="/js/header-shrink.js"></script><script src="/js/back2top.js"></script><script src="/js/dark-light-toggle.js"></script>
+
+
+    <script src="/js/local-search.js"></script>
+
+
+
+    <script src="/js/code-copy.js"></script>
+
+
+
+    <script src="/js/lazyload.js"></script>
+
+
+<div class="post-scripts">
+    
+</div>
+
+
+
+</body>
+</html>

@@ -1,0 +1,525 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="baidu-site-verification" content="code-YfBAOEVVQH" />
+    <meta name="keywords" content="邵预鸿,前端开发工程师,技术博客,生活记录,生活日常,个人简历,日常规划">
+    <meta name="description" content="入职中兴通讯，一名低调资深的ctrl+c and ctrl+v开发者">
+    <meta name="author" content="邵预鸿">
+    
+    <title>
+        
+            redux-saga代码参考 |
+        
+        邵预鸿|前端开发技术笔记
+    </title>
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="shortcut icon" href="/images/logo.jpg">
+    <link rel="stylesheet" href="/css/font-awesome.min.css">
+    <script id="hexo-configurations">
+    let KEEP = window.KEEP || {};
+    KEEP.hexo_config = {"hostname":"github.com","root":"/","language":"zh-CN","path":"search.xml"};
+    KEEP.theme_config = {"toc":{"enable":false,"number":false,"expand_all":false,"init_open":false},"style":{"primary_color":"#0066CC","avatar":"/images/logo.jpg","favicon":"/images/logo.jpg","article_img_align":"left","left_side_width":"260px","content_max_width":"920px","hover":{"shadow":true,"scale":false},"first_screen":{"enable":true,"background_img":"/images/bg.svg","description":"积累硅步，可至千里；千里之行，始于足下"},"scroll":{"progress_bar":{"enable":true},"percent":{"enable":true}}},"local_search":{"enable":true,"preload":true},"code_copy":{"enable":true,"style":"default"},"pjax":{"enable":false},"lazyload":{"enable":true},"version":"3.4.0"};
+    KEEP.language_ago = {"second":"%s 秒前","minute":"%s 分钟前","hour":"%s 小时前","day":"%s 天前","week":"%s 周前","month":"%s 月前","year":"%s 年前"};
+  </script>
+<meta name="generator" content="Hexo 5.3.0"></head>
+
+
+<body>
+<!--
+ * @Description: file content
+ * @Author: yuhongshao
+ * @Date: 2021-02-20 19:33:18
+ * @email: yuhongshao@tencent.com
+ * @LastEditTime: 2022-03-30 10:24:37
+-->
+<div class="progress-bar-container">
+    
+        <span class="scroll-progress-bar"></span>
+    
+
+    
+</div>
+
+
+<main class="page-container">
+
+  
+
+  <div class="page-main-content">
+
+    <div class="page-main-content-top">
+      <header class="header-wrapper">
+
+    <div class="header-content">
+        <div class="left">
+            <a class="logo-title" href="/">
+                邵预鸿|前端开发技术笔记
+            </a>
+        </div>
+
+        <div class="right">
+            <div class="pc">
+                <ul class="menu-list">
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/"
+                            >
+                                主页
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/archives"
+                            >
+                                历年汇总
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/about"
+                            >
+                                关于我
+                            </a>
+                        </li>
+                    
+                    
+                        <li class="menu-item search search-popup-trigger">
+                            <i class="fas fa-search"></i>
+                        </li>
+                    
+                </ul>
+            </div>
+            <div class="mobile">
+                
+                    <div class="icon-item search search-popup-trigger"><i class="fas fa-search"></i></div>
+                
+                <div class="icon-item menu-bar">
+                    <div class="menu-bar-middle"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="header-drawer">
+        <ul class="drawer-menu-list">
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/">主页</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/archives">历年汇总</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/about">关于我</a>
+                </li>
+            
+        </ul>
+    </div>
+
+    <div class="window-mask"></div>
+
+</header>
+
+
+    </div>
+    <style>
+      .article-title-list {
+        position: fixed;
+        left: 80px;
+        top: 110px;
+        z-index: 100;
+        width: 250px;
+        max-height: calc(100% - 144px);
+        overflow: auto;
+      }
+
+      .article-title-list h1,
+      .article-title-list h2,
+      .article-title-list h3,
+      .article-title-list h4,
+      .article-title-list h5,
+      .article-title-list h6 {
+        box-sizing: border-box;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        overflow: hidden;
+        color: #686868;
+        font-weight: normal;
+        line-height: 1;
+        cursor: pointer;
+      }
+
+      .article-title-list h1 {
+        font-size: 22px;
+      }
+
+      .article-title-list h2 {
+        padding-left: 20px;
+        font-size: 20px;
+      }
+
+      .article-title-list h3 {
+        padding-left: 40px;
+        font-size: 18px;
+      }
+
+      .article-title-list h4 {
+        padding-left: 60px;
+        font-size: 16px;
+      }
+
+      .article-title-list h5 {
+        padding-left: 80px;
+        font-size: 14px;
+      }
+
+      .article-title-list h6 {
+        padding-left: 100px;
+        font-size: 12px;
+      }
+
+    </style>
+    <div class="article-title-list">
+    </div>
+
+    <div class="page-main-content-middle">
+
+      <div class="main-content">
+
+        
+        <div class="fade-in-down-animation">
+  <div class="article-content-container">
+
+    <div class="article-title">
+      <span class="title-hover-animation">redux-saga代码参考</span>
+    </div>
+
+    
+    <div class="article-header">
+      <div class="avatar">
+        <img src="/images/logo.jpg">
+      </div>
+      <div class="info">
+        <div class="author">
+          <span class="name">邵预鸿</span>
+          
+          <span
+            class="author-label">Lv4</span>
+          
+        </div>
+        <div class="meta-info">
+          <div class="article-meta-info">
+    <span class="article-date article-meta-item">
+        <i class="fas fa-edit"></i>&nbsp;2021-02-21 12:53:06
+    </span>
+    
+    
+        <span class="article-tags article-meta-item">
+            <i class="fas fa-tags"></i>&nbsp;
+            <ul>
+                
+                    <li>
+                        <a href="/tags/react/">react</a>&nbsp;
+                    </li>
+                
+            </ul>
+        </span>
+    
+
+    
+    
+    
+    
+</div>
+
+        </div>
+      </div>
+    </div>
+    
+
+    <div class="article-content markdown-body">
+      <h4 id="saga-js"><a href="#saga-js" class="headerlink" title="saga.js"></a>saga.js</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; call, put,takeEvery, select,takeLatest &#125; <span class="keyword">from</span> <span class="string">&#x27;redux-saga/effects&#x27;</span>;</span><br><span class="line"><span class="keyword">import</span> axios <span class="keyword">from</span> <span class="string">&#x27;axios&#x27;</span>;</span><br><span class="line"><span class="keyword">const</span> handleAddCountFn = <span class="function"><span class="keyword">function</span> *(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">const</span> page = <span class="keyword">yield</span> select(<span class="function"><span class="params">state</span>=&gt;</span>state.payload.count);</span><br><span class="line">    <span class="keyword">const</span> num = <span class="keyword">yield</span> select(<span class="function"><span class="params">state</span>=&gt;</span>state.count);</span><br><span class="line">    <span class="keyword">const</span> result = <span class="keyword">yield</span> call(axios.get,<span class="string">&quot;http://www.shaoyuhong.cn/lx104.php&quot;</span>,&#123;<span class="attr">params</span>:&#123;<span class="attr">page</span>:page+num&#125;&#125;);</span><br><span class="line">    <span class="keyword">yield</span> put(&#123;</span><br><span class="line">        type:<span class="string">&#x27;addCount&#x27;</span>,</span><br><span class="line">        payload:&#123;</span><br><span class="line">             num:page</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;);</span><br><span class="line">    <span class="keyword">yield</span> put(&#123;</span><br><span class="line">        type:<span class="string">&#x27;setList&#x27;</span>,</span><br><span class="line">        payload:&#123;</span><br><span class="line">            list:result.data</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;)</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> handleSubCountFn = <span class="function"><span class="keyword">function</span> *(<span class="params"></span>)</span>&#123;</span><br><span class="line">  <span class="keyword">const</span> page = <span class="keyword">yield</span> select(<span class="function"><span class="params">state</span>=&gt;</span>state.payload.count);</span><br><span class="line">  <span class="keyword">const</span> num  = <span class="keyword">yield</span> select(<span class="function"><span class="params">state</span>=&gt;</span>state.count);</span><br><span class="line">  <span class="keyword">const</span> result = <span class="keyword">yield</span> call(axios.get,<span class="string">&quot;http://www.shaoyuhong.cn/lx104.php&quot;</span>,&#123;<span class="attr">params</span>:&#123;<span class="attr">page</span>:num - page&#125;&#125;);</span><br><span class="line">  <span class="keyword">yield</span> put(&#123;</span><br><span class="line">      type:<span class="string">&#x27;subCount&#x27;</span>,</span><br><span class="line">      payload:&#123;</span><br><span class="line">          num:page</span><br><span class="line">      &#125;</span><br><span class="line">  &#125;);</span><br><span class="line">  <span class="keyword">yield</span> put(&#123;</span><br><span class="line">      type:<span class="string">&#x27;setList&#x27;</span>,</span><br><span class="line">      payload:&#123;</span><br><span class="line">          list:result.data</span><br><span class="line">      &#125;</span><br><span class="line">  &#125;)</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> *<span class="title">saga</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">   <span class="keyword">yield</span> takeEvery(<span class="string">&#x27;requestAddCount&#x27;</span>,handleAddCountFn);</span><br><span class="line">   <span class="keyword">yield</span> takeLatest(<span class="string">&#x27;requestSubCount&#x27;</span>,handleSubCountFn)</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> saga;</span><br></pre></td></tr></table></figure>
+
+
+<h4 id="app-js提交请求"><a href="#app-js提交请求" class="headerlink" title="app.js提交请求"></a>app.js提交请求</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">@connect(</span><br><span class="line">  state=&gt;&#123;</span><br><span class="line">    <span class="keyword">return</span> &#123;</span><br><span class="line">       count:state.count,</span><br><span class="line">       list:state.list</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;,</span><br><span class="line">  dispatch=&gt;&#123;</span><br><span class="line">    <span class="keyword">return</span> &#123;</span><br><span class="line">        <span class="function"><span class="title">addCount</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">          dispatch(&#123;<span class="attr">type</span>:<span class="string">&#x27;requestAddCount&#x27;</span>,<span class="attr">payload</span>:&#123;<span class="attr">count</span>:<span class="built_in">parseInt</span>(<span class="built_in">Math</span>.random() * <span class="number">100</span>)&#125;&#125;)</span><br><span class="line">        &#125;,</span><br><span class="line">        <span class="function"><span class="title">subCount</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">          dispatch(&#123;<span class="attr">type</span>:<span class="string">&#x27;requestSubCount&#x27;</span>,<span class="attr">payload</span>:&#123; <span class="attr">count</span>:<span class="number">100</span> &#125;&#125;)</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">)</span><br></pre></td></tr></table></figure>
+
+
+<h4 id="reducer-js-参考"><a href="#reducer-js-参考" class="headerlink" title="reducer.js 参考"></a>reducer.js 参考</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> defaultState = &#123;</span><br><span class="line">      count:<span class="number">100</span>,</span><br><span class="line">      list:[<span class="string">&#x27;test&#x27;</span>]</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="function"><span class="keyword">function</span>(<span class="params">state = <span class="built_in">Object</span>.assign(&#123;&#125;,defaultState),action = &#123;type:<span class="string">&#x27;&#x27;</span>,payload:&#123;&#125;&#125;</span>)</span>&#123;</span><br><span class="line">     <span class="keyword">let</span> &#123; type,payload&#125; = action;</span><br><span class="line">     <span class="keyword">if</span>(type === <span class="string">&#x27;addCount&#x27;</span>)&#123;</span><br><span class="line">         <span class="keyword">let</span> obj = <span class="built_in">Object</span>.assign(&#123;&#125;,state);</span><br><span class="line">         obj.count +=action.payload.num;</span><br><span class="line">         <span class="keyword">return</span> obj;</span><br><span class="line">     &#125;</span><br><span class="line">     <span class="keyword">if</span>(type ===<span class="string">&#x27;subCount&#x27;</span>)&#123;</span><br><span class="line">         <span class="keyword">let</span> obj = <span class="built_in">Object</span>.assign(&#123;&#125;,state);</span><br><span class="line">         obj.count -=action.payload.num;</span><br><span class="line">         <span class="keyword">return</span> obj;</span><br><span class="line">     &#125;</span><br><span class="line">     <span class="keyword">if</span>(type === <span class="string">&#x27;setList&#x27;</span>)&#123;</span><br><span class="line">         <span class="keyword">let</span> obj = <span class="built_in">Object</span>.assign(&#123;&#125;,state);</span><br><span class="line">         obj.list = action.payload.list;</span><br><span class="line">         <span class="keyword">return</span> obj;</span><br><span class="line">     &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">Object</span>.assign(&#123;&#125;,state,action);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+<p>//注: app.js dispatch提交的事件名可以和reducer.js action.type名不同，dispatch提交的事件将在saga.js的takeEvery中被监听</p>
+<p>使用saga.js需要在reducer中默认返回Object.assign({},state,action);</p>
+
+    </div>
+    <h3 style="font-size: 1.6rem;font-weight: 550;">页面关键信息已通过以下代码生成跳转链接</h3>
+    <pre>
+     &lt;script&gt;
+         const context = document.querySelector(".markdown-body");
+         const articleTitleList = document.querySelector(".article-title-list");
+         if(context){
+             const tags = context.querySelectorAll('*');
+             const hTagReg = /^H[1-6]$/;
+             let template = '';
+             tags.forEach(item=>{
+                     if(hTagReg.test(item.tagName.toUpperCase()) && item.innerText){
+                      const tagH = item.tagName.toLowerCase();
+                      const forHash = item.getAttribute("id");
+                     template+=`
+                          <${tagH}>
+                          <a onclick="javascript:void(1)" href="#${forHash}">${item.innerText}</a>
+                         </${tagH}>  
+                      `;
+                  }
+              });
+             articleTitleList.innerHTML=template; 
+          }
+          &lt;/script&gt;
+        </pre>
+    
+    <div class="post-copyright-info">
+      <div class="article-copyright-info-container">
+    <ul>
+        <li>本文标题：redux-saga代码参考</li>
+        <li>本文作者：邵预鸿</li>
+        <li>创建时间：2021-02-21 12:53:06</li>
+        <li>
+            本文链接：/images/logo.jpg2021/02/21/redux-saga代码参考/
+        </li>
+        <li>
+            版权声明：本博客所有文章除特别声明外，均采用 <a class="license" target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">BY-NC-SA</a> 许可协议。转载请注明出处！
+        </li>
+    </ul>
+</div>
+
+    </div>
+    
+
+    
+    <div class="article-nav">
+      
+      <div class="article-prev">
+        <a class="prev" rel="prev" href="/2021/02/21/%E5%BE%AE%E4%BF%A1%E5%85%AC%E4%BC%97%E5%8F%B7%E5%9C%A8ios%E6%8E%88%E6%9D%83%E7%99%BB%E5%BD%95%E6%97%B6%EF%BC%8C%E6%97%A0%E6%B3%95%E9%87%8D%E5%86%99%E5%90%91%E9%97%AE%E9%A2%98%EF%BC%9F/">
+          <span class="left arrow-icon flex-center">
+            <i class="fas fa-chevron-left"></i>
+          </span>
+          <span class="title flex-center">
+            <span class="post-nav-title-item">微信公众号在ios授权登录时，无法重写向问题？</span>
+            <span class="post-nav-item">上一篇</span>
+          </span>
+        </a>
+      </div>
+      
+      
+      <div class="article-next">
+        <a class="next" rel="next" href="/2021/02/21/JS%E5%AE%9E%E7%8E%B0%E7%BD%91%E7%AB%99%E5%86%85%E5%AE%B9%E7%9A%84%E7%A6%81%E6%AD%A2%E5%A4%8D%E5%88%B6%E5%92%8C%E7%B2%98%E8%B4%B4%E3%80%81%E5%8F%A6%E5%AD%98%E4%B8%BA/">
+          <span class="title flex-center">
+            <span class="post-nav-title-item">JS实现网站内容的禁止复制和粘贴、另存为</span>
+            <span class="post-nav-item">下一篇</span>
+          </span>
+          <span class="right arrow-icon flex-center">
+            <i class="fas fa-chevron-right"></i>
+          </span>
+        </a>
+      </div>
+      
+    </div>
+    
+
+    
+  </div>
+</div>
+
+
+        
+      </div>
+
+    </div>
+
+    <div class="page-main-content-bottom">
+      <footer class="footer">
+    <div class="info-container">
+        <div class="copyright-info info-item">
+            &copy;
+            
+              <span>2021</span>&nbsp;-&nbsp;
+            
+            2022&nbsp;<i class="fas fa-heart icon-animate"></i>&nbsp;<a href="/">邵预鸿</a>
+        </div>
+        
+        
+        <div>更多笔记请访问:<a href="https://www.shaoyuhong.cn" target="_blank">邵预鸿|随心记 https://www.shaoyuhong.cn</a></div>
+
+    </div>
+</footer>
+
+    </div>
+  </div>
+
+  
+  <div class="post-tools">
+    <div class="post-tools-container">
+    <ul class="tools-list">
+        <!-- TOC aside toggle -->
+        
+
+        <!-- go comment -->
+        
+    </ul>
+</div>
+
+  </div>
+  
+
+  <div class="right-bottom-side-tools">
+    <div class="side-tools-container">
+    <ul class="side-tools-list">
+        <li class="tools-item tool-font-adjust-plus flex-center">
+            <i class="fas fa-search-plus"></i>
+        </li>
+
+        <li class="tools-item tool-font-adjust-minus flex-center">
+            <i class="fas fa-search-minus"></i>
+        </li>
+
+        <li class="tools-item tool-expand-width flex-center">
+            <i class="fas fa-arrows-alt-h"></i>
+        </li>
+
+        <li class="tools-item tool-dark-light-toggle flex-center">
+            <i class="fas fa-moon"></i>
+        </li>
+
+        <!-- rss -->
+        
+
+        
+
+        <li class="tools-item tool-scroll-to-bottom flex-center">
+            <i class="fas fa-arrow-down"></i>
+        </li>
+    </ul>
+
+    <ul class="exposed-tools-list">
+        <li class="tools-item tool-toggle-show flex-center">
+            <i class="fas fa-cog fa-spin"></i>
+        </li>
+        
+            <li class="tools-item tool-scroll-to-top flex-center">
+                <i class="arrow-up fas fa-arrow-up"></i>
+                <span class="percent"></span>
+            </li>
+        
+    </ul>
+</div>
+
+  </div>
+
+  
+
+  <div class="image-viewer-container">
+    <img src="">
+</div>
+
+
+  
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+          <span class="search-input-field-pre">
+            <i class="fas fa-keyboard"></i>
+          </span>
+            <div class="search-input-container">
+                <input autocomplete="off"
+                       autocorrect="off"
+                       autocapitalize="off"
+                       placeholder="搜索..."
+                       spellcheck="false"
+                       type="search"
+                       class="search-input"
+                >
+            </div>
+            <span class="popup-btn-close">
+                <i class="fas fa-times"></i>
+            </span>
+        </div>
+        <div id="search-result">
+            <div id="no-result">
+                <i class="fas fa-spinner fa-pulse fa-5x fa-fw"></i>
+            </div>
+        </div>
+    </div>
+</div>
+
+  
+
+</main>
+<script>
+  const context = document.querySelector(".markdown-body");
+  const articleTitleList = document.querySelector(".article-title-list");
+  const mainContent = document.querySelector('.main-content');
+
+  if (context) {
+    const tags = context.querySelectorAll('*');
+    const hTagReg = /^H[1-6]$/;
+    let template = '';
+    tags.forEach(item => {
+      if (hTagReg.test(item.tagName.toUpperCase()) && item.innerText) {
+        const tagH = item.tagName.toLowerCase();
+        const forHash = item.getAttribute("id");
+        template += `
+                  <${tagH}>
+                    <a onclick="javascript:void(1)" href="#${forHash}">${item.innerText}</a>
+                  </${tagH}>  
+                `;
+
+      }
+    });
+    articleTitleList.innerHTML = template;
+
+  }
+
+  (function leftNavPositionChange() {
+    const articleTitlePositoinX = (window.innerWidth - mainContent.clientWidth) / 2 - 255;
+    articleTitleList.style.left = articleTitlePositoinX + 'px';
+    window.onresize = function () {
+      leftNavPositionChange();
+    };
+  })();
+
+</script>
+
+<script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="/js/header-shrink.js"></script><script src="/js/back2top.js"></script><script src="/js/dark-light-toggle.js"></script>
+
+
+    <script src="/js/local-search.js"></script>
+
+
+
+    <script src="/js/code-copy.js"></script>
+
+
+
+    <script src="/js/lazyload.js"></script>
+
+
+<div class="post-scripts">
+    
+</div>
+
+
+
+</body>
+</html>

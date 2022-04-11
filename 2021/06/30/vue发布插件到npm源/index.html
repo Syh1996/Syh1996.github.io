@@ -1,0 +1,552 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="baidu-site-verification" content="code-YfBAOEVVQH" />
+    <meta name="keywords" content="邵预鸿,前端开发工程师,技术博客,生活记录,生活日常,个人简历,日常规划">
+    <meta name="description" content="入职中兴通讯，一名低调资深的ctrl+c and ctrl+v开发者">
+    <meta name="author" content="邵预鸿">
+    
+    <title>
+        
+            vue发布插件到npm源 |
+        
+        邵预鸿|前端开发技术笔记
+    </title>
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="shortcut icon" href="/images/logo.jpg">
+    <link rel="stylesheet" href="/css/font-awesome.min.css">
+    <script id="hexo-configurations">
+    let KEEP = window.KEEP || {};
+    KEEP.hexo_config = {"hostname":"github.com","root":"/","language":"zh-CN","path":"search.xml"};
+    KEEP.theme_config = {"toc":{"enable":false,"number":false,"expand_all":false,"init_open":false},"style":{"primary_color":"#0066CC","avatar":"/images/logo.jpg","favicon":"/images/logo.jpg","article_img_align":"left","left_side_width":"260px","content_max_width":"920px","hover":{"shadow":true,"scale":false},"first_screen":{"enable":true,"background_img":"/images/bg.svg","description":"积累硅步，可至千里；千里之行，始于足下"},"scroll":{"progress_bar":{"enable":true},"percent":{"enable":true}}},"local_search":{"enable":true,"preload":true},"code_copy":{"enable":true,"style":"default"},"pjax":{"enable":false},"lazyload":{"enable":true},"version":"3.4.0"};
+    KEEP.language_ago = {"second":"%s 秒前","minute":"%s 分钟前","hour":"%s 小时前","day":"%s 天前","week":"%s 周前","month":"%s 月前","year":"%s 年前"};
+  </script>
+<meta name="generator" content="Hexo 5.3.0"></head>
+
+
+<body>
+<!--
+ * @Description: file content
+ * @Author: yuhongshao
+ * @Date: 2021-02-20 19:33:18
+ * @email: yuhongshao@tencent.com
+ * @LastEditTime: 2022-03-30 10:24:37
+-->
+<div class="progress-bar-container">
+    
+        <span class="scroll-progress-bar"></span>
+    
+
+    
+</div>
+
+
+<main class="page-container">
+
+  
+
+  <div class="page-main-content">
+
+    <div class="page-main-content-top">
+      <header class="header-wrapper">
+
+    <div class="header-content">
+        <div class="left">
+            <a class="logo-title" href="/">
+                邵预鸿|前端开发技术笔记
+            </a>
+        </div>
+
+        <div class="right">
+            <div class="pc">
+                <ul class="menu-list">
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/"
+                            >
+                                主页
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/archives"
+                            >
+                                历年汇总
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/about"
+                            >
+                                关于我
+                            </a>
+                        </li>
+                    
+                    
+                        <li class="menu-item search search-popup-trigger">
+                            <i class="fas fa-search"></i>
+                        </li>
+                    
+                </ul>
+            </div>
+            <div class="mobile">
+                
+                    <div class="icon-item search search-popup-trigger"><i class="fas fa-search"></i></div>
+                
+                <div class="icon-item menu-bar">
+                    <div class="menu-bar-middle"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="header-drawer">
+        <ul class="drawer-menu-list">
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/">主页</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/archives">历年汇总</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/about">关于我</a>
+                </li>
+            
+        </ul>
+    </div>
+
+    <div class="window-mask"></div>
+
+</header>
+
+
+    </div>
+    <style>
+      .article-title-list {
+        position: fixed;
+        left: 80px;
+        top: 110px;
+        z-index: 100;
+        width: 250px;
+        max-height: calc(100% - 144px);
+        overflow: auto;
+      }
+
+      .article-title-list h1,
+      .article-title-list h2,
+      .article-title-list h3,
+      .article-title-list h4,
+      .article-title-list h5,
+      .article-title-list h6 {
+        box-sizing: border-box;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        overflow: hidden;
+        color: #686868;
+        font-weight: normal;
+        line-height: 1;
+        cursor: pointer;
+      }
+
+      .article-title-list h1 {
+        font-size: 22px;
+      }
+
+      .article-title-list h2 {
+        padding-left: 20px;
+        font-size: 20px;
+      }
+
+      .article-title-list h3 {
+        padding-left: 40px;
+        font-size: 18px;
+      }
+
+      .article-title-list h4 {
+        padding-left: 60px;
+        font-size: 16px;
+      }
+
+      .article-title-list h5 {
+        padding-left: 80px;
+        font-size: 14px;
+      }
+
+      .article-title-list h6 {
+        padding-left: 100px;
+        font-size: 12px;
+      }
+
+    </style>
+    <div class="article-title-list">
+    </div>
+
+    <div class="page-main-content-middle">
+
+      <div class="main-content">
+
+        
+        <div class="fade-in-down-animation">
+  <div class="article-content-container">
+
+    <div class="article-title">
+      <span class="title-hover-animation">vue发布插件到npm源</span>
+    </div>
+
+    
+    <div class="article-header">
+      <div class="avatar">
+        <img src="/images/logo.jpg">
+      </div>
+      <div class="info">
+        <div class="author">
+          <span class="name">邵预鸿</span>
+          
+          <span
+            class="author-label">Lv4</span>
+          
+        </div>
+        <div class="meta-info">
+          <div class="article-meta-info">
+    <span class="article-date article-meta-item">
+        <i class="fas fa-edit"></i>&nbsp;2021-06-30 16:27:01
+    </span>
+    
+    
+        <span class="article-tags article-meta-item">
+            <i class="fas fa-tags"></i>&nbsp;
+            <ul>
+                
+                    <li>
+                        <a href="/tags/vue-npm/">vue npm</a>&nbsp;
+                    </li>
+                
+            </ul>
+        </span>
+    
+
+    
+    
+    
+    
+</div>
+
+        </div>
+      </div>
+    </div>
+    
+
+    <div class="article-content markdown-body">
+      <h3 id="注册npm"><a href="#注册npm" class="headerlink" title="注册npm"></a>注册npm</h3><p><a class="link"   target="_blank" rel="noopener" href="https://www.npmjs.com/" >注册npm https://www.npmjs.com<i class="fas fa-external-link-alt"></i></a></p>
+<h3 id="vue配置"><a href="#vue配置" class="headerlink" title="vue配置"></a>vue配置</h3><p>使用vue init webpack-simple 项目名，初始化项目</p>
+<p>提示：不要用vue init webpack npm-practice 初始化项目，因为我们就开发个组件，不需要那么多配置，配置多了修改起来也麻烦，webpack-simple足够了</p>
+<h4 id="修改目录"><a href="#修改目录" class="headerlink" title="修改目录"></a>修改目录</h4><p>在src目录下新建packages文件夹，建立组件vue文件与配置js文件</p>
+<ul>
+<li><p>Btngroup.vue文件</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br></pre></td><td class="code"><pre><span class="line">&lt;template&gt;</span><br><span class="line">  &lt;div <span class="class"><span class="keyword">class</span></span>=<span class="string">&quot;btn-group&quot;</span>&gt;</span><br><span class="line">    &lt;button @click=<span class="string">&quot;sub&quot;</span>&gt;-&lt;/button&gt;</span><br><span class="line">    &lt;span&gt;&#123;&#123; num &#125;&#125;&lt;/span&gt;</span><br><span class="line">    &lt;button @click=<span class="string">&quot;add&quot;</span>&gt;+&lt;/button&gt;</span><br><span class="line">  &lt;!--   <span class="xml"><span class="tag">&lt;<span class="name">shaobtnGroup</span>/&gt;</span></span> --&gt;</span><br><span class="line">  &lt;/div&gt;</span><br><span class="line">&lt;/template&gt;</span><br><span class="line"></span><br><span class="line">&lt;script&gt;</span><br><span class="line">                     </span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> &#123;</span><br><span class="line">  name:<span class="string">&#x27;btngroup&#x27;</span>,</span><br><span class="line">  <span class="function"><span class="title">data</span>(<span class="params"></span>)</span> &#123;</span><br><span class="line">    <span class="keyword">return</span> &#123;</span><br><span class="line">      num: <span class="number">1</span>,</span><br><span class="line">    &#125;;</span><br><span class="line">  &#125;,</span><br><span class="line">  components:&#123;</span><br><span class="line">  &#125;,</span><br><span class="line">  methods: &#123;</span><br><span class="line">    <span class="function"><span class="title">add</span>(<span class="params"></span>)</span> &#123;</span><br><span class="line">      <span class="built_in">this</span>.num += <span class="number">100</span>;</span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="function"><span class="title">sub</span>(<span class="params"></span>)</span> &#123;</span><br><span class="line">      <span class="built_in">this</span>.num -= <span class="number">100</span>;</span><br><span class="line">    &#125;,</span><br><span class="line">  &#125;,</span><br><span class="line">&#125;;</span><br><span class="line">&lt;/script&gt;</span><br><span class="line"></span><br><span class="line">&lt;style scoped&gt;</span><br><span class="line">.btn-group button &#123;</span><br><span class="line">  display: inline-block;</span><br><span class="line">  width: 120px;</span><br><span class="line">  height: 30px;</span><br><span class="line">  line-height: 30px;</span><br><span class="line">  font-size: 20px;</span><br><span class="line">&#125;</span><br><span class="line">.btn-group span &#123;</span><br><span class="line">  margin: <span class="number">0</span> 10px;</span><br><span class="line">  line-height: 30px;</span><br><span class="line">  font-size: 20px;</span><br><span class="line">&#125;</span><br><span class="line">&lt;/style&gt;</span><br></pre></td></tr></table></figure></li>
+<li><p>index.js配置文件</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> BtnGroup <span class="keyword">from</span> <span class="string">&#x27;./index.vue&#x27;</span></span><br><span class="line"> </span><br><span class="line"><span class="comment">//这样就可以使用Vue.use进行全局安装了。</span></span><br><span class="line">BtnGroup.install = <span class="function"><span class="keyword">function</span>(<span class="params">Vue</span>)</span>&#123;</span><br><span class="line">   Vue.component(BtnGroup.name, BtnGroup)</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> BtnGroup</span><br></pre></td></tr></table></figure>
+
+
+</li>
+</ul>
+<h4 id="修改package-json文件配置"><a href="#修改package-json文件配置" class="headerlink" title="修改package.json文件配置"></a>修改package.json文件配置</h4><p>main为指向打包后的文件js； name用于发布npm后，使用时import name from [来源的文件地址便是package.json打包时的文件名]； version打包发布时的版本号，需要注意npm发布时不允许重复提交同一个版本号，所以每次修改都需要修改一次版本号； private:false，private是true的时候不能发布到npm，需设置成false</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">&quot;main&quot;</span>: <span class="string">&quot;dist/build.js&quot;</span>,</span><br><span class="line"><span class="string">&quot;name&quot;</span>: <span class="string">&quot;vue1&quot;</span>,</span><br><span class="line"><span class="string">&quot;version&quot;</span>: <span class="string">&quot;1.0.0&quot;</span>,</span><br><span class="line"><span class="string">&quot;private&quot;</span>: <span class="literal">false</span>,</span><br></pre></td></tr></table></figure>
+
+
+<h4 id="最后修改webpack-config-js"><a href="#最后修改webpack-config-js" class="headerlink" title="最后修改webpack.config.js"></a>最后修改webpack.config.js</h4><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> env = process.env.NODE_ENV;</span><br><span class="line"><span class="built_in">module</span>.exports = &#123;</span><br><span class="line">  entry: env===<span class="string">&#x27;development&#x27;</span>?<span class="string">&#x27;./src/main.js&#x27;</span>:<span class="string">&#x27;./src/packages/btngroup/index.js&#x27;</span>,</span><br><span class="line">  output: &#123;</span><br><span class="line">    path: path.resolve(__dirname, <span class="string">&#x27;./dist&#x27;</span>),</span><br><span class="line">    publicPath: <span class="string">&#x27;/dist/&#x27;</span>,</span><br><span class="line">    filename: <span class="string">&#x27;build.js&#x27;</span>,</span><br><span class="line">    libraryTarget:<span class="string">&#x27;umd&#x27;</span></span><br><span class="line">  &#125;, </span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
+<p>entry:判断当前环境，调试时使用正常的main.js，当打包发布时需要将入口文件指向<strong>组件配置的文件js</strong></p>
+<p>libraryTarget:<strong>非常重要</strong> ,不知道有什么吊用，不写发布后无法正常使用。webpack官方未发现有这个参数</p>
+<h3 id="发布NPM"><a href="#发布NPM" class="headerlink" title="发布NPM"></a>发布NPM</h3><ul>
+<li>使用npm run build打包项目</li>
+<li> 首次运行npm login登录npm,会提示输入个人信息，Email是发布成功后，自动给这个邮箱发送一个邮件，通知发布成功，输入完，登录成功</li>
+<li>运行 npm publish,发布成功。 </li>
+<li> 自动给这个邮箱发送一个邮件，通知发布成功 </li>
+</ul>
+<h3 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h3><p>发布成功后，在npm网站上package中可以看到自己的发布的npm包</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://gitee.com/xian_hong_xiao/assets/raw/master/img/npm.PNG"
+                      alt="vue发布插件到npm"
+                ></p>
+<p>通过install安装该插件，在main.js引入并使用插件</p>
+<p><strong><em>import btngroup from ‘shao-btn-group’;</em></strong> //shao-btn-group来源于打包时的package.json的name字段</p>
+<p><strong><em>Vue.use(btngroup)</em></strong> //使用</p>
+<p>最后在需要使用的页面中使用组件</p>
+<p>&lt; btngroup /&gt;</p>
+<h3 id="异常处理"><a href="#异常处理" class="headerlink" title="异常处理"></a>异常处理</h3><ul>
+<li>npm publish时，可能出现报错，大概意思是没有权限提交。造成的原因是当前插件的名字(package.json中的name值 )与现有平台的插件名字出现重复，当前无法提交。需要修改package.json中 name值，直到没有重复的名字即可</li>
+</ul>
+
+    </div>
+    <h3 style="font-size: 1.6rem;font-weight: 550;">页面关键信息已通过以下代码生成跳转链接</h3>
+    <pre>
+     &lt;script&gt;
+         const context = document.querySelector(".markdown-body");
+         const articleTitleList = document.querySelector(".article-title-list");
+         if(context){
+             const tags = context.querySelectorAll('*');
+             const hTagReg = /^H[1-6]$/;
+             let template = '';
+             tags.forEach(item=>{
+                     if(hTagReg.test(item.tagName.toUpperCase()) && item.innerText){
+                      const tagH = item.tagName.toLowerCase();
+                      const forHash = item.getAttribute("id");
+                     template+=`
+                          <${tagH}>
+                          <a onclick="javascript:void(1)" href="#${forHash}">${item.innerText}</a>
+                         </${tagH}>  
+                      `;
+                  }
+              });
+             articleTitleList.innerHTML=template; 
+          }
+          &lt;/script&gt;
+        </pre>
+    
+    <div class="post-copyright-info">
+      <div class="article-copyright-info-container">
+    <ul>
+        <li>本文标题：vue发布插件到npm源</li>
+        <li>本文作者：邵预鸿</li>
+        <li>创建时间：2021-06-30 16:27:01</li>
+        <li>
+            本文链接：/images/logo.jpg2021/06/30/vue发布插件到npm源/
+        </li>
+        <li>
+            版权声明：本博客所有文章除特别声明外，均采用 <a class="license" target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">BY-NC-SA</a> 许可协议。转载请注明出处！
+        </li>
+    </ul>
+</div>
+
+    </div>
+    
+
+    
+    <div class="article-nav">
+      
+      <div class="article-prev">
+        <a class="prev" rel="prev" href="/2021/07/06/excel%E5%B8%B8%E7%94%A8%E5%85%AC%E5%BC%8F%E5%91%80/">
+          <span class="left arrow-icon flex-center">
+            <i class="fas fa-chevron-left"></i>
+          </span>
+          <span class="title flex-center">
+            <span class="post-nav-title-item">excel常用公式呀</span>
+            <span class="post-nav-item">上一篇</span>
+          </span>
+        </a>
+      </div>
+      
+      
+      <div class="article-next">
+        <a class="next" rel="next" href="/2021/06/23/js%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/">
+          <span class="title flex-center">
+            <span class="post-nav-title-item">js设计模式</span>
+            <span class="post-nav-item">下一篇</span>
+          </span>
+          <span class="right arrow-icon flex-center">
+            <i class="fas fa-chevron-right"></i>
+          </span>
+        </a>
+      </div>
+      
+    </div>
+    
+
+    
+  </div>
+</div>
+
+
+        
+      </div>
+
+    </div>
+
+    <div class="page-main-content-bottom">
+      <footer class="footer">
+    <div class="info-container">
+        <div class="copyright-info info-item">
+            &copy;
+            
+              <span>2021</span>&nbsp;-&nbsp;
+            
+            2022&nbsp;<i class="fas fa-heart icon-animate"></i>&nbsp;<a href="/">邵预鸿</a>
+        </div>
+        
+        
+        <div>更多笔记请访问:<a href="https://www.shaoyuhong.cn" target="_blank">邵预鸿|随心记 https://www.shaoyuhong.cn</a></div>
+
+    </div>
+</footer>
+
+    </div>
+  </div>
+
+  
+  <div class="post-tools">
+    <div class="post-tools-container">
+    <ul class="tools-list">
+        <!-- TOC aside toggle -->
+        
+
+        <!-- go comment -->
+        
+    </ul>
+</div>
+
+  </div>
+  
+
+  <div class="right-bottom-side-tools">
+    <div class="side-tools-container">
+    <ul class="side-tools-list">
+        <li class="tools-item tool-font-adjust-plus flex-center">
+            <i class="fas fa-search-plus"></i>
+        </li>
+
+        <li class="tools-item tool-font-adjust-minus flex-center">
+            <i class="fas fa-search-minus"></i>
+        </li>
+
+        <li class="tools-item tool-expand-width flex-center">
+            <i class="fas fa-arrows-alt-h"></i>
+        </li>
+
+        <li class="tools-item tool-dark-light-toggle flex-center">
+            <i class="fas fa-moon"></i>
+        </li>
+
+        <!-- rss -->
+        
+
+        
+
+        <li class="tools-item tool-scroll-to-bottom flex-center">
+            <i class="fas fa-arrow-down"></i>
+        </li>
+    </ul>
+
+    <ul class="exposed-tools-list">
+        <li class="tools-item tool-toggle-show flex-center">
+            <i class="fas fa-cog fa-spin"></i>
+        </li>
+        
+            <li class="tools-item tool-scroll-to-top flex-center">
+                <i class="arrow-up fas fa-arrow-up"></i>
+                <span class="percent"></span>
+            </li>
+        
+    </ul>
+</div>
+
+  </div>
+
+  
+
+  <div class="image-viewer-container">
+    <img src="">
+</div>
+
+
+  
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+          <span class="search-input-field-pre">
+            <i class="fas fa-keyboard"></i>
+          </span>
+            <div class="search-input-container">
+                <input autocomplete="off"
+                       autocorrect="off"
+                       autocapitalize="off"
+                       placeholder="搜索..."
+                       spellcheck="false"
+                       type="search"
+                       class="search-input"
+                >
+            </div>
+            <span class="popup-btn-close">
+                <i class="fas fa-times"></i>
+            </span>
+        </div>
+        <div id="search-result">
+            <div id="no-result">
+                <i class="fas fa-spinner fa-pulse fa-5x fa-fw"></i>
+            </div>
+        </div>
+    </div>
+</div>
+
+  
+
+</main>
+<script>
+  const context = document.querySelector(".markdown-body");
+  const articleTitleList = document.querySelector(".article-title-list");
+  const mainContent = document.querySelector('.main-content');
+
+  if (context) {
+    const tags = context.querySelectorAll('*');
+    const hTagReg = /^H[1-6]$/;
+    let template = '';
+    tags.forEach(item => {
+      if (hTagReg.test(item.tagName.toUpperCase()) && item.innerText) {
+        const tagH = item.tagName.toLowerCase();
+        const forHash = item.getAttribute("id");
+        template += `
+                  <${tagH}>
+                    <a onclick="javascript:void(1)" href="#${forHash}">${item.innerText}</a>
+                  </${tagH}>  
+                `;
+
+      }
+    });
+    articleTitleList.innerHTML = template;
+
+  }
+
+  (function leftNavPositionChange() {
+    const articleTitlePositoinX = (window.innerWidth - mainContent.clientWidth) / 2 - 255;
+    articleTitleList.style.left = articleTitlePositoinX + 'px';
+    window.onresize = function () {
+      leftNavPositionChange();
+    };
+  })();
+
+</script>
+
+<script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="/js/header-shrink.js"></script><script src="/js/back2top.js"></script><script src="/js/dark-light-toggle.js"></script>
+
+
+    <script src="/js/local-search.js"></script>
+
+
+
+    <script src="/js/code-copy.js"></script>
+
+
+
+    <script src="/js/lazyload.js"></script>
+
+
+<div class="post-scripts">
+    
+</div>
+
+
+
+</body>
+</html>

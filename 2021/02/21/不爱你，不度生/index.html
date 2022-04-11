@@ -1,0 +1,715 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="baidu-site-verification" content="code-YfBAOEVVQH" />
+    <meta name="keywords" content="邵预鸿,前端开发工程师,技术博客,生活记录,生活日常,个人简历,日常规划">
+    <meta name="description" content="入职中兴通讯，一名低调资深的ctrl+c and ctrl+v开发者">
+    <meta name="author" content="邵预鸿">
+    
+    <title>
+        
+            不爱你，不度生 |
+        
+        邵预鸿|前端开发技术笔记
+    </title>
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="shortcut icon" href="/images/logo.jpg">
+    <link rel="stylesheet" href="/css/font-awesome.min.css">
+    <script id="hexo-configurations">
+    let KEEP = window.KEEP || {};
+    KEEP.hexo_config = {"hostname":"github.com","root":"/","language":"zh-CN","path":"search.xml"};
+    KEEP.theme_config = {"toc":{"enable":false,"number":false,"expand_all":false,"init_open":false},"style":{"primary_color":"#0066CC","avatar":"/images/logo.jpg","favicon":"/images/logo.jpg","article_img_align":"left","left_side_width":"260px","content_max_width":"920px","hover":{"shadow":true,"scale":false},"first_screen":{"enable":true,"background_img":"/images/bg.svg","description":"积累硅步，可至千里；千里之行，始于足下"},"scroll":{"progress_bar":{"enable":true},"percent":{"enable":true}}},"local_search":{"enable":true,"preload":true},"code_copy":{"enable":true,"style":"default"},"pjax":{"enable":false},"lazyload":{"enable":true},"version":"3.4.0"};
+    KEEP.language_ago = {"second":"%s 秒前","minute":"%s 分钟前","hour":"%s 小时前","day":"%s 天前","week":"%s 周前","month":"%s 月前","year":"%s 年前"};
+  </script>
+<meta name="generator" content="Hexo 5.3.0"></head>
+
+
+<body>
+<!--
+ * @Description: file content
+ * @Author: yuhongshao
+ * @Date: 2021-02-20 19:33:18
+ * @email: yuhongshao@tencent.com
+ * @LastEditTime: 2022-03-30 10:24:37
+-->
+<div class="progress-bar-container">
+    
+        <span class="scroll-progress-bar"></span>
+    
+
+    
+</div>
+
+
+<main class="page-container">
+
+  
+
+  <div class="page-main-content">
+
+    <div class="page-main-content-top">
+      <header class="header-wrapper">
+
+    <div class="header-content">
+        <div class="left">
+            <a class="logo-title" href="/">
+                邵预鸿|前端开发技术笔记
+            </a>
+        </div>
+
+        <div class="right">
+            <div class="pc">
+                <ul class="menu-list">
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/"
+                            >
+                                主页
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/archives"
+                            >
+                                历年汇总
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/about"
+                            >
+                                关于我
+                            </a>
+                        </li>
+                    
+                    
+                        <li class="menu-item search search-popup-trigger">
+                            <i class="fas fa-search"></i>
+                        </li>
+                    
+                </ul>
+            </div>
+            <div class="mobile">
+                
+                    <div class="icon-item search search-popup-trigger"><i class="fas fa-search"></i></div>
+                
+                <div class="icon-item menu-bar">
+                    <div class="menu-bar-middle"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="header-drawer">
+        <ul class="drawer-menu-list">
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/">主页</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/archives">历年汇总</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/about">关于我</a>
+                </li>
+            
+        </ul>
+    </div>
+
+    <div class="window-mask"></div>
+
+</header>
+
+
+    </div>
+    <style>
+      .article-title-list {
+        position: fixed;
+        left: 80px;
+        top: 110px;
+        z-index: 100;
+        width: 250px;
+        max-height: calc(100% - 144px);
+        overflow: auto;
+      }
+
+      .article-title-list h1,
+      .article-title-list h2,
+      .article-title-list h3,
+      .article-title-list h4,
+      .article-title-list h5,
+      .article-title-list h6 {
+        box-sizing: border-box;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        overflow: hidden;
+        color: #686868;
+        font-weight: normal;
+        line-height: 1;
+        cursor: pointer;
+      }
+
+      .article-title-list h1 {
+        font-size: 22px;
+      }
+
+      .article-title-list h2 {
+        padding-left: 20px;
+        font-size: 20px;
+      }
+
+      .article-title-list h3 {
+        padding-left: 40px;
+        font-size: 18px;
+      }
+
+      .article-title-list h4 {
+        padding-left: 60px;
+        font-size: 16px;
+      }
+
+      .article-title-list h5 {
+        padding-left: 80px;
+        font-size: 14px;
+      }
+
+      .article-title-list h6 {
+        padding-left: 100px;
+        font-size: 12px;
+      }
+
+    </style>
+    <div class="article-title-list">
+    </div>
+
+    <div class="page-main-content-middle">
+
+      <div class="main-content">
+
+        
+        <div class="fade-in-down-animation">
+  <div class="article-content-container">
+
+    <div class="article-title">
+      <span class="title-hover-animation">不爱你，不度生</span>
+    </div>
+
+    
+    <div class="article-header">
+      <div class="avatar">
+        <img src="/images/logo.jpg">
+      </div>
+      <div class="info">
+        <div class="author">
+          <span class="name">邵预鸿</span>
+          
+          <span
+            class="author-label">Lv4</span>
+          
+        </div>
+        <div class="meta-info">
+          <div class="article-meta-info">
+    <span class="article-date article-meta-item">
+        <i class="fas fa-edit"></i>&nbsp;2021-02-21 15:06:42
+    </span>
+    
+    
+        <span class="article-tags article-meta-item">
+            <i class="fas fa-tags"></i>&nbsp;
+            <ul>
+                
+                    <li>
+                        <a href="/tags/%E6%83%85%E6%84%9F/">情感</a>&nbsp;
+                    </li>
+                
+            </ul>
+        </span>
+    
+
+    
+    
+    
+    
+</div>
+
+        </div>
+      </div>
+    </div>
+    
+
+    <div class="article-content markdown-body">
+      <blockquote>
+<p>你是否和我一样，因为一则故事，记忆犹新</p>
+</blockquote>
+<p>18岁，你读了大学。</p>
+<p>20岁，你大二结束，开始悔恨</p>
+<p>自己前两年幼稚的行为</p>
+<p>于是开始努力</p>
+<p>22岁你大学毕业了，却发现</p>
+<p>找不到一份令自己满意的工作</p>
+<p>26岁，你看着身边的人都结了婚</p>
+<p>婚礼的份子钱逐年递增</p>
+<p>春节回家，父母从带你串亲戚</p>
+<p>变成了带你去见相亲对象</p>
+<p>见了十几个姑娘</p>
+<p>你每次都觉得和那个她比</p>
+<p>差了一点</p>
+<p>28岁那年，你遇到了一个和你遭遇差不多的姑娘</p>
+<p>你们有一搭没一搭的聊着</p>
+<p>她说：你还不错</p>
+<p>你喝了一口可乐说：你也是</p>
+<p>你还不确定喜不喜欢她</p>
+<p>双方家长就已经摆好了订婚宴</p>
+<p>结婚的前一周，你和朋友出去喝酒</p>
+<p>你说，不想结婚</p>
+<p>朋友说，你啊，就是想太多。谁不是这么过来的？</p>
+<p>29岁，你们终于结了婚</p>
+<p>婚礼办的不大不小，朋友来的不多不少</p>
+<p>攒了几年想要去实现理想的钱</p>
+<p>搭在了这一场百人的私人庙会上</p>
+<p>婚礼进行到中间</p>
+<p>司仪带着标准的商业化微笑</p>
+<p>对着台下的亲朋喊道</p>
+<p>要不要让他们亲一个！</p>
+<p>台下那些人跟着一起起哄</p>
+<p>不知道为什么</p>
+<p>你简简单单的亲了一口</p>
+<p>俩人恢复到了一开始的站位</p>
+<p>你小声说了一句：我爱你</p>
+<p>那个昨天还看不惯你倒腾模型的新娘</p>
+<p>愣了一下说：我也爱你</p>
+<p>你不确定她是不是对你说的</p>
+<p>就像你不确定是不是对她说的一样</p>
+<p>婚礼结束后，并没有你想象的浪漫</p>
+<p>你听着外屋的新娘一笔一笔的算着份子钱</p>
+<p>想着不过才两年，怎么就变成这样了</p>
+<p>想着想着，洞房夜就睡着了</p>
+<p>30岁，她怀孕了</p>
+<p>辞掉了工作，在家养胎</p>
+<p>你在公司逐渐有了点地位</p>
+<p>手里管着十来个人</p>
+<p>独立负责一个项目</p>
+<p>结婚前陪嫁的那辆20万左右的车</p>
+<p>也变成了你一个人的独享</p>
+<p>但你依然不敢放松</p>
+<p>每次加班</p>
+<p>电话那头都是抱怨与委屈</p>
+<p>但你不能争辩什么</p>
+<p>谁让她怀了你的孩子</p>
+<p>在这一刻</p>
+<p>不论是她的父母还是你的父母</p>
+<p>都无条件的站在这一边</p>
+<p>31岁，孩子落地了</p>
+<p>前前后后连孕检带住院费花了10万块钱</p>
+<p>不过无所谓</p>
+<p>你看着你的孩子，怎么看怎么喜欢</p>
+<p>高兴的仿佛这是你的新生</p>
+<p>32岁，这是人生最不愿意重复的一年</p>
+<p>平均睡眠3小时</p>
+<p>孩子每一个小时都要闹腾一次</p>
+<p>第二天拖着睡不醒的眼睛去上班</p>
+<p>老板说你上班不干活</p>
+<p>回家媳妇说你不干活</p>
+<p>你想了半天不明白，那谁干活呢？</p>
+<p>那辆开了3年的车</p>
+<p>成为了你真正的家</p>
+<p>你不在抱怨路上拥堵的交通</p>
+<p>你甚至开始希望</p>
+<p>再多堵一会</p>
+<p>回到家，你关了发动机</p>
+<p>在车上点了一根烟</p>
+<p>这是你每天最幸福的十分钟</p>
+<p>车前是功名利禄，车尾是柴米油盐</p>
+<p>35岁 你因为身体越来越差</p>
+<p>加班越来越少</p>
+<p>晋升的速度也越来越缓慢</p>
+<p>那天下班，媳妇告诉你</p>
+<p>孩子要上幼儿园了</p>
+<p>双语的一个月3000</p>
+<p>你皱了皱眉头，那边就已经不耐烦了</p>
+<p>“四单元的老王家孩子，一个月6000”</p>
+<p>“你已经这样了，你想让孩子也输？”</p>
+<p>你没说话，回屋给媳妇转了6000块钱</p>
+<p>这笔钱，你原本打算给自己过个生日，买个新电脑</p>
+<p>38岁，孩子上了一年级</p>
+<p>老师说一年级最关键，打好基础很重要</p>
+<p>你笑着说，是是是，老师您多照顾</p>
+<p>新生接待的老师看着你不明事理的脸</p>
+<p>给你指了一条明路</p>
+<p>“课外辅导班，一个月2200”</p>
+<p>40岁的时候，孩子上了三年级</p>
+<p>老师说，三年级，最关键，承上启下很重要</p>
+<p>你笑着说：是是是，正打算再报个补习班</p>
+<p>44岁，孩子上了初中</p>
+<p>有一天回到家，她对你说</p>
+<p>爸爸，我想学钢琴</p>
+<p>你没什么犹豫的</p>
+<p>你以为这些年，你已经习惯了</p>
+<p>但那句“爸爸现在买不起”你始终说不出口</p>
+<p>好在孩子比较懂事</p>
+<p>她说：爸爸没事，要不我先学陶笛也可以</p>
+<p>你看着这么懂事的孩子，却开心不起来</p>
+<p>46岁，孩子上了一个不好不差的高中</p>
+<p>有一天你在开会，接到了老师的电话</p>
+<p>电话里说你的孩子在学校打架了</p>
+<p>叫你去一趟</p>
+<p>你唯唯诺诺的</p>
+<p>和那个比你还小5岁的领导请了个假</p>
+<p>到学校又被老师训了一通</p>
+<p>无非台词就是那一句</p>
+<p>你们做家长的就知道工作，能不能陪陪孩子</p>
+<p>你看着这个老师，有点可笑</p>
+<p>好像当时说：</p>
+<p>家长在外辛苦点</p>
+<p>多赚点钱让孩子多补补课的和他不是一个人</p>
+<p>50岁，孩子上了大学</p>
+<p>很争气，是一个一本</p>
+<p>他学的专业你有点看不懂</p>
+<p>你只知道工作不一定好找</p>
+<p>而且学费还死贵</p>
+<p>你和他深夜想聊聊</p>
+<p>准备了半斤白酒，一碟花生米</p>
+<p>你说着那些曾经你最讨厌的话</p>
+<p>还是要为以后工作着想</p>
+<p>挑个热门的专业</p>
+<p>活着比热爱重要</p>
+<p>你们从交流变成了争吵</p>
+<p>你发现，你老了</p>
+<p>老到可能都打不过这个18岁的孩子</p>
+<p>你说不过他，只能说一句：我是你爸爸！</p>
+<p>孩子看着你，知道再怎么争辩都没用</p>
+<p>这场确立你最后威严的酒局不欢而散</p>
+<p>你听的不真切</p>
+<p>在孩子回自己屋的路上好像叨叨了一句</p>
+<p>“我不想活的像你一样”</p>
+<p>怎么就哭了呢？50岁的人了</p>
+<p>一定是酒太辣了，对不对</p>
+<p>一定是酒太辣了</p>
+<p>55岁，孩子工作了，似乎有一点理解你了</p>
+<p>但你却反了过来，你说不要妥协</p>
+<p>56岁，孩子也结婚了</p>
+<p>你问他喜欢那个姑娘么</p>
+<p>他愣了愣说：喜欢吧</p>
+<p>60岁，辛苦了一辈子，想出去走走</p>
+<p>身边的那个人过了30年</p>
+<p>你依旧分不清到底喜不喜欢</p>
+<p>你们开始规划旅游路线</p>
+<p>这么多年了</p>
+<p>你们还是存在分歧，还是在争吵</p>
+<p>某个瞬间，你觉得</p>
+<p>这样可能也挺好</p>
+<p>一切都准备好了</p>
+<p>儿子说：爸妈，我工作太忙了</p>
+<p>可以帮我照顾一下孩子么</p>
+<p>你们退了机票，又回到了30年前</p>
+<p>70岁，孩子的孩子也长大了，不用天天操心了</p>
+<p>你下定决心说：一定要去玩一趟</p>
+<p>可是手边的拐杖</p>
+<p>只能支持你走到楼下的花园</p>
+<p>75岁，你在医院的病床上</p>
+<p>身边聚满了人，你迷迷糊糊的看见医生摇了摇头</p>
+<p>周围那些人神情肃穆</p>
+<p>你明白了，你要死掉了</p>
+<p>你没有感到一丝害怕</p>
+<p>你突然问自己，我到底是什么时候死掉的呢？</p>
+<p>你想起来30岁的那场婚礼</p>
+<p>原来，那时候，你就死掉了吧</p>
+<p>依照惯例</p>
+<p>死前的3秒，你的大脑要走马灯</p>
+<p>倒叙你这75个年头的一生</p>
+<p>画面一张一张的过</p>
+<p>1秒</p>
+<p>2秒</p>
+<p>两秒过去了</p>
+<p>你面无表情的看着这两秒内的回忆</p>
+<p>第3秒</p>
+<p>突然你笑了</p>
+<p>原来已经回到了15岁的那一年</p>
+<p>你看见一个男孩</p>
+<p>他叼着一袋牛奶，背着书包</p>
+<p>从另一个女孩家的阳台下跑过</p>
+<p>那个男孩朝窗户里看了看</p>
+<p>那是15岁的你暗恋的那个女孩子</p>
+<p>你想不起来她长什么样子了</p>
+<p>最后一秒你努力的回忆着</p>
+<p>然后终于笑了出来</p>
+<p>3秒过去了</p>
+<p>身边的人突然间开始嚎啕大哭</p>
+<p>你可能听不清了</p>
+<p>你最后听到的嘈杂的声音</p>
+<p>是一群十五六的少年 起着哄说的</p>
+<p>答应他</p>
+<p>答应他</p>
+<p>答应他</p>
+<p>不爱你，不度生</p>
+
+    </div>
+    <h3 style="font-size: 1.6rem;font-weight: 550;">页面关键信息已通过以下代码生成跳转链接</h3>
+    <pre>
+     &lt;script&gt;
+         const context = document.querySelector(".markdown-body");
+         const articleTitleList = document.querySelector(".article-title-list");
+         if(context){
+             const tags = context.querySelectorAll('*');
+             const hTagReg = /^H[1-6]$/;
+             let template = '';
+             tags.forEach(item=>{
+                     if(hTagReg.test(item.tagName.toUpperCase()) && item.innerText){
+                      const tagH = item.tagName.toLowerCase();
+                      const forHash = item.getAttribute("id");
+                     template+=`
+                          <${tagH}>
+                          <a onclick="javascript:void(1)" href="#${forHash}">${item.innerText}</a>
+                         </${tagH}>  
+                      `;
+                  }
+              });
+             articleTitleList.innerHTML=template; 
+          }
+          &lt;/script&gt;
+        </pre>
+    
+    <div class="post-copyright-info">
+      <div class="article-copyright-info-container">
+    <ul>
+        <li>本文标题：不爱你，不度生</li>
+        <li>本文作者：邵预鸿</li>
+        <li>创建时间：2021-02-21 15:06:42</li>
+        <li>
+            本文链接：/images/logo.jpg2021/02/21/不爱你，不度生/
+        </li>
+        <li>
+            版权声明：本博客所有文章除特别声明外，均采用 <a class="license" target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">BY-NC-SA</a> 许可协议。转载请注明出处！
+        </li>
+    </ul>
+</div>
+
+    </div>
+    
+
+    
+    <div class="article-nav">
+      
+      <div class="article-prev">
+        <a class="prev" rel="prev" href="/2021/02/23/linux%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/">
+          <span class="left arrow-icon flex-center">
+            <i class="fas fa-chevron-left"></i>
+          </span>
+          <span class="title flex-center">
+            <span class="post-nav-title-item">linux常用命令</span>
+            <span class="post-nav-item">上一篇</span>
+          </span>
+        </a>
+      </div>
+      
+      
+      <div class="article-next">
+        <a class="next" rel="next" href="/2021/02/21/%E4%B8%80%E7%A2%97%E6%B8%85%E6%B1%A4%E8%8D%9E%E9%BA%A6%E9%9D%A2/">
+          <span class="title flex-center">
+            <span class="post-nav-title-item">一碗清汤荞麦面</span>
+            <span class="post-nav-item">下一篇</span>
+          </span>
+          <span class="right arrow-icon flex-center">
+            <i class="fas fa-chevron-right"></i>
+          </span>
+        </a>
+      </div>
+      
+    </div>
+    
+
+    
+  </div>
+</div>
+
+
+        
+      </div>
+
+    </div>
+
+    <div class="page-main-content-bottom">
+      <footer class="footer">
+    <div class="info-container">
+        <div class="copyright-info info-item">
+            &copy;
+            
+              <span>2021</span>&nbsp;-&nbsp;
+            
+            2022&nbsp;<i class="fas fa-heart icon-animate"></i>&nbsp;<a href="/">邵预鸿</a>
+        </div>
+        
+        
+        <div>更多笔记请访问:<a href="https://www.shaoyuhong.cn" target="_blank">邵预鸿|随心记 https://www.shaoyuhong.cn</a></div>
+
+    </div>
+</footer>
+
+    </div>
+  </div>
+
+  
+  <div class="post-tools">
+    <div class="post-tools-container">
+    <ul class="tools-list">
+        <!-- TOC aside toggle -->
+        
+
+        <!-- go comment -->
+        
+    </ul>
+</div>
+
+  </div>
+  
+
+  <div class="right-bottom-side-tools">
+    <div class="side-tools-container">
+    <ul class="side-tools-list">
+        <li class="tools-item tool-font-adjust-plus flex-center">
+            <i class="fas fa-search-plus"></i>
+        </li>
+
+        <li class="tools-item tool-font-adjust-minus flex-center">
+            <i class="fas fa-search-minus"></i>
+        </li>
+
+        <li class="tools-item tool-expand-width flex-center">
+            <i class="fas fa-arrows-alt-h"></i>
+        </li>
+
+        <li class="tools-item tool-dark-light-toggle flex-center">
+            <i class="fas fa-moon"></i>
+        </li>
+
+        <!-- rss -->
+        
+
+        
+
+        <li class="tools-item tool-scroll-to-bottom flex-center">
+            <i class="fas fa-arrow-down"></i>
+        </li>
+    </ul>
+
+    <ul class="exposed-tools-list">
+        <li class="tools-item tool-toggle-show flex-center">
+            <i class="fas fa-cog fa-spin"></i>
+        </li>
+        
+            <li class="tools-item tool-scroll-to-top flex-center">
+                <i class="arrow-up fas fa-arrow-up"></i>
+                <span class="percent"></span>
+            </li>
+        
+    </ul>
+</div>
+
+  </div>
+
+  
+
+  <div class="image-viewer-container">
+    <img src="">
+</div>
+
+
+  
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+          <span class="search-input-field-pre">
+            <i class="fas fa-keyboard"></i>
+          </span>
+            <div class="search-input-container">
+                <input autocomplete="off"
+                       autocorrect="off"
+                       autocapitalize="off"
+                       placeholder="搜索..."
+                       spellcheck="false"
+                       type="search"
+                       class="search-input"
+                >
+            </div>
+            <span class="popup-btn-close">
+                <i class="fas fa-times"></i>
+            </span>
+        </div>
+        <div id="search-result">
+            <div id="no-result">
+                <i class="fas fa-spinner fa-pulse fa-5x fa-fw"></i>
+            </div>
+        </div>
+    </div>
+</div>
+
+  
+
+</main>
+<script>
+  const context = document.querySelector(".markdown-body");
+  const articleTitleList = document.querySelector(".article-title-list");
+  const mainContent = document.querySelector('.main-content');
+
+  if (context) {
+    const tags = context.querySelectorAll('*');
+    const hTagReg = /^H[1-6]$/;
+    let template = '';
+    tags.forEach(item => {
+      if (hTagReg.test(item.tagName.toUpperCase()) && item.innerText) {
+        const tagH = item.tagName.toLowerCase();
+        const forHash = item.getAttribute("id");
+        template += `
+                  <${tagH}>
+                    <a onclick="javascript:void(1)" href="#${forHash}">${item.innerText}</a>
+                  </${tagH}>  
+                `;
+
+      }
+    });
+    articleTitleList.innerHTML = template;
+
+  }
+
+  (function leftNavPositionChange() {
+    const articleTitlePositoinX = (window.innerWidth - mainContent.clientWidth) / 2 - 255;
+    articleTitleList.style.left = articleTitlePositoinX + 'px';
+    window.onresize = function () {
+      leftNavPositionChange();
+    };
+  })();
+
+</script>
+
+<script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="/js/header-shrink.js"></script><script src="/js/back2top.js"></script><script src="/js/dark-light-toggle.js"></script>
+
+
+    <script src="/js/local-search.js"></script>
+
+
+
+    <script src="/js/code-copy.js"></script>
+
+
+
+    <script src="/js/lazyload.js"></script>
+
+
+<div class="post-scripts">
+    
+</div>
+
+
+
+</body>
+</html>

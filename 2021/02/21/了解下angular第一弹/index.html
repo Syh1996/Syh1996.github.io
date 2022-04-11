@@ -1,0 +1,592 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="baidu-site-verification" content="code-YfBAOEVVQH" />
+    <meta name="keywords" content="邵预鸿,前端开发工程师,技术博客,生活记录,生活日常,个人简历,日常规划">
+    <meta name="description" content="入职中兴通讯，一名低调资深的ctrl+c and ctrl+v开发者">
+    <meta name="author" content="邵预鸿">
+    
+    <title>
+        
+            了解下angular第一弹 |
+        
+        邵预鸿|前端开发技术笔记
+    </title>
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="shortcut icon" href="/images/logo.jpg">
+    <link rel="stylesheet" href="/css/font-awesome.min.css">
+    <script id="hexo-configurations">
+    let KEEP = window.KEEP || {};
+    KEEP.hexo_config = {"hostname":"github.com","root":"/","language":"zh-CN","path":"search.xml"};
+    KEEP.theme_config = {"toc":{"enable":false,"number":false,"expand_all":false,"init_open":false},"style":{"primary_color":"#0066CC","avatar":"/images/logo.jpg","favicon":"/images/logo.jpg","article_img_align":"left","left_side_width":"260px","content_max_width":"920px","hover":{"shadow":true,"scale":false},"first_screen":{"enable":true,"background_img":"/images/bg.svg","description":"积累硅步，可至千里；千里之行，始于足下"},"scroll":{"progress_bar":{"enable":true},"percent":{"enable":true}}},"local_search":{"enable":true,"preload":true},"code_copy":{"enable":true,"style":"default"},"pjax":{"enable":false},"lazyload":{"enable":true},"version":"3.4.0"};
+    KEEP.language_ago = {"second":"%s 秒前","minute":"%s 分钟前","hour":"%s 小时前","day":"%s 天前","week":"%s 周前","month":"%s 月前","year":"%s 年前"};
+  </script>
+<meta name="generator" content="Hexo 5.3.0"></head>
+
+
+<body>
+<!--
+ * @Description: file content
+ * @Author: yuhongshao
+ * @Date: 2021-02-20 19:33:18
+ * @email: yuhongshao@tencent.com
+ * @LastEditTime: 2022-03-30 10:24:37
+-->
+<div class="progress-bar-container">
+    
+        <span class="scroll-progress-bar"></span>
+    
+
+    
+</div>
+
+
+<main class="page-container">
+
+  
+
+  <div class="page-main-content">
+
+    <div class="page-main-content-top">
+      <header class="header-wrapper">
+
+    <div class="header-content">
+        <div class="left">
+            <a class="logo-title" href="/">
+                邵预鸿|前端开发技术笔记
+            </a>
+        </div>
+
+        <div class="right">
+            <div class="pc">
+                <ul class="menu-list">
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/"
+                            >
+                                主页
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/archives"
+                            >
+                                历年汇总
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/about"
+                            >
+                                关于我
+                            </a>
+                        </li>
+                    
+                    
+                        <li class="menu-item search search-popup-trigger">
+                            <i class="fas fa-search"></i>
+                        </li>
+                    
+                </ul>
+            </div>
+            <div class="mobile">
+                
+                    <div class="icon-item search search-popup-trigger"><i class="fas fa-search"></i></div>
+                
+                <div class="icon-item menu-bar">
+                    <div class="menu-bar-middle"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="header-drawer">
+        <ul class="drawer-menu-list">
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/">主页</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/archives">历年汇总</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/about">关于我</a>
+                </li>
+            
+        </ul>
+    </div>
+
+    <div class="window-mask"></div>
+
+</header>
+
+
+    </div>
+    <style>
+      .article-title-list {
+        position: fixed;
+        left: 80px;
+        top: 110px;
+        z-index: 100;
+        width: 250px;
+        max-height: calc(100% - 144px);
+        overflow: auto;
+      }
+
+      .article-title-list h1,
+      .article-title-list h2,
+      .article-title-list h3,
+      .article-title-list h4,
+      .article-title-list h5,
+      .article-title-list h6 {
+        box-sizing: border-box;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        overflow: hidden;
+        color: #686868;
+        font-weight: normal;
+        line-height: 1;
+        cursor: pointer;
+      }
+
+      .article-title-list h1 {
+        font-size: 22px;
+      }
+
+      .article-title-list h2 {
+        padding-left: 20px;
+        font-size: 20px;
+      }
+
+      .article-title-list h3 {
+        padding-left: 40px;
+        font-size: 18px;
+      }
+
+      .article-title-list h4 {
+        padding-left: 60px;
+        font-size: 16px;
+      }
+
+      .article-title-list h5 {
+        padding-left: 80px;
+        font-size: 14px;
+      }
+
+      .article-title-list h6 {
+        padding-left: 100px;
+        font-size: 12px;
+      }
+
+    </style>
+    <div class="article-title-list">
+    </div>
+
+    <div class="page-main-content-middle">
+
+      <div class="main-content">
+
+        
+        <div class="fade-in-down-animation">
+  <div class="article-content-container">
+
+    <div class="article-title">
+      <span class="title-hover-animation">了解下angular第一弹</span>
+    </div>
+
+    
+    <div class="article-header">
+      <div class="avatar">
+        <img src="/images/logo.jpg">
+      </div>
+      <div class="info">
+        <div class="author">
+          <span class="name">邵预鸿</span>
+          
+          <span
+            class="author-label">Lv4</span>
+          
+        </div>
+        <div class="meta-info">
+          <div class="article-meta-info">
+    <span class="article-date article-meta-item">
+        <i class="fas fa-edit"></i>&nbsp;2021-02-21 12:42:32
+    </span>
+    
+    
+        <span class="article-tags article-meta-item">
+            <i class="fas fa-tags"></i>&nbsp;
+            <ul>
+                
+                    <li>
+                        <a href="/tags/angular/">angular</a>&nbsp;
+                    </li>
+                
+            </ul>
+        </span>
+    
+
+    
+    
+    
+    
+</div>
+
+        </div>
+      </div>
+    </div>
+    
+
+    <div class="article-content markdown-body">
+      <blockquote>
+<p>*ngFor=”let item of list; let index = index;let odd = odd;trackBy: trackByItems “</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">let index &#x3D; index; &#x2F;&#x2F;获取当前下标项</span><br><span class="line">let odd &#x3D; odd; &#x2F;&#x2F;判断是否为奇偶数，返回true&#x2F;false;  o&#x3D;&gt;false 1&#x3D;&gt;true</span><br><span class="line">trackBy: trackByItems; &#x2F;&#x2F;官方解释 如果将 NgFor 与大型列表一起使用，则对某个条目的较小更改（例如删除或添加一项）就会触发一系列 DOM 操作。 例如，重新查询服务器可能会重置包含所有新条目对象的列表，即使先前已显示这些条目也是如此。在这种情况下，Angular 只能看到由新的对象引用组成的新列表，它别无选择，只能用所有新的 DOM 元素替换旧的 DOM 元素。</span><br><span class="line">你可以使用 trackBy 来让它更加高效。向该组件添加一个方法，该方法返回 NgFor 应该跟踪的值。这个例子中，该值是英雄的 id。如果 id 已经被渲染，Angular 就会跟踪它，而不会重新向服务器查询相同的 id。</span><br></pre></td></tr></table></figure>
+
+
+<blockquote>
+<p>*<a class="link"   target="_blank" rel="noopener" href="https://angular.cn/api/common/NgIf" >ngIf<i class="fas fa-external-link-alt"></i></a>=”nullCustomer”</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">很可惜没有ngelse,判断时只能一个个*ngIf</span><br></pre></td></tr></table></figure>
+
+
+<blockquote>
+<p>[ngSwitch]</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">&lt;div [ngSwitch]&#x3D;&quot;变量&quot;&gt;</span><br><span class="line">  &lt;app-stout-item    *ngSwitchCase&#x3D;&quot;&#39;stout&#39;&quot;    [item]&#x3D;&quot;currentItem&quot;&gt;&lt;&#x2F;app-stout-item&gt;</span><br><span class="line">  &lt;app-device-item   *ngSwitchCase&#x3D;&quot;&#39;slim&#39;&quot;     [item]&#x3D;&quot;currentItem&quot;&gt;&lt;&#x2F;app-device-item&gt;</span><br><span class="line">  &lt;app-lost-item     *ngSwitchCase&#x3D;&quot;&#39;vintage&#39;&quot;  [item]&#x3D;&quot;currentItem&quot;&gt;&lt;&#x2F;app-lost-item&gt;</span><br><span class="line">  &lt;app-best-item     *ngSwitchCase&#x3D;&quot;&#39;bright&#39;&quot;   [item]&#x3D;&quot;currentItem&quot;&gt;&lt;&#x2F;app-best-item&gt;</span><br><span class="line">&lt;!-- . . . --&gt;</span><br><span class="line">  &lt;app-unknown-item  *ngSwitchDefault           [item]&#x3D;&quot;currentItem&quot;&gt;&lt;&#x2F;app-unknown-item&gt;</span><br><span class="line">&lt;&#x2F;div&gt;</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F;疑问？如果有一个cj &#x3D; 81; 判断&lt;60时，展示不合格；&gt;&#x3D;60 &amp;&amp; &lt; 80时，展示良好；&gt;&#x3D;80时，展示优秀，[ngSwitch]好像没法判断 ，等验证...</span><br></pre></td></tr></table></figure>
+
+
+<blockquote>
+<p>杂项</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">[属性] &#x3D; ’变量 ‘    &#x2F;&#x2F;绑定属性</span><br><span class="line">(事件名&#x2F;click) &#x3D; &quot;处理函数()&quot;  &#x2F;&#x2F;绑定事件,测试发现 处理函数必须加括号调用，否则该事件不起作用</span><br><span class="line">(事件名&#x2F;click) &#x3D; &quot;处理函数($event)&quot; &#x2F;&#x2F;绑定事件时如果需要获取原生的事件参数使用$event接收</span><br></pre></td></tr></table></figure>
+
+
+<blockquote>
+<p>使用angular提供的api进行数据双向绑定</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;input type&#x3D;&#39;text&#39; [(ngModel)] &#x3D; &#39;变量&#39;&#x2F;&gt;</span><br><span class="line">&#x2F;&#x2F;使用该API需要提前在app.module.ts中引入 import &#123; FormsModule  &#125;  from &#39;angular&#x2F;forms&#39;</span><br><span class="line">&#x2F;&#x2F;并在imports中使用FormsModule</span><br></pre></td></tr></table></figure>
+
+
+<blockquote>
+<p>父组件向子组件传值</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F;父组件</span><br><span class="line">&lt;父组件 [属性]&#x3D;&quot;值&quot;&gt;&lt;&#x2F;父组件&gt;</span><br><span class="line">&lt;父组件 [属性]&#x3D;&quot;this&quot;&gt;&lt;&#x2F;父组件&gt; &#x2F;&#x2F;父组件将事件实例 this传给子组件，子组件可能通过this.属性.数据|方法（）</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F;子组件 </span><br><span class="line">&#x2F;&#x2F;children.component.ts</span><br><span class="line">@Input() count:number &#x3D; 300; &#x2F;&#x2F;接收使用input,count是属性名:数据类型 &#x3D; 设置默认值 </span><br><span class="line">@Input(&quot;count&quot;) count2:number &#x3D; 300;   &#x2F;&#x2F;为count取别名为count2,此时页面中访问的数据应是count</span><br></pre></td></tr></table></figure>
+
+
+<blockquote>
+<p>子组件向父组件通信</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F;子组件</span><br><span class="line">1.引入Output,EventEmitter。import &#123; Component, OnInit,Input,EventEmitter,Output &#125; from &#39;@angular&#x2F;core&#39;;</span><br><span class="line">2.注册一个自定义事件。 @Output() 自定义事件名&#x3D; new EventEmitter();</span><br><span class="line">3.子组件某个事件触发函数中提交一个自定义事件。 this.toParentHandleCount.emit(val); &#x2F;&#x2F;val需要额外携带的参数 </span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F;父组件</span><br><span class="line">&lt;父组件 (自定义事件名)&#x3D;&quot;处理函数($event)&quot;&gt;&lt;&#x2F;父组件&gt;</span><br><span class="line">注意,$event是接收的子组件携带的参数。</span><br><span class="line">【重要】问：$event可以写为其它名字吗？？？答:不可以，亲测,写为其它名字不能收到子组件会的额外参数</span><br></pre></td></tr></table></figure>
+
+
+<blockquote>
+<p>获取dom</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F;方法1</span><br><span class="line">&lt;input type&#x3D;&quot;text&quot; placeholder&#x3D;&quot;请输入相关信息&quot; #input&#x2F;&gt;</span><br><span class="line">&lt;button (click)&#x3D;&quot;submit1(input)&quot;&gt;通过传值获取input &lt;&#x2F;button&gt;</span><br><span class="line"></span><br><span class="line">submit1(ele):void&#123;     </span><br><span class="line">         &#x2F;&#x2F;ele便是元素</span><br><span class="line">     console.log(ele.value)</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F;方法2 通过viewChild</span><br><span class="line"> 引入ViewChild，ElementRef是类型</span><br><span class="line"> @ViewChild(&quot;input&quot;) input:ElementRef;  &#x2F;&#x2F;将input元素赋值给input，数据类型为elementRef</span><br><span class="line"> this.input.nativeElement &#x2F;&#x2F;nativeElement便是原生dom</span><br></pre></td></tr></table></figure>
+
+
+<blockquote>
+<p>常用的三个生命周期</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">ngOnInit()  在 Angular 第一次显示数据绑定和设置指令&#x2F;组件的输入属性之后，初始化指令&#x2F;组件。 欲知详情，参阅本文档中的初始化组件或指令。在第一轮 ngOnChanges() 完成之后调用，只调用一次。</span><br><span class="line"></span><br><span class="line">ngAfterContentInit()当 Angular 把外部内容投影进组件视图或指令所在的视图之后调用。欲知详情和范例，参阅本文档中的响应内容中的变更。第一次 ngDoCheck() 之后调用，只调用一次。</span><br><span class="line"></span><br><span class="line">ngOnDestroy() 每当 Angular 每次销毁指令&#x2F;组件之前调用并清扫。 在这儿反订阅可观察对象和分离事件处理器，以防内存泄漏。 欲知详情，参阅本文档中的在实例销毁时进行清理。在 Angular 销毁指令或组件之前立即调用。</span><br></pre></td></tr></table></figure>
+
+
+<blockquote>
+<p>服务</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F;创建服务</span><br><span class="line">ng g service 路径 &#x2F; 服务名</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F;使用</span><br><span class="line">&#x2F;&#x2F;首先需要在app.module.ts中注册服务</span><br><span class="line">import &#123; LxService &#125; from &#39;.&#x2F;service&#x2F;lx.service&#39;;</span><br><span class="line">providers: [LxService],</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F;在需要使用的组件中引入服务</span><br><span class="line">&#x2F;&#x2F;引入后在constructor(public store:LxService)&#123; &#x2F;&#x2F;为变量赋值 &#125;</span><br></pre></td></tr></table></figure>
+
+
+<blockquote>
+<p>Rxjs</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F;参考链接:https:&#x2F;&#x2F;www.angular.cn&#x2F;guide&#x2F;observables-in-angular</span><br><span class="line">import &#123;Observable&#125; from &#39;rxjs&#39;</span><br><span class="line">  new Observable&lt;string&gt;(observer &#x3D;&gt; &#123;</span><br><span class="line">    setInterval(() &#x3D;&gt; observer.next(new Date().toString()), 1000); &#x2F;&#x2F;支持每1秒钟返回数据，且对应组件相应接收</span><br><span class="line">  &#125;);</span><br><span class="line"></span><br><span class="line"> 获取</span><br><span class="line"> this.navStart.subscribe(evt &#x3D;&gt; console.log(&#39;Navigation Started!&#39;));</span><br><span class="line">  </span><br><span class="line">报错</span><br><span class="line">observer.error(错误信息)</span><br><span class="line"></span><br><span class="line"> 取消获取</span><br><span class="line">const subscription &#x3D; observable.subscribe(() &#x3D;&gt; &#123;</span><br><span class="line">  &#x2F;&#x2F; observer handles notifications</span><br><span class="line">&#125;);</span><br><span class="line">subscription.unsubscribe();</span><br><span class="line">[注意]取消获取亲测，服务中依然在执行中，只是在获取输出时不对页面赋值,即service执行中，component组件中获取时不执行</span><br><span class="line"></span><br><span class="line">使用其它方法</span><br><span class="line">import &#123; debounceTime, distinctUntilChanged, filter, map, switchMap &#125; from &#39;rxjs&#x2F;operators&#39;;</span><br><span class="line">    const subscription &#x3D;store.getData().pipe(filter((v) &#x3D;&gt; &#123;</span><br><span class="line">      console.log(v);</span><br><span class="line">      if(v&gt;0.5)&#123;</span><br><span class="line">        return true;</span><br><span class="line">      &#125;else&#123;</span><br><span class="line">        return false</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;)).subscribe(data&#x3D;&gt;&#123;</span><br><span class="line">      console.log(data);</span><br><span class="line">      this.data &#x3D; data.toString();</span><br><span class="line">    &#125;);</span><br></pre></td></tr></table></figure>
+
+
+<blockquote>
+<p>请求数据</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line">service.js</span><br><span class="line"></span><br><span class="line">import &#123; Injectable &#125; from &#39;@angular&#x2F;core&#39;;</span><br><span class="line">import axios from &#39;axios&#39;;</span><br><span class="line">import &#123; Observable &#125; from &#39;rxjs&#39;;</span><br><span class="line">@Injectable(&#123;</span><br><span class="line">  providedIn: &#39;root&#39;</span><br><span class="line">&#125;)</span><br><span class="line">export class RequestService &#123;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">  constructor() &#123; &#125;</span><br><span class="line">  get(url) &#123;</span><br><span class="line">    return new Observable(observer &#x3D;&gt; &#123;</span><br><span class="line">      let result &#x3D; null;</span><br><span class="line">      axios.get(url).then(res &#x3D;&gt; &#123;</span><br><span class="line">        observer.next(res);</span><br><span class="line">      &#125;);</span><br><span class="line">    &#125;);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F;about.js</span><br><span class="line">constructor(public route:Router,public request:RequestService) &#123;</span><br><span class="line">    </span><br><span class="line">   &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">  ngOnInit(): void &#123;</span><br><span class="line">    console.log(this.request);</span><br><span class="line">    this.request.get(&quot;https:&#x2F;&#x2F;www.shaoyuhong.cn&#x2F;grzx&#x2F;findTypeList.php&quot;).subscribe((res:any)&#x3D;&gt;&#123;</span><br><span class="line">       let &#123; code,list&#125;  &#x3D; res.data;</span><br><span class="line">       if(code &#x3D;&#x3D;&#x3D;200)&#123;</span><br><span class="line">          this.newsList &#x3D; list.map(item&#x3D;&gt;&#123;</span><br><span class="line">            item.id &#x3D; item.type_id;</span><br><span class="line">            item.name &#x3D; item.type_name;</span><br><span class="line">            return item;</span><br><span class="line">          &#125;)</span><br><span class="line">       &#125;</span><br><span class="line">    &#125;);</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
+
+
+<blockquote>
+<p>路由</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br></pre></td><td class="code"><pre><span class="line">1.动态路由</span><br><span class="line">app.routing.module.js   &#123;path:&#39;details&#x2F;:id&#39;,component:DetailsComponent&#125;,</span><br><span class="line">&lt;a [routerLink]&#x3D;&quot;[&#39;&#x2F;home&#x2F;details&#39;,item.id]&quot; routerLinkActive&#x3D;&quot;router-link-active&quot; &gt;</span><br><span class="line"> 接收</span><br><span class="line">import &#123; Component, OnInit &#125; from &#39;@angular&#x2F;core&#39;;</span><br><span class="line">import &#123; ActivatedRoute &#125; from &#39;@angular&#x2F;router&#39;;</span><br><span class="line">@Component(&#123;</span><br><span class="line">  selector: &#39;app-details&#39;,</span><br><span class="line">  templateUrl: &#39;.&#x2F;details.component.html&#39;,</span><br><span class="line">  styleUrls: [&#39;.&#x2F;details.component.less&#39;]</span><br><span class="line">&#125;)</span><br><span class="line">export class DetailsComponent implements OnInit &#123;</span><br><span class="line">  routerInfo:any &#x3D; null;</span><br><span class="line">  constructor(public info:ActivatedRoute) &#123; </span><br><span class="line">  </span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">  ngOnInit(): void &#123;</span><br><span class="line">    this.info.params.subscribe(data&#x3D;&gt;&#123;</span><br><span class="line">      this.routerInfo &#x3D; data;</span><br><span class="line">    &#125;)</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line">[相关链接参考]: https:&#x2F;&#x2F;www.angular.cn&#x2F;guide&#x2F;router#accessing-query-parameters-and-fragments</span><br><span class="line"></span><br><span class="line">2.Get方式传参</span><br><span class="line"> &lt;a [routerLink]&#x3D;&quot;[&#39;&#x2F;home&#x2F;details&#39;]&quot; [queryParams] &#x3D; &quot;&#123;id:item.id,age:22,school:&#39;重庆大学&#39;&#125;&quot; routerLinkActive&#x3D;&quot;router-link-active&quot; &gt;</span><br><span class="line"> 接收</span><br><span class="line">import &#123; Component, OnInit &#125; from &#39;@angular&#x2F;core&#39;;</span><br><span class="line">import &#123; ActivatedRoute &#125; from &#39;@angular&#x2F;router&#39;;</span><br><span class="line">@Component(&#123;</span><br><span class="line">  selector: &#39;app-details&#39;,</span><br><span class="line">  templateUrl: &#39;.&#x2F;details.component.html&#39;,</span><br><span class="line">  styleUrls: [&#39;.&#x2F;details.component.less&#39;]</span><br><span class="line">&#125;)</span><br><span class="line">export class DetailsComponent implements OnInit &#123;</span><br><span class="line">  routerInfo:any &#x3D; null;</span><br><span class="line">  constructor(public info:ActivatedRoute) &#123; </span><br><span class="line">  </span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">  ngOnInit(): void &#123;</span><br><span class="line">    this.info.queryParams.subscribe(data&#x3D;&gt;&#123;</span><br><span class="line">      this.routerInfo &#x3D; data;</span><br><span class="line">    &#125;)</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F;总结：动态路由使用this.router.params.subscribe监听。普通路由get传参使用this.router.queryParams.subscribe(data&#x3D;&gt;&#123;&#125;)监听</span><br></pre></td></tr></table></figure>
+
+
+<blockquote>
+<p>js跳转路由</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">methodTo()&#123;</span><br><span class="line">    &#x2F;&#x2F;引入:NavigationExtras from &#39;@anuglar&#x2F;router&#39;;</span><br><span class="line">    let queryParams:NavigationExtras&#x3D;&#123;</span><br><span class="line">        queryParams:&#123;</span><br><span class="line">          name:&#39;ddd&#39;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    this.route.navigate([&#39;&#x2F;home&#x2F;details&#39;,动态路由参数],queryParams);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+    </div>
+    <h3 style="font-size: 1.6rem;font-weight: 550;">页面关键信息已通过以下代码生成跳转链接</h3>
+    <pre>
+     &lt;script&gt;
+         const context = document.querySelector(".markdown-body");
+         const articleTitleList = document.querySelector(".article-title-list");
+         if(context){
+             const tags = context.querySelectorAll('*');
+             const hTagReg = /^H[1-6]$/;
+             let template = '';
+             tags.forEach(item=>{
+                     if(hTagReg.test(item.tagName.toUpperCase()) && item.innerText){
+                      const tagH = item.tagName.toLowerCase();
+                      const forHash = item.getAttribute("id");
+                     template+=`
+                          <${tagH}>
+                          <a onclick="javascript:void(1)" href="#${forHash}">${item.innerText}</a>
+                         </${tagH}>  
+                      `;
+                  }
+              });
+             articleTitleList.innerHTML=template; 
+          }
+          &lt;/script&gt;
+        </pre>
+    
+    <div class="post-copyright-info">
+      <div class="article-copyright-info-container">
+    <ul>
+        <li>本文标题：了解下angular第一弹</li>
+        <li>本文作者：邵预鸿</li>
+        <li>创建时间：2021-02-21 12:42:32</li>
+        <li>
+            本文链接：/images/logo.jpg2021/02/21/了解下angular第一弹/
+        </li>
+        <li>
+            版权声明：本博客所有文章除特别声明外，均采用 <a class="license" target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">BY-NC-SA</a> 许可协议。转载请注明出处！
+        </li>
+    </ul>
+</div>
+
+    </div>
+    
+
+    
+    <div class="article-nav">
+      
+      <div class="article-prev">
+        <a class="prev" rel="prev" href="/2021/02/21/vue%E5%8F%8C%E5%90%91%E7%BB%91%E5%AE%9A%E5%8E%9F%E7%90%86%E5%88%86%E6%9E%90/">
+          <span class="left arrow-icon flex-center">
+            <i class="fas fa-chevron-left"></i>
+          </span>
+          <span class="title flex-center">
+            <span class="post-nav-title-item">vue双向绑定原理分析</span>
+            <span class="post-nav-item">上一篇</span>
+          </span>
+        </a>
+      </div>
+      
+      
+      <div class="article-next">
+        <a class="next" rel="next" href="/2021/02/21/%E3%80%90%E4%BB%8A%E6%97%A5%E9%97%AE%E9%A2%98%E3%80%91%E8%BE%93%E5%85%A5-1-2-3-%EF%BC%8C%E8%BE%93%E5%87%BA%E5%B1%82%E7%BA%A7-name-1-child-child-name-3/">
+          <span class="title flex-center">
+            <span class="post-nav-title-item">【今日问题】输入[1,2,3]，输出层级{name:1,child:child:{name:3}</span>
+            <span class="post-nav-item">下一篇</span>
+          </span>
+          <span class="right arrow-icon flex-center">
+            <i class="fas fa-chevron-right"></i>
+          </span>
+        </a>
+      </div>
+      
+    </div>
+    
+
+    
+  </div>
+</div>
+
+
+        
+      </div>
+
+    </div>
+
+    <div class="page-main-content-bottom">
+      <footer class="footer">
+    <div class="info-container">
+        <div class="copyright-info info-item">
+            &copy;
+            
+              <span>2021</span>&nbsp;-&nbsp;
+            
+            2022&nbsp;<i class="fas fa-heart icon-animate"></i>&nbsp;<a href="/">邵预鸿</a>
+        </div>
+        
+        
+        <div>更多笔记请访问:<a href="https://www.shaoyuhong.cn" target="_blank">邵预鸿|随心记 https://www.shaoyuhong.cn</a></div>
+
+    </div>
+</footer>
+
+    </div>
+  </div>
+
+  
+  <div class="post-tools">
+    <div class="post-tools-container">
+    <ul class="tools-list">
+        <!-- TOC aside toggle -->
+        
+
+        <!-- go comment -->
+        
+    </ul>
+</div>
+
+  </div>
+  
+
+  <div class="right-bottom-side-tools">
+    <div class="side-tools-container">
+    <ul class="side-tools-list">
+        <li class="tools-item tool-font-adjust-plus flex-center">
+            <i class="fas fa-search-plus"></i>
+        </li>
+
+        <li class="tools-item tool-font-adjust-minus flex-center">
+            <i class="fas fa-search-minus"></i>
+        </li>
+
+        <li class="tools-item tool-expand-width flex-center">
+            <i class="fas fa-arrows-alt-h"></i>
+        </li>
+
+        <li class="tools-item tool-dark-light-toggle flex-center">
+            <i class="fas fa-moon"></i>
+        </li>
+
+        <!-- rss -->
+        
+
+        
+
+        <li class="tools-item tool-scroll-to-bottom flex-center">
+            <i class="fas fa-arrow-down"></i>
+        </li>
+    </ul>
+
+    <ul class="exposed-tools-list">
+        <li class="tools-item tool-toggle-show flex-center">
+            <i class="fas fa-cog fa-spin"></i>
+        </li>
+        
+            <li class="tools-item tool-scroll-to-top flex-center">
+                <i class="arrow-up fas fa-arrow-up"></i>
+                <span class="percent"></span>
+            </li>
+        
+    </ul>
+</div>
+
+  </div>
+
+  
+
+  <div class="image-viewer-container">
+    <img src="">
+</div>
+
+
+  
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+          <span class="search-input-field-pre">
+            <i class="fas fa-keyboard"></i>
+          </span>
+            <div class="search-input-container">
+                <input autocomplete="off"
+                       autocorrect="off"
+                       autocapitalize="off"
+                       placeholder="搜索..."
+                       spellcheck="false"
+                       type="search"
+                       class="search-input"
+                >
+            </div>
+            <span class="popup-btn-close">
+                <i class="fas fa-times"></i>
+            </span>
+        </div>
+        <div id="search-result">
+            <div id="no-result">
+                <i class="fas fa-spinner fa-pulse fa-5x fa-fw"></i>
+            </div>
+        </div>
+    </div>
+</div>
+
+  
+
+</main>
+<script>
+  const context = document.querySelector(".markdown-body");
+  const articleTitleList = document.querySelector(".article-title-list");
+  const mainContent = document.querySelector('.main-content');
+
+  if (context) {
+    const tags = context.querySelectorAll('*');
+    const hTagReg = /^H[1-6]$/;
+    let template = '';
+    tags.forEach(item => {
+      if (hTagReg.test(item.tagName.toUpperCase()) && item.innerText) {
+        const tagH = item.tagName.toLowerCase();
+        const forHash = item.getAttribute("id");
+        template += `
+                  <${tagH}>
+                    <a onclick="javascript:void(1)" href="#${forHash}">${item.innerText}</a>
+                  </${tagH}>  
+                `;
+
+      }
+    });
+    articleTitleList.innerHTML = template;
+
+  }
+
+  (function leftNavPositionChange() {
+    const articleTitlePositoinX = (window.innerWidth - mainContent.clientWidth) / 2 - 255;
+    articleTitleList.style.left = articleTitlePositoinX + 'px';
+    window.onresize = function () {
+      leftNavPositionChange();
+    };
+  })();
+
+</script>
+
+<script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="/js/header-shrink.js"></script><script src="/js/back2top.js"></script><script src="/js/dark-light-toggle.js"></script>
+
+
+    <script src="/js/local-search.js"></script>
+
+
+
+    <script src="/js/code-copy.js"></script>
+
+
+
+    <script src="/js/lazyload.js"></script>
+
+
+<div class="post-scripts">
+    
+</div>
+
+
+
+</body>
+</html>

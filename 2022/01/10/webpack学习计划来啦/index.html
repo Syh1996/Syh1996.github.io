@@ -1,0 +1,581 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="baidu-site-verification" content="code-YfBAOEVVQH" />
+    <meta name="keywords" content="邵预鸿,前端开发工程师,技术博客,生活记录,生活日常,个人简历,日常规划">
+    <meta name="description" content="入职中兴通讯，一名低调资深的ctrl+c and ctrl+v开发者">
+    <meta name="author" content="邵预鸿">
+    
+    <title>
+        
+            webpack学习计划来啦 |
+        
+        邵预鸿|前端开发技术笔记
+    </title>
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="shortcut icon" href="/images/logo.jpg">
+    <link rel="stylesheet" href="/css/font-awesome.min.css">
+    <script id="hexo-configurations">
+    let KEEP = window.KEEP || {};
+    KEEP.hexo_config = {"hostname":"github.com","root":"/","language":"zh-CN","path":"search.xml"};
+    KEEP.theme_config = {"toc":{"enable":false,"number":false,"expand_all":false,"init_open":false},"style":{"primary_color":"#0066CC","avatar":"/images/logo.jpg","favicon":"/images/logo.jpg","article_img_align":"left","left_side_width":"260px","content_max_width":"920px","hover":{"shadow":true,"scale":false},"first_screen":{"enable":true,"background_img":"/images/bg.svg","description":"积累硅步，可至千里；千里之行，始于足下"},"scroll":{"progress_bar":{"enable":true},"percent":{"enable":true}}},"local_search":{"enable":true,"preload":true},"code_copy":{"enable":true,"style":"default"},"pjax":{"enable":false},"lazyload":{"enable":true},"version":"3.4.0"};
+    KEEP.language_ago = {"second":"%s 秒前","minute":"%s 分钟前","hour":"%s 小时前","day":"%s 天前","week":"%s 周前","month":"%s 月前","year":"%s 年前"};
+  </script>
+<meta name="generator" content="Hexo 5.3.0"></head>
+
+
+<body>
+<!--
+ * @Description: file content
+ * @Author: yuhongshao
+ * @Date: 2021-02-20 19:33:18
+ * @email: yuhongshao@tencent.com
+ * @LastEditTime: 2022-03-30 10:24:37
+-->
+<div class="progress-bar-container">
+    
+        <span class="scroll-progress-bar"></span>
+    
+
+    
+</div>
+
+
+<main class="page-container">
+
+  
+
+  <div class="page-main-content">
+
+    <div class="page-main-content-top">
+      <header class="header-wrapper">
+
+    <div class="header-content">
+        <div class="left">
+            <a class="logo-title" href="/">
+                邵预鸿|前端开发技术笔记
+            </a>
+        </div>
+
+        <div class="right">
+            <div class="pc">
+                <ul class="menu-list">
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/"
+                            >
+                                主页
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/archives"
+                            >
+                                历年汇总
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/about"
+                            >
+                                关于我
+                            </a>
+                        </li>
+                    
+                    
+                        <li class="menu-item search search-popup-trigger">
+                            <i class="fas fa-search"></i>
+                        </li>
+                    
+                </ul>
+            </div>
+            <div class="mobile">
+                
+                    <div class="icon-item search search-popup-trigger"><i class="fas fa-search"></i></div>
+                
+                <div class="icon-item menu-bar">
+                    <div class="menu-bar-middle"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="header-drawer">
+        <ul class="drawer-menu-list">
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/">主页</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/archives">历年汇总</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/about">关于我</a>
+                </li>
+            
+        </ul>
+    </div>
+
+    <div class="window-mask"></div>
+
+</header>
+
+
+    </div>
+    <style>
+      .article-title-list {
+        position: fixed;
+        left: 80px;
+        top: 110px;
+        z-index: 100;
+        width: 250px;
+        max-height: calc(100% - 144px);
+        overflow: auto;
+      }
+
+      .article-title-list h1,
+      .article-title-list h2,
+      .article-title-list h3,
+      .article-title-list h4,
+      .article-title-list h5,
+      .article-title-list h6 {
+        box-sizing: border-box;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        overflow: hidden;
+        color: #686868;
+        font-weight: normal;
+        line-height: 1;
+        cursor: pointer;
+      }
+
+      .article-title-list h1 {
+        font-size: 22px;
+      }
+
+      .article-title-list h2 {
+        padding-left: 20px;
+        font-size: 20px;
+      }
+
+      .article-title-list h3 {
+        padding-left: 40px;
+        font-size: 18px;
+      }
+
+      .article-title-list h4 {
+        padding-left: 60px;
+        font-size: 16px;
+      }
+
+      .article-title-list h5 {
+        padding-left: 80px;
+        font-size: 14px;
+      }
+
+      .article-title-list h6 {
+        padding-left: 100px;
+        font-size: 12px;
+      }
+
+    </style>
+    <div class="article-title-list">
+    </div>
+
+    <div class="page-main-content-middle">
+
+      <div class="main-content">
+
+        
+        <div class="fade-in-down-animation">
+  <div class="article-content-container">
+
+    <div class="article-title">
+      <span class="title-hover-animation">webpack学习计划来啦</span>
+    </div>
+
+    
+    <div class="article-header">
+      <div class="avatar">
+        <img src="/images/logo.jpg">
+      </div>
+      <div class="info">
+        <div class="author">
+          <span class="name">邵预鸿</span>
+          
+          <span
+            class="author-label">Lv4</span>
+          
+        </div>
+        <div class="meta-info">
+          <div class="article-meta-info">
+    <span class="article-date article-meta-item">
+        <i class="fas fa-edit"></i>&nbsp;2022-01-10 18:11:09
+    </span>
+    
+    
+        <span class="article-tags article-meta-item">
+            <i class="fas fa-tags"></i>&nbsp;
+            <ul>
+                
+                    <li>
+                        <a href="/tags/webpack/">webpack</a>&nbsp;
+                    </li>
+                
+            </ul>
+        </span>
+    
+
+    
+    
+    
+    
+</div>
+
+        </div>
+      </div>
+    </div>
+    
+
+    <div class="article-content markdown-body">
+      <h4 id="开始"><a href="#开始" class="headerlink" title="开始"></a>开始</h4><p>webpack学习计划终于来了</p>
+<p>一直感觉学webpack有些困难，拖了好久，面试了头条和腾讯都同时问到了webpack，webpack也该提上日程了</p>
+<hr>
+<h4 id="打包图片资源"><a href="#打包图片资源" class="headerlink" title="打包图片资源"></a>打包图片资源</h4><ul>
+<li>webpack5版本像url-loader，file-loder都是废弃不会直接使用的。我整了半天，虽然打包了图片，但是却打包了两次，并且无法显示图片了，<br>如果想要使用这些废弃的旧功能，加上<code>type: javascript/auto</code></li>
+<li><code>esModule: false</code>,  打包图片时需要关闭ES modules</li>
+<li><code>outputPath:&#39;static/img&#39;,</code> 配置将资源文件输出的位置</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">module</span>:&#123;</span><br><span class="line">  rules:[&#123;</span><br><span class="line">                 test:<span class="regexp">/\.(png|jpe?g|gif)$/</span>,</span><br><span class="line">                 loader:<span class="string">&#x27;url-loader&#x27;</span>,</span><br><span class="line">                 options:&#123;</span><br><span class="line">                     limit:<span class="number">30</span>*<span class="number">1024</span>,</span><br><span class="line">                     esModule: <span class="literal">false</span>,</span><br><span class="line">                     outputPath:<span class="string">&#x27;static/img&#x27;</span>,</span><br><span class="line">                 &#125;,</span><br><span class="line">                 type: <span class="string">&#x27;javascript/auto&#x27;</span></span><br><span class="line">             &#125;]</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h4 id="在webpack5中打包资源文件的修改"><a href="#在webpack5中打包资源文件的修改" class="headerlink" title="在webpack5中打包资源文件的修改"></a>在webpack5中打包资源文件的修改</h4><p>在 webpack 5 之前，通常使用：</p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://v4.webpack.js.org/loaders/raw-loader/"><code>raw-loader</code></a> 将文件导入为字符串</li>
+<li><a target="_blank" rel="noopener" href="https://v4.webpack.js.org/loaders/url-loader/"><code>url-loader</code></a> 将文件作为 data URI 内联到 bundle 中</li>
+<li><a target="_blank" rel="noopener" href="https://v4.webpack.js.org/loaders/file-loader/"><code>file-loader</code></a> 将文件发送到输出目录</li>
+</ul>
+<p>资源模块类型(asset module type)，通过添加 4 种新的模块类型，来替换所有这些 loader：</p>
+<ul>
+<li><p><code>asset/resource</code> 发送一个单独的文件并导出 URL。之前通过使用 <code>file-loader</code> 实现。</p>
+</li>
+<li><p><code>asset/inline</code> 导出一个资源的 data URI。之前通过使用 <code>url-loader</code> 实现。</p>
+</li>
+<li><p><code>asset/source</code> 导出资源的源代码。之前通过使用 <code>raw-loader</code> 实现。</p>
+</li>
+<li><p><code>asset</code> 在导出一个 data URI 和发送一个单独的文件之间自动选择。之前通过使用 <code>url-loader</code>，并且配置资源体积限制实现。url-loader与fileloader自动选择</p>
+<p><code>Rule.parser.dataUrlCondition:&#123;maxSize:4*1024&#125;  可以配置文件大小 的选择方式</code></p>
+</li>
+</ul>
+<p>当在 webpack 5 中使用旧的 assets loader（如 <code>file-loader</code>/<code>url-loader</code>/<code>raw-loader</code> 等）和 asset 模块时，你可能想停止当前 asset 模块的处理，并再次启动处理，这可能会导致 asset 重复，你可以通过将 asset 模块的类型设置为 <code>&#39;javascript/auto&#39;</code> 来解决。</p>
+<p>generator：filename可以支持一个路径，将文件分类打包到不同的文件夹中</p>
+<p>exclude  除开某个条件外的所有情况，都按此方法处理</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">                test:<span class="regexp">/\.(png|jpe?g|gif)$/</span>,</span><br><span class="line">                type:<span class="string">&#x27;asset/resource&#x27;</span>,</span><br><span class="line">                generator:&#123;</span><br><span class="line">                   filename: <span class="string">&#x27;static/img/[hash:10][ext]&#x27;</span>,</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;,</span><br><span class="line">            &#123;</span><br><span class="line">               exclude:<span class="regexp">/\.(png|jpe?g|gif|html|js|ts|css|less)$/</span>,</span><br><span class="line">               type:<span class="string">&#x27;asset/resource&#x27;</span>,</span><br><span class="line">               generator:&#123;</span><br><span class="line">                   filename: <span class="string">&#x27;static/media/[hash:10][ext]&#x27;</span>,</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br></pre></td></tr></table></figure>
+<p><a class="link"   target="_blank" rel="noopener" href="https://webpack.docschina.org/guides/asset-modules/" >原文参考：https://webpack.docschina.org/guides/asset-modules/<i class="fas fa-external-link-alt"></i></a></p>
+<p><strong>output.assetModuleFilename:’shao/[hash] [ext]’  可以将静态资源统一设置一个路径，当有generator中filename指定的路径时，优先于generator</strong></p>
+<h3 id="plugins"><a href="#plugins" class="headerlink" title="plugins"></a>plugins</h3><ul>
+<li><p>HtmlWebpackPlugin 简化了 HTML 文件的创建，以便为你的 webpack 包提供服务。这对于那些文件名中包含哈希值，并且哈希值会随着每次编译而改变的 webpack 包特别有用。你可以让该插件为你生成一个 HTML 文件，使用 lodash 模板提供模板，或者使用你自己的 loader。</p>
+<p>安装</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install --save-dev html-webpack-plugin</span><br></pre></td></tr></table></figure>
+
+
+</li>
+</ul>
+<p><a class="link"   target="_blank" rel="noopener" href="https://webpack.docschina.org/plugins/html-webpack-plugin/" >相关链接:https://webpack.docschina.org/plugins/html-webpack-plugin/<i class="fas fa-external-link-alt"></i></a></p>
+<ul>
+<li><p>MiniCssExtractPlugin会将 CSS 提取到单独的文件中，为每个包含 CSS 的 JS 文件创建一个 CSS 文件，并且支持 CSS 和 SourceMaps 的按需加载。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install --save-dev mini-css-extract-plugin</span><br></pre></td></tr></table></figure>
+<p><a class="link"   target="_blank" rel="noopener" href="https://webpack.docschina.org/plugins/mini-css-extract-plugin/" >相关链接:https://webpack.docschina.org/plugins/mini-css-extract-plugin/<i class="fas fa-external-link-alt"></i></a></p>
+<ul>
+<li>本插件基于 webpack v5 的新特性构建，并且需要 webpack 5 才能正常工作</li>
+</ul>
+</li>
+<li><p>CssMinimizerWebpackPlugin使用 <a class="link"   target="_blank" rel="noopener" href="https://cssnano.co/" >cssnano<i class="fas fa-external-link-alt"></i></a> 优化和压缩 CSS。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install css-minimizer-webpack-plugin --save-dev</span><br></pre></td></tr></table></figure>
+<p><a class="link"   target="_blank" rel="noopener" href="https://webpack.docschina.org/plugins/css-minimizer-webpack-plugin/" >相关链接:https://webpack.docschina.org/plugins/css-minimizer-webpack-plugin/<i class="fas fa-external-link-alt"></i></a></p>
+<ul>
+<li>仅在生产环境开启 CSS 优化。</li>
+<li>如果还想在开发环境下启用 CSS 优化，请将 <code>optimization.minimize</code> 设置为 <code>true</code></li>
+</ul>
+</li>
+</ul>
+<h3 id="抽离公共方法（测试只能抽离由npm安装的公共文件，自己写的不能抽离"><a href="#抽离公共方法（测试只能抽离由npm安装的公共文件，自己写的不能抽离" class="headerlink" title="抽离公共方法（测试只能抽离由npm安装的公共文件，自己写的不能抽离)"></a>抽离公共方法（测试只能抽离由npm安装的公共文件，自己写的不能抽离)</h3><h4 id="通过entry入口配置"><a href="#通过entry入口配置" class="headerlink" title="通过entry入口配置"></a>通过entry入口配置</h4><p>shared:[插件名称如jquery]</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">entry:&#123;</span><br><span class="line">       dom1:&#123;</span><br><span class="line">           <span class="keyword">import</span>:<span class="string">&#x27;./js/dom1.js&#x27;</span>,</span><br><span class="line">           dependOn: <span class="string">&#x27;shared&#x27;</span>,</span><br><span class="line">       &#125;,</span><br><span class="line">       dom2:&#123;</span><br><span class="line">           <span class="keyword">import</span>:<span class="string">&#x27;./js/dom2.js&#x27;</span>,</span><br><span class="line">           dependOn: <span class="string">&#x27;shared&#x27;</span>,</span><br><span class="line">       &#125;,</span><br><span class="line">       shared:[<span class="string">&#x27;jquery&#x27;</span>]</span><br><span class="line">  &#125;,</span><br></pre></td></tr></table></figure>
+<p><a class="link"   target="_blank" rel="noopener" href="https://webpack.docschina.org/configuration/entry-context/#dependencies" >参考https://webpack.docschina.org/configuration/entry-context/#dependencies<i class="fas fa-external-link-alt"></i></a></p>
+<h4 id="通过优化项配置"><a href="#通过优化项配置" class="headerlink" title="通过优化项配置"></a>通过优化项配置</h4><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">optimization: &#123;</span><br><span class="line">        splitChunks: &#123;</span><br><span class="line">          chunks: <span class="string">&#x27;all&#x27;</span>,</span><br><span class="line">          <span class="comment">//有效值为 all，async 和 initial。设置为 all 可能特别强大，因为这意味着 chunk 可以在异步和非异步 chunk 之间共享。</span></span><br><span class="line">        &#125;,</span><br><span class="line">      &#125;,</span><br></pre></td></tr></table></figure>
+<p><a class="link"   target="_blank" rel="noopener" href="https://webpack.docschina.org/plugins/split-chunks-plugin/" >参考网址:https://webpack.docschina.org/plugins/split-chunks-plugin/<i class="fas fa-external-link-alt"></i></a></p>
+<h3 id="缓存"><a href="#缓存" class="headerlink" title="缓存"></a>缓存</h3><p>client（通常是浏览器）就能够访问此 server 的网站及其资源。而最后一步获取资源是比较耗费时间的，这就是为什么浏览器使用一种名为 <a class="link"   target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Cache_(computing)" >缓存<i class="fas fa-external-link-alt"></i></a> 的技术。可以通过命中缓存，以降低网络流量，使网站加载速度更快，然而，如果我们在部署新版本时不更改资源的文件名，浏览器可能会认为它没有被更新，就会使用它的缓存版本。由于缓存的存在，当你需要获取新的代码时，就会显得很棘手。</p>
+<p>此指南的重点在于通过必要的配置，以确保 webpack 编译生成的文件能够被客户端缓存，而在文件内容变化后，能够请求到新的文件。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">optimization: &#123;</span><br><span class="line">     runtimeChunk: <span class="string">&#x27;single&#x27;</span>,</span><br><span class="line">    splitChunks: &#123;</span><br><span class="line">      cacheGroups: &#123;</span><br><span class="line">        vendor: &#123;</span><br><span class="line">          test: <span class="regexp">/[\\/]node_modules[\\/]/</span>,</span><br><span class="line">          name: <span class="string">&#x27;vendors&#x27;</span>,</span><br><span class="line">          chunks: <span class="string">&#x27;all&#x27;</span>,</span><br><span class="line">        &#125;,</span><br><span class="line">      &#125;,</span><br><span class="line">    &#125;,</span><br><span class="line">   &#125;,</span><br></pre></td></tr></table></figure>
+<p><a class="link"   target="_blank" rel="noopener" href="https://webpack.docschina.org/guides/caching/#output-filenames" >原文参考https://webpack.docschina.org/guides/caching/#output-filenames<i class="fas fa-external-link-alt"></i></a></p>
+<h3 id="总结上述打包"><a href="#总结上述打包" class="headerlink" title="总结上述打包"></a>总结上述打包</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">const</span> MiniCssExtractPlugin = <span class="built_in">require</span>(<span class="string">&quot;mini-css-extract-plugin&quot;</span>);</span><br><span class="line"><span class="keyword">const</span> HtmlWebpackPlugin = <span class="built_in">require</span>(<span class="string">&#x27;html-webpack-plugin&#x27;</span>);</span><br><span class="line"><span class="keyword">const</span> CssMinimizerPlugin = <span class="built_in">require</span>(<span class="string">&quot;css-minimizer-webpack-plugin&quot;</span>);</span><br><span class="line"><span class="keyword">const</span> TerserPlugin = <span class="built_in">require</span>(<span class="string">&quot;terser-webpack-plugin&quot;</span>);</span><br><span class="line"><span class="keyword">const</span> &#123; resolve &#125; = <span class="built_in">require</span>(<span class="string">&quot;path&quot;</span>);</span><br><span class="line"><span class="built_in">module</span>.exports = <span class="function">(<span class="params">env</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">return</span> &#123;</span><br><span class="line">        entry: &#123;</span><br><span class="line">            app: &#123;</span><br><span class="line">                <span class="keyword">import</span>: <span class="string">&#x27;./app&#x27;</span>,</span><br><span class="line">                <span class="comment">/*   dependOn: &#x27;shared&#x27;, */</span></span><br><span class="line">            &#125;,</span><br><span class="line">            banner: &#123;</span><br><span class="line">                <span class="keyword">import</span>: <span class="string">&#x27;./js/banner-bar&#x27;</span>,</span><br><span class="line">                <span class="comment">/*    dependOn: &#x27;shared&#x27;, */</span></span><br><span class="line">            &#125;,</span><br><span class="line">            list: &#123;</span><br><span class="line">                <span class="keyword">import</span>: <span class="string">&#x27;./js/list&#x27;</span>,</span><br><span class="line">                <span class="comment">/* dependOn: &#x27;shared&#x27;, */</span></span><br><span class="line">            &#125;,</span><br><span class="line">            <span class="comment">/*  shared: [&#x27;jquery&#x27;], */</span></span><br><span class="line">        &#125;,</span><br><span class="line">        output: &#123;</span><br><span class="line">            filename: <span class="string">&#x27;js/[name].[contenthash].js&#x27;</span>,</span><br><span class="line">            path: resolve(__dirname, <span class="string">&#x27;build&#x27;</span>),</span><br><span class="line">            clean: <span class="literal">true</span></span><br><span class="line">        &#125;,</span><br><span class="line">        <span class="built_in">module</span>: &#123;</span><br><span class="line">            rules: [</span><br><span class="line">                &#123;</span><br><span class="line">                    test: <span class="regexp">/\.css$/</span>,</span><br><span class="line">                    use: [MiniCssExtractPlugin.loader, <span class="string">&quot;css-loader&quot;</span>],</span><br><span class="line">                &#125;,</span><br><span class="line">                &#123;</span><br><span class="line">                    test: <span class="regexp">/\.less$/</span>,</span><br><span class="line">                    use: [MiniCssExtractPlugin.loader, <span class="string">&quot;css-loader&quot;</span>, <span class="string">&#x27;less-loader&#x27;</span>]</span><br><span class="line">                &#125;,</span><br><span class="line">                &#123;</span><br><span class="line">                    test: <span class="regexp">/\.(png|jpe?g|gif)$/i</span>,</span><br><span class="line">                    type: <span class="string">&#x27;asset&#x27;</span>,</span><br><span class="line">                    generator: &#123;</span><br><span class="line">                        filename: <span class="string">&#x27;static/[hash][ext]&#x27;</span>,</span><br><span class="line">                    &#125;,</span><br><span class="line">                    parser: &#123;</span><br><span class="line">                        dataUrlCondition: &#123;</span><br><span class="line">                            maxSize: <span class="number">10</span> * <span class="number">1024</span>,</span><br><span class="line">                        &#125;,</span><br><span class="line">                    &#125;,</span><br><span class="line">                &#125;</span><br><span class="line">            ]</span><br><span class="line">        &#125;,</span><br><span class="line">        plugins: [</span><br><span class="line">            <span class="keyword">new</span> MiniCssExtractPlugin(&#123;</span><br><span class="line">                filename: <span class="string">&#x27;css/[name].css&#x27;</span></span><br><span class="line">            &#125;),</span><br><span class="line">            <span class="keyword">new</span> HtmlWebpackPlugin(&#123;</span><br><span class="line">                template: <span class="string">&#x27;./index.html&#x27;</span></span><br><span class="line">            &#125;)],</span><br><span class="line">        devServer: &#123;</span><br><span class="line">            <span class="keyword">static</span>: &#123;</span><br><span class="line">                directory: resolve(__dirname, <span class="string">&#x27;build&#x27;</span>),</span><br><span class="line">            &#125;,</span><br><span class="line">            compress: <span class="literal">true</span>,</span><br><span class="line">            port: <span class="number">9000</span>,</span><br><span class="line">            <span class="comment">/* open: true */</span></span><br><span class="line">        &#125;,</span><br><span class="line">        optimization: &#123;</span><br><span class="line">            runtimeChunk: <span class="string">&#x27;single&#x27;</span>,</span><br><span class="line">            splitChunks: &#123;</span><br><span class="line">                cacheGroups: &#123;</span><br><span class="line">                    vendor: &#123;</span><br><span class="line">                        test: <span class="regexp">/[\\/]node_modules[\\/]/</span>,</span><br><span class="line">                        name: <span class="string">&#x27;vendors&#x27;</span>,</span><br><span class="line">                        chunks: <span class="string">&#x27;all&#x27;</span>,</span><br><span class="line">                    &#125;,</span><br><span class="line">                &#125;,</span><br><span class="line">            &#125;,</span><br><span class="line">            minimize: <span class="literal">true</span>,</span><br><span class="line">            minimizer: [</span><br><span class="line">                <span class="comment">// 在 webpack@5 中，你可以使用 `...` 语法来扩展现有的 minimizer（即 `terser-webpack-plugin`），将下一行取消注释</span></span><br><span class="line">                <span class="comment">// `...`,</span></span><br><span class="line">                <span class="keyword">new</span> CssMinimizerPlugin(),</span><br><span class="line">                <span class="keyword">new</span> TerserPlugin()</span><br><span class="line">            ],</span><br><span class="line">        &#125;,</span><br><span class="line">        <span class="comment">//mode: &#x27;development&#x27;</span></span><br><span class="line">        mode: env.production ? <span class="string">&#x27;production&#x27;</span> : <span class="string">&#x27;development&#x27;</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">&quot;scripts&quot;</span>: &#123;</span><br><span class="line">   <span class="string">&quot;test&quot;</span>: <span class="string">&quot;echo \&quot;Error: no test specified\&quot; &amp;&amp; exit 1&quot;</span>,</span><br><span class="line">   <span class="string">&quot;build&quot;</span>: <span class="string">&quot;webpack --config webpack.config.prod.js  --env production --progress&quot;</span>,</span><br><span class="line">   <span class="string">&quot;start&quot;</span>: <span class="string">&quot;webpack serve --config webpack.config.env.js&quot;</span></span><br><span class="line"> &#125;,</span><br></pre></td></tr></table></figure>
+
+    </div>
+    <h3 style="font-size: 1.6rem;font-weight: 550;">页面关键信息已通过以下代码生成跳转链接</h3>
+    <pre>
+     &lt;script&gt;
+         const context = document.querySelector(".markdown-body");
+         const articleTitleList = document.querySelector(".article-title-list");
+         if(context){
+             const tags = context.querySelectorAll('*');
+             const hTagReg = /^H[1-6]$/;
+             let template = '';
+             tags.forEach(item=>{
+                     if(hTagReg.test(item.tagName.toUpperCase()) && item.innerText){
+                      const tagH = item.tagName.toLowerCase();
+                      const forHash = item.getAttribute("id");
+                     template+=`
+                          <${tagH}>
+                          <a onclick="javascript:void(1)" href="#${forHash}">${item.innerText}</a>
+                         </${tagH}>  
+                      `;
+                  }
+              });
+             articleTitleList.innerHTML=template; 
+          }
+          &lt;/script&gt;
+        </pre>
+    
+    <div class="post-copyright-info">
+      <div class="article-copyright-info-container">
+    <ul>
+        <li>本文标题：webpack学习计划来啦</li>
+        <li>本文作者：邵预鸿</li>
+        <li>创建时间：2022-01-10 18:11:09</li>
+        <li>
+            本文链接：/images/logo.jpg2022/01/10/webpack学习计划来啦/
+        </li>
+        <li>
+            版权声明：本博客所有文章除特别声明外，均采用 <a class="license" target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">BY-NC-SA</a> 许可协议。转载请注明出处！
+        </li>
+    </ul>
+</div>
+
+    </div>
+    
+
+    
+    <div class="article-nav">
+      
+      <div class="article-prev">
+        <a class="prev" rel="prev" href="/2022/02/23/typescript%E8%A1%A5%E5%85%85%E7%82%B9/">
+          <span class="left arrow-icon flex-center">
+            <i class="fas fa-chevron-left"></i>
+          </span>
+          <span class="title flex-center">
+            <span class="post-nav-title-item">typescript补充点</span>
+            <span class="post-nav-item">上一篇</span>
+          </span>
+        </a>
+      </div>
+      
+      
+      <div class="article-next">
+        <a class="next" rel="next" href="/2022/01/05/%E7%A7%BB%E5%8A%A8%E7%AB%AF%E5%A4%84%E7%90%861px%E7%9A%84%E9%97%AE%E9%A2%98/">
+          <span class="title flex-center">
+            <span class="post-nav-title-item">移动端处理1px的问题</span>
+            <span class="post-nav-item">下一篇</span>
+          </span>
+          <span class="right arrow-icon flex-center">
+            <i class="fas fa-chevron-right"></i>
+          </span>
+        </a>
+      </div>
+      
+    </div>
+    
+
+    
+  </div>
+</div>
+
+
+        
+      </div>
+
+    </div>
+
+    <div class="page-main-content-bottom">
+      <footer class="footer">
+    <div class="info-container">
+        <div class="copyright-info info-item">
+            &copy;
+            
+              <span>2021</span>&nbsp;-&nbsp;
+            
+            2022&nbsp;<i class="fas fa-heart icon-animate"></i>&nbsp;<a href="/">邵预鸿</a>
+        </div>
+        
+        
+        <div>更多笔记请访问:<a href="https://www.shaoyuhong.cn" target="_blank">邵预鸿|随心记 https://www.shaoyuhong.cn</a></div>
+
+    </div>
+</footer>
+
+    </div>
+  </div>
+
+  
+  <div class="post-tools">
+    <div class="post-tools-container">
+    <ul class="tools-list">
+        <!-- TOC aside toggle -->
+        
+
+        <!-- go comment -->
+        
+    </ul>
+</div>
+
+  </div>
+  
+
+  <div class="right-bottom-side-tools">
+    <div class="side-tools-container">
+    <ul class="side-tools-list">
+        <li class="tools-item tool-font-adjust-plus flex-center">
+            <i class="fas fa-search-plus"></i>
+        </li>
+
+        <li class="tools-item tool-font-adjust-minus flex-center">
+            <i class="fas fa-search-minus"></i>
+        </li>
+
+        <li class="tools-item tool-expand-width flex-center">
+            <i class="fas fa-arrows-alt-h"></i>
+        </li>
+
+        <li class="tools-item tool-dark-light-toggle flex-center">
+            <i class="fas fa-moon"></i>
+        </li>
+
+        <!-- rss -->
+        
+
+        
+
+        <li class="tools-item tool-scroll-to-bottom flex-center">
+            <i class="fas fa-arrow-down"></i>
+        </li>
+    </ul>
+
+    <ul class="exposed-tools-list">
+        <li class="tools-item tool-toggle-show flex-center">
+            <i class="fas fa-cog fa-spin"></i>
+        </li>
+        
+            <li class="tools-item tool-scroll-to-top flex-center">
+                <i class="arrow-up fas fa-arrow-up"></i>
+                <span class="percent"></span>
+            </li>
+        
+    </ul>
+</div>
+
+  </div>
+
+  
+
+  <div class="image-viewer-container">
+    <img src="">
+</div>
+
+
+  
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+          <span class="search-input-field-pre">
+            <i class="fas fa-keyboard"></i>
+          </span>
+            <div class="search-input-container">
+                <input autocomplete="off"
+                       autocorrect="off"
+                       autocapitalize="off"
+                       placeholder="搜索..."
+                       spellcheck="false"
+                       type="search"
+                       class="search-input"
+                >
+            </div>
+            <span class="popup-btn-close">
+                <i class="fas fa-times"></i>
+            </span>
+        </div>
+        <div id="search-result">
+            <div id="no-result">
+                <i class="fas fa-spinner fa-pulse fa-5x fa-fw"></i>
+            </div>
+        </div>
+    </div>
+</div>
+
+  
+
+</main>
+<script>
+  const context = document.querySelector(".markdown-body");
+  const articleTitleList = document.querySelector(".article-title-list");
+  const mainContent = document.querySelector('.main-content');
+
+  if (context) {
+    const tags = context.querySelectorAll('*');
+    const hTagReg = /^H[1-6]$/;
+    let template = '';
+    tags.forEach(item => {
+      if (hTagReg.test(item.tagName.toUpperCase()) && item.innerText) {
+        const tagH = item.tagName.toLowerCase();
+        const forHash = item.getAttribute("id");
+        template += `
+                  <${tagH}>
+                    <a onclick="javascript:void(1)" href="#${forHash}">${item.innerText}</a>
+                  </${tagH}>  
+                `;
+
+      }
+    });
+    articleTitleList.innerHTML = template;
+
+  }
+
+  (function leftNavPositionChange() {
+    const articleTitlePositoinX = (window.innerWidth - mainContent.clientWidth) / 2 - 255;
+    articleTitleList.style.left = articleTitlePositoinX + 'px';
+    window.onresize = function () {
+      leftNavPositionChange();
+    };
+  })();
+
+</script>
+
+<script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="/js/header-shrink.js"></script><script src="/js/back2top.js"></script><script src="/js/dark-light-toggle.js"></script>
+
+
+    <script src="/js/local-search.js"></script>
+
+
+
+    <script src="/js/code-copy.js"></script>
+
+
+
+    <script src="/js/lazyload.js"></script>
+
+
+<div class="post-scripts">
+    
+</div>
+
+
+
+</body>
+</html>

@@ -1,0 +1,640 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="baidu-site-verification" content="code-YfBAOEVVQH" />
+    <meta name="keywords" content="邵预鸿,前端开发工程师,技术博客,生活记录,生活日常,个人简历,日常规划">
+    <meta name="description" content="入职中兴通讯，一名低调资深的ctrl+c and ctrl+v开发者">
+    <meta name="author" content="邵预鸿">
+    
+    <title>
+        
+            svg那些事 |
+        
+        邵预鸿|前端开发技术笔记
+    </title>
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="shortcut icon" href="/images/logo.jpg">
+    <link rel="stylesheet" href="/css/font-awesome.min.css">
+    <script id="hexo-configurations">
+    let KEEP = window.KEEP || {};
+    KEEP.hexo_config = {"hostname":"github.com","root":"/","language":"zh-CN","path":"search.xml"};
+    KEEP.theme_config = {"toc":{"enable":false,"number":false,"expand_all":false,"init_open":false},"style":{"primary_color":"#0066CC","avatar":"/images/logo.jpg","favicon":"/images/logo.jpg","article_img_align":"left","left_side_width":"260px","content_max_width":"920px","hover":{"shadow":true,"scale":false},"first_screen":{"enable":true,"background_img":"/images/bg.svg","description":"积累硅步，可至千里；千里之行，始于足下"},"scroll":{"progress_bar":{"enable":true},"percent":{"enable":true}}},"local_search":{"enable":true,"preload":true},"code_copy":{"enable":true,"style":"default"},"pjax":{"enable":false},"lazyload":{"enable":true},"version":"3.4.0"};
+    KEEP.language_ago = {"second":"%s 秒前","minute":"%s 分钟前","hour":"%s 小时前","day":"%s 天前","week":"%s 周前","month":"%s 月前","year":"%s 年前"};
+  </script>
+<meta name="generator" content="Hexo 5.3.0"></head>
+
+
+<body>
+<!--
+ * @Description: file content
+ * @Author: yuhongshao
+ * @Date: 2021-02-20 19:33:18
+ * @email: yuhongshao@tencent.com
+ * @LastEditTime: 2022-03-30 10:24:37
+-->
+<div class="progress-bar-container">
+    
+        <span class="scroll-progress-bar"></span>
+    
+
+    
+</div>
+
+
+<main class="page-container">
+
+  
+
+  <div class="page-main-content">
+
+    <div class="page-main-content-top">
+      <header class="header-wrapper">
+
+    <div class="header-content">
+        <div class="left">
+            <a class="logo-title" href="/">
+                邵预鸿|前端开发技术笔记
+            </a>
+        </div>
+
+        <div class="right">
+            <div class="pc">
+                <ul class="menu-list">
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/"
+                            >
+                                主页
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/archives"
+                            >
+                                历年汇总
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/about"
+                            >
+                                关于我
+                            </a>
+                        </li>
+                    
+                    
+                        <li class="menu-item search search-popup-trigger">
+                            <i class="fas fa-search"></i>
+                        </li>
+                    
+                </ul>
+            </div>
+            <div class="mobile">
+                
+                    <div class="icon-item search search-popup-trigger"><i class="fas fa-search"></i></div>
+                
+                <div class="icon-item menu-bar">
+                    <div class="menu-bar-middle"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="header-drawer">
+        <ul class="drawer-menu-list">
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/">主页</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/archives">历年汇总</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/about">关于我</a>
+                </li>
+            
+        </ul>
+    </div>
+
+    <div class="window-mask"></div>
+
+</header>
+
+
+    </div>
+    <style>
+      .article-title-list {
+        position: fixed;
+        left: 80px;
+        top: 110px;
+        z-index: 100;
+        width: 250px;
+        max-height: calc(100% - 144px);
+        overflow: auto;
+      }
+
+      .article-title-list h1,
+      .article-title-list h2,
+      .article-title-list h3,
+      .article-title-list h4,
+      .article-title-list h5,
+      .article-title-list h6 {
+        box-sizing: border-box;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        overflow: hidden;
+        color: #686868;
+        font-weight: normal;
+        line-height: 1;
+        cursor: pointer;
+      }
+
+      .article-title-list h1 {
+        font-size: 22px;
+      }
+
+      .article-title-list h2 {
+        padding-left: 20px;
+        font-size: 20px;
+      }
+
+      .article-title-list h3 {
+        padding-left: 40px;
+        font-size: 18px;
+      }
+
+      .article-title-list h4 {
+        padding-left: 60px;
+        font-size: 16px;
+      }
+
+      .article-title-list h5 {
+        padding-left: 80px;
+        font-size: 14px;
+      }
+
+      .article-title-list h6 {
+        padding-left: 100px;
+        font-size: 12px;
+      }
+
+    </style>
+    <div class="article-title-list">
+    </div>
+
+    <div class="page-main-content-middle">
+
+      <div class="main-content">
+
+        
+        <div class="fade-in-down-animation">
+  <div class="article-content-container">
+
+    <div class="article-title">
+      <span class="title-hover-animation">svg那些事</span>
+    </div>
+
+    
+    <div class="article-header">
+      <div class="avatar">
+        <img src="/images/logo.jpg">
+      </div>
+      <div class="info">
+        <div class="author">
+          <span class="name">邵预鸿</span>
+          
+          <span
+            class="author-label">Lv4</span>
+          
+        </div>
+        <div class="meta-info">
+          <div class="article-meta-info">
+    <span class="article-date article-meta-item">
+        <i class="fas fa-edit"></i>&nbsp;2021-02-21 12:29:34
+    </span>
+    
+    
+        <span class="article-tags article-meta-item">
+            <i class="fas fa-tags"></i>&nbsp;
+            <ul>
+                
+                    <li>
+                        <a href="/tags/svg/">svg</a>&nbsp;
+                    </li>
+                
+            </ul>
+        </span>
+    
+
+    
+    
+    
+    
+</div>
+
+        </div>
+      </div>
+    </div>
+    
+
+    <div class="article-content markdown-body">
+      <h4 id="animate"><a href="#animate" class="headerlink" title="animate"></a>animate</h4><p>下面的例子将圆的cx属性作为动画。为了实现这种效果，我们添加了一个<animate>元素到<circle>元素的内部。<animate> 比较重要的属性如下：</p>
+<ul>
+<li>attributeName<br>需要动画的属性名称</li>
+<li>from<br>属性的初始值</li>
+<li>to<br>终止值</li>
+<li>dur<br>动画的时间</li>
+</ul>
+<p>如果你想要让该元素的更多属性具有动画效果，只要添加更多的<animate> 元素到该元素内部即可。</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">svg</span> <span class="attr">xmlns</span>=<span class="string">&quot;http://www.w3.org/2000/svg&quot;</span> <span class="attr">width</span>=<span class="string">&quot;300px&quot;</span> <span class="attr">height</span>=<span class="string">&quot;100px&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">rect</span> <span class="attr">x</span>=<span class="string">&quot;0&quot;</span> <span class="attr">y</span>=<span class="string">&quot;0&quot;</span> <span class="attr">width</span>=<span class="string">&quot;300&quot;</span> <span class="attr">height</span>=<span class="string">&quot;100&quot;</span> <span class="attr">stroke</span>=<span class="string">&quot;black&quot;</span> <span class="attr">stroke-width</span>=<span class="string">&quot;1&quot;</span> /&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">circle</span> <span class="attr">cx</span>=<span class="string">&quot;0&quot;</span> <span class="attr">cy</span>=<span class="string">&quot;50&quot;</span> <span class="attr">r</span>=<span class="string">&quot;15&quot;</span> <span class="attr">fill</span>=<span class="string">&quot;blue&quot;</span> <span class="attr">stroke</span>=<span class="string">&quot;black&quot;</span> <span class="attr">stroke-width</span>=<span class="string">&quot;1&quot;</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">animate</span> <span class="attr">attributeName</span>=<span class="string">&quot;cx&quot;</span> <span class="attr">from</span>=<span class="string">&quot;0&quot;</span> <span class="attr">to</span>=<span class="string">&quot;100&quot;</span> <span class="attr">dur</span>=<span class="string">&quot;5s&quot;</span> <span class="attr">repeatCount</span>=<span class="string">&quot;indefinite&quot;</span> /&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">circle</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">svg</span>&gt;</span>123456</span><br></pre></td></tr></table></figure>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://gitee.com/xian_hong_xiao/assets/raw/master/img/20161209112154855.gif"
+                      alt="这里写图片描述"
+                ></p>
+<h4 id="animateTransform"><a href="#animateTransform" class="headerlink" title="animateTransform"></a>animateTransform</h4><p><animateTransform>元素可以执行变换属性的动画。这个新的元素是必要的，因为我们不能用一个简单的数值的属性就像x来制作这种动画。旋转属性就像：rotation(theta, x, y)，theta是一个角度，x和y是绝对坐标。在下面这个例子中我们绕着旋转中心旋转一定的角度。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&lt;svg xmlns&#x3D;&quot;http:&#x2F;&#x2F;www.w3.org&#x2F;2000&#x2F;svg&quot; width&#x3D;&quot;300px&quot; height&#x3D;&quot;200px&quot;&gt;</span><br><span class="line">    &lt;rect x&#x3D;&quot;0&quot; y&#x3D;&quot;0&quot; width&#x3D;&quot;200&quot; height&#x3D;&quot;200&quot; fill&#x3D;&quot;yellow&quot; stroke&#x3D;&quot;red&quot; stroke-width&#x3D;&quot;1&quot; &#x2F;&gt;</span><br><span class="line">    &lt;rect x&#x3D;&quot;20&quot; y&#x3D;&quot;50&quot; width&#x3D;&quot;15&quot; height&#x3D;&quot;34&quot; fill&#x3D;&quot;blue&quot; stroke&#x3D;&quot;black&quot; stroke-width&#x3D;&quot;1&quot; transform&#x3D;&quot;rotation&quot;&gt;</span><br><span class="line">        &lt;!-- Rotate from 0 to 360 degrees, and move from 60 to 100 in the x direction. --&gt;</span><br><span class="line">        &lt;!-- Keep doing this until the drawing no longer exists. --&gt;</span><br><span class="line">        &lt;animateTransform attributeType&#x3D;&quot;XML&quot; attributeName&#x3D;&quot;transform&quot; begin&#x3D;&quot;0s&quot; dur&#x3D;&quot;5s&quot; type&#x3D;&quot;rotate&quot; from&#x3D;&quot;20 60 60&quot; to&#x3D;&quot;360 100 60&quot; repeatCount&#x3D;&quot;indefinite&quot; &#x2F;&gt;</span><br><span class="line">    &lt;&#x2F;rect&gt;</span><br><span class="line">&lt;&#x2F;svg&gt;12345678</span><br></pre></td></tr></table></figure>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://gitee.com/xian_hong_xiao/assets/raw/master/img/20161222085404804.gif"
+                      alt="这里写图片描述"
+                ></p>
+<h4 id="animateMotion"><a href="#animateMotion" class="headerlink" title="animateMotion"></a>animateMotion</h4><p><animateMotion>元素让你可以实现一个路径动画，并且根据路径进行旋转。路径使用和<path>相同的方式进行定义。你可以设置属性来定义对象是否根据路径的正切角度来旋转。</p>
+<h4 id="Example-1-Linear-motion"><a href="#Example-1-Linear-motion" class="headerlink" title="Example 1: Linear motion"></a>Example 1: Linear motion</h4><p>在这个例子中，一个蓝色的圆在黑盒的左右边缘之间来回的反弹，无限地重复着同样的动作。该动画是由<animateMotion>元素控制的。在这种情况下我们建立了一个路径，由MoveTo命令来创建动画的起始点，然后Horizontal-line命令来将圆向右移动300像素到右边，接着使用Z命令，关闭路径，建立一个环回路径。通过设置repeatCount属性为indefinite，我们可以指定只要SVG图片存在的话，动画是否永久循环。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&lt;svg xmlns&#x3D;&quot;http:&#x2F;&#x2F;www.w3.org&#x2F;2000&#x2F;svg&quot; width&#x3D;&quot;300px&quot; height&#x3D;&quot;100px&quot;&gt;</span><br><span class="line">    &lt;rect x&#x3D;&quot;0&quot; y&#x3D;&quot;0&quot; width&#x3D;&quot;300&quot; height&#x3D;&quot;100&quot; fill&#x3D;&quot;yellow&quot; stroke-width&#x3D;&quot;1&quot; stroke&#x3D;&quot;red&quot; &#x2F;&gt;</span><br><span class="line">    &lt;circle cx&#x3D;&quot;0&quot; cy&#x3D;&quot;50&quot; r&#x3D;&quot;15&quot; fill&#x3D;&quot;blue&quot; stroke&#x3D;&quot;black&quot; stroke-width&#x3D;&quot;1&quot;&gt;</span><br><span class="line">        &lt;animateMotion path&#x3D;&quot;M 0 0 H 300 Z&quot; dur&#x3D;&quot;3s&quot; repeatCount&#x3D;&quot;indefinite&quot; &#x2F;&gt;</span><br><span class="line">    &lt;&#x2F;circle&gt;</span><br><span class="line">&lt;&#x2F;svg&gt;123456</span><br></pre></td></tr></table></figure>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://gitee.com/xian_hong_xiao/assets/raw/master/img/20161209110812518.gif"
+                      alt="这里写图片描述"
+                ></p>
+<h4 id="Example-2-Curved-motion"><a href="#Example-2-Curved-motion" class="headerlink" title="Example 2: Curved motion"></a>Example 2: Curved motion</h4><p>和上面差不多的例子，只不过现在是沿着曲线和路径方向运动。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&lt;svg width&#x3D;&quot;300px&quot; height&#x3D;&quot;100px&quot;&gt;</span><br><span class="line">    &lt;rect x&#x3D;&quot;0&quot; y&#x3D;&quot;0&quot; width&#x3D;&quot;300&quot; height&#x3D;&quot;100&quot; fill&#x3D;&quot;yellow&quot; stroke-width&#x3D;&quot;1&quot; stroke&#x3D;&quot;red&quot; &#x2F;&gt;</span><br><span class="line">    &lt;rect x&#x3D;&quot;0&quot; y&#x3D;&quot;0&quot; width&#x3D;&quot;20&quot; height&#x3D;&quot;20&quot; fill&#x3D;&quot;blue&quot; stroke&#x3D;&quot;black&quot; stroke-width&#x3D;&quot;1&quot;&gt;</span><br><span class="line">        &lt;animateMotion path&#x3D;&quot;M 250,80 H 50 Q 30,80 30,50 Q 30,20 50,20 H 250 Q 280,20,280,50 Q 280,80,250,80Z&quot; dur&#x3D;&quot;3s&quot; repeatCount&#x3D;&quot;indefinite&quot; rotate&#x3D;&quot;auto&quot;&gt;</span><br><span class="line">    &lt;&#x2F;rect&gt;</span><br><span class="line">&lt;&#x2F;svg&gt;123456</span><br></pre></td></tr></table></figure>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://gitee.com/xian_hong_xiao/assets/raw/master/img/20161209110427592.gif"
+                      alt="这里写图片描述"
+                ></p>
+<p><animateMotion>使元素沿着动作路径移动，路径也可以 <strong>path元素的id的路径</strong> 组成</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">symbol</span>&gt;</span></span><br><span class="line">   <span class="tag">&lt;<span class="name">path</span> <span class="attr">d</span>=<span class="string">&quot;xxxxxxx&quot;</span> <span class="attr">id</span>=<span class="string">&quot;path1&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">path</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">symbol</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">rect</span> <span class="attr">x</span>=<span class="string">&quot;0&quot;</span> <span class="attr">y</span>=<span class="string">&quot;0&quot;</span> <span class="attr">width</span>=<span class="string">&quot;100&quot;</span> <span class="attr">height</span>=<span class="string">&quot;100&quot;</span> <span class="attr">fill</span>=<span class="string">&quot;red&quot;</span>&gt;</span></span><br><span class="line">   <span class="tag">&lt;<span class="name">animateMotion</span> <span class="attr">dur</span>=<span class="string">&quot;8s&quot;</span>&gt;</span></span><br><span class="line">       <span class="tag">&lt;<span class="name">mpath</span> <span class="attr">xlink:href</span>=<span class="string">&quot;#path1&quot;</span>/&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">animateMotion</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">rect</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>请注意三者之间的区别</p>
+<p>animate 主要用于控制属性的变换,例如cx,cy ,r</p>
+<p>animateTransform 主要用于控制位移/倾斜/放大,此时attrbuteName=”transform”  transform必须是这个名字，其它名字不起作用</p>
+<p>animateMotion  主要用于控制路径运动</p>
+</blockquote>
+<blockquote>
+<p>额外参数说明</p>
+<p>repeatCount=”indefinite”   动画重复,可以是数字N,当是N时，将执行N次</p>
+</blockquote>
+<blockquote>
+<p>注意事项</p>
+<p>svg动画animate/animateTransform/animateMotion可以同时存在多个,例下</p>
+</blockquote>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">symbol</span>&gt;</span></span><br><span class="line">   <span class="tag">&lt;<span class="name">path</span> <span class="attr">d</span>=<span class="string">&quot;xxxxxxx&quot;</span> <span class="attr">id</span>=<span class="string">&quot;path1&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">path</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">symbol</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">rect</span> <span class="attr">x</span>=<span class="string">&quot;0&quot;</span> <span class="attr">y</span>=<span class="string">&quot;0&quot;</span> <span class="attr">width</span>=<span class="string">&quot;100&quot;</span> <span class="attr">height</span>=<span class="string">&quot;100&quot;</span> <span class="attr">fill</span>=<span class="string">&quot;red&quot;</span>&gt;</span></span><br><span class="line">   <span class="tag">&lt;<span class="name">animateMotion</span> <span class="attr">dur</span>=<span class="string">&quot;8s&quot;</span>&gt;</span></span><br><span class="line">       <span class="tag">&lt;<span class="name">mpath</span> <span class="attr">xlink:href</span>=<span class="string">&quot;#path1&quot;</span>/&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">animateMotion</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">animate</span> <span class="attr">dur</span>=<span class="string">&quot;8s&quot;</span> <span class="attr">attributeName</span>=<span class="string">&quot;x&quot;</span> <span class="attr">from</span>=<span class="string">&quot;0&quot;</span> <span class="attr">to</span>=<span class="string">&quot;100&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">animate</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">rect</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+
+
+
+<h4 id="线性动画"><a href="#线性动画" class="headerlink" title="线性动画"></a>线性动画</h4><p><strong>第一：概念解释</strong></p>
+<p><strong>1. stroke</strong>意思是：画短线于，在…上划线</p>
+<p><strong>2. stroke-dasharray</strong>:用于创建虚线，之所以后面跟的是array的，是因为值其实是数组。请看下面解释</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">stroke-dasharray &#x3D; &#39;10&#39;</span><br><span class="line">stroke-dasharray &#x3D; &#39;10, 5&#39;</span><br><span class="line">stroke-dasharray &#x3D; &#39;20, 10, 5&#39;</span><br></pre></td></tr></table></figure>
+<p>stroke-dasharray为一个参数时： 其实是表示虚线长度和每段虚线之间的间距</p>
+<p>　　如：stroke-dasharray = ‘10’ 表示：虚线长10，间距10，然后重复 虚线长10，间距10</p>
+<p>两个参数或者多个参数时：一个表示长度，一个表示间距<br>　　如：stroke-dasharray = ‘10, 5’ 表示：虚线长10，间距5，然后重复 虚线长10，间距5<br>　　如：stroke-dasharray = ‘20, 10, 5’ 表示：虚线长20，间距10，虚线长5，接着是间距20，虚线10，间距5，之后开始如此循环</p>
+<p><strong>3. stroke-dashoffset： offset：偏移的意思。</strong><br>这个属性是相对于起始点的偏移，正数偏移x值的时候，相当于往左移动了x个长度单位，负数偏移x的时候，相当于往右移动了x个长度单位。<br>需要注意的是，不管偏移的方向是哪边，要记得dasharray 是循环的，也就是 虚线-间隔-虚线-间隔。<br>这个属性要搭配stroke-dashoffset才能看得出来效果，非虚线的话，是无法看出偏移的。</p>
+<p>概念有点抽象，来看一个MDN的例子，图中红线段是偏移的距离</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://gitee.com/xian_hong_xiao/assets/raw/master/img/1312697-20190618114434344-1494379511.png"
+                      alt="img"
+                ></p>
+<p>上图效果分别是：<br>1.没有虚线<br>2.stroke-dasharray=”3 1” ，虚线没有设置偏移，也就是stroke-dashoffset值为0<br>3.stroke-dashoffset=”3”，偏移正数，虚线整体左移了3个单位，图中3后面的红线段，就是起始线段，线段之后是1个单位的间隔，我们可见区域从这个间隔开始，然后循环 3-1,3-1的虚线-间隔-虚线-间隔<br>4.stroke-dashoffset=”-3”，偏移负数，虚线整体右移动了3个单位，由于dasharray 是循环的，前面偏移的位置会有dasharray 填充上<br>5.stroke-dashoffset=”1”，偏移正数，虚线整体左移了1个单位，最终呈现出来的效果跟 线段4 一样</p>
+<p><strong>圆形环绕一圈效果</strong></p>
+<p>鼠标hover的时候，外层线段绕自身一圈。这个动画的实现原理，跟上面的是一毛一样的<br>设置stroke-dasharray虚线长度等于当前圆的周长，间隔大于或者等于圆的周长</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://gitee.com/xian_hong_xiao/assets/raw/master/img/1312697-20190618115412705-1014505699.gif"
+                      alt="img"
+                ></p>
+<p>第一步：先画出一个圆圈：代码如下，圆的半径设置为50</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;svg  width&#x3D;&quot;200&quot; height&#x3D;&quot;200&quot; viewBox&#x3D;&quot;0 0 200 200&quot;&gt;</span><br><span class="line">   &lt;circle id&#x3D;&quot;circle&quot; cx&#x3D;&quot;100&quot; cy&#x3D;&quot;80&quot; r&#x3D;&quot;50&quot;  fill&#x3D;&quot;gray&quot; stroke-width&#x3D;&quot;5&quot; stroke&#x3D;&quot;green&quot; &#x2F;&gt;</span><br><span class="line">&lt;&#x2F;svg&gt;</span><br></pre></td></tr></table></figure>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://gitee.com/xian_hong_xiao/assets/raw/master/img/1312697-20190618115639809-1926849090.png"
+                      alt="img"
+                ></p>
+<p>第二步：设置圆的stroke-dasharray和stroke-dashoffset，为圆的周长</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">#circle&#123;</span><br><span class="line">     transition: all 2s;</span><br><span class="line">     stroke-dasharray:314,314;</span><br><span class="line">     stroke-dashoffset:314;</span><br><span class="line"> &#125;</span><br></pre></td></tr></table></figure>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://gitee.com/xian_hong_xiao/assets/raw/master/img/1312697-20190618115936577-653191996.png"
+                      alt="img"
+                ></p>
+<p>第三步：hover的时候，设置stroke-dashoffset为0，注意圆的stroke起始位置为右侧中间</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">svg:hover #circle&#123;</span><br><span class="line">    stroke-dashoffset:0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>圆形环绕的效果就做好了~</p>
+<h3 id="SVG复用"><a href="#SVG复用" class="headerlink" title="SVG复用"></a>SVG复用</h3><h4 id="与的相同点"><a href="#与的相同点" class="headerlink" title="与的相同点"></a><defs>与<symbol>的相同点</h4><ul>
+<li><defs>元素用于预定义一个元素使其能够在SVG图像中重复使用。</li>
+<li><symbol>元素用于定义可重复使用的符号。</li>
+<li>嵌入在<defs>或<symbol>元素中的图形是不会被直接显示的，除非你使用<use>元素来引用它。</li>
+</ul>
+<h4 id="与的不同点"><a href="#与的不同点" class="headerlink" title="与的不同点"></a><defs>与<symbol>的不同点</h4><ul>
+<li>xlink定义了一套标准的在 XML 文档中创建超级链接的方法，可以用它来引用<symbol>元素或<defs>内定义的元素和组。</li>
+<li>一个<symbol>元素可以有preserveAspectRatio和viewBox属性。而<g>元素不能拥有这些属性。</li>
+</ul>
+<p>因此相比于在<defs>元素中使用<g>的方式来复用图形，使用<symbol>元素也许是一个更好的选择。</p>
+<p><use x="" y="" transform=""> 复用时x,y是偏移值,transform可以是位置，倾斜，旋转</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">&lt;svg xmlns=<span class="string">&quot;http://www.w3.org/2000/svg&quot;</span> xmlns:xlink=<span class="string">&quot;http://www.w3.org/1999/xlink&quot;</span> width=<span class="string">&quot;300&quot;</span> height=<span class="string">&quot;400&quot;</span>&gt;</span><br><span class="line">    &lt;defs&gt;</span><br><span class="line">        &lt;g id=<span class="string">&quot;ShapeGroup&quot;</span>&gt;</span><br><span class="line">            &lt;rect x=<span class="string">&quot;50&quot;</span> y=<span class="string">&quot;50&quot;</span> width=<span class="string">&quot;100&quot;</span> height=<span class="string">&quot;100&quot;</span> fill=<span class="string">&quot;#69C&quot;</span> stroke=<span class="string">&quot;red&quot;</span> stroke-width=<span class="string">&quot;2&quot;</span>/&gt;</span><br><span class="line">            &lt;circle cx=<span class="string">&quot;100&quot;</span> cy=<span class="string">&quot;100&quot;</span> r=<span class="string">&quot;40&quot;</span> stroke=<span class="string">&quot;#00f&quot;</span> fill=<span class="string">&quot;none&quot;</span> stroke-width=<span class="string">&quot;5&quot;</span>/&gt;</span><br><span class="line">        &lt;/g&gt;</span><br><span class="line">    &lt;/defs&gt;</span><br><span class="line">    &lt;use xlink:href=<span class="string">&quot;#ShapeGroup&quot;</span> transform=<span class="string">&quot;translate(-10,0) scale(0.5)&quot;</span>/&gt;</span><br><span class="line">    &lt;use xlink:href=<span class="string">&quot;#ShapeGroup&quot;</span> transform=<span class="string">&quot;translate(10,10) scale(1)&quot;</span>/&gt;</span><br><span class="line">    &lt;use xlink:href=<span class="string">&quot;#ShapeGroup&quot;</span> transform=<span class="string">&quot;translate(50,60) scale(1.5)&quot;</span>/&gt;</span><br><span class="line">&lt;/svg&gt;</span><br></pre></td></tr></table></figure>
+
+
+<h4 id="参考实例"><a href="#参考实例" class="headerlink" title="参考实例"></a>参考实例</h4><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE <span class="meta-keyword">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">lang</span>=<span class="string">&quot;en&quot;</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">&quot;UTF-8&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">&quot;viewport&quot;</span> <span class="attr">content</span>=<span class="string">&quot;width=device-width, initial-scale=1.0&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span>Document<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">style</span>&gt;</span></span><br><span class="line">         svg&#123;</span><br><span class="line"><span class="css">             <span class="attribute">width</span>:<span class="number">100vw</span>;</span></span><br><span class="line"><span class="css">             <span class="attribute">height</span>:<span class="number">100vh</span>;</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">         &#125;</span><br><span class="line">       #use1&#123;</span><br><span class="line"><span class="css">           stroke: <span class="number">#fdd663</span>;</span></span><br><span class="line"><span class="css">           stroke-dasharray: <span class="number">10</span> <span class="number">10</span>;</span></span><br><span class="line"><span class="css">           stroke-dashoffset: <span class="number">0</span>;</span></span><br><span class="line"><span class="css">           <span class="attribute">animation</span>: ani1 <span class="number">15s</span> infinite  linear;</span></span><br><span class="line">       &#125;</span><br><span class="line">       #use2&#123;</span><br><span class="line"><span class="css">           stroke: <span class="number">#ee675c</span>;</span></span><br><span class="line"><span class="css">           stroke-dasharray: <span class="number">10</span> <span class="number">10</span>;</span></span><br><span class="line"><span class="css">           stroke-dashoffset: <span class="number">0</span>;</span></span><br><span class="line"><span class="css">           <span class="attribute">animation</span>: ani2 <span class="number">15s</span> infinite linear;</span></span><br><span class="line">       &#125;</span><br><span class="line">       #use3&#123;</span><br><span class="line"><span class="css">           stroke: <span class="number">#81c995</span>;</span></span><br><span class="line"><span class="css">           stroke-dasharray: <span class="number">10</span> <span class="number">10</span>;</span></span><br><span class="line"><span class="css">           stroke-dashoffset: <span class="number">0</span>;</span></span><br><span class="line"><span class="css">           <span class="attribute">animation</span>: ani3 <span class="number">15s</span> infinite linear;</span></span><br><span class="line">        </span><br><span class="line">       &#125;</span><br><span class="line"><span class="css">       <span class="keyword">@keyframes</span> ani1&#123;</span></span><br><span class="line">           0%,100%&#123;</span><br><span class="line"><span class="css">            stroke-dasharray: <span class="number">50</span> <span class="number">80</span>;</span></span><br><span class="line"><span class="css">           stroke-dashoffset: <span class="number">500</span>;</span></span><br><span class="line">           &#125;</span><br><span class="line">         </span><br><span class="line">          50%&#123;</span><br><span class="line"><span class="css">            stroke-dasharray: <span class="number">50</span> <span class="number">80</span>;</span></span><br><span class="line"><span class="css">           stroke-dashoffset: <span class="number">0</span>;</span></span><br><span class="line">           &#125;</span><br><span class="line">       &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="css">       <span class="keyword">@keyframes</span> ani2&#123;</span></span><br><span class="line">           0%,100%&#123;</span><br><span class="line"><span class="css">            stroke-dasharray: <span class="number">100</span> <span class="number">120</span>;</span></span><br><span class="line"><span class="css">           stroke-dashoffset: <span class="number">500</span>;</span></span><br><span class="line">           &#125;</span><br><span class="line">          </span><br><span class="line">           60%&#123;</span><br><span class="line"><span class="css">            stroke-dasharray: <span class="number">100</span> <span class="number">120</span>;</span></span><br><span class="line"><span class="css">           stroke-dashoffset: <span class="number">0</span>;</span></span><br><span class="line">           &#125;</span><br><span class="line">       &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="css">       <span class="keyword">@keyframes</span> ani3&#123;</span></span><br><span class="line">           0%,100%&#123;</span><br><span class="line"><span class="css">            stroke-dasharray: <span class="number">150</span> <span class="number">160</span>;</span></span><br><span class="line"><span class="css">           stroke-dashoffset: <span class="number">500</span>;</span></span><br><span class="line">           &#125;</span><br><span class="line">         </span><br><span class="line">           70%&#123;</span><br><span class="line"><span class="css">            stroke-dasharray: <span class="number">150</span> <span class="number">160</span>;</span></span><br><span class="line"><span class="css">           stroke-dashoffset: <span class="number">0</span>;</span></span><br><span class="line">           &#125;</span><br><span class="line">           </span><br><span class="line">       &#125;</span><br><span class="line">    <span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">svg</span> <span class="attr">xmlns</span>=<span class="string">&quot;http://www.w3.org/2000/svg&quot;</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">symbol</span> <span class="attr">id</span>=<span class="string">&quot;back&quot;</span>&gt;</span></span><br><span class="line">          <span class="tag">&lt;<span class="name">path</span> </span></span><br><span class="line"><span class="tag">           <span class="attr">d</span>=<span class="string">&quot;m641.78091,790.55116c33.66658,-0.42299 -32.06272,-1.96304 -43.72177,-2.8119c-97.42147,-2.36241 -178.2728,-99.22185 -167.75035,-195.34463c2.13073,-96.18695 94.77423,-180.68256 191.20004,-171.00335c25.09965,-10.66217 60.72977,24.52486 76.31358,7.71823c40.02758,-70.61028 78.81009,-141.9582 120.45054,-211.62919c35.46917,-5.06262 77.72556,-8.97584 112.22972,0.62002c15.95178,25.12759 -13.05085,31.96845 -31.14866,28.08932c-20.19947,0 -40.39894,0 -60.59845,0c-14.62302,26.67862 -29.62846,53.14464 -44.57028,79.64524c84.86946,0 169.73902,0 254.60848,0c1.88991,-9.02791 23.32755,-28.4795 4.32205,-26.36513c-34.52901,-4.35192 -12.92977,-44.25838 12.64019,-32.90578c35.89235,1.31889 73.05347,-3.53818 107.86866,3.65736c18.5978,37.3249 -35.1766,29.3175 -58.22777,29.71312c-17.06225,-5.56892 -20.59815,11.48777 -27.35368,23.15896c-27.39004,28.05648 -10.36541,57.62647 8.04336,84.977c6.75234,12.44232 11.56268,29.71084 27.99389,18.08497c33.50719,-7.36288 70.03627,-7.62992 103.37777,0.97937c69.67034,20.69872 125.53164,85.29464 130.20844,158.46779c4.22013,44.94577 -5.38832,91.27423 -33.36473,127.53277c-32.44851,46.47673 -85.10832,71.92571 -140.50727,77.08815m-43.43384,0.45368c-50.50555,-12.96067 -97.07043,-43.1132 -124.06679,-88.63504c-17.66691,-22.75363 -19.96364,-57.98298 -29.35393,-80.80756c-24.7664,-0.32404 -49.53283,-0.64811 -74.29929,-0.97213c-50.16146,-80.69484 -94.37449,-165.08841 -142.7612,-246.90817c-9.43189,28.01069 -63.052,66.11946 -33.44545,91.90377c74.30256,62.34548 84.19744,184.12325 20.64528,257.53107c-29.12447,32.64847 -69.52634,55.1472 -111.05801,67.86512m3.19001,-44.39426c80.14518,-17.45284 131.35959,-109.86251 103.63829,-186.93172c-8.56705,-25.1009 -32.13926,-65.19724 -52.95897,-65.60816c-22.19314,38.3176 -42.15846,78.00715 -66.48161,115.04078c-53.41137,9.39497 -4.47703,-55.63874 6.82448,-77.73755c12.11678,-26.96262 56.11764,-70.57906 0.68807,-69.93326c-38.91343,-3.87236 -80.26776,-0.12761 -111.7472,25.70082c-67.55668,44.70576 -80.34302,146.95748 -29.18278,208.59638c34.63405,44.90491 94.44332,63.99612 149.21969,50.87273l0.00003,-0.00003zm560.74527,-0.01111c68.4067,-16.07246 117.63305,-86.37989 108.77861,-156.15879c-4.68298,-77.54732 -82.0197,-140.26335 -158.90589,-129.84036c-57.61424,-5.45274 -2.4553,47.43981 5.77997,73.15358c7.83463,27.30336 50.99384,60.83818 26.89819,87.46467c-54.04397,2.26405 -109.41302,-1.5899 -163.30859,3.85947c9.68005,71.46638 77.31359,130.58443 150.29498,125.11564c10.24195,-0.08353 20.53325,-0.94999 30.46277,-3.59421l-0.00003,0zm-220.78109,-159.71467c6.50943,-55.91724 38.20528,-106.78138 84.43086,-138.60756c2.73105,-13.71648 -25.25894,-76.89265 -35.50779,-32.84775c-31.63458,57.50046 -63.43641,114.92385 -94.10164,172.9456c14.69042,0.35532 31.15827,2.92043 45.17857,-1.49029zm165.12836,-2.77332c-18.23577,-34.28188 -36.87647,-68.35803 -55.93684,-102.1883c-38.23572,20.16323 -63.38996,62.83399 -69.33606,105.42466c41.74855,-0.88994 84.19744,2.18142 125.38156,-2.22409l-0.1085,-1.0123l0,0l-0.00016,0.00003zm-178.84621,-123.65431c17.98509,-33.19417 36.31151,-66.21344 53.74109,-99.70241c-75.78914,-1.69903 -151.75025,-2.0712 -227.5138,0.3591c38.91549,66.88235 74.07351,136.35541 116.62381,200.88702c20.57455,-31.64719 38.04868,-68.08253 57.14889,-101.54368l0,-0.00003z&quot;</span> </span></span><br><span class="line"><span class="tag">           <span class="attr">stroke-width</span>=<span class="string">&quot;2&quot;</span> <span class="attr">fill</span>=<span class="string">&quot;transparent&quot;</span> /&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">symbol</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">use</span> <span class="attr">href</span>=<span class="string">&quot;#back&quot;</span> <span class="attr">id</span>=<span class="string">&quot;use1&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">use</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">use</span> <span class="attr">href</span>=<span class="string">&quot;#back&quot;</span> <span class="attr">id</span>=<span class="string">&quot;use2&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">use</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">use</span> <span class="attr">href</span>=<span class="string">&quot;#back&quot;</span> <span class="attr">id</span>=<span class="string">&quot;use3&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">use</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">svg</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://gitee.com/xian_hong_xiao/assets/raw/master/img/2.PNG"
+                      alt="图片"
+                ></p>
+<h3 id="异常问题"><a href="#异常问题" class="headerlink" title="异常问题"></a>异常问题</h3><ul>
+<li>svg作为背景图片时使用background-size:100% 100%;不起作用？</li>
+</ul>
+<p>​           打开svg图片，然后在svg标签上面加上属性：preserveAspectRatio=”none meet”;</p>
+
+    </div>
+    <h3 style="font-size: 1.6rem;font-weight: 550;">页面关键信息已通过以下代码生成跳转链接</h3>
+    <pre>
+     &lt;script&gt;
+         const context = document.querySelector(".markdown-body");
+         const articleTitleList = document.querySelector(".article-title-list");
+         if(context){
+             const tags = context.querySelectorAll('*');
+             const hTagReg = /^H[1-6]$/;
+             let template = '';
+             tags.forEach(item=>{
+                     if(hTagReg.test(item.tagName.toUpperCase()) && item.innerText){
+                      const tagH = item.tagName.toLowerCase();
+                      const forHash = item.getAttribute("id");
+                     template+=`
+                          <${tagH}>
+                          <a onclick="javascript:void(1)" href="#${forHash}">${item.innerText}</a>
+                         </${tagH}>  
+                      `;
+                  }
+              });
+             articleTitleList.innerHTML=template; 
+          }
+          &lt;/script&gt;
+        </pre>
+    
+    <div class="post-copyright-info">
+      <div class="article-copyright-info-container">
+    <ul>
+        <li>本文标题：svg那些事</li>
+        <li>本文作者：邵预鸿</li>
+        <li>创建时间：2021-02-21 12:29:34</li>
+        <li>
+            本文链接：/images/logo.jpg2021/02/21/svg那些事/
+        </li>
+        <li>
+            版权声明：本博客所有文章除特别声明外，均采用 <a class="license" target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">BY-NC-SA</a> 许可协议。转载请注明出处！
+        </li>
+    </ul>
+</div>
+
+    </div>
+    
+
+    
+    <div class="article-nav">
+      
+      <div class="article-prev">
+        <a class="prev" rel="prev" href="/2021/02/21/%E4%B8%A4%E8%BE%B9%E5%9B%BA%E5%AE%9A%E4%B8%AD%E9%97%B4%E8%87%AA%E9%80%82%E5%BA%94%E5%B8%83%E5%B1%80%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%885%E7%A7%8D/">
+          <span class="left arrow-icon flex-center">
+            <i class="fas fa-chevron-left"></i>
+          </span>
+          <span class="title flex-center">
+            <span class="post-nav-title-item">两边固定中间自适应布局解决方案5种</span>
+            <span class="post-nav-item">上一篇</span>
+          </span>
+        </a>
+      </div>
+      
+      
+      <div class="article-next">
+        <a class="next" rel="next" href="/2021/02/21/%E5%BF%AB%E9%80%9F%E6%8E%92%E5%BA%8F/">
+          <span class="title flex-center">
+            <span class="post-nav-title-item">快速排序</span>
+            <span class="post-nav-item">下一篇</span>
+          </span>
+          <span class="right arrow-icon flex-center">
+            <i class="fas fa-chevron-right"></i>
+          </span>
+        </a>
+      </div>
+      
+    </div>
+    
+
+    
+  </div>
+</div>
+
+
+        
+      </div>
+
+    </div>
+
+    <div class="page-main-content-bottom">
+      <footer class="footer">
+    <div class="info-container">
+        <div class="copyright-info info-item">
+            &copy;
+            
+              <span>2021</span>&nbsp;-&nbsp;
+            
+            2022&nbsp;<i class="fas fa-heart icon-animate"></i>&nbsp;<a href="/">邵预鸿</a>
+        </div>
+        
+        
+        <div>更多笔记请访问:<a href="https://www.shaoyuhong.cn" target="_blank">邵预鸿|随心记 https://www.shaoyuhong.cn</a></div>
+
+    </div>
+</footer>
+
+    </div>
+  </div>
+
+  
+  <div class="post-tools">
+    <div class="post-tools-container">
+    <ul class="tools-list">
+        <!-- TOC aside toggle -->
+        
+
+        <!-- go comment -->
+        
+    </ul>
+</div>
+
+  </div>
+  
+
+  <div class="right-bottom-side-tools">
+    <div class="side-tools-container">
+    <ul class="side-tools-list">
+        <li class="tools-item tool-font-adjust-plus flex-center">
+            <i class="fas fa-search-plus"></i>
+        </li>
+
+        <li class="tools-item tool-font-adjust-minus flex-center">
+            <i class="fas fa-search-minus"></i>
+        </li>
+
+        <li class="tools-item tool-expand-width flex-center">
+            <i class="fas fa-arrows-alt-h"></i>
+        </li>
+
+        <li class="tools-item tool-dark-light-toggle flex-center">
+            <i class="fas fa-moon"></i>
+        </li>
+
+        <!-- rss -->
+        
+
+        
+
+        <li class="tools-item tool-scroll-to-bottom flex-center">
+            <i class="fas fa-arrow-down"></i>
+        </li>
+    </ul>
+
+    <ul class="exposed-tools-list">
+        <li class="tools-item tool-toggle-show flex-center">
+            <i class="fas fa-cog fa-spin"></i>
+        </li>
+        
+            <li class="tools-item tool-scroll-to-top flex-center">
+                <i class="arrow-up fas fa-arrow-up"></i>
+                <span class="percent"></span>
+            </li>
+        
+    </ul>
+</div>
+
+  </div>
+
+  
+
+  <div class="image-viewer-container">
+    <img src="">
+</div>
+
+
+  
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+          <span class="search-input-field-pre">
+            <i class="fas fa-keyboard"></i>
+          </span>
+            <div class="search-input-container">
+                <input autocomplete="off"
+                       autocorrect="off"
+                       autocapitalize="off"
+                       placeholder="搜索..."
+                       spellcheck="false"
+                       type="search"
+                       class="search-input"
+                >
+            </div>
+            <span class="popup-btn-close">
+                <i class="fas fa-times"></i>
+            </span>
+        </div>
+        <div id="search-result">
+            <div id="no-result">
+                <i class="fas fa-spinner fa-pulse fa-5x fa-fw"></i>
+            </div>
+        </div>
+    </div>
+</div>
+
+  
+
+</main>
+<script>
+  const context = document.querySelector(".markdown-body");
+  const articleTitleList = document.querySelector(".article-title-list");
+  const mainContent = document.querySelector('.main-content');
+
+  if (context) {
+    const tags = context.querySelectorAll('*');
+    const hTagReg = /^H[1-6]$/;
+    let template = '';
+    tags.forEach(item => {
+      if (hTagReg.test(item.tagName.toUpperCase()) && item.innerText) {
+        const tagH = item.tagName.toLowerCase();
+        const forHash = item.getAttribute("id");
+        template += `
+                  <${tagH}>
+                    <a onclick="javascript:void(1)" href="#${forHash}">${item.innerText}</a>
+                  </${tagH}>  
+                `;
+
+      }
+    });
+    articleTitleList.innerHTML = template;
+
+  }
+
+  (function leftNavPositionChange() {
+    const articleTitlePositoinX = (window.innerWidth - mainContent.clientWidth) / 2 - 255;
+    articleTitleList.style.left = articleTitlePositoinX + 'px';
+    window.onresize = function () {
+      leftNavPositionChange();
+    };
+  })();
+
+</script>
+
+<script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="/js/header-shrink.js"></script><script src="/js/back2top.js"></script><script src="/js/dark-light-toggle.js"></script>
+
+
+    <script src="/js/local-search.js"></script>
+
+
+
+    <script src="/js/code-copy.js"></script>
+
+
+
+    <script src="/js/lazyload.js"></script>
+
+
+<div class="post-scripts">
+    
+</div>
+
+
+
+</body>
+</html>

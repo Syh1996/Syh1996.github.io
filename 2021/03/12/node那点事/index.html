@@ -1,0 +1,594 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="baidu-site-verification" content="code-YfBAOEVVQH" />
+    <meta name="keywords" content="邵预鸿,前端开发工程师,技术博客,生活记录,生活日常,个人简历,日常规划">
+    <meta name="description" content="入职中兴通讯，一名低调资深的ctrl+c and ctrl+v开发者">
+    <meta name="author" content="邵预鸿">
+    
+    <title>
+        
+            node那点事 |
+        
+        邵预鸿|前端开发技术笔记
+    </title>
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="shortcut icon" href="/images/logo.jpg">
+    <link rel="stylesheet" href="/css/font-awesome.min.css">
+    <script id="hexo-configurations">
+    let KEEP = window.KEEP || {};
+    KEEP.hexo_config = {"hostname":"github.com","root":"/","language":"zh-CN","path":"search.xml"};
+    KEEP.theme_config = {"toc":{"enable":false,"number":false,"expand_all":false,"init_open":false},"style":{"primary_color":"#0066CC","avatar":"/images/logo.jpg","favicon":"/images/logo.jpg","article_img_align":"left","left_side_width":"260px","content_max_width":"920px","hover":{"shadow":true,"scale":false},"first_screen":{"enable":true,"background_img":"/images/bg.svg","description":"积累硅步，可至千里；千里之行，始于足下"},"scroll":{"progress_bar":{"enable":true},"percent":{"enable":true}}},"local_search":{"enable":true,"preload":true},"code_copy":{"enable":true,"style":"default"},"pjax":{"enable":false},"lazyload":{"enable":true},"version":"3.4.0"};
+    KEEP.language_ago = {"second":"%s 秒前","minute":"%s 分钟前","hour":"%s 小时前","day":"%s 天前","week":"%s 周前","month":"%s 月前","year":"%s 年前"};
+  </script>
+<meta name="generator" content="Hexo 5.3.0"></head>
+
+
+<body>
+<!--
+ * @Description: file content
+ * @Author: yuhongshao
+ * @Date: 2021-02-20 19:33:18
+ * @email: yuhongshao@tencent.com
+ * @LastEditTime: 2022-03-30 10:24:37
+-->
+<div class="progress-bar-container">
+    
+        <span class="scroll-progress-bar"></span>
+    
+
+    
+</div>
+
+
+<main class="page-container">
+
+  
+
+  <div class="page-main-content">
+
+    <div class="page-main-content-top">
+      <header class="header-wrapper">
+
+    <div class="header-content">
+        <div class="left">
+            <a class="logo-title" href="/">
+                邵预鸿|前端开发技术笔记
+            </a>
+        </div>
+
+        <div class="right">
+            <div class="pc">
+                <ul class="menu-list">
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/"
+                            >
+                                主页
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/archives"
+                            >
+                                历年汇总
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/about"
+                            >
+                                关于我
+                            </a>
+                        </li>
+                    
+                    
+                        <li class="menu-item search search-popup-trigger">
+                            <i class="fas fa-search"></i>
+                        </li>
+                    
+                </ul>
+            </div>
+            <div class="mobile">
+                
+                    <div class="icon-item search search-popup-trigger"><i class="fas fa-search"></i></div>
+                
+                <div class="icon-item menu-bar">
+                    <div class="menu-bar-middle"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="header-drawer">
+        <ul class="drawer-menu-list">
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/">主页</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/archives">历年汇总</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/about">关于我</a>
+                </li>
+            
+        </ul>
+    </div>
+
+    <div class="window-mask"></div>
+
+</header>
+
+
+    </div>
+    <style>
+      .article-title-list {
+        position: fixed;
+        left: 80px;
+        top: 110px;
+        z-index: 100;
+        width: 250px;
+        max-height: calc(100% - 144px);
+        overflow: auto;
+      }
+
+      .article-title-list h1,
+      .article-title-list h2,
+      .article-title-list h3,
+      .article-title-list h4,
+      .article-title-list h5,
+      .article-title-list h6 {
+        box-sizing: border-box;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        overflow: hidden;
+        color: #686868;
+        font-weight: normal;
+        line-height: 1;
+        cursor: pointer;
+      }
+
+      .article-title-list h1 {
+        font-size: 22px;
+      }
+
+      .article-title-list h2 {
+        padding-left: 20px;
+        font-size: 20px;
+      }
+
+      .article-title-list h3 {
+        padding-left: 40px;
+        font-size: 18px;
+      }
+
+      .article-title-list h4 {
+        padding-left: 60px;
+        font-size: 16px;
+      }
+
+      .article-title-list h5 {
+        padding-left: 80px;
+        font-size: 14px;
+      }
+
+      .article-title-list h6 {
+        padding-left: 100px;
+        font-size: 12px;
+      }
+
+    </style>
+    <div class="article-title-list">
+    </div>
+
+    <div class="page-main-content-middle">
+
+      <div class="main-content">
+
+        
+        <div class="fade-in-down-animation">
+  <div class="article-content-container">
+
+    <div class="article-title">
+      <span class="title-hover-animation">node那点事</span>
+    </div>
+
+    
+    <div class="article-header">
+      <div class="avatar">
+        <img src="/images/logo.jpg">
+      </div>
+      <div class="info">
+        <div class="author">
+          <span class="name">邵预鸿</span>
+          
+          <span
+            class="author-label">Lv4</span>
+          
+        </div>
+        <div class="meta-info">
+          <div class="article-meta-info">
+    <span class="article-date article-meta-item">
+        <i class="fas fa-edit"></i>&nbsp;2021-03-12 21:41:41
+    </span>
+    
+    
+        <span class="article-tags article-meta-item">
+            <i class="fas fa-tags"></i>&nbsp;
+            <ul>
+                
+                    <li>
+                        <a href="/tags/node/">node</a>&nbsp;
+                    </li>
+                
+            </ul>
+        </span>
+    
+
+    
+    
+    
+    
+</div>
+
+        </div>
+      </div>
+    </div>
+    
+
+    <div class="article-content markdown-body">
+      <h3 id="关于node的几项问题"><a href="#关于node的几项问题" class="headerlink" title="关于node的几项问题"></a>关于node的几项问题</h3><ul>
+<li><p>nodejs作为运行在服务器，虽然是使用js作为开发语言，但是无法获取Dom,Bom</p>
+</li>
+<li><p>nodejs的变量作用于当前文件，例如A.js定义的全局变量无法在B.js文件中直接使用，如果需要调B.js的变量方法，需要使用module.exports导出,或者exports.变量名=值 </p>
+</li>
+</ul>
+<h3 id="http模块创建服务器"><a href="#http模块创建服务器" class="headerlink" title="http模块创建服务器"></a>http模块创建服务器</h3><p>createServer() 创建一个服务器</p>
+<p>end(string),end只能发送字符串类型，如果是对象数组可使用JSON.stringify转换为字符串</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> http = <span class="built_in">require</span>(<span class="string">&quot;http&quot;</span>);</span><br><span class="line"><span class="keyword">const</span> server = http.createServer();</span><br><span class="line">server.on(<span class="string">&quot;request&quot;</span>,<span class="function">(<span class="params">resquest,response</span>)=&gt;</span>&#123;</span><br><span class="line">      response.setHeader(<span class="string">&quot;Content-Type&quot;</span>,<span class="string">&quot;text/plain;charset=utf-8&quot;</span>);</span><br><span class="line">      response.end(<span class="string">&#x27;这是一个测试&#x27;</span>)</span><br><span class="line">&#125;);</span><br><span class="line">server.listen(<span class="number">3000</span>);</span><br></pre></td></tr></table></figure>
+<h4 id="上述代码可简写"><a href="#上述代码可简写" class="headerlink" title="上述代码可简写"></a>上述代码可简写</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> http = <span class="built_in">require</span>(<span class="string">&quot;http&quot;</span>);</span><br><span class="line"><span class="keyword">const</span> server = http.createServer(<span class="function">(<span class="params">resquest,response</span>)=&gt;</span>&#123;</span><br><span class="line">    .....</span><br><span class="line">&#125;).listen(<span class="number">3000</span>,<span class="function"><span class="params">err</span>=&gt;</span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(err)&#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">&quot;启动服务器出错&quot;</span>);</span><br><span class="line">        <span class="keyword">return</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">&quot;启动服务器成功&quot;</span>)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+
+<h4 id="使用write写入数据"><a href="#使用write写入数据" class="headerlink" title="使用write写入数据"></a>使用write写入数据</h4><p>除了使用end发送数据外，也可以使用write写入</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> http = <span class="built_in">require</span>(<span class="string">&quot;http&quot;</span>);</span><br><span class="line"><span class="keyword">const</span> server = http.createServer();</span><br><span class="line">server.on(<span class="string">&quot;request&quot;</span>,<span class="function">(<span class="params">resquest,response</span>)=&gt;</span>&#123;</span><br><span class="line">      response.setHeader(<span class="string">&quot;Content-Type&quot;</span>,<span class="string">&quot;text/plain;charset=utf-8&quot;</span>);</span><br><span class="line">      response.write(<span class="string">&#x27;这是一个测试&#x27;</span>); </span><br><span class="line">      response.end()</span><br><span class="line">&#125;);</span><br><span class="line">server.listen(<span class="number">3000</span>);</span><br></pre></td></tr></table></figure>
+<h4 id="使用writeHead写入响应头部"><a href="#使用writeHead写入响应头部" class="headerlink" title="使用writeHead写入响应头部"></a>使用writeHead写入响应头部</h4><p>writeHead与setHeader效果相同，都是设置响应头部，writeHead(状态码,{….});</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> http = <span class="built_in">require</span>(<span class="string">&quot;http&quot;</span>);</span><br><span class="line"><span class="keyword">const</span> server = http.createServer();</span><br><span class="line">server.on(<span class="string">&quot;request&quot;</span>,<span class="function">(<span class="params">resquest,response</span>)=&gt;</span>&#123;</span><br><span class="line">      response.writeHead(<span class="number">200</span>,&#123;</span><br><span class="line">          <span class="string">&#x27;Content-Type&#x27;</span>:<span class="string">&#x27;text/plain; charset=utf-8&#x27;</span></span><br><span class="line">      &#125;);</span><br><span class="line">      response.write(<span class="string">&#x27;这是一个测试&#x27;</span>); </span><br><span class="line">      response.end()</span><br><span class="line">&#125;);</span><br><span class="line">server.listen(<span class="number">3000</span>);</span><br></pre></td></tr></table></figure>
+
+
+<h3 id="fs文件操作模块"><a href="#fs文件操作模块" class="headerlink" title="fs文件操作模块"></a>fs文件操作模块</h3><p>几个常用文件操作的方法</p>
+<ul>
+<li>fs.writeFile(file, data[, options], callback)  当 <code>file</code> 是文件名时，则异步地写入数据到文件（如果文件已存在，则覆盖文件）。 <code>data</code> 可以是字符串或 buffer。</li>
+<li>fs.writeFileSync(file, data[, options])    同上</li>
+<li>fs.rmdir(path[, options], callback)  删除目录recursive <boolean> 如果为 true，则执行递归的目录删除。 在递归模式中，错误不会被报告（如果 path 不存在），并且操作会被重试（当失败时）。 默认值: false。</li>
+<li>fs.rmdirSync(path[, options])  同上</li>
+<li>fs.stat(path[, options], callback)  统计文件/目录信息，包括创建时间…  </li>
+<li>fs.rename(oldPath, newPath, callback)  异步地把 oldPath 文件重命名为 newPath 提供的路径名。 如果 newPath 已存在，则覆盖它。 除了可能的异常，完成回调没有其他参数。</li>
+<li>fs.renameSync(oldPath, newPath)     同上</li>
+<li>fs.existsSync(path) 如果路径存在，则返回 true，否则返回 false。</li>
+<li>fs.mkdir(path[, options], callback)  异步地创建目录。</li>
+<li>fs.mkdirSync(path[, options])  同上</li>
+<li>fs.readFile(path[, options], callback)  异步地读取文件的全部内容。</li>
+<li>fs.readFileSync(path[, options])   同步同上</li>
+<li>fs.appendFileSync(path,data)   追加数据到某个文件，某该文件不存在，则创建</li>
+</ul>
+<h4 id="读取某个位置的所有文件-目录"><a href="#读取某个位置的所有文件-目录" class="headerlink" title="读取某个位置的所有文件/目录"></a>读取某个位置的所有文件/目录</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> fs = <span class="built_in">require</span>(<span class="string">&#x27;fs&#x27;</span>);</span><br><span class="line"><span class="keyword">const</span> files = fs.readdirSync(<span class="string">&quot;../&quot;</span>);</span><br><span class="line"><span class="built_in">console</span>.log(files);</span><br></pre></td></tr></table></figure>
+<h4 id="读取某个文件的数据"><a href="#读取某个文件的数据" class="headerlink" title="读取某个文件的数据"></a>读取某个文件的数据</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> fs = <span class="built_in">require</span>(<span class="string">&#x27;fs&#x27;</span>);</span><br><span class="line"><span class="keyword">const</span> files = fs.readFileSync(<span class="string">&quot;./node.js&quot;</span>);</span><br><span class="line"><span class="built_in">console</span>.log(files);</span><br><span class="line"><span class="comment">//输出 &lt;Buffer 63 6f 6e 73 74 20 68 74 74 70 20 3d 20 72 65 71 75 69 72 65 28 22 68 74 74 70 22 29 3b 0d 0a 63 6f 6e 73 74 20 73 65 72 76 65 72 20 3d 20 68 74 74 70 ... 240 more bytes&gt;  二进制的数据</span></span><br><span class="line"><span class="comment">//使用tostring()将二进制转为我们能认识的数据 </span></span><br><span class="line"><span class="built_in">console</span>.log(files.toString())</span><br><span class="line"><span class="comment">/* const http = require(&quot;http&quot;);</span></span><br><span class="line"><span class="comment">const server = http.createServer();</span></span><br><span class="line"><span class="comment">server.on(&quot;request&quot;,(resquest,response)=&gt;&#123;</span></span><br><span class="line"><span class="comment">      response.writeHead(200,&#123;</span></span><br><span class="line"><span class="comment">          &#x27;Content-Type&#x27;:&#x27;text/plain; charset=utf-8&#x27;</span></span><br><span class="line"><span class="comment">      &#125;);</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">      response.end(&#x27;&lt;h1&gt;是一个测试&lt;/h1&gt;&#x27;)</span></span><br><span class="line"><span class="comment">&#125;);</span></span><br><span class="line"><span class="comment">server.listen(3000);</span></span><br><span class="line"><span class="comment">*/</span></span><br></pre></td></tr></table></figure>
+<h3 id="使用模板引擎-art-template"><a href="#使用模板引擎-art-template" class="headerlink" title="使用模板引擎 art-template"></a>使用模板引擎 art-template</h3><p>相关链接: <a class="link"   target="_blank" rel="noopener" href="http://aui.github.io/art-template/zh-cn/index.html" >链接<i class="fas fa-external-link-alt"></i></a></p>
+<h3 id="处理静态资源"><a href="#处理静态资源" class="headerlink" title="处理静态资源"></a>处理静态资源</h3><ol>
+<li><p>将css/js/image/video文件放到public公共文件夹中</p>
+</li>
+<li><p>请求响应中匹配/public/开头，并读取相关文件返回,参考以下代码</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> http = <span class="built_in">require</span>(<span class="string">&quot;http&quot;</span>);</span><br><span class="line"><span class="keyword">const</span> fs = <span class="built_in">require</span>(<span class="string">&quot;fs&quot;</span>);</span><br><span class="line"><span class="keyword">const</span> server = http.createSever(<span class="function">(<span class="params">request,response</span>)=&gt;</span>&#123;</span><br><span class="line">      <span class="keyword">let</span> url = request.url;</span><br><span class="line">      <span class="keyword">if</span>(<span class="regexp">/^\/public\//</span>.test(url))&#123;</span><br><span class="line">           <span class="keyword">const</span> file = fs.readFileSync(<span class="string">&#x27;.&#x27;</span>+url);</span><br><span class="line">           response.end(file);</span><br><span class="line">      &#125;<span class="keyword">else</span> <span class="keyword">if</span>(url === <span class="string">&#x27;/&#x27;</span>)&#123;</span><br><span class="line">          <span class="keyword">const</span> file = fs.readFileSync(<span class="string">&#x27;./page/1.html&#x27;</span>);</span><br><span class="line">          response.setHeader(<span class="string">&quot;Content-Type&quot;</span>,<span class="string">&quot;text/html;charset=utf-8&quot;</span>);</span><br><span class="line">          response.end(file);</span><br><span class="line">      &#125;</span><br><span class="line">&#125;).listen(<span class="number">3000</span>,<span class="function"><span class="params">err</span>=&gt;</span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(!err)&#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">&quot;服务器启动成功&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">&quot;/public/1.jpg&quot;</span>/&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">link</span> <span class="attr">href</span>=<span class="string">&quot;/public/css/1.css&quot;</span>/&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">&quot;/public/js/1.js&quot;</span>/&gt;</span></span><br><span class="line"><span class="handlebars"><span class="xml"><span class="tag">&lt;<span class="name">video</span> <span class="attr">src</span>=<span class="string">&quot;/public/video/1.mp4&quot;</span>/&gt;</span></span></span></span><br></pre></td></tr></table></figure>
+
+
+
+</li>
+</ol>
+<h3 id="接收GET参数"><a href="#接收GET参数" class="headerlink" title="接收GET参数"></a>接收GET参数</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> http = <span class="built_in">require</span>(<span class="string">&quot;http&quot;</span>);</span><br><span class="line"><span class="keyword">const</span> url = <span class="built_in">require</span>(<span class="string">&quot;url&quot;</span>); <span class="comment">//关键代码  使用url.parse解析url的参数</span></span><br><span class="line"><span class="keyword">const</span> server = http.createSever();</span><br><span class="line">server.on(<span class="string">&quot;request&quot;</span>,<span class="function">(<span class="params">request,response</span>)=&gt;</span>&#123;</span><br><span class="line">    <span class="keyword">let</span> urlData = url.parse(request.url,<span class="literal">true</span>); <span class="comment">//url.parse(url,false/true),第二个参数是将get的参数query转为一个对象</span></span><br><span class="line">&#125;);</span><br><span class="line">server.listen(<span class="number">3000</span>);</span><br></pre></td></tr></table></figure>
+
+
+<h3 id="接收post参数"><a href="#接收post参数" class="headerlink" title="接收post参数"></a>接收post参数</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> http = <span class="built_in">require</span>(<span class="string">&#x27;http&#x27;</span>);</span><br><span class="line"><span class="keyword">const</span> queryString = <span class="built_in">require</span>(<span class="string">&quot;queryString&quot;</span>);</span><br><span class="line">http.createSever(<span class="function">(<span class="params">request,response</span>)=&gt;</span>&#123;</span><br><span class="line">    <span class="keyword">let</span> post = <span class="string">&#x27;&#x27;</span>; <span class="comment">//接收的数据 </span></span><br><span class="line">    request.on(<span class="string">&quot;data&quot;</span>,<span class="function"><span class="params">chunk</span>=&gt;</span>&#123;</span><br><span class="line">        post+=chunk;</span><br><span class="line">    &#125;);</span><br><span class="line">    request.on(<span class="string">&quot;end&quot;</span>,<span class="function">()=&gt;</span>&#123;</span><br><span class="line">        <span class="keyword">let</span> opt = queryString.parse(post); <span class="comment">//opt = &#123;name:&#x27;&#x27;,age:&#x27;&#x27;&#125;</span></span><br><span class="line">    &#125;)</span><br><span class="line">&#125;).listen(<span class="number">3000</span>);</span><br></pre></td></tr></table></figure>
+
+
+<h3 id="url模块"><a href="#url模块" class="headerlink" title="url模块"></a>url模块</h3><p>url.parse(url,[true/false]);   //将url格式化，用于获取参数，第二个参数为是否将query转为一个对象</p>
+<h3 id="queryString模块"><a href="#queryString模块" class="headerlink" title="queryString模块"></a>queryString模块</h3><p>queryString.parse(url，分割符，切割符);  解析字符串为一个对象</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">queryString.parse(<span class="string">&#x27;name=shao.yuhong&amp;age=24&#x27;</span>);</span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">   &#123;name:&#x27;shao.yuhong&#x27;,age:24&#125;</span></span><br><span class="line"><span class="comment">*/</span></span><br></pre></td></tr></table></figure>
+<p>需注意</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">queryString.parse(<span class="string">&#x27;?name=shao.yuhong&amp;age=24&#x27;</span>);</span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">   &#123;?name:&#x27;shao.yuhong&#x27;,age:24&#125;</span></span><br><span class="line"><span class="comment">*/</span></span><br></pre></td></tr></table></figure>
+<p>针对其它切割字符串的情况</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">queryString.parse(<span class="string">&#x27;name/shao.yuhong&amp;age/4&#x27;</span>,<span class="string">&#x27;&amp;&#x27;</span>,<span class="string">&#x27;/&#x27;</span>);</span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">  &#123;name:&#x27;shao.yuhong&#x27;,age:4&#125; </span></span><br><span class="line"><span class="comment">*/</span></span><br></pre></td></tr></table></figure>
+
+
+<h3 id="express基于nodejs的开发框架"><a href="#express基于nodejs的开发框架" class="headerlink" title="express基于nodejs的开发框架"></a>express基于nodejs的开发框架</h3><h4 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install express --save</span><br></pre></td></tr></table></figure>
+<h4 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> express = <span class="built_in">require</span>(<span class="string">&#x27;express&#x27;</span>)</span><br><span class="line"><span class="keyword">const</span> app = express()</span><br><span class="line"><span class="keyword">const</span> port = <span class="number">3000</span></span><br><span class="line"></span><br><span class="line">app.get(<span class="string">&#x27;/&#x27;</span>, <span class="function">(<span class="params">req, res</span>) =&gt;</span> &#123;</span><br><span class="line">  res.send(<span class="string">&#x27;Hello World!&#x27;</span>)</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line">app.listen(port, <span class="function">() =&gt;</span> &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">`Example app listening at http://localhost:<span class="subst">$&#123;port&#125;</span>`</span>)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<h4 id="express获取-GET参数"><a href="#express获取-GET参数" class="headerlink" title="express获取 GET参数"></a>express获取 GET参数</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> express = <span class="built_in">require</span>(<span class="string">&#x27;express&#x27;</span>)</span><br><span class="line"><span class="keyword">const</span> app = express()</span><br><span class="line"><span class="keyword">const</span> port = <span class="number">3000</span></span><br><span class="line"></span><br><span class="line">app.get(<span class="string">&#x27;/&#x27;</span>, <span class="function">(<span class="params">req, res</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="keyword">let</span> opt = req.query; <span class="comment">//获取 GET的参数</span></span><br><span class="line">  res.send(<span class="string">&#x27;Hello World!&#x27;</span>)</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line">app.listen(port, <span class="function">() =&gt;</span> &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">`Example app listening at http://localhost:<span class="subst">$&#123;port&#125;</span>`</span>)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+
+<h4 id="获取POST参数"><a href="#获取POST参数" class="headerlink" title="获取POST参数"></a>获取POST参数</h4><p>获取POST参数，需要安装body-parser，body-parser会将post的参数封装到req.body中</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install body-parser</span><br></pre></td></tr></table></figure>
+<p>使用方法</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> bodyParser = <span class="built_in">require</span>(<span class="string">&#x27;body-parser&#x27;</span>)</span><br><span class="line"><span class="comment">// parse application/x-www-form-urlencoded</span></span><br><span class="line">app.use(bodyParser.urlencoded(&#123; <span class="attr">extended</span>: <span class="literal">false</span> &#125;))</span><br><span class="line"></span><br><span class="line"><span class="comment">// parse application/json</span></span><br><span class="line">app.use(bodyParser.json())</span><br><span class="line">app.use(<span class="function"><span class="keyword">function</span> (<span class="params">req, res</span>) </span>&#123;</span><br><span class="line">   req.body; <span class="comment">//post参数</span></span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+
+<h4 id="将css-image-js设置为公共资源返回"><a href="#将css-image-js设置为公共资源返回" class="headerlink" title="将css/image/js设置为公共资源返回"></a>将css/image/js设置为公共资源返回</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">app.use(<span class="string">&#x27;/public&#x27;</span>,express.static(<span class="string">&#x27;路径&#x27;</span>))</span><br></pre></td></tr></table></figure>
+
+
+<h3 id="常用的几个插件"><a href="#常用的几个插件" class="headerlink" title="常用的几个插件"></a>常用的几个插件</h3><ul>
+<li><p>art-template  模板引擎</p>
+</li>
+<li><p>cheerIo      将访问的dom文档转化为实例</p>
+</li>
+</ul>
+
+    </div>
+    <h3 style="font-size: 1.6rem;font-weight: 550;">页面关键信息已通过以下代码生成跳转链接</h3>
+    <pre>
+     &lt;script&gt;
+         const context = document.querySelector(".markdown-body");
+         const articleTitleList = document.querySelector(".article-title-list");
+         if(context){
+             const tags = context.querySelectorAll('*');
+             const hTagReg = /^H[1-6]$/;
+             let template = '';
+             tags.forEach(item=>{
+                     if(hTagReg.test(item.tagName.toUpperCase()) && item.innerText){
+                      const tagH = item.tagName.toLowerCase();
+                      const forHash = item.getAttribute("id");
+                     template+=`
+                          <${tagH}>
+                          <a onclick="javascript:void(1)" href="#${forHash}">${item.innerText}</a>
+                         </${tagH}>  
+                      `;
+                  }
+              });
+             articleTitleList.innerHTML=template; 
+          }
+          &lt;/script&gt;
+        </pre>
+    
+    <div class="post-copyright-info">
+      <div class="article-copyright-info-container">
+    <ul>
+        <li>本文标题：node那点事</li>
+        <li>本文作者：邵预鸿</li>
+        <li>创建时间：2021-03-12 21:41:41</li>
+        <li>
+            本文链接：/images/logo.jpg2021/03/12/node那点事/
+        </li>
+        <li>
+            版权声明：本博客所有文章除特别声明外，均采用 <a class="license" target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">BY-NC-SA</a> 许可协议。转载请注明出处！
+        </li>
+    </ul>
+</div>
+
+    </div>
+    
+
+    
+    <div class="article-nav">
+      
+      <div class="article-prev">
+        <a class="prev" rel="prev" href="/2021/05/14/vue%E4%BD%BF%E7%94%A8ts%E8%AF%B4%E6%98%8E/">
+          <span class="left arrow-icon flex-center">
+            <i class="fas fa-chevron-left"></i>
+          </span>
+          <span class="title flex-center">
+            <span class="post-nav-title-item">vue使用ts说明</span>
+            <span class="post-nav-item">上一篇</span>
+          </span>
+        </a>
+      </div>
+      
+      
+      <div class="article-next">
+        <a class="next" rel="next" href="/2021/03/04/%E5%A6%82%E4%BD%95%E6%8F%90%E5%8D%87%E8%87%AA%E5%B7%B1%E4%B8%BA%E4%BA%BA%E5%A4%84%E4%B8%96%E7%9A%84%E8%83%BD%E5%8A%9B%EF%BC%9F/">
+          <span class="title flex-center">
+            <span class="post-nav-title-item">如何提升自己为人处世的能力？</span>
+            <span class="post-nav-item">下一篇</span>
+          </span>
+          <span class="right arrow-icon flex-center">
+            <i class="fas fa-chevron-right"></i>
+          </span>
+        </a>
+      </div>
+      
+    </div>
+    
+
+    
+  </div>
+</div>
+
+
+        
+      </div>
+
+    </div>
+
+    <div class="page-main-content-bottom">
+      <footer class="footer">
+    <div class="info-container">
+        <div class="copyright-info info-item">
+            &copy;
+            
+              <span>2021</span>&nbsp;-&nbsp;
+            
+            2022&nbsp;<i class="fas fa-heart icon-animate"></i>&nbsp;<a href="/">邵预鸿</a>
+        </div>
+        
+        
+        <div>更多笔记请访问:<a href="https://www.shaoyuhong.cn" target="_blank">邵预鸿|随心记 https://www.shaoyuhong.cn</a></div>
+
+    </div>
+</footer>
+
+    </div>
+  </div>
+
+  
+  <div class="post-tools">
+    <div class="post-tools-container">
+    <ul class="tools-list">
+        <!-- TOC aside toggle -->
+        
+
+        <!-- go comment -->
+        
+    </ul>
+</div>
+
+  </div>
+  
+
+  <div class="right-bottom-side-tools">
+    <div class="side-tools-container">
+    <ul class="side-tools-list">
+        <li class="tools-item tool-font-adjust-plus flex-center">
+            <i class="fas fa-search-plus"></i>
+        </li>
+
+        <li class="tools-item tool-font-adjust-minus flex-center">
+            <i class="fas fa-search-minus"></i>
+        </li>
+
+        <li class="tools-item tool-expand-width flex-center">
+            <i class="fas fa-arrows-alt-h"></i>
+        </li>
+
+        <li class="tools-item tool-dark-light-toggle flex-center">
+            <i class="fas fa-moon"></i>
+        </li>
+
+        <!-- rss -->
+        
+
+        
+
+        <li class="tools-item tool-scroll-to-bottom flex-center">
+            <i class="fas fa-arrow-down"></i>
+        </li>
+    </ul>
+
+    <ul class="exposed-tools-list">
+        <li class="tools-item tool-toggle-show flex-center">
+            <i class="fas fa-cog fa-spin"></i>
+        </li>
+        
+            <li class="tools-item tool-scroll-to-top flex-center">
+                <i class="arrow-up fas fa-arrow-up"></i>
+                <span class="percent"></span>
+            </li>
+        
+    </ul>
+</div>
+
+  </div>
+
+  
+
+  <div class="image-viewer-container">
+    <img src="">
+</div>
+
+
+  
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+          <span class="search-input-field-pre">
+            <i class="fas fa-keyboard"></i>
+          </span>
+            <div class="search-input-container">
+                <input autocomplete="off"
+                       autocorrect="off"
+                       autocapitalize="off"
+                       placeholder="搜索..."
+                       spellcheck="false"
+                       type="search"
+                       class="search-input"
+                >
+            </div>
+            <span class="popup-btn-close">
+                <i class="fas fa-times"></i>
+            </span>
+        </div>
+        <div id="search-result">
+            <div id="no-result">
+                <i class="fas fa-spinner fa-pulse fa-5x fa-fw"></i>
+            </div>
+        </div>
+    </div>
+</div>
+
+  
+
+</main>
+<script>
+  const context = document.querySelector(".markdown-body");
+  const articleTitleList = document.querySelector(".article-title-list");
+  const mainContent = document.querySelector('.main-content');
+
+  if (context) {
+    const tags = context.querySelectorAll('*');
+    const hTagReg = /^H[1-6]$/;
+    let template = '';
+    tags.forEach(item => {
+      if (hTagReg.test(item.tagName.toUpperCase()) && item.innerText) {
+        const tagH = item.tagName.toLowerCase();
+        const forHash = item.getAttribute("id");
+        template += `
+                  <${tagH}>
+                    <a onclick="javascript:void(1)" href="#${forHash}">${item.innerText}</a>
+                  </${tagH}>  
+                `;
+
+      }
+    });
+    articleTitleList.innerHTML = template;
+
+  }
+
+  (function leftNavPositionChange() {
+    const articleTitlePositoinX = (window.innerWidth - mainContent.clientWidth) / 2 - 255;
+    articleTitleList.style.left = articleTitlePositoinX + 'px';
+    window.onresize = function () {
+      leftNavPositionChange();
+    };
+  })();
+
+</script>
+
+<script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="/js/header-shrink.js"></script><script src="/js/back2top.js"></script><script src="/js/dark-light-toggle.js"></script>
+
+
+    <script src="/js/local-search.js"></script>
+
+
+
+    <script src="/js/code-copy.js"></script>
+
+
+
+    <script src="/js/lazyload.js"></script>
+
+
+<div class="post-scripts">
+    
+</div>
+
+
+
+</body>
+</html>

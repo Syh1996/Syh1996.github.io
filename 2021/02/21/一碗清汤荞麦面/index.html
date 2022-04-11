@@ -1,0 +1,613 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="baidu-site-verification" content="code-YfBAOEVVQH" />
+    <meta name="keywords" content="邵预鸿,前端开发工程师,技术博客,生活记录,生活日常,个人简历,日常规划">
+    <meta name="description" content="入职中兴通讯，一名低调资深的ctrl+c and ctrl+v开发者">
+    <meta name="author" content="邵预鸿">
+    
+    <title>
+        
+            一碗清汤荞麦面 |
+        
+        邵预鸿|前端开发技术笔记
+    </title>
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="shortcut icon" href="/images/logo.jpg">
+    <link rel="stylesheet" href="/css/font-awesome.min.css">
+    <script id="hexo-configurations">
+    let KEEP = window.KEEP || {};
+    KEEP.hexo_config = {"hostname":"github.com","root":"/","language":"zh-CN","path":"search.xml"};
+    KEEP.theme_config = {"toc":{"enable":false,"number":false,"expand_all":false,"init_open":false},"style":{"primary_color":"#0066CC","avatar":"/images/logo.jpg","favicon":"/images/logo.jpg","article_img_align":"left","left_side_width":"260px","content_max_width":"920px","hover":{"shadow":true,"scale":false},"first_screen":{"enable":true,"background_img":"/images/bg.svg","description":"积累硅步，可至千里；千里之行，始于足下"},"scroll":{"progress_bar":{"enable":true},"percent":{"enable":true}}},"local_search":{"enable":true,"preload":true},"code_copy":{"enable":true,"style":"default"},"pjax":{"enable":false},"lazyload":{"enable":true},"version":"3.4.0"};
+    KEEP.language_ago = {"second":"%s 秒前","minute":"%s 分钟前","hour":"%s 小时前","day":"%s 天前","week":"%s 周前","month":"%s 月前","year":"%s 年前"};
+  </script>
+<meta name="generator" content="Hexo 5.3.0"></head>
+
+
+<body>
+<!--
+ * @Description: file content
+ * @Author: yuhongshao
+ * @Date: 2021-02-20 19:33:18
+ * @email: yuhongshao@tencent.com
+ * @LastEditTime: 2022-03-30 10:24:37
+-->
+<div class="progress-bar-container">
+    
+        <span class="scroll-progress-bar"></span>
+    
+
+    
+</div>
+
+
+<main class="page-container">
+
+  
+
+  <div class="page-main-content">
+
+    <div class="page-main-content-top">
+      <header class="header-wrapper">
+
+    <div class="header-content">
+        <div class="left">
+            <a class="logo-title" href="/">
+                邵预鸿|前端开发技术笔记
+            </a>
+        </div>
+
+        <div class="right">
+            <div class="pc">
+                <ul class="menu-list">
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/"
+                            >
+                                主页
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/archives"
+                            >
+                                历年汇总
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/about"
+                            >
+                                关于我
+                            </a>
+                        </li>
+                    
+                    
+                        <li class="menu-item search search-popup-trigger">
+                            <i class="fas fa-search"></i>
+                        </li>
+                    
+                </ul>
+            </div>
+            <div class="mobile">
+                
+                    <div class="icon-item search search-popup-trigger"><i class="fas fa-search"></i></div>
+                
+                <div class="icon-item menu-bar">
+                    <div class="menu-bar-middle"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="header-drawer">
+        <ul class="drawer-menu-list">
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/">主页</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/archives">历年汇总</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/about">关于我</a>
+                </li>
+            
+        </ul>
+    </div>
+
+    <div class="window-mask"></div>
+
+</header>
+
+
+    </div>
+    <style>
+      .article-title-list {
+        position: fixed;
+        left: 80px;
+        top: 110px;
+        z-index: 100;
+        width: 250px;
+        max-height: calc(100% - 144px);
+        overflow: auto;
+      }
+
+      .article-title-list h1,
+      .article-title-list h2,
+      .article-title-list h3,
+      .article-title-list h4,
+      .article-title-list h5,
+      .article-title-list h6 {
+        box-sizing: border-box;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        overflow: hidden;
+        color: #686868;
+        font-weight: normal;
+        line-height: 1;
+        cursor: pointer;
+      }
+
+      .article-title-list h1 {
+        font-size: 22px;
+      }
+
+      .article-title-list h2 {
+        padding-left: 20px;
+        font-size: 20px;
+      }
+
+      .article-title-list h3 {
+        padding-left: 40px;
+        font-size: 18px;
+      }
+
+      .article-title-list h4 {
+        padding-left: 60px;
+        font-size: 16px;
+      }
+
+      .article-title-list h5 {
+        padding-left: 80px;
+        font-size: 14px;
+      }
+
+      .article-title-list h6 {
+        padding-left: 100px;
+        font-size: 12px;
+      }
+
+    </style>
+    <div class="article-title-list">
+    </div>
+
+    <div class="page-main-content-middle">
+
+      <div class="main-content">
+
+        
+        <div class="fade-in-down-animation">
+  <div class="article-content-container">
+
+    <div class="article-title">
+      <span class="title-hover-animation">一碗清汤荞麦面</span>
+    </div>
+
+    
+    <div class="article-header">
+      <div class="avatar">
+        <img src="/images/logo.jpg">
+      </div>
+      <div class="info">
+        <div class="author">
+          <span class="name">邵预鸿</span>
+          
+          <span
+            class="author-label">Lv4</span>
+          
+        </div>
+        <div class="meta-info">
+          <div class="article-meta-info">
+    <span class="article-date article-meta-item">
+        <i class="fas fa-edit"></i>&nbsp;2021-02-21 15:02:20
+    </span>
+    
+    
+        <span class="article-tags article-meta-item">
+            <i class="fas fa-tags"></i>&nbsp;
+            <ul>
+                
+                    <li>
+                        <a href="/tags/%E6%83%85%E6%84%9F/">情感</a>&nbsp;
+                    </li>
+                
+            </ul>
+        </span>
+    
+
+    
+    
+    
+    
+</div>
+
+        </div>
+      </div>
+    </div>
+    
+
+    <div class="article-content markdown-body">
+      <blockquote>
+<p>你是否和我一样，因为一则故事，记忆犹新</p>
+</blockquote>
+<p>对于面馆来说，最忙的时候，要算是大年夜了。北海亭面馆的这一天，也是从早就忙得不亦乐乎。</p>
+<p>平时直到深夜12点还很热闹的大街，大年夜晚上一过10点，就很宁静了。北海亭面馆的顾客，此时也像是突然都失踪了似的。</p>
+<p>就在最后一位顾客出了门，店主要说关门打烊的时候，店门被咯吱咯吱地拉开了。一个女人带着两个孩子走了进来。6岁和10岁左右的两个男孩子，一身崭新的运动服。女人却穿着不合时令的斜格子短大衣。</p>
+<p>“欢迎光临！”老板娘上前去招呼。</p>
+<p>“啊……清汤荞麦面……一碗……可以吗？”女人怯生生地问。那两个小男孩躲在妈妈的身后，也怯生生地望着老板娘。</p>
+<p>“行啊，请，请这边坐。”老板娘说着，领他们母子三人坐到靠近暖气的二号桌，一边向柜台里面喊着，“清汤荞麦面一碗！”</p>
+<p>听到喊声的老板，抬头瞥了他们三人一眼，应声回答道：“好咧！清汤荞麦面一碗——”</p>
+<p>案板上早就准备好了面条，一堆堆像小山，一堆是一人份。老板抓起一堆面，继而又加了半堆，一起放进锅里。老板娘立刻领悟到，这是丈夫特意多给这母子三人的。</p>
+<p>热腾腾香喷喷的清汤荞麦面一上桌，母子三人立即围着这碗面，头碰头地吃了起来。</p>
+<p>“真好吃啊！”哥哥说。</p>
+<p>“妈妈也吃呀！”弟弟夹了一筷子面，送到妈妈口中。</p>
+<p>不一会，面吃完了，付了150元钱。</p>
+<p>“承蒙款待。”母子三人一起点头谢过，出了店门。</p>
+<p>“谢谢，祝你们过个好年！”老板和老板娘应声答道。</p>
+<p>过了新年的北海亭面馆，每天照样忙忙碌碌。一年很快过去了，转眼又是大年夜。</p>
+<p>和以前的大年夜一样，忙得不亦乐乎的这一天就要结束了。过了晚上10点，正想打烊，店门又被拉开了，一个女人带着两个男孩走了进来。</p>
+<p>老板娘看那女人身上那件不合时令的斜格子短大衣，就想起去年大年夜最后那三位顾客。</p>
+<p>“……这个……清汤荞麦面一碗……可以吗？”</p>
+<p>“请，请到里边坐，”老板娘又将他们带到去年的那张二号桌，“清汤荞麦面一碗——”“好咧，清汤荞麦面一碗——”老板应声回答着，并将已经熄灭的炉火重新点燃起来。</p>
+<p>“喂，孩子他爹，给他们下三碗，好吗？”</p>
+<p>老板娘在老板耳边轻声说道。</p>
+<p>“不行，如果这样的话，他们也许会尴尬的。”</p>
+<p>老板说着，抓了一份半的面下了锅。</p>
+<p>桌上放着一碗清汤荞麦面，母子三人边吃边谈着，柜台里的老板和老板娘也能听到他们的声音。</p>
+<p>“真好吃……”</p>
+<p>“今年又能吃到北海亭的清汤荞麦面了。”</p>
+<p>“明年还能来吃就好了……”</p>
+<p>吃完后，付了150元钱。老板娘对着他们的背影说道：“谢谢，祝你们过个好年！”</p>
+<p>这一天，被这句说过几十遍乃至几百遍的祝福送走了。</p>
+<p>生意日渐兴隆的北海亭面馆，又迎来了第三个大年夜。</p>
+<p>从九点半开始，老板和老板娘虽然谁都没说什么，但都显得有点心神不定。十点刚过，雇工们下班走了，老板和老板娘立刻把墙上挂着的各种面的价格牌一一翻了过来，赶紧写好“清汤荞麦面150元”。其实，从当年夏天起，随着物价的上涨，清汤荞麦面的价格已经是200元一碗了。</p>
+<p>二号桌上，在30分钟以前，老板娘就已经摆好了“预约”的牌子。</p>
+<p>到十点半，店里已经没有客人了，但老板和老板娘还在等候着那母子三人的到来。他们来了。哥哥穿着中学生的制服，弟弟穿着去年哥哥穿的那件略有些大的旧衣服，兄弟二人都长大了，有点认不出来了。母亲还是穿着那件不合时令的有些退色的短大衣。</p>
+<p>“欢迎光临。”老板娘笑着迎上前去。</p>
+<p>“……啊……清汤荞麦面两碗……可以吗?”母亲怯生生地问。</p>
+<p>“行，请，请里边坐!”</p>
+<p>老板娘把他们领到二号桌，顺手将桌上那块预约牌藏了起来，对柜台喊道：</p>
+<p>“清汤荞麦面两碗!”</p>
+<p>“好咧，清汤荞麦面两碗——”</p>
+<p>老板应声答道，把三碗面的分量放进锅里。</p>
+<p>母子三人吃着两碗清汤荞麦面，说着，笑着。</p>
+<p>“大儿，淳儿，今天，妈妈我想要向你们道谢。”</p>
+<p>“道谢?向我们?……为什么?”</p>
+<p>“你们也知道，你们的父亲死于交通事故，生前欠下了八个人的钱。我把抚恤金全部还了债，还不够的部分，就每月五万元分期偿还。”</p>
+<p>“是呀，这些我们都知道。”</p>
+<p>老板和老板娘在柜台里，一动不动地凝神听着。</p>
+<p>“剩下的债，本来约定到明年三月还清，可实际上，今天就可以全部还清了。”</p>
+<p>“啊，这是真的吗，妈妈?”</p>
+<p>“是真的。大儿每天送报支持我，淳儿每天买菜烧饭帮我忙，所以我能够安心工作。因为我努力工作，得到了公司的特别津贴，所以现在能够全部还清债款。”</p>
+<p>“好啊!妈妈，哥哥，从现在起，每天烧饭的事还是包给我了!”</p>
+<p>“我也继续送报。弟弟，我们一起努力吧!”</p>
+<p>“谢谢，真是谢……谢……”</p>
+<p>“我和弟弟也有一件事瞒着妈妈，今天可以说了。那是在十一月的一个星期天，我到弟弟学校去参加家长会。那时，弟弟已经藏了一封老师给他*的信……弟弟写的作文如果被选为<a class="link"   target="_blank" rel="noopener" href="https://link.jianshu.com/?t=http://blog.sina.com.cn/lm/z/sakura/" >北海道<i class="fas fa-external-link-alt"></i></a>的代表，就能参加全国的作文比赛。正因为这样，家长会的那天，老师要弟弟自己朗读这篇作文。老师的信如果给妈妈看了，妈妈一定会向公司请假，去听弟弟朗读作文，于是，弟弟就没有把这封信交给妈妈。这事，我还是从弟弟的朋友那里听来的。所以，家长会那天，是我去了。”</p>
+<p>“哦，是这样……那后来呢?”</p>
+<p>“老师出的作文题目是，‘你将来想成为怎样的人’。全体学生都写了，弟弟的题目是《一碗清汤荞麦面》，一听这题目，我就知道写的是北海亭面馆的事。当时我就想，弟弟这家伙，怎么把这种难为情的事都写出来了。</p>
+<p>“作文写的是，父亲死于交通事故，留下一大笔债。妈妈每天从早到晚拼命工作，我去送早报和晚报……弟弟全写了出来。接着又写，十二月三十一日的晚上，母子三人吃一碗清汤荞麦面，非常好吃……三个人只买一碗清汤荞麦面，面馆的叔叔阿姨还是很热情地接待我们，谢谢我们，还祝福我们过个好年。在弟弟听来，那祝福的声音分明是在对他说：不要低头!加油啊!要好好活着!因此，弟弟长大成人后，想开一家日本第一的面馆，也要对顾客说：‘加油啊!’‘祝你幸福!’ ‘谢谢!’弟弟大声地朗读着作文……”</p>
+<p>此刻，柜台里竖着耳朵，全神贯注听母子三人说话的老板和老板娘不见了。在柜台后面，只见他们两人面对面地蹲着，一条毛巾，各执一端，正在擦着夺眶而出的眼泪。</p>
+<p>“作文朗读完后，老师说：‘今天淳君的哥哥代替他母亲来参加我们的家长会，现在我们请他来说几句话……’”</p>
+<p>“这时哥哥都说了些什么?”</p>
+<p>“因为突然被叫上去发言，一开始，我什么也说不出……‘大家一直和我弟弟很要好，在此，我谢谢大家。弟弟每天要做晚饭，只能放弃兴趣小组的活动，中途回家，我做哥哥的，感到很难为情。刚才，弟弟刚开始朗读《一碗清汤荞麦面》的时候，我感到很丢脸，但是，当我看到弟弟激动地大声朗读的样子，我心里更感到羞愧。这时我想，决不能忘记妈妈买一碗清汤荞麦面的勇气。我们兄弟二人一定要齐心协力，照顾好我们的妈妈!希望大家以后也能够和我弟弟做好朋友。’我就说了这些……”</p>
+<p>母子三人，静静地，互相握着手，良久。继而又欢快地笑了起来。和去年相比，像是完全变了个模样。</p>
+<p>作为年夜饭的清汤荞麦面吃完了，付了300元。</p>
+<p>“承蒙款待。”母子三人深深地低头道谢，走出了店门。</p>
+<p>“谢谢，祝你们过个好年!”</p>
+<p>老板和老板娘大声向他们祝福，目送他们远去……</p>
+<p>又是一年的大年夜降临了。北海亭面馆里，晚上九点一过，二号桌上又摆上了’预约席“的牌子，等待着母子三人的到来。可是，没看到那三人的身影。</p>
+<p>一年，又是一年，二号桌始终默默地等待着。可母子三人还是没有出现。　　北海亭面馆因为生意越来越兴隆，店内重又进行了装修。桌子、椅子都有换了机关报的。可二号桌却仍然好故。老板夫妇不但没感到不协调，反而把二</p>
+<p>号桌安放在店堂中央。</p>
+<p>“为什么把这张旧桌子放在店堂中央？”有的顾客感到奇怪。</p>
+<p>于是，老板夫妇就把“一碗阳春面”的事告诉他们。并说，看到这张桌子，就是对自己的激励。而且说不定哪天那母子三人还会来，这个时候，想用这张桌子来迎接他们。</p>
+<p>就这样，关于二号桌的故事，使二号桌成了“幸福的桌子”。顾客们到处传诵着。有人特意从远方赶来。有女学生，也有年轻的情侣，都要到二号桌上吃一碗阳春面。二号桌也因此而名声大振。</p>
+<p>时光流逝，年复一年。这一年的大年夜又来到了。</p>
+<p>这时，北海亭面馆已经是同一条街的商店会的主要成员。大年夜这天，亲如家人的朋友、近邻、同行，结束了一天的工作后，都来到了北海亭。在北海亭吃了过年面，听着除夕夜的钟声，然后亲朋好友聚集起来，一起到附近的神</p>
+<p>社去烧香磕头，以求神明保佑在新的一年里万事如意，厄除运开。这种情形，已经有五六年的历史了。</p>
+<p>今年的大年夜当然也不例外。九点半一过，以鱼店老板夫妇双手捧着装满生鱼片的大盆子进来为信号，平时亲如家人的朋友们大约三十多人，也都带着酒菜，陆陆续续地会集到北海亭，店里的气氛，一下子热闹起来。</p>
+<p>知道二号桌由来的朋友们，嘴里虽然没说什么，可心里都有在想着，今年二号桌也许又要空等了吧。那块“预约席”的牌子，早已悄悄地站在二号桌上。</p>
+<p>狭窄的座席之间，客人们一点一点地移动着身子坐下，有人还招呼着迟到的朋友。吃着面，喝着酒，互相夹着菜。有人到柜台里去帮忙，有人随意拉开冰箱拿来东西。什么廉价出售的生意啦，海水浴的艳闻轶事啦，什么添了孙</p>
+<p>子的事啦。十点半时，北海亭里的热闹气氛到达了顶点。就在这时，店门被咯吱咯吱地拉开了。人们都向门口望去，屋子里突然静</p>
+<p>了下来。</p>
+<p>两位西装笔挺，手臂上搭着大衣的青年走了进来。这时，大伙都松了口气，随着轻轻的叹息声，店里又恢复了刚才的热闹。</p>
+<p>“真不凑巧，店里已经坐满了。”老板娘面带着歉意说。</p>
+<p>就在她拒绝两位青年的时候，一位身穿和服的妇人，深深低着头走了进来，站在两位青年的中间。</p>
+<p>店里的人们，一下子都屏住了呼吸，耳朵也竖起来了。</p>
+<p>“唔……三碗阳春面，可以吗？”穿和服的妇人平静地说。</p>
+<p>听了这话，老板娘的脸色一下子变了。十几年前留在脑海中的母子三人的印象，和眼前这三人的形象重叠起来了。</p>
+<p>老板娘指着三位来客，目光和正在柜台里找韭菜的丈夫的目光撞到一处。</p>
+<p>“啊！啊……孩子他爹！”</p>
+<p>面对不知所措的老板娘，青年中的一位开口了。</p>
+<p>“我们就是14年前的大年夜，母子三人共吃一碗阳春面的的顾客。那时，就是这一碗阳春面的鼓励，使我们三人同心合力，度过了艰难的岁月。这以后，我们搬到母亲的亲家滋贺县去了。”</p>
+<p>“我今年通过了医生的国家考试，现在<a class="link"   target="_blank" rel="noopener" href="https://link.jianshu.com/?t=http://blog.sina.com.cn/lm/z/sakura/" >京都<i class="fas fa-external-link-alt"></i></a>的大学医院里当实习医生。明年四月，我将到札幌的综合医院工作。还没有开面馆的弟弟，现在<a class="link"   target="_blank" rel="noopener" href="https://link.jianshu.com/?t=http://blog.sina.com.cn/lm/z/sakura/" >京都<i class="fas fa-external-link-alt"></i></a>银行里工作。我和弟弟商谈，计划了这生平第一次的<a class="link"   target="_blank" rel="noopener" href="https://link.jianshu.com/?t=http://www.ckedu.com/zxzx/midschool/chinese5/d3c/text15.htm#[%E5%A5%A2%E4%BE%88%E7%9A%84%E8%A1%8C%E5%8A%A8]#[%E5%A5%A2%E4%BE%88%E7%9A%84%E8%A1%8C%E5%8A%A8]" >奢侈的行动<i class="fas fa-external-link-alt"></i></a>。就这样，今天我们</p>
+<p>母子三人，特意来拜访，想要麻烦你们烧三碗阳春面。”</p>
+<p>边听边点头的老板夫妇，泪珠一串串地掉下来。</p>
+<p>坐在靠近门口桌上的蔬菜店老板，嘴里含着一口面听着，直到这时，才把面咽下去，站起身来。</p>
+<p>“喂喂！老板娘，你呆站着干什么！这十年的每一个大年夜，你都为等待他们的到来而准备着，这十年后的预约席，不是吗？快！请他们上座，快！”</p>
+<p>被蔬菜店老板用肩一撞，老板娘这才清醒过来。</p>
+<p>“欢……欢迎，请，请坐……孩子他爹，二号桌阳春面三碗——”</p>
+<p>“好咧——阳春面三碗——”可泪流满面的丈夫却应不出声来。</p>
+<p>店里，突然爆发出一阵欢呼声和鼓掌声。</p>
+<p>店外，刚才还在纷纷扬扬的飘着的雪，此刻也停了。皑皑白雪映着明净的窗子，那写着“北海亭”的布帘子，在正月的清风中，摇曳着，飘着……</p>
+
+    </div>
+    <h3 style="font-size: 1.6rem;font-weight: 550;">页面关键信息已通过以下代码生成跳转链接</h3>
+    <pre>
+     &lt;script&gt;
+         const context = document.querySelector(".markdown-body");
+         const articleTitleList = document.querySelector(".article-title-list");
+         if(context){
+             const tags = context.querySelectorAll('*');
+             const hTagReg = /^H[1-6]$/;
+             let template = '';
+             tags.forEach(item=>{
+                     if(hTagReg.test(item.tagName.toUpperCase()) && item.innerText){
+                      const tagH = item.tagName.toLowerCase();
+                      const forHash = item.getAttribute("id");
+                     template+=`
+                          <${tagH}>
+                          <a onclick="javascript:void(1)" href="#${forHash}">${item.innerText}</a>
+                         </${tagH}>  
+                      `;
+                  }
+              });
+             articleTitleList.innerHTML=template; 
+          }
+          &lt;/script&gt;
+        </pre>
+    
+    <div class="post-copyright-info">
+      <div class="article-copyright-info-container">
+    <ul>
+        <li>本文标题：一碗清汤荞麦面</li>
+        <li>本文作者：邵预鸿</li>
+        <li>创建时间：2021-02-21 15:02:20</li>
+        <li>
+            本文链接：/images/logo.jpg2021/02/21/一碗清汤荞麦面/
+        </li>
+        <li>
+            版权声明：本博客所有文章除特别声明外，均采用 <a class="license" target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">BY-NC-SA</a> 许可协议。转载请注明出处！
+        </li>
+    </ul>
+</div>
+
+    </div>
+    
+
+    
+    <div class="article-nav">
+      
+      <div class="article-prev">
+        <a class="prev" rel="prev" href="/2021/02/21/%E4%B8%8D%E7%88%B1%E4%BD%A0%EF%BC%8C%E4%B8%8D%E5%BA%A6%E7%94%9F/">
+          <span class="left arrow-icon flex-center">
+            <i class="fas fa-chevron-left"></i>
+          </span>
+          <span class="title flex-center">
+            <span class="post-nav-title-item">不爱你，不度生</span>
+            <span class="post-nav-item">上一篇</span>
+          </span>
+        </a>
+      </div>
+      
+      
+      <div class="article-next">
+        <a class="next" rel="next" href="/2021/02/21/html5%E6%8B%96%E5%8A%A8%EF%BC%8C%E4%B8%8A%E4%BC%A0%E8%BF%9B%E5%BA%A6%EF%BC%8Cdiv%E5%8F%AF%E7%BC%96%E8%BE%91%E6%96%B0%E5%A2%9EAPI/">
+          <span class="title flex-center">
+            <span class="post-nav-title-item">html5拖动，上传进度，div可编辑新增API</span>
+            <span class="post-nav-item">下一篇</span>
+          </span>
+          <span class="right arrow-icon flex-center">
+            <i class="fas fa-chevron-right"></i>
+          </span>
+        </a>
+      </div>
+      
+    </div>
+    
+
+    
+  </div>
+</div>
+
+
+        
+      </div>
+
+    </div>
+
+    <div class="page-main-content-bottom">
+      <footer class="footer">
+    <div class="info-container">
+        <div class="copyright-info info-item">
+            &copy;
+            
+              <span>2021</span>&nbsp;-&nbsp;
+            
+            2022&nbsp;<i class="fas fa-heart icon-animate"></i>&nbsp;<a href="/">邵预鸿</a>
+        </div>
+        
+        
+        <div>更多笔记请访问:<a href="https://www.shaoyuhong.cn" target="_blank">邵预鸿|随心记 https://www.shaoyuhong.cn</a></div>
+
+    </div>
+</footer>
+
+    </div>
+  </div>
+
+  
+  <div class="post-tools">
+    <div class="post-tools-container">
+    <ul class="tools-list">
+        <!-- TOC aside toggle -->
+        
+
+        <!-- go comment -->
+        
+    </ul>
+</div>
+
+  </div>
+  
+
+  <div class="right-bottom-side-tools">
+    <div class="side-tools-container">
+    <ul class="side-tools-list">
+        <li class="tools-item tool-font-adjust-plus flex-center">
+            <i class="fas fa-search-plus"></i>
+        </li>
+
+        <li class="tools-item tool-font-adjust-minus flex-center">
+            <i class="fas fa-search-minus"></i>
+        </li>
+
+        <li class="tools-item tool-expand-width flex-center">
+            <i class="fas fa-arrows-alt-h"></i>
+        </li>
+
+        <li class="tools-item tool-dark-light-toggle flex-center">
+            <i class="fas fa-moon"></i>
+        </li>
+
+        <!-- rss -->
+        
+
+        
+
+        <li class="tools-item tool-scroll-to-bottom flex-center">
+            <i class="fas fa-arrow-down"></i>
+        </li>
+    </ul>
+
+    <ul class="exposed-tools-list">
+        <li class="tools-item tool-toggle-show flex-center">
+            <i class="fas fa-cog fa-spin"></i>
+        </li>
+        
+            <li class="tools-item tool-scroll-to-top flex-center">
+                <i class="arrow-up fas fa-arrow-up"></i>
+                <span class="percent"></span>
+            </li>
+        
+    </ul>
+</div>
+
+  </div>
+
+  
+
+  <div class="image-viewer-container">
+    <img src="">
+</div>
+
+
+  
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+          <span class="search-input-field-pre">
+            <i class="fas fa-keyboard"></i>
+          </span>
+            <div class="search-input-container">
+                <input autocomplete="off"
+                       autocorrect="off"
+                       autocapitalize="off"
+                       placeholder="搜索..."
+                       spellcheck="false"
+                       type="search"
+                       class="search-input"
+                >
+            </div>
+            <span class="popup-btn-close">
+                <i class="fas fa-times"></i>
+            </span>
+        </div>
+        <div id="search-result">
+            <div id="no-result">
+                <i class="fas fa-spinner fa-pulse fa-5x fa-fw"></i>
+            </div>
+        </div>
+    </div>
+</div>
+
+  
+
+</main>
+<script>
+  const context = document.querySelector(".markdown-body");
+  const articleTitleList = document.querySelector(".article-title-list");
+  const mainContent = document.querySelector('.main-content');
+
+  if (context) {
+    const tags = context.querySelectorAll('*');
+    const hTagReg = /^H[1-6]$/;
+    let template = '';
+    tags.forEach(item => {
+      if (hTagReg.test(item.tagName.toUpperCase()) && item.innerText) {
+        const tagH = item.tagName.toLowerCase();
+        const forHash = item.getAttribute("id");
+        template += `
+                  <${tagH}>
+                    <a onclick="javascript:void(1)" href="#${forHash}">${item.innerText}</a>
+                  </${tagH}>  
+                `;
+
+      }
+    });
+    articleTitleList.innerHTML = template;
+
+  }
+
+  (function leftNavPositionChange() {
+    const articleTitlePositoinX = (window.innerWidth - mainContent.clientWidth) / 2 - 255;
+    articleTitleList.style.left = articleTitlePositoinX + 'px';
+    window.onresize = function () {
+      leftNavPositionChange();
+    };
+  })();
+
+</script>
+
+<script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="/js/header-shrink.js"></script><script src="/js/back2top.js"></script><script src="/js/dark-light-toggle.js"></script>
+
+
+    <script src="/js/local-search.js"></script>
+
+
+
+    <script src="/js/code-copy.js"></script>
+
+
+
+    <script src="/js/lazyload.js"></script>
+
+
+<div class="post-scripts">
+    
+</div>
+
+
+
+</body>
+</html>

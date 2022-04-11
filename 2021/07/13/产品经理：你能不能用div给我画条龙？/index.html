@@ -1,0 +1,604 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="baidu-site-verification" content="code-YfBAOEVVQH" />
+    <meta name="keywords" content="邵预鸿,前端开发工程师,技术博客,生活记录,生活日常,个人简历,日常规划">
+    <meta name="description" content="入职中兴通讯，一名低调资深的ctrl+c and ctrl+v开发者">
+    <meta name="author" content="邵预鸿">
+    
+    <title>
+        
+            产品经理：你能不能用div给我画条龙？ |
+        
+        邵预鸿|前端开发技术笔记
+    </title>
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="shortcut icon" href="/images/logo.jpg">
+    <link rel="stylesheet" href="/css/font-awesome.min.css">
+    <script id="hexo-configurations">
+    let KEEP = window.KEEP || {};
+    KEEP.hexo_config = {"hostname":"github.com","root":"/","language":"zh-CN","path":"search.xml"};
+    KEEP.theme_config = {"toc":{"enable":false,"number":false,"expand_all":false,"init_open":false},"style":{"primary_color":"#0066CC","avatar":"/images/logo.jpg","favicon":"/images/logo.jpg","article_img_align":"left","left_side_width":"260px","content_max_width":"920px","hover":{"shadow":true,"scale":false},"first_screen":{"enable":true,"background_img":"/images/bg.svg","description":"积累硅步，可至千里；千里之行，始于足下"},"scroll":{"progress_bar":{"enable":true},"percent":{"enable":true}}},"local_search":{"enable":true,"preload":true},"code_copy":{"enable":true,"style":"default"},"pjax":{"enable":false},"lazyload":{"enable":true},"version":"3.4.0"};
+    KEEP.language_ago = {"second":"%s 秒前","minute":"%s 分钟前","hour":"%s 小时前","day":"%s 天前","week":"%s 周前","month":"%s 月前","year":"%s 年前"};
+  </script>
+<meta name="generator" content="Hexo 5.3.0"></head>
+
+
+<body>
+<!--
+ * @Description: file content
+ * @Author: yuhongshao
+ * @Date: 2021-02-20 19:33:18
+ * @email: yuhongshao@tencent.com
+ * @LastEditTime: 2022-03-30 10:24:37
+-->
+<div class="progress-bar-container">
+    
+        <span class="scroll-progress-bar"></span>
+    
+
+    
+</div>
+
+
+<main class="page-container">
+
+  
+
+  <div class="page-main-content">
+
+    <div class="page-main-content-top">
+      <header class="header-wrapper">
+
+    <div class="header-content">
+        <div class="left">
+            <a class="logo-title" href="/">
+                邵预鸿|前端开发技术笔记
+            </a>
+        </div>
+
+        <div class="right">
+            <div class="pc">
+                <ul class="menu-list">
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/"
+                            >
+                                主页
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/archives"
+                            >
+                                历年汇总
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/about"
+                            >
+                                关于我
+                            </a>
+                        </li>
+                    
+                    
+                        <li class="menu-item search search-popup-trigger">
+                            <i class="fas fa-search"></i>
+                        </li>
+                    
+                </ul>
+            </div>
+            <div class="mobile">
+                
+                    <div class="icon-item search search-popup-trigger"><i class="fas fa-search"></i></div>
+                
+                <div class="icon-item menu-bar">
+                    <div class="menu-bar-middle"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="header-drawer">
+        <ul class="drawer-menu-list">
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/">主页</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/archives">历年汇总</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/about">关于我</a>
+                </li>
+            
+        </ul>
+    </div>
+
+    <div class="window-mask"></div>
+
+</header>
+
+
+    </div>
+    <style>
+      .article-title-list {
+        position: fixed;
+        left: 80px;
+        top: 110px;
+        z-index: 100;
+        width: 250px;
+        max-height: calc(100% - 144px);
+        overflow: auto;
+      }
+
+      .article-title-list h1,
+      .article-title-list h2,
+      .article-title-list h3,
+      .article-title-list h4,
+      .article-title-list h5,
+      .article-title-list h6 {
+        box-sizing: border-box;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        overflow: hidden;
+        color: #686868;
+        font-weight: normal;
+        line-height: 1;
+        cursor: pointer;
+      }
+
+      .article-title-list h1 {
+        font-size: 22px;
+      }
+
+      .article-title-list h2 {
+        padding-left: 20px;
+        font-size: 20px;
+      }
+
+      .article-title-list h3 {
+        padding-left: 40px;
+        font-size: 18px;
+      }
+
+      .article-title-list h4 {
+        padding-left: 60px;
+        font-size: 16px;
+      }
+
+      .article-title-list h5 {
+        padding-left: 80px;
+        font-size: 14px;
+      }
+
+      .article-title-list h6 {
+        padding-left: 100px;
+        font-size: 12px;
+      }
+
+    </style>
+    <div class="article-title-list">
+    </div>
+
+    <div class="page-main-content-middle">
+
+      <div class="main-content">
+
+        
+        <div class="fade-in-down-animation">
+  <div class="article-content-container">
+
+    <div class="article-title">
+      <span class="title-hover-animation">产品经理：你能不能用div给我画条龙？</span>
+    </div>
+
+    
+    <div class="article-header">
+      <div class="avatar">
+        <img src="/images/logo.jpg">
+      </div>
+      <div class="info">
+        <div class="author">
+          <span class="name">邵预鸿</span>
+          
+          <span
+            class="author-label">Lv4</span>
+          
+        </div>
+        <div class="meta-info">
+          <div class="article-meta-info">
+    <span class="article-date article-meta-item">
+        <i class="fas fa-edit"></i>&nbsp;2021-07-13 17:11:06
+    </span>
+    
+    
+        <span class="article-tags article-meta-item">
+            <i class="fas fa-tags"></i>&nbsp;
+            <ul>
+                
+                    <li>
+                        <a href="/tags/canvas/">canvas</a>&nbsp;
+                    </li>
+                
+            </ul>
+        </span>
+    
+
+    
+    
+    
+    
+</div>
+
+        </div>
+      </div>
+    </div>
+    
+
+    <div class="article-content markdown-body">
+      <p>事情是这样的，前天上午产品经理说想要做一个心愿墙，问我能不能行</p>
+<p>我心想，这太容易了，但为了多摸一天鱼，我说还是<strong>有点挑战</strong>的</p>
+<p>结果下午，产品经理和设计师就给我发来了设计参考</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/4d686084e16d4dc88b5b17a1d7cd0e1a~tplv-k3u1fbpfcp-watermark.image"
+                      alt="image.png"
+                ></p>
+<p>他们说，心愿墙的设计大致是这样的，每个用户的心愿都是一个气泡，而客户的品牌是”龙“，我们希望在前端页面里用气泡呈现一个龙形的设计，每个气泡都会浮动，鼠标移上去变大，点击后展示心愿详情。</p>
+<p>当时我的内心是这样的</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/447ed6e19cc04dc1aa00499729d12eeb~tplv-k3u1fbpfcp-watermark.image"
+                      alt="image.png"
+                ></p>
+<p>我摸鱼的一天要泡汤了吗？</p>
+<p><strong>谁都不能阻止我摸鱼</strong></p>
+<p>但首先要解决最核心的问题</p>
+<h1 id="龙从哪里来？"><a href="#龙从哪里来？" class="headerlink" title="龙从哪里来？"></a>龙从哪里来？</h1><p>设计师说了，他可以给我一条由气泡组成的龙的设计稿，我说那等你设计稿给我，我再研究把。结果他说，已经有了，你就用这个吧</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/862c493c8bd34b2e8dd3713f9be40d5f~tplv-k3u1fbpfcp-watermark.image"
+                      alt="image.png"
+                ></p>
+<p><strong>我的刀呢？</strong></p>
+<h1 id="互动问题"><a href="#互动问题" class="headerlink" title="互动问题"></a>互动问题</h1><blockquote>
+<p>请在评论区留下你遇到过的最奇葩的需求</p>
+</blockquote>
+<h1 id="拆解需求"><a href="#拆解需求" class="headerlink" title="拆解需求"></a>拆解需求</h1><p>遇到不靠谱的产品经理和设计师，前端工程师真是惨。我们顶着最后交付成品的<code>巨锅</code>，所有<code>deadline</code>感觉都只是用来压榨前端工程师的。</p>
+<p>我们只能靠自己，因为</p>
+<p><strong>谁都不能阻止我摸鱼</strong></p>
+<ul>
+<li>需求1：有鼠标交互效果（太简单）</li>
+<li>需求2：气泡要浮动（css动画，easy）</li>
+<li>需求3：气泡组成一条龙</li>
+</ul>
+<p>此时我脑海里响起这首烂大街的歌</p>
+<blockquote>
+<p>左边跟我一起画个龙，在你右边画一道彩虹~</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">诶，画个龙</span><br><span class="line">用什么画，canvas</span><br><span class="line">canvas能获得指定区域的像素点阵</span><br></pre></td></tr></table></figure>
+<p>卧槽，有招儿了</p>
+<h1 id="代码时间"><a href="#代码时间" class="headerlink" title="代码时间"></a>代码时间</h1><p>先用图片搜索找一张龙的剪影</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/10b4df2d7b9b424fb431753167337851~tplv-k3u1fbpfcp-watermark.image"
+                      alt="image.png"
+                ></p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/8098e5ef8d6b46288cfd2292dccc2b65~tplv-k3u1fbpfcp-watermark.image"
+                      alt="image.png"
+                ></p>
+<h2 id="将图片绘制到canvas中"><a href="#将图片绘制到canvas中" class="headerlink" title="将图片绘制到canvas中"></a>将图片绘制到canvas中</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> canvas = <span class="built_in">document</span>.getElementById(<span class="string">&quot;canvas&quot;</span>);</span><br><span class="line"><span class="keyword">var</span> ctx = canvas.getContext(<span class="string">&quot;2d&quot;</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> image = <span class="keyword">new</span> Image();</span><br><span class="line">image.src = <span class="string">&quot;dragon.jpg&quot;</span>;</span><br><span class="line">image.onload = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">        canvas.width = image.width;</span><br><span class="line">        canvas.height = image.height;</span><br><span class="line"></span><br><span class="line">        ctx.drawImage(image,<span class="number">0</span>,<span class="number">0</span>);</span><br><span class="line">&#125;</span><br><span class="line">复制代码</span><br></pre></td></tr></table></figure>
+<h2 id="获取并裁剪画布的点阵信息"><a href="#获取并裁剪画布的点阵信息" class="headerlink" title="获取并裁剪画布的点阵信息"></a>获取并裁剪画布的点阵信息</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> imageData = ctx.getImageData(<span class="number">0</span>,<span class="number">0</span>,image.width,image.height).data;</span><br><span class="line">ctx.fillStyle = <span class="string">&quot;#ffffff&quot;</span>;</span><br><span class="line">ctx.fillRect(<span class="number">0</span>,<span class="number">0</span>,image.width,image.height);</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> gap = <span class="number">6</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">var</span> h = <span class="number">0</span>; h &lt; image.height; h+=gap) &#123;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">var</span> w = <span class="number">0</span>; w &lt; image.width; w+=gap)&#123;</span><br><span class="line">            <span class="keyword">var</span> position = (image.width * h + w) * <span class="number">4</span>;</span><br><span class="line">            <span class="keyword">var</span> r = imageData[position], g = imageData[position + <span class="number">1</span>], b = imageData[position + <span class="number">2</span>];</span><br><span class="line"></span><br><span class="line">            <span class="keyword">if</span>(r+g+b==<span class="number">0</span>)&#123;</span><br><span class="line">                    ctx.fillStyle = <span class="string">&quot;#000&quot;</span>;</span><br><span class="line">                    ctx.fillRect(w,h,<span class="number">4</span>,<span class="number">4</span>);</span><br><span class="line">                &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">复制代码</span><br></pre></td></tr></table></figure>
+<p>现在我们获得了这样一条龙的点阵信息</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/ab8c4d11d4e54e0980f0eb02b5426131~tplv-k3u1fbpfcp-watermark.image"
+                      alt="image.png"
+                ></p>
+<h2 id="通过点阵信息生成气泡dom"><a href="#通过点阵信息生成气泡dom" class="headerlink" title="通过点阵信息生成气泡dom"></a>通过点阵信息生成气泡dom</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> dragonContainer = <span class="built_in">document</span>.getElementById(<span class="string">&quot;container&quot;</span>);</span><br><span class="line"><span class="keyword">var</span> dragonScale = <span class="number">2</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">var</span> h = <span class="number">0</span>; h &lt; image.height; h+=gap) &#123;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">var</span> w = <span class="number">0</span>; w &lt; image.width; w+=gap)&#123;</span><br><span class="line">            <span class="keyword">var</span> position = (image.width * h + w) * <span class="number">4</span>;</span><br><span class="line">            <span class="keyword">var</span> r = imageData[position], g = imageData[position + <span class="number">1</span>], b = imageData[position + <span class="number">2</span>];</span><br><span class="line"></span><br><span class="line">            <span class="keyword">if</span>(r+g+b==<span class="number">0</span>)&#123;</span><br><span class="line">                    <span class="keyword">var</span> bubble = <span class="built_in">document</span>.createElement(<span class="string">&quot;img&quot;</span>);</span><br><span class="line">                    bubble.src = <span class="string">&quot;bubble.png&quot;</span>;</span><br><span class="line">                    bubble.setAttribute(<span class="string">&quot;class&quot;</span>,<span class="string">&quot;bubble&quot;</span>);</span><br><span class="line"></span><br><span class="line">                    <span class="keyword">var</span> bubbleSize = <span class="built_in">Math</span>.random()*<span class="number">10</span>+<span class="number">20</span>;</span><br><span class="line">                    bubble.style.left = (w*dragonScale-bubbleSize/<span class="number">2</span>) + <span class="string">&quot;px&quot;</span>;</span><br><span class="line">                    bubble.style.top = (h*dragonScale-bubbleSize/<span class="number">2</span>) + <span class="string">&quot;px&quot;</span>;</span><br><span class="line">                    bubble.style.width = bubble.style.height = bubbleSize+<span class="string">&quot;px&quot;</span>;</span><br><span class="line">                    bubble.style.animationDuration = <span class="built_in">Math</span>.random()*<span class="number">6</span>+<span class="number">4</span> + <span class="string">&quot;s&quot;</span>;</span><br><span class="line"></span><br><span class="line">                    dragonContainer.appendChild(bubble);</span><br><span class="line">                &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">复制代码</span><br></pre></td></tr></table></figure>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/74fea9a084a14630b925b091adfb6f6c~tplv-k3u1fbpfcp-watermark.image"
+                      alt="image.png"
+                ></p>
+<p>作者：大帅老猿链接：<a class="link"   target="_blank" rel="noopener" href="https://juejin.cn/post/6963476650356916254" >https://juejin.cn/post/6963476650356916254<i class="fas fa-external-link-alt"></i></a>  来源：掘金著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。</p>
+<h3 id="关于疑问"><a href="#关于疑问" class="headerlink" title="关于疑问"></a>关于疑问</h3><p>var position = (image.width * h + w) * 4;  公式获取当前点?</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://gitee.com/xian_hong_xiao/assets/raw/master/img/juzhen.png"
+                      alt="图片"
+                ></p>
+<h3 id="参考原码"><a href="#参考原码" class="headerlink" title="参考原码"></a>参考原码</h3><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE <span class="meta-keyword">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">lang</span>=<span class="string">&quot;en&quot;</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">&quot;UTF-8&quot;</span> /&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">http-equiv</span>=<span class="string">&quot;X-UA-Compatible&quot;</span> <span class="attr">content</span>=<span class="string">&quot;IE=edge&quot;</span> /&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">&quot;viewport&quot;</span> <span class="attr">content</span>=<span class="string">&quot;width=device-width, initial-scale=1.0&quot;</span> /&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span>Document<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">style</span>&gt;</span></span><br><span class="line">      * &#123;</span><br><span class="line"><span class="css">        <span class="attribute">margin</span>: <span class="number">0</span>;</span></span><br><span class="line"><span class="css">        <span class="attribute">padding</span>: <span class="number">0</span>;</span></span><br><span class="line">      &#125;</span><br><span class="line">      .bubble &#123;</span><br><span class="line"><span class="css">        <span class="attribute">position</span>: absolute;</span></span><br><span class="line"><span class="css">        <span class="attribute">background-color</span>: red;</span></span><br><span class="line">      &#125;</span><br><span class="line">      .wrap &#123;</span><br><span class="line"><span class="css">        <span class="attribute">position</span>: relative;</span></span><br><span class="line"><span class="css">        <span class="attribute">position</span>: absolute;</span></span><br><span class="line"><span class="css">        <span class="attribute">top</span>: <span class="number">0</span>;</span></span><br><span class="line">      &#125;</span><br><span class="line"><span class="css">      <span class="selector-tag">canvas</span> &#123;</span></span><br><span class="line"><span class="css">        <span class="attribute">box-sizing</span>: border-box;</span></span><br><span class="line">      &#125;</span><br><span class="line"><span class="css">      <span class="selector-class">.wrap</span> &gt; <span class="selector-tag">div</span> &#123;</span></span><br><span class="line"><span class="css">        <span class="attribute">position</span>: absolute;</span></span><br><span class="line"><span class="css">        <span class="attribute">transition</span>: all <span class="number">0.5s</span>;</span></span><br><span class="line"><span class="css">        <span class="attribute">cursor</span>: pointer;</span></span><br><span class="line">      &#125;</span><br><span class="line"><span class="css">      <span class="selector-class">.wrap</span> &gt; <span class="selector-tag">div</span><span class="selector-pseudo">:hover</span> &#123;</span></span><br><span class="line"><span class="css">        <span class="attribute">transform</span>: <span class="built_in">scale</span>(<span class="number">20</span>);</span></span><br><span class="line"><span class="css">        <span class="attribute">z-index</span>: <span class="number">999</span>;</span></span><br><span class="line">      &#125;</span><br><span class="line">    <span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">canvas</span> <span class="attr">id</span>=<span class="string">&quot;canvas&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">canvas</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;wrap&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="javascript">  <span class="keyword">var</span> canvas = <span class="built_in">document</span>.getElementById(<span class="string">&quot;canvas&quot;</span>);</span></span><br><span class="line"><span class="javascript">  <span class="keyword">var</span> ctx = canvas.getContext(<span class="string">&quot;2d&quot;</span>);</span></span><br><span class="line"><span class="javascript">  <span class="keyword">var</span> list = [&#123; <span class="attr">x</span>: -<span class="number">100</span>, <span class="attr">y</span>: -<span class="number">100</span> &#125;];</span></span><br><span class="line"><span class="javascript">  <span class="keyword">var</span> image = <span class="keyword">new</span> Image();</span></span><br><span class="line"><span class="javascript">  image.src = <span class="string">&quot;dragon.jpg&quot;</span>;</span></span><br><span class="line"><span class="javascript">  image.onload = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span></span><br><span class="line">    canvas.width = image.width;</span><br><span class="line">    canvas.height = image.height;</span><br><span class="line">    ctx.drawImage(image, 0, 0);</span><br><span class="line"><span class="javascript">    <span class="keyword">var</span> imageData = ctx.getImageData(<span class="number">0</span>, <span class="number">0</span>, image.width, image.height).data;</span></span><br><span class="line"><span class="javascript">    <span class="function"><span class="keyword">function</span> <span class="title">fn</span>(<span class="params"></span>) </span>&#123;</span></span><br><span class="line"><span class="javascript">      <span class="keyword">var</span> gap = <span class="number">6</span>;</span></span><br><span class="line"><span class="javascript">      <span class="keyword">var</span> dragonScale = <span class="number">2</span>;</span></span><br><span class="line"><span class="javascript">      <span class="keyword">for</span> (<span class="keyword">var</span> h = <span class="number">0</span>; h &lt; image.height; h += gap) &#123;</span></span><br><span class="line"><span class="javascript">        <span class="keyword">for</span> (<span class="keyword">var</span> w = <span class="number">0</span>; w &lt; image.width; w += gap) &#123;</span></span><br><span class="line"><span class="javascript">          <span class="keyword">var</span> position = (image.width * h + w) * <span class="number">4</span>;</span></span><br><span class="line"><span class="javascript">          <span class="keyword">var</span> r = imageData[position],</span></span><br><span class="line">            g = imageData[position + 1],</span><br><span class="line">            b = imageData[position + 2];</span><br><span class="line">          if (r + g + b &gt;= 0 &amp;&amp; r + g + b &lt;= 159) &#123;</span><br><span class="line"><span class="javascript">            <span class="keyword">let</span> w1 = w - <span class="number">10</span>;</span></span><br><span class="line"><span class="javascript">            <span class="keyword">let</span> h1 = h - <span class="number">10</span>;</span></span><br><span class="line"><span class="javascript">            <span class="keyword">var</span> fillStyle = <span class="string">`rgba(<span class="subst">$&#123;<span class="built_in">parseInt</span>(<span class="built_in">Math</span>.random() * <span class="number">255</span>)&#125;</span>,<span class="subst">$&#123;<span class="built_in">parseInt</span>(</span></span></span></span><br><span class="line"><span class="javascript">              <span class="built_in">Math</span>.random() * <span class="number">255</span></span></span><br><span class="line"><span class="javascript">            )&#125;,$&#123;<span class="built_in">parseInt</span>(<span class="built_in">Math</span>.random() * <span class="number">255</span>)&#125;)<span class="string">`;</span></span></span><br><span class="line"><span class="javascript">            <span class="keyword">var</span> bubble = <span class="built_in">document</span>.createElement(<span class="string">&quot;div&quot;</span>);</span></span><br><span class="line"><span class="javascript">            <span class="keyword">var</span> bubbleSize = <span class="built_in">Math</span>.random() * <span class="number">10</span> + <span class="number">20</span>;</span></span><br><span class="line"><span class="javascript">            bubble.style.left = w1 + <span class="string">&quot;px&quot;</span>;</span></span><br><span class="line"><span class="javascript">            bubble.style.top = h1 + <span class="string">&quot;px&quot;</span>;</span></span><br><span class="line"><span class="javascript">            bubble.style.width = <span class="string">&quot;5px&quot;</span>;</span></span><br><span class="line"><span class="javascript">            bubble.style.height = <span class="string">&quot;5px&quot;</span>;</span></span><br><span class="line"><span class="javascript">            bubble.style.animationDuration = <span class="built_in">Math</span>.random() * <span class="number">6</span> + <span class="number">4</span> + <span class="string">&quot;s&quot;</span>;</span></span><br><span class="line">            bubble.style.backgroundColor = fillStyle;</span><br><span class="line"><span class="javascript">            <span class="built_in">console</span>.log(<span class="built_in">document</span>.getElementsByClassName(<span class="string">&quot;wrap&quot;</span>)[<span class="number">0</span>]);</span></span><br><span class="line"><span class="javascript">            <span class="built_in">document</span>.getElementsByClassName(<span class="string">&quot;wrap&quot;</span>)[<span class="number">0</span>].appendChild(bubble);</span></span><br><span class="line">          &#125;</span><br><span class="line">        &#125;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    fn();</span><br><span class="line"><span class="javascript">    <span class="built_in">setInterval</span>(<span class="function">() =&gt;</span> &#123;</span></span><br><span class="line">      fn();</span><br><span class="line">    &#125;, 3000);</span><br><span class="line">    ctx.clearRect(0, 0, image.width, image.height);</span><br><span class="line">  &#125;;</span><br><span class="line"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+
+
+<h3 id="效果图"><a href="#效果图" class="headerlink" title="效果图"></a>效果图</h3><p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://gitee.com/xian_hong_xiao/assets/raw/master/img/long.png"
+                      alt="龙"
+                ></p>
+
+    </div>
+    <h3 style="font-size: 1.6rem;font-weight: 550;">页面关键信息已通过以下代码生成跳转链接</h3>
+    <pre>
+     &lt;script&gt;
+         const context = document.querySelector(".markdown-body");
+         const articleTitleList = document.querySelector(".article-title-list");
+         if(context){
+             const tags = context.querySelectorAll('*');
+             const hTagReg = /^H[1-6]$/;
+             let template = '';
+             tags.forEach(item=>{
+                     if(hTagReg.test(item.tagName.toUpperCase()) && item.innerText){
+                      const tagH = item.tagName.toLowerCase();
+                      const forHash = item.getAttribute("id");
+                     template+=`
+                          <${tagH}>
+                          <a onclick="javascript:void(1)" href="#${forHash}">${item.innerText}</a>
+                         </${tagH}>  
+                      `;
+                  }
+              });
+             articleTitleList.innerHTML=template; 
+          }
+          &lt;/script&gt;
+        </pre>
+    
+    <div class="post-copyright-info">
+      <div class="article-copyright-info-container">
+    <ul>
+        <li>本文标题：产品经理：你能不能用div给我画条龙？</li>
+        <li>本文作者：邵预鸿</li>
+        <li>创建时间：2021-07-13 17:11:06</li>
+        <li>
+            本文链接：/images/logo.jpg2021/07/13/产品经理：你能不能用div给我画条龙？/
+        </li>
+        <li>
+            版权声明：本博客所有文章除特别声明外，均采用 <a class="license" target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">BY-NC-SA</a> 许可协议。转载请注明出处！
+        </li>
+    </ul>
+</div>
+
+    </div>
+    
+
+    
+    <div class="article-nav">
+      
+      <div class="article-prev">
+        <a class="prev" rel="prev" href="/2021/07/14/let%E6%B2%A1%E6%9C%89%E5%8F%98%E9%87%8F%E6%8F%90%E5%8D%87%EF%BC%9FX/">
+          <span class="left arrow-icon flex-center">
+            <i class="fas fa-chevron-left"></i>
+          </span>
+          <span class="title flex-center">
+            <span class="post-nav-title-item">let没有变量提升？X</span>
+            <span class="post-nav-item">上一篇</span>
+          </span>
+        </a>
+      </div>
+      
+      
+      <div class="article-next">
+        <a class="next" rel="next" href="/2021/07/13/js%E5%A4%A7%E6%96%87%E4%BB%B6%E4%B8%8A%E4%BC%A0%E6%97%B6%E7%9A%84%E5%88%87%E7%89%87%E4%B8%8A%E4%BC%A0/">
+          <span class="title flex-center">
+            <span class="post-nav-title-item">js大文件上传时的切片上传</span>
+            <span class="post-nav-item">下一篇</span>
+          </span>
+          <span class="right arrow-icon flex-center">
+            <i class="fas fa-chevron-right"></i>
+          </span>
+        </a>
+      </div>
+      
+    </div>
+    
+
+    
+  </div>
+</div>
+
+
+        
+      </div>
+
+    </div>
+
+    <div class="page-main-content-bottom">
+      <footer class="footer">
+    <div class="info-container">
+        <div class="copyright-info info-item">
+            &copy;
+            
+              <span>2021</span>&nbsp;-&nbsp;
+            
+            2022&nbsp;<i class="fas fa-heart icon-animate"></i>&nbsp;<a href="/">邵预鸿</a>
+        </div>
+        
+        
+        <div>更多笔记请访问:<a href="https://www.shaoyuhong.cn" target="_blank">邵预鸿|随心记 https://www.shaoyuhong.cn</a></div>
+
+    </div>
+</footer>
+
+    </div>
+  </div>
+
+  
+  <div class="post-tools">
+    <div class="post-tools-container">
+    <ul class="tools-list">
+        <!-- TOC aside toggle -->
+        
+
+        <!-- go comment -->
+        
+    </ul>
+</div>
+
+  </div>
+  
+
+  <div class="right-bottom-side-tools">
+    <div class="side-tools-container">
+    <ul class="side-tools-list">
+        <li class="tools-item tool-font-adjust-plus flex-center">
+            <i class="fas fa-search-plus"></i>
+        </li>
+
+        <li class="tools-item tool-font-adjust-minus flex-center">
+            <i class="fas fa-search-minus"></i>
+        </li>
+
+        <li class="tools-item tool-expand-width flex-center">
+            <i class="fas fa-arrows-alt-h"></i>
+        </li>
+
+        <li class="tools-item tool-dark-light-toggle flex-center">
+            <i class="fas fa-moon"></i>
+        </li>
+
+        <!-- rss -->
+        
+
+        
+
+        <li class="tools-item tool-scroll-to-bottom flex-center">
+            <i class="fas fa-arrow-down"></i>
+        </li>
+    </ul>
+
+    <ul class="exposed-tools-list">
+        <li class="tools-item tool-toggle-show flex-center">
+            <i class="fas fa-cog fa-spin"></i>
+        </li>
+        
+            <li class="tools-item tool-scroll-to-top flex-center">
+                <i class="arrow-up fas fa-arrow-up"></i>
+                <span class="percent"></span>
+            </li>
+        
+    </ul>
+</div>
+
+  </div>
+
+  
+
+  <div class="image-viewer-container">
+    <img src="">
+</div>
+
+
+  
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+          <span class="search-input-field-pre">
+            <i class="fas fa-keyboard"></i>
+          </span>
+            <div class="search-input-container">
+                <input autocomplete="off"
+                       autocorrect="off"
+                       autocapitalize="off"
+                       placeholder="搜索..."
+                       spellcheck="false"
+                       type="search"
+                       class="search-input"
+                >
+            </div>
+            <span class="popup-btn-close">
+                <i class="fas fa-times"></i>
+            </span>
+        </div>
+        <div id="search-result">
+            <div id="no-result">
+                <i class="fas fa-spinner fa-pulse fa-5x fa-fw"></i>
+            </div>
+        </div>
+    </div>
+</div>
+
+  
+
+</main>
+<script>
+  const context = document.querySelector(".markdown-body");
+  const articleTitleList = document.querySelector(".article-title-list");
+  const mainContent = document.querySelector('.main-content');
+
+  if (context) {
+    const tags = context.querySelectorAll('*');
+    const hTagReg = /^H[1-6]$/;
+    let template = '';
+    tags.forEach(item => {
+      if (hTagReg.test(item.tagName.toUpperCase()) && item.innerText) {
+        const tagH = item.tagName.toLowerCase();
+        const forHash = item.getAttribute("id");
+        template += `
+                  <${tagH}>
+                    <a onclick="javascript:void(1)" href="#${forHash}">${item.innerText}</a>
+                  </${tagH}>  
+                `;
+
+      }
+    });
+    articleTitleList.innerHTML = template;
+
+  }
+
+  (function leftNavPositionChange() {
+    const articleTitlePositoinX = (window.innerWidth - mainContent.clientWidth) / 2 - 255;
+    articleTitleList.style.left = articleTitlePositoinX + 'px';
+    window.onresize = function () {
+      leftNavPositionChange();
+    };
+  })();
+
+</script>
+
+<script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="/js/header-shrink.js"></script><script src="/js/back2top.js"></script><script src="/js/dark-light-toggle.js"></script>
+
+
+    <script src="/js/local-search.js"></script>
+
+
+
+    <script src="/js/code-copy.js"></script>
+
+
+
+    <script src="/js/lazyload.js"></script>
+
+
+<div class="post-scripts">
+    
+</div>
+
+
+
+</body>
+</html>
