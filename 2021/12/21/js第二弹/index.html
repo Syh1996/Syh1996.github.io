@@ -656,6 +656,84 @@
 </ul>
 </li>
 </ul>
+<h3 id="点击劫持漏洞"><a href="#点击劫持漏洞" class="headerlink" title="点击劫持漏洞"></a>点击劫持漏洞</h3><h4 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h4><p>点击劫持是一种视觉欺骗的攻击手段，攻击者将需要攻击的网站通过 iframe 嵌套的方式嵌入自己的网页中，并将 iframe 设置为透明，在页面中透出一个按钮诱导用户点击。</p>
+<h4 id="防御"><a href="#防御" class="headerlink" title="防御"></a>防御</h4><p><code>X-Frame-Options</code> HTTP 响应头是用来给浏览器指示允许一个页面可否在 <code>&lt;frame&gt;</code>, <code>&lt;iframe&gt;</code> 或者 <code>&lt;object&gt;</code>中展现的标记。网站可以使用此功能，来确保自己网站的内容没有被嵌到别人的网站中去，也从而避免了点击劫持 (clickjacking) 的攻击。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">X-Frame-Options有三种可配置值</span><br><span class="line">X-Frame-Options: deny  [dɪ&#39;naɪ]</span><br><span class="line">X-Frame-Options: sameorigin </span><br><span class="line">X-Frame-Options: allow-from https:&#x2F;&#x2F;example.com&#x2F;</span><br></pre></td></tr></table></figure>
+<p>deny<br>表示该页面不允许在 frame 中展示，即便是在相同域名的页面中嵌套也不允许。<br>sameorigin<br>表示该页面可以在相同域名页面的 frame 中展示。<br>allow-from uri<br>表示该页面可以在指定来源的 frame 中展示。<br>注: 在网页中设置meta标签是无用的!例如，<code>&lt;meta http-equiv=&quot;X-Frame-Options&quot; content=&quot;deny&quot;&gt;</code> 是没有效果的。不要使用这种方式。需要在下面的配置实例中配置HTTP Header的方式来进行配置，<code>X-Frame-Options</code>才会起作用。</p>
+<h4 id="视频讲解参考"><a href="#视频讲解参考" class="headerlink" title="视频讲解参考"></a>视频讲解参考</h4><p><a class="link"   target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1ve411p7qt?p=4" >点击劫持：https://www.bilibili.com/video/BV1ve411p7qt?p=4<i class="fas fa-external-link-alt"></i></a></p>
+<h3 id="URL跳转漏洞"><a href="#URL跳转漏洞" class="headerlink" title="URL跳转漏洞"></a>URL跳转漏洞</h3><h4 id="定义-1"><a href="#定义-1" class="headerlink" title="定义"></a>定义</h4><p>通过可信网址后添加重定向的地址实现的跳转，如：<a class="link"   target="_blank" rel="noopener" href="http://www.baiud.com/?redirect" >http://www.baiud.com?redirect<i class="fas fa-external-link-alt"></i></a> = <a class="link"   target="_blank" rel="noopener" href="http://www.shaoyuhong.cn/" >http://www.shaoyuhong.cn<i class="fas fa-external-link-alt"></i></a></p>
+<p>常见于活动链接，将上述URL发给其它人，打开这个链接后后台代码执行重定向时，跳转到对应的恶意网站</p>
+<p>跳转方式主要有三种：<strong>Meta标签、JS跳转、Header跳转</strong></p>
+<h4 id="防御-1"><a href="#防御-1" class="headerlink" title="防御"></a>防御</h4><ul>
+<li>在执行重定向时，首先检查重定向域名/IP是否为安全可信内部链接，如不是，阻止跳转</li>
+<li>后台数据库存储跳转链接表或者前端建立映射关系，活动链接只为<a class="link"   target="_blank" rel="noopener" href="http://www.baiud.com/?id=1%EF%BC%8C%E9%80%9A%E8%BF%87id%E5%8E%BB%E6%9F%A5%E5%AF%B9%E5%BA%94%E7%9A%84%E9%93%BE%E6%8E%A5%EF%BC%8C%E5%AE%9E%E7%8E%B0%E8%B7%B3%E8%BD%AC" >http://www.baiud.com?id=1，通过id去查对应的链接，实现跳转<i class="fas fa-external-link-alt"></i></a></li>
+</ul>
+<h4 id="视频讲解参考-1"><a href="#视频讲解参考-1" class="headerlink" title="视频讲解参考"></a>视频讲解参考</h4><p><a class="link"   target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1ve411p7qt?p=5" >URL跳转漏洞：https://www.bilibili.com/video/BV1ve411p7qt?p=5<i class="fas fa-external-link-alt"></i></a></p>
+<h3 id="sql注入漏洞"><a href="#sql注入漏洞" class="headerlink" title="sql注入漏洞"></a>sql注入漏洞</h3><p>输入用户名: admin’空格–空格   密码随意</p>
+<h4 id="php写后台例"><a href="#php写后台例" class="headerlink" title="php写后台例"></a>php写后台例</h4><p>$user = $_POST[‘user’];</p>
+<p>$pwd = $_POST[‘pwd’];</p>
+<p>$pdo-&gt;query(‘select * from ‘tb_user’ where user=”$user” and pwd =”$pwd” ‘);</p>
+<p>传入密码后，sql变成了</p>
+<p>select * from ‘tb_user’ where user=’admin’ – ‘…….’</p>
+<h3 id="文件上传漏洞"><a href="#文件上传漏洞" class="headerlink" title="文件上传漏洞"></a>文件上传漏洞</h3><h3 id="获取文件后缀名"><a href="#获取文件后缀名" class="headerlink" title="获取文件后缀名"></a>获取文件后缀名</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> str  = <span class="string">&#x27;个人计划书.2022.excel.md&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">/** 方法1  **/</span></span><br><span class="line"><span class="keyword">const</span> names = str.split(<span class="string">&#x27;.&#x27;</span>);</span><br><span class="line"><span class="keyword">const</span> fileType = names[names.length-<span class="number">1</span>];</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">/** 方法2  **/</span></span><br><span class="line"><span class="keyword">const</span> endIndex = str.lastIndexOf(<span class="string">&#x27;.&#x27;</span>);</span><br><span class="line"><span class="keyword">const</span> fileType = str.substring(endIndex+<span class="number">1</span>);</span><br></pre></td></tr></table></figure>
+<h3 id="encodeURI-encodeURIComponent-有什么区别？"><a href="#encodeURI-encodeURIComponent-有什么区别？" class="headerlink" title="encodeURI,encodeURIComponent 有什么区别？"></a>encodeURI,encodeURIComponent 有什么区别？</h3><p>encodeURI 是对整个 URI 进行转义，将 URI 中的非法字符转换为合法字符，所以对于一些在 URI 中有特殊意义的字符不会进行转义。</p>
+<p>encodeURIComponent 是对 URI 的组成部分进行转义，所以一些特殊字符也会得到转义。</p>
+<h3 id="谈谈你对-webpack-的看法"><a href="#谈谈你对-webpack-的看法" class="headerlink" title="谈谈你对 webpack 的看法"></a>谈谈你对 webpack 的看法</h3><p>我当时使用 webpack 的一个最主要原因是为了简化页面依赖的管理，并且通过将其打包为一个文件来降低页面加载时请求的资源<br>数。</p>
+<p>我认为 webpack 的主要原理是，它将所有的资源都看成是一个模块，并且把页面逻辑当作一个整体，通过一个给定的入口文件，webpack 从这个文件开始，找到所有的依赖文件，将各个依赖文件模块通过 loader 和 plugins 处理后，然后打包在一起，最后输出一个浏览器可识别的 JS 文件。</p>
+<ul>
+<li><p>Webpack 具有四个核心的概念，分别是 Entry（入口）、Output（输出）、loader 和 Plugins（插件）。</p>
+</li>
+<li><p>Entry 是 webpack 的入口起点，它指示 webpack 应该从哪个模块开始着手，来作为其构建内部依赖图的开始。</p>
+</li>
+<li><p>Output 属性告诉 webpack 在哪里输出它所创建的打包文件，也可指定打包文件的名称，默认位置为 ./dist。</p>
+</li>
+<li><p>loader 可以理解为 webpack 的编译器，它使得 webpack 可以处理一些非 JavaScript 文件。在对 loader 进行配置的时候，test 属性，标志有哪些后缀的文件应该被处理，是一个正则表达式。use 属性，指定 test 类型的文件应该使用哪个 loader 进行预处理。常用的 loader 有 css-loader、style-loader 等。</p>
+</li>
+<li><p>插件可以用于执行范围更广的任务，包括打包、优化、压缩、搭建服务器等等，要使用一个插件，一般是先使用 npm 包管理器进行安装，然后在配置文件中引入，最后将其实例化后传递给 plugins 数组属性。</p>
+</li>
+</ul>
+<h3 id="什么是-rest-参数？"><a href="#什么是-rest-参数？" class="headerlink" title="什么是 rest 参数？"></a>什么是 rest 参数？</h3><p>rest 参数（形式为…变量名），用于获取函数的剩余参数。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">fn</span>(<span class="params">a,...b</span>)</span>&#123;</span><br><span class="line">   <span class="comment">//b= [2,3,4]</span></span><br><span class="line">&#125;</span><br><span class="line">fn(<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>);</span><br></pre></td></tr></table></figure>
+
+
+
+
+<h3 id="哪些操作会造成内存泄漏？"><a href="#哪些操作会造成内存泄漏？" class="headerlink" title="哪些操作会造成内存泄漏？"></a>哪些操作会造成内存泄漏？</h3><ul>
+<li><p>第一种情况是我们由于使用未声明的变量，而意外的创建了一个全局变量，而使这个变量一直留在内存中无法被回收。</p>
+</li>
+<li><p>第二种情况是我们设置了 setInterval 定时器，而忘记取消它，如果循环函数有对外部变量的引用的话，那么这个变量会被一直留<br>在内存中，而无法被回收。</p>
+</li>
+<li><p>第三种情况是我们获取一个 DOM 元素的引用，而后面这个元素被删除，由于我们一直保留了对这个元素的引用，所以它也无法被回<br>收。</p>
+</li>
+<li><p>第四种情况是不合理的使用闭包，从而导致某些变量一直被留在内存当中。</p>
+</li>
+</ul>
+<h3 id="数组的-fill-方法？"><a href="#数组的-fill-方法？" class="headerlink" title="数组的 fill 方法？"></a>数组的 fill 方法？</h3><p>fill() 方法用一个固定值填充一个数组中从起始索引到终止索引内的全部元素。不包括终止索引。<br>fill 方法接受三个参数 value，<strong>start 以及 end，start 和 end 参数是可选的，其默认值分别为 0 和 this 对象的 length 属性值。</strong></p>
+<h3 id="最全的Vue-组件间的参数传递方式？"><a href="#最全的Vue-组件间的参数传递方式？" class="headerlink" title="最全的Vue 组件间的参数传递方式？"></a>最全的Vue 组件间的参数传递方式？</h3><p>（1）父子组件间通信</p>
+<ul>
+<li><p>第一种方法是子组件通过 props 属性来接受父组件的数据，然后父组件在子组件上注册监听事件，子组件通过 emit 触发事<br>件来向父组件发送数据。</p>
+</li>
+<li><p>第二种是通过 ref 属性给子组件设置一个名字。父组件通过 $refs 组件名来获得子组件，子组件通过 $parent 获得父组<br>件，这样也可以实现通信。</p>
+</li>
+<li><p>第三种是使用 provider/inject，在父组件中通过 provider 提供变量，在子组件中通过 inject 来将变量注入到组件<br>中。不论子组件有多深，只要调用了 inject 那么就可以注入 provider 中的数据。</p>
+</li>
+</ul>
+<p>（2）兄弟组件间通信</p>
+<ul>
+<li><p>第一种是使用 eventBus 的方法，它的本质是通过创建一个空的 Vue 实例来作为消息传递的对象，通信的组件引入这个实<br>例，通信的组件通过在这个实例上监听和触发事件，来实现消息的传递。</p>
+</li>
+<li><p>第二种是通过 $parent.$refs 来获取到兄弟组件，也可以进行通信。</p>
+</li>
+</ul>
+<p>（3）任意组件之间</p>
+<ul>
+<li>使用 eventBus ，其实就是创建一个事件中心，相当于中转站，可以用它来传递事件和接收事件。</li>
+</ul>
+<p>如果业务逻辑复杂，很多组件之间需要同时处理一些公共的数据，这个时候采用上面这一些方法可能不利于项目的维护。这个时候<br>可以使用 vuex ，vuex 的思想就是将这一些公共的数据抽离出来，将它作为一个全局的变量来管理，然后其他组件就可以对这个<br>公共数据进行读写操作，这样达到了解耦的目的。</p>
+<h3 id="vue-router-中的导航钩子函数共6个"><a href="#vue-router-中的导航钩子函数共6个" class="headerlink" title="vue-router 中的导航钩子函数共6个"></a>vue-router 中的导航钩子函数共6个</h3><p>（1）全局的钩子函数 beforeEach 和 afterEach</p>
+<p>beforeEach 有三个参数，to 代表要进入的路由对象，from 代表离开的路由对象。next 是一个必须要执行的函数，如果不传参数，那就执行下一个钩子函数，如果传入 false，则终止跳转，如果传入一个路径，则导航到对应的路由，如果传入 error ，则导航终止，error 传入错误的监听函数。</p>
+<p>（2）单个路由独享的钩子函数 beforeEnter，它是在路由配置上直接进行定义的。</p>
+<p>（3）组件内的导航钩子主要有这三种：beforeRouteEnter、beforeRouteUpdate、beforeRouteLeave。它们是直接在路由组<br>件内部直接进行定义的。</p>
 
     </div>
     <h3 style="font-size: 1.6rem;font-weight: 550;">页面关键信息已通过以下代码生成跳转链接</h3>
