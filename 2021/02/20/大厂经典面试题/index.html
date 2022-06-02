@@ -31,8 +31,8 @@
  * @Description: file content
  * @Author: yuhongshao
  * @Date: 2021-02-20 19:33:18
- * @email: yuhongshao@tencent.com
- * @LastEditTime: 2022-03-30 10:24:37
+ * @email: 
+ * @LastEditTime: 2022-05-25 12:31:42
 -->
 <div class="progress-bar-container">
     
@@ -133,16 +133,26 @@
 
     </div>
     <style>
+      .main-content a{
+        color: #6e9cca;
+      }
       .article-title-list {
         position: fixed;
         left: 80px;
         top: 110px;
         z-index: 100;
-        width: 250px;
+        width: 300px;
         max-height: calc(100% - 144px);
         overflow: auto;
       }
-
+      .article-title-list a .badge{
+        display: inline-block;
+        margin-right: 5px;
+        padding: 0 5px;
+        background-color: #ebebeb;
+        border-radius: 3px;
+        color: #6b6b6b;
+      }
       .article-title-list h1,
       .article-title-list h2,
       .article-title-list h3,
@@ -214,7 +224,7 @@
           <span class="name">邵预鸿</span>
           
           <span
-            class="author-label">Lv4</span>
+            class="author-label">Lv5</span>
           
         </div>
         <div class="meta-info">
@@ -596,7 +606,7 @@
 <h3 id="时间复杂度"><a href="#时间复杂度" class="headerlink" title="时间复杂度"></a>时间复杂度</h3><p><img  
                      lazyload
                      src="/images/loading.svg"
-                     data-src="https://gitee.com/xian_hong_xiao/assets/raw/master/img/1.png"
+                     data-src="http://server.yuhongshao.cn/static/yuhongshao/1.png"
                       alt="图片"
                 ></p>
 <h3 id="我以为a-1-amp-amp-a-2-amp-amp-a-3这种判断的面试题已经够变态，没想道"><a href="#我以为a-1-amp-amp-a-2-amp-amp-a-3这种判断的面试题已经够变态，没想道" class="headerlink" title="我以为a == 1 &amp;&amp; a == 2 &amp;&amp; a == 3这种判断的面试题已经够变态，没想道"></a>我以为a == 1 &amp;&amp; a == 2 &amp;&amp; a == 3这种判断的面试题已经够变态，没想道</h3><p>本以为</p>
@@ -641,30 +651,10 @@
 <p><strong>注意[].forEach.call(eleList,item=&gt;{ item是每一个元素 })</strong> 用法 </p>
 
     </div>
-    <h3 style="font-size: 1.6rem;font-weight: 550;">页面关键信息已通过以下代码生成跳转链接</h3>
-    <pre>
-     &lt;script&gt;
-         const context = document.querySelector(".markdown-body");
-         const articleTitleList = document.querySelector(".article-title-list");
-         if(context){
-             const tags = context.querySelectorAll('*');
-             const hTagReg = /^H[1-6]$/;
-             let template = '';
-             tags.forEach(item=>{
-                     if(hTagReg.test(item.tagName.toUpperCase()) && item.innerText){
-                      const tagH = item.tagName.toLowerCase();
-                      const forHash = item.getAttribute("id");
-                     template+=`
-                          <${tagH}>
-                          <a onclick="javascript:void(1)" href="#${forHash}">${item.innerText}</a>
-                         </${tagH}>  
-                      `;
-                  }
-              });
-             articleTitleList.innerHTML=template; 
-          }
-          &lt;/script&gt;
-        </pre>
+
+
+    
+
     
     <div class="post-copyright-info">
       <div class="article-copyright-info-container">
@@ -730,7 +720,7 @@
  * @Description: file content
  * @Author: yuhongshao
  * @Date: 2022-04-11 16:32:40
- * @email: yuhongshao@tencent.com
+ * @email: 
  * @LastEditTime: 2022-04-25 09:25:59
 -->
 <footer class="footer">
@@ -856,27 +846,32 @@
   const mainContent = document.querySelector('.main-content');
 
   if (context) {
-    const tags = context.querySelectorAll('*');
-    const hTagReg = /^H[1-6]$/;
-    let template = '';
-    tags.forEach(item => {
-      if (hTagReg.test(item.tagName.toUpperCase()) && item.innerText) {
-        const tagH = item.tagName.toLowerCase();
-        const forHash = item.getAttribute("id");
-        template += `
+    if (window.innerWidth > 1380) {
+      const tags = context.querySelectorAll('*');
+      const hTagReg = /^H[1-6]$/;
+      let template = '';
+      tags.forEach(item => {
+        if (hTagReg.test(item.tagName.toUpperCase()) && item.innerText) {
+          const tagH = item.tagName.toLowerCase();
+          const tagHToUpper = item.tagName.toUpperCase();
+          const forHash = item.getAttribute("id");
+          //<span class="badge">${tagHToUpper}</span>
+          template += `
                   <${tagH}>
-                    <a onclick="javascript:void(1)" href="#${forHash}">${item.innerText}</a>
+                    <a onclick="javascript:void(1)" href="#${forHash}"> ${item.innerText}</a>
                   </${tagH}>  
                 `;
 
-      }
-    });
-    articleTitleList.innerHTML = template;
+        }
+      });
+      articleTitleList.innerHTML = template;
+    }
+
 
   }
 
   (function leftNavPositionChange() {
-    const articleTitlePositoinX = (window.innerWidth - mainContent.clientWidth) / 2 - 255;
+    const articleTitlePositoinX = (window.innerWidth - mainContent.clientWidth) / 2 - 300;
     articleTitleList.style.left = articleTitlePositoinX + 'px';
     window.onresize = function () {
       leftNavPositionChange();

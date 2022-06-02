@@ -31,8 +31,8 @@
  * @Description: file content
  * @Author: yuhongshao
  * @Date: 2021-02-20 19:33:18
- * @email: yuhongshao@tencent.com
- * @LastEditTime: 2022-03-30 10:24:37
+ * @email: 
+ * @LastEditTime: 2022-05-25 12:31:42
 -->
 <div class="progress-bar-container">
     
@@ -133,16 +133,26 @@
 
     </div>
     <style>
+      .main-content a{
+        color: #6e9cca;
+      }
       .article-title-list {
         position: fixed;
         left: 80px;
         top: 110px;
         z-index: 100;
-        width: 250px;
+        width: 300px;
         max-height: calc(100% - 144px);
         overflow: auto;
       }
-
+      .article-title-list a .badge{
+        display: inline-block;
+        margin-right: 5px;
+        padding: 0 5px;
+        background-color: #ebebeb;
+        border-radius: 3px;
+        color: #6b6b6b;
+      }
       .article-title-list h1,
       .article-title-list h2,
       .article-title-list h3,
@@ -205,9 +215,44 @@
         <section class="archive-item">
             <div class="archive-item-header">
                 <span class="archive-year">2022</span>
-                <span class="archive-year-post-count">[8]</span>
+                <span class="archive-year-post-count">[13]</span>
             </div>
             <ul class="article-list">
+                
+                    <li class="article-item">
+                        <a class="article-title"
+                           href="/2022/06/02/umi-js%E7%AC%94%E8%AE%B0/"
+                        >umi.js笔记</a>
+                        <span class="article-date">06-02</span>
+                    </li>
+                
+                    <li class="article-item">
+                        <a class="article-title"
+                           href="/2022/06/02/dava-js%E7%AC%94%E8%AE%B0/"
+                        >dava.js笔记</a>
+                        <span class="article-date">06-02</span>
+                    </li>
+                
+                    <li class="article-item">
+                        <a class="article-title"
+                           href="/2022/06/02/redux-sage%E7%AC%94%E8%AE%B0/"
+                        >redux-sage笔记</a>
+                        <span class="article-date">06-02</span>
+                    </li>
+                
+                    <li class="article-item">
+                        <a class="article-title"
+                           href="/2022/06/02/react-redux%E7%AC%94%E8%AE%B0/"
+                        >react-redux笔记</a>
+                        <span class="article-date">06-02</span>
+                    </li>
+                
+                    <li class="article-item">
+                        <a class="article-title"
+                           href="/2022/05/16/xlsx-js%E7%9A%84%E4%BD%BF%E7%94%A8/"
+                        >xlsx.js的使用</a>
+                        <span class="article-date">05-16</span>
+                    </li>
                 
                     <li class="article-item">
                         <a class="article-title"
@@ -664,7 +709,7 @@
  * @Description: file content
  * @Author: yuhongshao
  * @Date: 2022-04-11 16:32:40
- * @email: yuhongshao@tencent.com
+ * @email: 
  * @LastEditTime: 2022-04-25 09:25:59
 -->
 <footer class="footer">
@@ -777,27 +822,32 @@
   const mainContent = document.querySelector('.main-content');
 
   if (context) {
-    const tags = context.querySelectorAll('*');
-    const hTagReg = /^H[1-6]$/;
-    let template = '';
-    tags.forEach(item => {
-      if (hTagReg.test(item.tagName.toUpperCase()) && item.innerText) {
-        const tagH = item.tagName.toLowerCase();
-        const forHash = item.getAttribute("id");
-        template += `
+    if (window.innerWidth > 1380) {
+      const tags = context.querySelectorAll('*');
+      const hTagReg = /^H[1-6]$/;
+      let template = '';
+      tags.forEach(item => {
+        if (hTagReg.test(item.tagName.toUpperCase()) && item.innerText) {
+          const tagH = item.tagName.toLowerCase();
+          const tagHToUpper = item.tagName.toUpperCase();
+          const forHash = item.getAttribute("id");
+          //<span class="badge">${tagHToUpper}</span>
+          template += `
                   <${tagH}>
-                    <a onclick="javascript:void(1)" href="#${forHash}">${item.innerText}</a>
+                    <a onclick="javascript:void(1)" href="#${forHash}"> ${item.innerText}</a>
                   </${tagH}>  
                 `;
 
-      }
-    });
-    articleTitleList.innerHTML = template;
+        }
+      });
+      articleTitleList.innerHTML = template;
+    }
+
 
   }
 
   (function leftNavPositionChange() {
-    const articleTitlePositoinX = (window.innerWidth - mainContent.clientWidth) / 2 - 255;
+    const articleTitlePositoinX = (window.innerWidth - mainContent.clientWidth) / 2 - 300;
     articleTitleList.style.left = articleTitlePositoinX + 'px';
     window.onresize = function () {
       leftNavPositionChange();

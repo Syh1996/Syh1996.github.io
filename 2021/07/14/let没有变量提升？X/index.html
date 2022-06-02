@@ -31,8 +31,8 @@
  * @Description: file content
  * @Author: yuhongshao
  * @Date: 2021-02-20 19:33:18
- * @email: yuhongshao@tencent.com
- * @LastEditTime: 2022-03-30 10:24:37
+ * @email: 
+ * @LastEditTime: 2022-05-25 12:31:42
 -->
 <div class="progress-bar-container">
     
@@ -133,16 +133,26 @@
 
     </div>
     <style>
+      .main-content a{
+        color: #6e9cca;
+      }
       .article-title-list {
         position: fixed;
         left: 80px;
         top: 110px;
         z-index: 100;
-        width: 250px;
+        width: 300px;
         max-height: calc(100% - 144px);
         overflow: auto;
       }
-
+      .article-title-list a .badge{
+        display: inline-block;
+        margin-right: 5px;
+        padding: 0 5px;
+        background-color: #ebebeb;
+        border-radius: 3px;
+        color: #6b6b6b;
+      }
       .article-title-list h1,
       .article-title-list h2,
       .article-title-list h3,
@@ -214,7 +224,7 @@
           <span class="name">邵预鸿</span>
           
           <span
-            class="author-label">Lv4</span>
+            class="author-label">Lv5</span>
           
         </div>
         <div class="meta-info">
@@ -264,30 +274,10 @@
 <p>作者：37.2℃同志链接：<a class="link"   target="_blank" rel="noopener" href="https://juejin.cn/post/6983702070293430303%E6%9D%A5%E6%BA%90%EF%BC%9A%E6%8E%98%E9%87%91%E8%91%97%E4%BD%9C%E6%9D%83%E5%BD%92%E4%BD%9C%E8%80%85%E6%89%80%E6%9C%89%E3%80%82%E5%95%86%E4%B8%9A%E8%BD%AC%E8%BD%BD%E8%AF%B7%E8%81%94%E7%B3%BB%E4%BD%9C%E8%80%85%E8%8E%B7%E5%BE%97%E6%8E%88%E6%9D%83%EF%BC%8C%E9%9D%9E%E5%95%86%E4%B8%9A%E8%BD%AC%E8%BD%BD%E8%AF%B7%E6%B3%A8%E6%98%8E%E5%87%BA%E5%A4%84%E3%80%82" >https://juejin.cn/post/6983702070293430303来源：掘金著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。<i class="fas fa-external-link-alt"></i></a></p>
 
     </div>
-    <h3 style="font-size: 1.6rem;font-weight: 550;">页面关键信息已通过以下代码生成跳转链接</h3>
-    <pre>
-     &lt;script&gt;
-         const context = document.querySelector(".markdown-body");
-         const articleTitleList = document.querySelector(".article-title-list");
-         if(context){
-             const tags = context.querySelectorAll('*');
-             const hTagReg = /^H[1-6]$/;
-             let template = '';
-             tags.forEach(item=>{
-                     if(hTagReg.test(item.tagName.toUpperCase()) && item.innerText){
-                      const tagH = item.tagName.toLowerCase();
-                      const forHash = item.getAttribute("id");
-                     template+=`
-                          <${tagH}>
-                          <a onclick="javascript:void(1)" href="#${forHash}">${item.innerText}</a>
-                         </${tagH}>  
-                      `;
-                  }
-              });
-             articleTitleList.innerHTML=template; 
-          }
-          &lt;/script&gt;
-        </pre>
+
+
+    
+
     
     <div class="post-copyright-info">
       <div class="article-copyright-info-container">
@@ -353,7 +343,7 @@
  * @Description: file content
  * @Author: yuhongshao
  * @Date: 2022-04-11 16:32:40
- * @email: yuhongshao@tencent.com
+ * @email: 
  * @LastEditTime: 2022-04-25 09:25:59
 -->
 <footer class="footer">
@@ -479,27 +469,32 @@
   const mainContent = document.querySelector('.main-content');
 
   if (context) {
-    const tags = context.querySelectorAll('*');
-    const hTagReg = /^H[1-6]$/;
-    let template = '';
-    tags.forEach(item => {
-      if (hTagReg.test(item.tagName.toUpperCase()) && item.innerText) {
-        const tagH = item.tagName.toLowerCase();
-        const forHash = item.getAttribute("id");
-        template += `
+    if (window.innerWidth > 1380) {
+      const tags = context.querySelectorAll('*');
+      const hTagReg = /^H[1-6]$/;
+      let template = '';
+      tags.forEach(item => {
+        if (hTagReg.test(item.tagName.toUpperCase()) && item.innerText) {
+          const tagH = item.tagName.toLowerCase();
+          const tagHToUpper = item.tagName.toUpperCase();
+          const forHash = item.getAttribute("id");
+          //<span class="badge">${tagHToUpper}</span>
+          template += `
                   <${tagH}>
-                    <a onclick="javascript:void(1)" href="#${forHash}">${item.innerText}</a>
+                    <a onclick="javascript:void(1)" href="#${forHash}"> ${item.innerText}</a>
                   </${tagH}>  
                 `;
 
-      }
-    });
-    articleTitleList.innerHTML = template;
+        }
+      });
+      articleTitleList.innerHTML = template;
+    }
+
 
   }
 
   (function leftNavPositionChange() {
-    const articleTitlePositoinX = (window.innerWidth - mainContent.clientWidth) / 2 - 255;
+    const articleTitlePositoinX = (window.innerWidth - mainContent.clientWidth) / 2 - 300;
     articleTitleList.style.left = articleTitlePositoinX + 'px';
     window.onresize = function () {
       leftNavPositionChange();

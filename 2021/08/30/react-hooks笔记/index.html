@@ -31,8 +31,8 @@
  * @Description: file content
  * @Author: yuhongshao
  * @Date: 2021-02-20 19:33:18
- * @email: yuhongshao@tencent.com
- * @LastEditTime: 2022-03-30 10:24:37
+ * @email: 
+ * @LastEditTime: 2022-05-25 12:31:42
 -->
 <div class="progress-bar-container">
     
@@ -133,16 +133,26 @@
 
     </div>
     <style>
+      .main-content a{
+        color: #6e9cca;
+      }
       .article-title-list {
         position: fixed;
         left: 80px;
         top: 110px;
         z-index: 100;
-        width: 250px;
+        width: 300px;
         max-height: calc(100% - 144px);
         overflow: auto;
       }
-
+      .article-title-list a .badge{
+        display: inline-block;
+        margin-right: 5px;
+        padding: 0 5px;
+        background-color: #ebebeb;
+        border-radius: 3px;
+        color: #6b6b6b;
+      }
       .article-title-list h1,
       .article-title-list h2,
       .article-title-list h3,
@@ -214,7 +224,7 @@
           <span class="name">邵预鸿</span>
           
           <span
-            class="author-label">Lv4</span>
+            class="author-label">Lv5</span>
           
         </div>
         <div class="meta-info">
@@ -249,6 +259,8 @@
 
     <div class="article-content markdown-body">
       <h4 id="useState"><a href="#useState" class="headerlink" title="useState"></a>useState</h4><figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">AboutHook</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">      <span class="keyword">const</span> [count, setCount] = useState(<span class="number">0</span>);</span><br><span class="line">      <span class="keyword">const</span> [show, setShow] = useState(<span class="literal">true</span>)</span><br><span class="line">      <span class="keyword">return</span> (&lt;div&gt;</span><br><span class="line">            &lt;h2&gt;<span class="built_in">this</span> is abouthook.js&lt;/h2&gt;</span><br><span class="line">            &lt;button onClick=&#123;<span class="function">() =&gt;</span> setShow(!show)&#125;&gt;显示/隐藏子组件&lt;/button&gt;</span><br><span class="line">            &lt;p&gt;</span><br><span class="line">                  &lt;button onClick=&#123;<span class="function">() =&gt;</span> setCount(count - <span class="number">1</span>)&#125;&gt;-&lt;/button&gt;</span><br><span class="line">                  &lt;span&gt;&#123;count&#125;&lt;/span&gt;</span><br><span class="line">                  &lt;button onClick=&#123;<span class="function">() =&gt;</span> setCount(count + <span class="number">1</span>)&#125;&gt;+&lt;/button&gt;</span><br><span class="line">            &lt;/p&gt;</span><br><span class="line">      &lt;/div&gt;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><strong><em>注意，在useEffect使用定时器设置useState的值时，请使用回调函数的形式</em></strong></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> [count,setCount] = useState(<span class="number">1</span>);</span><br><span class="line">  <span class="keyword">const</span> [now,setNow]= useState();</span><br><span class="line">  <span class="keyword">const</span> recored = useRef();</span><br><span class="line">  <span class="keyword">let</span> timer = <span class="literal">null</span>;</span><br><span class="line">  useEffect(<span class="function">() =&gt;</span> &#123;</span><br><span class="line">       addCount();</span><br><span class="line">       setTime();</span><br><span class="line">      <span class="keyword">return</span> <span class="function">() =&gt;</span> &#123;</span><br><span class="line">          <span class="built_in">console</span>.log(<span class="string">&#x27;销毁了&#x27;</span>);</span><br><span class="line">          <span class="built_in">clearInterval</span>(timer);</span><br><span class="line">      &#125;</span><br><span class="line">  &#125;, []);</span><br><span class="line">  <span class="keyword">const</span> addCount = <span class="function">()=&gt;</span>&#123;</span><br><span class="line">      timer = <span class="built_in">setInterval</span>(<span class="function">()=&gt;</span>&#123;</span><br><span class="line">          setCount(<span class="function"><span class="params">count</span>=&gt;</span>count+<span class="number">1</span>);</span><br><span class="line">      &#125;,<span class="number">1000</span>)</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
 
 
 <h4 id="createContext"><a href="#createContext" class="headerlink" title="createContext()"></a>createContext()</h4><ul>
@@ -280,40 +292,33 @@
 </ul>
 <h4 id="useMemo"><a href="#useMemo" class="headerlink" title="useMemo"></a>useMemo</h4><p>useMemo 主要用于性能优化，在hooks中数据更新会使页面重新渲染，如果 页面有调用 的函数，那么相关函数将重新计算并调用 ，useMeno主要用于解决多于调用 的问题</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"> <span class="keyword">const</span> sum =useMemo(<span class="function">()=&gt;</span>&#123;</span><br><span class="line">        <span class="keyword">var</span> sum =<span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">var</span> i=<span class="number">0</span>;i&lt;<span class="number">1000</span>;i++)&#123;</span><br><span class="line">             sum+=i;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">&quot;sum触发&quot;</span>)</span><br><span class="line">        <span class="keyword">return</span> sum;</span><br><span class="line">    &#125;,[age]) </span><br><span class="line"><span class="comment">//调用时&#123;sum&#125; 不再是函数 </span></span><br></pre></td></tr></table></figure>
+<p>由于useMemo会执行函数，并返回函数 的结果 ，useMemo可以替换useCallBack</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">useMemo(()&#x3D;&gt;val&#x3D;&gt;setText(val),[val])</span><br><span class="line"></span><br><span class="line">useCallBack((val)&#x3D;&gt;&#123;setText(val)&#125;,[val])</span><br></pre></td></tr></table></figure>
 
 
-
-
+<h4 id="useCallBack"><a href="#useCallBack" class="headerlink" title="useCallBack"></a>useCallBack</h4><p>useCallBack会缓存函数，并不会执行，而是返回这个函数</p>
+<p>useMemo会执行函数。并返回函数的结果</p>
 <h4 id="useRef"><a href="#useRef" class="headerlink" title="useRef"></a>useRef</h4><p>useRef可以用于存储变量或者 dom元素</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">import &#123;useRef&#125; from &#39;react&#39;;</span><br><span class="line">function Fn()&#123;</span><br><span class="line">      const ele &#x3D; useRef;</span><br><span class="line">      useEffect(()&#x3D;&gt;&#123;</span><br><span class="line">            ele.current &#x3D; Math.random();</span><br><span class="line">      &#125;);</span><br><span class="line">    return (&lt;div&gt;</span><br><span class="line">          &lt;input  type&#x3D;&#39;text&#39; ref&#x3D;&#123;ele&#125;&gt;&lt;&#x2F;input&gt; </span><br><span class="line">        &lt;&#x2F;div&gt;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">import &#123; useRef,useState &#125; from &#39;react&#39;;</span><br><span class="line">export default function Test(props)&#123;</span><br><span class="line">    const [text,setText] &#x3D; useState(&#39;&#39;);</span><br><span class="line">    const v &#x3D; useRef(&#39;&#39;);   &#x2F;&#x2F;记录值</span><br><span class="line">    const dom &#x3D; useRef(null); &#x2F;&#x2F;记录dom</span><br><span class="line">    const submit &#x3D; ()&#x3D;&gt;&#123;</span><br><span class="line">        console.log(&#39;提交表单&#39;);</span><br><span class="line">        console.log(text);</span><br><span class="line">        console.log(&#39;v的值:&#39;,v.current);</span><br><span class="line">        console.log(dom);</span><br><span class="line">    &#125;</span><br><span class="line">    return (&lt;div&gt;</span><br><span class="line">        &lt;hr&#x2F;&gt;</span><br><span class="line">         &lt;h3&gt;02_useRef.jsx&lt;&#x2F;h3&gt;</span><br><span class="line">         &lt;input value&#x3D;&#123;text&#125; onChange&#x3D;&#123;e&#x3D;&gt;&#123;setText(e.target.value); v.current &#x3D; e.target.value&#125;&#125;&gt;&lt;&#x2F;input&gt;&lt;button ref&#x3D;&#123;dom&#125; onClick&#x3D;&#123;()&#x3D;&gt;submit()&#125;&gt;提交&lt;&#x2F;button&gt;</span><br><span class="line">         &lt;div&gt;</span><br><span class="line">             &lt;input type&#x3D;&#39;radio&#39; value&#x3D;&quot;1&quot; checked&#x3D;&#123;text &#x3D;&#x3D;&#x3D;&#39;1&#39;&#125; onChange&#x3D;&#123;(e)&#x3D;&gt;&#123;setText(e.target.value)&#125;&#125;  name&#x3D;&quot;tag&quot;&#x2F;&gt;标签1</span><br><span class="line">             &lt;input type&#x3D;&#39;radio&#39; value&#x3D;&quot;2&quot; checked&#x3D;&#123;text &#x3D;&#x3D;&#x3D;&#39;2&#39;&#125; onChange&#x3D;&#123;(e)&#x3D;&gt;&#123;setText(e.target.value)&#125;&#125;  name&#x3D;&quot;tag&quot;&#x2F;&gt;标签2</span><br><span class="line">             &lt;input type&#x3D;&#39;radio&#39; value&#x3D;&quot;3&quot; checked&#x3D;&#123;text &#x3D;&#x3D;&#x3D;&#39;3&#39;&#125; onChange&#x3D;&#123;(e)&#x3D;&gt;&#123;setText(e.target.value)&#125;&#125; name&#x3D;&quot;tag&quot;&#x2F;&gt;标签3</span><br><span class="line">             &lt;input type&#x3D;&#39;radio&#39; value&#x3D;&quot;4&quot; checked&#x3D;&#123;text &#x3D;&#x3D;&#x3D;&#39;4&#39;&#125; onChange&#x3D;&#123;(e)&#x3D;&gt;&#123;setText(e.target.value)&#125;&#125;  name&#x3D;&quot;tag&quot;&#x2F;&gt;标签4</span><br><span class="line">         &lt;&#x2F;div&gt;</span><br><span class="line">    &lt;&#x2F;div&gt;)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 
+<h4 id="自定义hooks-与vue雷同，把hooks提出去"><a href="#自定义hooks-与vue雷同，把hooks提出去" class="headerlink" title="自定义hooks  与vue雷同，把hooks提出去"></a>自定义hooks  与vue雷同，把hooks提出去</h4><p>以以下逻辑为例子</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> <span class="string">&#x27;@assets/index.css&#x27;</span>;</span><br><span class="line"><span class="keyword">import</span> &#123; useState,useEffect  &#125; <span class="keyword">from</span> <span class="string">&#x27;react&#x27;</span>;</span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="function"><span class="keyword">function</span> <span class="title">InitHooks</span>(<span class="params">props</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">const</span> [list,setList] = useState([]);</span><br><span class="line">    useEffect(<span class="function">() =&gt;</span> &#123;</span><br><span class="line">        </span><br><span class="line">        <span class="built_in">setTimeout</span>(<span class="function">()=&gt;</span>&#123;</span><br><span class="line">            <span class="keyword">const</span> arr = [...Array(<span class="number">10</span>).keys()];</span><br><span class="line">            setList(arr);</span><br><span class="line">        &#125;,<span class="number">2000</span>);</span><br><span class="line">    &#125;, [])</span><br><span class="line">  <span class="keyword">return</span> (&lt;div&gt;</span><br><span class="line">       &lt;h3&gt;<span class="built_in">this</span> is inithooks.jsx&lt;/h3&gt;</span><br><span class="line">       &lt;ul&gt;</span><br><span class="line">           &#123;list.map(<span class="function">(<span class="params">item,index</span>)=&gt;</span>( <span class="xml"><span class="tag">&lt;<span class="name">li</span> <span class="attr">key</span>=<span class="string">&#123;index&#125;</span>&gt;</span>&#123;item&#125; <span class="tag">&lt;<span class="name">button</span>&gt;</span>删除<span class="tag">&lt;/<span class="name">button</span>&gt;</span><span class="tag">&lt;/<span class="name">li</span>&gt;</span></span>))&#125;</span><br><span class="line">          </span><br><span class="line">       &lt;/ul&gt;</span><br><span class="line">       &#123;list.length ==<span class="number">0</span> &amp;&amp; <span class="xml"><span class="tag">&lt;<span class="name">p</span>&gt;</span>请求中<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span>&#125;</span><br><span class="line">  &lt;/div&gt;)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>效果图如下</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="http://server.yuhongshao.cn/static/yuhongshao/20220530160528.png"
+                      alt="http://server.yuhongshao.cn/static/yuhongshao/20220530160528.png"
+                ></p>
+<p>使用自定义hooks后</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> <span class="string">&#x27;@assets/index.css&#x27;</span>;</span><br><span class="line"><span class="keyword">import</span> &#123; useState,useEffect  &#125; <span class="keyword">from</span> <span class="string">&#x27;react&#x27;</span>;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">useCreateList</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">const</span> [list,setList] = useState([]);</span><br><span class="line">    useEffect(<span class="function">() =&gt;</span> &#123;</span><br><span class="line">        </span><br><span class="line">        <span class="built_in">setTimeout</span>(<span class="function">()=&gt;</span>&#123;</span><br><span class="line">            <span class="keyword">const</span> arr = [...Array(<span class="number">10</span>).keys()];</span><br><span class="line">            setList(arr);</span><br><span class="line">        &#125;,<span class="number">2000</span>);</span><br><span class="line">    &#125;, []);</span><br><span class="line">    <span class="keyword">return</span> &#123;</span><br><span class="line">        list,</span><br><span class="line">        setList</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">useDelItem</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">const</span> delItem = <span class="function">(<span class="params">&#123;idx,list,setList&#125;</span>)=&gt;</span>&#123;</span><br><span class="line">        <span class="built_in">console</span>.log(idx);</span><br><span class="line">        <span class="keyword">const</span> arr = list.filter(<span class="function">(<span class="params">item,index</span>)=&gt;</span>index!==idx);</span><br><span class="line">        setList(arr);</span><br><span class="line">       </span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> delItem;</span><br><span class="line">   </span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="function"><span class="keyword">function</span> <span class="title">InitHooks</span>(<span class="params">props</span>)</span>&#123;</span><br><span class="line">   </span><br><span class="line">  <span class="keyword">const</span> &#123;list,setList&#125; = useCreateList();</span><br><span class="line">  <span class="keyword">const</span> delItem2 = useDelItem();</span><br><span class="line">  <span class="keyword">return</span> (&lt;div&gt;</span><br><span class="line">       &lt;h3&gt;<span class="built_in">this</span> is inithooks.jsx&lt;/h3&gt;</span><br><span class="line">       &lt;ul&gt;</span><br><span class="line">           &#123;list.map(<span class="function">(<span class="params">item,index</span>)=&gt;</span>( <span class="xml"><span class="tag">&lt;<span class="name">li</span> <span class="attr">key</span>=<span class="string">&#123;index&#125;</span>&gt;</span>&#123;item&#125; <span class="tag">&lt;<span class="name">button</span> <span class="attr">onClick</span>=<span class="string">&#123;()</span>=&gt;</span>delItem2(&#123;idx:index,list,setList&#125;)&#125;&gt;删除<span class="tag">&lt;/<span class="name">button</span>&gt;</span><span class="tag">&lt;/<span class="name">li</span>&gt;</span></span>))&#125;</span><br><span class="line">          </span><br><span class="line">       &lt;/ul&gt;</span><br><span class="line">       &#123;list.length ==<span class="number">0</span> &amp;&amp; <span class="xml"><span class="tag">&lt;<span class="name">p</span>&gt;</span>请求中<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span>&#125;</span><br><span class="line">  &lt;/div&gt;)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
     </div>
-    <h3 style="font-size: 1.6rem;font-weight: 550;">页面关键信息已通过以下代码生成跳转链接</h3>
-    <pre>
-     &lt;script&gt;
-         const context = document.querySelector(".markdown-body");
-         const articleTitleList = document.querySelector(".article-title-list");
-         if(context){
-             const tags = context.querySelectorAll('*');
-             const hTagReg = /^H[1-6]$/;
-             let template = '';
-             tags.forEach(item=>{
-                     if(hTagReg.test(item.tagName.toUpperCase()) && item.innerText){
-                      const tagH = item.tagName.toLowerCase();
-                      const forHash = item.getAttribute("id");
-                     template+=`
-                          <${tagH}>
-                          <a onclick="javascript:void(1)" href="#${forHash}">${item.innerText}</a>
-                         </${tagH}>  
-                      `;
-                  }
-              });
-             articleTitleList.innerHTML=template; 
-          }
-          &lt;/script&gt;
-        </pre>
+
+
+    
+
     
     <div class="post-copyright-info">
       <div class="article-copyright-info-container">
@@ -379,7 +384,7 @@
  * @Description: file content
  * @Author: yuhongshao
  * @Date: 2022-04-11 16:32:40
- * @email: yuhongshao@tencent.com
+ * @email: 
  * @LastEditTime: 2022-04-25 09:25:59
 -->
 <footer class="footer">
@@ -505,27 +510,32 @@
   const mainContent = document.querySelector('.main-content');
 
   if (context) {
-    const tags = context.querySelectorAll('*');
-    const hTagReg = /^H[1-6]$/;
-    let template = '';
-    tags.forEach(item => {
-      if (hTagReg.test(item.tagName.toUpperCase()) && item.innerText) {
-        const tagH = item.tagName.toLowerCase();
-        const forHash = item.getAttribute("id");
-        template += `
+    if (window.innerWidth > 1380) {
+      const tags = context.querySelectorAll('*');
+      const hTagReg = /^H[1-6]$/;
+      let template = '';
+      tags.forEach(item => {
+        if (hTagReg.test(item.tagName.toUpperCase()) && item.innerText) {
+          const tagH = item.tagName.toLowerCase();
+          const tagHToUpper = item.tagName.toUpperCase();
+          const forHash = item.getAttribute("id");
+          //<span class="badge">${tagHToUpper}</span>
+          template += `
                   <${tagH}>
-                    <a onclick="javascript:void(1)" href="#${forHash}">${item.innerText}</a>
+                    <a onclick="javascript:void(1)" href="#${forHash}"> ${item.innerText}</a>
                   </${tagH}>  
                 `;
 
-      }
-    });
-    articleTitleList.innerHTML = template;
+        }
+      });
+      articleTitleList.innerHTML = template;
+    }
+
 
   }
 
   (function leftNavPositionChange() {
-    const articleTitlePositoinX = (window.innerWidth - mainContent.clientWidth) / 2 - 255;
+    const articleTitlePositoinX = (window.innerWidth - mainContent.clientWidth) / 2 - 300;
     articleTitleList.style.left = articleTitlePositoinX + 'px';
     window.onresize = function () {
       leftNavPositionChange();

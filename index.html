@@ -29,8 +29,8 @@
  * @Description: file content
  * @Author: yuhongshao
  * @Date: 2021-02-20 19:33:18
- * @email: yuhongshao@tencent.com
- * @LastEditTime: 2022-03-30 10:24:37
+ * @email: 
+ * @LastEditTime: 2022-05-25 12:31:42
 -->
 <div class="progress-bar-container">
     
@@ -45,153 +45,303 @@
 
   
   <style>
-      .bike{
-        position: absolute;
-        left: 0;
-        top: 0;
-        bottom: 0;
-        right: 0;
-        z-index: -1;
-      }
-      @media screen and (max-width:1200px){
-          .bike svg{
-              display: none;
-          }
-      }
-       .bike svg{
-             width:100%;
-             height: 100vh;
+  .bike {
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    z-index: -1;
+  }
 
-         }
-       #use1{
-           stroke: #fdd663;
-           stroke-dasharray: 10 10;
-           stroke-dashoffset: 0;
-           animation: ani1 5s infinite  linear;
-       }
-       #use2{
-           stroke: #ee675c;
-           stroke-dasharray: 10 10;
-           stroke-dashoffset: 0;
-           animation: ani2 5s infinite linear;
-       }
-       #use3{
-           stroke: #81c995;
-           stroke-dasharray: 10 10;
-           stroke-dashoffset: 0;
-           animation: ani3 5s infinite linear;
-        
-       }
-       @keyframes ani1{
-           0%{
-            stroke-dasharray: 100 60;
-           stroke-dashoffset: 0;
-           }
-         
-          100%{
-            stroke-dasharray: 100 60;
-           stroke-dashoffset: 160;
-           }
-       }
+  @media screen and (max-width:1200px) {
+    .bike svg {
+      display: none;
+    }
+  }
 
+  .bike svg {
+    width: 100%;
+    height: 100vh;
 
-       @keyframes ani2{
-           0%{
-            stroke-dasharray: 100 90;
-           stroke-dashoffset: 0;
-           }
-          
-           100%{
-            stroke-dasharray: 100 90;
-           stroke-dashoffset: 190;
-           }
-       }
+  }
+
+  #use1 {
+    stroke: #fdd663;
+    stroke-dasharray: 10 10;
+    stroke-dashoffset: 0;
+    animation: ani1 5s infinite linear;
+  }
+
+  #use2 {
+    stroke: #ee675c;
+    stroke-dasharray: 10 10;
+    stroke-dashoffset: 0;
+    animation: ani2 5s infinite linear;
+  }
+
+  #use3 {
+    stroke: #81c995;
+    stroke-dasharray: 10 10;
+    stroke-dashoffset: 0;
+    animation: ani3 5s infinite linear;
+
+  }
+
+  @keyframes ani1 {
+    0% {
+      stroke-dasharray: 100 60;
+      stroke-dashoffset: 0;
+    }
+
+    100% {
+      stroke-dasharray: 100 60;
+      stroke-dashoffset: 160;
+    }
+  }
 
 
-       @keyframes ani3{
-           0%{
-            stroke-dasharray: 100 120;
-           stroke-dashoffset: 0;
-           }
-         
-           100%{
-            stroke-dasharray: 100 120;
-           stroke-dashoffset: 220;
-           }
-           
-       }
+  @keyframes ani2 {
+    0% {
+      stroke-dasharray: 100 90;
+      stroke-dashoffset: 0;
+    }
+
+    100% {
+      stroke-dasharray: 100 90;
+      stroke-dashoffset: 190;
+    }
+  }
+
+
+  @keyframes ani3 {
+    0% {
+      stroke-dasharray: 100 120;
+      stroke-dashoffset: 0;
+    }
+
+    100% {
+      stroke-dasharray: 100 120;
+      stroke-dashoffset: 220;
+    }
+
+  }
+  .black .description{color:#fff  !important}
+  .black .bike{ visibility: hidden;}
+  .black .first-screen-container .content .s-icon-list i{
+    color:#fff;
+  }
+
 </style>
+<script src="https://cdn.bootcdn.net/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+<script src="http://www.assets.yuhongshao.cn/firework/js/canvas.js"></script>
+<script src="http://www.assets.yuhongshao.cn/firework/js/deepCopy.js"></script>
+<script src="http://www.assets.yuhongshao.cn/firework/js/Firework.js"></script>
+<canvas id="canvas2" style="position: fixed;left:0;top:0;bottom:0;right:0;pointer-events: none;"></canvas>
+<script>
+  var canvas = '',
+    ctx = '',
+    g = '',
+    fireworkList = [];
+  window.onload = function () {
+    const currentDate = new Date();
+    const currentHour = currentDate.getHours();
+    if (currentHour > 18) {
+      document.body.className = "black";
+      canvas = document.querySelector("#canvas2"),
+        ctx = canvas.getContext("2d"),
+        g = 0.25, //模拟重力加速度
+        n = 12, //一次性发射的烟火的数量
+        fireworkList = [], //存放所有烟火对象
+        //烟火形状                                                        圆形                                                              椭圆形                                                          爱心形
+        fireworkTypeList = [createCircleFirework, createEllipseFirework], //createHeartFirework
+        totalNum = 0, //发射烟火的总数量
+        surprise_num = 150, //当发射烟火数量达到25时,发射生日快乐字样的烟火
+        flag = false; //是否发射生日快乐字样的烟火
+        canvas.style.top = $(".header-wrapper").height() +"px";
+      canvas.width = $(window).width();
+      canvas.height = $(window).height() - $(".header-wrapper").height();
+      
+
+
+
+      var init = function (firework, params) { //初始化一个烟火
+        var beforeBalst = firework.getBeforeBalst();
+        firework.setCtx(ctx);
+        firework.setStatus(1); //状态为点燃引线
+        firework.setNum(100 + Math.floor(100 * Math.random())); //爆炸之后的烟花数量
+        firework.setRoundness(getType(params) == "object" ? (getType(params.roundness) == "number" ? params
+          .roundness : 0.25) : 0.25); //默认的规则度是0.25,这样爆炸的烟花与真实的最像
+        //firework.setFireworkType(getType(params) == "object" ? params.fireworkType : fireworkTypeList[Math.floor(Math.random() * fireworkTypeList.length)]);//从三种形状中随机烟花形状
+        firework.setFireworkType(getType(params) == "object" ? params.fireworkType : createCircleFirework); //默认圆形烟花
+        firework.setDelay(Math.floor(30 * Math.random())); //引线燃烧的时间,单位为帧, 最多30帧,即0.5s
+        beforeBalst.setAnimate({
+          quiescence: { //发射位置为底部中间
+            x: canvas.width / 2,
+            y: canvas.height,
+            deg: 0,
+            zoom: 1
+          },
+          move: { //发射速度向量
+            vx: -7 + 14 * Math.random(),
+            vy: -22 + 4 * Math.random(),
+            pal: 0,
+            scale: 0
+          },
+          translate: { //发射加速度,有一个为g的重力加速度
+            ax: 0,
+            ay: g,
+            apal: 0,
+            scale: 0
+          }
+        });
+        beforeBalst.setR(3); //烟火半径为3像素
+        beforeBalst.setColor("#bde149"); //白色
+        beforeBalst.setLife(40 + Math.floor(Math.random() * 50)); //烟花从发射到爆炸的时间,单位为帧,即50-100帧后爆炸
+        beforeBalst.setBase(); //记录烟花发射的初始状态
+      }
+
+      for (var i = 0; i < n; i++) { //初始化n个烟火
+        var firework = Firework.getInstance();
+        init(firework);
+        fireworkList.push(firework);
+        totalNum++;
+      }
+
+      var draw = function () { //描绘每一帧烟火的状态
+        //整个canvas充满黑幕,模拟黑夜
+        ctx.globalCompositeOperation = 'source-over';
+        ctx.globalAlpha = 0.2;
+        ctx.fillStyle = '#000003';
+        /*  ctx.fillStyle = '#ffffff;'; */
+        ctx.fillStyle = '#ffffff;'
+        ctx.fillRect(0, 0, canvas.width, canvas.height);
+        //描绘每个烟火的状态
+        ctx.globalCompositeOperation = 'screen';
+        $.each(fireworkList, function (index, value) {
+          value.draw();
+        });
+
+      };
+
+      var update = function () { //更新每一帧烟火的状态
+        for (var i = fireworkList.length - 1; i >= 0; i--) {
+          fireworkList[i].update(); //更新
+          if (fireworkList[i].getStatus() == 5) { //烟火消失
+            fireworkList.splice(i, 1); //在烟火集合中将这个烟火去除掉
+            if (totalNum < surprise_num) { //当发射烟火数量没到25
+              var firework = Firework.getInstance(); //继续生成新的烟火
+              init(firework);
+              fireworkList.push(firework);
+              totalNum++;
+            }else{
+              document.body.className = '';
+              document.querySelector("#canvas2").remove();
+            }
+            if (fireworkList.length == 0 && flag) { //发射生日快乐烟火和一箭穿心烟火
+              var firework = Firework.getInstance();
+              init(firework, {
+                fireworkType: createCustomFirework,
+                roundness: 1
+              });
+              fireworkList.push(firework);
+              var firework2 = Firework.getInstance();
+              init(firework2, {
+                fireworkType: createDoubleHeartFirework,
+                roundness: 1
+              });
+              fireworkList.push(firework2);
+              flag = false;
+            }
+          }
+        }
+      }
+
+      var loop = function () {
+        draw();
+        update();
+        requestAnimationFrame(function () { //每秒触发60次的方法,因此动画是60帧的
+          loop();
+        });
+      };
+
+      loop();
+    }
+
+  }
+
+</script>
 <div class="first-screen-container flex-center fade-in-down-animation">
-    <div class="content flex-center">
-        <div class="description">
-            永远坚持，永远自信，心若不老，脚步不止，加油!
-            <br>
-            积累硅步，可至千里；千里之行，始于足下
-            <br>
-            <span><small>来自一名资深的ctrl+c and ctrl+v开发者</small></span>
-            
-          
-            
-        </div>
-        
-            <div class="s-icon-list">
-                
-                    
-                        
-                            <span class="s-icon-item github">
-                                <a target="_blank" href="https://github.com/Syh1996">
-                                    <i class="fab fa-github"></i>
-                                </a>
-                            </span>
-                        
-                    
-                
-                    
-                
-                    
-                        
-                            <span class="s-icon-item qq">
-                                <a target="_blank" href="http://wpa.qq.com/msgrd?v=3&uin=1045749725&site=qq&menu=yes">
-                                    <i class="fab fa-qq"></i>
-                                </a>
-                            </span>
-                        
-                    
-                
-                    
-                
-                    
-                
-                    
-                
-                    
-                
-                    
-                        
-                            <span class="s-icon-item email">
-                                <a href="mailto:shao.yuhong@zte.com.cn">
-                                    <i class="fas fa-envelope"></i>
-                                </a>
-                            </span>
-                        
-                    
-                
-            </div>
-        
+  <div class="content flex-center">
+    <div class="description">
+      永远坚持，永远自信，心若不老，脚步不止，加油!
+      <br>
+      积累硅步，可至千里；千里之行，始于足下
+      <br>
+      <span><small>来自一名资深的ctrl+c and ctrl+v开发者</small></span>
+
+
+
     </div>
     
-    <div class="bike">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1920 1080">
-            <symbol id="back">
-              <path 
-               d="m641.78091,790.55116c33.66658,-0.42299 -32.06272,-1.96304 -43.72177,-2.8119c-97.42147,-2.36241 -178.2728,-99.22185 -167.75035,-195.34463c2.13073,-96.18695 94.77423,-180.68256 191.20004,-171.00335c25.09965,-10.66217 60.72977,24.52486 76.31358,7.71823c40.02758,-70.61028 78.81009,-141.9582 120.45054,-211.62919c35.46917,-5.06262 77.72556,-8.97584 112.22972,0.62002c15.95178,25.12759 -13.05085,31.96845 -31.14866,28.08932c-20.19947,0 -40.39894,0 -60.59845,0c-14.62302,26.67862 -29.62846,53.14464 -44.57028,79.64524c84.86946,0 169.73902,0 254.60848,0c1.88991,-9.02791 23.32755,-28.4795 4.32205,-26.36513c-34.52901,-4.35192 -12.92977,-44.25838 12.64019,-32.90578c35.89235,1.31889 73.05347,-3.53818 107.86866,3.65736c18.5978,37.3249 -35.1766,29.3175 -58.22777,29.71312c-17.06225,-5.56892 -20.59815,11.48777 -27.35368,23.15896c-27.39004,28.05648 -10.36541,57.62647 8.04336,84.977c6.75234,12.44232 11.56268,29.71084 27.99389,18.08497c33.50719,-7.36288 70.03627,-7.62992 103.37777,0.97937c69.67034,20.69872 125.53164,85.29464 130.20844,158.46779c4.22013,44.94577 -5.38832,91.27423 -33.36473,127.53277c-32.44851,46.47673 -85.10832,71.92571 -140.50727,77.08815m-43.43384,0.45368c-50.50555,-12.96067 -97.07043,-43.1132 -124.06679,-88.63504c-17.66691,-22.75363 -19.96364,-57.98298 -29.35393,-80.80756c-24.7664,-0.32404 -49.53283,-0.64811 -74.29929,-0.97213c-50.16146,-80.69484 -94.37449,-165.08841 -142.7612,-246.90817c-9.43189,28.01069 -63.052,66.11946 -33.44545,91.90377c74.30256,62.34548 84.19744,184.12325 20.64528,257.53107c-29.12447,32.64847 -69.52634,55.1472 -111.05801,67.86512m3.19001,-44.39426c80.14518,-17.45284 131.35959,-109.86251 103.63829,-186.93172c-8.56705,-25.1009 -32.13926,-65.19724 -52.95897,-65.60816c-22.19314,38.3176 -42.15846,78.00715 -66.48161,115.04078c-53.41137,9.39497 -4.47703,-55.63874 6.82448,-77.73755c12.11678,-26.96262 56.11764,-70.57906 0.68807,-69.93326c-38.91343,-3.87236 -80.26776,-0.12761 -111.7472,25.70082c-67.55668,44.70576 -80.34302,146.95748 -29.18278,208.59638c34.63405,44.90491 94.44332,63.99612 149.21969,50.87273l0.00003,-0.00003zm560.74527,-0.01111c68.4067,-16.07246 117.63305,-86.37989 108.77861,-156.15879c-4.68298,-77.54732 -82.0197,-140.26335 -158.90589,-129.84036c-57.61424,-5.45274 -2.4553,47.43981 5.77997,73.15358c7.83463,27.30336 50.99384,60.83818 26.89819,87.46467c-54.04397,2.26405 -109.41302,-1.5899 -163.30859,3.85947c9.68005,71.46638 77.31359,130.58443 150.29498,125.11564c10.24195,-0.08353 20.53325,-0.94999 30.46277,-3.59421l-0.00003,0zm-220.78109,-159.71467c6.50943,-55.91724 38.20528,-106.78138 84.43086,-138.60756c2.73105,-13.71648 -25.25894,-76.89265 -35.50779,-32.84775c-31.63458,57.50046 -63.43641,114.92385 -94.10164,172.9456c14.69042,0.35532 31.15827,2.92043 45.17857,-1.49029zm165.12836,-2.77332c-18.23577,-34.28188 -36.87647,-68.35803 -55.93684,-102.1883c-38.23572,20.16323 -63.38996,62.83399 -69.33606,105.42466c41.74855,-0.88994 84.19744,2.18142 125.38156,-2.22409l-0.1085,-1.0123l0,0l-0.00016,0.00003zm-178.84621,-123.65431c17.98509,-33.19417 36.31151,-66.21344 53.74109,-99.70241c-75.78914,-1.69903 -151.75025,-2.0712 -227.5138,0.3591c38.91549,66.88235 74.07351,136.35541 116.62381,200.88702c20.57455,-31.64719 38.04868,-68.08253 57.14889,-101.54368l0,-0.00003z" 
-               stroke-width="2" fill="transparent" />
-            </symbol>
-            <use href="#back" id="use1"></use>
-            <use href="#back" id="use2"></use>
-            <use href="#back" id="use3"></use>
-        </svg>
+    <div class="s-icon-list">
+      
+      
+      
+      <span class="s-icon-item github">
+        <a target="_blank" href="https://github.com/Syh1996">
+          <i class="fab fa-github"></i>
+        </a>
+      </span>
+      
+      
+      
+      
+      
+      
+      
+      <span class="s-icon-item qq">
+        <a target="_blank" href="http://wpa.qq.com/msgrd?v=3&uin=1045749725&site=qq&menu=yes">
+          <i class="fab fa-qq"></i>
+        </a>
+      </span>
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      <span class="s-icon-item email">
+        <a href="mailto:shao.yuhong@zte.com.cn">
+          <i class="fas fa-envelope"></i>
+        </a>
+      </span>
+      
+      
+      
     </div>
+    
+  </div>
+
+  <div class="bike">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1920 1080">
+      <symbol id="back">
+        <path
+          d="m641.78091,790.55116c33.66658,-0.42299 -32.06272,-1.96304 -43.72177,-2.8119c-97.42147,-2.36241 -178.2728,-99.22185 -167.75035,-195.34463c2.13073,-96.18695 94.77423,-180.68256 191.20004,-171.00335c25.09965,-10.66217 60.72977,24.52486 76.31358,7.71823c40.02758,-70.61028 78.81009,-141.9582 120.45054,-211.62919c35.46917,-5.06262 77.72556,-8.97584 112.22972,0.62002c15.95178,25.12759 -13.05085,31.96845 -31.14866,28.08932c-20.19947,0 -40.39894,0 -60.59845,0c-14.62302,26.67862 -29.62846,53.14464 -44.57028,79.64524c84.86946,0 169.73902,0 254.60848,0c1.88991,-9.02791 23.32755,-28.4795 4.32205,-26.36513c-34.52901,-4.35192 -12.92977,-44.25838 12.64019,-32.90578c35.89235,1.31889 73.05347,-3.53818 107.86866,3.65736c18.5978,37.3249 -35.1766,29.3175 -58.22777,29.71312c-17.06225,-5.56892 -20.59815,11.48777 -27.35368,23.15896c-27.39004,28.05648 -10.36541,57.62647 8.04336,84.977c6.75234,12.44232 11.56268,29.71084 27.99389,18.08497c33.50719,-7.36288 70.03627,-7.62992 103.37777,0.97937c69.67034,20.69872 125.53164,85.29464 130.20844,158.46779c4.22013,44.94577 -5.38832,91.27423 -33.36473,127.53277c-32.44851,46.47673 -85.10832,71.92571 -140.50727,77.08815m-43.43384,0.45368c-50.50555,-12.96067 -97.07043,-43.1132 -124.06679,-88.63504c-17.66691,-22.75363 -19.96364,-57.98298 -29.35393,-80.80756c-24.7664,-0.32404 -49.53283,-0.64811 -74.29929,-0.97213c-50.16146,-80.69484 -94.37449,-165.08841 -142.7612,-246.90817c-9.43189,28.01069 -63.052,66.11946 -33.44545,91.90377c74.30256,62.34548 84.19744,184.12325 20.64528,257.53107c-29.12447,32.64847 -69.52634,55.1472 -111.05801,67.86512m3.19001,-44.39426c80.14518,-17.45284 131.35959,-109.86251 103.63829,-186.93172c-8.56705,-25.1009 -32.13926,-65.19724 -52.95897,-65.60816c-22.19314,38.3176 -42.15846,78.00715 -66.48161,115.04078c-53.41137,9.39497 -4.47703,-55.63874 6.82448,-77.73755c12.11678,-26.96262 56.11764,-70.57906 0.68807,-69.93326c-38.91343,-3.87236 -80.26776,-0.12761 -111.7472,25.70082c-67.55668,44.70576 -80.34302,146.95748 -29.18278,208.59638c34.63405,44.90491 94.44332,63.99612 149.21969,50.87273l0.00003,-0.00003zm560.74527,-0.01111c68.4067,-16.07246 117.63305,-86.37989 108.77861,-156.15879c-4.68298,-77.54732 -82.0197,-140.26335 -158.90589,-129.84036c-57.61424,-5.45274 -2.4553,47.43981 5.77997,73.15358c7.83463,27.30336 50.99384,60.83818 26.89819,87.46467c-54.04397,2.26405 -109.41302,-1.5899 -163.30859,3.85947c9.68005,71.46638 77.31359,130.58443 150.29498,125.11564c10.24195,-0.08353 20.53325,-0.94999 30.46277,-3.59421l-0.00003,0zm-220.78109,-159.71467c6.50943,-55.91724 38.20528,-106.78138 84.43086,-138.60756c2.73105,-13.71648 -25.25894,-76.89265 -35.50779,-32.84775c-31.63458,57.50046 -63.43641,114.92385 -94.10164,172.9456c14.69042,0.35532 31.15827,2.92043 45.17857,-1.49029zm165.12836,-2.77332c-18.23577,-34.28188 -36.87647,-68.35803 -55.93684,-102.1883c-38.23572,20.16323 -63.38996,62.83399 -69.33606,105.42466c41.74855,-0.88994 84.19744,2.18142 125.38156,-2.22409l-0.1085,-1.0123l0,0l-0.00016,0.00003zm-178.84621,-123.65431c17.98509,-33.19417 36.31151,-66.21344 53.74109,-99.70241c-75.78914,-1.69903 -151.75025,-2.0712 -227.5138,0.3591c38.91549,66.88235 74.07351,136.35541 116.62381,200.88702c20.57455,-31.64719 38.04868,-68.08253 57.14889,-101.54368l0,-0.00003z"
+          stroke-width="2" fill="transparent" />
+      </symbol>
+      <use href="#back" id="use1"></use>
+      <use href="#back" id="use2"></use>
+      <use href="#back" id="use3"></use>
+    </svg>
+  </div>
 </div>
 
   
@@ -282,16 +432,26 @@
 
     </div>
     <style>
+      .main-content a{
+        color: #6e9cca;
+      }
       .article-title-list {
         position: fixed;
         left: 80px;
         top: 110px;
         z-index: 100;
-        width: 250px;
+        width: 300px;
         max-height: calc(100% - 144px);
         overflow: auto;
       }
-
+      .article-title-list a .badge{
+        display: inline-block;
+        margin-right: 5px;
+        padding: 0 5px;
+        background-color: #ebebeb;
+        border-radius: 3px;
+        color: #6b6b6b;
+      }
       .article-title-list h1,
       .article-title-list h2,
       .article-title-list h3,
@@ -348,6 +508,176 @@
         
         <div class="home-content-container fade-in-down-animation">
     <ul class="home-article-list">
+        
+            <li class="home-article-item">
+
+                
+
+                <h3 class="home-article-title">
+                    <a href="/2022/06/02/umi-js%E7%AC%94%E8%AE%B0/">
+                        umi.js笔记
+                    </a>
+                </h3>
+
+                <div class="home-article-content markdown-body">
+                    
+                        
+                    
+                </div>
+
+                <div class="home-article-meta-info-container">
+    <div class="home-article-meta-info">
+        <span><i class="fas fa-history"></i>&nbsp;<span class="home-article-date" data-date="Thu Jun 02 2022 17:33:06 GMT+0800">2022-06-02</span></span>
+        
+        
+    </div>
+
+    <a href="/2022/06/02/umi-js%E7%AC%94%E8%AE%B0/">阅读全文&nbsp;<i class="fas fa-angle-right"></i></a>
+</div>
+
+            </li>
+        
+            <li class="home-article-item">
+
+                
+
+                <h3 class="home-article-title">
+                    <a href="/2022/06/02/dava-js%E7%AC%94%E8%AE%B0/">
+                        dava.js笔记
+                    </a>
+                </h3>
+
+                <div class="home-article-content markdown-body">
+                    
+                        
+                    
+                </div>
+
+                <div class="home-article-meta-info-container">
+    <div class="home-article-meta-info">
+        <span><i class="fas fa-history"></i>&nbsp;<span class="home-article-date" data-date="Thu Jun 02 2022 17:32:51 GMT+0800">2022-06-02</span></span>
+        
+        
+    </div>
+
+    <a href="/2022/06/02/dava-js%E7%AC%94%E8%AE%B0/">阅读全文&nbsp;<i class="fas fa-angle-right"></i></a>
+</div>
+
+            </li>
+        
+            <li class="home-article-item">
+
+                
+
+                <h3 class="home-article-title">
+                    <a href="/2022/06/02/redux-sage%E7%AC%94%E8%AE%B0/">
+                        redux-sage笔记
+                    </a>
+                </h3>
+
+                <div class="home-article-content markdown-body">
+                    
+                        
+                    
+                </div>
+
+                <div class="home-article-meta-info-container">
+    <div class="home-article-meta-info">
+        <span><i class="fas fa-history"></i>&nbsp;<span class="home-article-date" data-date="Thu Jun 02 2022 17:32:41 GMT+0800">2022-06-02</span></span>
+        
+        
+    </div>
+
+    <a href="/2022/06/02/redux-sage%E7%AC%94%E8%AE%B0/">阅读全文&nbsp;<i class="fas fa-angle-right"></i></a>
+</div>
+
+            </li>
+        
+            <li class="home-article-item">
+
+                
+
+                <h3 class="home-article-title">
+                    <a href="/2022/06/02/react-redux%E7%AC%94%E8%AE%B0/">
+                        react-redux笔记
+                    </a>
+                </h3>
+
+                <div class="home-article-content markdown-body">
+                    
+                        redux与react-redux使用
+store.js
+123456789101112131415import &#123; createStore &#125; from &#x27;redux&#x27;;const defaultState ...
+                    
+                </div>
+
+                <div class="home-article-meta-info-container">
+    <div class="home-article-meta-info">
+        <span><i class="fas fa-history"></i>&nbsp;<span class="home-article-date" data-date="Thu Jun 02 2022 17:32:25 GMT+0800">2022-06-02</span></span>
+        
+        
+            <span class="home-article-tag">
+                <i class="fas fa-tags"></i>&nbsp;
+                <ul>
+                    
+                        <li>
+                            
+                            <a href="/tags/react/">react</a>&nbsp;
+                        </li>
+                    
+                </ul>
+            </span>
+        
+    </div>
+
+    <a href="/2022/06/02/react-redux%E7%AC%94%E8%AE%B0/">阅读全文&nbsp;<i class="fas fa-angle-right"></i></a>
+</div>
+
+            </li>
+        
+            <li class="home-article-item">
+
+                
+
+                <h3 class="home-article-title">
+                    <a href="/2022/05/16/xlsx-js%E7%9A%84%E4%BD%BF%E7%94%A8/">
+                        xlsx.js的使用
+                    </a>
+                </h3>
+
+                <div class="home-article-content markdown-body">
+                    
+                        为什么要用xlsx?现在前端可惨，许多事都要做了。。。。读取excel的数据，抛弃了以前的上传一个excel文件到后台解析，直接改用了前端读取excel中的数据转成一个数组对象转数据给后台，那没办法，搞吧
+安装1npm i xlsx -S
+
+
+读取数...
+                    
+                </div>
+
+                <div class="home-article-meta-info-container">
+    <div class="home-article-meta-info">
+        <span><i class="fas fa-history"></i>&nbsp;<span class="home-article-date" data-date="Mon May 16 2022 16:52:26 GMT+0800">2022-05-16</span></span>
+        
+        
+            <span class="home-article-tag">
+                <i class="fas fa-tags"></i>&nbsp;
+                <ul>
+                    
+                        <li>
+                            
+                            <a href="/tags/xlsx/">xlsx</a>&nbsp;
+                        </li>
+                    
+                </ul>
+            </span>
+        
+    </div>
+
+    <a href="/2022/05/16/xlsx-js%E7%9A%84%E4%BD%BF%E7%94%A8/">阅读全文&nbsp;<i class="fas fa-angle-right"></i></a>
+</div>
+
+            </li>
         
             <li class="home-article-item">
 
@@ -620,8 +950,9 @@
                         开始webpack学习计划终于来了
 一直感觉学webpack有些困难，拖了好久，面试了头条和腾讯都同时问到了webpack，webpack也该提上日程了
 
-打包图片资源
-webpack5版本像url-loader，file-loder都是废弃不会直接...
+安装1npm i webpack webpack-cli -D
+package.json添加
+...
                     
                 </div>
 
@@ -992,222 +1323,6 @@ cos一是这个角挨着的那条边和斜边的比；tan是这个角的对边�
 
             </li>
         
-            <li class="home-article-item">
-
-                
-
-                <h3 class="home-article-title">
-                    <a href="/2021/07/13/%E4%BA%A7%E5%93%81%E7%BB%8F%E7%90%86%EF%BC%9A%E4%BD%A0%E8%83%BD%E4%B8%8D%E8%83%BD%E7%94%A8div%E7%BB%99%E6%88%91%E7%94%BB%E6%9D%A1%E9%BE%99%EF%BC%9F/">
-                        产品经理：你能不能用div给我画条龙？
-                    </a>
-                </h3>
-
-                <div class="home-article-content markdown-body">
-                    
-                        事情是这样的，前天上午产品经理说想要做一个心愿墙，问我能不能行
-我心想，这太容易了，但为了多摸一天鱼，我说还是有点挑战的
-结果下午，产品经理和设计师就给我发来了设计参考
-
-他们说，心愿墙的设计大致是这样的，每个用户的心愿都是一个气泡，而客户的品牌是”...
-                    
-                </div>
-
-                <div class="home-article-meta-info-container">
-    <div class="home-article-meta-info">
-        <span><i class="fas fa-history"></i>&nbsp;<span class="home-article-date" data-date="Tue Jul 13 2021 17:11:06 GMT+0800">2021-07-13</span></span>
-        
-        
-            <span class="home-article-tag">
-                <i class="fas fa-tags"></i>&nbsp;
-                <ul>
-                    
-                        <li>
-                            
-                            <a href="/tags/canvas/">canvas</a>&nbsp;
-                        </li>
-                    
-                </ul>
-            </span>
-        
-    </div>
-
-    <a href="/2021/07/13/%E4%BA%A7%E5%93%81%E7%BB%8F%E7%90%86%EF%BC%9A%E4%BD%A0%E8%83%BD%E4%B8%8D%E8%83%BD%E7%94%A8div%E7%BB%99%E6%88%91%E7%94%BB%E6%9D%A1%E9%BE%99%EF%BC%9F/">阅读全文&nbsp;<i class="fas fa-angle-right"></i></a>
-</div>
-
-            </li>
-        
-            <li class="home-article-item">
-
-                
-
-                <h3 class="home-article-title">
-                    <a href="/2021/07/13/js%E5%A4%A7%E6%96%87%E4%BB%B6%E4%B8%8A%E4%BC%A0%E6%97%B6%E7%9A%84%E5%88%87%E7%89%87%E4%B8%8A%E4%BC%A0/">
-                        js大文件上传时的切片上传
-                    </a>
-                </h3>
-
-                <div class="home-article-content markdown-body">
-                    
-                        1.大致流程分为以下几步：
-
-1.前端接收BGM并进行切片
-2.将每份切片都进行上传
-3.后端接收到所有切片，创建一个文件夹存储这些切片
-4.后端将此文件夹里的所有切片合并为完整的BGM文件
-5.删除文件夹，因为切片不是我们最终想要的，可删除
-6.当...
-                    
-                </div>
-
-                <div class="home-article-meta-info-container">
-    <div class="home-article-meta-info">
-        <span><i class="fas fa-history"></i>&nbsp;<span class="home-article-date" data-date="Tue Jul 13 2021 10:57:59 GMT+0800">2021-07-13</span></span>
-        
-        
-            <span class="home-article-tag">
-                <i class="fas fa-tags"></i>&nbsp;
-                <ul>
-                    
-                        <li>
-                            
-                            <a href="/tags/js/">js</a>&nbsp;
-                        </li>
-                    
-                </ul>
-            </span>
-        
-    </div>
-
-    <a href="/2021/07/13/js%E5%A4%A7%E6%96%87%E4%BB%B6%E4%B8%8A%E4%BC%A0%E6%97%B6%E7%9A%84%E5%88%87%E7%89%87%E4%B8%8A%E4%BC%A0/">阅读全文&nbsp;<i class="fas fa-angle-right"></i></a>
-</div>
-
-            </li>
-        
-            <li class="home-article-item">
-
-                
-
-                <h3 class="home-article-title">
-                    <a href="/2021/07/13/js%E5%86%85%E5%AD%98%E6%B3%84%E9%9C%B2%E7%9B%B8%E5%85%B3%E7%9F%A5%E8%AF%86/">
-                        js内存泄露相关知识
-                    </a>
-                </h3>
-
-                <div class="home-article-content markdown-body">
-                    
-                        「硬核JS」你的程序中可能存在内存泄漏引擎中有垃圾回收机制，它主要针对一些程序中不再使用的对象，对其清理回收释放掉内存。
-那么垃圾回收机制会把不再使用的对象（垃圾）全都回收掉吗？
-其实引擎虽然针对垃圾回收做了各种优化从而尽可能的确保垃圾得以回收，但并...
-                    
-                </div>
-
-                <div class="home-article-meta-info-container">
-    <div class="home-article-meta-info">
-        <span><i class="fas fa-history"></i>&nbsp;<span class="home-article-date" data-date="Tue Jul 13 2021 09:51:55 GMT+0800">2021-07-13</span></span>
-        
-        
-            <span class="home-article-tag">
-                <i class="fas fa-tags"></i>&nbsp;
-                <ul>
-                    
-                        <li>
-                            
-                            <a href="/tags/js/">js</a>&nbsp;
-                        </li>
-                    
-                </ul>
-            </span>
-        
-    </div>
-
-    <a href="/2021/07/13/js%E5%86%85%E5%AD%98%E6%B3%84%E9%9C%B2%E7%9B%B8%E5%85%B3%E7%9F%A5%E8%AF%86/">阅读全文&nbsp;<i class="fas fa-angle-right"></i></a>
-</div>
-
-            </li>
-        
-            <li class="home-article-item">
-
-                
-
-                <h3 class="home-article-title">
-                    <a href="/2021/07/07/js%E5%88%A4%E6%96%AD%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B%E7%9A%84%E6%96%B9%E6%B3%95/">
-                        js判断数据类型的方法
-                    </a>
-                </h3>
-
-                <div class="home-article-content markdown-body">
-                    
-                        JS中数据类型的判断（ typeof，instanceof，constructor，Object.prototype.toString.call()（1）typeof
-typeof 对于原始类型来说，除了 null 都可以显示正确的类型
-123456...
-                    
-                </div>
-
-                <div class="home-article-meta-info-container">
-    <div class="home-article-meta-info">
-        <span><i class="fas fa-history"></i>&nbsp;<span class="home-article-date" data-date="Wed Jul 07 2021 10:14:55 GMT+0800">2021-07-07</span></span>
-        
-        
-            <span class="home-article-tag">
-                <i class="fas fa-tags"></i>&nbsp;
-                <ul>
-                    
-                        <li>
-                            
-                            <a href="/tags/js/">js</a>&nbsp;
-                        </li>
-                    
-                </ul>
-            </span>
-        
-    </div>
-
-    <a href="/2021/07/07/js%E5%88%A4%E6%96%AD%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B%E7%9A%84%E6%96%B9%E6%B3%95/">阅读全文&nbsp;<i class="fas fa-angle-right"></i></a>
-</div>
-
-            </li>
-        
-            <li class="home-article-item">
-
-                
-
-                <h3 class="home-article-title">
-                    <a href="/2021/07/06/excel%E5%B8%B8%E7%94%A8%E5%85%AC%E5%BC%8F%E5%91%80/">
-                        excel常用公式呀
-                    </a>
-                </h3>
-
-                <div class="home-article-content markdown-body">
-                    
-                        IF函数条件判断IF函数是最常用的判断类函数之一，能完成非此即彼的判断。如下图，考核得分的标准为9分，要判断B列的考核成绩是否合格。=IF(B4&gt;=9,”合格”,”不合格”)
-多条件判断如下图所示，如果部门为生产、岗位为主操 有高温补助。在D列...
-                    
-                </div>
-
-                <div class="home-article-meta-info-container">
-    <div class="home-article-meta-info">
-        <span><i class="fas fa-history"></i>&nbsp;<span class="home-article-date" data-date="Tue Jul 06 2021 09:14:33 GMT+0800">2021-07-06</span></span>
-        
-        
-            <span class="home-article-tag">
-                <i class="fas fa-tags"></i>&nbsp;
-                <ul>
-                    
-                        <li>
-                            
-                            <a href="/tags/excel/">excel</a>&nbsp;
-                        </li>
-                    
-                </ul>
-            </span>
-        
-    </div>
-
-    <a href="/2021/07/06/excel%E5%B8%B8%E7%94%A8%E5%85%AC%E5%BC%8F%E5%91%80/">阅读全文&nbsp;<i class="fas fa-angle-right"></i></a>
-</div>
-
-            </li>
-        
     </ul>
 
     <div class="home-paginator">
@@ -1235,7 +1350,7 @@ typeof 对于原始类型来说，除了 null 都可以显示正确的类型
  * @Description: file content
  * @Author: yuhongshao
  * @Date: 2022-04-11 16:32:40
- * @email: yuhongshao@tencent.com
+ * @email: 
  * @LastEditTime: 2022-04-25 09:25:59
 -->
 <footer class="footer">
@@ -1348,27 +1463,32 @@ typeof 对于原始类型来说，除了 null 都可以显示正确的类型
   const mainContent = document.querySelector('.main-content');
 
   if (context) {
-    const tags = context.querySelectorAll('*');
-    const hTagReg = /^H[1-6]$/;
-    let template = '';
-    tags.forEach(item => {
-      if (hTagReg.test(item.tagName.toUpperCase()) && item.innerText) {
-        const tagH = item.tagName.toLowerCase();
-        const forHash = item.getAttribute("id");
-        template += `
+    if (window.innerWidth > 1380) {
+      const tags = context.querySelectorAll('*');
+      const hTagReg = /^H[1-6]$/;
+      let template = '';
+      tags.forEach(item => {
+        if (hTagReg.test(item.tagName.toUpperCase()) && item.innerText) {
+          const tagH = item.tagName.toLowerCase();
+          const tagHToUpper = item.tagName.toUpperCase();
+          const forHash = item.getAttribute("id");
+          //<span class="badge">${tagHToUpper}</span>
+          template += `
                   <${tagH}>
-                    <a onclick="javascript:void(1)" href="#${forHash}">${item.innerText}</a>
+                    <a onclick="javascript:void(1)" href="#${forHash}"> ${item.innerText}</a>
                   </${tagH}>  
                 `;
 
-      }
-    });
-    articleTitleList.innerHTML = template;
+        }
+      });
+      articleTitleList.innerHTML = template;
+    }
+
 
   }
 
   (function leftNavPositionChange() {
-    const articleTitlePositoinX = (window.innerWidth - mainContent.clientWidth) / 2 - 255;
+    const articleTitlePositoinX = (window.innerWidth - mainContent.clientWidth) / 2 - 300;
     articleTitleList.style.left = articleTitlePositoinX + 'px';
     window.onresize = function () {
       leftNavPositionChange();

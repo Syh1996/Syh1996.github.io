@@ -31,8 +31,8 @@
  * @Description: file content
  * @Author: yuhongshao
  * @Date: 2021-02-20 19:33:18
- * @email: yuhongshao@tencent.com
- * @LastEditTime: 2022-03-30 10:24:37
+ * @email: 
+ * @LastEditTime: 2022-05-25 12:31:42
 -->
 <div class="progress-bar-container">
     
@@ -133,16 +133,26 @@
 
     </div>
     <style>
+      .main-content a{
+        color: #6e9cca;
+      }
       .article-title-list {
         position: fixed;
         left: 80px;
         top: 110px;
         z-index: 100;
-        width: 250px;
+        width: 300px;
         max-height: calc(100% - 144px);
         overflow: auto;
       }
-
+      .article-title-list a .badge{
+        display: inline-block;
+        margin-right: 5px;
+        padding: 0 5px;
+        background-color: #ebebeb;
+        border-radius: 3px;
+        color: #6b6b6b;
+      }
       .article-title-list h1,
       .article-title-list h2,
       .article-title-list h3,
@@ -214,7 +224,7 @@
           <span class="name">邵预鸿</span>
           
           <span
-            class="author-label">Lv4</span>
+            class="author-label">Lv5</span>
           
         </div>
         <div class="meta-info">
@@ -251,30 +261,10 @@
       <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html lang=<span class="string">&quot;en&quot;</span>&gt;</span><br><span class="line"></span><br><span class="line">&lt;head&gt;</span><br><span class="line">    &lt;meta charset=<span class="string">&quot;UTF-8&quot;</span>&gt;</span><br><span class="line">    &lt;meta name=<span class="string">&quot;viewport&quot;</span> content=<span class="string">&quot;width=device-width, initial-scale=1.0&quot;</span>&gt;</span><br><span class="line">    &lt;title&gt;Document&lt;/title&gt;</span><br><span class="line">&lt;/head&gt;</span><br><span class="line"></span><br><span class="line">&lt;body&gt;</span><br><span class="line"></span><br><span class="line">&lt;/body&gt;</span><br><span class="line"></span><br><span class="line">&lt;/html&gt;</span><br><span class="line">&lt;script&gt;</span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">createCanvas</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="keyword">var</span> canvas = <span class="built_in">document</span>.createElement(<span class="string">&quot;canvas&quot;</span>);</span><br><span class="line">        canvas.width = <span class="number">100</span>;</span><br><span class="line">        canvas.height = <span class="number">100</span>;</span><br><span class="line">        canvas.style.border = <span class="string">&quot;1px solid red&quot;</span>;</span><br><span class="line">        <span class="built_in">document</span>.body.appendChild(canvas);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">setCanvasBg</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="keyword">var</span> canvas = <span class="built_in">document</span>.querySelector(<span class="string">&quot;canvas&quot;</span>);</span><br><span class="line">        <span class="keyword">var</span> ctx = canvas.getContext(<span class="string">&quot;2d&quot;</span>);</span><br><span class="line">        ctx.drawImage(image, <span class="number">0</span>, <span class="number">0</span>, <span class="number">100</span>, <span class="number">100</span>);</span><br><span class="line">        ctx.lineWidth = <span class="number">1</span>;</span><br><span class="line">        ctx.lineCap = <span class="string">&quot;round&quot;</span>;</span><br><span class="line">        ctx.strokeStyle = <span class="string">&#x27;red&#x27;</span>;</span><br><span class="line">        ctx.moveTo(<span class="number">20</span>, <span class="number">80</span>);</span><br><span class="line">        ctx.lineTo(<span class="number">80</span>, <span class="number">80</span>);</span><br><span class="line">        ctx.stroke();</span><br><span class="line">        ctx.fillStyle = <span class="string">&#x27;#fff&#x27;</span>;</span><br><span class="line">        ctx.font = <span class="string">&quot;16px Georgia&quot;</span>;</span><br><span class="line">        ctx.textAlign = <span class="string">&quot;center&quot;</span>;</span><br><span class="line">        ctx.fillText(<span class="string">&quot;shao&quot;</span>, <span class="number">50</span>, <span class="number">95</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">toBase64</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="keyword">var</span> canvas = <span class="built_in">document</span>.querySelector(<span class="string">&quot;canvas&quot;</span>);</span><br><span class="line">        <span class="keyword">var</span> base64 = canvas.toDataURL(<span class="string">&quot;image/jpeg&quot;</span>);</span><br><span class="line">        <span class="keyword">return</span> base64;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">var</span> image = <span class="keyword">new</span> Image();</span><br><span class="line">    image.src = <span class="string">&quot;./u=1610542142,718703573&amp;fm=26&amp;gp=0.jpg&quot;</span>;</span><br><span class="line">    image.setAttribute(<span class="string">&#x27;crossOrigin&#x27;</span>, <span class="string">&#x27;anonymous&#x27;</span>);</span><br><span class="line">    image.onload = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">        createCanvas();</span><br><span class="line">        setCanvasBg();</span><br><span class="line">        <span class="built_in">document</span>.body.style.backgroundImage = <span class="string">`url(<span class="subst">$&#123;toBase64()&#125;</span>)`</span>;</span><br><span class="line">        <span class="built_in">document</span>.querySelector(<span class="string">&quot;canvas&quot;</span>).remove();</span><br><span class="line">    &#125;</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
 
     </div>
-    <h3 style="font-size: 1.6rem;font-weight: 550;">页面关键信息已通过以下代码生成跳转链接</h3>
-    <pre>
-     &lt;script&gt;
-         const context = document.querySelector(".markdown-body");
-         const articleTitleList = document.querySelector(".article-title-list");
-         if(context){
-             const tags = context.querySelectorAll('*');
-             const hTagReg = /^H[1-6]$/;
-             let template = '';
-             tags.forEach(item=>{
-                     if(hTagReg.test(item.tagName.toUpperCase()) && item.innerText){
-                      const tagH = item.tagName.toLowerCase();
-                      const forHash = item.getAttribute("id");
-                     template+=`
-                          <${tagH}>
-                          <a onclick="javascript:void(1)" href="#${forHash}">${item.innerText}</a>
-                         </${tagH}>  
-                      `;
-                  }
-              });
-             articleTitleList.innerHTML=template; 
-          }
-          &lt;/script&gt;
-        </pre>
+
+
+    
+
     
     <div class="post-copyright-info">
       <div class="article-copyright-info-container">
@@ -340,7 +330,7 @@
  * @Description: file content
  * @Author: yuhongshao
  * @Date: 2022-04-11 16:32:40
- * @email: yuhongshao@tencent.com
+ * @email: 
  * @LastEditTime: 2022-04-25 09:25:59
 -->
 <footer class="footer">
@@ -466,27 +456,32 @@
   const mainContent = document.querySelector('.main-content');
 
   if (context) {
-    const tags = context.querySelectorAll('*');
-    const hTagReg = /^H[1-6]$/;
-    let template = '';
-    tags.forEach(item => {
-      if (hTagReg.test(item.tagName.toUpperCase()) && item.innerText) {
-        const tagH = item.tagName.toLowerCase();
-        const forHash = item.getAttribute("id");
-        template += `
+    if (window.innerWidth > 1380) {
+      const tags = context.querySelectorAll('*');
+      const hTagReg = /^H[1-6]$/;
+      let template = '';
+      tags.forEach(item => {
+        if (hTagReg.test(item.tagName.toUpperCase()) && item.innerText) {
+          const tagH = item.tagName.toLowerCase();
+          const tagHToUpper = item.tagName.toUpperCase();
+          const forHash = item.getAttribute("id");
+          //<span class="badge">${tagHToUpper}</span>
+          template += `
                   <${tagH}>
-                    <a onclick="javascript:void(1)" href="#${forHash}">${item.innerText}</a>
+                    <a onclick="javascript:void(1)" href="#${forHash}"> ${item.innerText}</a>
                   </${tagH}>  
                 `;
 
-      }
-    });
-    articleTitleList.innerHTML = template;
+        }
+      });
+      articleTitleList.innerHTML = template;
+    }
+
 
   }
 
   (function leftNavPositionChange() {
-    const articleTitlePositoinX = (window.innerWidth - mainContent.clientWidth) / 2 - 255;
+    const articleTitlePositoinX = (window.innerWidth - mainContent.clientWidth) / 2 - 300;
     articleTitleList.style.left = articleTitlePositoinX + 'px';
     window.onresize = function () {
       leftNavPositionChange();

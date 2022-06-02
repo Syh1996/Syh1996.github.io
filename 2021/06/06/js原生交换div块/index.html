@@ -31,8 +31,8 @@
  * @Description: file content
  * @Author: yuhongshao
  * @Date: 2021-02-20 19:33:18
- * @email: yuhongshao@tencent.com
- * @LastEditTime: 2022-03-30 10:24:37
+ * @email: 
+ * @LastEditTime: 2022-05-25 12:31:42
 -->
 <div class="progress-bar-container">
     
@@ -133,16 +133,26 @@
 
     </div>
     <style>
+      .main-content a{
+        color: #6e9cca;
+      }
       .article-title-list {
         position: fixed;
         left: 80px;
         top: 110px;
         z-index: 100;
-        width: 250px;
+        width: 300px;
         max-height: calc(100% - 144px);
         overflow: auto;
       }
-
+      .article-title-list a .badge{
+        display: inline-block;
+        margin-right: 5px;
+        padding: 0 5px;
+        background-color: #ebebeb;
+        border-radius: 3px;
+        color: #6b6b6b;
+      }
       .article-title-list h1,
       .article-title-list h2,
       .article-title-list h3,
@@ -214,7 +224,7 @@
           <span class="name">邵预鸿</span>
           
           <span
-            class="author-label">Lv4</span>
+            class="author-label">Lv5</span>
           
         </div>
         <div class="meta-info">
@@ -257,30 +267,10 @@
 <h3 id="参考代码如下，解决快速拖动时的错位问题"><a href="#参考代码如下，解决快速拖动时的错位问题" class="headerlink" title="参考代码如下，解决快速拖动时的错位问题"></a>参考代码如下，解决快速拖动时的错位问题</h3><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE <span class="meta-keyword">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">lang</span>=<span class="string">&quot;en&quot;</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">&quot;UTF-8&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">http-equiv</span>=<span class="string">&quot;X-UA-Compatible&quot;</span> <span class="attr">content</span>=<span class="string">&quot;IE=edge&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">&quot;viewport&quot;</span> <span class="attr">content</span>=<span class="string">&quot;width=device-width, initial-scale=1.0&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span>Document<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">style</span>&gt;</span></span><br><span class="line">        *&#123;</span><br><span class="line"><span class="css">            <span class="attribute">margin</span>:<span class="number">0</span>;</span></span><br><span class="line"><span class="css">            <span class="attribute">padding</span>:<span class="number">0</span>;</span></span><br><span class="line">        &#125;</span><br><span class="line">      #ul&#123;</span><br><span class="line"><span class="css">          <span class="attribute">width</span>:<span class="number">1000px</span>;</span></span><br><span class="line"><span class="css">          <span class="attribute">border</span>:<span class="number">1px</span> solid red;</span></span><br><span class="line"><span class="css">          <span class="attribute">margin</span>:<span class="number">0</span> auto;</span></span><br><span class="line"><span class="css">          <span class="attribute">position</span>: relative;</span></span><br><span class="line">      &#125;</span><br><span class="line"><span class="css">      <span class="selector-tag">ul</span>,<span class="selector-tag">li</span>&#123;</span></span><br><span class="line"><span class="css">          <span class="attribute">list-style-type</span>: none;</span></span><br><span class="line">      &#125;</span><br><span class="line"><span class="css">       <span class="selector-id">#ul</span>&gt;<span class="selector-tag">li</span>&#123;</span></span><br><span class="line"><span class="css">           <span class="attribute">width</span>:<span class="number">200px</span>;</span></span><br><span class="line"><span class="css">           <span class="attribute">height</span>:<span class="number">200px</span>;</span></span><br><span class="line"><span class="css">           <span class="attribute">position</span>: absolute;</span></span><br><span class="line"><span class="css">           <span class="attribute">font-size</span>:<span class="number">60px</span>;</span></span><br><span class="line"><span class="css">           <span class="attribute">text-align</span>: center;</span></span><br><span class="line"><span class="css">           <span class="attribute">line-height</span>: <span class="number">200px</span>;</span></span><br><span class="line"><span class="css">           <span class="attribute">color</span>:<span class="number">#fff</span>;</span></span><br><span class="line"><span class="css">           <span class="attribute">cursor</span>: pointer;</span></span><br><span class="line"><span class="css">           user-select: none;</span></span><br><span class="line"><span class="css">           <span class="attribute">transition</span>: all .<span class="number">5s</span> <span class="built_in">cubic-bezier</span>(<span class="number">0.395</span>, <span class="number">1.650</span>, <span class="number">0.525</span>, <span class="number">0.745</span>);</span></span><br><span class="line">       &#125;</span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">ul</span> <span class="attr">id</span>=<span class="string">&quot;ul&quot;</span>&gt;</span></span><br><span class="line">     </span><br><span class="line">    <span class="tag">&lt;/<span class="name">ul</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="javascript">     <span class="function"><span class="keyword">function</span> <span class="title">createLi</span>(<span class="params"></span>)</span>&#123;</span></span><br><span class="line"><span class="javascript">        <span class="keyword">var</span> oUl = <span class="built_in">document</span>.querySelector(<span class="string">&quot;#ul&quot;</span>);</span></span><br><span class="line"><span class="javascript">        <span class="keyword">for</span>(<span class="keyword">let</span> i = <span class="number">1</span>;i&lt;<span class="number">21</span>;i++)&#123;</span></span><br><span class="line"><span class="javascript">            <span class="keyword">let</span> tag = <span class="built_in">document</span>.createElement(<span class="string">&quot;li&quot;</span>);</span></span><br><span class="line"><span class="javascript">            <span class="keyword">let</span> text = <span class="built_in">document</span>.createTextNode(i);</span></span><br><span class="line"><span class="javascript">            tag.draggable=<span class="literal">true</span>;</span></span><br><span class="line">            tag.appendChild(text);</span><br><span class="line">            oUl.appendChild(tag);</span><br><span class="line">        &#125;</span><br><span class="line">     &#125;</span><br><span class="line"><span class="javascript">     <span class="function"><span class="keyword">function</span> <span class="title">computedLiPostion</span>(<span class="params"></span>)</span>&#123;</span></span><br><span class="line"><span class="javascript">        <span class="keyword">var</span> oUl = <span class="built_in">document</span>.querySelector(<span class="string">&quot;#ul&quot;</span>);</span></span><br><span class="line"><span class="javascript">        <span class="keyword">var</span> oLi = oUl.getElementsByTagName(<span class="string">&quot;li&quot;</span>);</span></span><br><span class="line"><span class="javascript">        oUl.style.height = <span class="built_in">Math</span>.ceil(oLi.length / <span class="number">5</span>) * oLi[<span class="number">0</span>].offsetHeight+<span class="number">1</span> + <span class="string">&#x27;px&#x27;</span>;</span></span><br><span class="line"><span class="javascript">        <span class="keyword">var</span> left =<span class="number">0</span>,top=<span class="number">0</span>;</span></span><br><span class="line"><span class="javascript">        <span class="keyword">for</span>(<span class="keyword">var</span> i=<span class="number">0</span>,length = oLi.length;i&lt;length;i++)&#123;</span></span><br><span class="line"><span class="javascript">            <span class="keyword">const</span> bg = <span class="string">`rgb(<span class="subst">$&#123;<span class="built_in">parseInt</span>(<span class="built_in">Math</span>.random() * <span class="number">256</span>)&#125;</span>,<span class="subst">$&#123;<span class="built_in">parseInt</span>(<span class="built_in">Math</span>.random() * <span class="number">256</span>)&#125;</span>,<span class="subst">$&#123;<span class="built_in">parseInt</span>(<span class="built_in">Math</span>.random() * <span class="number">256</span>)&#125;</span>)`</span>;</span></span><br><span class="line"><span class="javascript">            oLi[i].style.cssText= <span class="string">`;left:<span class="subst">$&#123;left&#125;</span>px;top:<span class="subst">$&#123;top&#125;</span>px;background-color:<span class="subst">$&#123;bg&#125;</span>`</span>;</span></span><br><span class="line">              left=left+oLi[0].offsetWidth;</span><br><span class="line">              if(left &gt;=1000)&#123;</span><br><span class="line">                  left=0;</span><br><span class="line">                  top+=oLi[0].offsetHeight;</span><br><span class="line">              &#125;</span><br><span class="line">              </span><br><span class="line">        &#125;</span><br><span class="line">     &#125;</span><br><span class="line"><span class="javascript">    <span class="function"><span class="keyword">function</span> <span class="title">getStyle</span>(<span class="params">element,attr</span>)</span>&#123;</span></span><br><span class="line">          if(element.currentStyle)&#123;</span><br><span class="line"><span class="javascript">              <span class="keyword">return</span> element.currentStyle[attr]</span></span><br><span class="line"><span class="javascript">          &#125;<span class="keyword">else</span>&#123;</span></span><br><span class="line"> </span><br><span class="line"><span class="javascript">              <span class="keyword">return</span> <span class="built_in">window</span>.getComputedStyle(element)[attr]</span></span><br><span class="line">          &#125;</span><br><span class="line">    &#125;</span><br><span class="line"><span class="javascript">     <span class="function"><span class="keyword">function</span> <span class="title">changePosition</span>(<span class="params"></span>)</span>&#123;</span></span><br><span class="line"><span class="javascript">        <span class="keyword">var</span> oUl = <span class="built_in">document</span>.querySelector(<span class="string">&quot;#ul&quot;</span>);</span></span><br><span class="line"><span class="javascript">        <span class="keyword">var</span> oLi = oUl.getElementsByTagName(<span class="string">&quot;li&quot;</span>);</span></span><br><span class="line"><span class="javascript">        <span class="keyword">for</span>(<span class="keyword">var</span> i=<span class="number">0</span>,length=oLi.length;i&lt;length;i++)&#123;</span></span><br><span class="line">            oLi[i].index= i;</span><br><span class="line"><span class="javascript">            oLi[i].x = getStyle(oLi[i],<span class="string">&#x27;left&#x27;</span>);</span></span><br><span class="line"><span class="javascript">            oLi[i].y = getStyle(oLi[i],<span class="string">&#x27;top&#x27;</span>);</span></span><br><span class="line"><span class="javascript">            <span class="keyword">var</span> startIndex=<span class="number">0</span>,endIndex=<span class="number">0</span>;</span></span><br><span class="line"><span class="javascript">            oLi[i].ondragstart=<span class="function"><span class="keyword">function</span>(<span class="params">e</span>)</span>&#123;</span></span><br><span class="line"><span class="javascript">                 startIndex = <span class="built_in">this</span>.index;</span></span><br><span class="line">            &#125;</span><br><span class="line"><span class="javascript">            oLi[i].ondragend=<span class="function"><span class="keyword">function</span>(<span class="params">e</span>)</span>&#123;</span></span><br><span class="line">                 e.preventDefault();</span><br><span class="line">            &#125;</span><br><span class="line"><span class="javascript">            oLi[i].ondragover=<span class="function"><span class="keyword">function</span>(<span class="params">e</span>)</span>&#123;</span></span><br><span class="line">                e.preventDefault();</span><br><span class="line">            &#125;</span><br><span class="line"><span class="javascript">            oLi[i].ondrop=<span class="function"><span class="keyword">function</span>(<span class="params">e</span>)</span>&#123;</span></span><br><span class="line">                 e.preventDefault();</span><br><span class="line"><span class="javascript">                 endIndex = <span class="built_in">this</span>.index;</span></span><br><span class="line"><span class="javascript">                 <span class="keyword">for</span>(<span class="keyword">let</span> j=<span class="number">0</span>,length=oLi.length;j&lt;length;j++)&#123;</span></span><br><span class="line">                     oLi[j].style.zIndex = 1;</span><br><span class="line">                 &#125;</span><br><span class="line"><span class="javascript">                 <span class="keyword">let</span> fromX =oLi[startIndex].x;</span></span><br><span class="line"><span class="javascript">                 <span class="keyword">let</span> fromY  = oLi[startIndex].y</span></span><br><span class="line"><span class="javascript">                 <span class="keyword">let</span> toX =oLi[endIndex].x;</span></span><br><span class="line"><span class="javascript">                 <span class="keyword">let</span> toY = oLi[endIndex].y;</span></span><br><span class="line">                 oLi[startIndex].x = toX;</span><br><span class="line">                 oLi[startIndex].y = toY;</span><br><span class="line">                 oLi[endIndex].x = fromX;</span><br><span class="line">                 oLi[endIndex].y = fromY;</span><br><span class="line"><span class="javascript">                 oLi[startIndex].style.cssText+=<span class="string">`;z-index:100;left:<span class="subst">$&#123;toX&#125;</span>;top:<span class="subst">$&#123;toY&#125;</span>`</span>;</span></span><br><span class="line"><span class="javascript">                 oLi[endIndex].style.cssText+=<span class="string">`;z-index:100;left:<span class="subst">$&#123;fromX&#125;</span>;top:<span class="subst">$&#123;fromY&#125;</span>`</span>;</span></span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">     &#125;</span><br><span class="line">     createLi();</span><br><span class="line">     computedLiPostion();</span><br><span class="line">     changePosition();</span><br><span class="line"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
 
     </div>
-    <h3 style="font-size: 1.6rem;font-weight: 550;">页面关键信息已通过以下代码生成跳转链接</h3>
-    <pre>
-     &lt;script&gt;
-         const context = document.querySelector(".markdown-body");
-         const articleTitleList = document.querySelector(".article-title-list");
-         if(context){
-             const tags = context.querySelectorAll('*');
-             const hTagReg = /^H[1-6]$/;
-             let template = '';
-             tags.forEach(item=>{
-                     if(hTagReg.test(item.tagName.toUpperCase()) && item.innerText){
-                      const tagH = item.tagName.toLowerCase();
-                      const forHash = item.getAttribute("id");
-                     template+=`
-                          <${tagH}>
-                          <a onclick="javascript:void(1)" href="#${forHash}">${item.innerText}</a>
-                         </${tagH}>  
-                      `;
-                  }
-              });
-             articleTitleList.innerHTML=template; 
-          }
-          &lt;/script&gt;
-        </pre>
+
+
+    
+
     
     <div class="post-copyright-info">
       <div class="article-copyright-info-container">
@@ -346,7 +336,7 @@
  * @Description: file content
  * @Author: yuhongshao
  * @Date: 2022-04-11 16:32:40
- * @email: yuhongshao@tencent.com
+ * @email: 
  * @LastEditTime: 2022-04-25 09:25:59
 -->
 <footer class="footer">
@@ -472,27 +462,32 @@
   const mainContent = document.querySelector('.main-content');
 
   if (context) {
-    const tags = context.querySelectorAll('*');
-    const hTagReg = /^H[1-6]$/;
-    let template = '';
-    tags.forEach(item => {
-      if (hTagReg.test(item.tagName.toUpperCase()) && item.innerText) {
-        const tagH = item.tagName.toLowerCase();
-        const forHash = item.getAttribute("id");
-        template += `
+    if (window.innerWidth > 1380) {
+      const tags = context.querySelectorAll('*');
+      const hTagReg = /^H[1-6]$/;
+      let template = '';
+      tags.forEach(item => {
+        if (hTagReg.test(item.tagName.toUpperCase()) && item.innerText) {
+          const tagH = item.tagName.toLowerCase();
+          const tagHToUpper = item.tagName.toUpperCase();
+          const forHash = item.getAttribute("id");
+          //<span class="badge">${tagHToUpper}</span>
+          template += `
                   <${tagH}>
-                    <a onclick="javascript:void(1)" href="#${forHash}">${item.innerText}</a>
+                    <a onclick="javascript:void(1)" href="#${forHash}"> ${item.innerText}</a>
                   </${tagH}>  
                 `;
 
-      }
-    });
-    articleTitleList.innerHTML = template;
+        }
+      });
+      articleTitleList.innerHTML = template;
+    }
+
 
   }
 
   (function leftNavPositionChange() {
-    const articleTitlePositoinX = (window.innerWidth - mainContent.clientWidth) / 2 - 255;
+    const articleTitlePositoinX = (window.innerWidth - mainContent.clientWidth) / 2 - 300;
     articleTitleList.style.left = articleTitlePositoinX + 'px';
     window.onresize = function () {
       leftNavPositionChange();

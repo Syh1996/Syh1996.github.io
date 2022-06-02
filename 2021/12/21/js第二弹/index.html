@@ -31,8 +31,8 @@
  * @Description: file content
  * @Author: yuhongshao
  * @Date: 2021-02-20 19:33:18
- * @email: yuhongshao@tencent.com
- * @LastEditTime: 2022-03-30 10:24:37
+ * @email: 
+ * @LastEditTime: 2022-05-25 12:31:42
 -->
 <div class="progress-bar-container">
     
@@ -133,16 +133,26 @@
 
     </div>
     <style>
+      .main-content a{
+        color: #6e9cca;
+      }
       .article-title-list {
         position: fixed;
         left: 80px;
         top: 110px;
         z-index: 100;
-        width: 250px;
+        width: 300px;
         max-height: calc(100% - 144px);
         overflow: auto;
       }
-
+      .article-title-list a .badge{
+        display: inline-block;
+        margin-right: 5px;
+        padding: 0 5px;
+        background-color: #ebebeb;
+        border-radius: 3px;
+        color: #6b6b6b;
+      }
       .article-title-list h1,
       .article-title-list h2,
       .article-title-list h3,
@@ -214,7 +224,7 @@
           <span class="name">邵预鸿</span>
           
           <span
-            class="author-label">Lv4</span>
+            class="author-label">Lv5</span>
           
         </div>
         <div class="meta-info">
@@ -334,7 +344,7 @@
 <p><img  
                      lazyload
                      src="/images/loading.svg"
-                     data-src="https://gitee.com/xian_hong_xiao/assets/raw/master/img/11.png"
+                     data-src="http://server.yuhongshao.cn/static/yuhongshao/11.png"
                       alt="图片"
                 ></p>
 <ul>
@@ -344,7 +354,7 @@
 <p><img  
                      lazyload
                      src="/images/loading.svg"
-                     data-src="https://gitee.com/xian_hong_xiao/assets/raw/master/img/12.png"
+                     data-src="http://server.yuhongshao.cn/static/yuhongshao/12.png"
                      
                 ></p>
 </li>
@@ -417,14 +427,14 @@
 <h3 id="TCP三次握手"><a href="#TCP三次握手" class="headerlink" title="TCP三次握手"></a>TCP三次握手</h3><p><img  
                      lazyload
                      src="/images/loading.svg"
-                     data-src="https://gitee.com/xian_hong_xiao/assets/raw/master/img/tcp3.png"
+                     data-src="http://server.yuhongshao.cn/static/yuhongshao/tcp3.png"
                      
                 ></p>
 <p>三次握手：<br>第一次握手：客户端发送syn包(syn=x)到服务器，并进入SYN_SEND状态，等待服务器确认；<br>第二次握手：服务器收到syn包，必须确认客户的SYN（ack=x+1），同时自己也发送一个SYN包（syn=y），即SYN+ACK包，此时服务器进入SYN_RECV状态；<br>第三次握手：客户端收到服务器的SYN＋ACK包，向服务器发送确认包ACK(ack=y+1)，此包发送完毕，客户端和服务器进入ESTABLISHED状态，完成三次握手。<br>握手过程中传送的包里不包含数据，三次握手完毕后，客户端与服务器才正式开始传送数据。理想状态下，TCP连接一旦建立，在通信双方中的任何一方主动关闭连接之前，TCP 连接都将被一直保持下去。<br>————————————————<br>版权声明：本文为CSDN博主「ronety」的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。<br>原文链接：<a class="link"   target="_blank" rel="noopener" href="https://blog.csdn.net/ronety/article/details/89140053" >https://blog.csdn.net/ronety/article/details/89140053<i class="fas fa-external-link-alt"></i></a></p>
 <h3 id="TCP四次挥手"><a href="#TCP四次挥手" class="headerlink" title="TCP四次挥手"></a>TCP四次挥手</h3><p><img  
                      lazyload
                      src="/images/loading.svg"
-                     data-src="https://gitee.com/xian_hong_xiao/assets/raw/master/img/tcp4.png"
+                     data-src="http://server.yuhongshao.cn/static/yuhongshao/tcp4.png"
                      
                 ></p>
 <p>四次挥手<br>与建立连接的“三次握手”类似，断开一个TCP连接则需要“四次握手”。<br>第一次挥手：主动关闭方发送一个FIN，用来关闭主动方到被动关闭方的数据传送，也就是主动关闭方告诉被动关闭方：我已经不 会再给你发数据了(当然，在fin包之前发送出去的数据，如果没有收到对应的ack确认报文，主动关闭方依然会重发这些数据)，但是，此时主动关闭方还可 以接受数据。<br>第二次挥手：被动关闭方收到FIN包后，发送一个ACK给对方，确认序号为收到序号+1（与SYN相同，一个FIN占用一个序号）。<br>第三次挥手：被动关闭方发送一个FIN，用来关闭被动关闭方到主动关闭方的数据传送，也就是告诉主动关闭方，我的数据也发送完了，不会再给你发数据了。<br>第四次挥手：主动关闭方收到FIN后，发送一个ACK给被动关闭方，确认序号为收到序号+1，至此，完成四次挥手。<br>————————————————<br>版权声明：本文为CSDN博主「ronety」的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。<br>原文链接：<a class="link"   target="_blank" rel="noopener" href="https://blog.csdn.net/ronety/article/details/89140053" >https://blog.csdn.net/ronety/article/details/89140053<i class="fas fa-external-link-alt"></i></a></p>
@@ -533,7 +543,7 @@
 <h5 id="效果图"><a href="#效果图" class="headerlink" title="效果图"></a>效果图</h5><p><img  
                      lazyload
                      src="/images/loading.svg"
-                     data-src="https://gitee.com/xian_hong_xiao/assets/raw/master/img/13.png"
+                     data-src="http://server.yuhongshao.cn/static/yuhongshao/13.png"
                      
                 ></p>
 <p>上面代码运行后，明显可以发现<code>p</code>的margin-top:20px,margin-bottom:20px; <code>p</code>与<code>p</code>之前应该是40,而实际上只有20，发生了margin重叠; </p>
@@ -541,7 +551,7 @@
 <p><img  
                      lazyload
                      src="/images/loading.svg"
-                     data-src="https://gitee.com/xian_hong_xiao/assets/raw/master/img/14.png"
+                     data-src="http://server.yuhongshao.cn/static/yuhongshao/14.png"
                      
                 ></p>
 <h4 id="垂直margin为什么会重叠？"><a href="#垂直margin为什么会重叠？" class="headerlink" title="== (|) 垂直margin为什么会重叠？"></a>== (<del>|</del>) 垂直margin为什么会重叠？</h4><p><strong><em>找到了一个很好的解释：margin的定义不是让元素移动xxpx，而是这个元素的旁边必须有xxxpx的的空白。</em></strong></p>
@@ -734,32 +744,16 @@
 <p>beforeEach 有三个参数，to 代表要进入的路由对象，from 代表离开的路由对象。next 是一个必须要执行的函数，如果不传参数，那就执行下一个钩子函数，如果传入 false，则终止跳转，如果传入一个路径，则导航到对应的路由，如果传入 error ，则导航终止，error 传入错误的监听函数。</p>
 <p>（2）单个路由独享的钩子函数 beforeEnter，它是在路由配置上直接进行定义的。</p>
 <p>（3）组件内的导航钩子主要有这三种：beforeRouteEnter、beforeRouteUpdate、beforeRouteLeave。它们是直接在路由组<br>件内部直接进行定义的。</p>
+<h3 id="获取url参数通用方法"><a href="#获取url参数通用方法" class="headerlink" title="获取url参数通用方法"></a>获取url参数通用方法</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">GetQueryString</span>(<span class="params">name</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> reg = <span class="keyword">new</span> <span class="built_in">RegExp</span>(<span class="string">&quot;(^|&amp;)&quot;</span> + name + <span class="string">&quot;=([^&amp;]*)(&amp;|$)&quot;</span>, <span class="string">&quot;i&quot;</span>);</span><br><span class="line">    <span class="keyword">var</span> r = <span class="built_in">window</span>.location.search.substr(<span class="number">1</span>).match(reg); <span class="comment">//获取url中&quot;?&quot;符后的字符串并正则匹配</span></span><br><span class="line">    <span class="keyword">var</span> context = <span class="string">&quot;&quot;</span>;</span><br><span class="line">    <span class="keyword">if</span> (r != <span class="literal">null</span>)</span><br><span class="line">    context = r[<span class="number">2</span>];</span><br><span class="line">    reg = <span class="literal">null</span>;</span><br><span class="line">    r = <span class="literal">null</span>;</span><br><span class="line">    <span class="keyword">return</span> context == <span class="literal">null</span> || context == <span class="string">&quot;&quot;</span> || context == <span class="string">&quot;undefined&quot;</span> ? <span class="string">&quot;&quot;</span> : context;</span><br><span class="line">    &#125;</span><br><span class="line">alert(GetQueryString(<span class="string">&#x27;handle&#x27;</span>));</span><br><span class="line"><span class="comment">//需要获取什么，就传入属性名</span></span><br></pre></td></tr></table></figure>
+
+
+<h3 id="Nodejs解决跨域"><a href="#Nodejs解决跨域" class="headerlink" title="Nodejs解决跨域"></a>Nodejs解决跨域</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">server.on(<span class="string">&#x27;request&#x27;</span>, <span class="function">(<span class="params">request, response</span>) =&gt;</span> &#123;</span><br><span class="line">    </span><br><span class="line">    response.setHeader(<span class="string">&#x27;Access-Control-Allow-Origin&#x27;</span>, <span class="string">&#x27;*&#x27;</span>);</span><br><span class="line">    response.setHeader(<span class="string">&quot;Access-Control-Allow-Headers&quot;</span>, <span class="string">&quot;X-Requested-With&quot;</span>);</span><br><span class="line">    response.setHeader(<span class="string">&quot;Access-Control-Allow-Methods&quot;</span>, <span class="string">&quot;PUT,POST,GET,DELETE,OPTIONS&quot;</span>);</span><br><span class="line">    response.setHeader(<span class="string">&quot;Access-Control-Allow-Headers&quot;</span>,<span class="string">&quot;Content-Type,XFILENAME,XFILECATEGORY,XFILESIZE&quot;</span>);</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">const</span> subIndex = request.url.indexOf(<span class="string">&#x27;?&#x27;</span>);</span><br><span class="line">    <span class="keyword">let</span> path = request.url;</span><br><span class="line">    <span class="keyword">if</span>(subIndex !== -<span class="number">1</span>)&#123;</span><br><span class="line">       path = request.url.substring(<span class="number">0</span>,subIndex);</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">if</span> (path ===<span class="string">&#x27;/test&#x27;</span>) &#123;</span><br><span class="line">        response.end(<span class="built_in">JSON</span>.stringify(&#123;<span class="attr">code</span>:<span class="number">200</span>&#125;));</span><br><span class="line">        <span class="keyword">return</span>;</span><br><span class="line">    &#125;</span><br><span class="line"> </span><br><span class="line">    response.end(<span class="built_in">JSON</span>.stringify(&#123;<span class="attr">code</span>:<span class="number">200</span>&#125;));</span><br><span class="line">&#125;)</span><br><span class="line">server.listen(<span class="string">&#x27;18002&#x27;</span>);</span><br></pre></td></tr></table></figure>
 
     </div>
-    <h3 style="font-size: 1.6rem;font-weight: 550;">页面关键信息已通过以下代码生成跳转链接</h3>
-    <pre>
-     &lt;script&gt;
-         const context = document.querySelector(".markdown-body");
-         const articleTitleList = document.querySelector(".article-title-list");
-         if(context){
-             const tags = context.querySelectorAll('*');
-             const hTagReg = /^H[1-6]$/;
-             let template = '';
-             tags.forEach(item=>{
-                     if(hTagReg.test(item.tagName.toUpperCase()) && item.innerText){
-                      const tagH = item.tagName.toLowerCase();
-                      const forHash = item.getAttribute("id");
-                     template+=`
-                          <${tagH}>
-                          <a onclick="javascript:void(1)" href="#${forHash}">${item.innerText}</a>
-                         </${tagH}>  
-                      `;
-                  }
-              });
-             articleTitleList.innerHTML=template; 
-          }
-          &lt;/script&gt;
-        </pre>
+
+
+    
+
     
     <div class="post-copyright-info">
       <div class="article-copyright-info-container">
@@ -825,7 +819,7 @@
  * @Description: file content
  * @Author: yuhongshao
  * @Date: 2022-04-11 16:32:40
- * @email: yuhongshao@tencent.com
+ * @email: 
  * @LastEditTime: 2022-04-25 09:25:59
 -->
 <footer class="footer">
@@ -951,27 +945,32 @@
   const mainContent = document.querySelector('.main-content');
 
   if (context) {
-    const tags = context.querySelectorAll('*');
-    const hTagReg = /^H[1-6]$/;
-    let template = '';
-    tags.forEach(item => {
-      if (hTagReg.test(item.tagName.toUpperCase()) && item.innerText) {
-        const tagH = item.tagName.toLowerCase();
-        const forHash = item.getAttribute("id");
-        template += `
+    if (window.innerWidth > 1380) {
+      const tags = context.querySelectorAll('*');
+      const hTagReg = /^H[1-6]$/;
+      let template = '';
+      tags.forEach(item => {
+        if (hTagReg.test(item.tagName.toUpperCase()) && item.innerText) {
+          const tagH = item.tagName.toLowerCase();
+          const tagHToUpper = item.tagName.toUpperCase();
+          const forHash = item.getAttribute("id");
+          //<span class="badge">${tagHToUpper}</span>
+          template += `
                   <${tagH}>
-                    <a onclick="javascript:void(1)" href="#${forHash}">${item.innerText}</a>
+                    <a onclick="javascript:void(1)" href="#${forHash}"> ${item.innerText}</a>
                   </${tagH}>  
                 `;
 
-      }
-    });
-    articleTitleList.innerHTML = template;
+        }
+      });
+      articleTitleList.innerHTML = template;
+    }
+
 
   }
 
   (function leftNavPositionChange() {
-    const articleTitlePositoinX = (window.innerWidth - mainContent.clientWidth) / 2 - 255;
+    const articleTitlePositoinX = (window.innerWidth - mainContent.clientWidth) / 2 - 300;
     articleTitleList.style.left = articleTitlePositoinX + 'px';
     window.onresize = function () {
       leftNavPositionChange();

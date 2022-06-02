@@ -31,8 +31,8 @@
  * @Description: file content
  * @Author: yuhongshao
  * @Date: 2021-02-20 19:33:18
- * @email: yuhongshao@tencent.com
- * @LastEditTime: 2022-03-30 10:24:37
+ * @email: 
+ * @LastEditTime: 2022-05-25 12:31:42
 -->
 <div class="progress-bar-container">
     
@@ -133,16 +133,26 @@
 
     </div>
     <style>
+      .main-content a{
+        color: #6e9cca;
+      }
       .article-title-list {
         position: fixed;
         left: 80px;
         top: 110px;
         z-index: 100;
-        width: 250px;
+        width: 300px;
         max-height: calc(100% - 144px);
         overflow: auto;
       }
-
+      .article-title-list a .badge{
+        display: inline-block;
+        margin-right: 5px;
+        padding: 0 5px;
+        background-color: #ebebeb;
+        border-radius: 3px;
+        color: #6b6b6b;
+      }
       .article-title-list h1,
       .article-title-list h2,
       .article-title-list h3,
@@ -214,7 +224,7 @@
           <span class="name">邵预鸿</span>
           
           <span
-            class="author-label">Lv4</span>
+            class="author-label">Lv5</span>
           
         </div>
         <div class="meta-info">
@@ -260,7 +270,7 @@
 <p><img  
                      lazyload
                      src="/images/loading.svg"
-                     data-src="https://gitee.com/xian_hong_xiao/assets/raw/master/img/20161209112154855.gif"
+                     data-src="http://server.yuhongshao.cn/static/yuhongshao/20161209112154855.gif"
                       alt="这里写图片描述"
                 ></p>
 <h4 id="animateTransform"><a href="#animateTransform" class="headerlink" title="animateTransform"></a>animateTransform</h4><p><animateTransform>元素可以执行变换属性的动画。这个新的元素是必要的，因为我们不能用一个简单的数值的属性就像x来制作这种动画。旋转属性就像：rotation(theta, x, y)，theta是一个角度，x和y是绝对坐标。在下面这个例子中我们绕着旋转中心旋转一定的角度。</p>
@@ -268,7 +278,7 @@
 <p><img  
                      lazyload
                      src="/images/loading.svg"
-                     data-src="https://gitee.com/xian_hong_xiao/assets/raw/master/img/20161222085404804.gif"
+                     data-src="http://server.yuhongshao.cn/static/yuhongshao/20161222085404804.gif"
                       alt="这里写图片描述"
                 ></p>
 <h4 id="animateMotion"><a href="#animateMotion" class="headerlink" title="animateMotion"></a>animateMotion</h4><p><animateMotion>元素让你可以实现一个路径动画，并且根据路径进行旋转。路径使用和<path>相同的方式进行定义。你可以设置属性来定义对象是否根据路径的正切角度来旋转。</p>
@@ -277,7 +287,7 @@
 <p><img  
                      lazyload
                      src="/images/loading.svg"
-                     data-src="https://gitee.com/xian_hong_xiao/assets/raw/master/img/20161209110812518.gif"
+                     data-src="http://server.yuhongshao.cn/static/yuhongshao/20161209110812518.gif"
                       alt="这里写图片描述"
                 ></p>
 <h4 id="Example-2-Curved-motion"><a href="#Example-2-Curved-motion" class="headerlink" title="Example 2: Curved motion"></a>Example 2: Curved motion</h4><p>和上面差不多的例子，只不过现在是沿着曲线和路径方向运动。</p>
@@ -285,7 +295,7 @@
 <p><img  
                      lazyload
                      src="/images/loading.svg"
-                     data-src="https://gitee.com/xian_hong_xiao/assets/raw/master/img/20161209110427592.gif"
+                     data-src="http://server.yuhongshao.cn/static/yuhongshao/20161209110427592.gif"
                       alt="这里写图片描述"
                 ></p>
 <p><animateMotion>使元素沿着动作路径移动，路径也可以 <strong>path元素的id的路径</strong> 组成</p>
@@ -321,7 +331,7 @@
 <p><img  
                      lazyload
                      src="/images/loading.svg"
-                     data-src="https://gitee.com/xian_hong_xiao/assets/raw/master/img/1312697-20190618114434344-1494379511.png"
+                     data-src="http://server.yuhongshao.cn/static/yuhongshao/1312697-20190618114434344-1494379511.png"
                       alt="img"
                 ></p>
 <p>上图效果分别是：<br>1.没有虚线<br>2.stroke-dasharray=”3 1” ，虚线没有设置偏移，也就是stroke-dashoffset值为0<br>3.stroke-dashoffset=”3”，偏移正数，虚线整体左移了3个单位，图中3后面的红线段，就是起始线段，线段之后是1个单位的间隔，我们可见区域从这个间隔开始，然后循环 3-1,3-1的虚线-间隔-虚线-间隔<br>4.stroke-dashoffset=”-3”，偏移负数，虚线整体右移动了3个单位，由于dasharray 是循环的，前面偏移的位置会有dasharray 填充上<br>5.stroke-dashoffset=”1”，偏移正数，虚线整体左移了1个单位，最终呈现出来的效果跟 线段4 一样</p>
@@ -330,7 +340,7 @@
 <p><img  
                      lazyload
                      src="/images/loading.svg"
-                     data-src="https://gitee.com/xian_hong_xiao/assets/raw/master/img/1312697-20190618115412705-1014505699.gif"
+                     data-src="http://server.yuhongshao.cn/static/yuhongshao/1312697-20190618115412705-1014505699.gif"
                       alt="img"
                 ></p>
 <p>第一步：先画出一个圆圈：代码如下，圆的半径设置为50</p>
@@ -338,7 +348,7 @@
 <p><img  
                      lazyload
                      src="/images/loading.svg"
-                     data-src="https://gitee.com/xian_hong_xiao/assets/raw/master/img/1312697-20190618115639809-1926849090.png"
+                     data-src="http://server.yuhongshao.cn/static/yuhongshao/1312697-20190618115639809-1926849090.png"
                       alt="img"
                 ></p>
 <p>第二步：设置圆的stroke-dasharray和stroke-dashoffset，为圆的周长</p>
@@ -346,7 +356,7 @@
 <p><img  
                      lazyload
                      src="/images/loading.svg"
-                     data-src="https://gitee.com/xian_hong_xiao/assets/raw/master/img/1312697-20190618115936577-653191996.png"
+                     data-src="http://server.yuhongshao.cn/static/yuhongshao/1312697-20190618115936577-653191996.png"
                       alt="img"
                 ></p>
 <p>第三步：hover的时候，设置stroke-dashoffset为0，注意圆的stroke起始位置为右侧中间</p>
@@ -370,7 +380,7 @@
 <p><img  
                      lazyload
                      src="/images/loading.svg"
-                     data-src="https://gitee.com/xian_hong_xiao/assets/raw/master/img/2.PNG"
+                     data-src="http://server.yuhongshao.cn/static/yuhongshao/2.PNG"
                       alt="图片"
                 ></p>
 <h3 id="异常问题"><a href="#异常问题" class="headerlink" title="异常问题"></a>异常问题</h3><ul>
@@ -379,30 +389,10 @@
 <p>​           打开svg图片，然后在svg标签上面加上属性：preserveAspectRatio=”none meet”;</p>
 
     </div>
-    <h3 style="font-size: 1.6rem;font-weight: 550;">页面关键信息已通过以下代码生成跳转链接</h3>
-    <pre>
-     &lt;script&gt;
-         const context = document.querySelector(".markdown-body");
-         const articleTitleList = document.querySelector(".article-title-list");
-         if(context){
-             const tags = context.querySelectorAll('*');
-             const hTagReg = /^H[1-6]$/;
-             let template = '';
-             tags.forEach(item=>{
-                     if(hTagReg.test(item.tagName.toUpperCase()) && item.innerText){
-                      const tagH = item.tagName.toLowerCase();
-                      const forHash = item.getAttribute("id");
-                     template+=`
-                          <${tagH}>
-                          <a onclick="javascript:void(1)" href="#${forHash}">${item.innerText}</a>
-                         </${tagH}>  
-                      `;
-                  }
-              });
-             articleTitleList.innerHTML=template; 
-          }
-          &lt;/script&gt;
-        </pre>
+
+
+    
+
     
     <div class="post-copyright-info">
       <div class="article-copyright-info-container">
@@ -468,7 +458,7 @@
  * @Description: file content
  * @Author: yuhongshao
  * @Date: 2022-04-11 16:32:40
- * @email: yuhongshao@tencent.com
+ * @email: 
  * @LastEditTime: 2022-04-25 09:25:59
 -->
 <footer class="footer">
@@ -594,27 +584,32 @@
   const mainContent = document.querySelector('.main-content');
 
   if (context) {
-    const tags = context.querySelectorAll('*');
-    const hTagReg = /^H[1-6]$/;
-    let template = '';
-    tags.forEach(item => {
-      if (hTagReg.test(item.tagName.toUpperCase()) && item.innerText) {
-        const tagH = item.tagName.toLowerCase();
-        const forHash = item.getAttribute("id");
-        template += `
+    if (window.innerWidth > 1380) {
+      const tags = context.querySelectorAll('*');
+      const hTagReg = /^H[1-6]$/;
+      let template = '';
+      tags.forEach(item => {
+        if (hTagReg.test(item.tagName.toUpperCase()) && item.innerText) {
+          const tagH = item.tagName.toLowerCase();
+          const tagHToUpper = item.tagName.toUpperCase();
+          const forHash = item.getAttribute("id");
+          //<span class="badge">${tagHToUpper}</span>
+          template += `
                   <${tagH}>
-                    <a onclick="javascript:void(1)" href="#${forHash}">${item.innerText}</a>
+                    <a onclick="javascript:void(1)" href="#${forHash}"> ${item.innerText}</a>
                   </${tagH}>  
                 `;
 
-      }
-    });
-    articleTitleList.innerHTML = template;
+        }
+      });
+      articleTitleList.innerHTML = template;
+    }
+
 
   }
 
   (function leftNavPositionChange() {
-    const articleTitlePositoinX = (window.innerWidth - mainContent.clientWidth) / 2 - 255;
+    const articleTitlePositoinX = (window.innerWidth - mainContent.clientWidth) / 2 - 300;
     articleTitleList.style.left = articleTitlePositoinX + 'px';
     window.onresize = function () {
       leftNavPositionChange();

@@ -31,8 +31,8 @@
  * @Description: file content
  * @Author: yuhongshao
  * @Date: 2021-02-20 19:33:18
- * @email: yuhongshao@tencent.com
- * @LastEditTime: 2022-03-30 10:24:37
+ * @email: 
+ * @LastEditTime: 2022-05-25 12:31:42
 -->
 <div class="progress-bar-container">
     
@@ -133,16 +133,26 @@
 
     </div>
     <style>
+      .main-content a{
+        color: #6e9cca;
+      }
       .article-title-list {
         position: fixed;
         left: 80px;
         top: 110px;
         z-index: 100;
-        width: 250px;
+        width: 300px;
         max-height: calc(100% - 144px);
         overflow: auto;
       }
-
+      .article-title-list a .badge{
+        display: inline-block;
+        margin-right: 5px;
+        padding: 0 5px;
+        background-color: #ebebeb;
+        border-radius: 3px;
+        color: #6b6b6b;
+      }
       .article-title-list h1,
       .article-title-list h2,
       .article-title-list h3,
@@ -214,7 +224,7 @@
           <span class="name">邵预鸿</span>
           
           <span
-            class="author-label">Lv4</span>
+            class="author-label">Lv5</span>
           
         </div>
         <div class="meta-info">
@@ -252,30 +262,10 @@
 <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">template</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;dataSon&quot;</span>&gt;</span></span><br><span class="line">          <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;input-box&quot;</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;input&quot;</span> <span class="attr">contenteditable</span> <span class="attr">ref</span>=<span class="string">&quot;input&quot;</span> @<span class="attr">click</span>=<span class="string">&quot;getInputPosition&quot;</span> @<span class="attr">input</span>=<span class="string">&quot;getInputPosition&quot;</span>&gt;</span></span><br><span class="line">        数据同步：子模块中涉及从外围系统数据源的单元格均从系统同步获取，可以不用实时更新，用户可以手工点击【更新数据】按钮</span><br><span class="line">        第一阶段不考虑，数据调整：系统仅支持无公式计算的单元格进行数据调整，用户点击单元格弹窗输入调整值，并填写调整备注，点击保存。如果调整会导致关联单元格数据变化，可通过【更新数据】按钮更新全量数据；调整值键入的备注信息仅能够在web页面显示，点击【显示备注】，则在表单后侧显示单元格坐标的备注内容，下图1供参考</span><br><span class="line">        导出：具体表页面点击导出则表示导出该页面表</span><br><span class="line">        导入：系统仅支持导入调整值，通过excel导入的方式不能填写备注，但是可通过页面添加单元格备注</span><br><span class="line">        数据透明化：点击具体单元格，可以显示该单元格的数据组成报表，下图2供参考</span><br><span class="line">        填写备注：用户可以点击显示备注，进行整表的备注添加，但是不与具体单元格关联，下图1供参考</span><br><span class="line">        子模块动态行权限管理：部分子模块会有不同的区域负责人填写不同的数据</span><br><span class="line">      <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;badge&quot;</span> <span class="attr">ref</span>=<span class="string">&quot;badge&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">hr</span> /&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">h3</span>&gt;</span>dataSon.vue<span class="tag">&lt;/<span class="name">h3</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">h4</span>&gt;</span>父组件的值::&#123;&#123; userName &#125;&#125;<span class="tag">&lt;/<span class="name">h4</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">button</span> @<span class="attr">click</span>=<span class="string">&quot;editInputValue&quot;</span>&gt;</span>修改父组件的值为随机数<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line"></span><br><span class="line">  <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">template</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="javascript"><span class="keyword">import</span> &#123; defineComponent, ref &#125; <span class="keyword">from</span> <span class="string">&quot;vue&quot;</span>;</span></span><br><span class="line"><span class="javascript"><span class="keyword">export</span> <span class="keyword">default</span> defineComponent(&#123;</span></span><br><span class="line">  props: &#123;</span><br><span class="line">    userName: &#123;</span><br><span class="line"><span class="javascript">      type: <span class="built_in">String</span>,</span></span><br><span class="line"><span class="javascript">      <span class="keyword">default</span>: <span class="string">&quot;我是默认的props userName&quot;</span>,</span></span><br><span class="line">    &#125;,</span><br><span class="line">  &#125;,</span><br><span class="line"><span class="javascript">  <span class="function"><span class="title">setup</span>(<span class="params">props, context</span>)</span> &#123;</span></span><br><span class="line"><span class="javascript">    <span class="keyword">const</span> badge = ref();</span></span><br><span class="line"><span class="javascript">    <span class="keyword">const</span> editInputValue = <span class="function">() =&gt;</span> &#123;</span></span><br><span class="line"><span class="javascript">      context.emit(<span class="string">&quot;editInputValue&quot;</span>, <span class="built_in">Math</span>.random().toString());</span></span><br><span class="line">    &#125;;</span><br><span class="line"><span class="javascript">    <span class="keyword">const</span> getInputPosition = <span class="function">() =&gt;</span> &#123;</span></span><br><span class="line"><span class="javascript">      <span class="built_in">console</span>.log(badge.value);</span></span><br><span class="line"><span class="javascript">      <span class="keyword">var</span> win = win || <span class="built_in">window</span>;</span></span><br><span class="line"><span class="javascript">      <span class="keyword">var</span> doc = win.document;</span></span><br><span class="line"><span class="javascript">      <span class="keyword">var</span> sel = doc.selection,</span></span><br><span class="line">        range,</span><br><span class="line">        rects,</span><br><span class="line">        rect;</span><br><span class="line"><span class="javascript">      <span class="keyword">var</span> x = <span class="number">0</span>,</span></span><br><span class="line">        y = 0;</span><br><span class="line">      if (sel) &#123;</span><br><span class="line"><span class="javascript">        <span class="keyword">if</span> (sel.type != <span class="string">&quot;Control&quot;</span>) &#123;</span></span><br><span class="line">          range = sel.createRange();</span><br><span class="line"><span class="javascript">          range.collapse(<span class="literal">true</span>);</span></span><br><span class="line">          x = range.boundingLeft;</span><br><span class="line">          y = range.boundingTop;</span><br><span class="line">        &#125;</span><br><span class="line"><span class="javascript">      &#125; <span class="keyword">else</span> <span class="keyword">if</span> (win.getSelection) &#123;</span></span><br><span class="line">        sel = win.getSelection();</span><br><span class="line">        if (sel.rangeCount) &#123;</span><br><span class="line">          range = sel.getRangeAt(0).cloneRange();</span><br><span class="line">          if (range.getClientRects) &#123;</span><br><span class="line"><span class="javascript">            range.collapse(<span class="literal">true</span>);</span></span><br><span class="line">            rects = range.getClientRects();</span><br><span class="line">            if (rects.length &gt; 0) &#123;</span><br><span class="line">              rect = rects[0];</span><br><span class="line">            &#125;</span><br><span class="line"><span class="javascript">            <span class="comment">// 光标在行首时，rect为undefined</span></span></span><br><span class="line">            if (rect) &#123;</span><br><span class="line">              x = rect.left;</span><br><span class="line">              y = rect.top;</span><br><span class="line">            &#125;</span><br><span class="line">          &#125;</span><br><span class="line"><span class="javascript">          <span class="comment">// Fall back to inserting a temporary element</span></span></span><br><span class="line"><span class="javascript">          <span class="keyword">if</span> ((x == <span class="number">0</span> &amp;&amp; y == <span class="number">0</span>) || rect === <span class="literal">undefined</span>) &#123;</span></span><br><span class="line"><span class="javascript">            <span class="keyword">var</span> span = doc.createElement(<span class="string">&quot;span&quot;</span>);</span></span><br><span class="line">            if (span.getClientRects) &#123;</span><br><span class="line"><span class="javascript">              <span class="comment">// Ensure span has dimensions and position by</span></span></span><br><span class="line"><span class="javascript">              <span class="comment">// adding a zero-width space character</span></span></span><br><span class="line"><span class="javascript">              span.appendChild(doc.createTextNode(<span class="string">&quot;\u200b&quot;</span>));</span></span><br><span class="line">              range.insertNode(span);</span><br><span class="line">              rect = span.getClientRects()[0];</span><br><span class="line">              x = rect.left;</span><br><span class="line">              y = rect.top;</span><br><span class="line"><span class="javascript">              <span class="keyword">var</span> spanParent = span.parentNode;</span></span><br><span class="line">              spanParent.removeChild(span);</span><br><span class="line"></span><br><span class="line"><span class="javascript">              <span class="comment">// Glue any broken text nodes back together</span></span></span><br><span class="line">              spanParent.normalize();</span><br><span class="line">            &#125;</span><br><span class="line">          &#125;</span><br><span class="line">        &#125;</span><br><span class="line">      &#125;</span><br><span class="line"><span class="javascript">      <span class="comment">//console.log(&#123; left: x, top: y &#125;);</span></span></span><br><span class="line"><span class="javascript">      <span class="built_in">console</span>.log(&#123; <span class="attr">left</span>: x, <span class="attr">top</span>: y &#125;);</span></span><br><span class="line"><span class="javascript">      <span class="built_in">console</span>.log(badge.value);</span></span><br><span class="line"><span class="javascript">      badge.value.style.cssText = <span class="string">`;left:<span class="subst">$&#123;x&#125;</span>px;top:<span class="subst">$&#123;y+<span class="number">20</span>&#125;</span>px`</span>;</span></span><br><span class="line">    &#125;;</span><br><span class="line"><span class="javascript">    <span class="keyword">return</span> &#123;</span></span><br><span class="line">      editInputValue,</span><br><span class="line">      getInputPosition,</span><br><span class="line">      badge,</span><br><span class="line">    &#125;;</span><br><span class="line">  &#125;,</span><br><span class="line">&#125;);</span><br><span class="line"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
 
     </div>
-    <h3 style="font-size: 1.6rem;font-weight: 550;">页面关键信息已通过以下代码生成跳转链接</h3>
-    <pre>
-     &lt;script&gt;
-         const context = document.querySelector(".markdown-body");
-         const articleTitleList = document.querySelector(".article-title-list");
-         if(context){
-             const tags = context.querySelectorAll('*');
-             const hTagReg = /^H[1-6]$/;
-             let template = '';
-             tags.forEach(item=>{
-                     if(hTagReg.test(item.tagName.toUpperCase()) && item.innerText){
-                      const tagH = item.tagName.toLowerCase();
-                      const forHash = item.getAttribute("id");
-                     template+=`
-                          <${tagH}>
-                          <a onclick="javascript:void(1)" href="#${forHash}">${item.innerText}</a>
-                         </${tagH}>  
-                      `;
-                  }
-              });
-             articleTitleList.innerHTML=template; 
-          }
-          &lt;/script&gt;
-        </pre>
+
+
+    
+
     
     <div class="post-copyright-info">
       <div class="article-copyright-info-container">
@@ -341,7 +331,7 @@
  * @Description: file content
  * @Author: yuhongshao
  * @Date: 2022-04-11 16:32:40
- * @email: yuhongshao@tencent.com
+ * @email: 
  * @LastEditTime: 2022-04-25 09:25:59
 -->
 <footer class="footer">
@@ -467,27 +457,32 @@
   const mainContent = document.querySelector('.main-content');
 
   if (context) {
-    const tags = context.querySelectorAll('*');
-    const hTagReg = /^H[1-6]$/;
-    let template = '';
-    tags.forEach(item => {
-      if (hTagReg.test(item.tagName.toUpperCase()) && item.innerText) {
-        const tagH = item.tagName.toLowerCase();
-        const forHash = item.getAttribute("id");
-        template += `
+    if (window.innerWidth > 1380) {
+      const tags = context.querySelectorAll('*');
+      const hTagReg = /^H[1-6]$/;
+      let template = '';
+      tags.forEach(item => {
+        if (hTagReg.test(item.tagName.toUpperCase()) && item.innerText) {
+          const tagH = item.tagName.toLowerCase();
+          const tagHToUpper = item.tagName.toUpperCase();
+          const forHash = item.getAttribute("id");
+          //<span class="badge">${tagHToUpper}</span>
+          template += `
                   <${tagH}>
-                    <a onclick="javascript:void(1)" href="#${forHash}">${item.innerText}</a>
+                    <a onclick="javascript:void(1)" href="#${forHash}"> ${item.innerText}</a>
                   </${tagH}>  
                 `;
 
-      }
-    });
-    articleTitleList.innerHTML = template;
+        }
+      });
+      articleTitleList.innerHTML = template;
+    }
+
 
   }
 
   (function leftNavPositionChange() {
-    const articleTitlePositoinX = (window.innerWidth - mainContent.clientWidth) / 2 - 255;
+    const articleTitlePositoinX = (window.innerWidth - mainContent.clientWidth) / 2 - 300;
     articleTitleList.style.left = articleTitlePositoinX + 'px';
     window.onresize = function () {
       leftNavPositionChange();

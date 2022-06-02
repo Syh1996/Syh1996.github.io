@@ -31,8 +31,8 @@
  * @Description: file content
  * @Author: yuhongshao
  * @Date: 2021-02-20 19:33:18
- * @email: yuhongshao@tencent.com
- * @LastEditTime: 2022-03-30 10:24:37
+ * @email: 
+ * @LastEditTime: 2022-05-25 12:31:42
 -->
 <div class="progress-bar-container">
     
@@ -133,16 +133,26 @@
 
     </div>
     <style>
+      .main-content a{
+        color: #6e9cca;
+      }
       .article-title-list {
         position: fixed;
         left: 80px;
         top: 110px;
         z-index: 100;
-        width: 250px;
+        width: 300px;
         max-height: calc(100% - 144px);
         overflow: auto;
       }
-
+      .article-title-list a .badge{
+        display: inline-block;
+        margin-right: 5px;
+        padding: 0 5px;
+        background-color: #ebebeb;
+        border-radius: 3px;
+        color: #6b6b6b;
+      }
       .article-title-list h1,
       .article-title-list h2,
       .article-title-list h3,
@@ -222,9 +232,13 @@
                       alt="邵预鸿"
                 ></p>
 <h3 id="其它"><a href="#其它" class="headerlink" title="其它"></a>其它</h3><ul>
-<li>邮箱：<a class="link"   href="mailto:&#49;&#x30;&#52;&#x35;&#x37;&#52;&#57;&#x37;&#50;&#x35;&#x40;&#x71;&#113;&#46;&#99;&#111;&#x6d;" >&#49;&#x30;&#52;&#x35;&#x37;&#52;&#57;&#x37;&#50;&#x35;&#x40;&#x71;&#113;&#46;&#99;&#111;&#x6d;<i class="fas fa-external-link-alt"></i></a></li>
-<li>电话：18875025132</li>
-<li>个人网站：<a class="link"   target="_blank" rel="noopener" href="https://www.shaoyuhong.cn/" >htttps://www.shaoyuhong.cn<i class="fas fa-external-link-alt"></i></a></li>
+<li><p>邮箱：<a class="link"   href="mailto:&#49;&#48;&#x34;&#x35;&#55;&#x34;&#57;&#x37;&#x32;&#x35;&#x40;&#113;&#113;&#46;&#x63;&#x6f;&#109;" >&#49;&#48;&#x34;&#x35;&#55;&#x34;&#57;&#x37;&#x32;&#x35;&#x40;&#113;&#113;&#46;&#x63;&#x6f;&#109;<i class="fas fa-external-link-alt"></i></a></p>
+</li>
+<li><p>电话：18875025132</p>
+</li>
+<li><p>个人网站：<a class="link"   target="_blank" rel="noopener" href="https://www.shaoyuhong.cn/" >htttps://www.shaoyuhong.cn<i class="fas fa-external-link-alt"></i></a></p>
+<p><audio autoplay src="http://server.yuhongshao.cn/static/yuhongshao/20220522150822.mp3" controls></audio>  </p>
+</li>
 </ul>
 
             
@@ -246,7 +260,7 @@
  * @Description: file content
  * @Author: yuhongshao
  * @Date: 2022-04-11 16:32:40
- * @email: yuhongshao@tencent.com
+ * @email: 
  * @LastEditTime: 2022-04-25 09:25:59
 -->
 <footer class="footer">
@@ -359,27 +373,32 @@
   const mainContent = document.querySelector('.main-content');
 
   if (context) {
-    const tags = context.querySelectorAll('*');
-    const hTagReg = /^H[1-6]$/;
-    let template = '';
-    tags.forEach(item => {
-      if (hTagReg.test(item.tagName.toUpperCase()) && item.innerText) {
-        const tagH = item.tagName.toLowerCase();
-        const forHash = item.getAttribute("id");
-        template += `
+    if (window.innerWidth > 1380) {
+      const tags = context.querySelectorAll('*');
+      const hTagReg = /^H[1-6]$/;
+      let template = '';
+      tags.forEach(item => {
+        if (hTagReg.test(item.tagName.toUpperCase()) && item.innerText) {
+          const tagH = item.tagName.toLowerCase();
+          const tagHToUpper = item.tagName.toUpperCase();
+          const forHash = item.getAttribute("id");
+          //<span class="badge">${tagHToUpper}</span>
+          template += `
                   <${tagH}>
-                    <a onclick="javascript:void(1)" href="#${forHash}">${item.innerText}</a>
+                    <a onclick="javascript:void(1)" href="#${forHash}"> ${item.innerText}</a>
                   </${tagH}>  
                 `;
 
-      }
-    });
-    articleTitleList.innerHTML = template;
+        }
+      });
+      articleTitleList.innerHTML = template;
+    }
+
 
   }
 
   (function leftNavPositionChange() {
-    const articleTitlePositoinX = (window.innerWidth - mainContent.clientWidth) / 2 - 255;
+    const articleTitlePositoinX = (window.innerWidth - mainContent.clientWidth) / 2 - 300;
     articleTitleList.style.left = articleTitlePositoinX + 'px';
     window.onresize = function () {
       leftNavPositionChange();
