@@ -1,0 +1,2861 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="baidu-site-verification" content="code-YfBAOEVVQH" />
+    <meta name="keywords" content="邵预鸿,前端开发工程师,技术博客,生活记录,生活日常,个人简历,日常规划">
+    <meta name="description" content="入职中兴通讯，一名低调资深的ctrl+c and ctrl+v开发者">
+    <meta name="author" content="邵预鸿">
+    
+    <title>
+        
+            软考-软件设计师题库 |
+        
+        邵预鸿|前端开发技术笔记
+    </title>
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="shortcut icon" href="/images/logo.jpg">
+    <link rel="stylesheet" href="/css/font-awesome.min.css">
+    <script id="hexo-configurations">
+    let KEEP = window.KEEP || {};
+    KEEP.hexo_config = {"hostname":"github.com","root":"/","language":"zh-CN","path":"search.json"};
+    KEEP.theme_config = {"toc":{"enable":false,"number":false,"expand_all":false,"init_open":false},"style":{"primary_color":"#0066CC","avatar":"/images/logo.jpg","favicon":"/images/logo.jpg","article_img_align":"left","left_side_width":"260px","content_max_width":"920px","hover":{"shadow":true,"scale":false},"first_screen":{"enable":true,"background_img":"/images/bg.svg","description":"积累硅步，可至千里；千里之行，始于足下"},"scroll":{"progress_bar":{"enable":true},"percent":{"enable":true}}},"local_search":{"enable":true,"preload":true},"code_copy":{"enable":true,"style":"default"},"pjax":{"enable":false},"lazyload":{"enable":true},"version":"3.4.0"};
+    KEEP.language_ago = {"second":"%s 秒前","minute":"%s 分钟前","hour":"%s 小时前","day":"%s 天前","week":"%s 周前","month":"%s 月前","year":"%s 年前"};
+  </script>
+<meta name="generator" content="Hexo 5.4.2"></head>
+
+
+<body>
+<!--
+ * @Description: file content
+ * @Author: yuhongshao
+ * @Date: 2021-02-20 19:33:18
+ * @email: 
+ * @LastEditTime: 2022-05-25 12:31:42
+-->
+<div class="progress-bar-container">
+    
+        <span class="scroll-progress-bar"></span>
+    
+
+    
+</div>
+
+
+<main class="page-container">
+
+  
+
+  <div class="page-main-content">
+
+    <div class="page-main-content-top">
+      <header class="header-wrapper">
+
+    <div class="header-content">
+        <div class="left">
+            <a class="logo-title" href="/">
+                邵预鸿|前端开发技术笔记
+            </a>
+        </div>
+
+        <div class="right">
+            <div class="pc">
+                <ul class="menu-list">
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/"
+                            >
+                                主页
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/archives"
+                            >
+                                历年汇总
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/about"
+                            >
+                                关于我
+                            </a>
+                        </li>
+                    
+                    
+                        <li class="menu-item search search-popup-trigger">
+                            <i class="fas fa-search"></i>
+                        </li>
+                    
+                </ul>
+            </div>
+            <div class="mobile">
+                
+                    <div class="icon-item search search-popup-trigger"><i class="fas fa-search"></i></div>
+                
+                <div class="icon-item menu-bar">
+                    <div class="menu-bar-middle"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="header-drawer">
+        <ul class="drawer-menu-list">
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/">主页</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/archives">历年汇总</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/about">关于我</a>
+                </li>
+            
+        </ul>
+    </div>
+
+    <div class="window-mask"></div>
+
+</header>
+
+
+    </div>
+    <style>
+      .main-content a{
+        color: #6e9cca;
+      }
+      .article-title-list {
+        position: fixed;
+        left: 80px;
+        top: 110px;
+        z-index: 100;
+        width: 300px;
+        max-height: calc(100% - 144px);
+        overflow: auto;
+      }
+      .article-title-list a .badge{
+        display: inline-block;
+        margin-right: 5px;
+        padding: 0 5px;
+        background-color: #ebebeb;
+        border-radius: 3px;
+        color: #6b6b6b;
+      }
+      .article-title-list h1,
+      .article-title-list h2,
+      .article-title-list h3,
+      .article-title-list h4,
+      .article-title-list h5,
+      .article-title-list h6 {
+        box-sizing: border-box;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        overflow: hidden;
+        color: #686868;
+        font-weight: normal;
+        line-height: 1;
+        cursor: pointer;
+      }
+
+      .article-title-list h1 {
+        font-size: 22px;
+      }
+
+      .article-title-list h2 {
+        padding-left: 20px;
+        font-size: 20px;
+      }
+
+      .article-title-list h3 {
+        padding-left: 40px;
+        font-size: 18px;
+      }
+
+      .article-title-list h4 {
+        padding-left: 60px;
+        font-size: 16px;
+      }
+
+      .article-title-list h5 {
+        padding-left: 80px;
+        font-size: 14px;
+      }
+
+      .article-title-list h6 {
+        padding-left: 100px;
+        font-size: 12px;
+      }
+
+    </style>
+    <div class="article-title-list">
+    </div>
+
+    <div class="page-main-content-middle">
+
+      <div class="main-content">
+
+        
+        <div class="fade-in-down-animation">
+    <div class="article-content-container">
+
+        <div class="article-title">
+            <span class="title-hover-animation">软考-软件设计师题库</span>
+        </div>
+
+        
+            <div class="article-header">
+                <div class="avatar">
+                    <img src="/images/logo.jpg">
+                </div>
+                <div class="info">
+                    <div class="author">
+                        <span class="name">邵预鸿</span>
+                        
+                            <span class="author-label">Lv5</span>
+                        
+                    </div>
+                    <div class="meta-info">
+                        <div class="article-meta-info">
+    <span class="article-date article-meta-item">
+        <i class="fas fa-edit"></i>&nbsp;2024-05-27 15:14:07
+    </span>
+    
+    
+        <span class="article-tags article-meta-item">
+            <i class="fas fa-tags"></i>&nbsp;
+            <ul>
+                
+                    <li>
+                        <a href="/tags/%E8%BD%AF%E8%80%83/">软考</a>&nbsp;
+                    </li>
+                
+            </ul>
+        </span>
+    
+
+    
+    
+    
+    
+</div>
+
+                    </div>
+                </div>
+            </div>
+        
+
+        <div class="article-content markdown-body">
+            <h3 id="计算机系统"><a href="#计算机系统" class="headerlink" title="计算机系统"></a>计算机系统</h3><ul>
+<li><p>中央处理单元(CPU)是计算机系统的核心部件，它负责<strong>获取程序指令、对指令进行译码并加以执行</strong></p>
+</li>
+<li><p>计算机基本硬件系统由<strong>运算器、控制器、存储器、输入设备和输出设备</strong> 五大部件组成</p>
+</li>
+<li><p>CPU的功能: <strong>程序控制、操作控制、时间控制、数据处理</strong></p>
+<ul>
+<li>程序控制：通过执行指令控制程序的执行顺序，是CPU的重要功能。  <strong>控制器</strong></li>
+<li>操作控制：CPU产生每条指令的操作信号并将操作信号送往对应的部件，控制相应的部件按指令的功能要求进行操作。  <strong>控制器</strong></li>
+<li>时间控制：对各种操作进行时间上的控制，即指令执行过程中操作信号的出现时间、持续时间及出现的顺序都需要进行严格控制   <strong>控制器</strong>。</li>
+<li>数据处理：通过对数据进行算术运算及逻辑运算等方式进行加工处理，数据加工处理的结果被人们所利用。所以，对数据加工处理也是CPU最根本的任务。**—-运算器**</li>
+</ul>
+</li>
+<li><p>运算器由**算术逻辑单元(Arithmetic andLogic Unit,AIU)、累加寄存器(AC)、数据缓冲寄存器(DR)和状态条件寄存器(PSW)**等组成</p>
+</li>
+<li><p>运算器主要有两个功能： <strong>算术运算、逻辑运算</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">运算器由算术逻辑单元(Arithmetic andLogic Unit,AIU)、累加寄存器、数据缓冲寄存</span><br><span class="line">器和状态条件寄存器等组成,它是数据加工处理部件,用于完成计算机的各种算术和逻辑运算。</span><br><span class="line">相对控制器而言，运算器接受控制器的命令而进行动作，即运算器所进行的全部操作都是由控</span><br><span class="line">制器发出的控制信号来指挥的，所以它是执行部件。运算器有如下两个主要功能。</span><br><span class="line">(1)执行所有的算术运算，例如加、减、乘、除等基本运算及附加运算。</span><br><span class="line">(2)执行所有的逻辑运算并进行逻辑测试，例如与、或、非、零值测试或两个值的比较等</span><br><span class="line">下面简要介绍运算器中各组成部件的功能。</span><br><span class="line">(1)算术逻辑单元(ALU)。ALU 是运算器的重要组成部件，负责处理数据，实现对数</span><br><span class="line">据的算术运算和逻辑运算。</span><br><span class="line">(2)累加寄存器(AC)。AC通常简称为累加器，它是一个通用寄存器，其功能是当运算</span><br><span class="line">器的算术逻辑单元执行算术或逻辑运算时，为 ALU 提供一个工作区。例如，在执行一个减法</span><br><span class="line">运算前，先将被减数取出暂存在 AC 中，再从内存储器中取出减数，然后同 AC 的内容相减，</span><br><span class="line">将所得的结果送回 AC中。运算的结果是放在累加器中的,运算器中至少要有一个累加寄存器。</span><br><span class="line">(3)数据缓冲寄存器(DR)。在对内存储器进行读/写操作时，用 DR 暂时存放由内存储</span><br><span class="line">器读/写的一条指令或一个数据字，将不同时间段内读写的数据隔离开来。DR 的主要作用为:</span><br><span class="line">作为 CPU 和内存、外部设备之问数据传送的中转站:作为 CPU 和内存、外围设备之间在操作</span><br><span class="line">速度上的缓冲;在单累加器结构的运算器中，数据缓冲寄存器还可兼作为操作数寄存器。</span><br><span class="line">(4)状态条件寄存器(PSW)。PSW 保存由算术指令和逻辑指令运行或测试的结果建立</span><br><span class="line">的各种条件码内容，主要分为状态标志和控制标志，例如运算结果进位标志(C)、运算结果</span><br><span class="line">溢出标志(V)、运算结果为0标志(Z)、运算结果为负标志(N)、中断标志(I)、方向标</span><br><span class="line">志(D)和单步标志等。这些标志通常分别由1位触发器保存，保存了当前指令执行完成之后</span><br><span class="line">的状态。通常，一个算术操作产生一个运算结果，而一个逻辑操作产生一个判决。</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>运算器只能完成运算，而<strong>控制器</strong>用于控制整个CPU的工作，它决定了计算机运行过程的自动化。”<br>它不仅要保证程序的正确执行，而且要能够处理异常事件。</p>
+</li>
+<li><p>程序计数器(PC)。PC具有<strong>寄存信息和计数</strong>两种功能，又称为<strong>指令计数器</strong>。程序的<br>执行分两种情况，一是<strong>顺序执行，二是转移执行</strong>。</p>
+</li>
+<li><p>地址寄存器(AR)。AR 保存当前 CPU 所访问的内存单元的地址。</p>
+</li>
+<li><p>指令译码器(ID)。指令包含<strong>操作码和地址码</strong>两部分，</p>
+</li>
+<li><p>计算机指令一般包括操作码和地址码两部分，<br>为分析执行一条指令，<strong>其操作码和地址码都应存入指令寄存器(IR)</strong></p>
+</li>
+<li><p>在 CPU 中，常用来为 ALU 执行算术逻辑运算提供数据并暂存运算结果的寄存器是<strong>累加寄存器(AC)</strong></p>
+</li>
+<li><p>CPU 产生每条指令的操作信号并将操作信号送往相应的部件进行控制</p>
+</li>
+<li><p>程序计数器 PC 只能存放指令地址,</p>
+</li>
+<li><p>CPU 中的控制器决定计算机运行过程的自动化</p>
+</li>
+<li><p>指令译码器是 CPU 控制器中的部件</p>
+</li>
+<li><p>在 CPU 的寄存器中，<strong>指令寄存器</strong>对用户是完全透明的</p>
+</li>
+<li><p>CPU中的译码器主要作用是进行<strong>指令译码</strong></p>
+</li>
+<li><p>在 CPU中，<strong>控制器</strong>不仅要保证指令的正确执行,还要能够处理异常事件</p>
+</li>
+<li><p>计算机执行指令的过程中，需要由<strong>CPU控制器</strong>产生每条指令的操作信号并将信号送往相应的部件进行处理，以完成指定的操作。</p>
+</li>
+<li><p>为实现程序指令的顺序执行，<strong>CPU程序计数器（PC）</strong>中的值将自动+1</p>
+</li>
+<li><p>在CPU中，<strong>程序计数器</strong>用于跟踪指令地址</p>
+</li>
+<li><p>计算机在一个指令周期的过程中，为从内存读取指令操作码，首先要将<strong>程序计数器（pc)</strong> 送到地址总线上</p>
+</li>
+<li><p>用户可见：通用寄存器组、程序状态字寄存器（PSWR)、程序计数器（PC）、累加寄存器（ACC）<br>用户不可见：指令寄存器（IR）、暂存寄存器（DR）、存储器地址寄存器（MAR）、存储器数据寄存器（MDR）</p>
+</li>
+<li><p>指令寄存器的位数取决于——<strong>指令字长</strong></p>
+</li>
+<li></li>
+<li><p>计算机最小单位  位/bit /b</p>
+</li>
+<li><p>位-&gt;字节byte/B -&gt;KB</p>
+</li>
+<li><p>最小的数据单位是 位b</p>
+</li>
+<li><p>最小的存储单位是字节 byte</p>
+</li>
+<li><p>10进制转-&gt;2 8 16进制, 取余数反写</p>
+</li>
+<li><p>10进制-&gt;D, 二进制-&gt;B, 八字节-&gt;O, 16进制-&gt;H</p>
+</li>
+</ul>
+<ul>
+<li><p>立即寻址速度 &gt;  寄存器寻址 &gt; 直接寻址 &gt; 寄存器间接寻址 &gt; 间接寻址</p>
+</li>
+<li><p>指令系统中采用不同寻址方式的目的是 <strong>扩大寻址空间并提高编程灵活性</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">立即寻址。操作数就包含在指令中。</span><br><span class="line">直接寻址。操作数存放在内存单元中，指令中直接给出操作数所在存储单元的</span><br><span class="line">地址。</span><br><span class="line">寄存器寻址。操作数存放在某一寄存器中，指令中给出存放操作数的寄存器名。</span><br><span class="line">寄存器间接寻址。操作数存放在内存单元中，操作数所在存储单元的地址在某个</span><br><span class="line">寄存器中。</span><br><span class="line">间接寻址。指令中给出操作数地址的地址。</span><br><span class="line">相对寻址。指令地址码给出的是一个偏移量(可正可负)，操作数地址等于本条</span><br><span class="line">指令的地址加上该偏移量。</span><br><span class="line">变址寻址。操作数地址等于变址寄存器的内容加偏移量。</span><br></pre></td></tr></table></figure>
+
+
+</li>
+<li><p>奇偶校验码、海明码、循环冗余校验码。</p>
+</li>
+<li><p>循环冗余校验码， 采用模2运算,  码距= 2  可以检错，但不能纠错，编码长度k+r, K个数据位后跟R个校验位</p>
+</li>
+<li><p>海明码  2^k -1&gt;= n+k。n=&gt;数据位， K校验位，校验奇偶性来检错和纠错</p>
+</li>
+<li><p>奇数个数据位出错，可以检测出该错误但是无法纠正错误</p>
+</li>
+<li><p>偶数个数据位出错，不可以检测出错误</p>
+</li>
+</ul>
+<img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="../img/risc-cisc.png"
+                      style="zoom:150%;" /
+                >
+
+
+
+
+
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="../img/%E6%B5%81%E6%B0%B4%E7%BA%BF%E9%A1%BA%E5%BA%8F%E6%89%A7%E8%A1%8C.png"
+                     
+                ></p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="../img/%E6%B5%81%E6%B0%B4%E7%BA%BF%E5%B9%B6%E8%A1%8C.png"
+                     
+                ></p>
+<ul>
+<li><p>关于指令流水线性能度量的叙述, </p>
+<ul>
+<li><strong>最大吞吐率取决于流水线中最慢一段所需的时间</strong></li>
+<li><strong>如果流水线出现断流，加速比会明显下降</strong></li>
+<li><strong>要使加速比和效率最大化应该对流水线各级采用相同的运行时间</strong></li>
+<li><strong>流水线采用异步控制不会提高其性能， 会增加…</strong></li>
+</ul>
+</li>
+<li><p>操作周期指<strong>最长时间段</strong></p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="../img/%E6%93%8D%E4%BD%9C%E5%91%A8%E6%9C%9F.png"
+                     
+                ></p>
+</li>
+<li><p>流水线的吞吐率是指单位时间流水线处理任务数，如果各段流水的操作时间不同，则<br>流水线的吞吐率是<strong>最长流水段操作时间</strong> 的倒数</p>
+</li>
+<li><p>流水线方式执行指令，提高了各部件 的复用率、系统的吞吐率，可同时执行多条指令</p>
+</li>
+<li><p>TP = *<em>n / ( 执行1条指令的时间 + (n-1)</em> 最长时间段   ) **</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="../img/%E6%B5%81%E6%B0%B4%E7%BA%BF%E5%85%AC%E5%BC%8F.png"
+                     
+                ></p>
+</li>
+<li><p>指令时间= ( 执行1条指令的时间 + (n-1)* 最长时间段   ) </p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="../img/%E6%B5%81%E6%B0%B4%E7%BA%BF%E5%85%AC%E5%BC%8F%E9%A2%98.png"
+                     
+                ></p>
+</li>
+</ul>
+<ul>
+<li>存储器分<strong>内存（主存）  和  外存（辅存）</strong></li>
+<li>RAM 可读可写</li>
+<li>ROM只读存储器</li>
+<li>闪速存储器，简称闪存，整块闪存可以在数秒内删除， 能代替ROM，但不能代替主存</li>
+<li>相联存储器是一种按内容访问的存储器</li>
+<li>按寻址方式分类： <strong>随机存储器、顺序存储器、直接存储器</strong></li>
+<li>虚拟存储器： 由主存和辅存组成</li>
+<li>计算器系统的主存主要是由<strong>DRAM（动态随机存储器）</strong>构成的</li>
+<li>SRAM  静态随机存储器</li>
+<li>EEPROM  电可擦除编程存储器</li>
+<li>被访问后邻近的存储单元可能 还要被访问称为<strong>空间局部性</strong>, 被访问后，以后可能还会被访问称为<strong>时间局部性</strong></li>
+<li><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="../img/cache.png"
+                     
+                ></li>
+</ul>
+<ul>
+<li>替换算法<ul>
+<li>随机替换算法</li>
+<li>先进先出算法</li>
+<li>近期最少使用算法</li>
+<li>优化替换算法</li>
+</ul>
+</li>
+<li>直接映像指主存的块与Cache块的对应关系是固定的</li>
+<li>全相联映像允许主存的任一块可以调入cache存储器的任何一个块的空间</li>
+<li>高速缓存对程序员来说是透明的（看不到)，速度比主存快5~10倍</li>
+<li>cache与主存地址 的映射是由<strong>硬件自动完成</strong></li>
+<li>cache的设计思想是在合理成本下提高命中率（CPU访问主存数据或指令的效率）</li>
+<li>Cache地址映像中,发生块冲突次数最小的排名: <strong>全相联映像 -&gt;组想联映像 -&gt; 直接映像</strong></li>
+</ul>
+<ul>
+<li><p>中断: 在执行程序过程中，遇到急需处理的事件时，暂停当前正在运行的程序，转去执行有关服务 程序，处理完后自动返回源程序</p>
+</li>
+<li><p>中断向量： 提供中断服务 程序的入口 地址 </p>
+</li>
+<li><p>中断响应时间: 发出中断请示开始，到进入中断服务程序的时间</p>
+</li>
+<li><p>为了便于实现多级中断嵌套, 使用<strong>堆栈</strong>来保护断点和现场最有效</p>
+</li>
+<li><p>中断处理过程中保存现场的目的是<strong>返回 去继续执行原程序</strong></p>
+</li>
+</ul>
+<ul>
+<li><p>输入输出（I/O）控制方式</p>
+<ul>
+<li><p>程序查询 方式 </p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="../img/%E7%A8%8B%E5%BA%8F%E6%9F%A5%E8%AF%A2%E6%96%B9%E5%BC%8F.png"
+                      alt="image-20240601134925967"
+                ></p>
+</li>
+<li><p>中断驱动方式</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="../img/%E4%B8%AD%E6%96%AD%E9%A9%B1%E5%8A%A8%E6%96%B9%E5%BC%8F.png"
+                     
+                ></p>
+</li>
+<li><p>直接存储方式（DMA）</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="../img/%E7%9B%B4%E6%8E%A5%E5%AD%98%E5%82%A8%E5%99%A8.png"
+                     
+                ></p>
+<blockquote>
+<p>第3点，由主存与外设建立直接数据通路</p>
+</blockquote>
+</li>
+</ul>
+</li>
+<li><p>由I/O设备提出的中断请示是<strong>可屏蔽的中断</strong>， 电源掉电是<strong>不可屏蔽的中断</strong></p>
+</li>
+<li><p>DMA传送结束为中断， 除运算时除数为0为异常</p>
+</li>
+<li><p>CPU是在<strong>一个总线周期</strong> 结束时响应DMA请求的</p>
+</li>
+<li><p>当采用DMA方式传送数据 时，每传送一个数据 都 需要占用一个**存储周期 **</p>
+</li>
+</ul>
+<ul>
+<li><p>总线的分类(数地控)</p>
+<ul>
+<li>数据总线</li>
+<li>地址总线</li>
+<li>控制总线</li>
+</ul>
+</li>
+<li><p>总线了解</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="../img/%E6%80%BB%E7%BA%BF%E4%BA%86%E8%A7%A3.png"
+                     
+                ></p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="../img/%E6%80%BB%E7%BA%BF%E4%BA%86%E8%A7%A32.png"
+                     
+                ></p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="../img/%E6%80%BB%E7%BA%BF%E4%BA%86%E8%A7%A33.png"
+                     
+                ></p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="../img/%E6%80%BB%E7%BA%BF%E4%BA%86%E8%A7%A34.png"
+                     
+                ></p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="../img/%E6%80%BB%E7%BA%BF%E4%BA%86%E8%A7%A35.png"
+                     
+                ></p>
+</li>
+</ul>
+<ul>
+<li>SCSI不属于系统 总线</li>
+</ul>
+<ul>
+<li><p>加密</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="../img/%E5%8A%A0%E5%AF%86.png"
+                     
+                ></p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="../img/%E5%8A%A0%E5%AF%862.png"
+                     
+                ></p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="../img/%E5%8A%A0%E5%AF%863.png"
+                     
+                ></p>
+</li>
+<li><p>在安全通信中，数字签名使用<strong>发送方私钥</strong>，使用<strong>发送方公钥</strong>验证消息的真实性</p>
+</li>
+<li><p>数字证书使用<strong>CA私钥</strong>， 使用<strong>CA公钥</strong>验证<strong>CA的签名</strong>真实性</p>
+</li>
+<li><p>数据签名是对<strong>真实性</strong>保护,确保消息不可否认</p>
+</li>
+<li><p>PKI体制中， 保证数字证书不被踹改的方法是<strong>用CA的私钥对数字证书签名</strong></p>
+</li>
+<li><p>私钥不能被交换</p>
+</li>
+<li><p>A和B通信使用<strong>数字证书</strong>来对用户的身份进行认证</p>
+</li>
+</ul>
+<ul>
+<li>非对称算法（公开/公钥密钥加密算法）（共享密钥加密）： RSA ECC  DSA — 可用于<strong>数字签名</strong></li>
+<li>Hａｓｈ函数，　ＭＤ５摘要算法  计算结果128位，　ＳＨＡ－１安全散列算法</li>
+<li>利用报文摘要算法生成报文的目的是<strong>防止数据 被篡改</strong></li>
+<li>对称密钥（共享、私钥、私有密钥加密）算法: DES  3DES  RC-5  IDEA  AES（ 分组加密）  RC4     — 可用于大量明文消息进行加密传输</li>
+</ul>
+<ul>
+<li><p>数据表示</p>
+<ul>
+<li><p>原码</p>
+<p>最高位是符号位，0=&gt;正号， 1=&gt;负号</p>
+<p>例如，+5 的原码是 <code>00000101</code>，-5 的原码是 <code>10000101</code></p>
+</li>
+<li><p>反码</p>
+<p>在反码表示法中，正数的表示与原码相同，而负数的表示是将其原码的每一位取反（0 变为 1，1 变为 0）。例如，+5 的反码仍然是 <code>00000101</code>，而 -5 的反码是 <code>11111010</code></p>
+</li>
+<li><p>补码</p>
+<p>正数补码= 正数原码  = 正数反码，   负数补码= 反码+1， 0的补码== 原码 0 0000000</p>
+</li>
+<li><p>移码</p>
+<p>补码的基础上，符号位取反   0的移码== 补码 1 0000000</p>
+</li>
+</ul>
+</li>
+<li><p><strong>补码和移码</strong>的正负0结果相同</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="../img/%E5%8E%9F%E7%A0%81%E8%8C%83%E5%9B%B4.png"
+                     
+                ></p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="../img/%E8%A1%A5%E7%A0%81.png"
+                     
+                ></p>
+</li>
+</ul>
+<ul>
+<li><p>两个浮点数相加， 应首先<strong>统一两个数的阶码（对阶）</strong> —————— 小阶向大阶对齐，尾数右移N位</p>
+<ul>
+<li><p>增加E(阶码)的位数， 就会扩大可表示数的位数  数的范围</p>
+</li>
+<li><p>增加尾数M， 就会提高精度</p>
+</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li><p>串联系统</p>
+<p> R = R1R2R3…..Rn</p>
+</li>
+<li><p>并联系统</p>
+<p>R = 1- (1-R1)(1-R2)(1-R3)…(1-Rn)</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="../img/%E5%8F%AF%E9%9D%A0%E5%85%AC%E5%BC%8F.png"
+                     
+                ></p>
+</li>
+</ul>
+<h3 id="程序设计语言"><a href="#程序设计语言" class="headerlink" title="程序设计语言"></a>程序设计语言</h3><ul>
+<li><p>解释器: 翻译源程序时不生成独立的目标程序</p>
+</li>
+<li><p>解释程序和源程序要参与到程序的运行过程中</p>
+</li>
+<li><p>编译器:翻译时将源程序翻译成独立保存的目标程序</p>
+</li>
+<li><p>机器上运行的是与源程序等价的目标程序，源程序和编译程序都不再参与目标程序的运行过程</p>
+</li>
+<li><p>汇编程序： 是将汇编语言翻译成目标程序执行</p>
+</li>
+<li><p>有限自动机是词法分析的一个工具，它能正确地识别正规集</p>
+<ul>
+<li><p>确定的有限自动机(DFA):对每一个状态来说识别字符后转移的状态是唯一的</p>
+</li>
+<li><p>不确定的有限自动机(NFA):对每一个状态来说识别字符后转移的状态是不唯一的</p>
+</li>
+</ul>
+</li>
+<li><p>常见的中间代码有: **后缀式、三地址码、三元式、四元式和树(图)**等形式</p>
+</li>
+<li><p><strong>中间代码与具体的机器无关(不依赖具体的机器)</strong>,可以将不同的高级程序语言翻译成同一种中间代码。中间代码可以跨平台。因为与具体的机器无关，使用中间代码<strong>有利于进行与机器无关的优化处理和提高编译程序的可移植性</strong></p>
+</li>
+<li><p>符号表:  <strong>不断收集、记录和使用源程序中一些相关符号的类型和特征等信息，并将其存入符号表中</strong>。记录源程序中各个字符的必要信息，以辅助语义的正确性检査和代码生成。</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="../img/%E8%AF%8D%E6%B3%95%E5%88%86%E6%9E%90.png"
+                     
+                ></p>
+</li>
+</ul>
+<ul>
+<li><p>对于声明语句，主要是将所需信息正确地填入合理组织的 **符号表 **中</p>
+</li>
+<li><p>对于可执行语句，则是<strong>翻译成中间代码或目标代码</strong></p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="../img/%E8%AF%8D%E6%B3%95-%E8%AF%AD%E6%B3%95-%E8%AF%AD%E4%B9%89.png"
+                     
+                ></p>
+</li>
+</ul>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="../img/%E7%BC%96%E8%AF%91-%E8%A7%A3%E9%87%8A%E6%96%B9%E5%BC%8F.png"
+                     
+                ></p>
+<ul>
+<li>解释器需要参与运行控制，程序执行的速度慢</li>
+<li>编译方式下，在机器上运行的目标程序完全独立于源程序</li>
+</ul>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="../img/%E8%87%AA%E5%8A%A8%E6%9C%BA%E8%BF%90%E8%A1%8C%E5%9B%BE.png"
+                     
+                ></p>
+<ul>
+<li><p>程序的三种基本控制 结构是： 顺序、 循环、 判断</p>
+</li>
+<li><p>若一种程序设计语言规定其程序中的数据必须具有类型， 则有利于</p>
+<ul>
+<li>在翻译程序的过程中为数据合理的分配存储单元</li>
+<li>对参与表达式计算的数据对象进行检查 </li>
+<li>规定数据对象的取值范围及能够进行的运算</li>
+</ul>
+</li>
+<li><p>程序语言设计中,基本成分包括 数据、运算、控制、传输等</p>
+</li>
+<li><p>高级程序设计 语言不依赖于具体机器硬件</p>
+<p>​              and 优先 或，见<code>程序设计语言P116</code> <a class="link"   target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1tL411c7gi?p=116&vd_source=d8d2a3ea229a031c11595601aac1a1d9" >https://www.bilibili.com/video/BV1tL411c7gi?p=116&amp;vd_source=d8d2a3ea229a031c11595601aac1a1d9<i class="fas fa-external-link-alt"></i></a></p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="../img/%E5%90%8E%E7%BC%80%E8%AE%A1%E7%AE%97.png"
+                      alt="image-20240615191024777"
+                ></p>
+</li>
+<li><p>逆波兰式（后缀式），可以利用<strong>栈</strong>进行求值</p>
+</li>
+<li><p>A程序经编译后得到目标B程序， 对B程序进行反编译，不能还原出源程序A</p>
+</li>
+<li><p>脚本语言属于动态语言，其程序结构可以在运行中改变</p>
+</li>
+<li><p>脚本语言一般通过脚本引擎解析执行，不产生独立保存的目标程序</p>
+</li>
+<li><p>C语言属于静态语言，期所有成分可以在编译时确定(PHP js属于动态语言)</p>
+</li>
+<li><p>若一个程序可以提供链表的定义和运算，则运行时数据空间必须采用堆存储分配策略</p>
+</li>
+<li><p>html  wml XML 属于标记语言</p>
+</li>
+<li><p>python是脚本语言，可编写独立程序和快速脚本， 不需要变量、对象类型申明，采用<strong>解释方式</strong>实现</p>
+</li>
+<li><p>编译过程中，为变量分配存储单元 的地址是<strong>逻辑地址</strong></p>
+</li>
+<li><p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="../img/image-20240617220833646.png"
+                      alt="image-20240617220833646"
+                ></p>
+</li>
+<li><p>递归下降分析法是自上而下的语法分析</p>
+</li>
+<li><p>移进一归约分析法是自下而上的语法分析 </p>
+</li>
+<li><p>Lisp是一种函数性编程语言</p>
+</li>
+<li><p>语法指导翻译是一种<strong>静态语义分析</strong></p>
+</li>
+</ul>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="../img/image-20240617221510310.png"
+                      alt="image-20240617221510310"
+                ></p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="../img/image-20240617221538147.png"
+                      alt="image-20240617221538147"
+                ></p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="../img/image-20240617221616763.png"
+                      alt="image-20240617221616763"
+                ></p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="../img/image-20240617221647058.png"
+                      alt="image-20240617221647058"
+                ></p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="../img/image-20240617221832980.png"
+                      alt="image-20240617221832980"
+                ></p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="../img/image-20240617221851537.png"
+                      alt="image-20240617221851537"
+                ></p>
+<h3 id="知识产权"><a href="#知识产权" class="headerlink" title="知识产权"></a>知识产权</h3><ul>
+<li>知识产权也称<strong>智慧财产权</strong> <ul>
+<li>著作权是指作者对作品享有<strong>人身权</strong> 和 <strong>财产权</strong><ul>
+<li>人身权包含<strong>发表权/ 署名权/修改权/保护作品完整权</strong>等， 发表权保护时间受限制（作者终生及其死后50年）， 其它三个不受限制</li>
+<li>地域性，只能在其本国领域内受法律保护，其它国家不给予保护。  外国 人在我车领域外使用中国专利授权的发明专利，不侵犯我国专利权</li>
+<li>其它国家的专利，在我国销售，由于我国并没有对该项专利保护，因此不需要向其它国家支付专利许可使用费</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>计算机软件著作权<ul>
+<li>个体： 是指享有著作权的人，根据<strong>《中华人民共和国著作权法》</strong>  和<strong>《计算机软件保护条例 国务院颁布 》</strong>，自开发完成之日开始起，保护期为<strong>50</strong>年。保护期满，软件进入公有领域，除开发者身份权以外，其他权利终止。</li>
+<li>客体： 是指著作权法保护的计算机软件著作权的范围（受保护的对象）<ul>
+<li>程序包含  计算机<strong>源程序</strong>  和**目标程序 **</li>
+<li>软件文档 包含  <strong>程序设计说明书、 流程图、用户手册</strong></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>著作人身权享有 <strong>发表权</strong>  <strong>开发者身份权（署名权）</strong><ul>
+<li>开发者身份权不随开发者的消亡而丧失，且无时间限制 </li>
+</ul>
+</li>
+<li>职务开发软件属于单位， 自己只有署名权</li>
+<li>如果员工使用单位的设备开发完成 ，则不能属于个人享有 </li>
+</ul>
+<ul>
+<li>委托开发， A公司的项目外包给B公司， 如合同 无约定， 著作权归B公司（被委托方）</li>
+<li>X企业未知情况，构成侵仅，但不承担赔偿责任</li>
+<li><strong>商业秘密权</strong> 可以对软件的技术信息/经营信息提供保护</li>
+<li>专利申请谁先申请谁得/或协商获得</li>
+<li>商标权自注册之日起10年内有效，但可以根据所有人的需要无限延长权利期限, 在期限届满6个月内申请延续，每次延续10年</li>
+<li>商标注册，谁先注册谁得，同时间注册谁先使用谁得   要么协商</li>
+</ul>
+<h3 id="网络"><a href="#网络" class="headerlink" title="网络"></a>网络</h3><ul>
+<li>物理层的互连设备有<strong>中继器</strong> <strong>集线器</strong><ul>
+<li>集线器是一种特殊的多端口（多路）中继器, 可以检查发送冲突</li>
+<li>集线器不能起到自动 寻址的作用</li>
+</ul>
+</li>
+<li>数据链路层有<strong>网桥   交换机</strong></li>
+<li>网络层设备<strong>路由器</strong></li>
+<li>应用层<strong>网关</strong></li>
+<li>网络层可以隔离<strong>广播域、冲突域</strong>, 数据链路层只能隔离<strong>冲突层</strong></li>
+<li>应表会层协议:   FTP  Telnet  SMTP=&gt;UDP  NFS  SNMP</li>
+<li>传输层 TCP UDP</li>
+<li>网络层： IP ICMP=&gt;IP报文  ARP RARP</li>
+<li>FTP控制端口21， 上传文件端口为20</li>
+<li>FTP/HTTP/Telnet/SMTP    通过TCP传输</li>
+<li>DHCP/TFTP/SNMP/DNS    通过UDP传输</li>
+<li>(HTTP/SNMP/TCP/UDP) -&gt; IP  考最多</li>
+</ul>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="../img/image-20240626175908566.png"
+                      alt="image-20240626175908566"
+                ></p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="../img/image-20240626175743196.png"
+                      alt="image-20240626175743196"
+                ></p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="../img/image-20240626181021379.png"
+                      alt="image-20240626181021379"
+                ></p>
+<ul>
+<li>TCP使用可变大小的滑动窗口协议</li>
+<li>UDP相比TCP的优势是<strong>开销较小</strong></li>
+<li>TCP UDP均提供了<strong>端口寻址</strong>功能, TCP提供了<strong>连接管理、差错检验、重传、流量控制</strong></li>
+</ul>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="../img/image-20240626181624935.png"
+                      alt="image-20240626181624935"
+                ></p>
+<ul>
+<li><p>SMTP 端口号25, 通过ASCII码传输入，如果要选择邮件，则通过MIME, 主要用来发送邮件</p>
+</li>
+<li><p>POP端口号110， 主要用于接收邮件</p>
+<ul>
+<li>POP协议有两个版本， POP2  POP3， 目前POP3可以和SMTP共同使用，也可以单独使用，以发送和接收邮件</li>
+<li>POP是一种简单的纯文本协议，每次传输以整个E-mail为单位，不能提供部分传输</li>
+</ul>
+</li>
+<li><p>E-mail系统基于<strong>客户端/服务器模式(C/S)</strong>, 主要采用<strong>SMTP（简单邮件传输协议）</strong>, 缺点是不能传送非ASCII码和非文字性附件</p>
+</li>
+<li><p>PEM  私密邮件保护协议</p>
+</li>
+<li><p>ARP 地址解析协议</p>
+<ul>
+<li>ARP的作用是将IP地址转换为 物理地址（MAC地址）</li>
+<li>ARP分为ARP Ruqest  ARP Response，其中ARP Ruqeste采用<strong>广播</strong>进行发送， ARP Response采用<strong>单播</strong>进行传送</li>
+</ul>
+</li>
+<li><p>RARP 反地址解析协议</p>
+<ul>
+<li>RARP的作用将物理地址转换为IP地址</li>
+</ul>
+</li>
+<li><p>DHCP 动态主机配置协议：分配 IP地址，使网络环境中的主机动态获取<strong>本机IP地址、 DNS服务器地址、 DHCP服务器地址、默认网关</strong></p>
+</li>
+<li><p>DHCP客户端可以从DHCP服务获得 <strong>本机IP地址、 DNS服务器地址、 DHCP服务器地址、默认网关</strong></p>
+</li>
+<li><p>windows无效地址: 169.254.x.x (DHCP信息租用失败时自动给客户机分配 的IP地址)     Linux无效地址: 0.0.0.0</p>
+</li>
+<li><p>主域名服务器在接收到域名请求后， 首先查询的是<strong>本地缓存</strong>， 输入网址时，首先查询的是<strong>本地hosts文件</strong></p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="../img/image-20240628114056942.png"
+                      alt="image-20240628114056942"
+                ></p>
+</li>
+</ul>
+<ul>
+<li><p>222.125.80.128/26包含多少个可用主机地址</p>
+<p>32位IP（26位网络地址、 6位主机地址） 2^6 - 2(2个不可用的地址) = 62</p>
+</li>
+<li><p>IPv4  2^32,   IPV6  2^128,   相差2^96</p>
+</li>
+<li><p>蓝牙覆盖范围最小、通信距离最短</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="../img/image-20240628115717136.png"
+                      alt="image-20240628115717136"
+                ></p>
+</li>
+<li><p>ping命令进行网络检测，由近到远原则，首先执行ping 127.0.0.1, 其次是本地IP， 再次ping 默认网关，最后ping远程主机 </p>
+</li>
+<li><p>netstart 不能用于诊断DNS故障</p>
+</li>
+<li><p>当没有其它路由可选时，选择默认默认路由  0.0.0.0</p>
+</li>
+<li><p>主机路由 255.255.255.255</p>
+</li>
+<li><p>收到多个路由转发的路由，则比较各个路由的管理距离</p>
+</li>
+<li><p>“三网合一”  指  电信网、广播电视网、 互联网</p>
+</li>
+<li><p>网络系统设计中，应尽量让优先级较高的目标达到最优</p>
+</li>
+<li><p>网上银行支付，必须通过<strong>支付 网关</strong>与Internet与银行专用网之间数据交换</p>
+</li>
+</ul>
+<h3 id="信息安全"><a href="#信息安全" class="headerlink" title="信息安全"></a>信息安全</h3><ul>
+<li>防火墙是建立在内外网的过滤封锁机制</li>
+<li>包过滤防火墙对<strong>网络层</strong>的数据 报文进行检查，对数据 包进行<strong>源地址、源端口号、目的IP地址</strong>作为过滤依据，成本低，安全性低，透明</li>
+<li>防火墙通常按高到低的正确排序为：  <strong>内网、DMZ、外网</strong></li>
+<li>防火墙工作层次越低，工作效率 越高，安全性越低</li>
+<li>网络系统中，通常把<strong>web服务器</strong>置于DMZ区</li>
+<li>防火墙具备 <strong>记录访问过程、包过滤、代理</strong>， 不具备杀毒、漏洞扫描功能 </li>
+<li>应用级网关防火墙是内部网和外部网的隔离点</li>
+</ul>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="../img/1719325661002.png"
+                      alt="1719325661002"
+                ></p>
+<ul>
+<li><p>计算机感染特洛伊木马典型的现象是<strong>有程序建立未知网络连接</strong></p>
+</li>
+<li><p><strong>X卧底</strong>病毒通过木马形式感染智能手机</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="../img/1719326403248.png"
+                      alt="1719326403248"
+                ></p>
+</li>
+</ul>
+<ul>
+<li><p>ARP攻击是伪造IP地址MAC地址 、伪造网关ARP报文使得数据包无法发送到网关</p>
+</li>
+<li><p>SYN Flodingn属于dos攻击</p>
+</li>
+<li><p>端口扫描可以检测远程主机状态 </p>
+</li>
+<li><p>报文中加入<strong>时间戳</strong>来防止重放攻击</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="../img/image-20240626151333259.png"
+                      alt="image-20240626151333259"
+                ></p>
+</li>
+</ul>
+<ul>
+<li><p>数据库容灾属于<strong>系统安全、网络安全</strong></p>
+</li>
+<li><p>通常使用<strong>IPSec</strong>为IP报文数据进行加密</p>
+</li>
+<li><p>MIME服务与电子邮件安全无关</p>
+</li>
+<li><p>防范网络监听最有效的方法是<strong>数据加密</strong></p>
+</li>
+<li><p>终端设备与远程站点之间建立安全连接的协议是<strong>SSH</strong></p>
+</li>
+<li><p>IE浏览器安全级别最高的是<strong>受限站点</strong></p>
+</li>
+<li><p>远程登录： SSH   Telnet  RFB</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="../img/image-20240626152233707.png"
+                      alt="image-20240626152233707"
+                ></p>
+</li>
+</ul>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="../img/image-20240626175159895.png"
+                      alt="image-20240626175159895"
+                ></p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="../img/image-20240626175403101.png"
+                      alt="image-20240626175403101"
+                ></p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="../img/image-20240626175517798.png"
+                      alt="image-20240626175517798"
+                ></p>
+<h3 id="面向对象"><a href="#面向对象" class="headerlink" title="面向对象"></a>面向对象</h3><p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="../img/image-20240709145204682.png"
+                      alt="image-20240709145204682"
+                ></p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="../img/image-20240709142845005.png"
+                      alt="image-20240709142845005"
+                ></p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="../img/image-20240709150407931.png"
+                      alt="image-20240709150407931"
+                ></p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="../img/image-20240709150722193.png"
+                      alt="image-20240709150722193"
+                ></p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="../img/image-20240709155029255.png"
+                      alt="image-20240709155029255"
+                ></p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="../img/image-20240709155049871.png"
+                      alt="image-20240709155049871"
+                ></p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="../img/image-20240709154302439.png"
+                      alt="image-20240709154302439"
+                ></p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="../img/image-20240709154518975.png"
+                      alt="image-20240709154518975"
+                ></p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="../img/image-20240709154714146.png"
+                      alt="image-20240709154714146"
+                ></p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="../img/image-20240709154915772.png"
+                      alt="image-20240709154915772"
+                ></p>
+<ul>
+<li><p>一个对象一般由<strong>对象名、属性（状态）、方法（行为）组成</strong></p>
+</li>
+<li><p>一个类是<strong>一组对象的抽象的定义</strong></p>
+</li>
+<li><p>封装是一种<strong>信息隐藏</strong>技术</p>
+</li>
+<li><p>别名了解： 父类= 基类= 超类， 子类= 派生类</p>
+</li>
+<li><p>子类继承多个父类称为<strong>多重继承</strong>, 使用它可能造成子类中的成员<strong>二义性</strong></p>
+</li>
+<li><p>在面向对象中，继承用于在已存在的的类基础上创建新类</p>
+</li>
+<li><p>在面向对象技术中，不同的对象在收到同一消息时可以产生完全不同的结果，这一现象称为<strong>多态</strong>, 它是由<strong>继承</strong>机制来支持的</p>
+</li>
+<li><p>编译时绑定称  静态绑定,  运行时的绑定称  动态绑定（支持多态）</p>
+</li>
+<li><p>依赖倒置原则。抽象不应该依赖于细节，细节应该依赖于抽象。即，高层模块不应该依赖于低层模块二者都应该依赖于抽象。</p>
+</li>
+</ul>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="../img/image-20240709160109851.png"
+                      alt="image-20240709160109851"
+                ></p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="../img/image-20240709160407803.png"
+                      alt="image-20240709160407803"
+                ></p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="../img/image-20240709160628300.png"
+                      alt="image-20240709160628300"
+                ></p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="../img/%E4%BC%81%E4%B8%9A%E5%BE%AE%E4%BF%A1%E6%88%AA%E5%9B%BE_17205124395995.png"
+                      alt="img"
+                ></p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="../img/image-20240709161059977.png"
+                      alt="image-20240709161059977"
+                ></p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="../img/image-20240709161308282.png"
+                      alt="image-20240709161308282"
+                ></p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="../img/image-20240709161354762.png"
+                      alt="image-20240709161354762"
+                ></p>
+<h3 id="UML"><a href="#UML" class="headerlink" title="UML"></a>UML</h3><ul>
+<li><p>采用设计模式， <strong>以复用成功的设计</strong></p>
+</li>
+<li><p>UML统称不用对<strong>对象快照</strong> 进行建模</p>
+</li>
+<li><p>UML的构造块： 事物、关系、图</p>
+</li>
+<li><p>UML中的4种事物</p>
+<ul>
+<li><p>结构事物(静态部分)</p>
+<p>包括类、接口、协作、用例、构件….</p>
+</li>
+<li><p>行为事物（动态部分）</p>
+<p>包括交互、状态机、活动</p>
+</li>
+<li><p>分组事物（组织部分）</p>
+<p>是由一些模型分解成盒子，主要的分组事物是包，包是把元素组织成组的机制</p>
+</li>
+<li><p>注释事物（解释部分)</p>
+<p>一个依附一个元素之上的对其进行约束或者解释 的简单符号</p>
+</li>
+</ul>
+</li>
+<li><p>类A使用库中提供的功能 — <strong>依赖关系</strong></p>
+</li>
+<li><p>类A包含了其它实例，类A消失，其包含的类也消失，整体创建、整体销毁 — <strong>组合关系</strong></p>
+<p>整体与其部分之间的一种关系</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="../img/image-20240911211615700.png"
+                      alt="image-20240911211615700"
+                ></p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="../img/image-20240911214338117.png"
+                      alt="image-20240911214338117"
+                ></p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="../img/image-20240911214416929.png"
+                      alt="image-20240911214416929"
+                ></p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="../img/image-20240911214500496.png"
+                      alt="image-20240911214500496"
+                ></p>
+</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">责任链（Chain of Responsibility）模式使多个对象都有机会处理请求，从而避免请求的发送者和接收者之间的耦合关系，将这些对象连成一条链，并沿着这条链传递该请求，直到有一个对象处理它为止。 </span><br><span class="line">命令（Command）模式将一个请求封装为一个对象，从而使得使用者可以采用不同的请求对客户进行参数化；对请求排队或记录请求日志，以及支持可撤销的操作。 </span><br><span class="line">抽象工厂 （Abstract Factory）模式提供一个创建一系列相关或相互依赖对象的接口， 而无需指定它们具体的类。</span><br><span class="line">观察者（Observer）模式定义对象间的一种一对多的依赖关系，当一个对象的状态发生改变时，所有依赖于它的对象都得到通知并被自动更新。 </span><br><span class="line">原型（Prototype）模式用原型实例指定创建对象的种类，并且通过拷贝这个原型来创建新的对象。 </span><br><span class="line">工厂方法（Factory Method）定义一个用于创建对象的接口，让子类决定将哪一个类实例化，使一个类的实例化延迟到其子类。 </span><br><span class="line">单例（Singleton）模式是指系统运行过程中，一个类只有一个对象实例。 </span><br><span class="line">生成器（Builder）模式将一个复杂对象的构建与它的表示分离，使得同样的构建过程可以创建不同的表示。 </span><br><span class="line">适配器（Adapter）模式将一个类的接口转换成客户希望的另外一个接口，使得原本由于接口不兼容而不能一起工作的那些类可以一起工作。 </span><br><span class="line">桥接（Bridge）模式将抽象部分与其实现部分分离，使它们都可以独立地变化。</span><br><span class="line">组合（Composite）模式将对象组合成树形结构以表示“部分一整体”的层次结构， 使得用户对单个对象和组合对象的使用具有一致性。</span><br><span class="line">装饰器（Decorator）模式描述了以透明围栏来支持修饰的类和对象的关系，动态地给一个对象添加一些额外的职责，从增加功能的角度来看，装饰器模式相比生成子类更加灵活。  策略（Strategy）设计模式定义一系列算法，把它们一个个封装起来，并且使它们可相互替换。这一模式使得算法可独立于它的客户而变化。抽象工厂（Abstract Factory）模式提供一个创建一系列相关或相互依赖对象的接口，而无需指定他们具体的类。</span><br><span class="line">状态（State）模式是使得一个对象在其内部状态改变时通过调用另一个类中的方法改变其行为，使这个对象看起来如同修改了它的类。                     </span><br></pre></td></tr></table></figure>
+
+
+
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="../img/image-20240913215917714.png"
+                      alt="image-20240913215917714"
+                ></p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="../img/image-20240913215932798.png"
+                      alt="image-20240913215932798"
+                ></p>
+<ul>
+<li><p>类A包含了其它类，类A消失时，其他类仍然正常工作 — <strong>聚合关系</strong></p>
+</li>
+<li><p><strong>聚合、组合关系</strong>都是特殊的<strong>关联关系</strong>，是一种结构关系， 描述了一组链， 两个类之间<strong>可以有多个的不同角色标识</strong></p>
+</li>
+<li><p><strong>泛化关系</strong>一个类与它的一个或者多个细化类之间的关系，<strong>即一般与特殊的关系</strong></p>
+</li>
+<li><p>聚合对象是指一个对象<strong>包含其它对象</strong></p>
+</li>
+<li><p>UML中的关联多重度是指<strong>一个类的实例能够与另外一个类的多少个实例相关联</strong></p>
+</li>
+<li><p>多对多时，需要对两者之间的关系创建一个新类</p>
+</li>
+<li><p>uml中接口可用于**声明对象类所需要的服务 **</p>
+</li>
+<li><p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="../img/image-20240729164428749.png"
+                      alt="image-20240729164428749"
+                ></p>
+</li>
+</ul>
+<ul>
+<li><p>UML类图对<strong>系统的词汇、简单的协作、逻辑数据库模式</strong>建模</p>
+</li>
+<li><p>类图展现了<strong>一组对象、接口、协作和它们之间的关系</strong>， 设置视图是由<strong>类图和对象图表现</strong>， 动态方面是由<strong>交互图、状态 图、活动图</strong></p>
+</li>
+<li><p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="../img/image-20240729165726245.png"
+                      alt="image-20240729165726245"
+                ></p>
+</li>
+<li><p>对象图展现了某一时刻一组对象以及它们之间的关系</p>
+</li>
+<li><p>用例图（一组用例、参与者以及它们之间的关系）</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="../img/image-20240729173151797.png"
+                      alt="image-20240729173151797"
+                ></p>
+</li>
+<li><p>序列图（一个用例和多个对象的行为）</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="../img/image-20240729173614694.png"
+                      alt="image-20240729173614694"
+                ></p>
+</li>
+</ul>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="../img/image-20240729174335257.png"
+                      alt="image-20240729174335257"
+                ></p>
+<ul>
+<li><p>通信图(<strong>对象之间的消息流及其顺序</strong>)</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="../img/image-20240729174825611.png"
+                      alt="image-20240729174825611"
+                ></p>
+</li>
+</ul>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="../img/image-20240729174947263.png"
+                      alt="image-20240729174947263"
+                ></p>
+<ul>
+<li><p>状态图(任何一种对象的事件排序行为)</p>
+<p>当对系统、类或者用的动态方面建模时，通常是对<strong>反应型对象建模</strong></p>
+<p>动作可以在状态内执行，也可以在状态转换时执行</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="../img/image-20240729175715624.png"
+                      alt="image-20240729175715624"
+                ></p>
+</li>
+</ul>
+<ul>
+<li><p>状态图用于描述<strong>一个对象</strong>之间的交互 , 可以用于用户界面或控制对象</p>
+</li>
+<li><p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="../img/image-20240820221417604.png"
+                      alt="image-20240820221417604"
+                ></p>
+<p>上图是一个<strong>超状态</strong></p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="../img/image-20240820222052676.png"
+                      alt="image-20240820222052676"
+                > </p>
+</li>
+</ul>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="../img/image-20240820222214953.png"
+                      alt="image-20240820222214953"
+                ></p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="../img/image-20240820223617548.png"
+                      alt="image-20240820223617548"
+                ></p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="../img/image-20240818215437222.png"
+                      alt="image-20240818215437222"
+                ></p>
+<ul>
+<li>UML接口用于**声明对象类所需服务 **</li>
+<li>UML部署图，<strong>部署组件之间的依赖关系 类似于包依赖</strong></li>
+</ul>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="../img/image-20240818215720006.png"
+                      alt="image-20240818215720006"
+                ></p>
+<ul>
+<li><p>对新开发的需求 建模使用<strong>用例图</strong>， 展现交互 系统 软件和硬件关系 的图<strong>部署图</strong></p>
+</li>
+<li><p>部署图通常在<strong>实施</strong>阶段使用</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="../img/image-20240818220523425.png"
+                      alt="image-20240818220523425"
+                ></p>
+</li>
+</ul>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="../img/image-20240818220600666.png"
+                      alt="image-20240818220600666"
+                ></p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="../img/image-20240818220831381.png"
+                      alt="image-20240818220831381"
+                ></p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="../img/image-20240818221243398.png"
+                      alt="image-20240818221243398"
+                ></p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="../img/image-20240818221416499.png"
+                      alt="image-20240818221416499"
+                ></p>
+<ul>
+<li>对业务处理流程建模的最佳UML是<strong>活动图</strong></li>
+</ul>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="../img/image-20240818221743452.png"
+                      alt="image-20240818221743452"
+                ></p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="../img/image-20240818221825578.png"
+                      alt="image-20240818221825578"
+                ></p>
+<h3 id="数据库"><a href="#数据库" class="headerlink" title="数据库"></a>数据库</h3><ul>
+<li><p><strong>关系模型</strong>采用二维表格结构表达 实体类型</p>
+</li>
+<li><p>确定系统边界是在<strong>需求分析</strong>阶段， 形成的<strong>需求说明文档、数据字典、数据流图</strong>作为设计依据</p>
+</li>
+<li><p>确定关系规范化在<strong>逻辑设计</strong></p>
+</li>
+<li><p>结束集是N元关系 -》连接后有多个列， 元组-》连接后有多少条数据</p>
+</li>
+<li><p>为保证数据安全， 修改数据 库前先将内容写到**日志文件 **</p>
+</li>
+<li><p>当系统正常运行时，按一定的时间间隔，把缓冲区数据内容写入**数据文件 **</p>
+</li>
+<li><p>由DBA使用DBMS提供授权，目的是为了<strong>安全性</strong></p>
+</li>
+<li><p>分布式数据库中， <strong>分片透明</strong>指不需要知道逻辑上访问的表具体如何分块存储</p>
+</li>
+<li><p>建立视图语句:   <strong>view 视图名称    with check option</strong>  </p>
+</li>
+<li><p>视图是一个<strong>虚拟表， 查询 时可以从一个或者 多个基本表或视图中导出</strong></p>
+</li>
+<li><p>采用三级结构/两级映象的数据 结构，如果创建聚簇索引，改变的是数据库的**内模式 **</p>
+</li>
+<li><p><strong>隔离性</strong> 当多个事务并行执行时，任一事务的更新操作直到成功提交的整体过程对其它事务是不可见的</p>
+</li>
+<li><p><strong>持久性</strong> 更新操作停留在磁盘缓冲区而未写入到磁盘，发生 系统故障，事务的执行结果仍不会丢失 </p>
+</li>
+<li><p>数据库恢复 是指在**尽短的时间内，把数据库恢复到故障发生 前的状态 **</p>
+</li>
+</ul>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="../img/image-20240904212101342.png"
+                      alt="image-20240904212101342"
+                ></p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="../img/image-20240904211939755.png"
+                      alt="image-20240904211939755"
+                ></p>
+<ul>
+<li><p>排它锁: 事务T对数据A加了排它锁， 则只允许 T读取更新A， 其它不能再加排它锁</p>
+</li>
+<li><p>共享锁： 事务T对数据A加了共享锁，则只允许 T读取A，不能修改A。 其它事务只能再对A加共享锁</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="../img/image-20240904204526817.png"
+                      alt="image-20240904204526817"
+                ></p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="../img/image-20240709170844079.png"
+                      alt="image-20240709170844079"
+                ></p>
+</li>
+</ul>
+<ul>
+<li><p>数据独立性</p>
+<ul>
+<li><p>数据的物理独立性</p>
+<p><strong>需要修改概念模式和内模式之间的映像</strong>（物内）</p>
+</li>
+<li><p>数据的逻辑独立性</p>
+<p><strong>需要修改外模式和概念模式之间的映像</strong>（逻外）</p>
+</li>
+</ul>
+</li>
+<li><p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="../img/image-20240709173347529.png"
+                      alt="image-20240709173347529"
+                ></p>
+</li>
+</ul>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="../img/image-20240822214145109.png"
+                      alt="image-20240822214145109"
+                ></p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="../img/image-20240822214758223.png"
+                      alt="image-20240822214758223"
+                ></p>
+<p>自然连接关系 代数，要先去掉重复列</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="../img/image-20240822214231101.png"
+                      alt="image-20240822214231101"
+                ></p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="../img/image-20240822221010298.png"
+                      alt="image-20240822221010298"
+                ></p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="../img/image-20240822221627221.png"
+                      alt="image-20240822221627221"
+                ></p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="../img/image-20240822221959977.png"
+                      alt="image-20240822221959977"
+                ></p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="../img/image-20240904205633741.png"
+                      alt="image-20240904205633741"
+                ></p>
+<ul>
+<li>插入权限  insert on    with grand option</li>
+</ul>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="../img/image-20240904212352048.png"
+                      alt="image-20240904212352048"
+                ></p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="D:\note\source\img\1721532959991.png"
+                      alt="1721532959991"
+                ></p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="../img/image-20240904212417794.png"
+                      alt="image-20240904212417794"
+                ></p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="../img/image-20240904212514771.png"
+                      alt="image-20240904212514771"
+                ></p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="../img/image-20240904212559682.png"
+                      alt="image-20240904212559682"
+                ></p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="../img/image-20240904212630204.png"
+                      alt="image-20240904212630204"
+                ></p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="../img/image-20240904212647763.png"
+                      alt="image-20240904212647763"
+                ></p>
+<h3 id="软件工程"><a href="#软件工程" class="headerlink" title="软件工程"></a>软件工程</h3><ul>
+<li>能力成熟度模型CMM</li>
+</ul>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="../img/image-20240715174754698.png"
+                      alt="image-20240715174754698"
+                ></p>
+<ul>
+<li><p>能力成熟度模型集成CMMI</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="../img/image-20240715175839650.png"
+                      alt="image-20240715175839650"
+                ></p>
+</li>
+</ul>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="../img/image-20240715180045336.png"
+                      alt="image-20240715180045336"
+                ></p>
+<ul>
+<li><p>瀑布模型： 需求明确、变更少、替换老系统     缺点： 不能适应快速变化的需求</p>
+</li>
+<li><p>V模型： 瀑布模型的变体，质量保证活动、基本问题需求逐步细化 考的少</p>
+</li>
+<li><p>增量模型：适用于快速构建可运行产品的模型。  所需成本、<strong>时间很少</strong>， 风险不大，<strong>发布快</strong>，可以减少用户需求变更， 先开发核心，<strong>每次增量都会测试</strong></p>
+<p><strong>很容易划分增量模型？说法是错误的</strong></p>
+<p>发生的成本、进度、配置可能会超出预期</p>
+</li>
+<li><p>为了有效地捕获系统需求，应采用<strong>原型模型</strong>(适合用户需求不清，经常变化的情况， 希望快速投入使用)<strong><em>不适合大规模软件</em></strong></p>
+</li>
+<li><p>演化模型 是<strong>迭代的过程模型， 使用开发人员逐步开发出更完整的软件版本</strong></p>
+</li>
+<li><p>螺旋模型 适合大型软件， 结合瀑布模型、演化模型，加入了<strong>风险分析</strong>， 支持用户需求动态变化，要求开发人员具有丰富的风险评估经验， 增加成本、延长交付时间</p>
+</li>
+<li><p>喷泉模型具有迭代性和无间隙性， 以对象作为驱动，适合于面向对象的开发</p>
+<p>克服了瀑布醋不支持软件重用和多项开发活动集成 的局限性，在迭代中不断完善软件系统</p>
+</li>
+</ul>
+<ul>
+<li><p>RUP用<strong>角色</strong>来表达 “谁做 ”</p>
+</li>
+<li><p>极限编程： 沟通、简单性、反馈和勇气， 系统设计应最早发布，属于小型发布最佳实践</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="../img/image-20240718175340711.png"
+                      alt="image-20240718175340711"
+                ></p>
+</li>
+<li><p>水晶法： 每一个项目都需要一套不同的策略、约定 和方法论</p>
+</li>
+<li><p>并列争求法： 每30天一次的迭代称为一个“冲刺”</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="../img/image-20240718175433204.png"
+                      alt="image-20240718175433204"
+                ></p>
+</li>
+</ul>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="../img/image-20240718175534407.png"
+                      alt="image-20240718175534407"
+                ></p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="../img/image-20240718175852882.png"
+                      alt="image-20240718175852882"
+                ></p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="../img/image-20240718180933902.png"
+                      alt="image-20240718180933902"
+                ></p>
+<ul>
+<li><p>概要设计： 设计软件系统总体结构, 确定软件 的模块 划分及模块之间的调用关系</p>
+<ul>
+<li>数据库设计</li>
+<li>概念设计</li>
+<li>逻辑设计</li>
+<li>物理设计</li>
+<li>数据结构设计</li>
+<li>设计文档 </li>
+<li>算法设计</li>
+</ul>
+</li>
+<li><p>系统测试就尽早并不断的进行测试， 贯穿开发的各个阶段</p>
+</li>
+<li><p>成功的测试是发现了至今未发现的错误</p>
+</li>
+<li><p>系统测试阶段的测试目标来自于<strong>需求分析</strong></p>
+</li>
+<li><p>路径覆盖法比语句覆盖法发现更多的错误</p>
+</li>
+<li><p>有效的软件测试分为4步： 单元测试、 集成 测试、 确认测试、 系统测试</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="../img/image-20240719162026804.png"
+                      alt="image-20240719162026804"
+                ></p>
+</li>
+<li><p>单元(开发中)测试主要检查模块的以下5个特征</p>
+<ul>
+<li>模块接口</li>
+<li>局部数据结构</li>
+<li>重要的执行路径</li>
+<li>出错处理</li>
+<li>边界条件</li>
+</ul>
+</li>
+<li><p>修改代码造成其它问题出现，属于回归测试</p>
+</li>
+<li><p>自底向上，需要驱动程序。   自顶向下，需要桩刹车</p>
+</li>
+<li><p>黑盒测试不关心内部代码， 只关心输入与输出数据， 白盒测试需要根据内部逻辑进行测试</p>
+</li>
+<li><p>黑盒测试技术： 等价类划分、边界值 分析、错误推测、 因果图</p>
+</li>
+<li><p>McCabe度量法</p>
+<p><strong>V(G) = m-n +2  (m:箭头数     n :节点数 )</strong></p>
+<p>或者  闭合区+ 1 = 2+1 = 3</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="../img/image-20240719164058421.png"
+                      alt="image-20240719164058421"
+                ></p>
+</li>
+</ul>
+<ul>
+<li>语句覆盖，只要保证每条语句至少执行一次</li>
+<li>判定覆盖，要保证真假情况都执行一次</li>
+<li>条件覆盖， 每个逻辑条件各种情况都要执行一次</li>
+</ul>
+<ul>
+<li><p>软件系统的可维护性评价指标： <strong>可理解性、可测试性、可修改性</strong>（修理测）</p>
+</li>
+<li><p>软件维护和可维护性</p>
+<ul>
+<li>软件维护要解决软件产品交付用户之后运行中的各种问题</li>
+<li>软件的维护期通常比开发期长得多，其投入也大得多</li>
+<li>进行质量保证审查可以提高软件产品的可维护性</li>
+<li>每一个阶段都应考虑并提高软件的可维护性</li>
+</ul>
+</li>
+<li><p>文档是软件可维护性的决定因素</p>
+</li>
+<li><p>编写高质量文档可以提高软件开发的质量</p>
+</li>
+<li><p>文档是软件产品的一部分，没有文档 的软件不能叫软件</p>
+</li>
+<li><p>软件文档的编写在开发工作中占有突出的地位和相当大的工作量，高质量文档 对于软件产品的效益有着重要意义</p>
+</li>
+<li><p>系统维护包括<strong>硬件维护、软件维护、数据维护</strong></p>
+</li>
+<li><p>软件维护</p>
+<ul>
+<li><p>正确性维护</p>
+<p>改正系统开发阶段已发生而系统测试阶段尚未发现的错误</p>
+</li>
+<li><p>适应性维护</p>
+<p>应用软件适应变化和需求变化而进行的修改</p>
+</li>
+<li><p>完善性维护</p>
+<p>为扩充功能和改善性能而进行的修改</p>
+</li>
+<li><p>预防性维护</p>
+<p>改进应用软件的可靠性和可维护性，为了适应公孙恭的环境变化，主动增加预防性的新功能，以使软件适应各类变化而不被淘汰</p>
+</li>
+</ul>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="../img/image-20240724112500127.png"
+                      alt="image-20240724112500127"
+                ></p>
+</li>
+</ul>
+<ul>
+<li><p>沟通最多路径公式： (n-1)* 8 / 2, 见下： （8-1）*8 / 2 = 28</p>
+<p>有主程序员沟通时， 沟通路径 = n-1 = 7</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="../img/image-20240724112851906.png"
+                      alt="image-20240724112851906"
+                ></p>
+</li>
+</ul>
+<ul>
+<li><p>基本COCOMO模型是一个<strong>静态单变量模型</strong></p>
+</li>
+<li><p>中级COCOMO模型是一个<strong>静态多变量模型</strong></p>
+</li>
+<li><p>COCOMO II模型有3个阶段性模型， 应用组装模型、早期设计阶段模型、体系结构阶段模型</p>
+<p>有3种不同的规模估算选择： <strong>对象点、功能点、代码行</strong></p>
+<p>体系结构阶段模型基于<strong>代码行</strong>进行估算</p>
+</li>
+<li><p>Gantt甘特图</p>
+<ul>
+<li>可以作为项目进度管理的工具</li>
+<li>清晰描述每个任务的开始、截止时间</li>
+<li>清晰获得任务并行进行的信息</li>
+<li>不能清晰得获得各任务之间的依赖关系</li>
+</ul>
+</li>
+<li><p>软件项目活动图，算最长用的时间，<a class="link"   target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1j94y1Z7xX?p=197&amp;vd_source=e2fcc9b11e669b774850c847deddbae2" >https://www.bilibili.com/video/BV1j94y1Z7xX?p=197&amp;vd_source=e2fcc9b11e669b774850c847deddbae2<i class="fas fa-external-link-alt"></i></a></p>
+</li>
+<li></li>
+</ul>
+<h3 id="算法"><a href="#算法" class="headerlink" title="算法"></a>算法</h3><p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="../img/image-20240911211140143.png"
+                      alt="image-20240911211140143"
+                ></p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="../img/image-20240911211315097.png"
+                      alt="image-20240911211315097"
+                ></p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="../img/image-20240722112301594.png"
+                      alt="image-20240722112301594"
+                ></p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="../img/image-20240722112329062.png"
+                      alt="image-20240722112329062"
+                ></p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="../img/image-20240722112400358.png"
+                      alt="image-20240722112400358"
+                ></p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="../img/image-20240722112422100.png"
+                      alt="image-20240722112422100"
+                ></p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="../img/image-20240722112442837.png"
+                      alt="image-20240722112442837"
+                ></p>
+<h3 id="数据结构"><a href="#数据结构" class="headerlink" title="数据结构"></a>数据结构</h3><ul>
+<li><p>哈希表可以动态创建</p>
+</li>
+<li><p>二叉排序树属于动态查找表</p>
+</li>
+<li><p>二分查找要求表采用顺序存储结构</p>
+</li>
+<li><p>顺序查找方法既适用于顺序存储结构、也适用于链表结构</p>
+</li>
+<li><p>二分查找法，最坏的情况需要**|log2n|+1**, 最佳情况**(n+1)/2**, 只适合<strong>顺序存储，有序排列</strong></p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="../img/image-20240724120828661.png"
+                      alt="image-20240724120828661"
+                ></p>
+</li>
+<li><p>对于哈希表，**@越大，发生的冲突可能性就越大**</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="../img/image-20240724145619201.png"
+                      alt="image-20240724145619201"
+                ></p>
+</li>
+</ul>
+<ul>
+<li>哈希散列查找，<strong>尽可能使关键字的所有组成部分都能起到作用</strong></li>
+<li>散列函数为H（Key） = Key mod p, <strong>P的值一般不大于N且最接近N的质数</strong></li>
+<li>哈希存储元素时，需要进去冲突处理，冲突是指<strong>关键字不同的元素被映射到相同的存储位置</strong></li>
+<li>哈希表中查找某个关键字e是成功的且与多个关键字进行了比较，则<strong>关键字的第一个可以不是e的同义词</strong></li>
+</ul>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="../img/image-20240724152456299.png"
+                      alt="image-20240724152456299"
+                ></p>
+<ul>
+<li><p>小顶堆: ki&lt;= k2i &amp; ki&lt;=k2i+1   ;     大顶堆: ki&gt;=k2i &amp; ki&gt;=k2i+1</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="../img/image-20240724153744273.png"
+                      alt="image-20240724153744273"
+                ></p>
+</li>
+<li><p> 快速排序算法是不稳定的排序算法, <strong>最好情况： O(nlgn)，最坏情况o(n^2),</strong> 对比一次的<strong>O(n)</strong> 快速排序是一种分治算法</p>
+</li>
+<li><p>当输入数据基本有序时，快速排序算法具有 最坏情况的时间复杂度</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="../img/image-20240724155435196.png"
+                      alt="image-20240724155435196"
+                ></p>
+</li>
+<li><p><strong>冒泡排序、简单选择排序、堆排序、快速排序</strong>能在第一趟排序结束后，一定能将某个元素的位置确定下来</p>
+</li>
+<li><p>连通无向网的最小生成树中，顶点数恰好比边数多1</p>
+</li>
+<li><p>优先队列通常采用<strong>堆</strong>数据结构实现， O(lgn)</p>
+</li>
+<li><p>栈的特点是先进先出，若用单链表作为栈的存储结构，入栈和出栈操作都不需要遍历链表</p>
+</li>
+<li><p>S是一个长度为N的非空字符串，个数为*<em>(n-2) * (n-1) /2 *</em></p>
+</li>
+<li><p> 入队序列与出队序列一定相同。入栈序列与出栈序列不一定相同。 </p>
+</li>
+<li><p>出队与出栈序列一定相同          </p>
+</li>
+<li><p>线性表采用顺序储存时，访问表中任一指定序号元素的复杂度为常量级   </p>
+</li>
+</ul>
+<h3 id="操作系统"><a href="#操作系统" class="headerlink" title="操作系统"></a>操作系统</h3><p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="../img/image-20240721120454329.png"
+                      alt="image-20240721120454329"
+                ></p>
+<blockquote>
+<p>s1,s2,s3需要根据p1-&gt;pN从小到大的顺序排</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="../img/image-20240721120612439.png"
+                      alt="image-20240721120612439"
+                ></p>
+</blockquote>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="../img/image-20240721122423866.png"
+                      alt="image-20240721122423866"
+                ></p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="../img/image-20240721123528057.png"
+                      alt="image-20240721123528057"
+                ></p>
+<p>信号量S的当前值为-2，代表等待的进程数为|-2| = 2，  可用数为0</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="../img/image-20240721123847849.png"
+                      alt="image-20240721123847849"
+                ></p>
+<blockquote>
+<p>-(n- 资源数2)  ~ 资源数2   答案 D</p>
+</blockquote>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="../img/image-20240721124039125.png"
+                      alt="image-20240721124039125"
+                ></p>
+<ul>
+<li>PV操作实现<strong>资源的同步和互斥</strong>， 互斥初始为1，同步初始为N， V后为0</li>
+</ul>
+<ul>
+<li><p>同类资源分配不当发生 死锁， m资源 ,  n进程， k每个资源  最大的需求数， *<em>满足m&gt;= n</em>(k-1)+1不会发生死锁**</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="../img/image-20240721163559601.png"
+                      alt="image-20240721163559601"
+                ></p>
+</li>
+<li><p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="../img/image-20240721170054980.png"
+                      alt="image-20240721170054980"
+                ></p>
+</li>
+</ul>
+<blockquote>
+<p>首个非阻塞节点才会还原释放数据 </p>
+</blockquote>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="../img/image-20240722112727907.png"
+                      alt="image-20240722112727907"
+                ></p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="../img/image-20240722113033709.png"
+                      alt="image-20240722113033709"
+                ></p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="../img/image-20240722115024356.png"
+                      alt="image-20240722115024356"
+                ></p>
+<blockquote>
+<p>淘汰优化级：   状态位为1 &gt; 访问位为0 &gt; 修改位为0   110/100</p>
+</blockquote>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="../img/image-20240722160731429.png"
+                      alt="image-20240722160731429"
+                ></p>
+<blockquote>
+<p><a class="link"   target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1AY411E7GC?p=63&amp;vd_source=e2fcc9b11e669b774850c847deddbae2" >https://www.bilibili.com/video/BV1AY411E7GC?p=63&amp;vd_source=e2fcc9b11e669b774850c847deddbae2<i class="fas fa-external-link-alt"></i></a></p>
+</blockquote>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="../img/image-20240722161524550.png"
+                      alt="image-20240722161524550"
+                ></p>
+<blockquote>
+<p>答案， B  A</p>
+</blockquote>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="../img/image-20240722161932939.png"
+                      alt="image-20240722161932939"
+                ></p>
+<ul>
+<li>单缓冲区公式:   ( T + M )* N + C    (读入缓冲区时间  + 缓冲区送到用户区时间)  * 数量 磁盘  + 每个磁盘的处理时间</li>
+<li>双缓冲区公式:    T  * N + M + C</li>
+</ul>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="../img/image-20240722162725357.png"
+                      alt="image-20240722162725357"
+                ></p>
+<ul>
+<li><p>移臂/磁盘调度算法中， <strong>先来先服务和最短寻找时间优先</strong>可能会随时改变移动臂的运动方向</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="../img/image-20240722164950889.png"
+                      alt="image-20240722164950889"
+                ></p>
+</li>
+</ul>
+<ul>
+<li>磁盘最少时间 = （单个旋转时间 + 处理时间） * 总处理记录数</li>
+<li>磁盘最长时间 =(单个旋转时间+处理时间）+（总处理记录数-1）* (旋转时间 +处理时间+(旋转时间 * (总记录数-2) ) </li>
+</ul>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="../img/image-20240722171137295.png"
+                      alt="image-20240722171137295"
+                ></p>
+<blockquote>
+<p>答案： 102   30</p>
+</blockquote>
+<p> <img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="../img/image-20240722171507699.png"
+                      alt="image-20240722171507699"
+                ></p>
+<ul>
+<li><p><strong>目录</strong>文件修改的结果写回磁盘时发生崩溃，则对系统的影响相对较大</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="../img/image-20240722172227241.png"
+                      alt="image-20240722172227241"
+                ></p>
+</li>
+</ul>
+<ul>
+<li><p>如果系统采用信箱通信方式，当进程 调用Send原语 被设置成“等信箱”状态时， 其原因是<strong>指定的信箱存满了信件</strong></p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="../img/image-20240722173300886.png"
+                      alt="image-20240722173300886"
+                ></p>
+</li>
+</ul>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="../img/image-20240722173445115.png"
+                      alt="image-20240722173445115"
+                ></p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="../img/image-20240722173940782.png"
+                      alt="image-20240722173940782"
+                ></p>
+<ul>
+<li><p>当用户通过键盘或鼠标 进入某应用系统时， 通常最先获得鼠标和键盘的信息是<strong>中断处理</strong></p>
+</li>
+<li><p>当用户点击文件时， 通过<strong>文件关联</strong>来决定使用什么程序来打开</p>
+</li>
+</ul>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="../img/image-20240722174257363.png"
+                      alt="image-20240722174257363"
+                ></p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="../img/image-20240722174427228.png"
+                      alt="image-20240722174427228"
+                ></p>
+<ul>
+<li><p>I/O软件隐藏了I/O操作实现的细节， 方便用户使用I/O设备</p>
+</li>
+<li><p>在磁盘调度管理中通常<strong>先进行移臂、再进行旋转</strong>， 在访问同一磁道信息时， 只需要进行旋转调度</p>
+</li>
+<li><p>若磁盘的转速提高一倍、则旋转等待时间减半</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="../img/image-20240723105113886.png"
+                      alt="image-20240723105113886"
+                ></p>
+</li>
+</ul>
+<blockquote>
+<p>某些题会除不尽，此时， 向下取整 </p>
+</blockquote>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="../img/image-20240723110347474.png"
+                      alt="image-20240723110347474"
+                ></p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="../img/image-20240723155515036.png"
+                      alt="image-20240723155515036"
+                ></p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="../img/image-20240723161026530.png"
+                      alt="image-20240723161026530"
+                ></p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="../img/image-20240723163938563.png"
+                      alt="image-20240723163938563"
+                ></p>
+<h3 id="结构化开发"><a href="#结构化开发" class="headerlink" title="结构化开发"></a>结构化开发</h3><ul>
+<li>标记、数据、公共、内容  考得多</li>
+</ul>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="../img/image-20240721210706187.png"
+                      alt="image-20240721210706187"
+                ></p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="../img/image-20240721211130277.png"
+                      alt="image-20240721211130277"
+                ></p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="../img/image-20240721212841942.png"
+                      alt="image-20240721212841942"
+                ></p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="../img/image-20240721212920415.png"
+                      alt="image-20240721212920415"
+                ></p>
+<ul>
+<li><p>偶然内聚</p>
+<ul>
+<li>具有最低的内聚性</li>
+<li>不易修改和维护</li>
+<li>不易理解</li>
+<li>影响模块间的耦合关系</li>
+</ul>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="../img/image-20240721213653334.png"
+                      alt="image-20240721213653334"
+                ></p>
+</li>
+</ul>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="../img/image-20240721213730819.png"
+                      alt="image-20240721213730819"
+                ></p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="../img/image-20240721213927490.png"
+                      alt="image-20240721213927490"
+                ></p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="../img/image-20240721214151870.png"
+                      alt="image-20240721214151870"
+                ></p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="../img/image-20240721214227004.png"
+                      alt="image-20240721214227004"
+                ></p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="../img/image-20240721214522689.png"
+                      alt="image-20240721214522689"
+                ></p>
+<ul>
+<li>每条数据流的起点或终点必须是加工</li>
+<li>必须保持父图与子图平衡</li>
+<li>应保持数据 守恒</li>
+</ul>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="../img/image-20240721215040640.png"
+                      alt="image-20240721215040640"
+                ></p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="../img/image-20240721215151237.png"
+                      alt="image-20240721215151237"
+                ></p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="../img/image-20240721215537040.png"
+                      alt="image-20240721215537040"
+                ></p>
+<ul>
+<li><p>数据字典： <strong>数据流、数据项、数据储存、基本加工</strong></p>
+</li>
+<li><p>数据流图DFD元素在<strong>数据字典</strong>中定义</p>
+</li>
+</ul>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="../img/image-20240721215817460.png"
+                      alt="image-20240721215817460"
+                ></p>
+<ul>
+<li><p>采用结构 化方法进行系统 分析时，根据分解与抽象的原则，用<strong>数据流图</strong>来建立系统逻辑模型</p>
+</li>
+<li><p>利用结构化分析模型进行接口设计时，应以<strong>数据流图</strong>为依据</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="../img/image-20240721220114289.png"
+                      alt="image-20240721220114289"
+                ></p>
+</li>
+</ul>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="../img/image-20240721220243889.png"
+                      alt="image-20240721220243889"
+                ></p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="../img/image-20240721220321914.png"
+                      alt="image-20240721220321914"
+                ></p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="../img/image-20240721220356738.png"
+                      alt="image-20240721220356738"
+                ></p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="../img/image-20240721220436793.png"
+                      alt="image-20240721220436793"
+                ></p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="../img/image-20240721220547601.png"
+                      alt="image-20240721220547601"
+                ></p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="../img/image-20240721220641452.png"
+                      alt="image-20240721220641452"
+                ></p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="../img/image-20240721220722129.png"
+                      alt="image-20240721220722129"
+                ></p>
+<ul>
+<li><p>数据流图建模应遵循<strong>自顶向下，从抽象到具体</strong></p>
+</li>
+<li><p>结构图的基本成分： <strong>模块、调用、数据</strong></p>
+</li>
+<li><p>“黄金准则”： 用户操纵控制、减轻用户的记忆负担、保持界面 一致</p>
+</li>
+<li><p>绘制分层数据流图需要注意的问题</p>
+<ul>
+<li>适当命名</li>
+<li>画出数据流而不是控制流</li>
+<li>分解尽可能均匀</li>
+<li>避免一个加工有多个数据流补充</li>
+</ul>
+</li>
+</ul>
+<h3 id="补充"><a href="#补充" class="headerlink" title="补充"></a>补充</h3><ul>
+<li><p>配置数据库：   产品库， 受控库，开发库</p>
+</li>
+<li><p>结构化分析输出：   结构图，数据字典，数据流图</p>
+</li>
+<li><p>加法器   属于算术逻辑单元部件</p>
+</li>
+<li><p>产品质量特性：   可靠性、正确性、效率。 无灵活性</p>
+</li>
+<li><p>主机   路由的子网掩码是255.255.255.255</p>
+</li>
+<li><p>面向对象分析  不需要考虑系统测试问题</p>
+</li>
+<li><p> 对于无向图中的两个顶点u和v，所有顶点的度数之和为   2e       </p>
+</li>
+<li><p> 邻接矩阵中的每个非零元素都表示一条弧，所以非零元素数目为弧的个数  e。     矩阵大小为n^2        </p>
+</li>
+<li><p>风险评估 是定义风险水准常用 技术</p>
+</li>
+<li><p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="../img/image-20241009220748400.png"
+                      alt="image-20241009220748400"
+                ></p>
+</li>
+<li><p>常见命名对象有： 变量、函数、数据类型</p>
+</li>
+<li><p>2i+j-2</p>
+</li>
+<li><p>2i+j+1</p>
+</li>
+<li><p>base+ ((j-1)*m+i-1)*k</p>
+</li>
+<li><p>在i=j时，与按行、按列存储无关</p>
+</li>
+<li><p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="../img/ddd.jpg"
+                     
+                ></p>
+</li>
+<li><p>head(tail(head(L)))</p>
+</li>
+<li><p>k=j*(j+1) / 2+i+1</p>
+</li>
+<li><p>(n(k-1)+1)/k</p>
+</li>
+<li><p>二叉树从左到右同层次的结点，其关键字呈现有序排列的特点</p>
+</li>
+<li><p>若一个二叉树高度为h,则该二叉树最多有2^h -1 个结点</p>
+</li>
+<li><p>单枝树效率最差</p>
+</li>
+<li><p>哈夫曼树中叶子结点的权值越小距树根越远，叶子结点权值越大，距离树根越近</p>
+</li>
+<li><p>哈夫曼树属于熵编码</p>
+</li>
+<li><p>n是m的右孩子</p>
+</li>
+<li><p>完全二叉树任意一个节点左右树高度差绝对值 不超过1</p>
+</li>
+<li><p>哈夫曼树中权值最小的两个节点互为兄弟节点</p>
+</li>
+<li><p>最优二叉树结点总数为2n-1</p>
+</li>
+<li><p>对基本有序的数组进行排序，最适宜采用的算法是  插入排序 o(n)，空间复杂度o(1), 共需要6次比较</p>
+</li>
+<li><p>若取值在0-9，适合采用   计数排序</p>
+</li>
+<li><p>归并排序采用的算法属于 分冶法</p>
+</li>
+<li><p>最坏情况下时间复杂度最低的算法是  归并 </p>
+</li>
+</ul>
+<ul>
+<li>冲突是指  关键字不同的元素被 映射到相同的存储位置 </li>
+<li>二分查找要求 顺序储存，关键码有序排列</li>
+<li>哈希表P值一般为不大于N，且 最接近N的质数</li>
+<li>构造HASH函数时应尽量使用关键字的所有组成部分都能起到作用</li>
+</ul>
+<ul>
+<li>人耳能听到 的音频范围 20hz - 20Khz</li>
+<li><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="../img/image-20241010205111203.png"
+                      alt="image-20241010205111203"
+                ></li>
+<li><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="../img/image-20241010205126771.png"
+                      alt="image-20241010205126771"
+                ></li>
+<li><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="../img/image-20241010205153720.png"
+                      alt="image-20241010205153720"
+                ></li>
+</ul>
+<ul>
+<li><p>实体类  主要负责数据和业务逻辑；边界类   负责和用户进行交互，即用户界面；控制类   则负责实体类和界面类的交互。             </p>
+</li>
+<li><p>数据流图  建立逻辑模型</p>
+</li>
+<li><p>软件能力成熟度模型4级为   理解和控制</p>
+</li>
+<li><p> 极限编程（XP）它由价值观、原则、实践和行为4个部分组成。其中4大价值观为沟通、简单性、反馈和勇气。             </p>
+</li>
+<li><p>面向对象分析不需要考虑系统 测试问题</p>
+</li>
+<li><p>软件配置管理主要包括变更标识、变更控制和版本控制。      </p>
+</li>
+<li><p>釆用8位补码表示整型数据时，可表示的数据范围为-128〜127，因此进行127+1运算会产生溢出。            </p>
+</li>
+<li><p> 风险控制   活动目的是辅助项目组建立处理风险的策略</p>
+</li>
+<li><p>软件产品的可靠性不取决于   软件产品的开发方式</p>
+</li>
+<li><p>软件可靠性指的是一个系统对于给定的时间间隔内、在给定条件下无失效运作的概率。</p>
+</li>
+<li><p> 若计算机系统 的I/O接口与主存采用统一的编址，则输入输出操作通过   访存完成</p>
+</li>
+<li><p>数据流图描述了系统的   输入和输出</p>
+</li>
+<li><p>风险避免  是最好的风险控制策略</p>
+</li>
+<li><p>网络的可用性是指   用户可利用网络时间的百分比</p>
+</li>
+<li><p>定义风险参照水准是    风险评估    的一类技术</p>
+</li>
+<li><p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="../img/image-20241010213014475.png"
+                      alt="image-20241010213014475"
+                ></p>
+</li>
+</ul>
+<ul>
+<li>response可以修改cookie的值</li>
+<li> 报文摘要是用来防止发送的数据被篡改</li>
+<li><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="../img/image-20241010213454538.png"
+                      alt="image-20241010213454538"
+                ></li>
+</ul>
+<ul>
+<li>矢量图的基本单位： 图元</li>
+<li><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="../img/image-20241010213602225.png"
+                      alt="image-20241010213602225"
+                ></li>
+</ul>
+<ul>
+<li>有限自动机是词法分析的适当工具</li>
+<li> 如果要使得两个IPv6结点可以通过现有的IPv4网络进行通信，则应该使用隧道技术，如果要使得纯IPv6结点可以与纯IPv4结点进行通信，则需要使用翻译技术。   </li>
+<li>​          <img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="../img/image-20241010213749034.png"
+                      alt="image-20241010213749034"
+                ></li>
+</ul>
+<ul>
+<li><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="../img/image-20241010213816032.png"
+                      alt="image-20241010213816032"
+                ></li>
+</ul>
+<ul>
+<li>分级存储是为了解决存储容量、成本 、速度之间的矛盾</li>
+<li>MISD无实例</li>
+<li>分配寄存器是在  目标代码 生成阶段</li>
+<li>通用寄存器  访问 速度 最快</li>
+<li>风险的优先级是通过   风险暴露设定的</li>
+<li>系统级初始化的主要任务： 以软件为主，主要进行操作系统初始化</li>
+<li>递归下降分析方法是一种  自上而下的语法分析</li>
+<li>VLIW:（Very Long Instruction Word，超长指令字）一种非常长的指令组合</li>
+<li>关系规范化设计是在数据库   逻辑设计阶段进行的、</li>
+<li><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="../img/image-20241010214929398.png"
+                      alt="image-20241010214929398"
+                ></li>
+</ul>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="../img/image-20241010214950330.png"
+                      alt="image-20241010214950330"
+                ></p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="../img/image-20241010215241497.png"
+                      alt="image-20241010215241497"
+                ></p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="../img/image-20241010215305883.png"
+                      alt="image-20241010215305883"
+                ></p>
+<ul>
+<li>COCOMOII模型也需要使用规模估算信息，在模型层次结构中有3种不同规模估算选择，即：对象点、功能点和代码行。             </li>
+<li>ADSL接入internet，用户需要安装PPPoE</li>
+<li>TCP和UDP均提供了端口寻址功能。             </li>
+</ul>
+<h3 id="计算题"><a href="#计算题" class="headerlink" title="计算题"></a>计算题</h3><p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="../img/image-20241010212925061.png"
+                      alt="image-20241010212925061"
+                ></p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="../img/image-20241010214626586.png"
+                      alt="image-20241010214626586"
+                ></p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="../img/image-20241010215753017.png"
+                      alt="image-20241010215753017"
+                ></p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="../img/image-20241010215834114.png"
+                      alt="image-20241010215834114"
+                ></p>
+<ul>
+<li> IPv4用32位二进制表示，能够表示的地址空间是232，IPv6用128位二进制表示，能够表示的地址空间是2128，本题选择2^128 /2^32=2^96 。             </li>
+<li>系统总线用于  主存和外设  连接</li>
+<li>DMA和中断CPU发出的数据地址是  主存物理地址</li>
+<li>消息压缩、加密的是  表示层</li>
+<li>署名权、修改权、保护作品完整权时间不受限制</li>
+<li>测试类定义的方法  属于  算法层</li>
+<li>UML包图一个元素不能被多个包拥有</li>
+<li><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="../img/image-20241010220732157.png"
+                      alt="image-20241010220732157"
+                ></li>
+<li>python中没有switch case</li>
+<li><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="../img/image-20241010220843308.png"
+                      alt="image-20241010220843308"
+                ></li>
+<li><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="../img/image-20241010221054561.png"
+                      alt="image-20241010221054561"
+                ></li>
+</ul>
+<ul>
+<li>apach的默认目录 /home/httpd</li>
+<li></li>
+</ul>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="../img/image-20241010221500209.png"
+                      alt="image-20241010221500209"
+                ></p>
+<ul>
+<li>DRAM使用电容存储信息且需要周期性刷新</li>
+<li>使用补码的目的： 可以将减法运算转为加法运算，从而简化运算器设计</li>
+<li>口令认证安全性较低</li>
+<li>x509数字证书推荐密码算法 RSA ,    SM2数据证书采用ECC</li>
+<li>栈帧不包括  全局变量</li>
+<li>白盒测试，语句覆盖最弱</li>
+<li>python3中try  catch不是合法的异常处理</li>
+<li></li>
+</ul>
+
+        </div>
+
+        
+            <div class="post-copyright-info">
+                <div class="article-copyright-info-container">
+    <ul>
+        <li>本文标题：软考-软件设计师题库</li>
+        <li>本文作者：邵预鸿</li>
+        <li>创建时间：2024-05-27 15:14:07</li>
+        <li>
+            本文链接：/images/logo.jpg2024/05/27/软考-软件设计师题库/
+        </li>
+        <li>
+            版权声明：本博客所有文章除特别声明外，均采用 <a class="license" target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">BY-NC-SA</a> 许可协议。转载请注明出处！
+        </li>
+    </ul>
+</div>
+
+            </div>
+        
+
+        
+            <div class="article-nav">
+                
+                    <div class="article-prev">
+                        <a class="prev"
+                           rel="prev"
+                           href="/2024/08/15/%E8%BD%AF%E8%80%83%E4%B8%8B%E5%8D%88%E9%A2%98/"
+                        >
+                            <span class="left arrow-icon flex-center">
+                              <i class="fas fa-chevron-left"></i>
+                            </span>
+                            <span class="title flex-center">
+                                <span class="post-nav-title-item">软考下午题</span>
+                                <span class="post-nav-item">上一篇</span>
+                            </span>
+                        </a>
+                    </div>
+                
+                
+                    <div class="article-next">
+                        <a class="next"
+                           rel="next"
+                           href="/2024/05/10/vue3%E5%BF%AB%E9%80%9F%E4%B8%8A%E6%89%8B/"
+                        >
+                            <span class="title flex-center">
+                                <span class="post-nav-title-item">vue3快速上手</span>
+                                <span class="post-nav-item">下一篇</span>
+                            </span>
+                            <span class="right arrow-icon flex-center">
+                              <i class="fas fa-chevron-right"></i>
+                            </span>
+                        </a>
+                    </div>
+                
+            </div>
+        
+
+        
+    </div>
+</div>
+
+
+        
+      </div>
+
+    </div>
+
+    <div class="page-main-content-bottom">
+      <footer class="footer">
+    <div class="info-container">
+        <div class="copyright-info info-item">
+            &copy;
+            
+              <span>2021</span>&nbsp;-&nbsp;
+            
+            2026&nbsp;<i class="fas fa-heart icon-animate"></i>&nbsp;<a href="/">邵预鸿</a>
+        </div>
+        
+        
+        <div>更多笔记请访问:<a href="https://www.shaoyuhong.cn" target="_blank">邵预鸿|随心记 https://www.shaoyuhong.cn</a></div>
+
+    </div>
+</footer>
+
+    </div>
+  </div>
+
+  
+  <div class="post-tools">
+    <div class="post-tools-container">
+    <ul class="tools-list">
+        <!-- TOC aside toggle -->
+        
+
+        <!-- go comment -->
+        
+    </ul>
+</div>
+
+  </div>
+  
+
+  <div class="right-bottom-side-tools">
+    <div class="side-tools-container">
+    <ul class="side-tools-list">
+        <li class="tools-item tool-font-adjust-plus flex-center">
+            <i class="fas fa-search-plus"></i>
+        </li>
+
+        <li class="tools-item tool-font-adjust-minus flex-center">
+            <i class="fas fa-search-minus"></i>
+        </li>
+
+        <li class="tools-item tool-expand-width flex-center">
+            <i class="fas fa-arrows-alt-h"></i>
+        </li>
+
+        <li class="tools-item tool-dark-light-toggle flex-center">
+            <i class="fas fa-moon"></i>
+        </li>
+
+        <!-- rss -->
+        
+
+        
+
+        <li class="tools-item tool-scroll-to-bottom flex-center">
+            <i class="fas fa-arrow-down"></i>
+        </li>
+    </ul>
+
+    <ul class="exposed-tools-list">
+        <li class="tools-item tool-toggle-show flex-center">
+            <i class="fas fa-cog fa-spin"></i>
+        </li>
+        
+            <li class="tools-item tool-scroll-to-top flex-center">
+                <i class="arrow-up fas fa-arrow-up"></i>
+                <span class="percent"></span>
+            </li>
+        
+    </ul>
+</div>
+
+  </div>
+
+  
+
+  <div class="image-viewer-container">
+    <img src="">
+</div>
+
+
+  
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+          <span class="search-input-field-pre">
+            <i class="fas fa-keyboard"></i>
+          </span>
+            <div class="search-input-container">
+                <input autocomplete="off"
+                       autocorrect="off"
+                       autocapitalize="off"
+                       placeholder="搜索..."
+                       spellcheck="false"
+                       type="search"
+                       class="search-input"
+                >
+            </div>
+            <span class="popup-btn-close">
+                <i class="fas fa-times"></i>
+            </span>
+        </div>
+        <div id="search-result">
+            <div id="no-result">
+                <i class="fas fa-spinner fa-pulse fa-5x fa-fw"></i>
+            </div>
+        </div>
+    </div>
+</div>
+
+  
+
+</main>
+<script>
+  const context = document.querySelector(".markdown-body");
+  const articleTitleList = document.querySelector(".article-title-list");
+  const mainContent = document.querySelector('.main-content');
+
+  if (context) {
+    if (window.innerWidth > 1380) {
+      const tags = context.querySelectorAll('*');
+      const hTagReg = /^H[1-6]$/;
+      let template = '';
+      tags.forEach(item => {
+        if (hTagReg.test(item.tagName.toUpperCase()) && item.innerText) {
+          const tagH = item.tagName.toLowerCase();
+          const tagHToUpper = item.tagName.toUpperCase();
+          const forHash = item.getAttribute("id");
+          //<span class="badge">${tagHToUpper}</span>
+          template += `
+                  <${tagH}>
+                    <a onclick="javascript:void(1)" href="#${forHash}"> ${item.innerText}</a>
+                  </${tagH}>  
+                `;
+
+        }
+      });
+      articleTitleList.innerHTML = template;
+    }
+
+
+  }
+
+  (function leftNavPositionChange() {
+    const articleTitlePositoinX = (window.innerWidth - mainContent.clientWidth) / 2 - 300;
+    articleTitleList.style.left = articleTitlePositoinX + 'px';
+    window.onresize = function () {
+      leftNavPositionChange();
+    };
+  })();
+
+</script>
+
+<script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="/js/header-shrink.js"></script><script src="/js/back2top.js"></script><script src="/js/dark-light-toggle.js"></script>
+
+
+    <script src="/js/local-search.js"></script>
+
+
+
+    <script src="/js/code-copy.js"></script>
+
+
+
+    <script src="/js/lazyload.js"></script>
+
+
+<div class="post-scripts">
+    
+</div>
+
+
+
+</body>
+</html>

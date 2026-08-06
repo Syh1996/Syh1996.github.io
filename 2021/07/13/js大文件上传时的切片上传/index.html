@@ -1,0 +1,628 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="baidu-site-verification" content="code-YfBAOEVVQH" />
+    <meta name="keywords" content="邵预鸿,前端开发工程师,技术博客,生活记录,生活日常,个人简历,日常规划">
+    <meta name="description" content="入职中兴通讯，一名低调资深的ctrl+c and ctrl+v开发者">
+    <meta name="author" content="邵预鸿">
+    
+    <title>
+        
+            js大文件上传时的切片上传 |
+        
+        邵预鸿|前端开发技术笔记
+    </title>
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="shortcut icon" href="/images/logo.jpg">
+    <link rel="stylesheet" href="/css/font-awesome.min.css">
+    <script id="hexo-configurations">
+    let KEEP = window.KEEP || {};
+    KEEP.hexo_config = {"hostname":"github.com","root":"/","language":"zh-CN","path":"search.json"};
+    KEEP.theme_config = {"toc":{"enable":false,"number":false,"expand_all":false,"init_open":false},"style":{"primary_color":"#0066CC","avatar":"/images/logo.jpg","favicon":"/images/logo.jpg","article_img_align":"left","left_side_width":"260px","content_max_width":"920px","hover":{"shadow":true,"scale":false},"first_screen":{"enable":true,"background_img":"/images/bg.svg","description":"积累硅步，可至千里；千里之行，始于足下"},"scroll":{"progress_bar":{"enable":true},"percent":{"enable":true}}},"local_search":{"enable":true,"preload":true},"code_copy":{"enable":true,"style":"default"},"pjax":{"enable":false},"lazyload":{"enable":true},"version":"3.4.0"};
+    KEEP.language_ago = {"second":"%s 秒前","minute":"%s 分钟前","hour":"%s 小时前","day":"%s 天前","week":"%s 周前","month":"%s 月前","year":"%s 年前"};
+  </script>
+<meta name="generator" content="Hexo 5.4.2"></head>
+
+
+<body>
+<!--
+ * @Description: file content
+ * @Author: yuhongshao
+ * @Date: 2021-02-20 19:33:18
+ * @email: 
+ * @LastEditTime: 2022-05-25 12:31:42
+-->
+<div class="progress-bar-container">
+    
+        <span class="scroll-progress-bar"></span>
+    
+
+    
+</div>
+
+
+<main class="page-container">
+
+  
+
+  <div class="page-main-content">
+
+    <div class="page-main-content-top">
+      <header class="header-wrapper">
+
+    <div class="header-content">
+        <div class="left">
+            <a class="logo-title" href="/">
+                邵预鸿|前端开发技术笔记
+            </a>
+        </div>
+
+        <div class="right">
+            <div class="pc">
+                <ul class="menu-list">
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/"
+                            >
+                                主页
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/archives"
+                            >
+                                历年汇总
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/about"
+                            >
+                                关于我
+                            </a>
+                        </li>
+                    
+                    
+                        <li class="menu-item search search-popup-trigger">
+                            <i class="fas fa-search"></i>
+                        </li>
+                    
+                </ul>
+            </div>
+            <div class="mobile">
+                
+                    <div class="icon-item search search-popup-trigger"><i class="fas fa-search"></i></div>
+                
+                <div class="icon-item menu-bar">
+                    <div class="menu-bar-middle"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="header-drawer">
+        <ul class="drawer-menu-list">
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/">主页</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/archives">历年汇总</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/about">关于我</a>
+                </li>
+            
+        </ul>
+    </div>
+
+    <div class="window-mask"></div>
+
+</header>
+
+
+    </div>
+    <style>
+      .main-content a{
+        color: #6e9cca;
+      }
+      .article-title-list {
+        position: fixed;
+        left: 80px;
+        top: 110px;
+        z-index: 100;
+        width: 300px;
+        max-height: calc(100% - 144px);
+        overflow: auto;
+      }
+      .article-title-list a .badge{
+        display: inline-block;
+        margin-right: 5px;
+        padding: 0 5px;
+        background-color: #ebebeb;
+        border-radius: 3px;
+        color: #6b6b6b;
+      }
+      .article-title-list h1,
+      .article-title-list h2,
+      .article-title-list h3,
+      .article-title-list h4,
+      .article-title-list h5,
+      .article-title-list h6 {
+        box-sizing: border-box;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        overflow: hidden;
+        color: #686868;
+        font-weight: normal;
+        line-height: 1;
+        cursor: pointer;
+      }
+
+      .article-title-list h1 {
+        font-size: 22px;
+      }
+
+      .article-title-list h2 {
+        padding-left: 20px;
+        font-size: 20px;
+      }
+
+      .article-title-list h3 {
+        padding-left: 40px;
+        font-size: 18px;
+      }
+
+      .article-title-list h4 {
+        padding-left: 60px;
+        font-size: 16px;
+      }
+
+      .article-title-list h5 {
+        padding-left: 80px;
+        font-size: 14px;
+      }
+
+      .article-title-list h6 {
+        padding-left: 100px;
+        font-size: 12px;
+      }
+
+    </style>
+    <div class="article-title-list">
+    </div>
+
+    <div class="page-main-content-middle">
+
+      <div class="main-content">
+
+        
+        <div class="fade-in-down-animation">
+    <div class="article-content-container">
+
+        <div class="article-title">
+            <span class="title-hover-animation">js大文件上传时的切片上传</span>
+        </div>
+
+        
+            <div class="article-header">
+                <div class="avatar">
+                    <img src="/images/logo.jpg">
+                </div>
+                <div class="info">
+                    <div class="author">
+                        <span class="name">邵预鸿</span>
+                        
+                            <span class="author-label">Lv5</span>
+                        
+                    </div>
+                    <div class="meta-info">
+                        <div class="article-meta-info">
+    <span class="article-date article-meta-item">
+        <i class="fas fa-edit"></i>&nbsp;2021-07-13 10:57:59
+    </span>
+    
+    
+        <span class="article-tags article-meta-item">
+            <i class="fas fa-tags"></i>&nbsp;
+            <ul>
+                
+                    <li>
+                        <a href="/tags/js/">js</a>&nbsp;
+                    </li>
+                
+            </ul>
+        </span>
+    
+
+    
+    
+    
+    
+</div>
+
+                    </div>
+                </div>
+            </div>
+        
+
+        <div class="article-content markdown-body">
+            <h3 id="1-大致流程"><a href="#1-大致流程" class="headerlink" title="1.大致流程"></a>1.大致流程</h3><p>分为以下几步：</p>
+<ul>
+<li>1.前端接收BGM并进行<code>切片</code></li>
+<li>2.将每份<code>切片</code>都进行<code>上传</code></li>
+<li>3.后端接收到所有<code>切片</code>，创建一个<code>文件夹</code>存储这些<code>切片</code></li>
+<li>4.后端将此<code>文件夹</code>里的所有切片合并为完整的BGM文件</li>
+<li>5.删除<code>文件夹</code>，因为<code>切片</code>不是我们最终想要的，可<code>删除</code></li>
+<li>6.当服务器已存在某一个文件时，再上传需要实现<code>“秒传”</code></li>
+</ul>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/e1fe4c0b629543348a1bb1d7c422f521~tplv-k3u1fbpfcp-watermark.image"
+                      alt="截屏2021-07-07 下午11.03.04.png"
+                ></p>
+<h3 id="2-前端实现切片"><a href="#2-前端实现切片" class="headerlink" title="2.前端实现切片"></a>2.前端实现切片</h3><p>简单来说就是，咱们上传文件时，选中文件后，浏览器会把这个文件转成一个<code>Blob对象</code>，而这个对象的原型上上有一个<code>slice</code>方法，这个方法是大文件能够切片的原理，可以利用这个方法来给打文件切片</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line">&lt;input type=<span class="string">&quot;file&quot;</span> @change=<span class="string">&quot;handleFileChange&quot;</span> /&gt;</span><br><span class="line"><span class="language-xml"><span class="tag">&lt;<span class="name">el-button</span> @<span class="attr">click</span>=<span class="string">&quot;handleUpload&quot;</span>&gt;</span> 上传 <span class="tag">&lt;/<span class="name">el-button</span>&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="title function_">data</span>(<span class="params"></span>) &#123;</span><br><span class="line">    <span class="keyword">return</span> &#123;</span><br><span class="line">        <span class="attr">fileObj</span>: &#123;</span><br><span class="line">            <span class="attr">file</span>: <span class="literal">null</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;;</span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="attr">methods</span>: &#123;</span><br><span class="line">      <span class="title function_">handleFileChange</span>(<span class="params">e</span>) &#123;</span><br><span class="line">          <span class="keyword">const</span> [file] = e.<span class="property">target</span>.<span class="property">files</span></span><br><span class="line">          <span class="keyword">if</span> (!file) <span class="keyword">return</span></span><br><span class="line">          <span class="variable language_">this</span>.<span class="property">fileObj</span>.<span class="property">file</span> = file</span><br><span class="line">      &#125;,</span><br><span class="line">      <span class="title function_">handleUpload</span> () &#123;</span><br><span class="line">          <span class="keyword">const</span> fileObj = <span class="variable language_">this</span>.<span class="property">fileObj</span></span><br><span class="line">          <span class="keyword">if</span> (!fileObj.<span class="property">file</span>) <span class="keyword">return</span></span><br><span class="line">          <span class="keyword">const</span> chunkList = <span class="variable language_">this</span>.<span class="title function_">createChunk</span>(fileObj.<span class="property">file</span>)</span><br><span class="line">          <span class="variable language_">console</span>.<span class="title function_">log</span>(chunkList) <span class="comment">// 看看chunkList长什么样子</span></span><br><span class="line">      &#125;,</span><br><span class="line">      <span class="title function_">createChunk</span>(<span class="params">file, size = <span class="number">5</span> * <span class="number">1024</span> * <span class="number">1024</span></span>) &#123;</span><br><span class="line">          <span class="keyword">const</span> chunkList = []</span><br><span class="line">          <span class="keyword">let</span> cur = <span class="number">0</span></span><br><span class="line">          <span class="keyword">while</span>(cur &lt; file.<span class="property">size</span>) &#123;</span><br><span class="line">              <span class="comment">// 使用slice方法切片</span></span><br><span class="line">              chunkList.<span class="title function_">push</span>(&#123; <span class="attr">file</span>: file.<span class="title function_">slice</span>(cur, cur  size) &#125;)</span><br><span class="line">              cur = size</span><br><span class="line">          &#125;</span><br><span class="line">          <span class="keyword">return</span> chunkList</span><br><span class="line">      &#125;</span><br><span class="line">复制代码</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>例子我就用我最近很喜欢听得一首歌<code>嘉宾-张远</code>，他的大小是<code>32M</code></p>
+</blockquote>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/33f448b2858c4cbd80c28f1466a01f45~tplv-k3u1fbpfcp-watermark.image"
+                      alt="截屏2021-07-08 下午8.06.22.png"
+                ></p>
+<blockquote>
+<p>点击上传，看看<code>chunkList</code>长什么样子吧：</p>
+</blockquote>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/d15dacd3c576489e8a6c165bc5b8635d~tplv-k3u1fbpfcp-watermark.image"
+                      alt="image.png"
+                ></p>
+<blockquote>
+<p>证明我们切片成功了！！！分成了7个切片</p>
+</blockquote>
+<h3 id="3-上传切片并展示进度条"><a href="#3-上传切片并展示进度条" class="headerlink" title="3.上传切片并展示进度条"></a>3.上传切片并展示进度条</h3><p>我们先封装一个请求方法，使用的是<code>axios</code>：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> axios <span class="keyword">from</span> <span class="string">&quot;axios&quot;</span>;</span><br><span class="line"></span><br><span class="line"><span class="title function_">axiosRequest</span>(<span class="params">&#123;</span></span><br><span class="line"><span class="params">      url,</span></span><br><span class="line"><span class="params">      method = <span class="string">&quot;post&quot;</span>,</span></span><br><span class="line"><span class="params">      data,</span></span><br><span class="line"><span class="params">      headers = &#123;&#125;,</span></span><br><span class="line"><span class="params">      onUploadProgress = (e) =&gt; e, // 进度回调</span></span><br><span class="line"><span class="params">    &#125;</span>) &#123;</span><br><span class="line">      <span class="keyword">return</span> <span class="keyword">new</span> <span class="title class_">Promise</span>(<span class="function">(<span class="params">resolve, reject</span>) =&gt;</span> &#123;</span><br><span class="line">        axios[method](url, data, &#123;</span><br><span class="line">          headers,</span><br><span class="line">          onUploadProgress, <span class="comment">// 传入监听进度回调</span></span><br><span class="line">        &#125;)</span><br><span class="line">          .<span class="title function_">then</span>(<span class="function">(<span class="params">res</span>) =&gt;</span> &#123;</span><br><span class="line">            <span class="title function_">resolve</span>(res);</span><br><span class="line">          &#125;)</span><br><span class="line">          .<span class="title function_">catch</span>(<span class="function">(<span class="params">err</span>) =&gt;</span> &#123;</span><br><span class="line">            <span class="title function_">reject</span>(err);</span><br><span class="line">          &#125;);</span><br><span class="line">      &#125;);</span><br><span class="line">    &#125;</span><br><span class="line">复制代码</span><br></pre></td></tr></table></figure>
+
+<p>接着上一步，我们获得了所有<code>切片</code>，接下来要把这些切片保存起来，并逐一去上传</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="title function_">handleUpload</span>(<span class="params"></span>) &#123;</span><br><span class="line">      <span class="keyword">const</span> fileObj = <span class="variable language_">this</span>.<span class="property">fileObj</span>;</span><br><span class="line">      <span class="keyword">if</span> (!fileObj.<span class="property">file</span>) <span class="keyword">return</span>;</span><br><span class="line">      <span class="keyword">const</span> chunkList = <span class="variable language_">this</span>.<span class="title function_">createChunk</span>(fileObj.<span class="property">file</span>);</span><br><span class="line">      <span class="variable language_">this</span>.<span class="property">fileObj</span>.<span class="property">chunkList</span> = chunkList.<span class="title function_">map</span>(<span class="function">(<span class="params">&#123; file &#125;, index</span>) =&gt;</span> (&#123;</span><br><span class="line">        file,</span><br><span class="line">        <span class="attr">size</span>: file.<span class="property">size</span>,</span><br><span class="line">        <span class="attr">percent</span>: <span class="number">0</span>,</span><br><span class="line">        <span class="attr">chunkName</span>: <span class="string">`<span class="subst">$&#123;fileObj.file.name&#125;</span>-<span class="subst">$&#123;index&#125;</span>`</span>,</span><br><span class="line">        <span class="attr">fileName</span>: fileObj.<span class="property">file</span>.<span class="property">name</span>,</span><br><span class="line">        index,</span><br><span class="line">      &#125;));</span><br><span class="line">      <span class="variable language_">this</span>.<span class="title function_">uploadChunks</span>(); <span class="comment">// 执行上传切片的操作</span></span><br><span class="line">    &#125;,</span><br><span class="line">复制代码</span><br></pre></td></tr></table></figure>
+
+<p><code>uploadChunks</code>就是执行上传所有切片的函数</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"> <span class="keyword">async</span> <span class="title function_">uploadChunks</span>(<span class="params"></span>) &#123;</span><br><span class="line">      <span class="keyword">const</span> requestList = <span class="variable language_">this</span>.<span class="property">fileObj</span>.<span class="property">chunkList</span></span><br><span class="line">        .<span class="title function_">map</span>(<span class="function">(<span class="params">&#123; file, fileName, index, chunkName &#125;</span>) =&gt;</span> &#123;</span><br><span class="line">          <span class="keyword">const</span> formData = <span class="keyword">new</span> <span class="title class_">FormData</span>();</span><br><span class="line">          formData.<span class="title function_">append</span>(<span class="string">&quot;file&quot;</span>, file);</span><br><span class="line">          formData.<span class="title function_">append</span>(<span class="string">&quot;fileName&quot;</span>, fileName);</span><br><span class="line">          formData.<span class="title function_">append</span>(<span class="string">&quot;chunkName&quot;</span>, chunkName);</span><br><span class="line">          <span class="keyword">return</span> &#123; formData, index &#125;;</span><br><span class="line">        &#125;)</span><br><span class="line">        .<span class="title function_">map</span>(<span class="function">(<span class="params">&#123; formData, index &#125;</span>) =&gt;</span></span><br><span class="line">          <span class="variable language_">this</span>.<span class="title function_">axiosRequest</span>(&#123;</span><br><span class="line">            <span class="attr">url</span>: <span class="string">&quot;http://localhost:3000/upload&quot;</span>,</span><br><span class="line">            <span class="attr">data</span>: formData,</span><br><span class="line">            <span class="attr">onUploadProgress</span>: <span class="variable language_">this</span>.<span class="title function_">createProgressHandler</span>(</span><br><span class="line">              <span class="variable language_">this</span>.<span class="property">fileObj</span>.<span class="property">chunkList</span>[index]</span><br><span class="line">            ), <span class="comment">// 传入监听上传进度回调</span></span><br><span class="line">          &#125;)</span><br><span class="line">        );</span><br><span class="line">      <span class="keyword">await</span> <span class="title class_">Promise</span>.<span class="title function_">all</span>(requestList); <span class="comment">// 使用Promise.all进行请求</span></span><br><span class="line">    &#125;,</span><br><span class="line"> <span class="title function_">createProgressHandler</span>(<span class="params">item</span>) &#123;</span><br><span class="line">      <span class="keyword">return</span> <span class="function">(<span class="params">e</span>) =&gt;</span> &#123;</span><br><span class="line">         <span class="comment">// 设置每一个切片的进度百分比</span></span><br><span class="line">        item.<span class="property">percent</span> = <span class="built_in">parseInt</span>(<span class="title class_">String</span>((e.<span class="property">loaded</span> / e.<span class="property">total</span>) * <span class="number">100</span>));</span><br><span class="line">      &#125;;</span><br><span class="line">    &#125;,</span><br><span class="line">复制代码</span><br></pre></td></tr></table></figure>
+
+<p>我不知道他们后端<code>Java</code>是怎么做的，我这里使用<code>Nodejs</code>模拟一下</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> http = <span class="built_in">require</span>(<span class="string">&quot;http&quot;</span>);</span><br><span class="line"><span class="keyword">const</span> path = <span class="built_in">require</span>(<span class="string">&quot;path&quot;</span>);</span><br><span class="line"><span class="keyword">const</span> fse = <span class="built_in">require</span>(<span class="string">&quot;fs-extra&quot;</span>);</span><br><span class="line"><span class="keyword">const</span> multiparty = <span class="built_in">require</span>(<span class="string">&quot;multiparty&quot;</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> server = http.<span class="title function_">createServer</span>();</span><br><span class="line"><span class="keyword">const</span> <span class="variable constant_">UPLOAD_DIR</span> = path.<span class="title function_">resolve</span>(__dirname, <span class="string">&quot;.&quot;</span>, <span class="string">`qiepian`</span>); <span class="comment">// 切片存储目录</span></span><br><span class="line"></span><br><span class="line">server.<span class="title function_">on</span>(<span class="string">&quot;request&quot;</span>, <span class="title function_">async</span> (req, res) =&gt; &#123;</span><br><span class="line">    res.<span class="title function_">setHeader</span>(<span class="string">&quot;Access-Control-Allow-Origin&quot;</span>, <span class="string">&quot;*&quot;</span>);</span><br><span class="line">    res.<span class="title function_">setHeader</span>(<span class="string">&quot;Access-Control-Allow-Headers&quot;</span>, <span class="string">&quot;*&quot;</span>);</span><br><span class="line">    <span class="keyword">if</span> (req.<span class="property">method</span> === <span class="string">&quot;OPTIONS&quot;</span>) &#123;</span><br><span class="line">        res.<span class="property">status</span> = <span class="number">200</span>;</span><br><span class="line">        res.<span class="title function_">end</span>();</span><br><span class="line">        <span class="keyword">return</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(req.<span class="property">url</span>)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> (req.<span class="property">url</span> === <span class="string">&#x27;/upload&#x27;</span>) &#123;</span><br><span class="line">        <span class="keyword">const</span> multipart = <span class="keyword">new</span> multiparty.<span class="title class_">Form</span>();</span><br><span class="line"></span><br><span class="line">        multipart.<span class="title function_">parse</span>(req, <span class="title function_">async</span> (err, fields, files) =&gt; &#123;</span><br><span class="line">            <span class="keyword">if</span> (err) &#123;</span><br><span class="line">                <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;errrrr&#x27;</span>, err)</span><br><span class="line">                <span class="keyword">return</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">const</span> [file] = files.<span class="property">file</span>;</span><br><span class="line">            <span class="keyword">const</span> [fileName] = fields.<span class="property">fileName</span>;</span><br><span class="line">            <span class="keyword">const</span> [chunkName] = fields.<span class="property">chunkName</span>;</span><br><span class="line">            <span class="comment">// 保存切片的文件夹的路径，比如  张远-嘉宾.flac-chunks</span></span><br><span class="line">            <span class="keyword">const</span> chunkDir = path.<span class="title function_">resolve</span>(<span class="variable constant_">UPLOAD_DIR</span>, <span class="string">`<span class="subst">$&#123;fileName&#125;</span>-chunks`</span>);</span><br><span class="line">            <span class="comment">// // 切片目录不存在，创建切片目录</span></span><br><span class="line">            <span class="keyword">if</span> (!fse.<span class="title function_">existsSync</span>(chunkDir)) &#123;</span><br><span class="line">                <span class="keyword">await</span> fse.<span class="title function_">mkdirs</span>(chunkDir);</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="comment">// 把切片移动到切片文件夹</span></span><br><span class="line">            <span class="keyword">await</span> fse.<span class="title function_">move</span>(file.<span class="property">path</span>, <span class="string">`<span class="subst">$&#123;chunkDir&#125;</span>/<span class="subst">$&#123;chunkName&#125;</span>`</span>);</span><br><span class="line">            res.<span class="title function_">end</span>(</span><br><span class="line">                <span class="title class_">JSON</span>.<span class="title function_">stringify</span>(&#123;</span><br><span class="line">                    <span class="attr">code</span>: <span class="number">0</span>,</span><br><span class="line">                    <span class="attr">message</span>: <span class="string">&quot;切片上传成功&quot;</span></span><br><span class="line">                &#125;));</span><br><span class="line">        &#125;);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line">server.<span class="title function_">listen</span>(<span class="number">3000</span>, <span class="function">() =&gt;</span> <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;正在监听 3000 端口&quot;</span>));</span><br><span class="line">复制代码</span><br></pre></td></tr></table></figure>
+
+<p>接下来就是页面上进度条的显示了，其实很简单，我们想要展示<code>总进度条</code>，和<code>各个切片的进度条</code>，各个切片的进度条我们都有了，我们只需要算出<code>总进度</code>就行，怎么算呢？这么算：<code>各个切片百分比 * 各个切片的大小 / 文件总大小</code></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"> &lt;div style=<span class="string">&quot;width: 300px&quot;</span>&gt;</span><br><span class="line">      总进度：</span><br><span class="line">      &lt;el-progress :percentage=<span class="string">&quot;totalPercent&quot;</span>&gt;&lt;/el-progress&gt;</span><br><span class="line">      切片进度：</span><br><span class="line">      &lt;div v-<span class="keyword">for</span>=<span class="string">&quot;item in fileObj.chunkList&quot;</span> :key=<span class="string">&quot;item&quot;</span>&gt;</span><br><span class="line">        <span class="language-xml"><span class="tag">&lt;<span class="name">span</span>&gt;</span>&#123;&#123; item.chunkName &#125;&#125;：<span class="tag">&lt;/<span class="name">span</span>&gt;</span></span></span><br><span class="line">        <span class="language-xml"><span class="tag">&lt;<span class="name">el-progress</span> <span class="attr">:percentage</span>=<span class="string">&quot;item.percent&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">el-progress</span>&gt;</span></span></span><br><span class="line">      &lt;/div&gt;</span><br><span class="line">&lt;/div&gt;</span><br><span class="line"></span><br><span class="line"> <span class="attr">computed</span>: &#123;</span><br><span class="line">    <span class="title function_">totalPercent</span>(<span class="params"></span>) &#123;</span><br><span class="line">      <span class="keyword">const</span> fileObj = <span class="variable language_">this</span>.<span class="property">fileObj</span>;</span><br><span class="line">      <span class="keyword">if</span> (fileObj.<span class="property">chunkList</span>.<span class="property">length</span> === <span class="number">0</span>) <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">      <span class="keyword">const</span> loaded = fileObj.<span class="property">chunkList</span></span><br><span class="line">        .<span class="title function_">map</span>(<span class="function">(<span class="params">&#123; size, percent &#125;</span>) =&gt;</span> size * percent)</span><br><span class="line">        .<span class="title function_">reduce</span>(<span class="function">(<span class="params">pre, next</span>) =&gt;</span> pre  next);</span><br><span class="line">      <span class="keyword">return</span> <span class="built_in">parseInt</span>((loaded / fileObj.<span class="property">file</span>.<span class="property">size</span>).<span class="title function_">toFixed</span>(<span class="number">2</span>));</span><br><span class="line">    &#125;,</span><br><span class="line">  &#125;,</span><br><span class="line">复制代码</span><br></pre></td></tr></table></figure>
+
+<p>我们再次上传音乐，查看效果：</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/3b43ea7e186d4f04b1cce52763c052ec~tplv-k3u1fbpfcp-watermark.image"
+                      alt="截屏2021-07-08 下午10.33.51.png"
+                ></p>
+<p>后端也成功保存了</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/84c9bae205f44033849255abb16615ed~tplv-k3u1fbpfcp-watermark.image"
+                      alt="截屏2021-07-08 下午10.34.28.png"
+                ></p>
+<h3 id="4-合并切片为BGM"><a href="#4-合并切片为BGM" class="headerlink" title="4.合并切片为BGM"></a>4.合并切片为BGM</h3><p>好了，咱们已经保存好所有切片，接下来就要开始<code>合并切片</code>了，我们会发一个<code>/merge</code>请求，叫后端合并这些切片，前端代码添加合并的方法：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">async</span> <span class="title function_">uploadChunks</span>(<span class="params"></span>) &#123;</span><br><span class="line">      <span class="keyword">const</span> requestList = <span class="variable language_">this</span>.<span class="property">fileObj</span>.<span class="property">chunkList</span></span><br><span class="line">        .<span class="title function_">map</span>(<span class="function">(<span class="params">&#123; file, fileName, index, chunkName &#125;</span>) =&gt;</span> &#123;</span><br><span class="line">          <span class="keyword">const</span> formData = <span class="keyword">new</span> <span class="title class_">FormData</span>();</span><br><span class="line">          formData.<span class="title function_">append</span>(<span class="string">&quot;file&quot;</span>, file);</span><br><span class="line">          formData.<span class="title function_">append</span>(<span class="string">&quot;fileName&quot;</span>, fileName);</span><br><span class="line">          formData.<span class="title function_">append</span>(<span class="string">&quot;chunkName&quot;</span>, chunkName);</span><br><span class="line">          <span class="keyword">return</span> &#123; formData, index &#125;;</span><br><span class="line">        &#125;)</span><br><span class="line">        .<span class="title function_">map</span>(<span class="function">(<span class="params">&#123; formData, index &#125;</span>) =&gt;</span></span><br><span class="line">          <span class="variable language_">this</span>.<span class="title function_">axiosRequest</span>(&#123;</span><br><span class="line">            <span class="attr">url</span>: <span class="string">&quot;http://localhost:3000/upload&quot;</span>,</span><br><span class="line">            <span class="attr">data</span>: formData,</span><br><span class="line">            <span class="attr">onUploadProgress</span>: <span class="variable language_">this</span>.<span class="title function_">createProgressHandler</span>(</span><br><span class="line">              <span class="variable language_">this</span>.<span class="property">fileObj</span>.<span class="property">chunkList</span>[index]</span><br><span class="line">            ),</span><br><span class="line">          &#125;)</span><br><span class="line">        );</span><br><span class="line">      <span class="keyword">await</span> <span class="title class_">Promise</span>.<span class="title function_">all</span>(requestList); <span class="comment">// 使用Promise.all进行请求</span></span><br><span class="line"></span><br><span class="line">      <span class="variable language_">this</span>.<span class="title function_">mergeChunks</span>()</span><br><span class="line">    &#125;,</span><br><span class="line"> <span class="title function_">mergeChunks</span>(<span class="params">size = <span class="number">5</span> * <span class="number">1024</span> * <span class="number">1024</span></span>) &#123;</span><br><span class="line">       <span class="variable language_">this</span>.<span class="title function_">axiosRequest</span>(&#123;</span><br><span class="line">         <span class="attr">url</span>: <span class="string">&quot;http://localhost:3000/merge&quot;</span>,</span><br><span class="line">         <span class="attr">headers</span>: &#123;</span><br><span class="line">           <span class="string">&quot;content-type&quot;</span>: <span class="string">&quot;application/json&quot;</span>,</span><br><span class="line">         &#125;,</span><br><span class="line">         <span class="attr">data</span>: <span class="title class_">JSON</span>.<span class="title function_">stringify</span>(&#123; </span><br><span class="line">          size,</span><br><span class="line">           <span class="attr">fileName</span>: <span class="variable language_">this</span>.<span class="property">fileObj</span>.<span class="property">file</span>.<span class="property">name</span></span><br><span class="line">         &#125;),</span><br><span class="line">       &#125;);</span><br><span class="line">     &#125;</span><br><span class="line">复制代码</span><br></pre></td></tr></table></figure>
+
+<p>后端增加<code>/merge</code>接口：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 接收请求的参数</span></span><br><span class="line"><span class="keyword">const</span> <span class="title function_">resolvePost</span> = req =&gt;</span><br><span class="line">    <span class="keyword">new</span> <span class="title class_">Promise</span>(<span class="function"><span class="params">res</span> =&gt;</span> &#123;</span><br><span class="line">        <span class="keyword">let</span> chunk = <span class="string">&#x27;&#x27;</span></span><br><span class="line">        req.<span class="title function_">on</span>(<span class="string">&#x27;data&#x27;</span>, <span class="function"><span class="params">data</span> =&gt;</span> &#123;</span><br><span class="line">            chunk = data</span><br><span class="line">        &#125;)</span><br><span class="line">        req.<span class="title function_">on</span>(<span class="string">&#x27;end&#x27;</span>, <span class="function">() =&gt;</span> &#123;</span><br><span class="line">            <span class="title function_">res</span>(<span class="title class_">JSON</span>.<span class="title function_">parse</span>(chunk))</span><br><span class="line">        &#125;)</span><br><span class="line"></span><br><span class="line">    &#125;)</span><br><span class="line"><span class="keyword">const</span> <span class="title function_">pipeStream</span> = (<span class="params">path, writeStream</span>) =&gt; &#123;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;path&#x27;</span>, path)</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">new</span> <span class="title class_">Promise</span>(<span class="function"><span class="params">resolve</span> =&gt;</span> &#123;</span><br><span class="line">        <span class="keyword">const</span> readStream = fse.<span class="title function_">createReadStream</span>(path);</span><br><span class="line">        readStream.<span class="title function_">on</span>(<span class="string">&quot;end&quot;</span>, <span class="function">() =&gt;</span> &#123;</span><br><span class="line">            fse.<span class="title function_">unlinkSync</span>(path);</span><br><span class="line">            <span class="title function_">resolve</span>();</span><br><span class="line">        &#125;);</span><br><span class="line">        readStream.<span class="title function_">pipe</span>(writeStream);</span><br><span class="line">    &#125;);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 合并切片</span></span><br><span class="line"><span class="keyword">const</span> <span class="title function_">mergeFileChunk</span> = <span class="keyword">async</span> (<span class="params">filePath, fileName, size</span>) =&gt; &#123;</span><br><span class="line">    <span class="comment">// filePath：你将切片合并到哪里，的路径</span></span><br><span class="line">    <span class="keyword">const</span> chunkDir = path.<span class="title function_">resolve</span>(<span class="variable constant_">UPLOAD_DIR</span>, <span class="string">`<span class="subst">$&#123;fileName&#125;</span>-chunks`</span>);</span><br><span class="line">    <span class="keyword">let</span> chunkPaths = <span class="literal">null</span></span><br><span class="line">    <span class="comment">// 获取切片文件夹里所有切片，返回一个数组</span></span><br><span class="line">    chunkPaths = <span class="keyword">await</span> fse.<span class="title function_">readdir</span>(chunkDir);</span><br><span class="line">    <span class="comment">// 根据切片下标进行排序</span></span><br><span class="line">    <span class="comment">// 否则直接读取目录的获得的顺序可能会错乱</span></span><br><span class="line">    chunkPaths.<span class="title function_">sort</span>(<span class="function">(<span class="params">a, b</span>) =&gt;</span> a.<span class="title function_">split</span>(<span class="string">&quot;-&quot;</span>)[<span class="number">1</span>] - b.<span class="title function_">split</span>(<span class="string">&quot;-&quot;</span>)[<span class="number">1</span>]);</span><br><span class="line">    <span class="keyword">const</span> arr = chunkPaths.<span class="title function_">map</span>(<span class="function">(<span class="params">chunkPath, index</span>) =&gt;</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="title function_">pipeStream</span>(</span><br><span class="line">            path.<span class="title function_">resolve</span>(chunkDir, chunkPath),</span><br><span class="line">            <span class="comment">// 指定位置创建可写流</span></span><br><span class="line">            fse.<span class="title function_">createWriteStream</span>(filePath, &#123;</span><br><span class="line">                <span class="attr">start</span>: index * size,</span><br><span class="line">                <span class="attr">end</span>: (index  <span class="number">1</span>) * size</span><br><span class="line">            &#125;)</span><br><span class="line">        )</span><br><span class="line">    &#125;)</span><br><span class="line">    <span class="keyword">await</span> <span class="title class_">Promise</span>.<span class="title function_">all</span>(arr)</span><br><span class="line">&#125;;</span><br><span class="line"><span class="keyword">if</span> (req.<span class="property">url</span> === <span class="string">&#x27;/merge&#x27;</span>) &#123;</span><br><span class="line">        <span class="keyword">const</span> data = <span class="keyword">await</span> <span class="title function_">resolvePost</span>(req);</span><br><span class="line">        <span class="keyword">const</span> &#123; fileName, size &#125; = data;</span><br><span class="line">        <span class="keyword">const</span> filePath = path.<span class="title function_">resolve</span>(<span class="variable constant_">UPLOAD_DIR</span>, fileName);</span><br><span class="line">        <span class="keyword">await</span> <span class="title function_">mergeFileChunk</span>(filePath, fileName, size);</span><br><span class="line">        res.<span class="title function_">end</span>(</span><br><span class="line">            <span class="title class_">JSON</span>.<span class="title function_">stringify</span>(&#123;</span><br><span class="line">                <span class="attr">code</span>: <span class="number">0</span>,</span><br><span class="line">                <span class="attr">message</span>: <span class="string">&quot;文件合并成功&quot;</span></span><br><span class="line">            &#125;)</span><br><span class="line">        );</span><br><span class="line">    &#125;</span><br><span class="line">复制代码</span><br></pre></td></tr></table></figure>
+
+<p>现在我们重新上传音乐，发现切片上传成功了，也合并成功了：</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/af48b4bef5b54f3f953dd80cdee934be~tplv-k3u1fbpfcp-watermark.image"
+                      alt="截屏2021-07-09 下午1.44.29.png"
+                ></p>
+<h3 id="5-删除切片"><a href="#5-删除切片" class="headerlink" title="5.删除切片"></a>5.删除切片</h3><p>上一步我们已经完成了<code>切片合并</code>这个功能了，那之前那些存在后端的切片就没用了，不然会浪费服务器的内存，所以我们在确保合并成功后，可以将他们<code>删除</code></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 合并切片</span></span><br><span class="line"><span class="keyword">const</span> <span class="title function_">mergeFileChunk</span> = <span class="keyword">async</span> (<span class="params">filePath, fileName, size</span>) =&gt; &#123;</span><br><span class="line">    <span class="comment">// filePath：你将切片合并到哪里，的路径</span></span><br><span class="line">    <span class="keyword">const</span> chunkDir = path.<span class="title function_">resolve</span>(<span class="variable constant_">UPLOAD_DIR</span>, <span class="string">`<span class="subst">$&#123;fileName&#125;</span>-chunks`</span>);</span><br><span class="line">    <span class="keyword">let</span> chunkPaths = <span class="literal">null</span></span><br><span class="line">    <span class="comment">// 获取切片文件夹里所有切片，返回一个数组</span></span><br><span class="line">    chunkPaths = <span class="keyword">await</span> fse.<span class="title function_">readdir</span>(chunkDir);</span><br><span class="line">    <span class="comment">// 根据切片下标进行排序</span></span><br><span class="line">    <span class="comment">// 否则直接读取目录的获得的顺序可能会错乱</span></span><br><span class="line">    chunkPaths.<span class="title function_">sort</span>(<span class="function">(<span class="params">a, b</span>) =&gt;</span> a.<span class="title function_">split</span>(<span class="string">&quot;-&quot;</span>)[<span class="number">1</span>] - b.<span class="title function_">split</span>(<span class="string">&quot;-&quot;</span>)[<span class="number">1</span>]);</span><br><span class="line">    <span class="keyword">const</span> arr = chunkPaths.<span class="title function_">map</span>(<span class="function">(<span class="params">chunkPath, index</span>) =&gt;</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="title function_">pipeStream</span>(</span><br><span class="line">            path.<span class="title function_">resolve</span>(chunkDir, chunkPath),</span><br><span class="line">            <span class="comment">// 指定位置创建可写流</span></span><br><span class="line">            fse.<span class="title function_">createWriteStream</span>(filePath, &#123;</span><br><span class="line">                <span class="attr">start</span>: index * size,</span><br><span class="line">                <span class="attr">end</span>: (index  <span class="number">1</span>) * size</span><br><span class="line">            &#125;)</span><br><span class="line">        )</span><br><span class="line">    &#125;)</span><br><span class="line">    <span class="keyword">await</span> <span class="title class_">Promise</span>.<span class="title function_">all</span>(arr)</span><br><span class="line">    fse.<span class="title function_">rmdirSync</span>(chunkDir); <span class="comment">// 合并后删除保存切片的目录</span></span><br><span class="line">&#125;;</span><br><span class="line">复制代码</span><br></pre></td></tr></table></figure>
+
+<p>我们再次上传，再看看，那个储存此音乐的切片文件夹被我们<code>删了</code>：</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/7528f7e2e78a42278bdf7a7103c57fbd~tplv-k3u1fbpfcp-watermark.image"
+                      alt="截屏2021-07-09 下午1.46.59.png"
+                ></p>
+<h3 id="6-秒传功能"><a href="#6-秒传功能" class="headerlink" title="6.秒传功能"></a>6.秒传功能</h3><p>所谓的<code>秒传功能</code>，其实没那么高大上，通俗点说就是，当你上传一个文件时，后端会判断服务器上有无这个文件，有的话就不执行上传，并返回给你<code>“上传成功”</code>，想要执行此功能，后端需要重新写一个接口<code>/verify</code></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> (req.<span class="property">url</span> === <span class="string">&quot;/verify&quot;</span>) &#123;</span><br><span class="line">        <span class="keyword">const</span> data = <span class="keyword">await</span> <span class="title function_">resolvePost</span>(req);</span><br><span class="line">        <span class="keyword">const</span> &#123; fileName &#125; = data;</span><br><span class="line">        <span class="keyword">const</span> filePath = path.<span class="title function_">resolve</span>(<span class="variable constant_">UPLOAD_DIR</span>, fileName);</span><br><span class="line">        <span class="variable language_">console</span>.<span class="title function_">log</span>(filePath)</span><br><span class="line">        <span class="keyword">if</span> (fse.<span class="title function_">existsSync</span>(filePath)) &#123;</span><br><span class="line">            res.<span class="title function_">end</span>(</span><br><span class="line">                <span class="title class_">JSON</span>.<span class="title function_">stringify</span>(&#123;</span><br><span class="line">                    <span class="attr">shouldUpload</span>: <span class="literal">false</span></span><br><span class="line">                &#125;)</span><br><span class="line">            );</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            res.<span class="title function_">end</span>(</span><br><span class="line">                <span class="title class_">JSON</span>.<span class="title function_">stringify</span>(&#123;</span><br><span class="line">                    <span class="attr">shouldUpload</span>: <span class="literal">true</span></span><br><span class="line">                &#125;)</span><br><span class="line">            );</span><br><span class="line">        &#125;</span><br><span class="line">复制代码</span><br></pre></td></tr></table></figure>
+
+<p>前端在<code>上传文件</code>步骤也要做拦截：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">async</span> <span class="title function_">handleUpload</span>(<span class="params"></span>) &#123;</span><br><span class="line">      <span class="keyword">const</span> fileObj = <span class="variable language_">this</span>.<span class="property">fileObj</span>;</span><br><span class="line">      <span class="keyword">if</span> (!fileObj.<span class="property">file</span>) <span class="keyword">return</span>;</span><br><span class="line">      <span class="keyword">const</span> &#123; shouldUpload &#125; = <span class="keyword">await</span> <span class="variable language_">this</span>.<span class="title function_">verifyUpload</span>(</span><br><span class="line">         fileObj.<span class="property">file</span>.<span class="property">name</span>,</span><br><span class="line">       );</span><br><span class="line">       <span class="keyword">if</span> (!shouldUpload) &#123;</span><br><span class="line">         <span class="title function_">alert</span>(<span class="string">&quot;秒传：上传成功&quot;</span>);</span><br><span class="line">         <span class="keyword">return</span>;</span><br><span class="line">       &#125;</span><br><span class="line">      <span class="keyword">const</span> chunkList = <span class="variable language_">this</span>.<span class="title function_">createChunk</span>(fileObj.<span class="property">file</span>);</span><br><span class="line">      <span class="variable language_">this</span>.<span class="property">fileObj</span>.<span class="property">chunkList</span> = chunkList.<span class="title function_">map</span>(<span class="function">(<span class="params">&#123; file &#125;, index</span>) =&gt;</span> (&#123;</span><br><span class="line">        file,</span><br><span class="line">        <span class="attr">size</span>: file.<span class="property">size</span>,</span><br><span class="line">        <span class="attr">percent</span>: <span class="number">0</span>,</span><br><span class="line">        <span class="attr">chunkName</span>: <span class="string">`<span class="subst">$&#123;fileObj.file.name&#125;</span>-<span class="subst">$&#123;index&#125;</span>`</span>,</span><br><span class="line">        <span class="attr">fileName</span>: fileObj.<span class="property">file</span>.<span class="property">name</span>,</span><br><span class="line">        index,</span><br><span class="line">      &#125;));</span><br><span class="line">      <span class="variable language_">this</span>.<span class="title function_">uploadChunks</span>();</span><br><span class="line">    &#125;,</span><br><span class="line"> <span class="keyword">async</span> <span class="title function_">verifyUpload</span> (fileName) &#123;</span><br><span class="line">       <span class="keyword">const</span> &#123; data &#125; = <span class="keyword">await</span> <span class="variable language_">this</span>.<span class="title function_">axiosRequest</span>(&#123;</span><br><span class="line">         <span class="attr">url</span>: <span class="string">&quot;http://localhost:3000/verify&quot;</span>,</span><br><span class="line">         <span class="attr">headers</span>: &#123;</span><br><span class="line">           <span class="string">&quot;content-type&quot;</span>: <span class="string">&quot;application/json&quot;</span>,</span><br><span class="line">         &#125;,</span><br><span class="line">         <span class="attr">data</span>: <span class="title class_">JSON</span>.<span class="title function_">stringify</span>(&#123;</span><br><span class="line">           fileName,</span><br><span class="line">         &#125;),</span><br><span class="line">       &#125;);</span><br><span class="line">       <span class="keyword">return</span> data</span><br><span class="line">     &#125;</span><br><span class="line">复制代码</span><br></pre></td></tr></table></figure>
+
+<p>现在我们重新上传音乐，因为服务器上已经存在了<code>张远-嘉宾</code>这首歌了，所以，直接alert出<code>秒传：上传成功</code></p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/5ccd82b75bdb49e3a19962d0ab6a8191~tplv-k3u1fbpfcp-watermark.image"
+                      alt="截屏2021-07-09 下午2.17.02.png"
+                ></p>
+<h2 id="暂停续传"><a href="#暂停续传" class="headerlink" title="暂停续传"></a>暂停续传</h2><h3 id="1-大致流程-1"><a href="#1-大致流程-1" class="headerlink" title="1.大致流程"></a>1.大致流程</h3><p>暂停续传其实很简单，比如一个文件被切成<code>10片</code>，当你上传成功<code>5片</code>后，突然暂停，那么下次点击<code>续传</code>时，只需要过滤掉之前已经上传成功的那<code>5片</code>就行，怎么实现呢？其实很简单，只需要点击<code>续传</code>时，请求<code>/verity</code>接口，返回<code>切片文件夹里</code>现在已成功上传的切片列表，然后前端过滤后再把<code>还未上传的切片</code>的继续上传就行了，后端的<code>/verify</code>接口需要做一些修改</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> (req.<span class="property">url</span> === <span class="string">&quot;/verify&quot;</span>) &#123;</span><br><span class="line">        <span class="comment">// 返回已经上传切片名列表</span></span><br><span class="line">        <span class="keyword">const</span> <span class="title function_">createUploadedList</span> = <span class="keyword">async</span> fileName =&gt;</span><br><span class="line">             fse.<span class="title function_">existsSync</span>(path.<span class="title function_">resolve</span>(<span class="variable constant_">UPLOAD_DIR</span>, fileName))</span><br><span class="line">                 ? <span class="keyword">await</span> fse.<span class="title function_">readdir</span>(path.<span class="title function_">resolve</span>(<span class="variable constant_">UPLOAD_DIR</span>, fileName))</span><br><span class="line">                 : [];</span><br><span class="line">        <span class="keyword">const</span> data = <span class="keyword">await</span> <span class="title function_">resolvePost</span>(req);</span><br><span class="line">        <span class="keyword">const</span> &#123; fileName &#125; = data;</span><br><span class="line">        <span class="keyword">const</span> filePath = path.<span class="title function_">resolve</span>(<span class="variable constant_">UPLOAD_DIR</span>, fileName);</span><br><span class="line">        <span class="variable language_">console</span>.<span class="title function_">log</span>(filePath)</span><br><span class="line">        <span class="keyword">if</span> (fse.<span class="title function_">existsSync</span>(filePath)) &#123;</span><br><span class="line">            res.<span class="title function_">end</span>(</span><br><span class="line">                <span class="title class_">JSON</span>.<span class="title function_">stringify</span>(&#123;</span><br><span class="line">                    <span class="attr">shouldUpload</span>: <span class="literal">false</span></span><br><span class="line">                &#125;)</span><br><span class="line">            );</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            res.<span class="title function_">end</span>(</span><br><span class="line">                <span class="title class_">JSON</span>.<span class="title function_">stringify</span>(&#123;</span><br><span class="line">                    <span class="attr">shouldUpload</span>: <span class="literal">true</span>,</span><br><span class="line">                     <span class="attr">uploadedList</span>: <span class="keyword">await</span> <span class="title function_">createUploadedList</span>(<span class="string">`<span class="subst">$&#123;fileName&#125;</span>-chunks`</span>)</span><br><span class="line">                &#125;)</span><br><span class="line">            );</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">复制代码</span><br></pre></td></tr></table></figure>
+
+<h3 id="2-暂停上传"><a href="#2-暂停上传" class="headerlink" title="2.暂停上传"></a>2.暂停上传</h3><p>前端增加一个<code>暂停按钮</code>和<code>pauseUpload</code>事件</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"> &lt;el-button @click=<span class="string">&quot;pauseUpload&quot;</span>&gt; 暂停 &lt;/el-button&gt;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"> <span class="keyword">const</span> <span class="title class_">CancelToken</span> = axios.<span class="property">CancelToken</span>;</span><br><span class="line"> <span class="keyword">const</span> source = <span class="title class_">CancelToken</span>.<span class="title function_">source</span>();</span><br><span class="line"></span><br><span class="line"><span class="title function_">axiosRequest</span>(<span class="params">&#123;</span></span><br><span class="line"><span class="params">      url,</span></span><br><span class="line"><span class="params">      method = <span class="string">&quot;post&quot;</span>,</span></span><br><span class="line"><span class="params">      data,</span></span><br><span class="line"><span class="params">      headers = &#123;&#125;,</span></span><br><span class="line"><span class="params">      onUploadProgress = (e) =&gt; e,</span></span><br><span class="line"><span class="params">    &#125;</span>) &#123;</span><br><span class="line">      <span class="keyword">return</span> <span class="keyword">new</span> <span class="title class_">Promise</span>(<span class="function">(<span class="params">resolve, reject</span>) =&gt;</span> &#123;</span><br><span class="line">        axios[method](url, data, &#123;</span><br><span class="line">          headers,</span><br><span class="line">          onUploadProgress,</span><br><span class="line">           <span class="attr">cancelToken</span>: source.<span class="property">token</span></span><br><span class="line">        &#125;)</span><br><span class="line">          .<span class="title function_">then</span>(<span class="function">(<span class="params">res</span>) =&gt;</span> &#123;</span><br><span class="line">            <span class="title function_">resolve</span>(res);</span><br><span class="line">          &#125;)</span><br><span class="line">          .<span class="title function_">catch</span>(<span class="function">(<span class="params">err</span>) =&gt;</span> &#123;</span><br><span class="line">            <span class="title function_">reject</span>(err);</span><br><span class="line">          &#125;);</span><br><span class="line">      &#125;);</span><br><span class="line">    &#125;,</span><br><span class="line"> <span class="title function_">pauseUpload</span>(<span class="params"></span>) &#123;</span><br><span class="line">       source.<span class="title function_">cancel</span>(<span class="string">&quot;中断上传!&quot;</span>);</span><br><span class="line">       source = <span class="title class_">CancelToken</span>.<span class="title function_">source</span>(); <span class="comment">// 重置source，确保能续传</span></span><br><span class="line">     &#125;</span><br><span class="line">复制代码</span><br></pre></td></tr></table></figure>
+
+<h3 id="3-续传"><a href="#3-续传" class="headerlink" title="3.续传"></a>3.续传</h3><p>增加一个<code>续传</code>按钮，并增加一个<code>keepUpload</code>事件</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"> &lt;el-button @click=<span class="string">&quot;keepUpload&quot;</span>&gt; 续传 &lt;/el-button&gt;</span><br><span class="line"></span><br><span class="line"> <span class="keyword">async</span> <span class="title function_">keepUpload</span>(<span class="params"></span>) &#123;</span><br><span class="line">       <span class="keyword">const</span> &#123; uploadedList &#125; = <span class="keyword">await</span> <span class="variable language_">this</span>.<span class="title function_">verifyUpload</span>(</span><br><span class="line">         <span class="variable language_">this</span>.<span class="property">fileObj</span>.<span class="property">file</span>.<span class="property">name</span></span><br><span class="line">       );</span><br><span class="line">       <span class="variable language_">this</span>.<span class="title function_">uploadChunks</span>(uploadedList);</span><br><span class="line">     &#125;</span><br><span class="line">复制代码</span><br></pre></td></tr></table></figure>
+
+<h3 id="4-优化进度条"><a href="#4-优化进度条" class="headerlink" title="4.优化进度条"></a>4.优化进度条</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">续传<span class="string">`中，由于那些没有上传的切片会`</span>从零开始<span class="string">`传，所以会导致`</span>总进度条<span class="string">`出现`</span>倒退现象<span class="string">`，所以我们要对`</span>总进度条<span class="string">`做一下优化，确保他不会`</span>倒退<span class="string">`，做法就是维护一个变量，这个变量只有在`</span>总进度大于他<span class="string">`时他才会`</span>更新成总进度</span><br><span class="line">总进度：</span><br><span class="line"> &lt;el-progress :percentage=<span class="string">&quot;tempPercent&quot;</span>&gt;&lt;/el-progress&gt;</span><br><span class="line"></span><br><span class="line"> <span class="attr">watch</span>: &#123;</span><br><span class="line">       <span class="title function_">totalPercent</span> (newVal) &#123;</span><br><span class="line">           <span class="keyword">if</span> (newVal &gt; <span class="variable language_">this</span>.<span class="property">tempPercent</span>) <span class="variable language_">this</span>.<span class="property">tempPercent</span> = newVal</span><br><span class="line">       &#125;</span><br><span class="line">   &#125;,</span><br></pre></td></tr></table></figure>
+
+
+
+<p>作者：Sunshine_Lin链接：<a class="link"   target="_blank" rel="noopener" href="https://juejin.cn/post/6982877680068739085" >https://juejin.cn/post/6982877680068739085<i class="fas fa-external-link-alt"></i></a>   来源：掘金著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。</p>
+<h3 id="个人使用vue实现代码"><a href="#个人使用vue实现代码" class="headerlink" title="个人使用vue实现代码"></a>个人使用vue实现代码</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br></pre></td><td class="code"><pre><span class="line">&lt;template&gt;</span><br><span class="line">  <span class="language-xml"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">&quot;app&quot;</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">    <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;file&quot;</span> @<span class="attr">change</span>=<span class="string">&quot;fileChange&quot;</span> /&gt;</span></span></span><br><span class="line"><span class="language-xml">    <span class="tag">&lt;<span class="name">button</span> @<span class="attr">click</span>=<span class="string">&quot;upload&quot;</span>&gt;</span>提交<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">  <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span></span><br><span class="line">&lt;/template&gt;</span><br><span class="line"></span><br><span class="line"><span class="language-xml"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="language-javascript"></span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml"><span class="keyword">import</span> <span class="title class_">HelloWorld</span> <span class="keyword">from</span> <span class="string">&quot;./components/HelloWorld&quot;</span>;</span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml"></span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml"><span class="keyword">export</span> <span class="keyword">default</span> &#123;</span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">  <span class="attr">name</span>: <span class="string">&quot;App&quot;</span>,</span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">  <span class="title function_">data</span>(<span class="params"></span>) &#123;</span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">    <span class="keyword">return</span> &#123;</span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">      <span class="attr">checkedFile</span>: <span class="literal">null</span>,</span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">      <span class="attr">spliceFileList</span>: [],</span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">    &#125;;</span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">  &#125;,</span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">  <span class="attr">components</span>: &#123;</span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">    <span class="title class_">HelloWorld</span>,</span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">  &#125;,</span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">  <span class="attr">methods</span>: &#123;</span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">     <span class="comment">//记录文件</span></span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">    <span class="title function_">fileChange</span>(<span class="params">e</span>) &#123;</span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">      <span class="variable language_">this</span>.<span class="property">checkedFile</span> = e.<span class="property">target</span>.<span class="property">files</span>;</span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">      <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="variable language_">this</span>.<span class="property">checkedFile</span>);</span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">    &#125;,</span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">      </span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">      <span class="comment">//切片文件并生成formData</span></span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">    <span class="title function_">upload</span>(<span class="params"></span>) &#123;</span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">      <span class="keyword">let</span> size = <span class="number">0</span>;</span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">      <span class="keyword">const</span> splitSize = <span class="number">10</span> * <span class="number">1024</span>;</span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">      <span class="keyword">const</span> fileList = [];</span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">      <span class="keyword">while</span> (size &lt; <span class="variable language_">this</span>.<span class="property">checkedFile</span>[<span class="number">0</span>].<span class="property">size</span>) &#123;</span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">        fileList.<span class="title function_">push</span>(<span class="variable language_">this</span>.<span class="property">checkedFile</span>[<span class="number">0</span>].<span class="title function_">slice</span>(size, size + splitSize));</span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">        size += splitSize;</span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">      &#125;</span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">      <span class="variable language_">this</span>.<span class="property">spliceFileList</span> = fileList.<span class="title function_">map</span>(<span class="function">(<span class="params">file, index</span>) =&gt;</span> &#123;</span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">        <span class="keyword">const</span> formData = <span class="keyword">new</span> <span class="title class_">FormData</span>();</span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">        formData.<span class="title function_">append</span>(<span class="string">&quot;fileName&quot;</span>, <span class="variable language_">this</span>.<span class="property">checkedFile</span>[<span class="number">0</span>].<span class="property">name</span>);</span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">        formData.<span class="title function_">append</span>(<span class="string">&quot;file&quot;</span>, file);</span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">        <span class="keyword">return</span> &#123;</span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">          formData,</span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">          index,</span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">        &#125;;</span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">      &#125;);</span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">      <span class="variable language_">this</span>.<span class="title function_">sendFile</span>();</span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">    &#125;,</span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">      </span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">      <span class="comment">//上传文件</span></span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">    <span class="title function_">sendFile</span>(<span class="params"></span>) &#123;</span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">      <span class="variable language_">this</span>.<span class="property">spliceFileList</span>.<span class="title function_">forEach</span>(<span class="function">(<span class="params">file</span>) =&gt;</span> &#123;</span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">        <span class="keyword">let</span> xhr = <span class="keyword">new</span> <span class="title class_">XMLHttpRequest</span>();</span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">        xhr.<span class="title function_">open</span>(<span class="string">&quot;post&quot;</span>, <span class="string">&quot;http://www.shaoyuhong.cn/lx104.php&quot;</span>);</span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">        xhr.<span class="title function_">send</span>(file.<span class="property">formData</span>);</span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">        xhr.<span class="property">onreadystatechange</span> = <span class="keyword">function</span> (<span class="params"></span>) &#123;</span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">          <span class="keyword">if</span> (<span class="variable language_">this</span>.<span class="property">readyState</span> === <span class="number">4</span> &amp;&amp; <span class="variable language_">this</span>.<span class="property">status</span> === <span class="number">200</span>) &#123;</span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">            <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="variable language_">this</span>.<span class="property">responseText</span>);</span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">          &#125;</span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">        &#125;;</span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">      &#125;);</span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">    &#125;,</span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">  &#125;,</span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">&#125;;</span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="language-xml"><span class="tag">&lt;<span class="name">style</span>&gt;</span><span class="language-css"></span></span></span><br><span class="line"><span class="language-css"><span class="language-xml"><span class="selector-id">#app</span> &#123;</span></span></span><br><span class="line"><span class="language-css"><span class="language-xml">  <span class="attribute">font-family</span>: <span class="string">&quot;Avenir&quot;</span>, Helvetica, Arial, sans-serif;</span></span></span><br><span class="line"><span class="language-css"><span class="language-xml">  -webkit-<span class="attribute">font-smoothing</span>: antialiased;</span></span></span><br><span class="line"><span class="language-css"><span class="language-xml">  -moz-osx-<span class="attribute">font-smoothing</span>: grayscale;</span></span></span><br><span class="line"><span class="language-css"><span class="language-xml">  <span class="attribute">text-align</span>: center;</span></span></span><br><span class="line"><span class="language-css"><span class="language-xml">  <span class="attribute">color</span>: <span class="number">#2c3e50</span>;</span></span></span><br><span class="line"><span class="language-css"><span class="language-xml">  <span class="attribute">margin-top</span>: <span class="number">60px</span>;</span></span></span><br><span class="line"><span class="language-css"><span class="language-xml">&#125;</span></span></span><br><span class="line"><span class="language-css"><span class="language-xml"></span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+        </div>
+
+        
+            <div class="post-copyright-info">
+                <div class="article-copyright-info-container">
+    <ul>
+        <li>本文标题：js大文件上传时的切片上传</li>
+        <li>本文作者：邵预鸿</li>
+        <li>创建时间：2021-07-13 10:57:59</li>
+        <li>
+            本文链接：/images/logo.jpg2021/07/13/js大文件上传时的切片上传/
+        </li>
+        <li>
+            版权声明：本博客所有文章除特别声明外，均采用 <a class="license" target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">BY-NC-SA</a> 许可协议。转载请注明出处！
+        </li>
+    </ul>
+</div>
+
+            </div>
+        
+
+        
+            <div class="article-nav">
+                
+                    <div class="article-prev">
+                        <a class="prev"
+                           rel="prev"
+                           href="/2021/07/13/%E4%BA%A7%E5%93%81%E7%BB%8F%E7%90%86%EF%BC%9A%E4%BD%A0%E8%83%BD%E4%B8%8D%E8%83%BD%E7%94%A8div%E7%BB%99%E6%88%91%E7%94%BB%E6%9D%A1%E9%BE%99%EF%BC%9F/"
+                        >
+                            <span class="left arrow-icon flex-center">
+                              <i class="fas fa-chevron-left"></i>
+                            </span>
+                            <span class="title flex-center">
+                                <span class="post-nav-title-item">产品经理：你能不能用div给我画条龙？</span>
+                                <span class="post-nav-item">上一篇</span>
+                            </span>
+                        </a>
+                    </div>
+                
+                
+                    <div class="article-next">
+                        <a class="next"
+                           rel="next"
+                           href="/2021/07/13/js%E5%86%85%E5%AD%98%E6%B3%84%E9%9C%B2%E7%9B%B8%E5%85%B3%E7%9F%A5%E8%AF%86/"
+                        >
+                            <span class="title flex-center">
+                                <span class="post-nav-title-item">js内存泄露相关知识</span>
+                                <span class="post-nav-item">下一篇</span>
+                            </span>
+                            <span class="right arrow-icon flex-center">
+                              <i class="fas fa-chevron-right"></i>
+                            </span>
+                        </a>
+                    </div>
+                
+            </div>
+        
+
+        
+    </div>
+</div>
+
+
+        
+      </div>
+
+    </div>
+
+    <div class="page-main-content-bottom">
+      <footer class="footer">
+    <div class="info-container">
+        <div class="copyright-info info-item">
+            &copy;
+            
+              <span>2021</span>&nbsp;-&nbsp;
+            
+            2026&nbsp;<i class="fas fa-heart icon-animate"></i>&nbsp;<a href="/">邵预鸿</a>
+        </div>
+        
+        
+        <div>更多笔记请访问:<a href="https://www.shaoyuhong.cn" target="_blank">邵预鸿|随心记 https://www.shaoyuhong.cn</a></div>
+
+    </div>
+</footer>
+
+    </div>
+  </div>
+
+  
+  <div class="post-tools">
+    <div class="post-tools-container">
+    <ul class="tools-list">
+        <!-- TOC aside toggle -->
+        
+
+        <!-- go comment -->
+        
+    </ul>
+</div>
+
+  </div>
+  
+
+  <div class="right-bottom-side-tools">
+    <div class="side-tools-container">
+    <ul class="side-tools-list">
+        <li class="tools-item tool-font-adjust-plus flex-center">
+            <i class="fas fa-search-plus"></i>
+        </li>
+
+        <li class="tools-item tool-font-adjust-minus flex-center">
+            <i class="fas fa-search-minus"></i>
+        </li>
+
+        <li class="tools-item tool-expand-width flex-center">
+            <i class="fas fa-arrows-alt-h"></i>
+        </li>
+
+        <li class="tools-item tool-dark-light-toggle flex-center">
+            <i class="fas fa-moon"></i>
+        </li>
+
+        <!-- rss -->
+        
+
+        
+
+        <li class="tools-item tool-scroll-to-bottom flex-center">
+            <i class="fas fa-arrow-down"></i>
+        </li>
+    </ul>
+
+    <ul class="exposed-tools-list">
+        <li class="tools-item tool-toggle-show flex-center">
+            <i class="fas fa-cog fa-spin"></i>
+        </li>
+        
+            <li class="tools-item tool-scroll-to-top flex-center">
+                <i class="arrow-up fas fa-arrow-up"></i>
+                <span class="percent"></span>
+            </li>
+        
+    </ul>
+</div>
+
+  </div>
+
+  
+
+  <div class="image-viewer-container">
+    <img src="">
+</div>
+
+
+  
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+          <span class="search-input-field-pre">
+            <i class="fas fa-keyboard"></i>
+          </span>
+            <div class="search-input-container">
+                <input autocomplete="off"
+                       autocorrect="off"
+                       autocapitalize="off"
+                       placeholder="搜索..."
+                       spellcheck="false"
+                       type="search"
+                       class="search-input"
+                >
+            </div>
+            <span class="popup-btn-close">
+                <i class="fas fa-times"></i>
+            </span>
+        </div>
+        <div id="search-result">
+            <div id="no-result">
+                <i class="fas fa-spinner fa-pulse fa-5x fa-fw"></i>
+            </div>
+        </div>
+    </div>
+</div>
+
+  
+
+</main>
+<script>
+  const context = document.querySelector(".markdown-body");
+  const articleTitleList = document.querySelector(".article-title-list");
+  const mainContent = document.querySelector('.main-content');
+
+  if (context) {
+    if (window.innerWidth > 1380) {
+      const tags = context.querySelectorAll('*');
+      const hTagReg = /^H[1-6]$/;
+      let template = '';
+      tags.forEach(item => {
+        if (hTagReg.test(item.tagName.toUpperCase()) && item.innerText) {
+          const tagH = item.tagName.toLowerCase();
+          const tagHToUpper = item.tagName.toUpperCase();
+          const forHash = item.getAttribute("id");
+          //<span class="badge">${tagHToUpper}</span>
+          template += `
+                  <${tagH}>
+                    <a onclick="javascript:void(1)" href="#${forHash}"> ${item.innerText}</a>
+                  </${tagH}>  
+                `;
+
+        }
+      });
+      articleTitleList.innerHTML = template;
+    }
+
+
+  }
+
+  (function leftNavPositionChange() {
+    const articleTitlePositoinX = (window.innerWidth - mainContent.clientWidth) / 2 - 300;
+    articleTitleList.style.left = articleTitlePositoinX + 'px';
+    window.onresize = function () {
+      leftNavPositionChange();
+    };
+  })();
+
+</script>
+
+<script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="/js/header-shrink.js"></script><script src="/js/back2top.js"></script><script src="/js/dark-light-toggle.js"></script>
+
+
+    <script src="/js/local-search.js"></script>
+
+
+
+    <script src="/js/code-copy.js"></script>
+
+
+
+    <script src="/js/lazyload.js"></script>
+
+
+<div class="post-scripts">
+    
+</div>
+
+
+
+</body>
+</html>

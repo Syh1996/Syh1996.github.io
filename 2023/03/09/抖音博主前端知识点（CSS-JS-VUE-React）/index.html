@@ -1,0 +1,723 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="baidu-site-verification" content="code-YfBAOEVVQH" />
+    <meta name="keywords" content="邵预鸿,前端开发工程师,技术博客,生活记录,生活日常,个人简历,日常规划">
+    <meta name="description" content="入职中兴通讯，一名低调资深的ctrl+c and ctrl+v开发者">
+    <meta name="author" content="邵预鸿">
+    
+    <title>
+        
+            抖音博主前端知识点（CSS/JS/VUE/React） |
+        
+        邵预鸿|前端开发技术笔记
+    </title>
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="shortcut icon" href="/images/logo.jpg">
+    <link rel="stylesheet" href="/css/font-awesome.min.css">
+    <script id="hexo-configurations">
+    let KEEP = window.KEEP || {};
+    KEEP.hexo_config = {"hostname":"github.com","root":"/","language":"zh-CN","path":"search.json"};
+    KEEP.theme_config = {"toc":{"enable":false,"number":false,"expand_all":false,"init_open":false},"style":{"primary_color":"#0066CC","avatar":"/images/logo.jpg","favicon":"/images/logo.jpg","article_img_align":"left","left_side_width":"260px","content_max_width":"920px","hover":{"shadow":true,"scale":false},"first_screen":{"enable":true,"background_img":"/images/bg.svg","description":"积累硅步，可至千里；千里之行，始于足下"},"scroll":{"progress_bar":{"enable":true},"percent":{"enable":true}}},"local_search":{"enable":true,"preload":true},"code_copy":{"enable":true,"style":"default"},"pjax":{"enable":false},"lazyload":{"enable":true},"version":"3.4.0"};
+    KEEP.language_ago = {"second":"%s 秒前","minute":"%s 分钟前","hour":"%s 小时前","day":"%s 天前","week":"%s 周前","month":"%s 月前","year":"%s 年前"};
+  </script>
+<meta name="generator" content="Hexo 5.4.2"></head>
+
+
+<body>
+<!--
+ * @Description: file content
+ * @Author: yuhongshao
+ * @Date: 2021-02-20 19:33:18
+ * @email: 
+ * @LastEditTime: 2022-05-25 12:31:42
+-->
+<div class="progress-bar-container">
+    
+        <span class="scroll-progress-bar"></span>
+    
+
+    
+</div>
+
+
+<main class="page-container">
+
+  
+
+  <div class="page-main-content">
+
+    <div class="page-main-content-top">
+      <header class="header-wrapper">
+
+    <div class="header-content">
+        <div class="left">
+            <a class="logo-title" href="/">
+                邵预鸿|前端开发技术笔记
+            </a>
+        </div>
+
+        <div class="right">
+            <div class="pc">
+                <ul class="menu-list">
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/"
+                            >
+                                主页
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/archives"
+                            >
+                                历年汇总
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/about"
+                            >
+                                关于我
+                            </a>
+                        </li>
+                    
+                    
+                        <li class="menu-item search search-popup-trigger">
+                            <i class="fas fa-search"></i>
+                        </li>
+                    
+                </ul>
+            </div>
+            <div class="mobile">
+                
+                    <div class="icon-item search search-popup-trigger"><i class="fas fa-search"></i></div>
+                
+                <div class="icon-item menu-bar">
+                    <div class="menu-bar-middle"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="header-drawer">
+        <ul class="drawer-menu-list">
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/">主页</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/archives">历年汇总</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/about">关于我</a>
+                </li>
+            
+        </ul>
+    </div>
+
+    <div class="window-mask"></div>
+
+</header>
+
+
+    </div>
+    <style>
+      .main-content a{
+        color: #6e9cca;
+      }
+      .article-title-list {
+        position: fixed;
+        left: 80px;
+        top: 110px;
+        z-index: 100;
+        width: 300px;
+        max-height: calc(100% - 144px);
+        overflow: auto;
+      }
+      .article-title-list a .badge{
+        display: inline-block;
+        margin-right: 5px;
+        padding: 0 5px;
+        background-color: #ebebeb;
+        border-radius: 3px;
+        color: #6b6b6b;
+      }
+      .article-title-list h1,
+      .article-title-list h2,
+      .article-title-list h3,
+      .article-title-list h4,
+      .article-title-list h5,
+      .article-title-list h6 {
+        box-sizing: border-box;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        overflow: hidden;
+        color: #686868;
+        font-weight: normal;
+        line-height: 1;
+        cursor: pointer;
+      }
+
+      .article-title-list h1 {
+        font-size: 22px;
+      }
+
+      .article-title-list h2 {
+        padding-left: 20px;
+        font-size: 20px;
+      }
+
+      .article-title-list h3 {
+        padding-left: 40px;
+        font-size: 18px;
+      }
+
+      .article-title-list h4 {
+        padding-left: 60px;
+        font-size: 16px;
+      }
+
+      .article-title-list h5 {
+        padding-left: 80px;
+        font-size: 14px;
+      }
+
+      .article-title-list h6 {
+        padding-left: 100px;
+        font-size: 12px;
+      }
+
+    </style>
+    <div class="article-title-list">
+    </div>
+
+    <div class="page-main-content-middle">
+
+      <div class="main-content">
+
+        
+        <div class="fade-in-down-animation">
+    <div class="article-content-container">
+
+        <div class="article-title">
+            <span class="title-hover-animation">抖音博主前端知识点（CSS/JS/VUE/React）</span>
+        </div>
+
+        
+            <div class="article-header">
+                <div class="avatar">
+                    <img src="/images/logo.jpg">
+                </div>
+                <div class="info">
+                    <div class="author">
+                        <span class="name">邵预鸿</span>
+                        
+                            <span class="author-label">Lv5</span>
+                        
+                    </div>
+                    <div class="meta-info">
+                        <div class="article-meta-info">
+    <span class="article-date article-meta-item">
+        <i class="fas fa-edit"></i>&nbsp;2023-03-09 15:48:09
+    </span>
+    
+    
+        <span class="article-tags article-meta-item">
+            <i class="fas fa-tags"></i>&nbsp;
+            <ul>
+                
+                    <li>
+                        <a href="/tags/css/">css</a>&nbsp;
+                    </li>
+                
+            </ul>
+        </span>
+    
+
+    
+    
+    
+    
+</div>
+
+                    </div>
+                </div>
+            </div>
+        
+
+        <div class="article-content markdown-body">
+            <h3 id="object-fit-cover"><a href="#object-fit-cover" class="headerlink" title="object-fit: cover"></a>object-fit: cover</h3><h4 id="效果图"><a href="#效果图" class="headerlink" title="效果图"></a>效果图</h4><p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="http://server.yuhongshao.cn/static/yuhongshao/20230309154547.gif"
+                      alt="http://server.yuhongshao.cn/static/yuhongshao/20230309154547.gif"
+                ></p>
+<h4 id="实现"><a href="#实现" class="headerlink" title="实现"></a>实现</h4><figure class="highlight less"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">img</span>&#123;</span><br><span class="line">    <span class="attribute">width</span>:<span class="number">200px</span>;</span><br><span class="line">    <span class="attribute">height</span>:<span class="number">200px</span>;</span><br><span class="line">    <span class="attribute">object-fit</span>: cover;</span><br><span class="line">    <span class="selector-tag">object</span><span class="selector-tag">-position</span><span class="selector-pseudo">:left</span> <span class="selector-tag">top</span>;</span><br><span class="line">    <span class="selector-tag">transtion</span>: <span class="keyword">all</span> <span class="selector-class">.5s</span>;</span><br><span class="line">    <span class="selector-tag">&amp;</span><span class="selector-pseudo">:hover</span>&#123;</span><br><span class="line">        <span class="selector-tag">object</span><span class="selector-tag">-position</span><span class="selector-pseudo">:right</span> <span class="selector-tag">bottom</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="mix-blend-mode"><a href="#mix-blend-mode" class="headerlink" title="mix-blend-mode"></a>mix-blend-mode</h3><h4 id="效果图-1"><a href="#效果图-1" class="headerlink" title="效果图"></a>效果图</h4><p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="http://server.yuhongshao.cn/static/yuhongshao/20230321154019.png"
+                      alt="http://server.yuhongshao.cn/static/yuhongshao/20230321154019.png"
+                ></p>
+<h4 id="实现-1"><a href="#实现-1" class="headerlink" title="实现"></a>实现</h4><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">body</span>&#123;</span><br><span class="line">    <span class="attribute">height</span>: <span class="number">100vh</span>;</span><br><span class="line">    <span class="attribute">background-image</span>: <span class="built_in">linear-gradient</span>(<span class="number">0deg</span>,<span class="number">#383737</span> <span class="number">50%</span>,<span class="number">#fff</span> <span class="number">50%</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-tag">h1</span>&#123;</span><br><span class="line">    <span class="attribute">text-align</span>: center;</span><br><span class="line">    <span class="attribute">line-height</span>: <span class="number">100vh</span>;</span><br><span class="line">    <span class="attribute">font-size</span>: <span class="number">200px</span>;</span><br><span class="line">    <span class="attribute">text-transform</span>: uppercase;</span><br><span class="line">    <span class="attribute">color</span>: <span class="number">#fff</span>;	            // 指定颜色</span><br><span class="line">    <span class="attribute">mix-blend-mode</span>: difference; // 反向差值</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="网页监听paste粘贴文件、文本"><a href="#网页监听paste粘贴文件、文本" class="headerlink" title="网页监听paste粘贴文件、文本"></a>网页监听paste粘贴文件、文本</h3><p>监听页面粘贴事件，GET 文本、文件</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable language_">document</span>.<span class="property">documentElement</span>.<span class="property">onpaste</span> = <span class="keyword">function</span> (<span class="params">event</span>) &#123;</span><br><span class="line">           <span class="keyword">let</span> data = (event.<span class="property">clipboardData</span> || <span class="variable language_">window</span>.<span class="property">clipboardData</span>);</span><br><span class="line">           <span class="keyword">let</span> fileList = data.<span class="property">files</span>;</span><br><span class="line">    	    <span class="comment">// 获取文件</span></span><br><span class="line">           <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;fileList:&#x27;</span>,fileList);</span><br><span class="line">    	    <span class="comment">// 获取文本</span></span><br><span class="line">           <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;text:&#x27;</span>,data.<span class="title function_">getData</span>(<span class="string">&#x27;text/plain&#x27;</span>))</span><br><span class="line">         </span><br><span class="line">       &#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong><em>另类方法二</em></strong></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable language_">document</span>.<span class="property">body</span>.<span class="property">onpaste</span> = <span class="keyword">function</span> (<span class="params">event</span>) &#123;</span><br><span class="line">           <span class="keyword">let</span> data = (event.<span class="property">clipboardData</span> || <span class="variable language_">window</span>.<span class="property">clipboardData</span>);</span><br><span class="line">           <span class="keyword">let</span> items = data.<span class="property">items</span>;</span><br><span class="line">           <span class="keyword">let</span> fileList = [];</span><br><span class="line">           <span class="comment">//存储文件数据</span></span><br><span class="line">           <span class="keyword">if</span> (items &amp;&amp; items.<span class="property">length</span>) &#123;</span><br><span class="line">               <span class="comment">//检索剪切板items</span></span><br><span class="line">               <span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; items.<span class="property">length</span>; i++) &#123;</span><br><span class="line">                   <span class="variable language_">console</span>.<span class="title function_">log</span>(items[i].<span class="title function_">getAsFile</span>()); </span><br><span class="line">                   <span class="comment">/** 这里打印出来就就是你想要的文件**/</span></span><br><span class="line">                  fileList.<span class="title function_">push</span>(items[i].<span class="title function_">getAsFile</span>());</span><br><span class="line">               &#125;</span><br><span class="line">           &#125;</span><br><span class="line">       &#125;</span><br></pre></td></tr></table></figure>
+
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="http://server.yuhongshao.cn/static/yuhongshao/20230413175420.png"
+                      alt="http://server.yuhongshao.cn/static/yuhongshao/20230413175420.png"
+                ></p>
+<h3 id="离开页面确认"><a href="#离开页面确认" class="headerlink" title="离开页面确认"></a>离开页面确认</h3><p>onbeforeunload 事件在即将离开当前页面（刷新或关闭）时触发。</p>
+<p>该事件可用于弹出对话框，提示用户是继续浏览页面还是离开当前页面。</p>
+<p>对话框默认的提示信息根据不同的浏览器有所不同，标准的信息类似 “确定要离开此页吗？”。该信息不能删除。</p>
+<p>但你可以自定义一些消息提示与标准信息一起显示在对话框。</p>
+<p><strong>注意：</strong> 如果你没有在 <code>&lt;body&gt;</code> 元素上指定 onbeforeunload 事件，则需要在 window 对象上添加事件，并使用 returnValue 属性创建自定义信息(查看以下语法实例)。</p>
+<p><strong>注意：</strong> 在 Firefox 浏览器中，只显示默认提醒信息（不显示自定义信息）。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable language_">window</span>.<span class="title function_">addEventListener</span>(<span class="string">&quot;beforeunload&quot;</span>, <span class="keyword">function</span> (<span class="params">event</span>) &#123;</span><br><span class="line">    event.<span class="property">returnValue</span> = <span class="string">&quot;我在这写点东西...&quot;</span>;</span><br><span class="line">&#125;); </span><br><span class="line"><span class="variable language_">document</span>.<span class="property">body</span>.<span class="property">onbeforeunload</span> = <span class="keyword">function</span>(<span class="params"></span>)&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="string">&#x27;text&#x27;</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="http://server.yuhongshao.cn/static/yuhongshao/20230413180222.png"
+                      alt="http://server.yuhongshao.cn/static/yuhongshao/20230413180222.png"
+                ></p>
+<h3 id="scrollTo"><a href="#scrollTo" class="headerlink" title="scrollTo()"></a>scrollTo()</h3><p><em>表示滚动行为，支持参数 smooth(平滑滚动),instant(瞬间滚动),默认值 auto</em></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable language_">window</span>.<span class="title function_">scrollTo</span>(x-coord,y-coord )</span><br><span class="line"></span><br><span class="line"><span class="variable language_">window</span>.<span class="title function_">scrollTo</span>(options)</span><br></pre></td></tr></table></figure>
+
+<p><strong>两种语法，语法2掌握</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">window.scrollTo( 0, 1000 );</span><br><span class="line"></span><br><span class="line">// 设置滚动行为改为平滑的滚动</span><br><span class="line">window.scrollTo(&#123;</span><br><span class="line">    top: 1000,</span><br><span class="line">    behavior: &quot;smooth&quot;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<h3 id="径向渐变实例"><a href="#径向渐变实例" class="headerlink" title="径向渐变实例"></a>径向渐变实例</h3><p>这个效果有意思，body上有一张背景图</p>
+<p><strong>径向渐变，0-1px为透明，1-6px为白色</strong></p>
+<p>最后可以添加backdrop-filter</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">style</span>&gt;</span><span class="language-css"></span></span><br><span class="line"><span class="language-css">    <span class="selector-id">#text</span> &#123;</span></span><br><span class="line"><span class="language-css">        <span class="attribute">width</span>: <span class="number">400px</span>;</span></span><br><span class="line"><span class="language-css">        <span class="attribute">height</span>: <span class="number">400px</span>;</span></span><br><span class="line"><span class="language-css">        <span class="attribute">background-color</span>: red;</span></span><br><span class="line"><span class="language-css">    &#125;</span></span><br><span class="line"><span class="language-css">    <span class="selector-class">.mask</span>&#123;</span></span><br><span class="line"><span class="language-css">        <span class="attribute">width</span>: <span class="number">400px</span>;</span></span><br><span class="line"><span class="language-css">        <span class="attribute">height</span>: <span class="number">300px</span>;</span></span><br><span class="line"><span class="language-css">        <span class="attribute">position</span>: fixed;</span></span><br><span class="line"><span class="language-css">        <span class="attribute">top</span>: <span class="number">50%</span>;</span></span><br><span class="line"><span class="language-css">        <span class="attribute">margin-top</span>: -<span class="number">100px</span>;</span></span><br><span class="line"><span class="language-css">        <span class="attribute">left</span>: <span class="number">50%</span>;</span></span><br><span class="line"><span class="language-css">        <span class="attribute">margin-left</span>: -<span class="number">200px</span>;</span></span><br><span class="line"><span class="language-css">        <span class="attribute">background-size</span>: <span class="number">6px</span>;</span></span><br><span class="line"><span class="language-css">        <span class="attribute">background-image</span>: <span class="built_in">radial-gradient</span>(transparent <span class="number">1px</span>, <span class="number">#fff</span> <span class="number">1px</span>);</span></span><br><span class="line"><span class="language-css">        <span class="attribute">backdrop-filter</span>: <span class="built_in">blur</span>(<span class="number">1px</span>) <span class="built_in">saturate</span>(<span class="number">2</span>) <span class="built_in">brightness</span>(<span class="number">1.1</span>);</span></span><br><span class="line"><span class="language-css">    &#125;</span></span><br><span class="line"><span class="language-css">    <span class="selector-tag">body</span>&#123;</span></span><br><span class="line"><span class="language-css">        <span class="attribute">background-image</span>: <span class="built_in">url</span>(<span class="string">&#x27;./1.jpg&#x27;</span>);</span></span><br><span class="line"><span class="language-css">        <span class="attribute">background-repeat</span>: no-repeat;</span></span><br><span class="line"><span class="language-css">        <span class="attribute">background-size</span>: cover;</span></span><br><span class="line"><span class="language-css">        <span class="attribute">background-position</span>:center;</span></span><br><span class="line"><span class="language-css">        <span class="attribute">height</span>: <span class="number">100vh</span>;</span></span><br><span class="line"><span class="language-css">    &#125;</span></span><br><span class="line"><span class="language-css"></span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br><span class="line"></span><br><span class="line"> <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;mask&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="效果"><a href="#效果" class="headerlink" title="效果"></a>效果</h4><p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="http://server.yuhongshao.cn/static/yuhongshao/20230414093511.png"
+                      alt="http://server.yuhongshao.cn/static/yuhongshao/20230414093511.png"
+                ></p>
+<h3 id="CND原理"><a href="#CND原理" class="headerlink" title="CND原理"></a>CND原理</h3><p>cdn即内容分发服务，他的两个关键技术<strong>内容存储</strong>，<strong>分发内容</strong>。 当客户端向服务端请求资源时，由全局<strong>负载均衡</strong>将请求指向离用户最近的缓存服务器（即CDN服务），由CDN代替服务端将静态资源返回给客户端。</p>
+<ul>
+<li>减轻服务器压力</li>
+<li>缩短客户端向服务端请求和响应时间。提高网站响应速度。增加用户体验。</li>
+</ul>
+<p>CDN技术需要依赖于多种技术，如（负载均衡/ 内容分发 / 复制技术 / 缓存技术）</p>
+<h3 id="动静分离"><a href="#动静分离" class="headerlink" title="动静分离"></a>动静分离</h3><p>动静分离是一种软件设计原则，旨在将动态内容和静态内容分离开来，从而提高系统的可维护性、可扩展性和性能。动态内容指的是需要经常变化的内容，如用户输入、数据库查询结果等，而静态内容指的是不需要经常变化的内容，如HTML、CSS、JavaScript等。</p>
+<p>动静分离的主要思想是将动态内容和静态内容分别处理和存储，从而实现系统的解耦和优化。具体来说，可以采用以下几种方法实现动静分离：</p>
+<ol>
+<li>缓存静态内容：将静态内容缓存到本地或CDN等地方，从而减少服务器的负载和响应时间。</li>
+<li>使用模板引擎：将动态内容和静态内容分别处理，使用模板引擎将它们组合起来，从而实现动静分离。</li>
+<li>使用前端框架：将动态内容和静态内容分别处理，使用前端框架将它们组合起来，从而实现动静分离。</li>
+<li>使用API接口：将动态内容和静态内容分别处理，使用API接口将它们组合起来，从而实现动静分离。</li>
+</ol>
+<p>动静分离可以带来以下几个好处：</p>
+<ol>
+<li>提高系统的可维护性：将动态内容和静态内容分离开来，可以更容易地维护和修改系统。</li>
+<li>提高系统的可扩展性：将动态内容和静态内容分离开来，可以更容易地扩展系统的功能和性能。</li>
+<li>提高系统的性能：将静态内容缓存到本地或CDN等地方，可以减少服务器的负载和响应时间，从而提高系统的性能。</li>
+<li>提高开发效率：使用模板引擎、前端框架和API接口等工具，可以更快速地开发和部署系统。</li>
+</ol>
+<p>需要注意的是，动静分离需要根据具体的系统和需求进行设计和实现，需要综合考虑系统的性能、可维护性、可扩展性和开发效率等方面的因素。</p>
+<h3 id="外部操作vue内实例"><a href="#外部操作vue内实例" class="headerlink" title="外部操作vue内实例"></a>外部操作vue内实例</h3><p>通过new Function(参数1，参数2，…..表达式)，修改this指针完成外部js操作里面的数据</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">template</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">section</span> <span class="attr">class</span>=<span class="string">&quot;home&quot;</span>&gt;</span></span><br><span class="line">         <span class="tag">&lt;<span class="name">h1</span>&gt;</span>首页<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span><br><span class="line">         <span class="tag">&lt;<span class="name">button</span> @<span class="attr">click</span>=<span class="string">&quot;count++&quot;</span>&gt;</span>+<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line">         <span class="tag">&lt;<span class="name">span</span>&gt;</span>&#123;&#123;count&#125;&#125;<span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br><span class="line">         <span class="tag">&lt;<span class="name">button</span> @<span class="attr">click</span>=<span class="string">&quot;apiClick(1000)&quot;</span>&gt;</span>+100<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">section</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">template</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">lang</span>=<span class="string">&quot;ts&quot;</span>&gt;</span><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript"><span class="keyword">import</span> &#123; <span class="title class_">Component</span> &#125; <span class="keyword">from</span> <span class="string">&#x27;vue-property-decorator&#x27;</span>;</span></span><br><span class="line"><span class="language-javascript"><span class="keyword">import</span> <span class="title class_">Vue</span> <span class="keyword">from</span> <span class="string">&#x27;vue&#x27;</span>;</span></span><br><span class="line"><span class="language-javascript">@<span class="title class_">Component</span>(&#123;</span></span><br><span class="line"><span class="language-javascript">    <span class="attr">components</span>:&#123;</span></span><br><span class="line"><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript">    &#125;</span></span><br><span class="line"><span class="language-javascript">&#125;)</span></span><br><span class="line"><span class="language-javascript"><span class="keyword">export</span> <span class="keyword">default</span> <span class="keyword">class</span> <span class="title class_">Home</span> <span class="keyword">extends</span> <span class="title class_ inherited__">Vue</span> &#123;</span></span><br><span class="line"><span class="language-javascript">   <span class="attr">count</span>: number = <span class="number">100</span>;</span></span><br><span class="line"><span class="language-javascript">   <span class="attr">str</span>: string= <span class="string">&#x27;&#x27;</span>;</span></span><br><span class="line"><span class="language-javascript">   <span class="keyword">async</span> <span class="title function_">created</span>(<span class="params"></span>)&#123;</span></span><br><span class="line"><span class="language-javascript">        <span class="keyword">const</span> <span class="attr">data</span>: string = <span class="keyword">await</span> <span class="keyword">new</span> <span class="title class_">Promise</span>(<span class="function"><span class="params">resolve</span>=&gt;</span>&#123;</span></span><br><span class="line"><span class="language-javascript">             <span class="built_in">setTimeout</span>(<span class="function">()=&gt;</span>&#123;</span></span><br><span class="line"><span class="language-javascript">                  <span class="keyword">const</span> str = <span class="string">&#x27;console.log(a);this.count+=a;document.body.style.backgroundColor=&quot;#ccc&quot;&#x27;</span>;</span></span><br><span class="line"><span class="language-javascript">                  <span class="title function_">resolve</span>(str);</span></span><br><span class="line"><span class="language-javascript">             &#125;,<span class="number">1000</span>);</span></span><br><span class="line"><span class="language-javascript">        &#125;);</span></span><br><span class="line"><span class="language-javascript">        <span class="variable language_">this</span>.<span class="property">str</span> = data;</span></span><br><span class="line"><span class="language-javascript">   &#125;</span></span><br><span class="line"><span class="language-javascript">   public <span class="keyword">async</span> <span class="title function_">apiClick</span>(<span class="params">num: number</span>)&#123;</span></span><br><span class="line"><span class="language-javascript">        <span class="keyword">if</span>(!<span class="variable language_">this</span>.<span class="property">str</span>)&#123;</span></span><br><span class="line"><span class="language-javascript">            <span class="keyword">return</span>;</span></span><br><span class="line"><span class="language-javascript">        &#125;</span></span><br><span class="line"><span class="language-javascript">        <span class="keyword">const</span> func = <span class="keyword">new</span> <span class="title class_">Function</span>(<span class="string">&#x27;a&#x27;</span>,<span class="variable language_">this</span>.<span class="property">str</span>);</span></span><br><span class="line"><span class="language-javascript">        func.<span class="title function_">bind</span>(<span class="variable language_">this</span>)(num);</span></span><br><span class="line"><span class="language-javascript">       <span class="comment">// func.bind(this,num); 同理</span></span></span><br><span class="line"><span class="language-javascript">   &#125;</span></span><br><span class="line"><span class="language-javascript">&#125;</span></span><br><span class="line"><span class="language-javascript"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="前端无法获取响应头-Response-Header-原因"><a href="#前端无法获取响应头-Response-Header-原因" class="headerlink" title="前端无法获取响应头 Response Header 原因"></a>前端无法获取响应头 Response Header 原因</h3><p>在使用CORS方式跨域时，浏览器只会返回 <strong><code>默认的头部</code></strong> Header，认情况下可用的响应头包括：</p>
+<ul>
+<li><code>Cache-Control</code></li>
+<li><code>Content-Language</code></li>
+<li><code>Content-Type</code></li>
+<li><code>Expires</code></li>
+<li><code>Last-Modified</code></li>
+<li><code>Pragma</code></li>
+</ul>
+<p>CORS规范将这些头称为 <strong><code>简单响应头</code></strong> 。要使用其他头可用于应用**<code>Access-Control-Expose-Headers</code>** <strong>：…自定义头…</strong></p>
+<p><strong><code>Access-Control-Expose-Headers</code></strong> <strong>响应报头</strong> 指示哪些报头可以 <strong>公开</strong> 为通过列出他们的名字的响应的一部分<br>默认情况下，只显示6个简单的响应头，在上方也有介绍。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">app.<span class="title function_">use</span>(<span class="function">(<span class="params">request,response,next</span>)=&gt;</span>&#123;</span><br><span class="line">    response.<span class="title function_">setHeader</span>(<span class="string">&#x27;Access-Control-Expose-Headers&#x27;</span>,<span class="string">&#x27;Content-Disposition&#x27;</span>);</span><br><span class="line">    <span class="title function_">next</span>();</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<h3 id="flatMap"><a href="#flatMap" class="headerlink" title="flatMap"></a>flatMap</h3><p>对复杂数组扁平化</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> data = [&#123;<span class="attr">list</span>:[<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>]&#125;,&#123;<span class="attr">list</span>:[<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>,<span class="number">76</span>]&#125;]</span><br><span class="line">data.<span class="title function_">flatMap</span>(<span class="function"><span class="params">item</span>=&gt;</span>item.<span class="property">list</span>)</span><br><span class="line"><span class="comment">// [1, 2, 3, 4, 4, 5, 6, 76]</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="数字分隔符"><a href="#数字分隔符" class="headerlink" title="数字分隔符"></a>数字分隔符</h3><p>用于开发时，对整数的分隔，更直观观看</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">123_456_789.01</span> === <span class="number">123456789.01</span></span><br><span class="line"><span class="comment">// true</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="新增逻辑操作符"><a href="#新增逻辑操作符" class="headerlink" title="新增逻辑操作符"></a>新增逻辑操作符</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> a = <span class="literal">false</span> &amp;&amp; <span class="string">&#x27;aa&#x27;</span>;</span><br><span class="line"><span class="comment">// false</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> a&amp;&amp;=<span class="string">&#x27;aa&#x27;</span>; <span class="comment">// 写法等同于  a = a&amp;&amp;&#x27;aa&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> a||=<span class="string">&#x27;bb&#x27;</span>; <span class="comment">// 等同于 a = a || &#x27;bb&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> a??=<span class="string">&#x27;bb&#x27;</span>; <span class="comment">// 等同于  a = a ?? &#x27;bb&#x27;</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="双问号空值合并运算符"><a href="#双问号空值合并运算符" class="headerlink" title="双问号空值合并运算符"></a>双问号空值合并运算符</h3><p>?? 判断除空值 null/undefined外，其它情况都为真,0 false NaN 返回自己</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="literal">false</span> || <span class="string">&#x27;aa&#x27;</span>; <span class="comment">// &#x27;aa&#x27;</span></span><br><span class="line"><span class="literal">false</span> ?? <span class="string">&#x27;aa&#x27;</span>; <span class="comment">// false</span></span><br><span class="line"></span><br><span class="line"><span class="number">0</span> || <span class="string">&#x27;aa&#x27;</span>; <span class="comment">// &#x27;aa&#x27;</span></span><br><span class="line"><span class="number">0</span> ?? <span class="string">&#x27;aa&#x27;</span>; <span class="comment">// 0</span></span><br><span class="line"><span class="title class_">NaN</span> ?? <span class="string">&#x27;aa&#x27;</span>; <span class="comment">// NaN</span></span><br><span class="line"></span><br><span class="line"><span class="literal">undefined</span> ?? <span class="string">&#x27;aa&#x27;</span> <span class="comment">// &#x27;aa&#x27;</span></span><br><span class="line"><span class="literal">null</span> ?? <span class="string">&#x27;aa&#x27;</span>   <span class="comment">// &#x27;aa&#x27;</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h3 id="可选链操作符"><a href="#可选链操作符" class="headerlink" title="可选链操作符"></a>可选链操作符</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> obj = &#123;&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 以前判断一个对象是否存在 </span></span><br><span class="line"><span class="keyword">if</span>(obj &amp;&amp; obj.<span class="property">info</span> &amp;&amp; obj.<span class="property">info</span>.<span class="property">age</span>)</span><br><span class="line">   </span><br><span class="line"><span class="comment">// es12可选链</span></span><br><span class="line">obj?.<span class="property">info</span>?.<span class="property">age</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="Promise-allSettled"><a href="#Promise-allSettled" class="headerlink" title="Promise.allSettled"></a>Promise.allSettled</h3><p>Promise.all([ajax1,ajax2]) 所有请求成功，执行.then，如果某个返回reject，会让promise执行.catch</p>
+<p>Promise.allSettled([ajax1,ajax2])  不管内部请求成功多少，失败多少，都会执行.then，最后结果中通过状态来判断成功请求和失败请求</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> <span class="title function_">ajax1</span> = (<span class="params"></span>)=&gt;&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">new</span> <span class="title class_">Promise</span>(<span class="function">(<span class="params">resolve,reject</span>)=&gt;</span>&#123;</span><br><span class="line">        <span class="built_in">setTimeout</span>(<span class="function">()=&gt;</span>&#123;</span><br><span class="line">            <span class="title function_">resolve</span>(<span class="string">&#x27;ajax1 success&#x27;</span>)</span><br><span class="line">        &#125;,<span class="number">100</span>)</span><br><span class="line">    &#125;)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> <span class="title function_">ajax2</span> = (<span class="params"></span>)=&gt;&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">new</span> <span class="title class_">Promise</span>(<span class="function">(<span class="params">resolve,reject</span>)=&gt;</span>&#123;</span><br><span class="line">        <span class="built_in">setTimeout</span>(<span class="function">()=&gt;</span>&#123;</span><br><span class="line">            <span class="title function_">resolve</span>(<span class="string">&#x27;ajax2 success&#x27;</span>)</span><br><span class="line">        &#125;,<span class="number">200</span>)</span><br><span class="line">    &#125;)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> <span class="title function_">ajax3</span> = (<span class="params"></span>)=&gt;&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">new</span> <span class="title class_">Promise</span>(<span class="function">(<span class="params">resolve,reject</span>)=&gt;</span>&#123;</span><br><span class="line">        <span class="built_in">setTimeout</span>(<span class="function">()=&gt;</span>&#123;</span><br><span class="line">            <span class="title function_">reject</span>(<span class="string">&#x27;ajax3 fail&#x27;</span>)</span><br><span class="line">        &#125;,<span class="number">300</span>)</span><br><span class="line">    &#125;)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="title class_">Promise</span>.<span class="title function_">all</span>([<span class="title function_">ajax1</span>(),<span class="title function_">ajax2</span>(),<span class="title function_">ajax3</span>()]).<span class="title function_">then</span>(<span class="function"><span class="params">res</span>=&gt;</span>&#123;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(res);</span><br><span class="line">&#125;).<span class="title function_">catch</span>(<span class="function"><span class="params">e</span>=&gt;</span>&#123;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;err&#x27;</span>,e);</span><br><span class="line">&#125;)</span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">err ajax3 fail</span></span><br><span class="line"><span class="comment">**/</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="title class_">Promise</span>.<span class="title function_">allSettled</span>([<span class="title function_">ajax1</span>(),<span class="title function_">ajax2</span>(),<span class="title function_">ajax3</span>()]).<span class="title function_">then</span>(<span class="function"><span class="params">res</span>=&gt;</span>&#123;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(res);</span><br><span class="line">&#125;).<span class="title function_">catch</span>(<span class="function"><span class="params">e</span>=&gt;</span>&#123;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;err&#x27;</span>,e);</span><br><span class="line">&#125;)</span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">0: &#123;status: &#x27;fulfilled&#x27;, value: &#x27;ajax1 success&#x27;&#125;</span></span><br><span class="line"><span class="comment">1: &#123;status: &#x27;fulfilled&#x27;, value: &#x27;ajax2 success&#x27;&#125;</span></span><br><span class="line"><span class="comment">2: &#123;status: &#x27;rejected&#x27;, reason: &#x27;ajax3 fail&#x27;&#125;</span></span><br><span class="line"><span class="comment">**/</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h3 id="Promise-any"><a href="#Promise-any" class="headerlink" title="Promise.any"></a>Promise.any</h3><p>Promise.any任何一个执行成功，都会走.then</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> <span class="title function_">ajax1</span> = (<span class="params"></span>)=&gt;&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">new</span> <span class="title class_">Promise</span>(<span class="function">(<span class="params">resolve,reject</span>)=&gt;</span>&#123;</span><br><span class="line">        <span class="built_in">setTimeout</span>(<span class="function">()=&gt;</span>&#123;</span><br><span class="line">            <span class="title function_">reject</span>(<span class="string">&#x27;ajax1 fail&#x27;</span>)</span><br><span class="line">        &#125;,<span class="number">100</span>)</span><br><span class="line">    &#125;)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> <span class="title function_">ajax2</span> = (<span class="params"></span>)=&gt;&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">new</span> <span class="title class_">Promise</span>(<span class="function">(<span class="params">resolve,reject</span>)=&gt;</span>&#123;</span><br><span class="line">        <span class="built_in">setTimeout</span>(<span class="function">()=&gt;</span>&#123;</span><br><span class="line">            <span class="title function_">resolve</span>(<span class="string">&#x27;ajax2 success&#x27;</span>)</span><br><span class="line">        &#125;,<span class="number">200</span>)</span><br><span class="line">    &#125;)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> <span class="title function_">ajax3</span> = (<span class="params"></span>)=&gt;&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">new</span> <span class="title class_">Promise</span>(<span class="function">(<span class="params">resolve,reject</span>)=&gt;</span>&#123;</span><br><span class="line">        <span class="built_in">setTimeout</span>(<span class="function">()=&gt;</span>&#123;</span><br><span class="line">            <span class="title function_">resolve</span>(<span class="string">&#x27;ajax3 success&#x27;</span>)</span><br><span class="line">        &#125;,<span class="number">300</span>)</span><br><span class="line">    &#125;)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="title class_">Promise</span>.<span class="title function_">any</span>([<span class="title function_">ajax1</span>(),<span class="title function_">ajax2</span>(),<span class="title function_">ajax3</span>()]).<span class="title function_">then</span>(<span class="function"><span class="params">res</span>=&gt;</span>&#123;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(res);</span><br><span class="line">&#125;).<span class="title function_">catch</span>(<span class="function"><span class="params">e</span>=&gt;</span>&#123;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;err&#x27;</span>,e);</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * ajax2 success</span></span><br><span class="line"><span class="comment">**/</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="Promise-race"><a href="#Promise-race" class="headerlink" title="Promise.race"></a>Promise.race</h3><p>Promise.race靠拼网速，谁响应最快，谁走.then</p>
+<p>可能存在返回的结果是请求失败的，race只关注谁最快响应，不管结果 成功还是失败</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> <span class="title function_">ajax1</span> = (<span class="params"></span>)=&gt;&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">new</span> <span class="title class_">Promise</span>(<span class="function">(<span class="params">resolve,reject</span>)=&gt;</span>&#123;</span><br><span class="line">        <span class="built_in">setTimeout</span>(<span class="function">()=&gt;</span>&#123;</span><br><span class="line">            <span class="title function_">reject</span>(<span class="string">&#x27;ajax1 fail&#x27;</span>)</span><br><span class="line">        &#125;,<span class="number">100</span>)</span><br><span class="line">    &#125;)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> <span class="title function_">ajax2</span> = (<span class="params"></span>)=&gt;&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">new</span> <span class="title class_">Promise</span>(<span class="function">(<span class="params">resolve,reject</span>)=&gt;</span>&#123;</span><br><span class="line">        <span class="built_in">setTimeout</span>(<span class="function">()=&gt;</span>&#123;</span><br><span class="line">            <span class="title function_">resolve</span>(<span class="string">&#x27;ajax2 success&#x27;</span>)</span><br><span class="line">        &#125;,<span class="number">200</span>)</span><br><span class="line">    &#125;)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> <span class="title function_">ajax3</span> = (<span class="params"></span>)=&gt;&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">new</span> <span class="title class_">Promise</span>(<span class="function">(<span class="params">resolve,reject</span>)=&gt;</span>&#123;</span><br><span class="line">        <span class="built_in">setTimeout</span>(<span class="function">()=&gt;</span>&#123;</span><br><span class="line">            <span class="title function_">resolve</span>(<span class="string">&#x27;ajax3 success&#x27;</span>)</span><br><span class="line">        &#125;,<span class="number">199</span>)</span><br><span class="line">    &#125;)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="title class_">Promise</span>.<span class="title function_">race</span>([<span class="title function_">ajax1</span>(),<span class="title function_">ajax2</span>(),<span class="title function_">ajax3</span>()]).<span class="title function_">then</span>(<span class="function"><span class="params">res</span>=&gt;</span>&#123;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(res);</span><br><span class="line">&#125;).<span class="title function_">catch</span>(<span class="function"><span class="params">e</span>=&gt;</span>&#123;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;err&#x27;</span>,e);</span><br><span class="line">&#125;)</span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">  err ajax1 fail</span></span><br><span class="line"><span class="comment">**/</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="at"><a href="#at" class="headerlink" title="at"></a>at</h3><p>字符串/数据 . at(下标)  可能直接得到数据</p>
+<p>-1代表最后一个元素，-2倒数第二个</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> arr = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>]</span><br><span class="line">arr.<span class="title function_">at</span>(<span class="number">1</span>); <span class="comment">// 2</span></span><br><span class="line">arr.<span class="title function_">at</span>(-<span class="number">1</span>); <span class="comment">// 4</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> str = <span class="string">&#x27;abcdefg&#x27;</span>;</span><br><span class="line">str.<span class="title function_">at</span>(-<span class="number">1</span>) <span class="comment">// g</span></span><br><span class="line">str.<span class="title function_">at</span>(<span class="number">1</span>) <span class="comment">// b</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h3 id="findLastIndex-findLast"><a href="#findLastIndex-findLast" class="headerlink" title="findLastIndex  findLast"></a>findLastIndex  findLast</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> arr = [<span class="string">&#x27;a&#x27;</span>, <span class="string">&#x27;b&#x27;</span>, <span class="string">&#x27;c&#x27;</span>, <span class="string">&#x27;d&#x27;</span>, <span class="string">&#x27;e&#x27;</span>, <span class="string">&#x27;g&#x27;</span>]</span><br><span class="line">arr1.<span class="title function_">findLast</span>(<span class="function"><span class="params">item</span>=&gt;</span>item ===<span class="string">&#x27;f&#x27;</span>)   <span class="comment">// f</span></span><br><span class="line">arr1.<span class="title function_">findLastIndex</span>(<span class="function"><span class="params">item</span>=&gt;</span>item ===<span class="string">&#x27;f&#x27;</span>) <span class="comment">// 6</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="class-static代码块"><a href="#class-static代码块" class="headerlink" title="class static代码块"></a>class static代码块</h3><p>class 类，static支持写入代码块</p>
+<p>执行时，在创建main类就执行完成，而不是在new Main时才调用执行</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Main</span>&#123;</span><br><span class="line">     <span class="keyword">static</span> name = <span class="string">&#x27;xiaoming&#x27;</span>;</span><br><span class="line">     <span class="keyword">static</span>  age= <span class="string">&#x27;22&#x27;</span>;</span><br><span class="line">     <span class="keyword">static</span> &#123;</span><br><span class="line">         <span class="variable language_">this</span>.<span class="property">name</span> = <span class="string">&#x27;xiaohomng&#x27;</span>;</span><br><span class="line">     &#125;;</span><br><span class="line">     <span class="keyword">static</span> <span class="title function_">log</span>(<span class="params"></span>)&#123;</span><br><span class="line">         <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="variable language_">this</span>)</span><br><span class="line">         <span class="keyword">return</span> &#123;</span><br><span class="line">             <span class="attr">name</span>: <span class="variable language_">this</span>.<span class="property">name</span>,</span><br><span class="line">             <span class="attr">age</span>: <span class="variable language_">this</span>.<span class="property">age</span></span><br><span class="line">         &#125;</span><br><span class="line">     &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="Promise-finally"><a href="#Promise-finally" class="headerlink" title="Promise.finally"></a>Promise.finally</h3><p>es12支持promise.finally语法</p>
+<h3 id="Object-fromEntries"><a href="#Object-fromEntries" class="headerlink" title="Object.fromEntries"></a>Object.fromEntries</h3><p>将二维数组转一个对象</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> arr = [[<span class="string">&#x27;name&#x27;</span>,<span class="string">&#x27;xiaoming&#x27;</span>]];</span><br><span class="line"><span class="title class_">Object</span>.<span class="title function_">fromEntries</span>(arr); <span class="comment">// &#123; name: &#x27;xiaoming&#x27; &#125;</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="Object-entries"><a href="#Object-entries" class="headerlink" title="Object.entries"></a>Object.entries</h3><p>将对象转二维数组</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> obj = &#123;<span class="attr">name</span>: <span class="string">&#x27;xiaoming&#x27;</span>,<span class="attr">age</span>: <span class="number">22</span>,<span class="attr">info</span>: &#123;<span class="attr">id</span>: <span class="number">2222</span>&#125;&#125;</span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">* 0: (2) [&#x27;name&#x27;, &#x27;xiaoming&#x27;]</span></span><br><span class="line"><span class="comment">  1: (2) [&#x27;age&#x27;, 22]</span></span><br><span class="line"><span class="comment">  2: (2) [&#x27;info&#x27;, &#123;…&#125;]</span></span><br><span class="line"><span class="comment">*/</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="new-URLSearchParams-str"><a href="#new-URLSearchParams-str" class="headerlink" title="new URLSearchParams(str)"></a>new URLSearchParams(str)</h3><p>将字符串URL参数快速提出为对象</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> str = <span class="string">&#x27;name=xiaoming&amp;age=22&amp;id=33&amp;handleType=add&#x27;</span>;</span><br><span class="line"><span class="title class_">Object</span>.<span class="title function_">fromEntries</span>(<span class="keyword">new</span> <span class="title class_">URLSearchParams</span>(str));</span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * &#123;name: &#x27;xiaoming&#x27;, age: &#x27;22&#x27;, id: &#x27;33&#x27;, handleType: &#x27;add&#x27;&#125;</span></span><br><span class="line"><span class="comment">**/</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>通过new URL</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> url = <span class="keyword">new</span> <span class="title function_">URL</span>(<span class="string">`http://www.programmer.com?a=1&amp;b=2`</span>);</span><br><span class="line"><span class="keyword">const</span> searchParams = <span class="title class_">Object</span>.<span class="title function_">fromEntries</span>(<span class="keyword">new</span> <span class="title class_">URLSearchParams</span>(url.<span class="property">search</span>));</span><br></pre></td></tr></table></figure>
+
+<h3 id="exce"><a href="#exce" class="headerlink" title="exce"></a>exce</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> str2 = <span class="string">&#x27;sifodj122ljsdofj3224osjfdo2823&#x27;</span></span><br><span class="line">str2.<span class="title function_">match</span>(reg2); <span class="comment">// [&#x27;122&#x27;, &#x27;3224&#x27;, &#x27;2823&#x27;]</span></span><br><span class="line"></span><br><span class="line">reg2.<span class="title function_">exce</span>(str2) <span class="comment">// 122</span></span><br><span class="line">reg2.<span class="title function_">exce</span>(str2) <span class="comment">// 3224</span></span><br><span class="line">reg2.<span class="title function_">exce</span>(str2) <span class="comment">// 2823</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="Map"><a href="#Map" class="headerlink" title="Map"></a>Map</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> map1 = <span class="keyword">new</span> <span class="title function_">map</span>([</span><br><span class="line">    [<span class="string">&#x27;name&#x27;</span>,<span class="string">&#x27;xiaoming&#x27;</span>],</span><br><span class="line">    [<span class="string">&#x27;age&#x27;</span>, <span class="number">22</span>],</span><br><span class="line">    [&#123;&#125;, <span class="string">&#x27;school&#x27;</span>]</span><br><span class="line">]);</span><br><span class="line"></span><br><span class="line">map1.<span class="title function_">set</span>(key,value);</span><br><span class="line"></span><br><span class="line">map1.<span class="title function_">get</span>(key);</span><br><span class="line"></span><br><span class="line">map1.<span class="title function_">delete</span>(key);</span><br><span class="line"></span><br><span class="line">map1.<span class="title function_">keys</span>() <span class="comment">// 返回KEY</span></span><br><span class="line">map1.<span class="title function_">values</span>()  <span class="comment">// 返回values</span></span><br><span class="line">map1.<span class="title function_">entries</span>()  <span class="comment">// 返回key value的二维数据</span></span><br><span class="line"></span><br><span class="line">[...map1]   <span class="comment">// 返回二维数据</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 可以使用foreach  for of遍历</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="前瞻"><a href="#前瞻" class="headerlink" title="前瞻"></a>前瞻</h3><p>在JavaScript中，前瞻（Lookahead）是一种正则表达式的语法，用于匹配一个字符串的前面或后面是否存在某个模式，但不包括这个模式本身。前瞻可以分为正向前瞻和负向前瞻两种类型。</p>
+<ol>
+<li>正向前瞻（Positive Lookahead）：正向前瞻用于匹配一个字符串的前面是否存在某个模式，语法为 <code>(?=pattern)</code>。例如，正向前瞻 <code>(?=JavaScript)</code>可以匹配字符串中前面存在JavaScript的位置，但不包括JavaScript本身。</li>
+<li>负向前瞻（Negative Lookahead）：负向前瞻用于匹配一个字符串的前面是否不存在某个模式，语法为 <code>(?!pattern)</code>。例如，负向前瞻 <code>(?!JavaScript)</code>可以匹配字符串中前面不存在JavaScript的位置。</li>
+</ol>
+<p>以下是正向前瞻和负向前瞻的示例代码：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">javascript复制<span class="comment">// 正向前瞻示例</span></span><br><span class="line"><span class="keyword">const</span> str1 = <span class="string">&#x27;JavaScript is a popular programming language&#x27;</span>;</span><br><span class="line"><span class="keyword">const</span> pattern1 = <span class="regexp">/Java(?=Script)/</span>;</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(str1.<span class="title function_">match</span>(pattern1)); <span class="comment">// 输出[&quot;Java&quot;]</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 负向前瞻示例</span></span><br><span class="line"><span class="keyword">const</span> str2 = <span class="string">&#x27;Python is a popular programming language&#x27;</span>;</span><br><span class="line"><span class="keyword">const</span> pattern2 = <span class="regexp">/Java(?!Script)/</span>;</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(str2.<span class="title function_">match</span>(pattern2)); <span class="comment">// 输出null</span></span><br></pre></td></tr></table></figure>
+
+<p>需要注意的是，前瞻只是一种匹配模式，不会改变正则表达式的匹配结果。在使用前瞻时，需要注意正则表达式的语法和匹配规则，以便正确地匹配字符串。</p>
+<h3 id="后顾"><a href="#后顾" class="headerlink" title="后顾"></a>后顾</h3><p>在JavaScript中，后顾（Lookbehind）是一种正则表达式的语法，用于匹配一个字符串的后面是否存在某个模式，但不包括这个模式本身。后顾可以分为正向后顾和负向后顾两种类型。</p>
+<ol>
+<li>正向后顾（Positive Lookbehind）：正向后顾用于匹配一个字符串的后面是否存在某个模式，语法为 <code>(?&lt;=pattern)</code>。例如，正向后顾 <code>(?&lt;=JavaScript)</code>可以匹配字符串中后面存在JavaScript的位置，但不包括JavaScript本身。</li>
+<li>负向后顾（Negative Lookbehind）：负向后顾用于匹配一个字符串的后面是否不存在某个模式，语法为 <code>(?&lt;!pattern)</code>。例如，负向后顾 <code>(?&lt;!JavaScript)</code>可以匹配字符串中后面不存在JavaScript的位置。</li>
+</ol>
+<p>以下是正向后顾和负向后顾的示例代码：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">javascript复制<span class="comment">// 正向后顾示例</span></span><br><span class="line"><span class="keyword">const</span> str1 = <span class="string">&#x27;JavaScript is a popular programming language&#x27;</span>;</span><br><span class="line"><span class="keyword">const</span> pattern1 = <span class="regexp">/(?&lt;=Java)Script/</span>;</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(str1.<span class="title function_">match</span>(pattern1)); <span class="comment">// 输出[&quot;Script&quot;]</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 负向后顾示例</span></span><br><span class="line"><span class="keyword">const</span> str2 = <span class="string">&#x27;Python is a popular programming language&#x27;</span>;</span><br><span class="line"><span class="keyword">const</span> pattern2 = <span class="regexp">/(?&lt;!Java)Script/</span>;</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(str2.<span class="title function_">match</span>(pattern2)); <span class="comment">// 输出null</span></span><br></pre></td></tr></table></figure>
+
+<p>需要注意的是，后顾只是一种匹配模式，不会改变正则表达式的匹配结果。在使用后顾时，需要注意正则表达式的语法和匹配规则，以便正确地匹配字符串。另外，后顾在JavaScript中的支持程度较低，只有部分浏览器和JavaScript引擎支持，因此在使用后顾时需要注意兼容性问题。</p>
+<h3 id="toLocaleString千分位问题"><a href="#toLocaleString千分位问题" class="headerlink" title="toLocaleString千分位问题"></a>toLocaleString千分位问题</h3><p>部分国家，如巴西，千分位展示方式与国内日常看到的是不一样的，相比于国内，在巴西等国家会把 逗号和点 互换</p>
+<p>国内:</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">123</span>,<span class="number">4.01</span></span><br></pre></td></tr></table></figure>
+
+<p>巴西</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">123.4</span>,<span class="number">01</span></span><br></pre></td></tr></table></figure>
+
+<p>在巴西默认为巴西本地，显示与在国内不一样，需要加上参数</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">1234.01</span>.<span class="title function_">toLocaleString</span>(<span class="string">&#x27;zh&#x27;</span>)</span><br></pre></td></tr></table></figure>
+
+<h3 id="正则千分位"><a href="#正则千分位" class="headerlink" title="正则千分位"></a>正则千分位</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">&quot;9902939023.222&quot;</span>.<span class="title function_">replace</span>(<span class="regexp">/(\d)(?=(\d&#123;3&#125;)+\.)/g</span>,<span class="string">&#x27;$1,&#x27;</span>);</span><br><span class="line"><span class="comment">// 思路</span></span><br><span class="line"><span class="comment">// [023., 939023.,902939023.]</span></span><br><span class="line"><span class="comment">// &quot;9,902,939,023.222&quot;</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="css-Grid布局"><a href="#css-Grid布局" class="headerlink" title="css Grid布局"></a>css Grid布局</h3><p>CSS Grid 布局是一种新的布局方式，它可以让开发者更加灵活地控制网页布局。但是，由于 CSS Grid 布局是比较新的技术，因此在一些旧版本的浏览器中可能存在兼容性问题，包括一些手机浏览器。</p>
+<p>手机上：以下是一些不支持 CSS Grid 布局的手机浏览器：</p>
+<ol>
+<li>Android 4.4 及以下版本的浏览器：Android 4.4 及以下版本的浏览器不支持 CSS Grid 布局，需要使用其他布局方式来实现相同的效果。</li>
+<li>iOS 9 及以下版本的 Safari 浏览器：iOS 9 及以下版本的 Safari 浏览器不支持 CSS Grid 布局，需要使用其他布局方式来实现相同的效果。</li>
+<li>UC 浏览器：UC 浏览器在一些旧版本中可能存在 CSS Grid 布局的兼容性问题，需要使用其他布局方式来实现相同的效果。</li>
+</ol>
+<p>需要注意的是，虽然一些手机浏览器可能存在 CSS Grid 布局的兼容性问题，但是随着浏览器的更新和升级，这些问题可能会得到解决。因此，建议在使用 CSS Grid 布局时，尽可能考虑兼容性问题，并使用一些技术手段来解决这些问题，例如使用 Autoprefixer、CSS Grid 布局的 Polyfill 或其他布局方式。</p>
+<p>电脑上:</p>
+<p>以下是 CSS Grid 布局的兼容性情况：</p>
+<ol>
+<li>支持 CSS Grid 布局的浏览器：Chrome、Firefox、Safari、Edge、Opera 等现代浏览器都支持 CSS Grid 布局。</li>
+<li>部分支持 CSS Grid 布局的浏览器：IE 10 和 11 支持 CSS Grid 布局，但是需要使用 -ms- 前缀来实现。另外，iOS Safari 10.3 和 11.0 也支持 CSS Grid 布局，但是需要开启实验性功能。</li>
+<li>不支持 CSS Grid 布局的浏览器：IE 9 及以下版本的浏览器不支持 CSS Grid 布局，需要使用其他布局方式来实现相同的效果。</li>
+</ol>
+<p>为了解决 CSS Grid 布局的兼容性问题，可以使用一些技术手段，例如：</p>
+<ol>
+<li>使用 Autoprefixer：Autoprefixer 是一个 PostCSS 插件，可以自动为 CSS 添加浏览器前缀，以实现更好的兼容性。</li>
+<li>使用 CSS Grid 布局的 Polyfill：Polyfill 是一种 JavaScript 库，可以在不支持 CSS Grid 布局的浏览器中模拟实现 CSS Grid 布局的功能。</li>
+<li>使用其他布局方式：如果需要在不支持 CSS Grid 布局的浏览器中实现相同的效果，可以使用其他布局方式，例如 Flexbox 布局、表格布局等。</li>
+</ol>
+<p>总之，CSS Grid 布局在现代浏览器中得到了广泛的支持，但是在一些旧版本的浏览器中可能存在兼容性问题。为了解决这些问题，可以使用 Autoprefixer、CSS Grid 布局的 Polyfill 或其他布局方式来实现相同的效果。</p>
+<h3 id="浏览器内核"><a href="#浏览器内核" class="headerlink" title="浏览器内核"></a>浏览器内核</h3><blockquote>
+<p>-webkit   -o   -moz  -ms</p>
+</blockquote>
+<p>浏览器内核是指浏览器的核心部分，它是浏览器的基础，负责解析网页代码、渲染页面、处理用户交互等功能。不同的浏览器有不同的内核，常见的浏览器内核包括以下几种：</p>
+<ol>
+<li>Trident 内核：Trident 内核是由微软公司开发的浏览器内核，包括 Internet Explorer 和 Microsoft Edge 浏览器。</li>
+<li>Gecko 内核：Gecko 内核是由 Mozilla 公司开发的浏览器内核，包括 Firefox 浏览器。</li>
+<li>WebKit 内核：WebKit 内核是由苹果公司开发的浏览器内核，包括 Safari 浏览器和一些其他浏览器，例如 Chrome 浏览器的早期版本。</li>
+<li>Blink 内核：Blink 内核是由 Google 公司开发的浏览器内核，包括 Chrome 浏览器、Opera 浏览器等。</li>
+<li>Presto 内核：Presto 内核是由 Opera Software 公司开发的浏览器内核，包括 Opera 浏览器的早期版本。</li>
+</ol>
+<p>需要注意的是，一些浏览器可能采用多个内核，例如早期的 Chrome 浏览器同时采用了 WebKit 和 Blink 内核。此外，不同的浏览器内核对网页的解析和渲染方式也有所不同，因此在开发网页时需要考虑浏览器内核的兼容性问题。</p>
+<p>总之，浏览器内核是浏览器的核心部分，不同的浏览器有不同的内核。常见的浏览器内核包括 Trident 内核、Gecko 内核、WebKit 内核、Blink 内核和 Presto 内核等。在开发网页时需要考虑浏览器内核的兼容性问题。</p>
+<h3 id="幽灵依赖"><a href="#幽灵依赖" class="headerlink" title="幽灵依赖"></a>幽灵依赖</h3><p><a class="link"   target="_blank" rel="noopener" href="https://www.codingsky.com/doc/2022/8/18/616.html" >https://www.codingsky.com/doc/2022/8/18/616.html<i class="fas fa-external-link-alt"></i></a></p>
+<h3 id="水滴消融动画"><a href="#水滴消融动画" class="headerlink" title="水滴消融动画"></a>水滴消融动画</h3><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE <span class="keyword">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">lang</span>=<span class="string">&quot;en&quot;</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">&quot;UTF-8&quot;</span> /&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">&quot;viewport&quot;</span> <span class="attr">content</span>=<span class="string">&quot;width=device-width, initial-scale=1.0&quot;</span> /&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span>Document<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">style</span>&gt;</span><span class="language-css"></span></span><br><span class="line"><span class="language-css">        * &#123;</span></span><br><span class="line"><span class="language-css">            <span class="attribute">margin</span>: <span class="number">0</span>;</span></span><br><span class="line"><span class="language-css">            <span class="attribute">padding</span>: <span class="number">0</span>;</span></span><br><span class="line"><span class="language-css">        &#125;</span></span><br><span class="line"><span class="language-css"></span></span><br><span class="line"><span class="language-css">        <span class="selector-class">.container</span> &#123;</span></span><br><span class="line"><span class="language-css">            <span class="attribute">height</span>: <span class="number">100vh</span>;</span></span><br><span class="line"><span class="language-css">            <span class="attribute">position</span>: relative;</span></span><br><span class="line"><span class="language-css">            <span class="attribute">width</span>: <span class="number">100vw</span>;</span></span><br><span class="line"><span class="language-css">            <span class="attribute">overflow</span>: hidden;</span></span><br><span class="line"><span class="language-css">        &#125;</span></span><br><span class="line"><span class="language-css"></span></span><br><span class="line"><span class="language-css">        <span class="selector-class">.footer</span> &#123;</span></span><br><span class="line"><span class="language-css">            <span class="attribute">position</span>: absolute;</span></span><br><span class="line"><span class="language-css">            <span class="attribute">bottom</span>: <span class="number">0</span>;</span></span><br><span class="line"><span class="language-css">            <span class="attribute">left</span>: <span class="number">0</span>;</span></span><br><span class="line"><span class="language-css">            <span class="attribute">right</span>: <span class="number">0</span>;</span></span><br><span class="line"><span class="language-css">            <span class="attribute">height</span>: <span class="number">30vh</span>;</span></span><br><span class="line"><span class="language-css">            <span class="attribute">width</span>: <span class="number">120%</span>;</span></span><br><span class="line"><span class="language-css">            <span class="attribute">margin-left</span>: -<span class="number">10%</span>;</span></span><br><span class="line"><span class="language-css">            <span class="attribute">background-color</span>: <span class="number">#6a90aa</span>;</span></span><br><span class="line"><span class="language-css">            <span class="attribute">filter</span>: <span class="built_in">url</span>(<span class="string">#dynamicBlend</span>);</span></span><br><span class="line"><span class="language-css">            <span class="attribute">z-index</span>: <span class="number">1</span>;</span></span><br><span class="line"><span class="language-css"></span></span><br><span class="line"><span class="language-css"></span></span><br><span class="line"><span class="language-css">        &#125;</span></span><br><span class="line"><span class="language-css"></span></span><br><span class="line"><span class="language-css">        <span class="selector-class">.footer</span><span class="selector-pseudo">:before</span> &#123;</span></span><br><span class="line"><span class="language-css">            <span class="attribute">content</span>: <span class="string">&#x27;&#x27;</span>;</span></span><br><span class="line"><span class="language-css">            <span class="attribute">display</span>: block;</span></span><br><span class="line"><span class="language-css">            <span class="attribute">width</span>: <span class="number">100%</span>;</span></span><br><span class="line"><span class="language-css">            <span class="attribute">height</span>: <span class="number">5px</span>;</span></span><br><span class="line"><span class="language-css">            <span class="attribute">background-color</span>: <span class="number">#6a90aa</span>;</span></span><br><span class="line"><span class="language-css">            <span class="attribute">position</span>: absolute;</span></span><br><span class="line"><span class="language-css">            <span class="attribute">left</span>: <span class="number">0</span>;</span></span><br><span class="line"><span class="language-css">            <span class="attribute">top</span>: -<span class="number">2px</span>;</span></span><br><span class="line"><span class="language-css">        &#125;</span></span><br><span class="line"><span class="language-css"></span></span><br><span class="line"><span class="language-css">        <span class="selector-class">.white-bar</span> &#123;</span></span><br><span class="line"><span class="language-css">            <span class="attribute">position</span>: absolute;</span></span><br><span class="line"><span class="language-css">            <span class="attribute">height</span>: <span class="number">70vh</span>;</span></span><br><span class="line"><span class="language-css">            <span class="attribute">z-index</span>: <span class="number">2</span>;</span></span><br><span class="line"><span class="language-css">            <span class="attribute">background</span>: <span class="built_in">linear-gradient</span>(transparent <span class="number">0%</span>, transparent <span class="number">99.9%</span>, <span class="number">#6a90aa</span> <span class="number">99.9%</span>, <span class="number">#6a90aa</span> <span class="number">100%</span>);</span></span><br><span class="line"><span class="language-css">            <span class="attribute">left</span>: <span class="number">0</span>;</span></span><br><span class="line"><span class="language-css">            <span class="attribute">right</span>: <span class="number">0</span>;</span></span><br><span class="line"><span class="language-css">            <span class="attribute">bottom</span>: <span class="number">0</span>;</span></span><br><span class="line"><span class="language-css"></span></span><br><span class="line"><span class="language-css">            <span class="attribute">top</span>: <span class="number">0</span>;</span></span><br><span class="line"><span class="language-css">        &#125;</span></span><br><span class="line"><span class="language-css"></span></span><br><span class="line"><span class="language-css">        <span class="selector-class">.dot-list</span> &#123;</span></span><br><span class="line"><span class="language-css">            <span class="comment">/* filter: url(#dynamicBlend); */</span></span></span><br><span class="line"><span class="language-css">            <span class="attribute">animation</span>: move2 <span class="number">10s</span> linear alternate infinite;</span></span><br><span class="line"><span class="language-css">        &#125;</span></span><br><span class="line"><span class="language-css"></span></span><br><span class="line"><span class="language-css">        <span class="selector-class">.dot-list</span> <span class="selector-tag">span</span> &#123;</span></span><br><span class="line"><span class="language-css"></span></span><br><span class="line"><span class="language-css">            <span class="attribute">background-color</span>: <span class="number">#6a90aa</span>;</span></span><br><span class="line"><span class="language-css">            <span class="attribute">border-radius</span>: <span class="number">50%</span>;</span></span><br><span class="line"><span class="language-css">            <span class="attribute">display</span>: inline-block;</span></span><br><span class="line"><span class="language-css">            <span class="attribute">position</span>: absolute;</span></span><br><span class="line"><span class="language-css">            <span class="attribute">transition</span>: all <span class="number">3s</span> linear;</span></span><br><span class="line"><span class="language-css">            <span class="attribute">animation</span>: move linear <span class="number">3s</span>;</span></span><br><span class="line"><span class="language-css">            <span class="attribute">z-index</span>: <span class="number">3</span>;</span></span><br><span class="line"><span class="language-css">        &#125;</span></span><br><span class="line"><span class="language-css"></span></span><br><span class="line"><span class="language-css">        <span class="keyword">@keyframes</span> move &#123;</span></span><br><span class="line"><span class="language-css">            <span class="number">100%</span> &#123;</span></span><br><span class="line"><span class="language-css">                <span class="attribute">transform</span>: <span class="built_in">scale</span>(<span class="number">0</span>);</span></span><br><span class="line"><span class="language-css">                <span class="attribute">top</span>: -<span class="number">1000px</span>;</span></span><br><span class="line"><span class="language-css">            &#125;</span></span><br><span class="line"><span class="language-css">        &#125;</span></span><br><span class="line"><span class="language-css">    </span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;container&quot;</span>&gt;</span></span><br><span class="line"></span><br><span class="line">        <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;footer&quot;</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;dot-list&quot;</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="name">svg</span> <span class="attr">style</span>=<span class="string">&quot;visibility: hidden; position: absolute; left: 0; top: 0&quot;</span> <span class="attr">width</span>=<span class="string">&quot;400&quot;</span> <span class="attr">height</span>=<span class="string">&quot;200&quot;</span> <span class="attr">viewBox</span>=<span class="string">&quot;0 0 400 200&quot;</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">defs</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">filter</span> <span class="attr">id</span>=<span class="string">&quot;dynamicBlend&quot;</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">feGaussianBlur</span> <span class="attr">stdDeviation</span>=<span class="string">&quot;8&quot;</span> <span class="attr">result</span>=<span class="string">&quot;blur&quot;</span> <span class="attr">edgeMode</span>=<span class="string">&quot;duplicate&quot;</span> /&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">feColorMatrix</span> <span class="attr">type</span>=<span class="string">&quot;matrix&quot;</span> <span class="attr">values</span>=<span class="string">&quot;</span></span></span><br><span class="line"><span class="string"><span class="tag">                  1 0 0 0 0</span></span></span><br><span class="line"><span class="string"><span class="tag">                  0 1 0 0 0</span></span></span><br><span class="line"><span class="string"><span class="tag">                  0 0 1 0 0</span></span></span><br><span class="line"><span class="string"><span class="tag">                  0 0 0 16 -6&quot;</span> /&gt;</span></span><br><span class="line">            <span class="tag">&lt;/<span class="name">filter</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">defs</span>&gt;</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;/<span class="name">svg</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript">    <span class="keyword">function</span> <span class="title function_">createElemetSpan</span>(<span class="params"></span>) &#123;</span></span><br><span class="line"><span class="language-javascript">        <span class="keyword">const</span> dostList = <span class="variable language_">document</span>.<span class="title function_">querySelector</span>(<span class="string">&quot;.dot-list&quot;</span>);</span></span><br><span class="line"><span class="language-javascript">        <span class="keyword">const</span> createLength = <span class="title class_">Math</span>.<span class="title function_">ceil</span>(<span class="title class_">Math</span>.<span class="title function_">random</span>() * <span class="number">80</span>);</span></span><br><span class="line"><span class="language-javascript">        <span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; createLength; i++) &#123;</span></span><br><span class="line"><span class="language-javascript">            <span class="keyword">const</span> span = <span class="variable language_">document</span>.<span class="title function_">createElement</span>(<span class="string">&quot;span&quot;</span>);</span></span><br><span class="line"><span class="language-javascript">            <span class="keyword">const</span> width = <span class="number">50</span> + <span class="title class_">Math</span>.<span class="title function_">ceil</span>(<span class="title class_">Math</span>.<span class="title function_">random</span>() * <span class="number">400</span>);</span></span><br><span class="line"><span class="language-javascript">            <span class="keyword">const</span> left = <span class="number">40</span> + <span class="title class_">Math</span>.<span class="title function_">random</span>() * <span class="number">20</span>;</span></span><br><span class="line"><span class="language-javascript">            <span class="keyword">const</span> top = <span class="title class_">Math</span>.<span class="title function_">random</span>() * <span class="number">200</span>;</span></span><br><span class="line"><span class="language-javascript">            span.<span class="property">style</span>.<span class="property">cssText</span> = <span class="string">`width: <span class="subst">$&#123;width&#125;</span>px; height: <span class="subst">$&#123;width&#125;</span>px;left:<span class="subst">$&#123;left&#125;</span>%; top: <span class="subst">$&#123;top&#125;</span>px`</span>;</span></span><br><span class="line"><span class="language-javascript">            dostList.<span class="title function_">appendChild</span>(span);</span></span><br><span class="line"><span class="language-javascript">            <span class="built_in">setTimeout</span>(<span class="function">() =&gt;</span> &#123;</span></span><br><span class="line"><span class="language-javascript">                dostList.<span class="title function_">removeChild</span>(span);</span></span><br><span class="line"><span class="language-javascript">            &#125;, <span class="number">4000</span>);</span></span><br><span class="line"><span class="language-javascript">        &#125;</span></span><br><span class="line"><span class="language-javascript">    &#125;</span></span><br><span class="line"><span class="language-javascript">    <span class="title function_">createElemetSpan</span>();</span></span><br><span class="line"><span class="language-javascript">    <span class="built_in">setInterval</span>(createElemetSpan, <span class="number">1000</span>);</span></span><br><span class="line"><span class="language-javascript"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+        </div>
+
+        
+            <div class="post-copyright-info">
+                <div class="article-copyright-info-container">
+    <ul>
+        <li>本文标题：抖音博主前端知识点（CSS/JS/VUE/React）</li>
+        <li>本文作者：邵预鸿</li>
+        <li>创建时间：2023-03-09 15:48:09</li>
+        <li>
+            本文链接：/images/logo.jpg2023/03/09/抖音博主前端知识点（CSS-JS-VUE-React）/
+        </li>
+        <li>
+            版权声明：本博客所有文章除特别声明外，均采用 <a class="license" target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">BY-NC-SA</a> 许可协议。转载请注明出处！
+        </li>
+    </ul>
+</div>
+
+            </div>
+        
+
+        
+            <div class="article-nav">
+                
+                    <div class="article-prev">
+                        <a class="prev"
+                           rel="prev"
+                           href="/2023/03/16/exporess/"
+                        >
+                            <span class="left arrow-icon flex-center">
+                              <i class="fas fa-chevron-left"></i>
+                            </span>
+                            <span class="title flex-center">
+                                <span class="post-nav-title-item">exporess</span>
+                                <span class="post-nav-item">上一篇</span>
+                            </span>
+                        </a>
+                    </div>
+                
+                
+                    <div class="article-next">
+                        <a class="next"
+                           rel="next"
+                           href="/2023/03/02/vue%E5%B0%86%E7%BB%84%E4%BB%B6%E5%B0%81%E8%A3%85%E4%B8%BA%E6%96%B9%E6%B3%95%E8%B0%83%E7%94%A8/"
+                        >
+                            <span class="title flex-center">
+                                <span class="post-nav-title-item">vue将组件封装为方法调用</span>
+                                <span class="post-nav-item">下一篇</span>
+                            </span>
+                            <span class="right arrow-icon flex-center">
+                              <i class="fas fa-chevron-right"></i>
+                            </span>
+                        </a>
+                    </div>
+                
+            </div>
+        
+
+        
+    </div>
+</div>
+
+
+        
+      </div>
+
+    </div>
+
+    <div class="page-main-content-bottom">
+      <footer class="footer">
+    <div class="info-container">
+        <div class="copyright-info info-item">
+            &copy;
+            
+              <span>2021</span>&nbsp;-&nbsp;
+            
+            2026&nbsp;<i class="fas fa-heart icon-animate"></i>&nbsp;<a href="/">邵预鸿</a>
+        </div>
+        
+        
+        <div>更多笔记请访问:<a href="https://www.shaoyuhong.cn" target="_blank">邵预鸿|随心记 https://www.shaoyuhong.cn</a></div>
+
+    </div>
+</footer>
+
+    </div>
+  </div>
+
+  
+  <div class="post-tools">
+    <div class="post-tools-container">
+    <ul class="tools-list">
+        <!-- TOC aside toggle -->
+        
+
+        <!-- go comment -->
+        
+    </ul>
+</div>
+
+  </div>
+  
+
+  <div class="right-bottom-side-tools">
+    <div class="side-tools-container">
+    <ul class="side-tools-list">
+        <li class="tools-item tool-font-adjust-plus flex-center">
+            <i class="fas fa-search-plus"></i>
+        </li>
+
+        <li class="tools-item tool-font-adjust-minus flex-center">
+            <i class="fas fa-search-minus"></i>
+        </li>
+
+        <li class="tools-item tool-expand-width flex-center">
+            <i class="fas fa-arrows-alt-h"></i>
+        </li>
+
+        <li class="tools-item tool-dark-light-toggle flex-center">
+            <i class="fas fa-moon"></i>
+        </li>
+
+        <!-- rss -->
+        
+
+        
+
+        <li class="tools-item tool-scroll-to-bottom flex-center">
+            <i class="fas fa-arrow-down"></i>
+        </li>
+    </ul>
+
+    <ul class="exposed-tools-list">
+        <li class="tools-item tool-toggle-show flex-center">
+            <i class="fas fa-cog fa-spin"></i>
+        </li>
+        
+            <li class="tools-item tool-scroll-to-top flex-center">
+                <i class="arrow-up fas fa-arrow-up"></i>
+                <span class="percent"></span>
+            </li>
+        
+    </ul>
+</div>
+
+  </div>
+
+  
+
+  <div class="image-viewer-container">
+    <img src="">
+</div>
+
+
+  
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+          <span class="search-input-field-pre">
+            <i class="fas fa-keyboard"></i>
+          </span>
+            <div class="search-input-container">
+                <input autocomplete="off"
+                       autocorrect="off"
+                       autocapitalize="off"
+                       placeholder="搜索..."
+                       spellcheck="false"
+                       type="search"
+                       class="search-input"
+                >
+            </div>
+            <span class="popup-btn-close">
+                <i class="fas fa-times"></i>
+            </span>
+        </div>
+        <div id="search-result">
+            <div id="no-result">
+                <i class="fas fa-spinner fa-pulse fa-5x fa-fw"></i>
+            </div>
+        </div>
+    </div>
+</div>
+
+  
+
+</main>
+<script>
+  const context = document.querySelector(".markdown-body");
+  const articleTitleList = document.querySelector(".article-title-list");
+  const mainContent = document.querySelector('.main-content');
+
+  if (context) {
+    if (window.innerWidth > 1380) {
+      const tags = context.querySelectorAll('*');
+      const hTagReg = /^H[1-6]$/;
+      let template = '';
+      tags.forEach(item => {
+        if (hTagReg.test(item.tagName.toUpperCase()) && item.innerText) {
+          const tagH = item.tagName.toLowerCase();
+          const tagHToUpper = item.tagName.toUpperCase();
+          const forHash = item.getAttribute("id");
+          //<span class="badge">${tagHToUpper}</span>
+          template += `
+                  <${tagH}>
+                    <a onclick="javascript:void(1)" href="#${forHash}"> ${item.innerText}</a>
+                  </${tagH}>  
+                `;
+
+        }
+      });
+      articleTitleList.innerHTML = template;
+    }
+
+
+  }
+
+  (function leftNavPositionChange() {
+    const articleTitlePositoinX = (window.innerWidth - mainContent.clientWidth) / 2 - 300;
+    articleTitleList.style.left = articleTitlePositoinX + 'px';
+    window.onresize = function () {
+      leftNavPositionChange();
+    };
+  })();
+
+</script>
+
+<script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="/js/header-shrink.js"></script><script src="/js/back2top.js"></script><script src="/js/dark-light-toggle.js"></script>
+
+
+    <script src="/js/local-search.js"></script>
+
+
+
+    <script src="/js/code-copy.js"></script>
+
+
+
+    <script src="/js/lazyload.js"></script>
+
+
+<div class="post-scripts">
+    
+</div>
+
+
+
+</body>
+</html>

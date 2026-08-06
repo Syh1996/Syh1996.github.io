@@ -1,0 +1,631 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="baidu-site-verification" content="code-YfBAOEVVQH" />
+    <meta name="keywords" content="邵预鸿,前端开发工程师,技术博客,生活记录,生活日常,个人简历,日常规划">
+    <meta name="description" content="入职中兴通讯，一名低调资深的ctrl+c and ctrl+v开发者">
+    <meta name="author" content="邵预鸿">
+    
+    <title>
+        
+            js设计模式 |
+        
+        邵预鸿|前端开发技术笔记
+    </title>
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="shortcut icon" href="/images/logo.jpg">
+    <link rel="stylesheet" href="/css/font-awesome.min.css">
+    <script id="hexo-configurations">
+    let KEEP = window.KEEP || {};
+    KEEP.hexo_config = {"hostname":"github.com","root":"/","language":"zh-CN","path":"search.json"};
+    KEEP.theme_config = {"toc":{"enable":false,"number":false,"expand_all":false,"init_open":false},"style":{"primary_color":"#0066CC","avatar":"/images/logo.jpg","favicon":"/images/logo.jpg","article_img_align":"left","left_side_width":"260px","content_max_width":"920px","hover":{"shadow":true,"scale":false},"first_screen":{"enable":true,"background_img":"/images/bg.svg","description":"积累硅步，可至千里；千里之行，始于足下"},"scroll":{"progress_bar":{"enable":true},"percent":{"enable":true}}},"local_search":{"enable":true,"preload":true},"code_copy":{"enable":true,"style":"default"},"pjax":{"enable":false},"lazyload":{"enable":true},"version":"3.4.0"};
+    KEEP.language_ago = {"second":"%s 秒前","minute":"%s 分钟前","hour":"%s 小时前","day":"%s 天前","week":"%s 周前","month":"%s 月前","year":"%s 年前"};
+  </script>
+<meta name="generator" content="Hexo 5.4.2"></head>
+
+
+<body>
+<!--
+ * @Description: file content
+ * @Author: yuhongshao
+ * @Date: 2021-02-20 19:33:18
+ * @email: 
+ * @LastEditTime: 2022-05-25 12:31:42
+-->
+<div class="progress-bar-container">
+    
+        <span class="scroll-progress-bar"></span>
+    
+
+    
+</div>
+
+
+<main class="page-container">
+
+  
+
+  <div class="page-main-content">
+
+    <div class="page-main-content-top">
+      <header class="header-wrapper">
+
+    <div class="header-content">
+        <div class="left">
+            <a class="logo-title" href="/">
+                邵预鸿|前端开发技术笔记
+            </a>
+        </div>
+
+        <div class="right">
+            <div class="pc">
+                <ul class="menu-list">
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/"
+                            >
+                                主页
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/archives"
+                            >
+                                历年汇总
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/about"
+                            >
+                                关于我
+                            </a>
+                        </li>
+                    
+                    
+                        <li class="menu-item search search-popup-trigger">
+                            <i class="fas fa-search"></i>
+                        </li>
+                    
+                </ul>
+            </div>
+            <div class="mobile">
+                
+                    <div class="icon-item search search-popup-trigger"><i class="fas fa-search"></i></div>
+                
+                <div class="icon-item menu-bar">
+                    <div class="menu-bar-middle"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="header-drawer">
+        <ul class="drawer-menu-list">
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/">主页</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/archives">历年汇总</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/about">关于我</a>
+                </li>
+            
+        </ul>
+    </div>
+
+    <div class="window-mask"></div>
+
+</header>
+
+
+    </div>
+    <style>
+      .main-content a{
+        color: #6e9cca;
+      }
+      .article-title-list {
+        position: fixed;
+        left: 80px;
+        top: 110px;
+        z-index: 100;
+        width: 300px;
+        max-height: calc(100% - 144px);
+        overflow: auto;
+      }
+      .article-title-list a .badge{
+        display: inline-block;
+        margin-right: 5px;
+        padding: 0 5px;
+        background-color: #ebebeb;
+        border-radius: 3px;
+        color: #6b6b6b;
+      }
+      .article-title-list h1,
+      .article-title-list h2,
+      .article-title-list h3,
+      .article-title-list h4,
+      .article-title-list h5,
+      .article-title-list h6 {
+        box-sizing: border-box;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        overflow: hidden;
+        color: #686868;
+        font-weight: normal;
+        line-height: 1;
+        cursor: pointer;
+      }
+
+      .article-title-list h1 {
+        font-size: 22px;
+      }
+
+      .article-title-list h2 {
+        padding-left: 20px;
+        font-size: 20px;
+      }
+
+      .article-title-list h3 {
+        padding-left: 40px;
+        font-size: 18px;
+      }
+
+      .article-title-list h4 {
+        padding-left: 60px;
+        font-size: 16px;
+      }
+
+      .article-title-list h5 {
+        padding-left: 80px;
+        font-size: 14px;
+      }
+
+      .article-title-list h6 {
+        padding-left: 100px;
+        font-size: 12px;
+      }
+
+    </style>
+    <div class="article-title-list">
+    </div>
+
+    <div class="page-main-content-middle">
+
+      <div class="main-content">
+
+        
+        <div class="fade-in-down-animation">
+    <div class="article-content-container">
+
+        <div class="article-title">
+            <span class="title-hover-animation">js设计模式</span>
+        </div>
+
+        
+            <div class="article-header">
+                <div class="avatar">
+                    <img src="/images/logo.jpg">
+                </div>
+                <div class="info">
+                    <div class="author">
+                        <span class="name">邵预鸿</span>
+                        
+                            <span class="author-label">Lv5</span>
+                        
+                    </div>
+                    <div class="meta-info">
+                        <div class="article-meta-info">
+    <span class="article-date article-meta-item">
+        <i class="fas fa-edit"></i>&nbsp;2021-06-23 17:35:17
+    </span>
+    
+    
+        <span class="article-tags article-meta-item">
+            <i class="fas fa-tags"></i>&nbsp;
+            <ul>
+                
+                    <li>
+                        <a href="/tags/js/">js</a>&nbsp;
+                    </li>
+                
+            </ul>
+        </span>
+    
+
+    
+    
+    
+    
+</div>
+
+                    </div>
+                </div>
+            </div>
+        
+
+        <div class="article-content markdown-body">
+            <h3 id="构造"><a href="#构造" class="headerlink" title="构造"></a>构造</h3><p>通过构造函数，减少对象变量声明，同时能得到对象相同的结构</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">Info</span>(<span class="params">name,age</span>)&#123;</span><br><span class="line">  <span class="variable language_">this</span>.<span class="property">name</span> = name;</span><br><span class="line">  <span class="variable language_">this</span>.<span class="property">age</span> = age;</span><br><span class="line">  <span class="variable language_">this</span>.<span class="property">log</span> = <span class="function">()=&gt;</span>&#123;</span><br><span class="line">      <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="variable language_">this</span>.<span class="property">name</span>,<span class="variable language_">this</span>.<span class="property">age</span>)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> p = <span class="keyword">new</span> <span class="title class_">Info</span>(<span class="string">&#x27;xiaoming&#x27;</span>,<span class="number">22</span>);</span><br><span class="line"><span class="keyword">const</span> p2 = <span class="keyword">new</span> <span class="title class_">Info</span>(<span class="string">&#x27;xiaohong&#x27;</span>,<span class="number">33</span>)</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="原型模式"><a href="#原型模式" class="headerlink" title="原型模式"></a>原型模式</h3><p>构造模式有个大的问题，log函数每次new Info时，都会声明一次，会在内存中重新分配 一块内存</p>
+<p>实际上，log做的是同一个事，所以通过原型模式可以弥补这面的不足</p>
+<p>这样，每一个new Info时，log函数只声明了一次</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">Info</span>(<span class="params">name,age</span>)&#123;</span><br><span class="line">  <span class="variable language_">this</span>.<span class="property">name</span> = name;</span><br><span class="line">  <span class="variable language_">this</span>.<span class="property">age</span> = age;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="title class_">Info</span>.<span class="property"><span class="keyword">prototype</span></span>.<span class="property">log</span> = <span class="function">()=&gt;</span>&#123;</span><br><span class="line">      <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="variable language_">this</span>.<span class="property">name</span>,<span class="variable language_">this</span>.<span class="property">age</span>)</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> p = <span class="keyword">new</span> <span class="title class_">Info</span>(<span class="string">&#x27;xiaoming&#x27;</span>,<span class="number">22</span>);</span><br><span class="line"><span class="keyword">const</span> p2 = <span class="keyword">new</span> <span class="title class_">Info</span>(<span class="string">&#x27;xiaohong&#x27;</span>,<span class="number">33</span>)</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="类模式"><a href="#类模式" class="headerlink" title="类模式"></a>类模式</h3><p>原型模式可以用ES6方式简写，实现是一样的</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Info</span>&#123;</span><br><span class="line">   <span class="title function_">constructor</span>(<span class="params">name,age</span>)&#123;</span><br><span class="line">       <span class="variable language_">this</span>.<span class="property">name</span> = name;</span><br><span class="line">       <span class="variable language_">this</span>.<span class="property">age</span> = age;</span><br><span class="line">   &#125;</span><br><span class="line">    <span class="title function_">log</span>(<span class="params"></span>)&#123;</span><br><span class="line">        <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="variable language_">this</span>.<span class="property">name</span>,<span class="variable language_">this</span>.<span class="property">age</span>)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>通过class实例的类，方法挂载到了prototype上</p>
+<h3 id="工厂模式"><a href="#工厂模式" class="headerlink" title="工厂模式"></a>工厂模式</h3><p>利用函数、类处理多个重复的逻辑，返回一个对象，开发者无需关心内部调用步骤</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">stu</span>(<span class="params">name,age</span>)&#123;</span><br><span class="line">    <span class="keyword">const</span> opt = &#123;&#125;;</span><br><span class="line">    opt.<span class="property">name</span> = name;</span><br><span class="line">    opt.<span class="property">age</span> = age;</span><br><span class="line">    <span class="keyword">return</span> opt;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// </span></span><br><span class="line"><span class="title function_">stu</span>(<span class="string">&#x27;xiaoming&#x27;</span>,<span class="number">22</span>) <span class="comment">// &#123; name: &#x27;xiaoming&#x27;,age: 22&#125;</span></span><br></pre></td></tr></table></figure>
+
+
+
+
+
+<h3 id="建造者模式"><a href="#建造者模式" class="headerlink" title="建造者模式"></a>建造者模式</h3><p>与<code>工厂模式</code>不同，工厂模式由内部自己调用完成 最后输入对象。</p>
+<p><code>建造者模式</code> 让开发者了解全程调用过程，利用一个函数完成 整个步骤的调用</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Mask</span>&#123;</span><br><span class="line">    <span class="title function_">constructor</span>(<span class="params">opt</span>)&#123;</span><br><span class="line">         <span class="variable language_">this</span>.<span class="property">defualtData</span> = opt;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="title function_">setData</span>(<span class="params">data</span>)&#123;</span><br><span class="line">        <span class="variable language_">this</span>.<span class="property">defaultData</span> = data;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="title function_">render</span>(<span class="params"></span>)&#123;</span><br><span class="line">        <span class="comment">// 渲染dom</span></span><br><span class="line">        <span class="variable language_">document</span>.<span class="property">body</span>.<span class="title function_">appendChild</span>(template)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 统一管理，用于建造</span></span><br><span class="line"> <span class="keyword">function</span> <span class="title function_">buildFunc</span>(<span class="params">newClass</span>)&#123;</span><br><span class="line">      newClass.<span class="title function_">setData</span>();</span><br><span class="line">      newClass.<span class="title function_">render</span>();</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="title function_">buildFunc</span>(<span class="keyword">new</span> <span class="title class_">Mask</span>());</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+<h3 id="单例设计模式"><a href="#单例设计模式" class="headerlink" title="单例设计模式"></a>单例设计模式</h3><p>一个class类，new 多次，始终只有一个最终生成的实例，即new class() ===new class() ===new class();</p>
+<p>单例设计模式，实现过程为，一个闭包，用一个变量记录是否已经 new实例过，如果是返回记录的实例。否则new一个实例并赋值给闭包变量返回。</p>
+<h5 id="ES5写法"><a href="#ES5写法" class="headerlink" title="ES5写法"></a>ES5写法</h5><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> func = (<span class="function">()=&gt;</span>&#123;</span><br><span class="line">    <span class="keyword">let</span> install = <span class="literal">null</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">class</span> <span class="title class_">Info</span>&#123;</span><br><span class="line">        <span class="title function_">constructor</span>(<span class="params">name,age</span>)&#123;</span><br><span class="line">            <span class="variable language_">this</span>.<span class="property">name</span> = name;</span><br><span class="line">            <span class="variable language_">this</span>.<span class="property">age</span> = age;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="title function_">log</span>(<span class="params"></span>)&#123;</span><br><span class="line">            <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="variable language_">this</span>.<span class="property">name</span>,<span class="variable language_">this</span>.<span class="property">age</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">function</span>(<span class="params">name,age</span>)&#123;</span><br><span class="line">        <span class="keyword">if</span>(!install)&#123;</span><br><span class="line">             install = <span class="keyword">new</span> <span class="title class_">Info</span>(name,age);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> install;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;)();</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> p1= <span class="keyword">new</span> <span class="title function_">func</span>(<span class="string">&#x27;xiaochen&#x27;</span>,<span class="number">25</span>)</span><br><span class="line"><span class="keyword">const</span> p2= <span class="keyword">new</span> <span class="title function_">func</span>(<span class="string">&#x27;xiaoming&#x27;</span>,<span class="number">215</span>)</span><br><span class="line"><span class="comment">// p1 === p2   true</span></span><br></pre></td></tr></table></figure>
+
+<h5 id="ES6写法"><a href="#ES6写法" class="headerlink" title="ES6写法"></a>ES6写法</h5><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Info</span>&#123;</span><br><span class="line">    <span class="title function_">constructor</span>(<span class="params">name,age</span>)&#123;</span><br><span class="line">        <span class="keyword">if</span>(!<span class="title class_">Info</span>.<span class="property">install</span>)&#123;</span><br><span class="line">            <span class="variable language_">this</span>.<span class="property">name</span> = name;</span><br><span class="line">            <span class="variable language_">this</span>.<span class="property">age</span> = age;</span><br><span class="line">            <span class="title class_">Info</span>.<span class="property">install</span> = <span class="variable language_">this</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="title class_">Info</span>.<span class="property">install</span>;</span><br><span class="line">       </span><br><span class="line">    &#125;</span><br><span class="line">    <span class="title function_">log</span>(<span class="params"></span>)&#123;</span><br><span class="line">        <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="variable language_">this</span>.<span class="property">name</span>,<span class="variable language_">this</span>.<span class="property">age</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> p1 = <span class="keyword">new</span> <span class="title class_">Info</span>(<span class="string">&#x27;xiaohong&#x27;</span>,<span class="number">22</span>);</span><br><span class="line"><span class="keyword">const</span> p2 =  <span class="keyword">new</span> <span class="title class_">Info</span>(<span class="string">&#x27;xiaoming&#x27;</span>,<span class="number">33</span>);</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(p1,p2,p1===p2);</span><br></pre></td></tr></table></figure>
+
+<h5 id="弹窗案例"><a href="#弹窗案例" class="headerlink" title="弹窗案例"></a>弹窗案例</h5><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> onceMode = (<span class="function">()=&gt;</span>&#123;</span><br><span class="line">    <span class="keyword">let</span> install = <span class="literal">null</span>;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">function</span>(<span class="params"></span>)&#123;</span><br><span class="line">        <span class="keyword">if</span>(!install)&#123;</span><br><span class="line">            <span class="keyword">const</span> mask = <span class="variable language_">document</span>.<span class="title function_">createElement</span>(<span class="string">&#x27;div&#x27;</span>);</span><br><span class="line">            mask.<span class="property">classList</span>.<span class="title function_">add</span>(<span class="string">&#x27;el-dialog&#x27;</span>);</span><br><span class="line">            mask.<span class="property">style</span>.<span class="property">cssText</span> = <span class="string">&quot;width: 200px;height: 200px;background-color: #ccc;display: none&quot;</span>;</span><br><span class="line">            <span class="variable language_">document</span>.<span class="property">body</span>.<span class="title function_">appendChild</span>(mask);</span><br><span class="line">            install = mask;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> install;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;)();</span><br><span class="line"></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">openMaskBtnBindEvent</span>(<span class="params"></span>)&#123;</span><br><span class="line">    <span class="keyword">const</span> btn = <span class="variable language_">document</span>.<span class="title function_">querySelector</span>(<span class="string">&#x27;#openMask&#x27;</span>);</span><br><span class="line">    btn.<span class="title function_">addEventListener</span>(<span class="string">&#x27;click&#x27;</span>,<span class="function">()=&gt;</span>&#123;</span><br><span class="line">        <span class="keyword">const</span> maskDom = <span class="title function_">onceMode</span>();</span><br><span class="line">        maskDom.<span class="property">style</span>.<span class="property">display</span>=<span class="string">&quot;block&quot;</span>;</span><br><span class="line">    &#125;)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">clasMaskBtnBindEvent</span>(<span class="params"></span>)&#123;</span><br><span class="line">    <span class="keyword">const</span> btn = <span class="variable language_">document</span>.<span class="title function_">querySelector</span>(<span class="string">&#x27;#closeMask&#x27;</span>);</span><br><span class="line">    btn.<span class="title function_">addEventListener</span>(<span class="string">&#x27;click&#x27;</span>,<span class="function">()=&gt;</span>&#123;</span><br><span class="line">       <span class="keyword">const</span> mask = <span class="variable language_">document</span>.<span class="title function_">querySelector</span>(<span class="string">&#x27;.el-dialog&#x27;</span>);</span><br><span class="line">       <span class="keyword">if</span>(mask)&#123;</span><br><span class="line">         mask.<span class="property">style</span>.<span class="property">display</span> = <span class="string">&quot;none&quot;</span></span><br><span class="line">       &#125;</span><br><span class="line">      </span><br><span class="line">    &#125;)</span><br><span class="line">&#125;</span><br><span class="line"><span class="variable language_">window</span>.<span class="title function_">addEventListener</span>(<span class="string">&#x27;load&#x27;</span>,<span class="keyword">function</span>(<span class="params"></span>)&#123;</span><br><span class="line">    <span class="title function_">openMaskBtnBindEvent</span>();</span><br><span class="line">    <span class="title function_">clasMaskBtnBindEvent</span>();</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+<h3 id="装饰器模式"><a href="#装饰器模式" class="headerlink" title="装饰器模式"></a>装饰器模式</h3><p><code>装饰器模式</code>主要为解决，函数扩展的问题，请看以下问题</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">test</span>(<span class="params"></span>)&#123;</span><br><span class="line">   <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;111111&#x27;</span>)</span><br><span class="line">&#125;</span><br><span class="line"><span class="title function_">test</span>();</span><br></pre></td></tr></table></figure>
+
+<p>现在我们希望在test执行前输出”00000”,执行后输出 “22222”</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="title class_">Function</span>.<span class="property"><span class="keyword">prototype</span></span>.<span class="property">before</span> = <span class="keyword">function</span> (<span class="params">beforeFunc</span>) &#123;</span><br><span class="line">    <span class="keyword">let</span> that = <span class="variable language_">this</span>;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">function</span> (<span class="params"></span>) &#123;</span><br><span class="line">        beforeFunc.<span class="title function_">apply</span>(<span class="variable language_">this</span>, <span class="variable language_">arguments</span>);</span><br><span class="line">        <span class="keyword">const</span> _this = that.<span class="title function_">apply</span>(<span class="variable language_">this</span>, <span class="variable language_">arguments</span>);</span><br><span class="line">        <span class="keyword">return</span> _this;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="title class_">Function</span>.<span class="property"><span class="keyword">prototype</span></span>.<span class="property">after</span> = <span class="keyword">function</span> (<span class="params">afterFunc</span>) &#123;</span><br><span class="line">    <span class="keyword">let</span> that = <span class="variable language_">this</span>;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">function</span> (<span class="params"></span>) &#123;</span><br><span class="line">        <span class="keyword">const</span> _this = that.<span class="title function_">apply</span>(<span class="variable language_">this</span>, <span class="variable language_">arguments</span>);</span><br><span class="line">        afterFunc.<span class="title function_">apply</span>(<span class="variable language_">this</span>, <span class="variable language_">arguments</span>);</span><br><span class="line">        <span class="keyword">return</span> _this;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">function</span> <span class="title function_">test</span>(<span class="params"></span>) &#123;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;1111111111&#x27;</span>);</span><br><span class="line">    <span class="keyword">return</span> <span class="string">&#x27;test func&#x27;</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> func = test</span><br><span class="line">    .<span class="title function_">before</span>(<span class="function">() =&gt;</span> &#123; <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;000000&#x27;</span>) &#125;)</span><br><span class="line">    .<span class="title function_">after</span>(<span class="function">() =&gt;</span> &#123; <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;22222&#x27;</span>) &#125;);</span><br><span class="line"></span><br><span class="line"><span class="title function_">func</span>();</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+<h3 id="适配器模式"><a href="#适配器模式" class="headerlink" title="适配器模式"></a>适配器模式</h3><p>需求： 某项目需要接入两个地图页面展示，百度地图 和 高德地图 ，两个员工 一个负责百度地图 开发，一个负责高德地图开发。代码如下</p>
+<p><strong>接入百度地图的员工</strong></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">BaiduMap</span>&#123;</span><br><span class="line">   <span class="title function_">init</span>(<span class="params"></span>)&#123;</span><br><span class="line">       ......</span><br><span class="line">   &#125;</span><br><span class="line">   <span class="title function_">show</span>(<span class="params"></span>)&#123;</span><br><span class="line">      <span class="variable language_">document</span>.<span class="property">body</span>.<span class="property">innerHTML</span> = <span class="string">&#x27;......&#x27;</span></span><br><span class="line">   &#125;</span><br><span class="line">   <span class="title function_">close</span>(<span class="params"></span>)&#123;</span><br><span class="line">       .............</span><br><span class="line">   &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<p><strong>接入高德地图的员工</strong></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">GaoDeMap</span>&#123;</span><br><span class="line">    <span class="title function_">start</span>(<span class="params"></span>)&#123;</span><br><span class="line">       ......</span><br><span class="line">   &#125;</span><br><span class="line">   <span class="title function_">display</span>(<span class="params"></span>)&#123;</span><br><span class="line">      <span class="variable language_">document</span>.<span class="property">body</span>.<span class="property">innerHTML</span> = <span class="string">&#x27;......&#x27;</span></span><br><span class="line">   &#125;</span><br><span class="line">   <span class="title function_">remove</span>(<span class="params"></span>)&#123;</span><br><span class="line">       .............</span><br><span class="line">   &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<p>上面两位员工 分别有自己的个人习惯，命名方式都不能，两个一起接入时，会造成不停的判断，为了解决这个问题，适配器模式的思维很有用</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">GaoDeMapAdapator</span> <span class="keyword">extends</span> <span class="title class_ inherited__">GaoDeMap</span>&#123;</span><br><span class="line">    <span class="title function_">init</span>(<span class="params"></span>)&#123;</span><br><span class="line">        <span class="variable language_">this</span>.<span class="title function_">start</span>();</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="title function_">show</span>(<span class="params"></span>)&#123;</span><br><span class="line">        <span class="variable language_">this</span>.<span class="title function_">display</span>();</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="title function_">close</span>(<span class="params"></span>)&#123;</span><br><span class="line">        <span class="variable language_">this</span>.<span class="title function_">remove</span>();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="variable language_">document</span>.<span class="title function_">querySelector</span>(<span class="string">&#x27;#btn&#x27;</span>).<span class="property">click</span>=<span class="keyword">function</span>(<span class="params"></span>)&#123;</span><br><span class="line">    <span class="keyword">let</span> map= <span class="literal">null</span>;</span><br><span class="line">    <span class="keyword">if</span>(<span class="string">&quot;需要用百度地图 &quot;</span>)&#123;</span><br><span class="line">       map = <span class="keyword">new</span> <span class="title class_">BaiduMap</span>();</span><br><span class="line">   &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">       map = <span class="keyword">new</span> <span class="title class_">GaoDeMapAdapator</span>();</span><br><span class="line">   &#125;</span><br><span class="line">    map.<span class="title function_">init</span>();</span><br><span class="line">    map.<span class="title function_">show</span>();</span><br><span class="line">    map.<span class="title function_">close</span>()</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+<hr>
+<p>**案例2 **</p>
+<p>老项目为jqeury搭建，请求使用的$.ajax方式，现在要求将jquery改为axios写法。</p>
+<p>以前方式: 大量删除$.ajax，改写为axios</p>
+<p>新思维:</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> axios <span class="keyword">from</span> <span class="string">&#x27;axios&#x27;</span></span><br><span class="line"><span class="keyword">var</span> $ = &#123;</span><br><span class="line">   <span class="attr">ajax</span>: <span class="function">(<span class="params">params</span>)=&gt;</span>&#123;</span><br><span class="line">       axios.<span class="title function_">get</span>()....</span><br><span class="line">   &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>不修改$.ajax，直接在window上挂载一个变量，内部重写ajax</p>
+<h3 id="策略模式"><a href="#策略模式" class="headerlink" title="策略模式"></a>策略模式</h3><p>抽离重复逻辑，通过定义对象引用，让代码更加简洁。</p>
+<p><strong>老项目</strong></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">computedMoney</span>(<span class="params">level, base</span>)&#123;</span><br><span class="line">    <span class="keyword">if</span>(level === <span class="number">1</span>)&#123;</span><br><span class="line">         <span class="keyword">return</span> base*<span class="number">6</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span>(level === <span class="number">2</span>)&#123;</span><br><span class="line">        <span class="keyword">return</span> base*<span class="number">4</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span>(level === <span class="number">3</span>)&#123;</span><br><span class="line">        <span class="keyword">return</span> base * <span class="number">2</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<p><strong>改进后</strong></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> computedBase = &#123;</span><br><span class="line">    <span class="number">1</span>: <span class="function"><span class="params">base</span>=&gt;</span> base*<span class="number">6</span>,</span><br><span class="line">    <span class="number">2</span>: <span class="function"><span class="params">base</span>=&gt;</span> base*<span class="number">4</span>,</span><br><span class="line">    <span class="number">3</span>: <span class="function"><span class="params">base</span>=&gt;</span> base*<span class="number">2</span>,</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">function</span> <span class="title function_">computedMoney</span>(<span class="params">level, base</span>)&#123;</span><br><span class="line">   <span class="keyword">return</span> computedBase[level](base);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+<h3 id="代理模式Proxy"><a href="#代理模式Proxy" class="headerlink" title="代理模式Proxy"></a>代理模式Proxy</h3><p>利用数据监听劫持，代理其它逻辑，vue3简单实现更新数据驱动视图</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> obj = &#123;</span><br><span class="line">    <span class="attr">name</span>: <span class="string">&#x27;&#x27;</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="variable language_">window</span>.<span class="property">proxy</span> = <span class="keyword">new</span> <span class="title class_">Proxy</span>(obj,&#123;</span><br><span class="line">    <span class="title function_">get</span>(<span class="params">target,key</span>)&#123;</span><br><span class="line">        <span class="keyword">return</span> target[key]</span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="title function_">set</span>(<span class="params">target,key,val</span>)&#123;</span><br><span class="line">       <span class="keyword">const</span> p = <span class="variable language_">document</span>.<span class="title function_">querySelector</span>(<span class="string">&#x27;#main&#x27;</span>);</span><br><span class="line">       p.<span class="property">innerText</span> = val;</span><br><span class="line">       target[key] = val;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+<h3 id="观察者模式"><a href="#观察者模式" class="headerlink" title="观察者模式"></a>观察者模式</h3><p>观察者模式定义了一对多的依赖关系，通过目标对象的状态更新，通知所有依赖观察者对象自动更新.</p>
+<p><strong>实例</strong></p>
+<p>点击发布通知，消息推送到绿色的6个组件，不考虑react/vue的思想，原生实现这个问题。</p>
+<p>通过观察者模式，可以直接由目标对象更新，让依赖观察者自动更新</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="http://server.yuhongshao.cn/static/yuhongshao/20230512180037.png"
+                      alt="http://server.yuhongshao.cn/static/yuhongshao/20230512180037.png"
+                ></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Main</span>&#123;</span><br><span class="line">    <span class="title function_">constructor</span>(<span class="params"></span>)&#123;</span><br><span class="line">        <span class="variable language_">this</span>.<span class="property">domList</span> = [];</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="title function_">add</span>(<span class="params">elClass</span>)&#123;</span><br><span class="line">        <span class="variable language_">this</span>.<span class="property">domList</span>.<span class="title function_">push</span>(elClass);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="title function_">update</span>(<span class="params">msg</span>)&#123;</span><br><span class="line">        <span class="variable language_">this</span>.<span class="property">domList</span>.<span class="title function_">forEach</span>(<span class="function"><span class="params">item</span>=&gt;</span>item.<span class="title function_">update</span>(msg))</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Observe</span>&#123;</span><br><span class="line">    <span class="title function_">constructor</span>(<span class="params">el</span>)&#123;</span><br><span class="line">        <span class="variable language_">this</span>.<span class="property">dom</span> = <span class="variable language_">document</span>.<span class="title function_">querySelector</span>(el);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="title function_">update</span>(<span class="params">msg</span>)&#123;</span><br><span class="line">        <span class="variable language_">this</span>.<span class="property">dom</span>.<span class="property">innerHTML</span> = msg;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 将所有观察者加入统一管理</span></span><br><span class="line"><span class="keyword">const</span> <span class="title class_">DomList</span> = <span class="keyword">new</span> <span class="title class_">Main</span>();</span><br><span class="line"><span class="title class_">DomList</span>.<span class="title function_">add</span>(<span class="keyword">new</span> <span class="title class_">Observe</span>(<span class="string">&#x27;#bar1&#x27;</span>));</span><br><span class="line"><span class="title class_">DomList</span>.<span class="title function_">add</span>(<span class="keyword">new</span> <span class="title class_">Observe</span>(<span class="string">&#x27;#bar2&#x27;</span>));</span><br><span class="line"><span class="title class_">DomList</span>.<span class="title function_">add</span>(<span class="keyword">new</span> <span class="title class_">Observe</span>(<span class="string">&#x27;#bar3&#x27;</span>));</span><br><span class="line"><span class="title class_">DomList</span>.<span class="title function_">add</span>(<span class="keyword">new</span> <span class="title class_">Observe</span>(<span class="string">&#x27;#bar4&#x27;</span>));</span><br><span class="line"><span class="title class_">DomList</span>.<span class="title function_">add</span>(<span class="keyword">new</span> <span class="title class_">Observe</span>(<span class="string">&#x27;#bar5&#x27;</span>));</span><br><span class="line"><span class="title class_">DomList</span>.<span class="title function_">add</span>(<span class="keyword">new</span> <span class="title class_">Observe</span>(<span class="string">&#x27;#bar6&#x27;</span>));</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="variable language_">document</span>.<span class="title function_">querySelector</span>(<span class="string">&quot;#search button&quot;</span>).<span class="property">onclick</span>=<span class="keyword">function</span>(<span class="params"></span>)&#123;</span><br><span class="line">     <span class="keyword">const</span> input = <span class="variable language_">document</span>.<span class="title function_">querySelector</span>(<span class="string">&#x27;#search input&#x27;</span>);</span><br><span class="line">     <span class="keyword">const</span> inputValue = input.<span class="property">value</span>;</span><br><span class="line">     <span class="keyword">if</span>(inputValue)&#123;</span><br><span class="line">        <span class="title class_">DomList</span>.<span class="title function_">update</span>(inputValue);</span><br><span class="line">     &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+<h3 id="发布与订阅模式"><a href="#发布与订阅模式" class="headerlink" title="发布与订阅模式"></a>发布与订阅模式</h3><p>观察者模式不能对事件进行精细化管理，比如，我希望自己手写函数，通过Main类最后统一调度。为了解决这个问题，有了发布与订阅模式</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> <span class="title class_">Main</span> = &#123;</span><br><span class="line">    <span class="attr">events</span>: &#123;&#125;,</span><br><span class="line">    <span class="title function_">add</span>(<span class="params">type, func</span>) &#123;</span><br><span class="line">        <span class="keyword">if</span> (<span class="variable language_">this</span>.<span class="property">events</span>[type]) &#123;</span><br><span class="line">            <span class="variable language_">this</span>.<span class="property">events</span>[type].<span class="title function_">push</span>(func);</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="variable language_">this</span>.<span class="property">events</span>[type] = [func];</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="title function_">del</span>(<span class="params">type, func</span>) &#123;</span><br><span class="line">        <span class="keyword">if</span> (!func) &#123;</span><br><span class="line">            <span class="variable language_">this</span>.<span class="property">events</span>[type] &amp;&amp; (<span class="variable language_">this</span>.<span class="property">events</span>[type].<span class="property">length</span> = <span class="number">0</span>);</span><br><span class="line">            <span class="keyword">return</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span> (<span class="variable language_">this</span>.<span class="property">events</span>[type]) &#123;</span><br><span class="line">            <span class="variable language_">this</span>.<span class="property">events</span>[type] = <span class="variable language_">this</span>.<span class="property">events</span>[type].<span class="title function_">filter</span>(<span class="function"><span class="params">item</span> =&gt;</span> item !== func);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="title function_">publish</span>(<span class="params">type,data</span>) &#123;</span><br><span class="line">        <span class="variable language_">this</span>.<span class="property">events</span>[type].<span class="title function_">forEach</span>(<span class="function"><span class="params">item</span> =&gt;</span> <span class="title function_">item</span>(data));</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 修改div innerHTML</span></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">updateInnerHTML</span>(<span class="params">&#123;msg&#125;</span>)&#123;</span><br><span class="line">    <span class="variable language_">document</span>.<span class="title function_">querySelector</span>(<span class="string">&#x27;.container main&#x27;</span>).<span class="property">innerHTML</span> = msg;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">setStyle</span>(<span class="params"></span>)&#123;</span><br><span class="line">    <span class="variable language_">document</span>.<span class="title function_">querySelector</span>(<span class="string">&#x27;.container main&#x27;</span>).<span class="property">style</span>.<span class="property">color</span>=<span class="string">&quot;red&quot;</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="variable language_">window</span>.<span class="property">onload</span>=<span class="keyword">function</span>(<span class="params"></span>)&#123;</span><br><span class="line">    <span class="title class_">Main</span>.<span class="title function_">add</span>(<span class="string">&#x27;updateInnerHTML&#x27;</span>, updateInnerHTML);</span><br><span class="line">    <span class="keyword">const</span> lis = <span class="variable language_">document</span>.<span class="title function_">querySelectorAll</span>(<span class="string">&#x27;.container li&#x27;</span>);</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(lis);</span><br><span class="line">    lis.<span class="title function_">forEach</span>(<span class="function"><span class="params">item</span>=&gt;</span>&#123;</span><br><span class="line">        item.<span class="property">onclick</span>=<span class="keyword">function</span>(<span class="params"></span>)&#123;</span><br><span class="line">             <span class="keyword">const</span> text = <span class="variable language_">this</span>.<span class="property">innerHTML</span>;</span><br><span class="line">             <span class="title class_">Main</span>.<span class="title function_">publish</span>(<span class="string">&#x27;updateInnerHTML&#x27;</span>, &#123; <span class="attr">msg</span>: text&#125;);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="模块模式"><a href="#模块模式" class="headerlink" title="模块模式"></a>模块模式</h3><p>除了ES6模块化export imort语法，可以使用ES5类 闭包自执行函数s</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> <span class="title class_">Main</span> = (<span class="keyword">function</span>(<span class="params"></span>) &#123;</span><br><span class="line">     <span class="keyword">var</span>  name = <span class="string">&#x27;&#x27;</span>, age = <span class="number">22</span>;</span><br><span class="line">     <span class="keyword">return</span> <span class="keyword">function</span>(<span class="params"></span>)&#123;</span><br><span class="line">       <span class="keyword">return</span>  &#123; name,age, func&#125;</span><br><span class="line">     &#125;</span><br><span class="line">&#125;)();</span><br></pre></td></tr></table></figure>
+
+
+        </div>
+
+        
+            <div class="post-copyright-info">
+                <div class="article-copyright-info-container">
+    <ul>
+        <li>本文标题：js设计模式</li>
+        <li>本文作者：邵预鸿</li>
+        <li>创建时间：2021-06-23 17:35:17</li>
+        <li>
+            本文链接：/images/logo.jpg2021/06/23/js设计模式/
+        </li>
+        <li>
+            版权声明：本博客所有文章除特别声明外，均采用 <a class="license" target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">BY-NC-SA</a> 许可协议。转载请注明出处！
+        </li>
+    </ul>
+</div>
+
+            </div>
+        
+
+        
+            <div class="article-nav">
+                
+                    <div class="article-prev">
+                        <a class="prev"
+                           rel="prev"
+                           href="/2021/06/30/vue%E5%8F%91%E5%B8%83%E6%8F%92%E4%BB%B6%E5%88%B0npm%E6%BA%90/"
+                        >
+                            <span class="left arrow-icon flex-center">
+                              <i class="fas fa-chevron-left"></i>
+                            </span>
+                            <span class="title flex-center">
+                                <span class="post-nav-title-item">vue发布插件到npm源</span>
+                                <span class="post-nav-item">上一篇</span>
+                            </span>
+                        </a>
+                    </div>
+                
+                
+                    <div class="article-next">
+                        <a class="next"
+                           rel="next"
+                           href="/2021/06/06/js%E5%8E%9F%E7%94%9F%E4%BA%A4%E6%8D%A2div%E5%9D%97/"
+                        >
+                            <span class="title flex-center">
+                                <span class="post-nav-title-item">js原生交换div块</span>
+                                <span class="post-nav-item">下一篇</span>
+                            </span>
+                            <span class="right arrow-icon flex-center">
+                              <i class="fas fa-chevron-right"></i>
+                            </span>
+                        </a>
+                    </div>
+                
+            </div>
+        
+
+        
+    </div>
+</div>
+
+
+        
+      </div>
+
+    </div>
+
+    <div class="page-main-content-bottom">
+      <footer class="footer">
+    <div class="info-container">
+        <div class="copyright-info info-item">
+            &copy;
+            
+              <span>2021</span>&nbsp;-&nbsp;
+            
+            2026&nbsp;<i class="fas fa-heart icon-animate"></i>&nbsp;<a href="/">邵预鸿</a>
+        </div>
+        
+        
+        <div>更多笔记请访问:<a href="https://www.shaoyuhong.cn" target="_blank">邵预鸿|随心记 https://www.shaoyuhong.cn</a></div>
+
+    </div>
+</footer>
+
+    </div>
+  </div>
+
+  
+  <div class="post-tools">
+    <div class="post-tools-container">
+    <ul class="tools-list">
+        <!-- TOC aside toggle -->
+        
+
+        <!-- go comment -->
+        
+    </ul>
+</div>
+
+  </div>
+  
+
+  <div class="right-bottom-side-tools">
+    <div class="side-tools-container">
+    <ul class="side-tools-list">
+        <li class="tools-item tool-font-adjust-plus flex-center">
+            <i class="fas fa-search-plus"></i>
+        </li>
+
+        <li class="tools-item tool-font-adjust-minus flex-center">
+            <i class="fas fa-search-minus"></i>
+        </li>
+
+        <li class="tools-item tool-expand-width flex-center">
+            <i class="fas fa-arrows-alt-h"></i>
+        </li>
+
+        <li class="tools-item tool-dark-light-toggle flex-center">
+            <i class="fas fa-moon"></i>
+        </li>
+
+        <!-- rss -->
+        
+
+        
+
+        <li class="tools-item tool-scroll-to-bottom flex-center">
+            <i class="fas fa-arrow-down"></i>
+        </li>
+    </ul>
+
+    <ul class="exposed-tools-list">
+        <li class="tools-item tool-toggle-show flex-center">
+            <i class="fas fa-cog fa-spin"></i>
+        </li>
+        
+            <li class="tools-item tool-scroll-to-top flex-center">
+                <i class="arrow-up fas fa-arrow-up"></i>
+                <span class="percent"></span>
+            </li>
+        
+    </ul>
+</div>
+
+  </div>
+
+  
+
+  <div class="image-viewer-container">
+    <img src="">
+</div>
+
+
+  
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+          <span class="search-input-field-pre">
+            <i class="fas fa-keyboard"></i>
+          </span>
+            <div class="search-input-container">
+                <input autocomplete="off"
+                       autocorrect="off"
+                       autocapitalize="off"
+                       placeholder="搜索..."
+                       spellcheck="false"
+                       type="search"
+                       class="search-input"
+                >
+            </div>
+            <span class="popup-btn-close">
+                <i class="fas fa-times"></i>
+            </span>
+        </div>
+        <div id="search-result">
+            <div id="no-result">
+                <i class="fas fa-spinner fa-pulse fa-5x fa-fw"></i>
+            </div>
+        </div>
+    </div>
+</div>
+
+  
+
+</main>
+<script>
+  const context = document.querySelector(".markdown-body");
+  const articleTitleList = document.querySelector(".article-title-list");
+  const mainContent = document.querySelector('.main-content');
+
+  if (context) {
+    if (window.innerWidth > 1380) {
+      const tags = context.querySelectorAll('*');
+      const hTagReg = /^H[1-6]$/;
+      let template = '';
+      tags.forEach(item => {
+        if (hTagReg.test(item.tagName.toUpperCase()) && item.innerText) {
+          const tagH = item.tagName.toLowerCase();
+          const tagHToUpper = item.tagName.toUpperCase();
+          const forHash = item.getAttribute("id");
+          //<span class="badge">${tagHToUpper}</span>
+          template += `
+                  <${tagH}>
+                    <a onclick="javascript:void(1)" href="#${forHash}"> ${item.innerText}</a>
+                  </${tagH}>  
+                `;
+
+        }
+      });
+      articleTitleList.innerHTML = template;
+    }
+
+
+  }
+
+  (function leftNavPositionChange() {
+    const articleTitlePositoinX = (window.innerWidth - mainContent.clientWidth) / 2 - 300;
+    articleTitleList.style.left = articleTitlePositoinX + 'px';
+    window.onresize = function () {
+      leftNavPositionChange();
+    };
+  })();
+
+</script>
+
+<script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="/js/header-shrink.js"></script><script src="/js/back2top.js"></script><script src="/js/dark-light-toggle.js"></script>
+
+
+    <script src="/js/local-search.js"></script>
+
+
+
+    <script src="/js/code-copy.js"></script>
+
+
+
+    <script src="/js/lazyload.js"></script>
+
+
+<div class="post-scripts">
+    
+</div>
+
+
+
+</body>
+</html>

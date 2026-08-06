@@ -1,0 +1,632 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="baidu-site-verification" content="code-YfBAOEVVQH" />
+    <meta name="keywords" content="邵预鸿,前端开发工程师,技术博客,生活记录,生活日常,个人简历,日常规划">
+    <meta name="description" content="入职中兴通讯，一名低调资深的ctrl+c and ctrl+v开发者">
+    <meta name="author" content="邵预鸿">
+    
+    <title>
+        
+            whistle工具 |
+        
+        邵预鸿|前端开发技术笔记
+    </title>
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="shortcut icon" href="/images/logo.jpg">
+    <link rel="stylesheet" href="/css/font-awesome.min.css">
+    <script id="hexo-configurations">
+    let KEEP = window.KEEP || {};
+    KEEP.hexo_config = {"hostname":"github.com","root":"/","language":"zh-CN","path":"search.json"};
+    KEEP.theme_config = {"toc":{"enable":false,"number":false,"expand_all":false,"init_open":false},"style":{"primary_color":"#0066CC","avatar":"/images/logo.jpg","favicon":"/images/logo.jpg","article_img_align":"left","left_side_width":"260px","content_max_width":"920px","hover":{"shadow":true,"scale":false},"first_screen":{"enable":true,"background_img":"/images/bg.svg","description":"积累硅步，可至千里；千里之行，始于足下"},"scroll":{"progress_bar":{"enable":true},"percent":{"enable":true}}},"local_search":{"enable":true,"preload":true},"code_copy":{"enable":true,"style":"default"},"pjax":{"enable":false},"lazyload":{"enable":true},"version":"3.4.0"};
+    KEEP.language_ago = {"second":"%s 秒前","minute":"%s 分钟前","hour":"%s 小时前","day":"%s 天前","week":"%s 周前","month":"%s 月前","year":"%s 年前"};
+  </script>
+<meta name="generator" content="Hexo 5.4.2"></head>
+
+
+<body>
+<!--
+ * @Description: file content
+ * @Author: yuhongshao
+ * @Date: 2021-02-20 19:33:18
+ * @email: 
+ * @LastEditTime: 2022-05-25 12:31:42
+-->
+<div class="progress-bar-container">
+    
+        <span class="scroll-progress-bar"></span>
+    
+
+    
+</div>
+
+
+<main class="page-container">
+
+  
+
+  <div class="page-main-content">
+
+    <div class="page-main-content-top">
+      <header class="header-wrapper">
+
+    <div class="header-content">
+        <div class="left">
+            <a class="logo-title" href="/">
+                邵预鸿|前端开发技术笔记
+            </a>
+        </div>
+
+        <div class="right">
+            <div class="pc">
+                <ul class="menu-list">
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/"
+                            >
+                                主页
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/archives"
+                            >
+                                历年汇总
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/about"
+                            >
+                                关于我
+                            </a>
+                        </li>
+                    
+                    
+                        <li class="menu-item search search-popup-trigger">
+                            <i class="fas fa-search"></i>
+                        </li>
+                    
+                </ul>
+            </div>
+            <div class="mobile">
+                
+                    <div class="icon-item search search-popup-trigger"><i class="fas fa-search"></i></div>
+                
+                <div class="icon-item menu-bar">
+                    <div class="menu-bar-middle"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="header-drawer">
+        <ul class="drawer-menu-list">
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/">主页</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/archives">历年汇总</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/about">关于我</a>
+                </li>
+            
+        </ul>
+    </div>
+
+    <div class="window-mask"></div>
+
+</header>
+
+
+    </div>
+    <style>
+      .main-content a{
+        color: #6e9cca;
+      }
+      .article-title-list {
+        position: fixed;
+        left: 80px;
+        top: 110px;
+        z-index: 100;
+        width: 300px;
+        max-height: calc(100% - 144px);
+        overflow: auto;
+      }
+      .article-title-list a .badge{
+        display: inline-block;
+        margin-right: 5px;
+        padding: 0 5px;
+        background-color: #ebebeb;
+        border-radius: 3px;
+        color: #6b6b6b;
+      }
+      .article-title-list h1,
+      .article-title-list h2,
+      .article-title-list h3,
+      .article-title-list h4,
+      .article-title-list h5,
+      .article-title-list h6 {
+        box-sizing: border-box;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        overflow: hidden;
+        color: #686868;
+        font-weight: normal;
+        line-height: 1;
+        cursor: pointer;
+      }
+
+      .article-title-list h1 {
+        font-size: 22px;
+      }
+
+      .article-title-list h2 {
+        padding-left: 20px;
+        font-size: 20px;
+      }
+
+      .article-title-list h3 {
+        padding-left: 40px;
+        font-size: 18px;
+      }
+
+      .article-title-list h4 {
+        padding-left: 60px;
+        font-size: 16px;
+      }
+
+      .article-title-list h5 {
+        padding-left: 80px;
+        font-size: 14px;
+      }
+
+      .article-title-list h6 {
+        padding-left: 100px;
+        font-size: 12px;
+      }
+
+    </style>
+    <div class="article-title-list">
+    </div>
+
+    <div class="page-main-content-middle">
+
+      <div class="main-content">
+
+        
+        <div class="fade-in-down-animation">
+    <div class="article-content-container">
+
+        <div class="article-title">
+            <span class="title-hover-animation">whistle工具</span>
+        </div>
+
+        
+            <div class="article-header">
+                <div class="avatar">
+                    <img src="/images/logo.jpg">
+                </div>
+                <div class="info">
+                    <div class="author">
+                        <span class="name">邵预鸿</span>
+                        
+                            <span class="author-label">Lv5</span>
+                        
+                    </div>
+                    <div class="meta-info">
+                        <div class="article-meta-info">
+    <span class="article-date article-meta-item">
+        <i class="fas fa-edit"></i>&nbsp;2022-07-27 09:33:53
+    </span>
+    
+    
+        <span class="article-tags article-meta-item">
+            <i class="fas fa-tags"></i>&nbsp;
+            <ul>
+                
+                    <li>
+                        <a href="/tags/js/">js</a>&nbsp;
+                    </li>
+                
+            </ul>
+        </span>
+    
+
+    
+    
+    
+    
+</div>
+
+                    </div>
+                </div>
+            </div>
+        
+
+        <div class="article-content markdown-body">
+            <h3 id="whistle能做什么？"><a href="#whistle能做什么？" class="headerlink" title="whistle能做什么？"></a>whistle能做什么？</h3><p>Whistle 是基于 Node 实现的跨平台抓包调试工具，其主要特点：</p>
+<ol>
+<li><strong>完全跨平台</strong>：支持 Mac、Windows 等桌面系统，且支持服务端等命令行系统</li>
+<li>功能强大（理论上可以对请求做任意修改）：<ul>
+<li>支持作为 HTTP、HTTPS、SOCKS 代理及反向代理</li>
+<li>支持抓包及修改 HTTP、HTTPS、HTTP2、WebSocket、TCP 请求</li>
+<li>支持重放及构造 HTTP、HTTPS、HTTP2、WebSocket、TCP 请求</li>
+<li>支持设置上游代理、PAC 脚本、Hosts、延迟（限速）请求响应等</li>
+<li>支持查看远程页面的 console 日志及 DOM 节点</li>
+<li>支持用 Node 开发插件扩展功能，也可以作为独立 npm 包引用</li>
+</ul>
+</li>
+<li>操作简单：<ul>
+<li>直接通过浏览器查看抓包、修改请求</li>
+<li>所有修改操作都可以通过配置方式实现（类似系统 Hosts），并支持分组管理</li>
+<li>项目可以自带代理规则配置并一键设置到本地 Whistle 代理，也可以通过定制插件简化操作</li>
+</ul>
+</li>
+</ol>
+<h3 id="一键安装（Mac-amp-Windows）"><a href="#一键安装（Mac-amp-Windows）" class="headerlink" title="一键安装（Mac &amp; Windows）"></a>一键安装（Mac &amp; Windows）</h3><h4 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h4><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm i -g whistle &amp;&amp; w2 start --init</span><br></pre></td></tr></table></figure>
+
+<p>使用启动命令后 Whistle 将设置系统全局代理，以及安装系统根证书，目前一键安装只支持 Mac &amp; Windows 系统，其它系统按照下面 <strong>手动安装</strong> 的方式操作。</p>
+<p>命令启动后将会看到如下界面</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="http://server.yuhongshao.cn/static/yuhongshao/20220727094236.png"
+                      alt="http://server.yuhongshao.cn/static/yuhongshao/20220727094236.png"
+                ></p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="http://server.yuhongshao.cn/static/yuhongshao/20220727094105.png"
+                      alt="http://server.yuhongshao.cn/static/yuhongshao/20220727094105.png"
+                ></p>
+<h4 id="启动"><a href="#启动" class="headerlink" title="启动"></a>启动</h4><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">w2 start <span class="comment">//启动</span></span><br><span class="line">w2 start -p <span class="number">8000</span> <span class="comment">//指定端口号</span></span><br></pre></td></tr></table></figure>
+
+
+
+<h4 id="停止运行whistle"><a href="#停止运行whistle" class="headerlink" title="停止运行whistle"></a>停止运行whistle</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">w2  stop</span><br></pre></td></tr></table></figure>
+
+<h3 id="其它命令"><a href="#其它命令" class="headerlink" title="其它命令"></a>其它命令</h3><figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">status      Show the running status</span><br><span class="line">add         Add rules from local js file (.whistle.js by default)</span><br><span class="line">proxy       Set global proxy</span><br><span class="line">ca          Install root CA</span><br><span class="line">install     Install whistle plugin</span><br><span class="line">uninstall   Uninstall whistle plugin</span><br><span class="line">exec        Exec whistle plugin cmd</span><br><span class="line">run         Start a front service</span><br><span class="line">start       Start a background service</span><br><span class="line">stop        Stop current background service</span><br><span class="line">restart     Restart current background service</span><br><span class="line">help        Display help information</span><br><span class="line">proxy off   可以通过 w2 proxy off 关闭全局代理,如关闭whistle后，不能访问百度等，使用这个命令可关闭</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p> tip: 其它命令可在界面UI上操作</p>
+</blockquote>
+<h3 id="其它系统-如linux安装"><a href="#其它系统-如linux安装" class="headerlink" title="其它系统 如linux安装?"></a>其它系统 如linux安装?</h3><p>非 Mac &amp; Windows 系统或一键安装失败可以按下面方式设置代理和安装根证书：</p>
+<ol>
+<li>设置代理：<a class="link"   target="_blank" rel="noopener" href="https://wproxy.org/whistle/install.html" >https://wproxy.org/whistle/install.html<i class="fas fa-external-link-alt"></i></a></li>
+<li>安装根证书：<a class="link"   target="_blank" rel="noopener" href="https://wproxy.org/whistle/webui/https.html" >https://wproxy.org/whistle/webui/https.html<i class="fas fa-external-link-alt"></i></a></li>
+</ol>
+<h3 id="项目上实例点举例"><a href="#项目上实例点举例" class="headerlink" title="项目上实例点举例"></a>项目上实例点举例</h3><ul>
+<li><p><strong>解决跨域问题</strong></p>
+<p>Q：假定本地起了一个**前端项目(10.7.29.44:5500)，现在需要请求后台接口(10.7.29.44:18002)**，由于端口号不同且后台未设置允许跨域，前端项目请求后台接口将出现跨域。</p>
+<p>A： 解决跨域whitle有两种方法</p>
+</li>
+</ul>
+<ol>
+<li><p>修改响应的<a class="link"   target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/HTTP/Access_control_CORS" >cors<i class="fas fa-external-link-alt"></i></a>   【无需修改代码、推荐方式】</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="http://server.yuhongshao.cn/static/yuhongshao/20220727095734.png"
+                      alt="http://server.yuhongshao.cn/static/yuhongshao/20220727095734.png"
+                ></p>
+<ol start="2">
+<li><p>将接口地址修改为本地，思路为本地项目请求本地接口，再由whistle监听本地接口代理到远程服务器接口</p>
+<p><strong>前端项目(10.7.29.44:5500)，现在需要请求后台接口(10.7.29.44:18002/interface/api/v1/interfaceDataCheck/get)</strong></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//xhr.open(&#x27;get&#x27;, &#x27;http://10.7.29.44:18002/interface/api/v1/interfaceDataCheck/get&#x27;); 后台真实地址</span></span><br><span class="line">xhr.<span class="title function_">open</span>(<span class="string">&#x27;get&#x27;</span>, <span class="string">&#x27;http://10.7.29.44:5500/interface/api/v1/interfaceDataCheck/get&#x27;</span>); <span class="comment">//将真实地址设置为本地项目地址</span></span><br><span class="line">xhr.<span class="title function_">send</span>();</span><br></pre></td></tr></table></figure>
+
+<p>在whistle中设置，将本地项目地址代理到后台真实地址</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="http://server.yuhongshao.cn/static/yuhongshao/20220727104229.png"
+                      alt="http://server.yuhongshao.cn/static/yuhongshao/20220727104229.png"
+                ></p>
+</li>
+</ol>
+</li>
+</ol>
+<ul>
+<li><p><strong>请求替换</strong> 注入线上资源CSS、JS定位问题</p>
+<ul>
+<li><p>css:///tmp/replace.css  采用的是本地</p>
+</li>
+<li><p>css://{bg.css} 采用的是whistle UI 左侧values栏中新增的变量</p>
+<p>bg内容可为css/js，例: body{background-color:red}</p>
+</li>
+</ul>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"># 说明：注入style到这个页面中</span><br><span class="line">http://mydomain.com  css://&#123;bg&#125;</span><br><span class="line">http://mydomain.com  css:///tmp/style1.css</span><br><span class="line"></span><br><span class="line"># 说明：注入js到这个页面中</span><br><span class="line">http://mydomain.com  js://&#123;js&#125;</span><br><span class="line">http://mydomain.com  js:///tmp/test.js</span><br></pre></td></tr></table></figure>
+
+
+
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="http://server.yuhongshao.cn/static/yuhongshao/20220727114037.png"
+                      alt="http://server.yuhongshao.cn/static/yuhongshao/20220727114037.png"
+                ></p>
+<p><strong><em>通过注入，实现本地去调试线上代码，并能实现实时调试</em></strong>  注入后效果图如下</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="http://server.yuhongshao.cn/static/yuhongshao/20220727114209.png"
+                      alt="http://server.yuhongshao.cn/static/yuhongshao/20220727114209.png"
+                ></p>
+</li>
+<li><p>文本类请求 append 内容、替换返回内容</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"># 说明：会把内容 append 到请求后面</span><br><span class="line">http://mydomain.com/style.css resAppend://&#123;myAppend.css&#125;</span><br><span class="line">http://mydomain.com/style.css resAppend:///本地</span><br><span class="line"># 说明：完全替换请求内容</span><br><span class="line">http://mydomain.com/style.css resBody://&#123;myResBody.css&#125;</span><br><span class="line">http://mydomain.com/style.css resBody:///本地</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>替换请求</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"># 说明：请求百度的时候会返回京东的页面内容</span><br><span class="line">https://baidu.com https://jd.com</span><br></pre></td></tr></table></figure>
+
+
+
+
+</li>
+</ul>
+<h4 id="请求接口数据替换"><a href="#请求接口数据替换" class="headerlink" title="请求接口数据替换"></a>请求接口数据替换</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">http://www.yuhongshao.cn/1.php  file://&#123;data&#125;</span><br><span class="line">http://www.yuhongshao.cn/1.php file:///www/xx/1.json</span><br></pre></td></tr></table></figure>
+
+<p>替换线上数据为本地数据</p>
+<h3 id="其它"><a href="#其它" class="headerlink" title="其它"></a>其它</h3><p>whistle github地址：<a href="https://github.com/avwo/whistle">https://github.com/avwo/whistle</a></p>
+<p>whistle详细文档：<a class="link"   target="_blank" rel="noopener" href="https://wproxy.org/whistle/install.html" >https://wproxy.org/whistle/install.html<i class="fas fa-external-link-alt"></i></a></p>
+
+        </div>
+
+        
+            <div class="post-copyright-info">
+                <div class="article-copyright-info-container">
+    <ul>
+        <li>本文标题：whistle工具</li>
+        <li>本文作者：邵预鸿</li>
+        <li>创建时间：2022-07-27 09:33:53</li>
+        <li>
+            本文链接：/images/logo.jpg2022/07/27/whistle工具/
+        </li>
+        <li>
+            版权声明：本博客所有文章除特别声明外，均采用 <a class="license" target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">BY-NC-SA</a> 许可协议。转载请注明出处！
+        </li>
+    </ul>
+</div>
+
+            </div>
+        
+
+        
+            <div class="article-nav">
+                
+                    <div class="article-prev">
+                        <a class="prev"
+                           rel="prev"
+                           href="/2022/08/31/base64%E5%B8%B8%E7%94%A8%E5%89%8D%E7%BC%80/"
+                        >
+                            <span class="left arrow-icon flex-center">
+                              <i class="fas fa-chevron-left"></i>
+                            </span>
+                            <span class="title flex-center">
+                                <span class="post-nav-title-item">base64常用前缀</span>
+                                <span class="post-nav-item">上一篇</span>
+                            </span>
+                        </a>
+                    </div>
+                
+                
+                    <div class="article-next">
+                        <a class="next"
+                           rel="next"
+                           href="/2022/07/15/%E5%A6%82%E4%BD%95%E5%9C%A8npm%E5%8F%91%E5%B8%83%E8%87%AA%E5%B7%B1%E7%9A%84%E5%B7%A5%E5%85%B7%E5%8C%85/"
+                        >
+                            <span class="title flex-center">
+                                <span class="post-nav-title-item">如何在npm发布自己的工具包</span>
+                                <span class="post-nav-item">下一篇</span>
+                            </span>
+                            <span class="right arrow-icon flex-center">
+                              <i class="fas fa-chevron-right"></i>
+                            </span>
+                        </a>
+                    </div>
+                
+            </div>
+        
+
+        
+    </div>
+</div>
+
+
+        
+      </div>
+
+    </div>
+
+    <div class="page-main-content-bottom">
+      <footer class="footer">
+    <div class="info-container">
+        <div class="copyright-info info-item">
+            &copy;
+            
+              <span>2021</span>&nbsp;-&nbsp;
+            
+            2026&nbsp;<i class="fas fa-heart icon-animate"></i>&nbsp;<a href="/">邵预鸿</a>
+        </div>
+        
+        
+        <div>更多笔记请访问:<a href="https://www.shaoyuhong.cn" target="_blank">邵预鸿|随心记 https://www.shaoyuhong.cn</a></div>
+
+    </div>
+</footer>
+
+    </div>
+  </div>
+
+  
+  <div class="post-tools">
+    <div class="post-tools-container">
+    <ul class="tools-list">
+        <!-- TOC aside toggle -->
+        
+
+        <!-- go comment -->
+        
+    </ul>
+</div>
+
+  </div>
+  
+
+  <div class="right-bottom-side-tools">
+    <div class="side-tools-container">
+    <ul class="side-tools-list">
+        <li class="tools-item tool-font-adjust-plus flex-center">
+            <i class="fas fa-search-plus"></i>
+        </li>
+
+        <li class="tools-item tool-font-adjust-minus flex-center">
+            <i class="fas fa-search-minus"></i>
+        </li>
+
+        <li class="tools-item tool-expand-width flex-center">
+            <i class="fas fa-arrows-alt-h"></i>
+        </li>
+
+        <li class="tools-item tool-dark-light-toggle flex-center">
+            <i class="fas fa-moon"></i>
+        </li>
+
+        <!-- rss -->
+        
+
+        
+
+        <li class="tools-item tool-scroll-to-bottom flex-center">
+            <i class="fas fa-arrow-down"></i>
+        </li>
+    </ul>
+
+    <ul class="exposed-tools-list">
+        <li class="tools-item tool-toggle-show flex-center">
+            <i class="fas fa-cog fa-spin"></i>
+        </li>
+        
+            <li class="tools-item tool-scroll-to-top flex-center">
+                <i class="arrow-up fas fa-arrow-up"></i>
+                <span class="percent"></span>
+            </li>
+        
+    </ul>
+</div>
+
+  </div>
+
+  
+
+  <div class="image-viewer-container">
+    <img src="">
+</div>
+
+
+  
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+          <span class="search-input-field-pre">
+            <i class="fas fa-keyboard"></i>
+          </span>
+            <div class="search-input-container">
+                <input autocomplete="off"
+                       autocorrect="off"
+                       autocapitalize="off"
+                       placeholder="搜索..."
+                       spellcheck="false"
+                       type="search"
+                       class="search-input"
+                >
+            </div>
+            <span class="popup-btn-close">
+                <i class="fas fa-times"></i>
+            </span>
+        </div>
+        <div id="search-result">
+            <div id="no-result">
+                <i class="fas fa-spinner fa-pulse fa-5x fa-fw"></i>
+            </div>
+        </div>
+    </div>
+</div>
+
+  
+
+</main>
+<script>
+  const context = document.querySelector(".markdown-body");
+  const articleTitleList = document.querySelector(".article-title-list");
+  const mainContent = document.querySelector('.main-content');
+
+  if (context) {
+    if (window.innerWidth > 1380) {
+      const tags = context.querySelectorAll('*');
+      const hTagReg = /^H[1-6]$/;
+      let template = '';
+      tags.forEach(item => {
+        if (hTagReg.test(item.tagName.toUpperCase()) && item.innerText) {
+          const tagH = item.tagName.toLowerCase();
+          const tagHToUpper = item.tagName.toUpperCase();
+          const forHash = item.getAttribute("id");
+          //<span class="badge">${tagHToUpper}</span>
+          template += `
+                  <${tagH}>
+                    <a onclick="javascript:void(1)" href="#${forHash}"> ${item.innerText}</a>
+                  </${tagH}>  
+                `;
+
+        }
+      });
+      articleTitleList.innerHTML = template;
+    }
+
+
+  }
+
+  (function leftNavPositionChange() {
+    const articleTitlePositoinX = (window.innerWidth - mainContent.clientWidth) / 2 - 300;
+    articleTitleList.style.left = articleTitlePositoinX + 'px';
+    window.onresize = function () {
+      leftNavPositionChange();
+    };
+  })();
+
+</script>
+
+<script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="/js/header-shrink.js"></script><script src="/js/back2top.js"></script><script src="/js/dark-light-toggle.js"></script>
+
+
+    <script src="/js/local-search.js"></script>
+
+
+
+    <script src="/js/code-copy.js"></script>
+
+
+
+    <script src="/js/lazyload.js"></script>
+
+
+<div class="post-scripts">
+    
+</div>
+
+
+
+</body>
+</html>
