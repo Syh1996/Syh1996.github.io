@@ -1,0 +1,1467 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="baidu-site-verification" content="code-YfBAOEVVQH" />
+    <meta name="keywords" content="邵预鸿,前端开发工程师,技术博客,生活记录,生活日常,个人简历,日常规划">
+    <meta name="description" content="入职中兴通讯，一名低调资深的ctrl+c and ctrl+v开发者">
+    <meta name="author" content="邵预鸿">
+    
+    <title>
+        
+            maven |
+        
+        邵预鸿|前端开发技术笔记
+    </title>
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="shortcut icon" href="/images/logo.jpg">
+    <link rel="stylesheet" href="/css/font-awesome.min.css">
+    <script id="hexo-configurations">
+    let KEEP = window.KEEP || {};
+    KEEP.hexo_config = {"hostname":"github.com","root":"/","language":"zh-CN","path":"search.json"};
+    KEEP.theme_config = {"toc":{"enable":false,"number":false,"expand_all":false,"init_open":false},"style":{"primary_color":"#0066CC","avatar":"/images/logo.jpg","favicon":"/images/logo.jpg","article_img_align":"left","left_side_width":"260px","content_max_width":"920px","hover":{"shadow":true,"scale":false},"first_screen":{"enable":true,"background_img":"/images/bg.svg","description":"积累硅步，可至千里；千里之行，始于足下"},"scroll":{"progress_bar":{"enable":true},"percent":{"enable":true}}},"local_search":{"enable":true,"preload":true},"code_copy":{"enable":true,"style":"default"},"pjax":{"enable":false},"lazyload":{"enable":true},"version":"3.4.0"};
+    KEEP.language_ago = {"second":"%s 秒前","minute":"%s 分钟前","hour":"%s 小时前","day":"%s 天前","week":"%s 周前","month":"%s 月前","year":"%s 年前"};
+  </script>
+<meta name="generator" content="Hexo 5.4.2"></head>
+
+
+<body>
+<!--
+ * @Description: file content
+ * @Author: yuhongshao
+ * @Date: 2021-02-20 19:33:18
+ * @email: 
+ * @LastEditTime: 2022-05-25 12:31:42
+-->
+<div class="progress-bar-container">
+    
+        <span class="scroll-progress-bar"></span>
+    
+
+    
+</div>
+
+
+<main class="page-container">
+
+  
+
+  <div class="page-main-content">
+
+    <div class="page-main-content-top">
+      <header class="header-wrapper">
+
+    <div class="header-content">
+        <div class="left">
+            <a class="logo-title" href="/">
+                邵预鸿|前端开发技术笔记
+            </a>
+        </div>
+
+        <div class="right">
+            <div class="pc">
+                <ul class="menu-list">
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/"
+                            >
+                                主页
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/archives"
+                            >
+                                历年汇总
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/about"
+                            >
+                                关于我
+                            </a>
+                        </li>
+                    
+                    
+                        <li class="menu-item search search-popup-trigger">
+                            <i class="fas fa-search"></i>
+                        </li>
+                    
+                </ul>
+            </div>
+            <div class="mobile">
+                
+                    <div class="icon-item search search-popup-trigger"><i class="fas fa-search"></i></div>
+                
+                <div class="icon-item menu-bar">
+                    <div class="menu-bar-middle"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="header-drawer">
+        <ul class="drawer-menu-list">
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/">主页</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/archives">历年汇总</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/about">关于我</a>
+                </li>
+            
+        </ul>
+    </div>
+
+    <div class="window-mask"></div>
+
+</header>
+
+
+    </div>
+    <style>
+      .main-content a{
+        color: #6e9cca;
+      }
+      .article-title-list {
+        position: fixed;
+        left: 80px;
+        top: 110px;
+        z-index: 100;
+        width: 300px;
+        max-height: calc(100% - 144px);
+        overflow: auto;
+      }
+      .article-title-list a .badge{
+        display: inline-block;
+        margin-right: 5px;
+        padding: 0 5px;
+        background-color: #ebebeb;
+        border-radius: 3px;
+        color: #6b6b6b;
+      }
+      .article-title-list h1,
+      .article-title-list h2,
+      .article-title-list h3,
+      .article-title-list h4,
+      .article-title-list h5,
+      .article-title-list h6 {
+        box-sizing: border-box;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        overflow: hidden;
+        color: #686868;
+        font-weight: normal;
+        line-height: 1;
+        cursor: pointer;
+      }
+
+      .article-title-list h1 {
+        font-size: 22px;
+      }
+
+      .article-title-list h2 {
+        padding-left: 20px;
+        font-size: 20px;
+      }
+
+      .article-title-list h3 {
+        padding-left: 40px;
+        font-size: 18px;
+      }
+
+      .article-title-list h4 {
+        padding-left: 60px;
+        font-size: 16px;
+      }
+
+      .article-title-list h5 {
+        padding-left: 80px;
+        font-size: 14px;
+      }
+
+      .article-title-list h6 {
+        padding-left: 100px;
+        font-size: 12px;
+      }
+
+    </style>
+    <div class="article-title-list">
+    </div>
+
+    <div class="page-main-content-middle">
+
+      <div class="main-content">
+
+        
+        <div class="fade-in-down-animation">
+    <div class="article-content-container">
+
+        <div class="article-title">
+            <span class="title-hover-animation">maven</span>
+        </div>
+
+        
+            <div class="article-header">
+                <div class="avatar">
+                    <img src="/images/logo.jpg">
+                </div>
+                <div class="info">
+                    <div class="author">
+                        <span class="name">邵预鸿</span>
+                        
+                            <span class="author-label">Lv5</span>
+                        
+                    </div>
+                    <div class="meta-info">
+                        <div class="article-meta-info">
+    <span class="article-date article-meta-item">
+        <i class="fas fa-edit"></i>&nbsp;2026-10-13 11:31:11
+    </span>
+    
+    
+        <span class="article-tags article-meta-item">
+            <i class="fas fa-tags"></i>&nbsp;
+            <ul>
+                
+                    <li>
+                        <a href="/tags/java/">java</a>&nbsp;
+                    </li>
+                
+            </ul>
+        </span>
+    
+
+    
+    
+    
+    
+</div>
+
+                    </div>
+                </div>
+            </div>
+        
+
+        <div class="article-content markdown-body">
+            <h1 id="Maven-下载与配置完全指南"><a href="#Maven-下载与配置完全指南" class="headerlink" title="Maven 下载与配置完全指南"></a>Maven 下载与配置完全指南</h1><p>Maven 是 Java 开发的核心构建工具，安装前需要先确保系统已安装  <strong>JDK 8 及以上版本</strong> ，可通过命令行执行 <code>java -version</code> 确认<a class="link"   target="_blank" rel="noopener" href="https://developer.aliyun.com/article/1757693#1" ><i class="fas fa-external-link-alt"></i></a>。Maven 本身没有安装程序，下载压缩包解压后配置环境变量即可使用<a class="link"   target="_blank" rel="noopener" href="https://developer.aliyun.com/article/1734391#1" ><i class="fas fa-external-link-alt"></i></a>。</p>
+<h2 id="一、下载-Maven"><a href="#一、下载-Maven" class="headerlink" title="一、下载 Maven"></a>一、下载 Maven</h2><p> <strong>官方下载地址</strong> ：<a class="link"   target="_blank" rel="noopener" href="https://maven.apache.org/download.cgi" >https://maven.apache.org/download.cgi<i class="fas fa-external-link-alt"></i></a></p>
+<p>这是 Apache Maven 项目唯一指定的下载入口，页面会自动显示当前最新稳定版。截至 2026 年 5 月， <strong>最新稳定版本为 3.9.16</strong> ，另有预览版 4.0.0-rc-6<a class="link"   target="_blank" rel="noopener" href="https://projects.apache.org/project.html?maven" ><i class="fas fa-external-link-alt"></i></a>。</p>
+<p>下载时注意：</p>
+<ul>
+<li><strong>Windows 用户</strong>选择 <code>apache-maven-3.9.x-bin.zip</code></li>
+<li><strong>Linux/macOS 用户</strong>选择 <code>apache-maven-3.9.x-bin.tar.gz</code></li>
+</ul>
+<blockquote>
+<p>⚠️ 务必下载 <strong>bin</strong> 包，不要下载 src 源码包<a class="link"   target="_blank" rel="noopener" href="https://developer.aliyun.com/article/1691522" ><i class="fas fa-external-link-alt"></i></a>。</p>
+</blockquote>
+<p>下载后解压到合适位置， <strong>路径不要包含中文和空格</strong> ，例如 <code>D:\dev\maven\apache-maven-3.9.16</code><a class="link"   target="_blank" rel="noopener" href="https://developer.aliyun.com/article/1691522" ><i class="fas fa-external-link-alt"></i></a>。</p>
+<h2 id="二、配置环境变量"><a href="#二、配置环境变量" class="headerlink" title="二、配置环境变量"></a>二、配置环境变量</h2><h3 id="Windows"><a href="#Windows" class="headerlink" title="Windows"></a>Windows</h3><ol>
+<li><strong>新建系统变量 <code>MAVEN_HOME</code></strong><br>右键「此电脑」→「属性」→「高级系统设置」→「环境变量」→ 在「系统变量」中点击「新建」：<ul>
+<li>变量名：<code>MAVEN_HOME</code></li>
+<li>变量值：Maven 解压目录，如 <code>D:\dev\maven\apache-maven-3.9.16</code><a class="link"   target="_blank" rel="noopener" href="https://developer.aliyun.com/article/1691522" ><i class="fas fa-external-link-alt"></i></a></li>
+</ul>
+</li>
+<li><strong>编辑 <code>Path</code> 变量</strong><br>在「系统变量」中找到 <code>Path</code>，点击「编辑」→「新建」，输入 <code>%MAVEN_HOME%\bin</code>，然后一路确定保存<a class="link"   target="_blank" rel="noopener" href="https://developer.aliyun.com/article/1691522" ><i class="fas fa-external-link-alt"></i></a>。</li>
+</ol>
+<h2 id="三、验证安装"><a href="#三、验证安装" class="headerlink" title="三、验证安装"></a>三、验证安装</h2><p>打开新的命令行窗口，执行：</p>
+<p><strong>bash</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mvn -v</span><br></pre></td></tr></table></figure>
+
+<p>看到类似输出即表示配置成功<a class="link"   target="_blank" rel="noopener" href="https://developer.aliyun.com/article/1691522" ><i class="fas fa-external-link-alt"></i></a>：</p>
+<p><strong>text</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Apache Maven 3.9.16</span><br><span class="line">Maven home: D:\dev\maven\apache-maven-3.9.16</span><br><span class="line">Java version: 21, vendor: Oracle Corporation</span><br></pre></td></tr></table></figure>
+
+
+
+
+<h2 id="四、配置阿里云镜像（必做）"><a href="#四、配置阿里云镜像（必做）" class="headerlink" title="四、配置阿里云镜像（必做）"></a>四、配置阿里云镜像（必做）</h2><p>Maven 默认从国外中央仓库下载依赖，国内网络下载极慢甚至频繁失败，<strong>强烈建议配置国内镜像</strong><a class="link"   target="_blank" rel="noopener" href="https://developer.aliyun.com/article/1757693#1" ><i class="fas fa-external-link-alt"></i></a>。</p>
+<p>找到 Maven 目录下的 <code>conf/settings.xml</code>，在 <code>&lt;mirrors&gt;</code> 标签内添加：</p>
+<p><strong>xml</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&lt;mirror&gt;</span><br><span class="line">    &lt;id&gt;aliyunmaven&lt;/id&gt;</span><br><span class="line">    &lt;name&gt;阿里云公共仓库&lt;/name&gt;</span><br><span class="line">    &lt;url&gt;https://maven.aliyun.com/repository/public&lt;/url&gt;</span><br><span class="line">    &lt;mirrorOf&gt;central&lt;/mirrorOf&gt;</span><br><span class="line">&lt;/mirror&gt;</span><br></pre></td></tr></table></figure>
+
+<p>保存即可。<code>&lt;mirrorOf&gt;central&lt;/mirrorOf&gt;</code> 表示用阿里云镜像替代 Maven 中央仓库。</p>
+<h2 id="五、配置本地仓库（建议做）"><a href="#五、配置本地仓库（建议做）" class="headerlink" title="五、配置本地仓库（建议做）"></a>五、配置本地仓库（建议做）</h2><p>Maven 默认将依赖下载到 <code>~/.m2/repository</code>，时间长了会占用 C 盘大量空间，建议改到非系统盘<a class="link"   target="_blank" rel="noopener" href="https://developer.aliyun.com/article/1691522" ><i class="fas fa-external-link-alt"></i></a>。</p>
+<p>在 <code>settings.xml</code> 中找到 <code>&lt;localRepository&gt;</code> 标签（通常在注释中），取消注释并修改为：</p>
+<p><strong>xml</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;localRepository&gt;D:\dev\maven\repo&lt;/localRepository&gt;</span><br></pre></td></tr></table></figure>
+
+<p>路径可自行指定，目录不存在会自动创建<a class="link"   target="_blank" rel="noopener" href="https://developer.aliyun.com/article/1691522" ><i class="fas fa-external-link-alt"></i></a>。</p>
+<h2 id="六、在-IDEA-中集成"><a href="#六、在-IDEA-中集成" class="headerlink" title="六、在 IDEA 中集成"></a>六、在 IDEA 中集成</h2><p>打开 IDEA → <code>File</code> → <code>Settings</code>（快捷键 <code>Ctrl+Alt+S</code>）→ 搜索  <strong>Maven</strong> ：</p>
+<ul>
+<li><strong>Maven home path</strong> ：选择解压的 Maven 目录</li>
+<li><strong>User settings file</strong> ：选择修改过的 <code>settings.xml</code></li>
+<li><strong>Local repository</strong> ：通常会自动识别为你在 settings.xml 中配置的路径<a class="link"   target="_blank" rel="noopener" href="https://developer.aliyun.com/article/1691522" ><i class="fas fa-external-link-alt"></i></a></li>
+</ul>
+<p>点击 <code>Apply</code> → <code>OK</code> 即可。</p>
+<h2 id="七、settings-xml-完整结构与常用标签"><a href="#七、settings-xml-完整结构与常用标签" class="headerlink" title="七、settings.xml 完整结构与常用标签"></a>七、settings.xml 完整结构与常用标签</h2><p><code>settings.xml</code> 是 Maven 的<strong>全局配置文件</strong>，管的是「<strong>从哪下、下到哪、用什么账号</strong>」，与具体项目无关。</p>
+<p><strong>文件位置</strong>（两个位置都可放，用户级优先级更高）：</p>
+<table>
+<thead>
+<tr>
+<th>级别</th>
+<th>路径</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>全局</td>
+<td><code>$&#123;MAVEN_HOME&#125;/conf/settings.xml</code></td>
+<td>影响本机所有用户</td>
+</tr>
+<tr>
+<td>用户</td>
+<td><code>~/.m2/settings.xml</code>（Windows：<code>C:\Users\用户名\.m2\settings.xml</code>）</td>
+<td>只影响当前用户，<strong>推荐</strong></td>
+</tr>
+</tbody></table>
+<blockquote>
+<p>💡 建议改<strong>用户级</strong> <code>~/.m2/settings.xml</code>，这样以后升级 Maven 换目录时配置不会丢。</p>
+</blockquote>
+<h3 id="完整示例（可直接替换）"><a href="#完整示例（可直接替换）" class="headerlink" title="完整示例（可直接替换）"></a>完整示例（可直接替换）</h3><p><strong>xml</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br></pre></td><td class="code"><pre><span class="line">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;</span><br><span class="line">&lt;settings xmlns=&quot;http://maven.apache.org/SETTINGS/1.0.0&quot;</span><br><span class="line">          xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot;</span><br><span class="line">          xsi:schemaLocation=&quot;http://maven.apache.org/SETTINGS/1.0.0</span><br><span class="line">                              https://maven.apache.org/xsd/settings-1.0.0.xsd&quot;&gt;</span><br><span class="line"></span><br><span class="line">  &lt;!-- 1. 本地仓库位置 --&gt;</span><br><span class="line">  &lt;localRepository&gt;D:\dev\maven\repo&lt;/localRepository&gt;</span><br><span class="line"></span><br><span class="line">  &lt;!-- 2. 是否让 Maven 与用户交互（一般 false，让 CI 自动跑） --&gt;</span><br><span class="line">  &lt;interactiveMode&gt;false&lt;/interactiveMode&gt;</span><br><span class="line"></span><br><span class="line">  &lt;!-- 3. 离线模式：true 时只读本地仓库，不去远程下 --&gt;</span><br><span class="line">  &lt;offline&gt;false&lt;/offline&gt;</span><br><span class="line"></span><br><span class="line">  &lt;!-- 4. 镜像：把中央仓库换成国内源 --&gt;</span><br><span class="line">  &lt;mirrors&gt;</span><br><span class="line">    &lt;mirror&gt;</span><br><span class="line">      &lt;id&gt;aliyunmaven&lt;/id&gt;</span><br><span class="line">      &lt;name&gt;阿里云公共仓库&lt;/name&gt;</span><br><span class="line">      &lt;url&gt;https://maven.aliyun.com/repository/public&lt;/url&gt;</span><br><span class="line">      &lt;mirrorOf&gt;central&lt;/mirrorOf&gt;</span><br><span class="line">    &lt;/mirror&gt;</span><br><span class="line">  &lt;/mirrors&gt;</span><br><span class="line"></span><br><span class="line">  &lt;!-- 5. 私服账号密码（需要认证的仓库才配） --&gt;</span><br><span class="line">  &lt;servers&gt;</span><br><span class="line">    &lt;server&gt;</span><br><span class="line">      &lt;id&gt;nexus-releases&lt;/id&gt;</span><br><span class="line">      &lt;username&gt;deploy&lt;/username&gt;</span><br><span class="line">      &lt;password&gt;your-password&lt;/password&gt;</span><br><span class="line">    &lt;/server&gt;</span><br><span class="line">  &lt;/servers&gt;</span><br><span class="line"></span><br><span class="line">  &lt;!-- 6. 代理（公司内网需走代理时配） --&gt;</span><br><span class="line">  &lt;proxies&gt;</span><br><span class="line">    &lt;proxy&gt;</span><br><span class="line">      &lt;id&gt;company-proxy&lt;/id&gt;</span><br><span class="line">      &lt;active&gt;true&lt;/active&gt;</span><br><span class="line">      &lt;protocol&gt;http&lt;/protocol&gt;</span><br><span class="line">      &lt;host&gt;proxy.company.com&lt;/host&gt;</span><br><span class="line">      &lt;port&gt;8080&lt;/port&gt;</span><br><span class="line">      &lt;nonProxyHosts&gt;localhost|127.0.0.1&lt;/nonProxyHosts&gt;</span><br><span class="line">    &lt;/proxy&gt;</span><br><span class="line">  &lt;/proxies&gt;</span><br><span class="line"></span><br><span class="line">  &lt;!-- 7. 全局 JDK / 编码等参数 --&gt;</span><br><span class="line">  &lt;profiles&gt;</span><br><span class="line">    &lt;profile&gt;</span><br><span class="line">      &lt;id&gt;jdk-8&lt;/id&gt;</span><br><span class="line">      &lt;activation&gt;</span><br><span class="line">        &lt;activeByDefault&gt;true&lt;/activeByDefault&gt;</span><br><span class="line">        &lt;jdk&gt;1.8&lt;/jdk&gt;</span><br><span class="line">      &lt;/activation&gt;</span><br><span class="line">      &lt;properties&gt;</span><br><span class="line">        &lt;maven.compiler.source&gt;8&lt;/maven.compiler.source&gt;</span><br><span class="line">        &lt;maven.compiler.target&gt;8&lt;/maven.compiler.target&gt;</span><br><span class="line">        &lt;maven.compiler.compilerVersion&gt;8&lt;/maven.compiler.compilerVersion&gt;</span><br><span class="line">        &lt;project.build.sourceEncoding&gt;UTF-8&lt;/project.build.sourceEncoding&gt;</span><br><span class="line">      &lt;/properties&gt;</span><br><span class="line">    &lt;/profile&gt;</span><br><span class="line">  &lt;/profiles&gt;</span><br><span class="line"></span><br><span class="line">&lt;/settings&gt;</span><br></pre></td></tr></table></figure>
+
+<h3 id="settings-xml-标签速查"><a href="#settings-xml-标签速查" class="headerlink" title="settings.xml 标签速查"></a>settings.xml 标签速查</h3><table>
+<thead>
+<tr>
+<th>标签</th>
+<th>作用</th>
+<th>常用值 / 说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>&lt;localRepository&gt;</code></td>
+<td>本地仓库目录</td>
+<td>如 <code>D:\dev\maven\repo</code>；不配默认 <code>~/.m2/repository</code></td>
+</tr>
+<tr>
+<td><code>&lt;interactiveMode&gt;</code></td>
+<td>是否允许交互输入</td>
+<td><code>true</code> / <code>false</code></td>
+</tr>
+<tr>
+<td><code>&lt;offline&gt;</code></td>
+<td>离线模式</td>
+<td><code>true</code> 时只用本地已有依赖（断网/省流量）</td>
+</tr>
+<tr>
+<td><code>&lt;mirrors&gt;</code></td>
+<td><strong>镜像配置</strong>（最重要）</td>
+<td>里面放 <code>&lt;mirror&gt;</code>，可配多个</td>
+</tr>
+<tr>
+<td><code>&lt;mirror&gt;&lt;id&gt;</code></td>
+<td>镜像唯一标识</td>
+<td>自定义，如 <code>aliyunmaven</code></td>
+</tr>
+<tr>
+<td><code>&lt;mirror&gt;&lt;url&gt;</code></td>
+<td>镜像仓库地址</td>
+<td>见「九、仓库地址大全」</td>
+</tr>
+<tr>
+<td><code>&lt;mirror&gt;&lt;mirrorOf&gt;</code></td>
+<td><strong>拦截哪些仓库</strong></td>
+<td><code>central</code>、<code>*</code>、<code>!私服id</code> 等，见下表</td>
+</tr>
+<tr>
+<td><code>&lt;servers&gt;</code></td>
+<td>私服认证账号</td>
+<td><code>&lt;id&gt;</code> 必须与 pom 里 repository 的 id 一致</td>
+</tr>
+<tr>
+<td><code>&lt;proxies&gt;</code></td>
+<td>网络代理</td>
+<td>内网环境用</td>
+</tr>
+<tr>
+<td><code>&lt;profiles&gt;</code></td>
+<td>环境参数集合</td>
+<td>可配 JDK、编码、仓库等</td>
+</tr>
+<tr>
+<td><code>&lt;activeProfiles&gt;</code></td>
+<td>显式激活 profile</td>
+<td>如 <code>&lt;activeProfile&gt;jdk-8&lt;/activeProfile&gt;</code></td>
+</tr>
+<tr>
+<td><code>&lt;pluginGroups&gt;</code></td>
+<td>插件组（可省略 groupId 调插件）</td>
+<td>一般不用改</td>
+</tr>
+</tbody></table>
+<h3 id="lt-mirrorOf-gt-常用写法（易踩坑）"><a href="#lt-mirrorOf-gt-常用写法（易踩坑）" class="headerlink" title="&lt;mirrorOf&gt; 常用写法（易踩坑）"></a><code>&lt;mirrorOf&gt;</code> 常用写法（易踩坑）</h3><table>
+<thead>
+<tr>
+<th>写法</th>
+<th>含义</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>central</code></td>
+<td>只代理中央仓库（最常用）</td>
+</tr>
+<tr>
+<td><code>*</code></td>
+<td>代理<strong>所有</strong>仓库（⚠️ 会连私服也代理掉，私服会失效）</td>
+</tr>
+<tr>
+<td><code>external:*</code></td>
+<td>代理所有非 localhost / 非文件的仓库</td>
+</tr>
+<tr>
+<td><code>*,!nexus-releases</code></td>
+<td>代理所有，但<strong>排除</strong>私服 id（推荐用法）</td>
+</tr>
+<tr>
+<td><code>repo1,repo2</code></td>
+<td>只代理指定 id 的仓库</td>
+</tr>
+</tbody></table>
+<blockquote>
+<p>⚠️ 如果把 <code>&lt;mirrorOf&gt;</code> 写成 <code>*</code>，而公司私服也在 pom 里配置了，那么私服请求会被镜像劫持，导致「下载不到内部包」。此时必须用 <code>*,!私服id</code> 排除。</p>
+</blockquote>
+<hr>
+<h2 id="八、pom-xml-核心标签详解"><a href="#八、pom-xml-核心标签详解" class="headerlink" title="八、pom.xml 核心标签详解"></a>八、pom.xml 核心标签详解</h2><p><code>pom.xml</code> 是<strong>项目级配置</strong>，管的是「<strong>这个项目叫什么、依赖谁、怎么打包</strong>」。一个最小可用的 pom：</p>
+<p><strong>xml</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br></pre></td><td class="code"><pre><span class="line">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;</span><br><span class="line">&lt;project xmlns=&quot;http://maven.apache.org/POM/4.0.0&quot;</span><br><span class="line">         xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot;</span><br><span class="line">         xsi:schemaLocation=&quot;http://maven.apache.org/POM/4.0.0</span><br><span class="line">                             https://maven.apache.org/xsd/maven-4.0.0.xsd&quot;&gt;</span><br><span class="line"></span><br><span class="line">  &lt;!-- 1. POM 模型版本，固定 4.0.0 --&gt;</span><br><span class="line">  &lt;modelVersion&gt;4.0.0&lt;/modelVersion&gt;</span><br><span class="line"></span><br><span class="line">  &lt;!-- 2. 继承父工程（可选，Spring Boot 项目通常继承 starter-parent） --&gt;</span><br><span class="line">  &lt;parent&gt;</span><br><span class="line">    &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;</span><br><span class="line">    &lt;artifactId&gt;spring-boot-starter-parent&lt;/artifactId&gt;</span><br><span class="line">    &lt;version&gt;2.7.18&lt;/version&gt;</span><br><span class="line">    &lt;relativePath/&gt; &lt;!-- 空表示从仓库找，不从上级目录找 --&gt;</span><br><span class="line">  &lt;/parent&gt;</span><br><span class="line"></span><br><span class="line">  &lt;!-- 3. 项目坐标（三要素，全局唯一） --&gt;</span><br><span class="line">  &lt;groupId&gt;com.example&lt;/groupId&gt;</span><br><span class="line">  &lt;artifactId&gt;demo-service&lt;/artifactId&gt;</span><br><span class="line">  &lt;version&gt;1.0.0-SNAPSHOT&lt;/version&gt;</span><br><span class="line">  &lt;packaging&gt;jar&lt;/packaging&gt; &lt;!-- jar / war / pom --&gt;</span><br><span class="line"></span><br><span class="line">  &lt;!-- 4. 项目名与描述 --&gt;</span><br><span class="line">  &lt;name&gt;demo-service&lt;/name&gt;</span><br><span class="line">  &lt;description&gt;示例服务&lt;/description&gt;</span><br><span class="line"></span><br><span class="line">  &lt;!-- 5. 统一版本变量，便于集中管理 --&gt;</span><br><span class="line">  &lt;properties&gt;</span><br><span class="line">    &lt;java.version&gt;8&lt;/java.version&gt;</span><br><span class="line">    &lt;project.build.sourceEncoding&gt;UTF-8&lt;/project.build.sourceEncoding&gt;</span><br><span class="line">    &lt;fastjson.version&gt;2.0.32&lt;/fastjson.version&gt;</span><br><span class="line">  &lt;/properties&gt;</span><br><span class="line"></span><br><span class="line">  &lt;!-- 6. 依赖版本统一声明（子模块引依赖时不用写版本） --&gt;</span><br><span class="line">  &lt;dependencyManagement&gt;</span><br><span class="line">    &lt;dependencies&gt;</span><br><span class="line">      &lt;dependency&gt;</span><br><span class="line">        &lt;groupId&gt;com.alibaba.fastjson2&lt;/groupId&gt;</span><br><span class="line">        &lt;artifactId&gt;fastjson2&lt;/artifactId&gt;</span><br><span class="line">        &lt;version&gt;$&#123;fastjson.version&#125;&lt;/version&gt;</span><br><span class="line">      &lt;/dependency&gt;</span><br><span class="line">    &lt;/dependencies&gt;</span><br><span class="line">  &lt;/dependencyManagement&gt;</span><br><span class="line"></span><br><span class="line">  &lt;!-- 7. 实际依赖 --&gt;</span><br><span class="line">  &lt;dependencies&gt;</span><br><span class="line">    &lt;dependency&gt;</span><br><span class="line">      &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;</span><br><span class="line">      &lt;artifactId&gt;spring-boot-starter-web&lt;/artifactId&gt;</span><br><span class="line">    &lt;/dependency&gt;</span><br><span class="line">    &lt;dependency&gt;</span><br><span class="line">      &lt;groupId&gt;com.alibaba.fastjson2&lt;/groupId&gt;</span><br><span class="line">      &lt;artifactId&gt;fastjson2&lt;/artifactId&gt;</span><br><span class="line">    &lt;/dependency&gt;</span><br><span class="line">    &lt;dependency&gt;</span><br><span class="line">      &lt;groupId&gt;org.projectlombok&lt;/groupId&gt;</span><br><span class="line">      &lt;artifactId&gt;lombok&lt;/artifactId&gt;</span><br><span class="line">      &lt;scope&gt;provided&lt;/scope&gt; &lt;!-- 只编译期用，不打进包 --&gt;</span><br><span class="line">    &lt;/dependency&gt;</span><br><span class="line">    &lt;dependency&gt;</span><br><span class="line">      &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;</span><br><span class="line">      &lt;artifactId&gt;spring-boot-starter-test&lt;/artifactId&gt;</span><br><span class="line">      &lt;scope&gt;test&lt;/scope&gt;</span><br><span class="line">    &lt;/dependency&gt;</span><br><span class="line">  &lt;/dependencies&gt;</span><br><span class="line"></span><br><span class="line">  &lt;!-- 8. 构建配置 --&gt;</span><br><span class="line">  &lt;build&gt;</span><br><span class="line">    &lt;finalName&gt;demo&lt;/finalName&gt;</span><br><span class="line">    &lt;plugins&gt;</span><br><span class="line">      &lt;plugin&gt;</span><br><span class="line">        &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;</span><br><span class="line">        &lt;artifactId&gt;spring-boot-maven-plugin&lt;/artifactId&gt;</span><br><span class="line">      &lt;/plugin&gt;</span><br><span class="line">    &lt;/plugins&gt;</span><br><span class="line">  &lt;/build&gt;</span><br><span class="line"></span><br><span class="line">  &lt;!-- 9. 额外仓库（私服 / 特殊仓库） --&gt;</span><br><span class="line">  &lt;repositories&gt;</span><br><span class="line">    &lt;repository&gt;</span><br><span class="line">      &lt;id&gt;nexus-releases&lt;/id&gt;</span><br><span class="line">      &lt;url&gt;http://nexus.company.com/repository/maven-releases/&lt;/url&gt;</span><br><span class="line">      &lt;releases&gt;&lt;enabled&gt;true&lt;/enabled&gt;&lt;/releases&gt;</span><br><span class="line">      &lt;snapshots&gt;&lt;enabled&gt;false&lt;/enabled&gt;&lt;/snapshots&gt;</span><br><span class="line">    &lt;/repository&gt;</span><br><span class="line">  &lt;/repositories&gt;</span><br><span class="line"></span><br><span class="line">&lt;/project&gt;</span><br></pre></td></tr></table></figure>
+
+<h3 id="pom-xml-标签速查"><a href="#pom-xml-标签速查" class="headerlink" title="pom.xml 标签速查"></a>pom.xml 标签速查</h3><table>
+<thead>
+<tr>
+<th>标签</th>
+<th>作用</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>&lt;modelVersion&gt;</code></td>
+<td>POM 版本</td>
+<td>固定 <code>4.0.0</code></td>
+</tr>
+<tr>
+<td><code>&lt;parent&gt;</code></td>
+<td>继承父工程</td>
+<td>继承依赖版本、插件配置</td>
+</tr>
+<tr>
+<td><code>&lt;groupId&gt;</code></td>
+<td>组织/公司标识</td>
+<td>如 <code>com.tencent.oa</code></td>
+</tr>
+<tr>
+<td><code>&lt;artifactId&gt;</code></td>
+<td>项目/模块名</td>
+<td>如 <code>tencent-rpt-server</code></td>
+</tr>
+<tr>
+<td><code>&lt;version&gt;</code></td>
+<td>版本号</td>
+<td><code>SNAPSHOT</code> 为快照版（可覆盖），不带为正式版</td>
+</tr>
+<tr>
+<td><code>&lt;packaging&gt;</code></td>
+<td>打包类型</td>
+<td><code>jar</code>（默认）/ <code>war</code> / <code>pom</code>（父工程）</td>
+</tr>
+<tr>
+<td><code>&lt;properties&gt;</code></td>
+<td>变量定义</td>
+<td>用 <code>$&#123;xxx&#125;</code> 引用，集中管版本</td>
+</tr>
+<tr>
+<td><code>&lt;dependencyManagement&gt;</code></td>
+<td><strong>依赖版本管理</strong></td>
+<td>只声明版本不引入；子模块引时不写版本</td>
+</tr>
+<tr>
+<td><code>&lt;dependencies&gt;</code></td>
+<td>项目依赖</td>
+<td>真正的依赖列表</td>
+</tr>
+<tr>
+<td><code>&lt;scope&gt;</code></td>
+<td>依赖作用域</td>
+<td>见「十、依赖作用域」</td>
+</tr>
+<tr>
+<td><code>&lt;optional&gt;</code></td>
+<td>可选依赖</td>
+<td><code>true</code> 时不传递给下游项目</td>
+</tr>
+<tr>
+<td><code>&lt;exclusions&gt;</code></td>
+<td>排除传递依赖</td>
+<td>解决冲突/去冗余</td>
+</tr>
+<tr>
+<td><code>&lt;build&gt;</code></td>
+<td>构建配置</td>
+<td>内含 <code>&lt;plugins&gt;</code>、<code>&lt;resources&gt;</code> 等</td>
+</tr>
+<tr>
+<td><code>&lt;finalName&gt;</code></td>
+<td>产物名</td>
+<td>打成 <code>demo.jar</code></td>
+</tr>
+<tr>
+<td><code>&lt;plugins&gt;</code></td>
+<td>构建插件</td>
+<td>如 <code>spring-boot-maven-plugin</code></td>
+</tr>
+<tr>
+<td><code>&lt;repositories&gt;</code></td>
+<td>依赖下载仓库</td>
+<td>私服/第三方仓库</td>
+</tr>
+<tr>
+<td><code>&lt;distributionManagement&gt;</code></td>
+<td><strong>发布目标仓库</strong></td>
+<td><code>deploy</code> 时推到哪</td>
+</tr>
+<tr>
+<td><code>&lt;profiles&gt;</code></td>
+<td>环境配置</td>
+<td>多环境（dev/test/prod）打包</td>
+</tr>
+<tr>
+<td><code>&lt;modules&gt;</code></td>
+<td>子模块列表</td>
+<td>父工程用，见「十三、多模块工程」</td>
+</tr>
+</tbody></table>
+<h3 id="lt-distributionManagement-gt-（发布用）"><a href="#lt-distributionManagement-gt-（发布用）" class="headerlink" title="&lt;distributionManagement&gt;（发布用）"></a><code>&lt;distributionManagement&gt;</code>（发布用）</h3><p><strong>xml</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">&lt;distributionManagement&gt;</span><br><span class="line">  &lt;repository&gt;</span><br><span class="line">    &lt;id&gt;nexus-releases&lt;/id&gt;   &lt;!-- 必须与 settings.xml 里 server 的 id 一致 --&gt;</span><br><span class="line">    &lt;url&gt;http://nexus.company.com/repository/maven-releases/&lt;/url&gt;</span><br><span class="line">  &lt;/repository&gt;</span><br><span class="line">  &lt;snapshotRepository&gt;</span><br><span class="line">    &lt;id&gt;nexus-snapshots&lt;/id&gt;</span><br><span class="line">    &lt;url&gt;http://nexus.company.com/repository/maven-snapshots/&lt;/url&gt;</span><br><span class="line">  &lt;/snapshotRepository&gt;</span><br><span class="line">&lt;/distributionManagement&gt;</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>⚠️ 发布失败最常见原因：<code>settings.xml</code> 里 <code>&lt;server&gt;&lt;id&gt;</code> 与这里 <code>&lt;repository&gt;&lt;id&gt;</code> <strong>不一致</strong>，导致密码匹配不上。</p>
+</blockquote>
+<hr>
+<h2 id="九、仓库地址大全"><a href="#九、仓库地址大全" class="headerlink" title="九、仓库地址大全"></a>九、仓库地址大全</h2><h3 id="官方中央仓库"><a href="#官方中央仓库" class="headerlink" title="官方中央仓库"></a>官方中央仓库</h3><table>
+<thead>
+<tr>
+<th>名称</th>
+<th>地址</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Maven Central（官方）</td>
+<td><code>https://repo.maven.apache.org/maven2/</code></td>
+</tr>
+<tr>
+<td>Maven Central（备用）</td>
+<td><code>https://repo1.maven.org/maven2/</code></td>
+</tr>
+</tbody></table>
+<h3 id="阿里云镜像（推荐）"><a href="#阿里云镜像（推荐）" class="headerlink" title="阿里云镜像（推荐）"></a>阿里云镜像（推荐）</h3><table>
+<thead>
+<tr>
+<th>仓库</th>
+<th>地址</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>public（聚合）</strong></td>
+<td><code>https://maven.aliyun.com/repository/public</code></td>
+<td><strong>推荐</strong>，含 central + jcenter</td>
+</tr>
+<tr>
+<td>central</td>
+<td><code>https://maven.aliyun.com/repository/central</code></td>
+<td>只代理中央仓库</td>
+</tr>
+<tr>
+<td>jcenter</td>
+<td><code>https://maven.aliyun.com/repository/jcenter</code></td>
+<td>jcenter 代理</td>
+</tr>
+<tr>
+<td>google</td>
+<td><code>https://maven.aliyun.com/repository/google</code></td>
+<td>Android / Google 组件</td>
+</tr>
+<tr>
+<td>gradle-plugin</td>
+<td><code>https://maven.aliyun.com/repository/gradle-plugin</code></td>
+<td>Gradle 插件</td>
+</tr>
+<tr>
+<td>spring</td>
+<td><code>https://maven.aliyun.com/repository/spring</code></td>
+<td>Spring 相关</td>
+</tr>
+<tr>
+<td>spring-plugin</td>
+<td><code>https://maven.aliyun.com/repository/spring-plugin</code></td>
+<td>Spring 插件</td>
+</tr>
+<tr>
+<td>releases</td>
+<td><code>https://maven.aliyun.com/repository/releases</code></td>
+<td>正式版私服代理</td>
+</tr>
+<tr>
+<td>snapshots</td>
+<td><code>https://maven.aliyun.com/repository/snapshots</code></td>
+<td>快照版私服代理</td>
+</tr>
+</tbody></table>
+<h3 id="其它国内镜像"><a href="#其它国内镜像" class="headerlink" title="其它国内镜像"></a>其它国内镜像</h3><table>
+<thead>
+<tr>
+<th>名称</th>
+<th>地址</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>华为云</td>
+<td><code>https://repo.huaweicloud.com/repository/maven/</code></td>
+</tr>
+<tr>
+<td>腾讯云</td>
+<td><code>https://mirrors.cloud.tencent.com/nexus/repository/maven-public/</code></td>
+</tr>
+<tr>
+<td>网易</td>
+<td><code>https://mirrors.163.com/maven/repository/maven-public/</code></td>
+</tr>
+</tbody></table>
+<h3 id="镜像-vs-仓库：配置位置不同"><a href="#镜像-vs-仓库：配置位置不同" class="headerlink" title="镜像 vs 仓库：配置位置不同"></a>镜像 vs 仓库：配置位置不同</h3><table>
+<thead>
+<tr>
+<th>方式</th>
+<th>配置位置</th>
+<th>特点</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>镜像 <code>&lt;mirror&gt;</code></strong></td>
+<td><code>settings.xml</code></td>
+<td><strong>全局生效</strong>，拦截（替换）指定仓库；常规加速首选</td>
+</tr>
+<tr>
+<td><strong>仓库 <code>&lt;repository&gt;</code></strong></td>
+<td><code>pom.xml</code> 或 settings 的 profile</td>
+<td>只对当前项目生效，作为<strong>额外</strong>下载源</td>
+</tr>
+</tbody></table>
+<p>镜像配置示例（settings.xml，多镜像写法）：</p>
+<p><strong>xml</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">&lt;mirrors&gt;</span><br><span class="line">  &lt;!-- 阿里云聚合源，覆盖中央仓库 --&gt;</span><br><span class="line">  &lt;mirror&gt;</span><br><span class="line">    &lt;id&gt;aliyunmaven&lt;/id&gt;</span><br><span class="line">    &lt;name&gt;阿里云公共仓库&lt;/name&gt;</span><br><span class="line">    &lt;url&gt;https://maven.aliyun.com/repository/public&lt;/url&gt;</span><br><span class="line">    &lt;mirrorOf&gt;central&lt;/mirrorOf&gt;</span><br><span class="line">  &lt;/mirror&gt;</span><br><span class="line">  &lt;!-- 指定仓库走阿里云 spring 源 --&gt;</span><br><span class="line">  &lt;mirror&gt;</span><br><span class="line">    &lt;id&gt;aliyun-spring&lt;/id&gt;</span><br><span class="line">    &lt;name&gt;阿里云 Spring 仓库&lt;/name&gt;</span><br><span class="line">    &lt;url&gt;https://maven.aliyun.com/repository/spring&lt;/url&gt;</span><br><span class="line">    &lt;mirrorOf&gt;spring-milestones,spring-snapshots&lt;/mirrorOf&gt;</span><br><span class="line">  &lt;/mirror&gt;</span><br><span class="line">&lt;/mirrors&gt;</span><br></pre></td></tr></table></figure>
+
+<h3 id="查看仓库所有包的地址（在线浏览-搜索）"><a href="#查看仓库所有包的地址（在线浏览-搜索）" class="headerlink" title="查看仓库所有包的地址（在线浏览 / 搜索）"></a>查看仓库所有包的地址（在线浏览 / 搜索）</h3><p>想找一个包的<strong>最新版本、所有历史版本、groupId / artifactId 全称</strong>时，用下面这些地址直接在浏览器里查。</p>
+<h4 id="1-在线搜索平台（最常用）"><a href="#1-在线搜索平台（最常用）" class="headerlink" title="1. 在线搜索平台（最常用）"></a>1. 在线搜索平台（最常用）</h4><table>
+<thead>
+<tr>
+<th>平台</th>
+<th>地址</th>
+<th>特点</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>Maven Repository</strong>（推荐）</td>
+<td><a class="link"   target="_blank" rel="noopener" href="https://mvnrepository.com/" >https://mvnrepository.com/<i class="fas fa-external-link-alt"></i></a></td>
+<td>最好用，可看版本列表、依赖关系、被谁引用、复制坐标</td>
+</tr>
+<tr>
+<td><strong>Maven Central 官方搜索</strong></td>
+<td><a class="link"   target="_blank" rel="noopener" href="https://central.sonatype.com/" >https://central.sonatype.com/<i class="fas fa-external-link-alt"></i></a></td>
+<td>官方新站，覆盖最全，支持全文搜索</td>
+</tr>
+<tr>
+<td>Maven Central（旧版）</td>
+<td><a class="link"   target="_blank" rel="noopener" href="https://search.maven.org/" >https://search.maven.org/<i class="fas fa-external-link-alt"></i></a></td>
+<td>旧版界面，仍可用</td>
+</tr>
+<tr>
+<td>Sonatype OSS Index</td>
+<td><a class="link"   target="_blank" rel="noopener" href="https://ossindex.sonatype.org/" >https://ossindex.sonatype.org/<i class="fas fa-external-link-alt"></i></a></td>
+<td>查<strong>安全漏洞</strong>（CVE）常用</td>
+</tr>
+<tr>
+<td>MVNRepository 依赖排行</td>
+<td><a class="link"   target="_blank" rel="noopener" href="https://mvnrepository.com/popular" >https://mvnrepository.com/popular<i class="fas fa-external-link-alt"></i></a></td>
+<td>看热门包排行</td>
+</tr>
+</tbody></table>
+<blockquote>
+<p>💡 复制坐标时注意：网页上的 <code>&lt;dependency&gt;</code> 片段可能引用的是老版本，粘到 pom 前先核对版本号。</p>
+</blockquote>
+<h4 id="2-直接浏览仓库目录（看「所有包」）"><a href="#2-直接浏览仓库目录（看「所有包」）" class="headerlink" title="2. 直接浏览仓库目录（看「所有包」）"></a>2. 直接浏览仓库目录（看「所有包」）</h4><p>任何一个 Maven 仓库都能<strong>当目录网站打开</strong>，路径规则是：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">仓库根地址 / groupId 的点换斜杠 / artifactId / version /</span><br></pre></td></tr></table></figure>
+
+<table>
+<thead>
+<tr>
+<th>仓库</th>
+<th>浏览地址</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Maven Central</td>
+<td><code>https://repo.maven.apache.org/maven2/</code></td>
+<td>官方中央仓库根，可逐级点进去</td>
+</tr>
+<tr>
+<td>阿里云 public</td>
+<td><code>https://maven.aliyun.com/repository/public/</code></td>
+<td>阿里云聚合仓库，可直接浏览</td>
+</tr>
+<tr>
+<td>阿里云 central</td>
+<td><code>https://maven.aliyun.com/repository/central/</code></td>
+<td>只含中央仓库内容</td>
+</tr>
+<tr>
+<td>阿里云 spring</td>
+<td><code>https://maven.aliyun.com/repository/spring/</code></td>
+<td>Spring 相关包</td>
+</tr>
+<tr>
+<td>华为云</td>
+<td><code>https://repo.huaweicloud.com/repository/maven/</code></td>
+<td>可浏览目录</td>
+</tr>
+<tr>
+<td>腾讯云</td>
+<td><code>https://mirrors.cloud.tencent.com/nexus/repository/maven-public/</code></td>
+<td>可浏览目录</td>
+</tr>
+<tr>
+<td>网易</td>
+<td><code>https://mirrors.163.com/maven/repository/maven-public/</code></td>
+<td>可浏览目录</td>
+</tr>
+</tbody></table>
+<p><strong>实例：找 <code>fastjson2</code> 的所有版本</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">1. 打开 https://repo.maven.apache.org/maven2/</span><br><span class="line">2. 依次点进：com/ → alibaba/ → fastjson2/</span><br><span class="line">3. 看到 fastjson2/ 下按版本号排列的目录（2.0.0、2.0.1 ... 2.0.53）</span><br><span class="line">4. 点进某个版本，能看到 fastjson2-2.0.53.jar、.pom、.jar.sha1 等文件</span><br></pre></td></tr></table></figure>
+
+<p>对应的直链就是：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">https://repo.maven.apache.org/maven2/com/alibaba/fastjson2/</span><br><span class="line">https://repo.maven.apache.org/maven2/com/alibaba/fastjson2/2.0.53/</span><br></pre></td></tr></table></figure>
+
+<p><strong>实例：找 Spring Boot 所有版本</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">https://repo.maven.apache.org/maven2/org/springframework/boot/spring-boot-starter-parent/</span><br></pre></td></tr></table></figure>
+
+<h4 id="3-私服（Nexus-Artifactory）浏览地址"><a href="#3-私服（Nexus-Artifactory）浏览地址" class="headerlink" title="3. 私服（Nexus / Artifactory）浏览地址"></a>3. 私服（Nexus / Artifactory）浏览地址</h4><p>公司私服同样能浏览全部内部包，地址通常是 Nexus 的仓库根路径：</p>
+<table>
+<thead>
+<tr>
+<th>类型</th>
+<th>浏览地址格式</th>
+<th>示例</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Nexus 2</td>
+<td><code>http://主机:8081/nexus/content/repositories/仓库名/</code></td>
+<td><code>.../repositories/maven-releases/</code></td>
+</tr>
+<tr>
+<td>Nexus 3</td>
+<td><code>http://主机:8081/repository/仓库名/</code></td>
+<td><code>.../repository/maven-releases/</code></td>
+</tr>
+<tr>
+<td>Nexus 3 搜索页</td>
+<td><code>http://主机:8081/#browse/browse</code></td>
+<td>图形化搜索全部组件</td>
+</tr>
+<tr>
+<td>Artifactory</td>
+<td><code>http://主机:8081/artifactory/仓库名/</code></td>
+<td>—</td>
+</tr>
+<tr>
+<td>Artifactory UI</td>
+<td><code>http://主机/artifactory/webapp/#/artifacts</code></td>
+<td>图形化浏览</td>
+</tr>
+</tbody></table>
+<blockquote>
+<p>⚠️ 私服一般需要登录，直接开链接会 401；先在 Nexus 页面登录后即可正常浏览。</p>
+</blockquote>
+<h4 id="4-用命令行查看（不离开终端）"><a href="#4-用命令行查看（不离开终端）" class="headerlink" title="4. 用命令行查看（不离开终端）"></a>4. 用命令行查看（不离开终端）</h4><p><strong>bash</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"># 1. 看某个依赖的所有可用版本（需要 versions-maven-plugin）</span><br><span class="line">mvn versions:display-dependency-updates</span><br><span class="line"></span><br><span class="line"># 2. 看依赖树，确认实际用的是哪个版本、从哪来的</span><br><span class="line">mvn dependency:tree</span><br><span class="line"></span><br><span class="line"># 3. 只看某个包的来源</span><br><span class="line">mvn dependency:tree -Dincludes=com.alibaba:fastjson2</span><br><span class="line"></span><br><span class="line"># 4. 查看某个坐标在本地仓库的文件结构</span><br><span class="line">dir %USERPROFILE%\.m2\repository\com\alibaba\fastjson2</span><br><span class="line"></span><br><span class="line"># 5. 直接列远程仓库某目录（Linux / macOS 有 curl 时）</span><br><span class="line">curl -s https://repo.maven.apache.org/maven2/com/alibaba/fastjson2/ | grep -o &#x27;href=&quot;[^&quot;]*&quot;&#x27;</span><br></pre></td></tr></table></figure>
+
+<h4 id="5-快速定位坐标的技巧"><a href="#5-快速定位坐标的技巧" class="headerlink" title="5. 快速定位坐标的技巧"></a>5. 快速定位坐标的技巧</h4><table>
+<thead>
+<tr>
+<th>场景</th>
+<th>做法</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>只知道包名不知道 groupId</td>
+<td>在 mvnrepository.com 直接搜包名，看 <code>Group / Artifact</code> 两列</td>
+</tr>
+<tr>
+<td>想看有哪些版本可选</td>
+<td>打开包详情页 → <code>Versions</code> 标签页（按时间倒序）</td>
+</tr>
+<tr>
+<td>想确认是否被传递引入</td>
+<td><code>mvn dependency:tree -Dincludes=groupId:artifactId</code></td>
+</tr>
+<tr>
+<td>想知道为什么版本是这个</td>
+<td><code>mvn help:effective-pom</code> 看最终生效版本</td>
+</tr>
+<tr>
+<td>想看依赖的许可证/漏洞</td>
+<td>包详情页 <code>License</code> / <code>Vulnerabilities</code> 区块</td>
+</tr>
+</tbody></table>
+<blockquote>
+<p>💡 一句话：<strong>找包/查版本上 <code>mvnrepository.com</code> 或 <code>central.sonatype.com</code>；想看仓库「所有包」的原始目录，把任意仓库根地址当文件夹一层层点进去即可。</strong></p>
+</blockquote>
+<hr>
+<h2 id="十、依赖作用域（scope）说明"><a href="#十、依赖作用域（scope）说明" class="headerlink" title="十、依赖作用域（scope）说明"></a>十、依赖作用域（scope）说明</h2><p><code>&lt;scope&gt;</code> 决定依赖<strong>在哪些阶段可见、是否打进最终包</strong>。</p>
+<table>
+<thead>
+<tr>
+<th>scope</th>
+<th>编译期</th>
+<th>测试期</th>
+<th>运行期</th>
+<th>打进包</th>
+<th>典型场景</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>compile</code>（默认）</td>
+<td>✅</td>
+<td>✅</td>
+<td>✅</td>
+<td>✅</td>
+<td>大多数依赖，如 <code>spring-web</code></td>
+</tr>
+<tr>
+<td><code>provided</code></td>
+<td>✅</td>
+<td>✅</td>
+<td>❌</td>
+<td>❌</td>
+<td><code>lombok</code>、<code>servlet-api</code>（容器已提供）</td>
+</tr>
+<tr>
+<td><code>runtime</code></td>
+<td>❌</td>
+<td>✅</td>
+<td>✅</td>
+<td>✅</td>
+<td>JDBC 驱动 <code>mysql-connector-java</code></td>
+</tr>
+<tr>
+<td><code>test</code></td>
+<td>❌</td>
+<td>✅</td>
+<td>❌</td>
+<td>❌</td>
+<td><code>junit</code>、<code>mockito</code>、<code>spring-boot-starter-test</code></td>
+</tr>
+<tr>
+<td><code>system</code></td>
+<td>✅</td>
+<td>✅</td>
+<td>✅</td>
+<td>❌</td>
+<td>本地 jar（需写 <code>systemPath</code>，<strong>不推荐</strong>）</td>
+</tr>
+<tr>
+<td><code>import</code></td>
+<td>—</td>
+<td>—</td>
+<td>—</td>
+<td>—</td>
+<td>仅用于 <code>&lt;dependencyManagement&gt;</code> 导入 BOM</td>
+</tr>
+</tbody></table>
+<p>示例：</p>
+<p><strong>xml</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">&lt;!-- 编译期需要，运行时容器已提供 --&gt;</span><br><span class="line">&lt;dependency&gt;</span><br><span class="line">  &lt;groupId&gt;org.projectlombok&lt;/groupId&gt;</span><br><span class="line">  &lt;artifactId&gt;lombok&lt;/artifactId&gt;</span><br><span class="line">  &lt;scope&gt;provided&lt;/scope&gt;</span><br><span class="line">&lt;/dependency&gt;</span><br><span class="line"></span><br><span class="line">&lt;!-- 只在测试代码里用 --&gt;</span><br><span class="line">&lt;dependency&gt;</span><br><span class="line">  &lt;groupId&gt;junit&lt;/groupId&gt;</span><br><span class="line">  &lt;artifactId&gt;junit&lt;/artifactId&gt;</span><br><span class="line">  &lt;scope&gt;test&lt;/scope&gt;</span><br><span class="line">&lt;/dependency&gt;</span><br><span class="line"></span><br><span class="line">&lt;!-- 导入 Spring Boot BOM 统一版本 --&gt;</span><br><span class="line">&lt;dependency&gt;</span><br><span class="line">  &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;</span><br><span class="line">  &lt;artifactId&gt;spring-boot-dependencies&lt;/artifactId&gt;</span><br><span class="line">  &lt;version&gt;2.7.18&lt;/version&gt;</span><br><span class="line">  &lt;type&gt;pom&lt;/type&gt;</span><br><span class="line">  &lt;scope&gt;import&lt;/scope&gt;</span><br><span class="line">&lt;/dependency&gt;</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>💡 打包时想把 <code>provided</code> 依赖也带上（如用 assembly 打可执行包），需在插件里显式配置 <code>includeScope</code>。</p>
+</blockquote>
+<hr>
+<h2 id="十一、常用-Maven-命令速查"><a href="#十一、常用-Maven-命令速查" class="headerlink" title="十一、常用 Maven 命令速查"></a>十一、常用 Maven 命令速查</h2><table>
+<thead>
+<tr>
+<th>命令</th>
+<th>作用</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>mvn -v</code></td>
+<td>查看 Maven / JDK 版本</td>
+</tr>
+<tr>
+<td><code>mvn clean</code></td>
+<td>清理 <code>target</code> 目录</td>
+</tr>
+<tr>
+<td><code>mvn compile</code></td>
+<td>编译主代码</td>
+</tr>
+<tr>
+<td><code>mvn test</code></td>
+<td>跑单元测试</td>
+</tr>
+<tr>
+<td><code>mvn package</code></td>
+<td>打包（jar/war）</td>
+</tr>
+<tr>
+<td><code>mvn install</code></td>
+<td>打包并安装到<strong>本地仓库</strong>（供本机其它项目引用）</td>
+</tr>
+<tr>
+<td><code>mvn deploy</code></td>
+<td>打包并发布到<strong>远程仓库</strong>（私服）</td>
+</tr>
+<tr>
+<td><code>mvn clean package -DskipTests</code></td>
+<td>打包但跳过测试</td>
+</tr>
+<tr>
+<td><code>mvn clean package -Dmaven.test.skip=true</code></td>
+<td>连测试代码编译都跳过</td>
+</tr>
+<tr>
+<td><code>mvn clean package -Pprod</code></td>
+<td>激活 <code>prod</code> profile 打包</td>
+</tr>
+<tr>
+<td><code>mvn clean package -am -pl 模块名</code></td>
+<td>只构建指定模块及它依赖的模块</td>
+</tr>
+<tr>
+<td><code>mvn clean package -U</code></td>
+<td>强制更新 SNAPSHOT 依赖（解决「拉不到最新快照」）</td>
+</tr>
+<tr>
+<td><code>mvn clean package -o</code></td>
+<td>离线构建（只用本地仓库）</td>
+</tr>
+<tr>
+<td><code>mvn clean package -X</code></td>
+<td>打开 debug 日志（排查问题用）</td>
+</tr>
+<tr>
+<td><code>mvn dependency:tree</code></td>
+<td>打印依赖树（排查冲突）</td>
+</tr>
+<tr>
+<td><code>mvn dependency:tree -Dincludes=groupId:artifactId</code></td>
+<td>只看指定依赖的来源</td>
+</tr>
+<tr>
+<td><code>mvn dependency:analyze</code></td>
+<td>分析「用了没声明 / 声明了没用」的依赖</td>
+</tr>
+<tr>
+<td><code>mvn help:effective-pom</code></td>
+<td>查看合并父工程后的<strong>最终</strong> pom（排查看不到父配置）</td>
+</tr>
+<tr>
+<td><code>mvn help:effective-settings</code></td>
+<td>查看合并后的最终 settings</td>
+</tr>
+<tr>
+<td><code>mvn versions:display-dependency-updates</code></td>
+<td>列出可升级的依赖版本</td>
+</tr>
+<tr>
+<td><code>mvn archetype:generate</code></td>
+<td>生成项目骨架</td>
+</tr>
+<tr>
+<td><code>mvn spring-boot:run</code></td>
+<td>直接启动 Spring Boot 应用</td>
+</tr>
+</tbody></table>
+<h3 id="生命周期简述"><a href="#生命周期简述" class="headerlink" title="生命周期简述"></a>生命周期简述</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">clean → validate → compile → test → package → verify → install → deploy</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p><code>mvn package</code> 会自动<strong>依次执行前面所有阶段</strong>（validate/compile/test 等），所以一般不用单独跑 <code>compile</code>。</p>
+</blockquote>
+<hr>
+<h2 id="十二、依赖冲突排查与解决"><a href="#十二、依赖冲突排查与解决" class="headerlink" title="十二、依赖冲突排查与解决"></a>十二、依赖冲突排查与解决</h2><h3 id="1-定位冲突"><a href="#1-定位冲突" class="headerlink" title="1. 定位冲突"></a>1. 定位冲突</h3><p><strong>bash</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mvn dependency:tree -Dverbose &gt; tree.txt</span><br></pre></td></tr></table></figure>
+
+<p>重点看输出里的：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">[INFO] com.example:demo:jar:1.0.0</span><br><span class="line">[INFO] +- org.springframework:spring-core:jar:5.3.31:compile</span><br><span class="line">[INFO] \- com.other:lib:jar:1.0.0:compile</span><br><span class="line">[INFO]    \- (org.springframework:spring-core:jar:5.3.20:compile - omitted for conflict with 5.3.31)</span><br></pre></td></tr></table></figure>
+
+<p><code>omitted for conflict with xxx</code> 就表示该版本被<strong>就近原则</strong>淘汰了。</p>
+<h3 id="2-Maven-依赖调解两大原则"><a href="#2-Maven-依赖调解两大原则" class="headerlink" title="2. Maven 依赖调解两大原则"></a>2. Maven 依赖调解两大原则</h3><table>
+<thead>
+<tr>
+<th>原则</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>最短路径优先</strong></td>
+<td>依赖路径短的胜出（直接依赖 &gt; 传递依赖）</td>
+</tr>
+<tr>
+<td><strong>最先声明优先</strong></td>
+<td>路径长度相同时，pom 里<strong>先声明</strong>的胜出</td>
+</tr>
+</tbody></table>
+<h3 id="3-常见解决手段"><a href="#3-常见解决手段" class="headerlink" title="3. 常见解决手段"></a>3. 常见解决手段</h3><p><strong>xml</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">&lt;!-- 方案一：显式声明想要的版本（最短路径优先，直接生效） --&gt;</span><br><span class="line">&lt;dependency&gt;</span><br><span class="line">  &lt;groupId&gt;org.springframework&lt;/groupId&gt;</span><br><span class="line">  &lt;artifactId&gt;spring-core&lt;/artifactId&gt;</span><br><span class="line">  &lt;version&gt;5.3.31&lt;/version&gt;</span><br><span class="line">&lt;/dependency&gt;</span><br><span class="line"></span><br><span class="line">&lt;!-- 方案二：排除传递进来的旧版本 --&gt;</span><br><span class="line">&lt;dependency&gt;</span><br><span class="line">  &lt;groupId&gt;com.other&lt;/groupId&gt;</span><br><span class="line">  &lt;artifactId&gt;lib&lt;/artifactId&gt;</span><br><span class="line">  &lt;version&gt;1.0.0&lt;/version&gt;</span><br><span class="line">  &lt;exclusions&gt;</span><br><span class="line">    &lt;exclusion&gt;</span><br><span class="line">      &lt;groupId&gt;org.springframework&lt;/groupId&gt;</span><br><span class="line">      &lt;artifactId&gt;spring-core&lt;/artifactId&gt;</span><br><span class="line">    &lt;/exclusion&gt;</span><br><span class="line">  &lt;/exclusions&gt;</span><br><span class="line">&lt;/dependency&gt;</span><br></pre></td></tr></table></figure>
+
+<table>
+<thead>
+<tr>
+<th>手段</th>
+<th>适用场景</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>显式声明版本</td>
+<td>想统一到某个版本</td>
+</tr>
+<tr>
+<td><code>&lt;exclusions&gt;</code></td>
+<td>某传递依赖完全不需要，或需换版本</td>
+</tr>
+<tr>
+<td><code>&lt;dependencyManagement&gt;</code></td>
+<td>父工程统一锁版本（推荐）</td>
+</tr>
+<tr>
+<td><code>&lt;optional&gt;true&lt;/optional&gt;</code></td>
+<td>该依赖不向下游传递</td>
+</tr>
+</tbody></table>
+<h3 id="4-常见报错对照"><a href="#4-常见报错对照" class="headerlink" title="4. 常见报错对照"></a>4. 常见报错对照</h3><table>
+<thead>
+<tr>
+<th>报错</th>
+<th>原因</th>
+<th>处理</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>Could not resolve dependencies</code></td>
+<td>仓库没有该版本 / 网络不通</td>
+<td>换镜像源、<code>-U</code> 强制更新</td>
+</tr>
+<tr>
+<td><code>Non-resolvable parent POM</code></td>
+<td>父工程拉不到</td>
+<td>检查父工程是否已 install 或镜像能否访问</td>
+</tr>
+<tr>
+<td><code>NoSuchMethodError</code> / <code>ClassNotFoundException</code></td>
+<td><strong>依赖冲突</strong>（编译期一个版本、运行期另一个）</td>
+<td><code>dependency:tree</code> 找冲突，排除旧版本</td>
+</tr>
+<tr>
+<td><code>Artifact has not been packaged yet</code></td>
+<td>多模块构建顺序问题</td>
+<td>加 <code>-am</code> 一起构建</td>
+</tr>
+<tr>
+<td><code>401 Unauthorized</code></td>
+<td>私服账号密码错</td>
+<td>检查 <code>settings.xml</code> 的 <code>&lt;server&gt;</code></td>
+</tr>
+<tr>
+<td><code>was cached in the local repository</code></td>
+<td>快照缓存过期</td>
+<td>加 <code>-U</code> 强制更新</td>
+</tr>
+<tr>
+<td><code>invalid LOC header</code> / jar 损坏</td>
+<td>下载中断</td>
+<td>删掉本地仓库对应目录重新下</td>
+</tr>
+</tbody></table>
+<hr>
+<h2 id="十三、多模块工程配置"><a href="#十三、多模块工程配置" class="headerlink" title="十三、多模块工程配置"></a>十三、多模块工程配置</h2><p>大型项目常用「<strong>父 pom 管版本，子模块管依赖</strong>」结构：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">demo-parent/</span><br><span class="line">├── pom.xml                  &lt;!-- packaging = pom --&gt;</span><br><span class="line">├── demo-common/</span><br><span class="line">│   └── pom.xml</span><br><span class="line">├── demo-service/</span><br><span class="line">│   └── pom.xml</span><br><span class="line">└── demo-web/</span><br><span class="line">    └── pom.xml</span><br></pre></td></tr></table></figure>
+
+<p><strong>父工程 pom.xml</strong></p>
+<p><strong>xml</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">&lt;project&gt;</span><br><span class="line">  &lt;modelVersion&gt;4.0.0&lt;/modelVersion&gt;</span><br><span class="line">  &lt;groupId&gt;com.example&lt;/groupId&gt;</span><br><span class="line">  &lt;artifactId&gt;demo-parent&lt;/artifactId&gt;</span><br><span class="line">  &lt;version&gt;1.0.0&lt;/version&gt;</span><br><span class="line">  &lt;packaging&gt;pom&lt;/packaging&gt;   &lt;!-- 父工程必须是 pom --&gt;</span><br><span class="line"></span><br><span class="line">  &lt;!-- 声明子模块 --&gt;</span><br><span class="line">  &lt;modules&gt;</span><br><span class="line">    &lt;module&gt;demo-common&lt;/module&gt;</span><br><span class="line">    &lt;module&gt;demo-service&lt;/module&gt;</span><br><span class="line">    &lt;module&gt;demo-web&lt;/module&gt;</span><br><span class="line">  &lt;/modules&gt;</span><br><span class="line"></span><br><span class="line">  &lt;!-- 统一锁版本，子模块引依赖不写 version --&gt;</span><br><span class="line">  &lt;dependencyManagement&gt;</span><br><span class="line">    &lt;dependencies&gt;</span><br><span class="line">      &lt;dependency&gt;</span><br><span class="line">        &lt;groupId&gt;com.example&lt;/groupId&gt;</span><br><span class="line">        &lt;artifactId&gt;demo-common&lt;/artifactId&gt;</span><br><span class="line">        &lt;version&gt;$&#123;project.version&#125;&lt;/version&gt;</span><br><span class="line">      &lt;/dependency&gt;</span><br><span class="line">    &lt;/dependencies&gt;</span><br><span class="line">  &lt;/dependencyManagement&gt;</span><br><span class="line">&lt;/project&gt;</span><br></pre></td></tr></table></figure>
+
+<p><strong>子模块 pom.xml</strong></p>
+<p><strong>xml</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">&lt;project&gt;</span><br><span class="line">  &lt;modelVersion&gt;4.0.0&lt;/modelVersion&gt;</span><br><span class="line"></span><br><span class="line">  &lt;parent&gt;</span><br><span class="line">    &lt;groupId&gt;com.example&lt;/groupId&gt;</span><br><span class="line">    &lt;artifactId&gt;demo-parent&lt;/artifactId&gt;</span><br><span class="line">    &lt;version&gt;1.0.0&lt;/version&gt;</span><br><span class="line">    &lt;!-- 默认找上级目录的 pom，同目录结构可省略 --&gt;</span><br><span class="line">    &lt;relativePath&gt;../pom.xml&lt;/relativePath&gt;</span><br><span class="line">  &lt;/parent&gt;</span><br><span class="line"></span><br><span class="line">  &lt;artifactId&gt;demo-service&lt;/artifactId&gt; &lt;!-- groupId/version 继承父工程，无需重复写 --&gt;</span><br><span class="line"></span><br><span class="line">  &lt;dependencies&gt;</span><br><span class="line">    &lt;dependency&gt;</span><br><span class="line">      &lt;groupId&gt;com.example&lt;/groupId&gt;</span><br><span class="line">      &lt;artifactId&gt;demo-common&lt;/artifactId&gt; &lt;!-- 版本由父工程管理 --&gt;</span><br><span class="line">    &lt;/dependency&gt;</span><br><span class="line">  &lt;/dependencies&gt;</span><br><span class="line">&lt;/project&gt;</span><br></pre></td></tr></table></figure>
+
+<p><strong>只构建某个模块（含它依赖的模块）：</strong></p>
+<p><strong>bash</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mvn clean package -am -pl demo-web</span><br></pre></td></tr></table></figure>
+
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>含义</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>-pl</code></td>
+<td>指定要构建的模块（<code>--projects</code>）</td>
+</tr>
+<tr>
+<td><code>-am</code></td>
+<td>同时构建该模块<strong>依赖</strong>的模块（<code>--also-make</code>）</td>
+</tr>
+<tr>
+<td><code>-amd</code></td>
+<td>同时构建<strong>依赖该模块</strong>的模块（<code>--also-make-dependents</code>）</td>
+</tr>
+</tbody></table>
+<hr>
+<h2 id="十四、常见问题-FAQ"><a href="#十四、常见问题-FAQ" class="headerlink" title="十四、常见问题 FAQ"></a>十四、常见问题 FAQ</h2><p><strong>Q1：改了 <code>settings.xml</code> 不生效？</strong></p>
+<ul>
+<li>确认改的是 IDEA 里 <code>User settings file</code> 指向的那个（IDEA 可能覆盖了默认路径）；</li>
+<li>IDEA 里勾选 <code>Settings → Maven → Always update snapshots</code> 或执行 <code>Reload All Maven Projects</code>；</li>
+<li>命令行执行 <code>mvn help:effective-settings</code> 看最终生效的配置。</li>
+</ul>
+<p><strong>Q2：依赖明明下了却报找不到？</strong></p>
+<ul>
+<li>检查是否被 <code>&lt;scope&gt;provided / test&lt;/scope&gt;</code> 限制；</li>
+<li>检查是否被 <code>&lt;optional&gt;true&lt;/optional&gt;</code> 且你是下游项目；</li>
+<li>执行 <code>mvn dependency:tree</code> 确认是否真的引入了。</li>
+</ul>
+<p><strong>Q3：<code>SNAPSHOT</code> 更新不及时？</strong></p>
+<ul>
+<li>加 <code>-U</code> 强制更新：<code>mvn clean package -U</code>；</li>
+<li>或删掉本地仓库中对应 SNAPSHOT 目录后重新构建；</li>
+<li>IDEA 中执行 <code>Settings → Maven → Always update snapshots</code>。</li>
+</ul>
+<p><strong>Q4：IDEA 右侧 Maven 面板不显示 / 依赖爆红？</strong></p>
+<ul>
+<li>右键 <code>pom.xml</code> → <code>Add as Maven Project</code>；</li>
+<li>检查 <code>Maven home path</code> 是否指向正确；</li>
+<li>删掉 <code>.idea</code> 目录重新导入项目。</li>
+</ul>
+<p><strong>Q5：想跳过测试但还想编译测试代码？</strong></p>
+<ul>
+<li><code>-DskipTests</code>：编译测试代码，但不执行（推荐）；</li>
+<li><code>-Dmaven.test.skip=true</code>：<strong>连测试代码都不编译</strong>（更快）。</li>
+</ul>
+<p><strong>Q6：本地仓库里一堆 <code>.lastUpdated</code> 文件导致下载失败？</strong></p>
+<p><code>.lastUpdated</code> 表示「上次下载失败」，Maven 在超时周期内不会重试。清理方法：</p>
+<p><strong>bash</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"># Windows（在本地仓库目录下执行）</span><br><span class="line">for /r %i in (*.lastUpdated) do del %i</span><br><span class="line"></span><br><span class="line"># Linux / macOS</span><br><span class="line">find ~/.m2/repository -name &quot;*.lastUpdated&quot; -delete</span><br></pre></td></tr></table></figure>
+
+<p>然后重新 <code>mvn clean package -U</code>。</p>
+<p><strong>Q7：如何让 Maven 用指定 JDK 编译？</strong></p>
+<p>三种方式（优先级从低到高）：</p>
+<p><strong>xml</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">&lt;!-- 1. settings.xml 全局 profile --&gt;</span><br><span class="line">&lt;profile&gt;</span><br><span class="line">  &lt;id&gt;jdk-8&lt;/id&gt;</span><br><span class="line">  &lt;activation&gt;&lt;activeByDefault&gt;true&lt;/activeByDefault&gt;&lt;/activation&gt;</span><br><span class="line">  &lt;properties&gt;</span><br><span class="line">    &lt;maven.compiler.source&gt;8&lt;/maven.compiler.source&gt;</span><br><span class="line">    &lt;maven.compiler.target&gt;8&lt;/maven.compiler.target&gt;</span><br><span class="line">  &lt;/properties&gt;</span><br><span class="line">&lt;/profile&gt;</span><br><span class="line"></span><br><span class="line">&lt;!-- 2. 项目 pom 的 properties（推荐） --&gt;</span><br><span class="line">&lt;properties&gt;</span><br><span class="line">  &lt;maven.compiler.source&gt;8&lt;/maven.compiler.source&gt;</span><br><span class="line">  &lt;maven.compiler.target&gt;8&lt;/maven.compiler.target&gt;</span><br><span class="line">  &lt;project.build.sourceEncoding&gt;UTF-8&lt;/project.build.sourceEncoding&gt;</span><br><span class="line">&lt;/properties&gt;</span><br><span class="line"></span><br><span class="line">&lt;!-- 3. 编译插件显式指定 --&gt;</span><br><span class="line">&lt;plugin&gt;</span><br><span class="line">  &lt;groupId&gt;org.apache.maven.plugins&lt;/groupId&gt;</span><br><span class="line">  &lt;artifactId&gt;maven-compiler-plugin&lt;/artifactId&gt;</span><br><span class="line">  &lt;version&gt;3.11.0&lt;/version&gt;</span><br><span class="line">  &lt;configuration&gt;</span><br><span class="line">    &lt;source&gt;8&lt;/source&gt;</span><br><span class="line">    &lt;target&gt;8&lt;/target&gt;</span><br><span class="line">    &lt;encoding&gt;UTF-8&lt;/encoding&gt;</span><br><span class="line">  &lt;/configuration&gt;</span><br><span class="line">&lt;/plugin&gt;</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h2 id="十五、配置检查清单"><a href="#十五、配置检查清单" class="headerlink" title="十五、配置检查清单"></a>十五、配置检查清单</h2><p>配置完成后逐项核对：</p>
+<table>
+<thead>
+<tr>
+<th>#</th>
+<th>检查项</th>
+<th>命令 / 位置</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>1</td>
+<td>JDK 已安装且版本 ≥ 8</td>
+<td><code>java -version</code></td>
+</tr>
+<tr>
+<td>2</td>
+<td>Maven 环境变量 <code>MAVEN_HOME</code> + <code>Path</code> 配好</td>
+<td><code>mvn -v</code></td>
+</tr>
+<tr>
+<td>3</td>
+<td>本地仓库已改到非系统盘</td>
+<td><code>settings.xml</code> 的 <code>&lt;localRepository&gt;</code></td>
+</tr>
+<tr>
+<td>4</td>
+<td>已配国内镜像</td>
+<td><code>settings.xml</code> 的 <code>&lt;mirrors&gt;</code></td>
+</tr>
+<tr>
+<td>5</td>
+<td>镜像未误伤私服</td>
+<td><code>&lt;mirrorOf&gt;</code> 用 <code>*,!私服id</code></td>
+</tr>
+<tr>
+<td>6</td>
+<td>编码统一 UTF-8</td>
+<td>pom 的 <code>&lt;project.build.sourceEncoding&gt;</code></td>
+</tr>
+<tr>
+<td>7</td>
+<td>IDEA 指向自定义 settings.xml</td>
+<td><code>Settings → Maven → User settings file</code></td>
+</tr>
+<tr>
+<td>8</td>
+<td>依赖树无冲突</td>
+<td><code>mvn dependency:tree</code></td>
+</tr>
+<tr>
+<td>9</td>
+<td>最终配置符合预期</td>
+<td><code>mvn help:effective-settings</code>、<code>mvn help:effective-pom</code></td>
+</tr>
+</tbody></table>
+<blockquote>
+<p>💡 一句话记住三个文件的职责：**<code>settings.xml</code> 管「从哪下、下到哪、用什么账号」；<code>pom.xml</code> 管「依赖什么、怎么打包、发到哪」；环境变量管「mvn 命令能不能被找到」。**</p>
+</blockquote>
+
+        </div>
+
+        
+            <div class="post-copyright-info">
+                <div class="article-copyright-info-container">
+    <ul>
+        <li>本文标题：maven</li>
+        <li>本文作者：邵预鸿</li>
+        <li>创建时间：2026-10-13 11:31:11</li>
+        <li>
+            本文链接：/images/logo.jpg2026/10/13/maven/
+        </li>
+        <li>
+            版权声明：本博客所有文章除特别声明外，均采用 <a class="license" target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">BY-NC-SA</a> 许可协议。转载请注明出处！
+        </li>
+    </ul>
+</div>
+
+            </div>
+        
+
+        
+            <div class="article-nav">
+                
+                
+                    <div class="article-next">
+                        <a class="next"
+                           rel="next"
+                           href="/2026/07/31/python/"
+                        >
+                            <span class="title flex-center">
+                                <span class="post-nav-title-item">Python从入门到精通</span>
+                                <span class="post-nav-item">下一篇</span>
+                            </span>
+                            <span class="right arrow-icon flex-center">
+                              <i class="fas fa-chevron-right"></i>
+                            </span>
+                        </a>
+                    </div>
+                
+            </div>
+        
+
+        
+    </div>
+</div>
+
+
+        
+      </div>
+
+    </div>
+
+    <div class="page-main-content-bottom">
+      <footer class="footer">
+    <div class="info-container">
+        <div class="copyright-info info-item">
+            &copy;
+            
+              <span>2021</span>&nbsp;-&nbsp;
+            
+            2026&nbsp;<i class="fas fa-heart icon-animate"></i>&nbsp;<a href="/">邵预鸿</a>
+        </div>
+        
+        
+        <div>更多笔记请访问:<a href="https://www.shaoyuhong.cn" target="_blank">邵预鸿|随心记 https://www.shaoyuhong.cn</a></div>
+
+    </div>
+</footer>
+
+    </div>
+  </div>
+
+  
+  <div class="post-tools">
+    <div class="post-tools-container">
+    <ul class="tools-list">
+        <!-- TOC aside toggle -->
+        
+
+        <!-- go comment -->
+        
+    </ul>
+</div>
+
+  </div>
+  
+
+  <div class="right-bottom-side-tools">
+    <div class="side-tools-container">
+    <ul class="side-tools-list">
+        <li class="tools-item tool-font-adjust-plus flex-center">
+            <i class="fas fa-search-plus"></i>
+        </li>
+
+        <li class="tools-item tool-font-adjust-minus flex-center">
+            <i class="fas fa-search-minus"></i>
+        </li>
+
+        <li class="tools-item tool-expand-width flex-center">
+            <i class="fas fa-arrows-alt-h"></i>
+        </li>
+
+        <li class="tools-item tool-dark-light-toggle flex-center">
+            <i class="fas fa-moon"></i>
+        </li>
+
+        <!-- rss -->
+        
+
+        
+
+        <li class="tools-item tool-scroll-to-bottom flex-center">
+            <i class="fas fa-arrow-down"></i>
+        </li>
+    </ul>
+
+    <ul class="exposed-tools-list">
+        <li class="tools-item tool-toggle-show flex-center">
+            <i class="fas fa-cog fa-spin"></i>
+        </li>
+        
+            <li class="tools-item tool-scroll-to-top flex-center">
+                <i class="arrow-up fas fa-arrow-up"></i>
+                <span class="percent"></span>
+            </li>
+        
+    </ul>
+</div>
+
+  </div>
+
+  
+
+  <div class="image-viewer-container">
+    <img src="">
+</div>
+
+
+  
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+          <span class="search-input-field-pre">
+            <i class="fas fa-keyboard"></i>
+          </span>
+            <div class="search-input-container">
+                <input autocomplete="off"
+                       autocorrect="off"
+                       autocapitalize="off"
+                       placeholder="搜索..."
+                       spellcheck="false"
+                       type="search"
+                       class="search-input"
+                >
+            </div>
+            <span class="popup-btn-close">
+                <i class="fas fa-times"></i>
+            </span>
+        </div>
+        <div id="search-result">
+            <div id="no-result">
+                <i class="fas fa-spinner fa-pulse fa-5x fa-fw"></i>
+            </div>
+        </div>
+    </div>
+</div>
+
+  
+
+</main>
+<script>
+  const context = document.querySelector(".markdown-body");
+  const articleTitleList = document.querySelector(".article-title-list");
+  const mainContent = document.querySelector('.main-content');
+
+  if (context) {
+    if (window.innerWidth > 1380) {
+      const tags = context.querySelectorAll('*');
+      const hTagReg = /^H[1-6]$/;
+      let template = '';
+      tags.forEach(item => {
+        if (hTagReg.test(item.tagName.toUpperCase()) && item.innerText) {
+          const tagH = item.tagName.toLowerCase();
+          const tagHToUpper = item.tagName.toUpperCase();
+          const forHash = item.getAttribute("id");
+          //<span class="badge">${tagHToUpper}</span>
+          template += `
+                  <${tagH}>
+                    <a onclick="javascript:void(1)" href="#${forHash}"> ${item.innerText}</a>
+                  </${tagH}>  
+                `;
+
+        }
+      });
+      articleTitleList.innerHTML = template;
+    }
+
+
+  }
+
+  (function leftNavPositionChange() {
+    const articleTitlePositoinX = (window.innerWidth - mainContent.clientWidth) / 2 - 300;
+    articleTitleList.style.left = articleTitlePositoinX + 'px';
+    window.onresize = function () {
+      leftNavPositionChange();
+    };
+  })();
+
+</script>
+
+<script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="/js/header-shrink.js"></script><script src="/js/back2top.js"></script><script src="/js/dark-light-toggle.js"></script>
+
+
+    <script src="/js/local-search.js"></script>
+
+
+
+    <script src="/js/code-copy.js"></script>
+
+
+
+    <script src="/js/lazyload.js"></script>
+
+
+<div class="post-scripts">
+    
+</div>
+
+
+
+</body>
+</html>

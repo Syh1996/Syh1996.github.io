@@ -420,3 +420,93 @@
 
 </body>
 </html>
+ield-pre">
+            <i class="fas fa-keyboard"></i>
+          </span>
+            <div class="search-input-container">
+                <input autocomplete="off"
+                       autocorrect="off"
+                       autocapitalize="off"
+                       placeholder="搜索..."
+                       spellcheck="false"
+                       type="search"
+                       class="search-input"
+                >
+            </div>
+            <span class="popup-btn-close">
+                <i class="fas fa-times"></i>
+            </span>
+        </div>
+        <div id="search-result">
+            <div id="no-result">
+                <i class="fas fa-spinner fa-pulse fa-5x fa-fw"></i>
+            </div>
+        </div>
+    </div>
+</div>
+
+  
+
+</main>
+<script>
+  const context = document.querySelector(".markdown-body");
+  const articleTitleList = document.querySelector(".article-title-list");
+  const mainContent = document.querySelector('.main-content');
+
+  if (context) {
+    if (window.innerWidth > 1380) {
+      const tags = context.querySelectorAll('*');
+      const hTagReg = /^H[1-6]$/;
+      let template = '';
+      tags.forEach(item => {
+        if (hTagReg.test(item.tagName.toUpperCase()) && item.innerText) {
+          const tagH = item.tagName.toLowerCase();
+          const tagHToUpper = item.tagName.toUpperCase();
+          const forHash = item.getAttribute("id");
+          //<span class="badge">${tagHToUpper}</span>
+          template += `
+                  <${tagH}>
+                    <a onclick="javascript:void(1)" href="#${forHash}"> ${item.innerText}</a>
+                  </${tagH}>  
+                `;
+
+        }
+      });
+      articleTitleList.innerHTML = template;
+    }
+
+
+  }
+
+  (function leftNavPositionChange() {
+    const articleTitlePositoinX = (window.innerWidth - mainContent.clientWidth) / 2 - 300;
+    articleTitleList.style.left = articleTitlePositoinX + 'px';
+    window.onresize = function () {
+      leftNavPositionChange();
+    };
+  })();
+
+</script>
+
+<script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="/js/header-shrink.js"></script><script src="/js/back2top.js"></script><script src="/js/dark-light-toggle.js"></script>
+
+
+    <script src="/js/local-search.js"></script>
+
+
+
+    <script src="/js/code-copy.js"></script>
+
+
+
+    <script src="/js/lazyload.js"></script>
+
+
+<div class="post-scripts">
+    
+</div>
+
+
+
+</body>
+</html>
