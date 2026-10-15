@@ -149,71 +149,14 @@
       .main-content a{
         color: #6e9cca;
       }
-      .article-title-list {
-        position: fixed;
-        left: 80px;
-        top: 110px;
-        z-index: 100;
-        width: 300px;
-        max-height: calc(100% - 144px);
-        overflow: auto;
-      }
-      .article-title-list a .badge{
-        display: inline-block;
-        margin-right: 5px;
-        padding: 0 5px;
-        background-color: #ebebeb;
-        border-radius: 3px;
-        color: #6b6b6b;
-      }
-      .article-title-list h1,
-      .article-title-list h2,
-      .article-title-list h3,
-      .article-title-list h4,
-      .article-title-list h5,
-      .article-title-list h6 {
-        box-sizing: border-box;
-        text-overflow: ellipsis;
-        white-space: nowrap;
-        overflow: hidden;
-        color: #686868;
-        font-weight: normal;
-        line-height: 1;
-        cursor: pointer;
-      }
-
-      .article-title-list h1 {
-        font-size: 22px;
-      }
-
-      .article-title-list h2 {
-        padding-left: 20px;
-        font-size: 20px;
-      }
-
-      .article-title-list h3 {
-        padding-left: 40px;
-        font-size: 18px;
-      }
-
-      .article-title-list h4 {
-        padding-left: 60px;
-        font-size: 16px;
-      }
-
-      .article-title-list h5 {
-        padding-left: 80px;
-        font-size: 14px;
-      }
-
-      .article-title-list h6 {
-        padding-left: 100px;
-        font-size: 12px;
-      }
-
     </style>
-    <div class="article-title-list">
-    </div>
+    
+    <nav class="article-title-list">
+      <div class="atl-header"><i class="fas fa-list-ul"></i>目录</div>
+      <div class="atl-body"><ul class="atl-list"></ul></div>
+      <div class="atl-resize-handle"></div>
+    </nav>
+    
 
     <div class="page-main-content-middle">
 
@@ -497,41 +440,142 @@
 
 </main>
 <script>
-  const context = document.querySelector(".markdown-body");
-  const articleTitleList = document.querySelector(".article-title-list");
-  const mainContent = document.querySelector('.main-content');
+  (function () {
+    const articleTitleList = document.querySelector('.article-title-list');
+    const context = document.querySelector('.article-content.markdown-body');
+    const mainContent = document.querySelector('.main-content');
+    if (!articleTitleList || !context || !mainContent) return;
 
-  if (context) {
-    if (window.innerWidth > 1380) {
-      const tags = context.querySelectorAll('*');
-      const hTagReg = /^H[1-6]$/;
-      let template = '';
-      tags.forEach(item => {
-        if (hTagReg.test(item.tagName.toUpperCase()) && item.innerText) {
-          const tagH = item.tagName.toLowerCase();
-          const tagHToUpper = item.tagName.toUpperCase();
-          const forHash = item.getAttribute("id");
-          //<span class="badge">${tagHToUpper}</span>
-          template += `
-                  <${tagH}>
-                    <a onclick="javascript:void(1)" href="#${forHash}"> ${item.innerText}</a>
-                  </${tagH}>  
-                `;
+    const MIN_WIDTH = 140;
+    const GAP = 12;
+    const SCROLL_OFFSET = 70;
+    // 默认宽度设为可用空间的最大值，首次 layout 时会计算
+    var currentWidth = Infinity;
 
-        }
+    const headings = Array.prototype.filter.call(
+      context.querySelectorAll('h1, h2, h3, h4, h5, h6'),
+      function (h) { return h.id && h.textContent.trim(); }
+    );
+    if (!headings.length) return;
+
+    // 以文章中出现的最小标题级别作为第一级，最多展示 4 级
+    const minLevel = Math.min.apply(null, headings.map(function (h) { return +h.tagName[1]; }));
+    const listEl = articleTitleList.querySelector('.atl-list');
+    const bodyEl = articleTitleList.querySelector('.atl-body');
+    const links = [];
+
+    headings.forEach(function (h) {
+      const level = +h.tagName[1] - minLevel + 1;
+      if (level > 4) return;
+      const text = h.textContent.trim();
+      const li = document.createElement('li');
+      li.className = 'atl-item level-' + level;
+      const a = document.createElement('a');
+      a.href = '#' + h.id;
+      a.title = text;
+      a.textContent = text;
+      a.addEventListener('click', function (e) {
+        e.preventDefault();
+        const top = h.getBoundingClientRect().top + window.pageYOffset - SCROLL_OFFSET;
+        window.scrollTo({ top: top, behavior: 'smooth' });
+        history.replaceState(null, '', '#' + h.id);
       });
-      articleTitleList.innerHTML = template;
+      li.appendChild(a);
+      listEl.appendChild(li);
+      links.push({ heading: h, li: li });
+    });
+
+    // 根据正文左侧剩余空间决定位置/宽度，空间不足则隐藏
+    function getMaxWidth() {
+      return Math.floor(mainContent.getBoundingClientRect().left - GAP * 2);
+    }
+    function layout() {
+      var maxW = getMaxWidth();
+      if (maxW < MIN_WIDTH) {
+        articleTitleList.classList.remove('show');
+        return;
+      }
+      // 保证当前宽度不超过可用空间
+      currentWidth = Math.max(MIN_WIDTH, Math.min(currentWidth, maxW));
+      articleTitleList.style.width = currentWidth + 'px';
+      articleTitleList.style.left = GAP + 'px';
+      articleTitleList.classList.add('show');
     }
 
+    // ====== 拖拽调整宽度 ======
+    var resizeHandle = articleTitleList.querySelector('.atl-resize-handle');
+    if (resizeHandle) {
+      var startX, startW;
+      function onMouseMove(e) {
+        e.preventDefault();
+        var delta = e.clientX - startX;
+        var maxW = getMaxWidth();
+        currentWidth = Math.max(MIN_WIDTH, Math.min(startW + delta, maxW));
+        articleTitleList.style.width = currentWidth + 'px';
+      }
+      function onMouseUp(e) {
+        e.preventDefault();
+        articleTitleList.classList.remove('resizing');
+        document.body.style.userSelect = '';
+        document.body.style.cursor = '';
+        document.removeEventListener('mousemove', onMouseMove);
+        document.removeEventListener('mouseup', onMouseUp);
+      }
+      resizeHandle.addEventListener('mousedown', function (e) {
+        e.preventDefault();
+        e.stopPropagation();
+        startX = e.clientX;
+        startW = articleTitleList.offsetWidth;
+        articleTitleList.classList.add('resizing');
+        // 拖拽期间禁止全局文字选中，保持拖拽光标
+        document.body.style.userSelect = 'none';
+        document.body.style.cursor = 'col-resize';
+        document.addEventListener('mousemove', onMouseMove);
+        document.addEventListener('mouseup', onMouseUp);
+      });
+    }
 
-  }
+    // 滚动时高亮当前所在标题，并让其保持在目录可视区域内
+    let activeLi = null;
+    function updateActive() {
+      let current = links[0];
+      for (let i = 0; i < links.length; i++) {
+        if (links[i].heading.getBoundingClientRect().top - SCROLL_OFFSET - 10 <= 0) {
+          current = links[i];
+        } else {
+          break;
+        }
+      }
+      if (!current || current.li === activeLi) return;
+      if (activeLi) activeLi.classList.remove('active');
+      activeLi = current.li;
+      activeLi.classList.add('active');
 
-  (function leftNavPositionChange() {
-    const articleTitlePositoinX = (window.innerWidth - mainContent.clientWidth) / 2 - 300;
-    articleTitleList.style.left = articleTitlePositoinX + 'px';
-    window.onresize = function () {
-      leftNavPositionChange();
-    };
+      const liTop = activeLi.offsetTop - listEl.offsetTop;
+      if (liTop < bodyEl.scrollTop || liTop > bodyEl.scrollTop + bodyEl.clientHeight - activeLi.offsetHeight) {
+        bodyEl.scrollTop = liTop - bodyEl.clientHeight / 2;
+      }
+    }
+
+    let ticking = false;
+    window.addEventListener('scroll', function () {
+      if (ticking) return;
+      ticking = true;
+      requestAnimationFrame(function () {
+        updateActive();
+        ticking = false;
+      });
+    });
+    window.addEventListener('resize', layout);
+
+    // 内容区宽度切换按钮会改变 main-content 的 max-width
+    const expandBtn = document.querySelector('.tool-expand-width');
+    if (expandBtn) {
+      expandBtn.addEventListener('click', function () { setTimeout(layout, 50); });
+    }
+
+    layout();
+    updateActive();
   })();
 
 </script>

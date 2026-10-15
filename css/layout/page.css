@@ -45,7 +45,7 @@ keep-mobile()
 .page-container .page-main-content .page-main-content-middle .main-content {
   position: relative;
   box-sizing: border-box;
-  width: $main-content-width;
+  width: 85%;
   max-width: none !important;
   height: 100%;
 keep-tablet()
