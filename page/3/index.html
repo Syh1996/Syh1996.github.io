@@ -79,6 +79,14 @@
                     
                         <li class="menu-item">
                             <a class=""
+                               href="/resources"
+                            >
+                                资料
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
                                href="/about"
                             >
                                 关于我
@@ -114,6 +122,11 @@
                 <li class="drawer-menu-item flex-center">
                     <a class=""
                        href="/archives">历年汇总</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/resources">资料</a>
                 </li>
             
                 <li class="drawer-menu-item flex-center">
@@ -206,65 +219,75 @@
 
         
         <div class="home-content-container fade-in-down-animation">
-    <ul class="home-article-list">
+    <div class="home-timeline">
+        <div class="timeline-line"></div>
+
         
-            <li class="home-article-item">
+            <div class="timeline-year-label">
+                <span class="year-text">2021</span>
+            </div>
+        
 
-                
-
-                <h3 class="home-article-title">
-                    <a href="/2021/08/12/%E8%8B%B9%E6%9E%9C%E8%8F%9C%E5%8D%95%E7%A7%BB%E5%85%A5%E7%BA%BF%E6%80%A7%E6%94%BE%E5%A4%A7%E6%95%88%E6%9E%9C%E3%80%90%E4%BD%BF%E7%94%A8%E5%8B%BE%E8%82%A1%E5%AE%9A%E7%90%86%E3%80%91/">
-                        苹果菜单移入线性放大效果【使用勾股定理】
-                    </a>
-                </h3>
-
-                <div class="home-article-content markdown-body">
+            <div class="timeline-item timeline-item-left">
+                <div class="timeline-dot"></div>
+                <div class="timeline-date">
+                    <i class="fas fa-calendar-alt"></i>
+                    <span>08-12</span>
+                </div>
+                <div class="timeline-card">
                     
-                        效果图
+
+                    <h3 class="timeline-card-title">
+                        <a href="/2021/08/12/%E8%8B%B9%E6%9E%9C%E8%8F%9C%E5%8D%95%E7%A7%BB%E5%85%A5%E7%BA%BF%E6%80%A7%E6%94%BE%E5%A4%A7%E6%95%88%E6%9E%9C%E3%80%90%E4%BD%BF%E7%94%A8%E5%8B%BE%E8%82%A1%E5%AE%9A%E7%90%86%E3%80%91/">
+                            苹果菜单移入线性放大效果【使用勾股定理】
+                        </a>
+                    </h3>
+
+                    <div class="timeline-card-content markdown-body">
+                        
+                            效果图
 原理分析
 
 添加移入事件，获取当前鼠标的clientX,clientY
 获取每个div块的x1,y1。x1 = this.offsetLeft + this.offsetWidth / 2得到中心点，y1 = this.offsetHeigh...
-                    
+                        
+                    </div>
+
+                    <div class="timeline-card-meta">
+                        
+                        
+                            <span class="timeline-tag">
+                                <i class="fas fa-tags"></i>&nbsp;
+                                
+                                        <a href="/tags/js/">js</a>
+                                
+                            </span>
+                        
+                        <a class="timeline-read-more" href="/2021/08/12/%E8%8B%B9%E6%9E%9C%E8%8F%9C%E5%8D%95%E7%A7%BB%E5%85%A5%E7%BA%BF%E6%80%A7%E6%94%BE%E5%A4%A7%E6%95%88%E6%9E%9C%E3%80%90%E4%BD%BF%E7%94%A8%E5%8B%BE%E8%82%A1%E5%AE%9A%E7%90%86%E3%80%91/">阅读全文&nbsp;<i class="fas fa-angle-right"></i></a>
+                    </div>
                 </div>
+            </div>
 
-                <div class="home-article-meta-info-container">
-    <div class="home-article-meta-info">
-        <span><i class="fas fa-history"></i>&nbsp;<span class="home-article-date" data-date="Thu Aug 12 2021 11:40:57 GMT+0800">2021-08-12</span></span>
         
-        
-            <span class="home-article-tag">
-                <i class="fas fa-tags"></i>&nbsp;
-                <ul>
+
+            <div class="timeline-item timeline-item-right">
+                <div class="timeline-dot"></div>
+                <div class="timeline-date">
+                    <i class="fas fa-calendar-alt"></i>
+                    <span>07-17</span>
+                </div>
+                <div class="timeline-card">
                     
-                        <li>
-                            
-                            <a href="/tags/js/">js</a>&nbsp;
-                        </li>
-                    
-                </ul>
-            </span>
-        
-    </div>
 
-    <a href="/2021/08/12/%E8%8B%B9%E6%9E%9C%E8%8F%9C%E5%8D%95%E7%A7%BB%E5%85%A5%E7%BA%BF%E6%80%A7%E6%94%BE%E5%A4%A7%E6%95%88%E6%9E%9C%E3%80%90%E4%BD%BF%E7%94%A8%E5%8B%BE%E8%82%A1%E5%AE%9A%E7%90%86%E3%80%91/">阅读全文&nbsp;<i class="fas fa-angle-right"></i></a>
-</div>
+                    <h3 class="timeline-card-title">
+                        <a href="/2021/07/17/pr%E8%AE%B0%E5%BD%95/">
+                            pr记录
+                        </a>
+                    </h3>
 
-            </li>
-        
-            <li class="home-article-item">
-
-                
-
-                <h3 class="home-article-title">
-                    <a href="/2021/07/17/pr%E8%AE%B0%E5%BD%95/">
-                        pr记录
-                    </a>
-                </h3>
-
-                <div class="home-article-content markdown-body">
-                    
-                        水滴转场
+                    <div class="timeline-card-content markdown-body">
+                        
+                            水滴转场
 视频1与视频2添加交叉融解,新增调整图层 ,将 紊乱置换 添加到调整图层，配置项中 数量 ,演化 打关键针。
 
 三元色
@@ -275,133 +298,127 @@
 
 卷帘式转场
 新建调整...
-                    
+                        
+                    </div>
+
+                    <div class="timeline-card-meta">
+                        
+                        
+                            <span class="timeline-tag">
+                                <i class="fas fa-tags"></i>&nbsp;
+                                
+                                        <a href="/tags/pr/">pr</a>
+                                
+                            </span>
+                        
+                        <a class="timeline-read-more" href="/2021/07/17/pr%E8%AE%B0%E5%BD%95/">阅读全文&nbsp;<i class="fas fa-angle-right"></i></a>
+                    </div>
                 </div>
+            </div>
 
-                <div class="home-article-meta-info-container">
-    <div class="home-article-meta-info">
-        <span><i class="fas fa-history"></i>&nbsp;<span class="home-article-date" data-date="Sat Jul 17 2021 08:54:30 GMT+0800">2021-07-17</span></span>
         
-        
-            <span class="home-article-tag">
-                <i class="fas fa-tags"></i>&nbsp;
-                <ul>
+
+            <div class="timeline-item timeline-item-left">
+                <div class="timeline-dot"></div>
+                <div class="timeline-date">
+                    <i class="fas fa-calendar-alt"></i>
+                    <span>07-14</span>
+                </div>
+                <div class="timeline-card">
                     
-                        <li>
-                            
-                            <a href="/tags/pr/">pr</a>&nbsp;
-                        </li>
-                    
-                </ul>
-            </span>
-        
-    </div>
 
-    <a href="/2021/07/17/pr%E8%AE%B0%E5%BD%95/">阅读全文&nbsp;<i class="fas fa-angle-right"></i></a>
-</div>
+                    <h3 class="timeline-card-title">
+                        <a href="/2021/07/14/let%E6%B2%A1%E6%9C%89%E5%8F%98%E9%87%8F%E6%8F%90%E5%8D%87%EF%BC%9FX/">
+                            let没有变量提升？X
+                        </a>
+                    </h3>
 
-            </li>
-        
-            <li class="home-article-item">
-
-                
-
-                <h3 class="home-article-title">
-                    <a href="/2021/07/14/let%E6%B2%A1%E6%9C%89%E5%8F%98%E9%87%8F%E6%8F%90%E5%8D%87%EF%BC%9FX/">
-                        let没有变量提升？X
-                    </a>
-                </h3>
-
-                <div class="home-article-content markdown-body">
-                    
-                        证明var声明存在变量提升通常我们是这样子来证明var存在变量提升的。
+                    <div class="timeline-card-content markdown-body">
+                        
+                            证明var声明存在变量提升通常我们是这样子来证明var存在变量提升的。
 123456function fn()&#123;    console.log(a) // undefined    var a = 12&#125;fn()复制代码
 
 为什么...
-                    
+                        
+                    </div>
+
+                    <div class="timeline-card-meta">
+                        
+                        
+                            <span class="timeline-tag">
+                                <i class="fas fa-tags"></i>&nbsp;
+                                
+                                        <a href="/tags/js/">js</a>
+                                
+                            </span>
+                        
+                        <a class="timeline-read-more" href="/2021/07/14/let%E6%B2%A1%E6%9C%89%E5%8F%98%E9%87%8F%E6%8F%90%E5%8D%87%EF%BC%9FX/">阅读全文&nbsp;<i class="fas fa-angle-right"></i></a>
+                    </div>
                 </div>
+            </div>
 
-                <div class="home-article-meta-info-container">
-    <div class="home-article-meta-info">
-        <span><i class="fas fa-history"></i>&nbsp;<span class="home-article-date" data-date="Wed Jul 14 2021 10:40:17 GMT+0800">2021-07-14</span></span>
         
-        
-            <span class="home-article-tag">
-                <i class="fas fa-tags"></i>&nbsp;
-                <ul>
+
+            <div class="timeline-item timeline-item-right">
+                <div class="timeline-dot"></div>
+                <div class="timeline-date">
+                    <i class="fas fa-calendar-alt"></i>
+                    <span>07-13</span>
+                </div>
+                <div class="timeline-card">
                     
-                        <li>
-                            
-                            <a href="/tags/js/">js</a>&nbsp;
-                        </li>
-                    
-                </ul>
-            </span>
-        
-    </div>
 
-    <a href="/2021/07/14/let%E6%B2%A1%E6%9C%89%E5%8F%98%E9%87%8F%E6%8F%90%E5%8D%87%EF%BC%9FX/">阅读全文&nbsp;<i class="fas fa-angle-right"></i></a>
-</div>
+                    <h3 class="timeline-card-title">
+                        <a href="/2021/07/13/%E4%BA%A7%E5%93%81%E7%BB%8F%E7%90%86%EF%BC%9A%E4%BD%A0%E8%83%BD%E4%B8%8D%E8%83%BD%E7%94%A8div%E7%BB%99%E6%88%91%E7%94%BB%E6%9D%A1%E9%BE%99%EF%BC%9F/">
+                            产品经理：你能不能用div给我画条龙？
+                        </a>
+                    </h3>
 
-            </li>
-        
-            <li class="home-article-item">
-
-                
-
-                <h3 class="home-article-title">
-                    <a href="/2021/07/13/%E4%BA%A7%E5%93%81%E7%BB%8F%E7%90%86%EF%BC%9A%E4%BD%A0%E8%83%BD%E4%B8%8D%E8%83%BD%E7%94%A8div%E7%BB%99%E6%88%91%E7%94%BB%E6%9D%A1%E9%BE%99%EF%BC%9F/">
-                        产品经理：你能不能用div给我画条龙？
-                    </a>
-                </h3>
-
-                <div class="home-article-content markdown-body">
-                    
-                        事情是这样的，前天上午产品经理说想要做一个心愿墙，问我能不能行
+                    <div class="timeline-card-content markdown-body">
+                        
+                            事情是这样的，前天上午产品经理说想要做一个心愿墙，问我能不能行
 我心想，这太容易了，但为了多摸一天鱼，我说还是有点挑战的
 结果下午，产品经理和设计师就给我发来了设计参考
 
 他们说，心愿墙的设计大致是这样的，每个用户的心愿都是一个气泡，而客户的品牌是”...
-                    
+                        
+                    </div>
+
+                    <div class="timeline-card-meta">
+                        
+                        
+                            <span class="timeline-tag">
+                                <i class="fas fa-tags"></i>&nbsp;
+                                
+                                        <a href="/tags/canvas/">canvas</a>
+                                
+                            </span>
+                        
+                        <a class="timeline-read-more" href="/2021/07/13/%E4%BA%A7%E5%93%81%E7%BB%8F%E7%90%86%EF%BC%9A%E4%BD%A0%E8%83%BD%E4%B8%8D%E8%83%BD%E7%94%A8div%E7%BB%99%E6%88%91%E7%94%BB%E6%9D%A1%E9%BE%99%EF%BC%9F/">阅读全文&nbsp;<i class="fas fa-angle-right"></i></a>
+                    </div>
                 </div>
+            </div>
 
-                <div class="home-article-meta-info-container">
-    <div class="home-article-meta-info">
-        <span><i class="fas fa-history"></i>&nbsp;<span class="home-article-date" data-date="Tue Jul 13 2021 17:11:06 GMT+0800">2021-07-13</span></span>
         
-        
-            <span class="home-article-tag">
-                <i class="fas fa-tags"></i>&nbsp;
-                <ul>
+
+            <div class="timeline-item timeline-item-left">
+                <div class="timeline-dot"></div>
+                <div class="timeline-date">
+                    <i class="fas fa-calendar-alt"></i>
+                    <span>07-13</span>
+                </div>
+                <div class="timeline-card">
                     
-                        <li>
-                            
-                            <a href="/tags/canvas/">canvas</a>&nbsp;
-                        </li>
-                    
-                </ul>
-            </span>
-        
-    </div>
 
-    <a href="/2021/07/13/%E4%BA%A7%E5%93%81%E7%BB%8F%E7%90%86%EF%BC%9A%E4%BD%A0%E8%83%BD%E4%B8%8D%E8%83%BD%E7%94%A8div%E7%BB%99%E6%88%91%E7%94%BB%E6%9D%A1%E9%BE%99%EF%BC%9F/">阅读全文&nbsp;<i class="fas fa-angle-right"></i></a>
-</div>
+                    <h3 class="timeline-card-title">
+                        <a href="/2021/07/13/js%E5%A4%A7%E6%96%87%E4%BB%B6%E4%B8%8A%E4%BC%A0%E6%97%B6%E7%9A%84%E5%88%87%E7%89%87%E4%B8%8A%E4%BC%A0/">
+                            js大文件上传时的切片上传
+                        </a>
+                    </h3>
 
-            </li>
-        
-            <li class="home-article-item">
-
-                
-
-                <h3 class="home-article-title">
-                    <a href="/2021/07/13/js%E5%A4%A7%E6%96%87%E4%BB%B6%E4%B8%8A%E4%BC%A0%E6%97%B6%E7%9A%84%E5%88%87%E7%89%87%E4%B8%8A%E4%BC%A0/">
-                        js大文件上传时的切片上传
-                    </a>
-                </h3>
-
-                <div class="home-article-content markdown-body">
-                    
-                        1.大致流程分为以下几步：
+                    <div class="timeline-card-content markdown-body">
+                        
+                            1.大致流程分为以下几步：
 
 1.前端接收BGM并进行切片
 2.将每份切片都进行上传
@@ -409,460 +426,438 @@
 4.后端将此文件夹里的所有切片合并为完整的BGM文件
 5.删除文件夹，因为切片不是我们最终想要的，可删除
 6.当...
-                    
+                        
+                    </div>
+
+                    <div class="timeline-card-meta">
+                        
+                        
+                            <span class="timeline-tag">
+                                <i class="fas fa-tags"></i>&nbsp;
+                                
+                                        <a href="/tags/js/">js</a>
+                                
+                            </span>
+                        
+                        <a class="timeline-read-more" href="/2021/07/13/js%E5%A4%A7%E6%96%87%E4%BB%B6%E4%B8%8A%E4%BC%A0%E6%97%B6%E7%9A%84%E5%88%87%E7%89%87%E4%B8%8A%E4%BC%A0/">阅读全文&nbsp;<i class="fas fa-angle-right"></i></a>
+                    </div>
                 </div>
+            </div>
 
-                <div class="home-article-meta-info-container">
-    <div class="home-article-meta-info">
-        <span><i class="fas fa-history"></i>&nbsp;<span class="home-article-date" data-date="Tue Jul 13 2021 10:57:59 GMT+0800">2021-07-13</span></span>
         
-        
-            <span class="home-article-tag">
-                <i class="fas fa-tags"></i>&nbsp;
-                <ul>
+
+            <div class="timeline-item timeline-item-right">
+                <div class="timeline-dot"></div>
+                <div class="timeline-date">
+                    <i class="fas fa-calendar-alt"></i>
+                    <span>07-13</span>
+                </div>
+                <div class="timeline-card">
                     
-                        <li>
-                            
-                            <a href="/tags/js/">js</a>&nbsp;
-                        </li>
-                    
-                </ul>
-            </span>
-        
-    </div>
 
-    <a href="/2021/07/13/js%E5%A4%A7%E6%96%87%E4%BB%B6%E4%B8%8A%E4%BC%A0%E6%97%B6%E7%9A%84%E5%88%87%E7%89%87%E4%B8%8A%E4%BC%A0/">阅读全文&nbsp;<i class="fas fa-angle-right"></i></a>
-</div>
+                    <h3 class="timeline-card-title">
+                        <a href="/2021/07/13/js%E5%86%85%E5%AD%98%E6%B3%84%E9%9C%B2%E7%9B%B8%E5%85%B3%E7%9F%A5%E8%AF%86/">
+                            js内存泄露相关知识
+                        </a>
+                    </h3>
 
-            </li>
-        
-            <li class="home-article-item">
-
-                
-
-                <h3 class="home-article-title">
-                    <a href="/2021/07/13/js%E5%86%85%E5%AD%98%E6%B3%84%E9%9C%B2%E7%9B%B8%E5%85%B3%E7%9F%A5%E8%AF%86/">
-                        js内存泄露相关知识
-                    </a>
-                </h3>
-
-                <div class="home-article-content markdown-body">
-                    
-                        「硬核JS」你的程序中可能存在内存泄漏引擎中有垃圾回收机制，它主要针对一些程序中不再使用的对象，对其清理回收释放掉内存。
+                    <div class="timeline-card-content markdown-body">
+                        
+                            「硬核JS」你的程序中可能存在内存泄漏引擎中有垃圾回收机制，它主要针对一些程序中不再使用的对象，对其清理回收释放掉内存。
 那么垃圾回收机制会把不再使用的对象（垃圾）全都回收掉吗？
 其实引擎虽然针对垃圾回收做了各种优化从而尽可能的确保垃圾得以回收，但并...
-                    
+                        
+                    </div>
+
+                    <div class="timeline-card-meta">
+                        
+                        
+                            <span class="timeline-tag">
+                                <i class="fas fa-tags"></i>&nbsp;
+                                
+                                        <a href="/tags/js/">js</a>
+                                
+                            </span>
+                        
+                        <a class="timeline-read-more" href="/2021/07/13/js%E5%86%85%E5%AD%98%E6%B3%84%E9%9C%B2%E7%9B%B8%E5%85%B3%E7%9F%A5%E8%AF%86/">阅读全文&nbsp;<i class="fas fa-angle-right"></i></a>
+                    </div>
                 </div>
+            </div>
 
-                <div class="home-article-meta-info-container">
-    <div class="home-article-meta-info">
-        <span><i class="fas fa-history"></i>&nbsp;<span class="home-article-date" data-date="Tue Jul 13 2021 09:51:55 GMT+0800">2021-07-13</span></span>
         
-        
-            <span class="home-article-tag">
-                <i class="fas fa-tags"></i>&nbsp;
-                <ul>
+
+            <div class="timeline-item timeline-item-left">
+                <div class="timeline-dot"></div>
+                <div class="timeline-date">
+                    <i class="fas fa-calendar-alt"></i>
+                    <span>07-07</span>
+                </div>
+                <div class="timeline-card">
                     
-                        <li>
-                            
-                            <a href="/tags/js/">js</a>&nbsp;
-                        </li>
-                    
-                </ul>
-            </span>
-        
-    </div>
 
-    <a href="/2021/07/13/js%E5%86%85%E5%AD%98%E6%B3%84%E9%9C%B2%E7%9B%B8%E5%85%B3%E7%9F%A5%E8%AF%86/">阅读全文&nbsp;<i class="fas fa-angle-right"></i></a>
-</div>
+                    <h3 class="timeline-card-title">
+                        <a href="/2021/07/07/js%E5%88%A4%E6%96%AD%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B%E7%9A%84%E6%96%B9%E6%B3%95/">
+                            js判断数据类型的方法
+                        </a>
+                    </h3>
 
-            </li>
-        
-            <li class="home-article-item">
-
-                
-
-                <h3 class="home-article-title">
-                    <a href="/2021/07/07/js%E5%88%A4%E6%96%AD%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B%E7%9A%84%E6%96%B9%E6%B3%95/">
-                        js判断数据类型的方法
-                    </a>
-                </h3>
-
-                <div class="home-article-content markdown-body">
-                    
-                        JS中数据类型的判断（ typeof，instanceof，constructor，Object.prototype.toString.call()（1）typeof
+                    <div class="timeline-card-content markdown-body">
+                        
+                            JS中数据类型的判断（ typeof，instanceof，constructor，Object.prototype.toString.call()（1）typeof
 typeof 对于原始类型来说，除了 null 都可以显示正确的类型
 123456...
-                    
+                        
+                    </div>
+
+                    <div class="timeline-card-meta">
+                        
+                        
+                            <span class="timeline-tag">
+                                <i class="fas fa-tags"></i>&nbsp;
+                                
+                                        <a href="/tags/js/">js</a>
+                                
+                            </span>
+                        
+                        <a class="timeline-read-more" href="/2021/07/07/js%E5%88%A4%E6%96%AD%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B%E7%9A%84%E6%96%B9%E6%B3%95/">阅读全文&nbsp;<i class="fas fa-angle-right"></i></a>
+                    </div>
                 </div>
+            </div>
 
-                <div class="home-article-meta-info-container">
-    <div class="home-article-meta-info">
-        <span><i class="fas fa-history"></i>&nbsp;<span class="home-article-date" data-date="Wed Jul 07 2021 10:14:55 GMT+0800">2021-07-07</span></span>
         
-        
-            <span class="home-article-tag">
-                <i class="fas fa-tags"></i>&nbsp;
-                <ul>
+
+            <div class="timeline-item timeline-item-right">
+                <div class="timeline-dot"></div>
+                <div class="timeline-date">
+                    <i class="fas fa-calendar-alt"></i>
+                    <span>07-06</span>
+                </div>
+                <div class="timeline-card">
                     
-                        <li>
-                            
-                            <a href="/tags/js/">js</a>&nbsp;
-                        </li>
-                    
-                </ul>
-            </span>
-        
-    </div>
 
-    <a href="/2021/07/07/js%E5%88%A4%E6%96%AD%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B%E7%9A%84%E6%96%B9%E6%B3%95/">阅读全文&nbsp;<i class="fas fa-angle-right"></i></a>
-</div>
+                    <h3 class="timeline-card-title">
+                        <a href="/2021/07/06/excel%E5%B8%B8%E7%94%A8%E5%85%AC%E5%BC%8F%E5%91%80/">
+                            excel常用公式呀
+                        </a>
+                    </h3>
 
-            </li>
-        
-            <li class="home-article-item">
-
-                
-
-                <h3 class="home-article-title">
-                    <a href="/2021/07/06/excel%E5%B8%B8%E7%94%A8%E5%85%AC%E5%BC%8F%E5%91%80/">
-                        excel常用公式呀
-                    </a>
-                </h3>
-
-                <div class="home-article-content markdown-body">
-                    
-                        IF函数条件判断IF函数是最常用的判断类函数之一，能完成非此即彼的判断。如下图，考核得分的标准为9分，要判断B列的考核成绩是否合格。=IF(B4&gt;=9,”合格”,”不合格”)
+                    <div class="timeline-card-content markdown-body">
+                        
+                            IF函数条件判断IF函数是最常用的判断类函数之一，能完成非此即彼的判断。如下图，考核得分的标准为9分，要判断B列的考核成绩是否合格。=IF(B4&gt;=9,”合格”,”不合格”)
 多条件判断如下图所示，如果部门为生产、岗位为主操 有高温补助。在D列...
-                    
+                        
+                    </div>
+
+                    <div class="timeline-card-meta">
+                        
+                        
+                            <span class="timeline-tag">
+                                <i class="fas fa-tags"></i>&nbsp;
+                                
+                                        <a href="/tags/excel/">excel</a>
+                                
+                            </span>
+                        
+                        <a class="timeline-read-more" href="/2021/07/06/excel%E5%B8%B8%E7%94%A8%E5%85%AC%E5%BC%8F%E5%91%80/">阅读全文&nbsp;<i class="fas fa-angle-right"></i></a>
+                    </div>
                 </div>
+            </div>
 
-                <div class="home-article-meta-info-container">
-    <div class="home-article-meta-info">
-        <span><i class="fas fa-history"></i>&nbsp;<span class="home-article-date" data-date="Tue Jul 06 2021 09:14:33 GMT+0800">2021-07-06</span></span>
         
-        
-            <span class="home-article-tag">
-                <i class="fas fa-tags"></i>&nbsp;
-                <ul>
+
+            <div class="timeline-item timeline-item-left">
+                <div class="timeline-dot"></div>
+                <div class="timeline-date">
+                    <i class="fas fa-calendar-alt"></i>
+                    <span>06-30</span>
+                </div>
+                <div class="timeline-card">
                     
-                        <li>
-                            
-                            <a href="/tags/excel/">excel</a>&nbsp;
-                        </li>
-                    
-                </ul>
-            </span>
-        
-    </div>
 
-    <a href="/2021/07/06/excel%E5%B8%B8%E7%94%A8%E5%85%AC%E5%BC%8F%E5%91%80/">阅读全文&nbsp;<i class="fas fa-angle-right"></i></a>
-</div>
+                    <h3 class="timeline-card-title">
+                        <a href="/2021/06/30/vue%E5%8F%91%E5%B8%83%E6%8F%92%E4%BB%B6%E5%88%B0npm%E6%BA%90/">
+                            vue发布插件到npm源
+                        </a>
+                    </h3>
 
-            </li>
-        
-            <li class="home-article-item">
-
-                
-
-                <h3 class="home-article-title">
-                    <a href="/2021/06/30/vue%E5%8F%91%E5%B8%83%E6%8F%92%E4%BB%B6%E5%88%B0npm%E6%BA%90/">
-                        vue发布插件到npm源
-                    </a>
-                </h3>
-
-                <div class="home-article-content markdown-body">
-                    
-                        注册npm注册npm https://www.npmjs.com
+                    <div class="timeline-card-content markdown-body">
+                        
+                            注册npm注册npm https://www.npmjs.com
 创建vue空项目
 创建一个基于element的组件，如count.vue文件
 12345678910111213141516171819202122232425262728293031...
-                    
+                        
+                    </div>
+
+                    <div class="timeline-card-meta">
+                        
+                        
+                            <span class="timeline-tag">
+                                <i class="fas fa-tags"></i>&nbsp;
+                                
+                                        <a href="/tags/vue-npm/">vue npm</a>
+                                
+                            </span>
+                        
+                        <a class="timeline-read-more" href="/2021/06/30/vue%E5%8F%91%E5%B8%83%E6%8F%92%E4%BB%B6%E5%88%B0npm%E6%BA%90/">阅读全文&nbsp;<i class="fas fa-angle-right"></i></a>
+                    </div>
                 </div>
+            </div>
 
-                <div class="home-article-meta-info-container">
-    <div class="home-article-meta-info">
-        <span><i class="fas fa-history"></i>&nbsp;<span class="home-article-date" data-date="Wed Jun 30 2021 16:27:01 GMT+0800">2021-06-30</span></span>
         
-        
-            <span class="home-article-tag">
-                <i class="fas fa-tags"></i>&nbsp;
-                <ul>
+
+            <div class="timeline-item timeline-item-right">
+                <div class="timeline-dot"></div>
+                <div class="timeline-date">
+                    <i class="fas fa-calendar-alt"></i>
+                    <span>06-23</span>
+                </div>
+                <div class="timeline-card">
                     
-                        <li>
-                            
-                            <a href="/tags/vue-npm/">vue npm</a>&nbsp;
-                        </li>
-                    
-                </ul>
-            </span>
-        
-    </div>
 
-    <a href="/2021/06/30/vue%E5%8F%91%E5%B8%83%E6%8F%92%E4%BB%B6%E5%88%B0npm%E6%BA%90/">阅读全文&nbsp;<i class="fas fa-angle-right"></i></a>
-</div>
+                    <h3 class="timeline-card-title">
+                        <a href="/2021/06/23/js%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/">
+                            js设计模式
+                        </a>
+                    </h3>
 
-            </li>
-        
-            <li class="home-article-item">
-
-                
-
-                <h3 class="home-article-title">
-                    <a href="/2021/06/23/js%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/">
-                        js设计模式
-                    </a>
-                </h3>
-
-                <div class="home-article-content markdown-body">
-                    
-                        构造通过构造函数，减少对象变量声明，同时能得到对象相同的结构
+                    <div class="timeline-card-content markdown-body">
+                        
+                            构造通过构造函数，减少对象变量声明，同时能得到对象相同的结构
 12345678910function Info(name,age)&#123;  this.name = name;  this.age = age;  this.log = ()=&g...
-                    
+                        
+                    </div>
+
+                    <div class="timeline-card-meta">
+                        
+                        
+                            <span class="timeline-tag">
+                                <i class="fas fa-tags"></i>&nbsp;
+                                
+                                        <a href="/tags/js/">js</a>
+                                
+                            </span>
+                        
+                        <a class="timeline-read-more" href="/2021/06/23/js%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/">阅读全文&nbsp;<i class="fas fa-angle-right"></i></a>
+                    </div>
                 </div>
+            </div>
 
-                <div class="home-article-meta-info-container">
-    <div class="home-article-meta-info">
-        <span><i class="fas fa-history"></i>&nbsp;<span class="home-article-date" data-date="Wed Jun 23 2021 17:35:17 GMT+0800">2021-06-23</span></span>
         
-        
-            <span class="home-article-tag">
-                <i class="fas fa-tags"></i>&nbsp;
-                <ul>
-                    
-                        <li>
-                            
-                            <a href="/tags/js/">js</a>&nbsp;
-                        </li>
-                    
-                </ul>
-            </span>
-        
-    </div>
 
-    <a href="/2021/06/23/js%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/">阅读全文&nbsp;<i class="fas fa-angle-right"></i></a>
-</div>
-
-            </li>
-        
-            <li class="home-article-item">
-
-                
-
-                <h3 class="home-article-title">
-                    <a href="/2021/06/06/js%E5%8E%9F%E7%94%9F%E4%BA%A4%E6%8D%A2div%E5%9D%97/">
-                        js原生交换div块
-                    </a>
-                </h3>
-
-                <div class="home-article-content markdown-body">
-                    
-                        js原生实现div交换顺序动画参考代码1234567891011121314151617181920212223242526272829303132333435363738394041424344454647484950515253545556575...
-                    
+            <div class="timeline-item timeline-item-left">
+                <div class="timeline-dot"></div>
+                <div class="timeline-date">
+                    <i class="fas fa-calendar-alt"></i>
+                    <span>06-06</span>
                 </div>
-
-                <div class="home-article-meta-info-container">
-    <div class="home-article-meta-info">
-        <span><i class="fas fa-history"></i>&nbsp;<span class="home-article-date" data-date="Sun Jun 06 2021 15:46:02 GMT+0800">2021-06-06</span></span>
-        
-        
-            <span class="home-article-tag">
-                <i class="fas fa-tags"></i>&nbsp;
-                <ul>
+                <div class="timeline-card">
                     
-                        <li>
-                            
-                            <a href="/tags/js/">js</a>&nbsp;
-                        </li>
-                    
-                </ul>
-            </span>
-        
-    </div>
 
-    <a href="/2021/06/06/js%E5%8E%9F%E7%94%9F%E4%BA%A4%E6%8D%A2div%E5%9D%97/">阅读全文&nbsp;<i class="fas fa-angle-right"></i></a>
-</div>
+                    <h3 class="timeline-card-title">
+                        <a href="/2021/06/06/js%E5%8E%9F%E7%94%9F%E4%BA%A4%E6%8D%A2div%E5%9D%97/">
+                            js原生交换div块
+                        </a>
+                    </h3>
 
-            </li>
-        
-            <li class="home-article-item">
+                    <div class="timeline-card-content markdown-body">
+                        
+                            js原生实现div交换顺序动画参考代码1234567891011121314151617181920212223242526272829303132333435363738394041424344454647484950515253545556575...
+                        
+                    </div>
 
-                
-
-                <h3 class="home-article-title">
-                    <a href="/2021/06/06/js%E5%B0%91%E7%94%A8%E5%8D%B4%E9%87%8D%E8%A6%81%E7%9A%84%E7%9F%A5%E8%AF%86%E7%82%B9/">
-                        js少用却重要的知识点
-                    </a>
-                </h3>
-
-                <div class="home-article-content markdown-body">
-                    
-                        primise问题12345const promise = new Promise((resolve,reject)=&gt;&#123;              setTimeout(()=&gt;&#123;                  ...
-                    
+                    <div class="timeline-card-meta">
+                        
+                        
+                            <span class="timeline-tag">
+                                <i class="fas fa-tags"></i>&nbsp;
+                                
+                                        <a href="/tags/js/">js</a>
+                                
+                            </span>
+                        
+                        <a class="timeline-read-more" href="/2021/06/06/js%E5%8E%9F%E7%94%9F%E4%BA%A4%E6%8D%A2div%E5%9D%97/">阅读全文&nbsp;<i class="fas fa-angle-right"></i></a>
+                    </div>
                 </div>
+            </div>
 
-                <div class="home-article-meta-info-container">
-    <div class="home-article-meta-info">
-        <span><i class="fas fa-history"></i>&nbsp;<span class="home-article-date" data-date="Sun Jun 06 2021 15:21:20 GMT+0800">2021-06-06</span></span>
         
-        
-            <span class="home-article-tag">
-                <i class="fas fa-tags"></i>&nbsp;
-                <ul>
+
+            <div class="timeline-item timeline-item-right">
+                <div class="timeline-dot"></div>
+                <div class="timeline-date">
+                    <i class="fas fa-calendar-alt"></i>
+                    <span>06-06</span>
+                </div>
+                <div class="timeline-card">
                     
-                        <li>
-                            
-                            <a href="/tags/js/">js</a>&nbsp;
-                        </li>
-                    
-                </ul>
-            </span>
+
+                    <h3 class="timeline-card-title">
+                        <a href="/2021/06/06/js%E5%B0%91%E7%94%A8%E5%8D%B4%E9%87%8D%E8%A6%81%E7%9A%84%E7%9F%A5%E8%AF%86%E7%82%B9/">
+                            js少用却重要的知识点
+                        </a>
+                    </h3>
+
+                    <div class="timeline-card-content markdown-body">
+                        
+                            primise问题12345const promise = new Promise((resolve,reject)=&gt;&#123;              setTimeout(()=&gt;&#123;                  ...
+                        
+                    </div>
+
+                    <div class="timeline-card-meta">
+                        
+                        
+                            <span class="timeline-tag">
+                                <i class="fas fa-tags"></i>&nbsp;
+                                
+                                        <a href="/tags/js/">js</a>
+                                
+                            </span>
+                        
+                        <a class="timeline-read-more" href="/2021/06/06/js%E5%B0%91%E7%94%A8%E5%8D%B4%E9%87%8D%E8%A6%81%E7%9A%84%E7%9F%A5%E8%AF%86%E7%82%B9/">阅读全文&nbsp;<i class="fas fa-angle-right"></i></a>
+                    </div>
+                </div>
+            </div>
+
         
-    </div>
 
-    <a href="/2021/06/06/js%E5%B0%91%E7%94%A8%E5%8D%B4%E9%87%8D%E8%A6%81%E7%9A%84%E7%9F%A5%E8%AF%86%E7%82%B9/">阅读全文&nbsp;<i class="fas fa-angle-right"></i></a>
-</div>
-
-            </li>
-        
-            <li class="home-article-item">
-
-                
-
-                <h3 class="home-article-title">
-                    <a href="/2021/06/01/http%E8%AF%B7%E6%B1%82%E8%BF%87%E7%A8%8B/">
-                        http请求过程
-                    </a>
-                </h3>
-
-                <div class="home-article-content markdown-body">
+            <div class="timeline-item timeline-item-left">
+                <div class="timeline-dot"></div>
+                <div class="timeline-date">
+                    <i class="fas fa-calendar-alt"></i>
+                    <span>06-01</span>
+                </div>
+                <div class="timeline-card">
                     
-                        http请求过程有：
+
+                    <h3 class="timeline-card-title">
+                        <a href="/2021/06/01/http%E8%AF%B7%E6%B1%82%E8%BF%87%E7%A8%8B/">
+                            http请求过程
+                        </a>
+                    </h3>
+
+                    <div class="timeline-card-content markdown-body">
+                        
+                            http请求过程有：
 （1）建立TCP连接
 在 HTTP 工作开始之前，Web 浏览器首先要通过网络与 Web 服务器建立连接，该连接是通过TCP来完成的，该协议与 IP 协议共同构建 Internet，即著名的 TCP/IP 协议，因此 Inter...
-                    
+                        
+                    </div>
+
+                    <div class="timeline-card-meta">
+                        
+                        
+                            <span class="timeline-tag">
+                                <i class="fas fa-tags"></i>&nbsp;
+                                
+                                        <a href="/tags/%E6%9C%8D%E5%8A%A1%E5%99%A8/">服务器</a>
+                                
+                            </span>
+                        
+                        <a class="timeline-read-more" href="/2021/06/01/http%E8%AF%B7%E6%B1%82%E8%BF%87%E7%A8%8B/">阅读全文&nbsp;<i class="fas fa-angle-right"></i></a>
+                    </div>
                 </div>
+            </div>
 
-                <div class="home-article-meta-info-container">
-    <div class="home-article-meta-info">
-        <span><i class="fas fa-history"></i>&nbsp;<span class="home-article-date" data-date="Tue Jun 01 2021 14:47:23 GMT+0800">2021-06-01</span></span>
         
-        
-            <span class="home-article-tag">
-                <i class="fas fa-tags"></i>&nbsp;
-                <ul>
-                    
-                        <li>
-                            
-                            <a href="/tags/%E6%9C%8D%E5%8A%A1%E5%99%A8/">服务器</a>&nbsp;
-                        </li>
-                    
-                </ul>
-            </span>
-        
-    </div>
 
-    <a href="/2021/06/01/http%E8%AF%B7%E6%B1%82%E8%BF%87%E7%A8%8B/">阅读全文&nbsp;<i class="fas fa-angle-right"></i></a>
-</div>
-
-            </li>
-        
-            <li class="home-article-item">
-
-                
-
-                <h3 class="home-article-title">
-                    <a href="/2021/05/25/iframe%E7%9A%84%E9%80%9A%E4%BF%A1/">
-                        iframe的通信
-                    </a>
-                </h3>
-
-                <div class="home-article-content markdown-body">
-                    
-                        1234567891011121314151617181920212223242526272829303132&lt;!DOCTYPE html&gt;&lt;html lang=&quot;en&quot;&gt;&lt;head&gt;    &...
-                    
+            <div class="timeline-item timeline-item-right">
+                <div class="timeline-dot"></div>
+                <div class="timeline-date">
+                    <i class="fas fa-calendar-alt"></i>
+                    <span>05-25</span>
                 </div>
-
-                <div class="home-article-meta-info-container">
-    <div class="home-article-meta-info">
-        <span><i class="fas fa-history"></i>&nbsp;<span class="home-article-date" data-date="Tue May 25 2021 15:14:31 GMT+0800">2021-05-25</span></span>
-        
-        
-            <span class="home-article-tag">
-                <i class="fas fa-tags"></i>&nbsp;
-                <ul>
+                <div class="timeline-card">
                     
-                        <li>
-                            
-                            <a href="/tags/html/">html</a>&nbsp;
-                        </li>
-                    
-                </ul>
-            </span>
+
+                    <h3 class="timeline-card-title">
+                        <a href="/2021/05/25/iframe%E7%9A%84%E9%80%9A%E4%BF%A1/">
+                            iframe的通信
+                        </a>
+                    </h3>
+
+                    <div class="timeline-card-content markdown-body">
+                        
+                            1234567891011121314151617181920212223242526272829303132&lt;!DOCTYPE html&gt;&lt;html lang=&quot;en&quot;&gt;&lt;head&gt;    &...
+                        
+                    </div>
+
+                    <div class="timeline-card-meta">
+                        
+                        
+                            <span class="timeline-tag">
+                                <i class="fas fa-tags"></i>&nbsp;
+                                
+                                        <a href="/tags/html/">html</a>
+                                
+                            </span>
+                        
+                        <a class="timeline-read-more" href="/2021/05/25/iframe%E7%9A%84%E9%80%9A%E4%BF%A1/">阅读全文&nbsp;<i class="fas fa-angle-right"></i></a>
+                    </div>
+                </div>
+            </div>
+
         
-    </div>
 
-    <a href="/2021/05/25/iframe%E7%9A%84%E9%80%9A%E4%BF%A1/">阅读全文&nbsp;<i class="fas fa-angle-right"></i></a>
-</div>
-
-            </li>
-        
-            <li class="home-article-item">
-
-                
-
-                <h3 class="home-article-title">
-                    <a href="/2021/05/17/2021%E5%B9%B45%E6%9C%8813%E6%97%A5%E7%A6%BB%E5%BC%80%E4%B8%AD%E5%85%B4%E9%80%9A%E8%AE%AF%EF%BC%8C%E7%A6%BB%E5%BC%80%E7%9A%84%E8%BA%AB%E5%BD%B1%E6%98%AF%E6%88%91%E5%90%91%E5%89%8D%E7%9A%84%E8%84%9A%E6%AD%A5/">
-                        2021年5月13日离开中兴通讯，离开的身影是我向前的脚步
-                    </a>
-                </h3>
-
-                <div class="home-article-content markdown-body">
+            <div class="timeline-item timeline-item-left">
+                <div class="timeline-dot"></div>
+                <div class="timeline-date">
+                    <i class="fas fa-calendar-alt"></i>
+                    <span>05-17</span>
+                </div>
+                <div class="timeline-card">
                     
-                        2021年5月13日，我离开了中兴通讯，下午，收拾好我的小物品，提着袋子我迈出了中兴大楼。
+
+                    <h3 class="timeline-card-title">
+                        <a href="/2021/05/17/2021%E5%B9%B45%E6%9C%8813%E6%97%A5%E7%A6%BB%E5%BC%80%E4%B8%AD%E5%85%B4%E9%80%9A%E8%AE%AF%EF%BC%8C%E7%A6%BB%E5%BC%80%E7%9A%84%E8%BA%AB%E5%BD%B1%E6%98%AF%E6%88%91%E5%90%91%E5%89%8D%E7%9A%84%E8%84%9A%E6%AD%A5/">
+                            2021年5月13日离开中兴通讯，离开的身影是我向前的脚步
+                        </a>
+                    </h3>
+
+                    <div class="timeline-card-content markdown-body">
+                        
+                            2021年5月13日，我离开了中兴通讯，下午，收拾好我的小物品，提着袋子我迈出了中兴大楼。
 人生总是这样，不断的错过，不断的遇见。
 感谢这一年中兴对自己的培养，阳光照亮的前方，便是我向前的方向，去经历，去热爱。
 
-                    
+                        
+                    </div>
+
+                    <div class="timeline-card-meta">
+                        
+                        
+                            <span class="timeline-tag">
+                                <i class="fas fa-tags"></i>&nbsp;
+                                
+                                        <a href="/tags/%E8%AE%B0%E5%AE%9E/">记实</a>
+                                
+                            </span>
+                        
+                        <a class="timeline-read-more" href="/2021/05/17/2021%E5%B9%B45%E6%9C%8813%E6%97%A5%E7%A6%BB%E5%BC%80%E4%B8%AD%E5%85%B4%E9%80%9A%E8%AE%AF%EF%BC%8C%E7%A6%BB%E5%BC%80%E7%9A%84%E8%BA%AB%E5%BD%B1%E6%98%AF%E6%88%91%E5%90%91%E5%89%8D%E7%9A%84%E8%84%9A%E6%AD%A5/">阅读全文&nbsp;<i class="fas fa-angle-right"></i></a>
+                    </div>
                 </div>
+            </div>
 
-                <div class="home-article-meta-info-container">
-    <div class="home-article-meta-info">
-        <span><i class="fas fa-history"></i>&nbsp;<span class="home-article-date" data-date="Mon May 17 2021 15:45:13 GMT+0800">2021-05-17</span></span>
         
-        
-            <span class="home-article-tag">
-                <i class="fas fa-tags"></i>&nbsp;
-                <ul>
+
+            <div class="timeline-item timeline-item-right">
+                <div class="timeline-dot"></div>
+                <div class="timeline-date">
+                    <i class="fas fa-calendar-alt"></i>
+                    <span>05-17</span>
+                </div>
+                <div class="timeline-card">
                     
-                        <li>
-                            
-                            <a href="/tags/%E8%AE%B0%E5%AE%9E/">记实</a>&nbsp;
-                        </li>
-                    
-                </ul>
-            </span>
-        
-    </div>
 
-    <a href="/2021/05/17/2021%E5%B9%B45%E6%9C%8813%E6%97%A5%E7%A6%BB%E5%BC%80%E4%B8%AD%E5%85%B4%E9%80%9A%E8%AE%AF%EF%BC%8C%E7%A6%BB%E5%BC%80%E7%9A%84%E8%BA%AB%E5%BD%B1%E6%98%AF%E6%88%91%E5%90%91%E5%89%8D%E7%9A%84%E8%84%9A%E6%AD%A5/">阅读全文&nbsp;<i class="fas fa-angle-right"></i></a>
-</div>
+                    <h3 class="timeline-card-title">
+                        <a href="/2021/05/17/%E4%BD%A0%E4%B8%8D%E7%9F%A5%E9%81%93%E7%9A%84css/">
+                            你不知道的css
+                        </a>
+                    </h3>
 
-            </li>
-        
-            <li class="home-article-item">
-
-                
-
-                <h3 class="home-article-title">
-                    <a href="/2021/05/17/%E4%BD%A0%E4%B8%8D%E7%9F%A5%E9%81%93%E7%9A%84css/">
-                        你不知道的css
-                    </a>
-                </h3>
-
-                <div class="home-article-content markdown-body">
-                    
-                        scroll-behaviorscroll-behavior 属性规定当用户单击可滚动框中的链接时，是否平滑地（具动画效果）滚动位置，而不是直线跳转
+                    <div class="timeline-card-content markdown-body">
+                        
+                            scroll-behaviorscroll-behavior 属性规定当用户单击可滚动框中的链接时，是否平滑地（具动画效果）滚动位置，而不是直线跳转
 浏览器支持属性值
 
 
@@ -873,221 +868,310 @@ typeof 对于原始类型来说，除了 null 都可以显示正确的类型
 
 auto
 默认值。允许在滚动框内的元素间直接跳转的“滚动效果”...
-                    
+                        
+                    </div>
+
+                    <div class="timeline-card-meta">
+                        
+                        
+                            <span class="timeline-tag">
+                                <i class="fas fa-tags"></i>&nbsp;
+                                
+                                        <a href="/tags/css/">css</a>
+                                
+                            </span>
+                        
+                        <a class="timeline-read-more" href="/2021/05/17/%E4%BD%A0%E4%B8%8D%E7%9F%A5%E9%81%93%E7%9A%84css/">阅读全文&nbsp;<i class="fas fa-angle-right"></i></a>
+                    </div>
                 </div>
+            </div>
 
-                <div class="home-article-meta-info-container">
-    <div class="home-article-meta-info">
-        <span><i class="fas fa-history"></i>&nbsp;<span class="home-article-date" data-date="Mon May 17 2021 10:51:00 GMT+0800">2021-05-17</span></span>
         
-        
-            <span class="home-article-tag">
-                <i class="fas fa-tags"></i>&nbsp;
-                <ul>
+
+            <div class="timeline-item timeline-item-left">
+                <div class="timeline-dot"></div>
+                <div class="timeline-date">
+                    <i class="fas fa-calendar-alt"></i>
+                    <span>05-14</span>
+                </div>
+                <div class="timeline-card">
                     
-                        <li>
-                            
-                            <a href="/tags/css/">css</a>&nbsp;
-                        </li>
-                    
-                </ul>
-            </span>
-        
-    </div>
 
-    <a href="/2021/05/17/%E4%BD%A0%E4%B8%8D%E7%9F%A5%E9%81%93%E7%9A%84css/">阅读全文&nbsp;<i class="fas fa-angle-right"></i></a>
-</div>
+                    <h3 class="timeline-card-title">
+                        <a href="/2021/05/14/vue%E4%BD%BF%E7%94%A8ts%E8%AF%B4%E6%98%8E/">
+                            vue使用ts说明
+                        </a>
+                    </h3>
 
-            </li>
-        
-            <li class="home-article-item">
-
-                
-
-                <h3 class="home-article-title">
-                    <a href="/2021/05/14/vue%E4%BD%BF%E7%94%A8ts%E8%AF%B4%E6%98%8E/">
-                        vue使用ts说明
-                    </a>
-                </h3>
-
-                <div class="home-article-content markdown-body">
-                    
-                        最近项目需要将原vue项目结合ts的使用进行改造，这个后面应该是中大型项目的发展趋势，看到一篇不错的入门教程，结合它并进行了一点拓展记录之。本文从安装到vue组件编写进行了说明，适合入门。
+                    <div class="timeline-card-content markdown-body">
+                        
+                            最近项目需要将原vue项目结合ts的使用进行改造，这个后面应该是中大型项目的发展趋势，看到一篇不错的入门教程，结合它并进行了一点拓展记录之。本文从安装到vue组件编写进行了说明，适合入门。
 1、引入Typescript12npm install vu...
-                    
+                        
+                    </div>
+
+                    <div class="timeline-card-meta">
+                        
+                        
+                            <span class="timeline-tag">
+                                <i class="fas fa-tags"></i>&nbsp;
+                                
+                                        <a href="/tags/vue/">vue</a>
+                                
+                            </span>
+                        
+                        <a class="timeline-read-more" href="/2021/05/14/vue%E4%BD%BF%E7%94%A8ts%E8%AF%B4%E6%98%8E/">阅读全文&nbsp;<i class="fas fa-angle-right"></i></a>
+                    </div>
                 </div>
+            </div>
 
-                <div class="home-article-meta-info-container">
-    <div class="home-article-meta-info">
-        <span><i class="fas fa-history"></i>&nbsp;<span class="home-article-date" data-date="Fri May 14 2021 14:32:24 GMT+0800">2021-05-14</span></span>
         
-        
-            <span class="home-article-tag">
-                <i class="fas fa-tags"></i>&nbsp;
-                <ul>
+
+            <div class="timeline-item timeline-item-right">
+                <div class="timeline-dot"></div>
+                <div class="timeline-date">
+                    <i class="fas fa-calendar-alt"></i>
+                    <span>03-12</span>
+                </div>
+                <div class="timeline-card">
                     
-                        <li>
-                            
-                            <a href="/tags/vue/">vue</a>&nbsp;
-                        </li>
-                    
-                </ul>
-            </span>
-        
-    </div>
 
-    <a href="/2021/05/14/vue%E4%BD%BF%E7%94%A8ts%E8%AF%B4%E6%98%8E/">阅读全文&nbsp;<i class="fas fa-angle-right"></i></a>
-</div>
+                    <h3 class="timeline-card-title">
+                        <a href="/2021/03/12/node%E9%82%A3%E7%82%B9%E4%BA%8B/">
+                            node那点事
+                        </a>
+                    </h3>
 
-            </li>
-        
-            <li class="home-article-item">
-
-                
-
-                <h3 class="home-article-title">
-                    <a href="/2021/03/12/node%E9%82%A3%E7%82%B9%E4%BA%8B/">
-                        node那点事
-                    </a>
-                </h3>
-
-                <div class="home-article-content markdown-body">
-                    
-                        关于node的几项问题
+                    <div class="timeline-card-content markdown-body">
+                        
+                            关于node的几项问题
 nodejs作为运行在服务器，虽然是使用js作为开发语言，但是无法获取Dom,Bom
 
 nodejs的变量作用于当前文件，例如A.js定义的全局变量无法在B.js文件中直接使用，如果需要调B.js的变量方法，需要使用modul...
-                    
-                </div>
-
-                <div class="home-article-meta-info-container">
-    <div class="home-article-meta-info">
-        <span><i class="fas fa-history"></i>&nbsp;<span class="home-article-date" data-date="Fri Mar 12 2021 21:41:41 GMT+0800">2021-03-12</span></span>
-        
-        
-            <span class="home-article-tag">
-                <i class="fas fa-tags"></i>&nbsp;
-                <ul>
-                    
-                        <li>
-                            
-                            <a href="/tags/node/">node</a>&nbsp;
-                        </li>
-                    
-                </ul>
-            </span>
-        
-    </div>
-
-    <a href="/2021/03/12/node%E9%82%A3%E7%82%B9%E4%BA%8B/">阅读全文&nbsp;<i class="fas fa-angle-right"></i></a>
-</div>
-
-            </li>
-        
-            <li class="home-article-item">
-
-                
-
-                <h3 class="home-article-title">
-                    <a href="/2021/03/04/%E5%A6%82%E4%BD%95%E6%8F%90%E5%8D%87%E8%87%AA%E5%B7%B1%E4%B8%BA%E4%BA%BA%E5%A4%84%E4%B8%96%E7%9A%84%E8%83%BD%E5%8A%9B%EF%BC%9F/">
-                        如何提升自己为人处世的能力？
-                    </a>
-                </h3>
-
-                <div class="home-article-content markdown-body">
-                    
                         
-想要真正让别人觉得你大方，愿意和你交朋友，不是你一见面就请他吃500的日料，而是平常生活中请他吃10次50的普通饭菜。  刚见面的热情很容易让人觉得你带有目的，之后如果你稍微不注意，他就会觉得你变了，相反，你开始就普通对待，之后也没有减少，他就会觉...
-                    
+                    </div>
+
+                    <div class="timeline-card-meta">
+                        
+                        
+                            <span class="timeline-tag">
+                                <i class="fas fa-tags"></i>&nbsp;
+                                
+                                        <a href="/tags/node/">node</a>
+                                
+                            </span>
+                        
+                        <a class="timeline-read-more" href="/2021/03/12/node%E9%82%A3%E7%82%B9%E4%BA%8B/">阅读全文&nbsp;<i class="fas fa-angle-right"></i></a>
+                    </div>
                 </div>
+            </div>
 
-                <div class="home-article-meta-info-container">
-    <div class="home-article-meta-info">
-        <span><i class="fas fa-history"></i>&nbsp;<span class="home-article-date" data-date="Thu Mar 04 2021 22:01:39 GMT+0800">2021-03-04</span></span>
         
-        
-            <span class="home-article-tag">
-                <i class="fas fa-tags"></i>&nbsp;
-                <ul>
+
+            <div class="timeline-item timeline-item-left">
+                <div class="timeline-dot"></div>
+                <div class="timeline-date">
+                    <i class="fas fa-calendar-alt"></i>
+                    <span>03-04</span>
+                </div>
+                <div class="timeline-card">
                     
-                        <li>
+
+                    <h3 class="timeline-card-title">
+                        <a href="/2021/03/04/%E5%A6%82%E4%BD%95%E6%8F%90%E5%8D%87%E8%87%AA%E5%B7%B1%E4%B8%BA%E4%BA%BA%E5%A4%84%E4%B8%96%E7%9A%84%E8%83%BD%E5%8A%9B%EF%BC%9F/">
+                            如何提升自己为人处世的能力？
+                        </a>
+                    </h3>
+
+                    <div class="timeline-card-content markdown-body">
+                        
                             
-                            <a href="/tags/%E6%97%A5%E5%B8%B8/">日常</a>&nbsp;
-                        </li>
-                    
-                </ul>
-            </span>
+想要真正让别人觉得你大方，愿意和你交朋友，不是你一见面就请他吃500的日料，而是平常生活中请他吃10次50的普通饭菜。  刚见面的热情很容易让人觉得你带有目的，之后如果你稍微不注意，他就会觉得你变了，相反，你开始就普通对待，之后也没有减少，他就会觉...
+                        
+                    </div>
+
+                    <div class="timeline-card-meta">
+                        
+                        
+                            <span class="timeline-tag">
+                                <i class="fas fa-tags"></i>&nbsp;
+                                
+                                        <a href="/tags/%E6%97%A5%E5%B8%B8/">日常</a>
+                                
+                            </span>
+                        
+                        <a class="timeline-read-more" href="/2021/03/04/%E5%A6%82%E4%BD%95%E6%8F%90%E5%8D%87%E8%87%AA%E5%B7%B1%E4%B8%BA%E4%BA%BA%E5%A4%84%E4%B8%96%E7%9A%84%E8%83%BD%E5%8A%9B%EF%BC%9F/">阅读全文&nbsp;<i class="fas fa-angle-right"></i></a>
+                    </div>
+                </div>
+            </div>
+
         
-    </div>
 
-    <a href="/2021/03/04/%E5%A6%82%E4%BD%95%E6%8F%90%E5%8D%87%E8%87%AA%E5%B7%B1%E4%B8%BA%E4%BA%BA%E5%A4%84%E4%B8%96%E7%9A%84%E8%83%BD%E5%8A%9B%EF%BC%9F/">阅读全文&nbsp;<i class="fas fa-angle-right"></i></a>
-</div>
-
-            </li>
-        
-            <li class="home-article-item">
-
-                
-
-                <h3 class="home-article-title">
-                    <a href="/2021/03/03/%E8%AE%B0%E4%B8%AD%E6%B2%BB%E8%B5%9B%E8%BF%AA%E8%B5%84%E6%A0%BC%E8%80%83%E8%AF%95/">
-                        记中治赛迪资格考试
-                    </a>
-                </h3>
-
-                <div class="home-article-content markdown-body">
+            <div class="timeline-item timeline-item-right">
+                <div class="timeline-dot"></div>
+                <div class="timeline-date">
+                    <i class="fas fa-calendar-alt"></i>
+                    <span>03-03</span>
+                </div>
+                <div class="timeline-card">
                     
-                        2021年3月2日，有幸参加公司组织的关于中治赛迪公司的资格考试。
+
+                    <h3 class="timeline-card-title">
+                        <a href="/2021/03/03/%E8%AE%B0%E4%B8%AD%E6%B2%BB%E8%B5%9B%E8%BF%AA%E8%B5%84%E6%A0%BC%E8%80%83%E8%AF%95/">
+                            记中治赛迪资格考试
+                        </a>
+                    </h3>
+
+                    <div class="timeline-card-content markdown-body">
+                        
+                            2021年3月2日，有幸参加公司组织的关于中治赛迪公司的资格考试。
 公司地址位于重庆市金童路，办公环境特别好，公司气氛融洽。
 本次参加的是前端工程师开发岗位，共分两轮，一轮笔试，一轮面试。面试为3位面1人，共分3组，同时面试。
 面试过程中问题如下
 c...
-                    
+                        
+                    </div>
+
+                    <div class="timeline-card-meta">
+                        
+                        
+                            <span class="timeline-tag">
+                                <i class="fas fa-tags"></i>&nbsp;
+                                
+                                        <a href="/tags/%E6%97%A5%E5%B8%B8/">日常</a>
+                                
+                            </span>
+                        
+                        <a class="timeline-read-more" href="/2021/03/03/%E8%AE%B0%E4%B8%AD%E6%B2%BB%E8%B5%9B%E8%BF%AA%E8%B5%84%E6%A0%BC%E8%80%83%E8%AF%95/">阅读全文&nbsp;<i class="fas fa-angle-right"></i></a>
+                    </div>
                 </div>
+            </div>
 
-                <div class="home-article-meta-info-container">
-    <div class="home-article-meta-info">
-        <span><i class="fas fa-history"></i>&nbsp;<span class="home-article-date" data-date="Wed Mar 03 2021 21:09:32 GMT+0800">2021-03-03</span></span>
-        
-        
-            <span class="home-article-tag">
-                <i class="fas fa-tags"></i>&nbsp;
-                <ul>
-                    
-                        <li>
-                            
-                            <a href="/tags/%E6%97%A5%E5%B8%B8/">日常</a>&nbsp;
-                        </li>
-                    
-                </ul>
-            </span>
         
     </div>
 
-    <a href="/2021/03/03/%E8%AE%B0%E4%B8%AD%E6%B2%BB%E8%B5%9B%E8%BF%AA%E8%B5%84%E6%A0%BC%E8%80%83%E8%AF%95/">阅读全文&nbsp;<i class="fas fa-angle-right"></i></a>
-</div>
-
-            </li>
-        
-    </ul>
-
-    <div class="home-paginator">
-        <div class="paginator">
+    <!-- 滚动加载区域 -->
     
-        <a class="prev btn"
-           href="/page/2/"
-        >上一页</a>
-    
-
-    
-        <a class="next btn"
-           href="/page/4/"
-        >下一页</a>
-    
-</div>
-
+    <div class="home-infinite-scroll">
+        <div class="scroll-loading" id="scroll-loading">
+            <div class="loading-spinner"></div>
+            <span>加载中...</span>
+        </div>
+        <div class="scroll-sentinel" id="scroll-sentinel"
+             data-next="/page/4/"
+             data-current="3"
+             data-total="5">
+        </div>
     </div>
+    
 </div>
+
+<script>
+(function() {
+    // 滚动自动加载
+    const sentinel = document.getElementById('scroll-sentinel');
+    if (!sentinel) return;
+
+    let isLoading = false;
+    let nextUrl = sentinel.getAttribute('data-next');
+    const timeline = document.querySelector('.home-timeline');
+    const loadingEl = document.getElementById('scroll-loading');
+    const scrollContainer = document.querySelector('.home-infinite-scroll');
+
+    // 记录当前年份（用于判断是否需要插入年份标签）
+    const existingYearLabels = document.querySelectorAll('.timeline-year-label .year-text');
+    let lastYear = existingYearLabels.length > 0
+        ? existingYearLabels[existingYearLabels.length - 1].textContent.trim()
+        : '';
+
+    // 当前已有的 timeline-item 数量，用于决定左右交替
+    let itemCount = document.querySelectorAll('.timeline-item').length;
+
+    const observer = new IntersectionObserver(function(entries) {
+        entries.forEach(function(entry) {
+            // 当按钮触发滚动时，不触发加载
+            if (entry.isIntersecting && !isLoading && !window.__isScrollingByButton && nextUrl) {
+                loadMore();
+            }
+        });
+    }, {
+        rootMargin: '0px 0px 300px 0px'
+    });
+
+    observer.observe(sentinel);
+
+    function loadMore() {
+        isLoading = true;
+        loadingEl.style.display = 'flex';
+
+        fetch(nextUrl)
+            .then(function(res) { return res.text(); })
+            .then(function(html) {
+                const parser = new DOMParser();
+                const doc = parser.parseFromString(html, 'text/html');
+
+                // 获取新页面的文章项
+                const newItems = doc.querySelectorAll('.timeline-item');
+                const newYearLabels = doc.querySelectorAll('.timeline-year-label');
+
+                // 收集新页面所有时间轴子元素（年份标签 + 文章项），按 DOM 顺序
+                const newTimeline = doc.querySelector('.home-timeline');
+                if (newTimeline) {
+                    const children = newTimeline.children;
+                    for (let i = 0; i < children.length; i++) {
+                        const child = children[i];
+                        if (child.classList.contains('timeline-line')) continue;
+
+                        if (child.classList.contains('timeline-year-label')) {
+                            const yearText = child.querySelector('.year-text').textContent.trim();
+                            // 如果这个年份已经存在，就不再插入
+                            if (yearText === lastYear) continue;
+                            lastYear = yearText;
+                            const cloned = child.cloneNode(true);
+                            timeline.appendChild(cloned);
+                        } else if (child.classList.contains('timeline-item')) {
+                            const cloned = child.cloneNode(true);
+                            // 重新计算左右交替
+                            cloned.classList.remove('timeline-item-left', 'timeline-item-right');
+                            cloned.classList.add(itemCount % 2 === 0 ? 'timeline-item-left' : 'timeline-item-right');
+                            itemCount++;
+                            // 添加入场动画
+                            cloned.style.opacity = '0';
+                            cloned.style.transform = 'translateY(20px)';
+                            timeline.appendChild(cloned);
+                            // 触发动画
+                            requestAnimationFrame(function() {
+                                cloned.style.transition = 'opacity 0.4s ease, transform 0.4s ease';
+                                cloned.style.opacity = '1';
+                                cloned.style.transform = 'translateY(0)';
+                            });
+                        }
+                    }
+                }
+
+                // 检查新页面是否还有下一页
+                const newSentinel = doc.getElementById('scroll-sentinel');
+                if (newSentinel) {
+                    nextUrl = newSentinel.getAttribute('data-next');
+                    sentinel.setAttribute('data-next', nextUrl);
+                } else {
+                    // 没有更多了
+                    nextUrl = null;
+                    observer.unobserve(sentinel);
+                    scrollContainer.innerHTML = '<div class="scroll-end"><span>— 已经到底啦 —</span></div>';
+                }
+
+                isLoading = false;
+                loadingEl.style.display = 'none';
+            })
+            .catch(function(err) {
+                console.error('加载更多文章失败:', err);
+                isLoading = false;
+                loadingEl.style.display = 'none';
+            });
+    }
+})();
+</script>
 
 
         

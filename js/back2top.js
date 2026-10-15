@@ -7,31 +7,43 @@ KEEP.initBack2Top = () => {
     back2BottomButton_dom: document.querySelector('.tool-scroll-to-bottom'),
 
     back2top() {
-      const scrollTopTimer = setInterval(function () {
-        let top = document.body.scrollTop || document.documentElement.scrollTop;
-        let speed = top / 2;
-        if (document.body.scrollTop !== 0) {
-          document.body.scrollTop -= speed;
-        } else {
-          document.documentElement.scrollTop -= speed;
+      // 设置全局标记，通知其他组件（如无限滚动）暂停
+      window.__isScrollingByButton = true;
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+
+      // 监听滚动结束后清除标记
+      var checkTimer = null;
+      var lastScrollTop = -1;
+      function checkScrollEnd() {
+        var currentTop = document.body.scrollTop || document.documentElement.scrollTop;
+        if (currentTop === lastScrollTop) {
+          // 滚动已停止
+          clearInterval(checkTimer);
+          window.__isScrollingByButton = false;
         }
-        if (top === 0) {
-          clearInterval(scrollTopTimer);
-        }
-      }, 50);
+        lastScrollTop = currentTop;
+      }
+      checkTimer = setInterval(checkScrollEnd, 100);
     },
 
     back2Bottom() {
+      // 设置全局标记，通知其他组件（如无限滚动）暂停
+      window.__isScrollingByButton = true;
       let scrollHeight = document.body.scrollHeight || document.documentElement.scrollHeight;
-      let scrollTop = document.body.scrollTop || document.documentElement.scrollTop;
-      const scrollBottomTimer = setInterval(function () {
-        if (!scrollTop) scrollTop = 10;
-        scrollTop = Math.floor(scrollTop + scrollTop / 2);
-        window.scrollTo(0, scrollTop);
-        if (scrollTop >= scrollHeight) {
-          clearInterval(scrollBottomTimer);
+      window.scrollTo({ top: scrollHeight, behavior: 'smooth' });
+
+      // 监听滚动结束后清除标记
+      var checkTimer = null;
+      var lastScrollTop = -1;
+      function checkScrollEnd() {
+        var currentTop = document.body.scrollTop || document.documentElement.scrollTop;
+        if (currentTop === lastScrollTop) {
+          clearInterval(checkTimer);
+          window.__isScrollingByButton = false;
         }
-      }, 50);
+        lastScrollTop = currentTop;
+      }
+      checkTimer = setInterval(checkScrollEnd, 100);
     },
 
     initBack2Top() {

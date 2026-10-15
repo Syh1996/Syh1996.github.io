@@ -1,0 +1,393 @@
+/* ===== 资料页面样式 ===== */
+.resources-container {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 20px;
+}
+.resources-title {
+  text-align: center;
+  font-size: 28px;
+  font-weight: 700;
+  color: #2c3e50;
+  margin-bottom: 8px;
+}
+.resources-desc {
+  text-align: center;
+  color: #7f8c8d;
+  font-size: 14px;
+  margin-bottom: 30px;
+}
+/* 搜索栏 */
+.resources-search {
+  margin-bottom: 20px;
+}
+.resources-search input {
+  width: 100%;
+  padding: 12px 20px;
+  border: 2px solid #e8e8e8;
+  border-radius: 12px;
+  font-size: 15px;
+  outline: none;
+  transition: all 0.3s ease;
+  background: #fafafa;
+  box-sizing: border-box;
+}
+.resources-search input:focus {
+  border-color: var(--primary-color, #06c);
+  background: #fff;
+  box-shadow: 0 0 0 4px rgba(0,102,204,0.1);
+}
+.resources-search input::placeholder {
+  color: #bbb;
+}
+/* 分类标签 */
+.resources-tabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 24px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid #eee;
+}
+.resources-tabs .tab-item {
+  padding: 6px 16px;
+  border-radius: 20px;
+  font-size: 13px;
+  color: #666;
+  background: #f5f5f5;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  user-select: none;
+}
+.resources-tabs .tab-item:hover {
+  background: #e8e8e8;
+  color: #333;
+}
+.resources-tabs .tab-item.active {
+  background: var(--primary-color, #06c);
+  color: #fff;
+  box-shadow: 0 2px 8px rgba(0,102,204,0.3);
+}
+/* PDF 列表 */
+.resources-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+/* PDF 卡片 */
+.pdf-card {
+  display: flex;
+  align-items: center;
+  padding: 16px 20px;
+  background: #fff;
+  border-radius: 12px;
+  border: 1px solid #f0f0f0;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  animation: fadeInUp 0.4s ease both;
+}
+.pdf-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(0,0,0,0.08);
+  border-color: var(--primary-color, #06c);
+}
+.pdf-card:hover .preview-btn {
+  opacity: 1;
+  transform: translateX(0);
+}
+.pdf-card-icon {
+  flex-shrink: 0;
+  margin-right: 16px;
+}
+.pdf-card-info {
+  flex: 1;
+  min-width: 0;
+}
+.pdf-card-name {
+  font-size: 15px;
+  font-weight: 600;
+  color: #2c3e50;
+  margin: 0 0 6px 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.pdf-card-meta {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.pdf-card-category {
+  display: inline-block;
+  padding: 2px 8px;
+  background: #f0f7ff;
+  color: var(--primary-color, #06c);
+  border-radius: 4px;
+  font-size: 12px;
+}
+.pdf-card-size {
+  color: #999;
+  font-size: 12px;
+}
+.pdf-card-action {
+  flex-shrink: 0;
+  margin-left: 16px;
+}
+.preview-btn {
+  display: inline-block;
+  padding: 6px 16px;
+  background: var(--primary-color, #06c);
+  color: #fff;
+  border-radius: 6px;
+  font-size: 13px;
+  opacity: 0;
+  transform: translateX(10px);
+  transition: all 0.3s ease;
+}
+/* PDF 预览弹窗 */
+.pdf-preview-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0,0,0,0.85);
+  z-index: 9999;
+  display: none;
+}
+.pdf-preview-overlay.active {
+  display: flex;
+}
+.pdf-preview-modal {
+  width: 100vw;
+  height: 100vh;
+  background: #fff;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  animation: fadeIn 0.2s ease;
+}
+.pdf-preview-modal.fullscreen {
+  border-radius: 0;
+  max-width: none;
+}
+.pdf-preview-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 20px;
+  background: #f8f9fa;
+  border-bottom: 1px solid #eee;
+  flex-shrink: 0;
+}
+.pdf-preview-title {
+  font-size: 15px;
+  font-weight: 600;
+  color: #333;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  flex: 1;
+  margin-right: 16px;
+}
+.pdf-preview-actions {
+  display: flex;
+  gap: 8px;
+}
+.pdf-action-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 8px;
+  border: none;
+  background: #fff;
+  color: #666;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  text-decoration: none;
+}
+.pdf-action-btn:hover {
+  background: var(--primary-color, #06c);
+  color: #fff;
+}
+.pdf-preview-body {
+  flex: 1;
+  position: relative;
+  overflow: hidden;
+}
+.pdf-preview-body iframe {
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+.pdf-loading {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: #fff;
+}
+.pdf-loading p {
+  margin-top: 16px;
+  color: #999;
+  font-size: 14px;
+}
+/* 加载动画 */
+.spinner {
+  width: 36px;
+  height: 36px;
+  border: 3px solid #f0f0f0;
+  border-top-color: var(--primary-color, #06c);
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+}
+.loading-spinner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 60px;
+}
+.loading-spinner p {
+  margin-top: 16px;
+  color: #999;
+}
+/* 移动端适配 */
+@media (max-width: 768px) {
+  .resources-container {
+    padding: 12px;
+  }
+  .resources-title {
+    font-size: 22px;
+  }
+  .pdf-card {
+    padding: 12px 14px;
+  }
+  .pdf-card-icon {
+    margin-right: 12px;
+  }
+  .pdf-card-icon svg {
+    width: 32px;
+    height: 32px;
+  }
+  .pdf-card-name {
+    font-size: 14px;
+  }
+  .preview-btn {
+    opacity: 1;
+    transform: translateX(0);
+    padding: 4px 10px;
+    font-size: 12px;
+  }
+  .pdf-preview-modal {
+    width: 100vw;
+    height: 100vh;
+    border-radius: 0;
+  }
+  .resources-tabs {
+    gap: 6px;
+  }
+  .resources-tabs .tab-item {
+    padding: 4px 12px;
+    font-size: 12px;
+  }
+}
+@-moz-keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+@-webkit-keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+@-o-keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+@-moz-keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+@-webkit-keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+@-o-keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+@-moz-keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@-webkit-keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@-o-keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}

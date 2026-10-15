@@ -1,0 +1,629 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="baidu-site-verification" content="code-YfBAOEVVQH" />
+    <meta name="keywords" content="邵预鸿,前端开发工程师,技术博客,生活记录,生活日常,个人简历,日常规划">
+    <meta name="description" content="入职中兴通讯，一名低调资深的ctrl+c and ctrl+v开发者">
+    <meta name="author" content="邵预鸿">
+    
+    <title>
+        
+            资料 |
+        
+        邵预鸿|前端开发技术笔记
+    </title>
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="shortcut icon" href="/images/logo.jpg">
+    <link rel="stylesheet" href="/css/font-awesome.min.css">
+    <script id="hexo-configurations">
+    let KEEP = window.KEEP || {};
+    KEEP.hexo_config = {"hostname":"yuhongshao.cn","root":"/","language":"zh-CN","path":"search.json"};
+    KEEP.theme_config = {"toc":{"enable":false,"number":false,"expand_all":false,"init_open":false},"style":{"primary_color":"#0066CC","avatar":"/images/logo.jpg","favicon":"/images/logo.jpg","article_img_align":"left","left_side_width":"260px","content_max_width":"920px","hover":{"shadow":true,"scale":false},"first_screen":{"enable":true,"background_img":"/images/bg.svg","description":"积累硅步，可至千里；千里之行，始于足下"},"scroll":{"progress_bar":{"enable":true},"percent":{"enable":true}}},"local_search":{"enable":true,"preload":true},"code_copy":{"enable":true,"style":"default"},"pjax":{"enable":false},"lazyload":{"enable":true},"version":"3.4.0"};
+    KEEP.language_ago = {"second":"%s 秒前","minute":"%s 分钟前","hour":"%s 小时前","day":"%s 天前","week":"%s 周前","month":"%s 月前","year":"%s 年前"};
+  </script>
+<meta name="generator" content="Hexo 5.4.2"></head>
+
+
+<body>
+<!--
+ * @Description: file content
+ * @Author: yuhongshao
+ * @Date: 2021-02-20 19:33:18
+ * @email: 
+ * @LastEditTime: 2022-05-25 12:31:42
+-->
+<div class="progress-bar-container">
+    
+        <span class="scroll-progress-bar"></span>
+    
+
+    
+</div>
+
+
+<main class="page-container">
+
+  
+
+  <div class="page-main-content">
+
+    <div class="page-main-content-top">
+      <header class="header-wrapper">
+
+    <div class="header-content">
+        <div class="left">
+            <a class="logo-title" href="/">
+                邵预鸿|前端开发技术笔记
+            </a>
+        </div>
+
+        <div class="right">
+            <div class="pc">
+                <ul class="menu-list">
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/"
+                            >
+                                主页
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/archives"
+                            >
+                                历年汇总
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class="active"
+                               href="/resources"
+                            >
+                                资料
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/about"
+                            >
+                                关于我
+                            </a>
+                        </li>
+                    
+                    
+                        <li class="menu-item search search-popup-trigger">
+                            <i class="fas fa-search"></i>
+                        </li>
+                    
+                </ul>
+            </div>
+            <div class="mobile">
+                
+                    <div class="icon-item search search-popup-trigger"><i class="fas fa-search"></i></div>
+                
+                <div class="icon-item menu-bar">
+                    <div class="menu-bar-middle"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="header-drawer">
+        <ul class="drawer-menu-list">
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/">主页</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/archives">历年汇总</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class="active"
+                       href="/resources">资料</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/about">关于我</a>
+                </li>
+            
+        </ul>
+    </div>
+
+    <div class="window-mask"></div>
+
+</header>
+
+
+    </div>
+    <style>
+      .main-content a{
+        color: #6e9cca;
+      }
+      .article-title-list {
+        position: fixed;
+        left: 80px;
+        top: 110px;
+        z-index: 100;
+        width: 300px;
+        max-height: calc(100% - 144px);
+        overflow: auto;
+      }
+      .article-title-list a .badge{
+        display: inline-block;
+        margin-right: 5px;
+        padding: 0 5px;
+        background-color: #ebebeb;
+        border-radius: 3px;
+        color: #6b6b6b;
+      }
+      .article-title-list h1,
+      .article-title-list h2,
+      .article-title-list h3,
+      .article-title-list h4,
+      .article-title-list h5,
+      .article-title-list h6 {
+        box-sizing: border-box;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        overflow: hidden;
+        color: #686868;
+        font-weight: normal;
+        line-height: 1;
+        cursor: pointer;
+      }
+
+      .article-title-list h1 {
+        font-size: 22px;
+      }
+
+      .article-title-list h2 {
+        padding-left: 20px;
+        font-size: 20px;
+      }
+
+      .article-title-list h3 {
+        padding-left: 40px;
+        font-size: 18px;
+      }
+
+      .article-title-list h4 {
+        padding-left: 60px;
+        font-size: 16px;
+      }
+
+      .article-title-list h5 {
+        padding-left: 80px;
+        font-size: 14px;
+      }
+
+      .article-title-list h6 {
+        padding-left: 100px;
+        font-size: 12px;
+      }
+
+    </style>
+    <div class="article-title-list">
+    </div>
+
+    <div class="page-main-content-middle">
+
+      <div class="main-content">
+
+        
+        <div class="fade-in-down-animation">
+  <div class="resources-container">
+    <h1 class="resources-title">📚 资料库</h1>
+    <p class="resources-desc">收录所有 PDF 资料，点击即可在线预览</p>
+
+    <!-- 搜索栏 -->
+    <div class="resources-search">
+      <input type="text" id="pdfSearch" placeholder="🔍 搜索资料名称..." />
+    </div>
+
+    <!-- 分类标签 -->
+    <div class="resources-tabs" id="categoryTabs">
+      <span class="tab-item active" data-category="all">全部</span>
+    </div>
+
+    <!-- PDF 列表 -->
+    <div class="resources-list" id="pdfList">
+      <div class="loading-spinner">
+        <div class="spinner"></div>
+        <p>加载资料列表中...</p>
+      </div>
+    </div>
+
+    <!-- PDF 预览弹窗（全屏） -->
+    <div class="pdf-preview-overlay" id="pdfPreviewOverlay">
+      <div class="pdf-preview-modal fullscreen">
+        <div class="pdf-preview-header">
+          <span class="pdf-preview-title" id="pdfPreviewTitle">预览</span>
+          <div class="pdf-preview-actions">
+            <a class="pdf-action-btn" id="pdfDownloadBtn" href="#" download title="下载">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+            </a>
+            <button class="pdf-action-btn" id="pdfCloseBtn" title="关闭">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+            </button>
+          </div>
+        </div>
+        <div class="pdf-preview-body" id="pdfPreviewBody">
+          <div class="pdf-loading" id="pdfLoading">
+            <div class="spinner"></div>
+            <p>正在加载 PDF...</p>
+          </div>
+          <iframe id="pdfIframe" style="display:none;"></iframe>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+(function() {
+  let allPdfs = [];
+  let categories = {};
+  let currentCategory = 'all';
+
+  // 加载 PDF 列表
+  fetch('/pdf-list.json')
+    .then(res => res.json())
+    .then(data => {
+      categories = data.categories;
+      // 展平为数组
+      Object.keys(categories).forEach(cat => {
+        categories[cat].forEach(pdf => {
+          allPdfs.push(pdf);
+        });
+      });
+      renderTabs();
+      renderList(allPdfs);
+    })
+    .catch(err => {
+      document.getElementById('pdfList').innerHTML =
+        '<p style="text-align:center;color:#999;padding:40px;">加载失败，请刷新重试</p>';
+    });
+
+  // 渲染分类标签
+  function renderTabs() {
+    const tabsEl = document.getElementById('categoryTabs');
+    let html = '<span class="tab-item active" data-category="all">全部 (' + allPdfs.length + ')</span>';
+    // 自定义分类排序
+    const catOrder = Object.keys(categories).sort((a, b) => a.localeCompare(b, 'zh-CN'));
+    catOrder.forEach(cat => {
+      html += '<span class="tab-item" data-category="' + cat + '">' + cat + ' (' + categories[cat].length + ')</span>';
+    });
+    tabsEl.innerHTML = html;
+
+    // 绑定点击事件
+    tabsEl.querySelectorAll('.tab-item').forEach(tab => {
+      tab.addEventListener('click', function() {
+        tabsEl.querySelectorAll('.tab-item').forEach(t => t.classList.remove('active'));
+        this.classList.add('active');
+        currentCategory = this.dataset.category;
+        filterAndRender();
+      });
+    });
+  }
+
+  // 过滤并渲染
+  function filterAndRender() {
+    const keyword = document.getElementById('pdfSearch').value.trim().toLowerCase();
+    let filtered = allPdfs;
+    if (currentCategory !== 'all') {
+      filtered = filtered.filter(p => p.category === currentCategory);
+    }
+    if (keyword) {
+      filtered = filtered.filter(p => p.name.toLowerCase().includes(keyword));
+    }
+    renderList(filtered);
+  }
+
+  // 渲染 PDF 列表
+  function renderList(list) {
+    const container = document.getElementById('pdfList');
+    if (list.length === 0) {
+      container.innerHTML = '<p style="text-align:center;color:#999;padding:40px;">没有找到匹配的资料</p>';
+      return;
+    }
+
+    let html = '';
+    list.forEach((pdf, index) => {
+      // 转义 HTML 属性中的特殊字符
+      var safeName = pdf.name.replace(/&/g,'&amp;').replace(/"/g,'&quot;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+      var safePath = pdf.path.replace(/&/g,'&amp;').replace(/"/g,'&quot;');
+      html += '<div class="pdf-card" data-path="' + safePath + '" data-name="' + safeName + '" style="animation-delay:' + (index * 0.03) + 's">'
+        + '<div class="pdf-card-icon">'
+        + '<svg width="40" height="40" viewBox="0 0 24 24" fill="none"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" fill="#e74c3c" opacity="0.1" stroke="#e74c3c" stroke-width="1.5"/><polyline points="14 2 14 8 20 8" stroke="#e74c3c" stroke-width="1.5" fill="none"/><text x="12" y="17" text-anchor="middle" fill="#e74c3c" font-size="5" font-weight="bold">PDF</text></svg>'
+        + '</div>'
+        + '<div class="pdf-card-info">'
+        + '<h3 class="pdf-card-name" title="' + safeName + '">' + safeName + '</h3>'
+        + '<div class="pdf-card-meta">'
+        + '<span class="pdf-card-category">' + pdf.category + '</span>'
+        + '<span class="pdf-card-size">' + pdf.sizeText + '</span>'
+        + '</div>'
+        + '</div>'
+        + '<div class="pdf-card-action">'
+        + '<span class="preview-btn">预览</span>'
+        + '</div>'
+        + '</div>';
+    });
+    container.innerHTML = html;
+
+    // 绑定点击预览
+    container.querySelectorAll('.pdf-card').forEach(card => {
+      card.addEventListener('click', function() {
+        const pdfPath = this.dataset.path;
+        const pdfName = this.dataset.name;
+        openPreview(pdfPath, pdfName);
+      });
+    });
+  }
+
+  // 搜索框事件
+  document.getElementById('pdfSearch').addEventListener('input', function() {
+    filterAndRender();
+  });
+
+  // 弹窗原始父节点引用（用于关闭时移回）
+  var overlayOriginalParent = document.getElementById('pdfPreviewOverlay').parentNode;
+
+  // 打开预览
+  function openPreview(pdfPath, pdfName) {
+    const overlay = document.getElementById('pdfPreviewOverlay');
+    const iframe = document.getElementById('pdfIframe');
+    const loading = document.getElementById('pdfLoading');
+    const titleEl = document.getElementById('pdfPreviewTitle');
+    const downloadBtn = document.getElementById('pdfDownloadBtn');
+
+    titleEl.textContent = pdfName;
+    downloadBtn.href = pdfPath;
+    downloadBtn.download = pdfName + '.pdf';
+
+    // 将弹窗移到 body 下，脱离 .main-content 的 max-width 限制
+    document.body.appendChild(overlay);
+
+    // 显示弹窗
+    overlay.classList.add('active');
+    document.body.style.overflow = 'hidden';
+
+    // 显示加载状态
+    loading.style.display = 'flex';
+    iframe.style.display = 'none';
+
+    // 检测是否为移动端
+    var isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+    // 构建完整 URL（对中文路径进行编码）
+    var fullUrl = location.origin + encodeURI(pdfPath);
+
+    if (isMobile) {
+      // 移动端：使用 Google Docs Viewer（支持在线渲染 PDF）
+      iframe.src = 'https://docs.google.com/gview?embedded=true&url=' + encodeURIComponent(fullUrl);
+    } else {
+      // PC 端：直接使用浏览器内置 PDF 查看器（Chrome/Edge/Firefox 效果最佳）
+      // 添加 #toolbar=1&navpanes=1&scrollbar=1 参数优化显示
+      iframe.src = encodeURI(pdfPath) + '#toolbar=1&navpanes=1&scrollbar=1&view=FitH';
+    }
+
+    iframe.onload = function() {
+      loading.style.display = 'none';
+      iframe.style.display = 'block';
+    };
+
+    // 超时处理：如果加载超时，隐藏 loading 直接显示 iframe
+    setTimeout(function() {
+      if (loading.style.display !== 'none') {
+        loading.style.display = 'none';
+        iframe.style.display = 'block';
+      }
+    }, 6000);
+  }
+
+  // 关闭预览
+  function closePreview() {
+    const overlay = document.getElementById('pdfPreviewOverlay');
+    const iframe = document.getElementById('pdfIframe');
+    overlay.classList.remove('active');
+    document.body.style.overflow = '';
+    iframe.src = '';
+    // 将弹窗移回原始位置
+    if (overlayOriginalParent) {
+      overlayOriginalParent.appendChild(overlay);
+    }
+  }
+
+  document.getElementById('pdfCloseBtn').addEventListener('click', closePreview);
+  document.getElementById('pdfPreviewOverlay').addEventListener('click', function(e) {
+    if (e.target === this) closePreview();
+  });
+
+  // ESC 关闭
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape') closePreview();
+  });
+})();
+</script>
+
+
+        
+      </div>
+
+    </div>
+
+    <div class="page-main-content-bottom">
+      <footer class="footer">
+    <div class="info-container">
+        <div class="copyright-info info-item">
+            &copy;
+            
+              <span>2021</span>&nbsp;-&nbsp;
+            
+            2026&nbsp;<i class="fas fa-heart icon-animate"></i>&nbsp;<a href="/">邵预鸿</a>
+        </div>
+        
+        
+        <div>更多笔记请访问:<a href="https://www.shaoyuhong.cn" target="_blank">邵预鸿|随心记 https://www.shaoyuhong.cn</a></div>
+
+    </div>
+</footer>
+
+    </div>
+  </div>
+
+  
+
+  <div class="right-bottom-side-tools">
+    <div class="side-tools-container">
+    <ul class="side-tools-list">
+        <li class="tools-item tool-font-adjust-plus flex-center">
+            <i class="fas fa-search-plus"></i>
+        </li>
+
+        <li class="tools-item tool-font-adjust-minus flex-center">
+            <i class="fas fa-search-minus"></i>
+        </li>
+
+        <li class="tools-item tool-expand-width flex-center">
+            <i class="fas fa-arrows-alt-h"></i>
+        </li>
+
+        <li class="tools-item tool-dark-light-toggle flex-center">
+            <i class="fas fa-moon"></i>
+        </li>
+
+        <!-- rss -->
+        
+
+        
+
+        <li class="tools-item tool-scroll-to-bottom flex-center">
+            <i class="fas fa-arrow-down"></i>
+        </li>
+    </ul>
+
+    <ul class="exposed-tools-list">
+        <li class="tools-item tool-toggle-show flex-center">
+            <i class="fas fa-cog fa-spin"></i>
+        </li>
+        
+            <li class="tools-item tool-scroll-to-top flex-center">
+                <i class="arrow-up fas fa-arrow-up"></i>
+                <span class="percent"></span>
+            </li>
+        
+    </ul>
+</div>
+
+  </div>
+
+  
+
+  <div class="image-viewer-container">
+    <img src="">
+</div>
+
+
+  
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+          <span class="search-input-field-pre">
+            <i class="fas fa-keyboard"></i>
+          </span>
+            <div class="search-input-container">
+                <input autocomplete="off"
+                       autocorrect="off"
+                       autocapitalize="off"
+                       placeholder="搜索..."
+                       spellcheck="false"
+                       type="search"
+                       class="search-input"
+                >
+            </div>
+            <span class="popup-btn-close">
+                <i class="fas fa-times"></i>
+            </span>
+        </div>
+        <div id="search-result">
+            <div id="no-result">
+                <i class="fas fa-spinner fa-pulse fa-5x fa-fw"></i>
+            </div>
+        </div>
+    </div>
+</div>
+
+  
+
+</main>
+<script>
+  const context = document.querySelector(".markdown-body");
+  const articleTitleList = document.querySelector(".article-title-list");
+  const mainContent = document.querySelector('.main-content');
+
+  if (context) {
+    if (window.innerWidth > 1380) {
+      const tags = context.querySelectorAll('*');
+      const hTagReg = /^H[1-6]$/;
+      let template = '';
+      tags.forEach(item => {
+        if (hTagReg.test(item.tagName.toUpperCase()) && item.innerText) {
+          const tagH = item.tagName.toLowerCase();
+          const tagHToUpper = item.tagName.toUpperCase();
+          const forHash = item.getAttribute("id");
+          //<span class="badge">${tagHToUpper}</span>
+          template += `
+                  <${tagH}>
+                    <a onclick="javascript:void(1)" href="#${forHash}"> ${item.innerText}</a>
+                  </${tagH}>  
+                `;
+
+        }
+      });
+      articleTitleList.innerHTML = template;
+    }
+
+
+  }
+
+  (function leftNavPositionChange() {
+    const articleTitlePositoinX = (window.innerWidth - mainContent.clientWidth) / 2 - 300;
+    articleTitleList.style.left = articleTitlePositoinX + 'px';
+    window.onresize = function () {
+      leftNavPositionChange();
+    };
+  })();
+
+</script>
+
+<script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="/js/header-shrink.js"></script><script src="/js/back2top.js"></script><script src="/js/dark-light-toggle.js"></script>
+
+
+    <script src="/js/local-search.js"></script>
+
+
+
+    <script src="/js/code-copy.js"></script>
+
+
+
+    <script src="/js/lazyload.js"></script>
+
+
+<div class="post-scripts">
+    
+</div>
+
+
+
+</body>
+</html>
