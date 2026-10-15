@@ -19,7 +19,7 @@
     <link rel="stylesheet" href="/css/font-awesome.min.css">
     <script id="hexo-configurations">
     let KEEP = window.KEEP || {};
-    KEEP.hexo_config = {"hostname":"github.com","root":"/","language":"zh-CN","path":"search.json"};
+    KEEP.hexo_config = {"hostname":"yuhongshao.cn","root":"/","language":"zh-CN","path":"search.json"};
     KEEP.theme_config = {"toc":{"enable":false,"number":false,"expand_all":false,"init_open":false},"style":{"primary_color":"#0066CC","avatar":"/images/logo.jpg","favicon":"/images/logo.jpg","article_img_align":"left","left_side_width":"260px","content_max_width":"920px","hover":{"shadow":true,"scale":false},"first_screen":{"enable":true,"background_img":"/images/bg.svg","description":"积累硅步，可至千里；千里之行，始于足下"},"scroll":{"progress_bar":{"enable":true},"percent":{"enable":true}}},"local_search":{"enable":true,"preload":true},"code_copy":{"enable":true,"style":"default"},"pjax":{"enable":false},"lazyload":{"enable":true},"version":"3.4.0"};
     KEEP.language_ago = {"second":"%s 秒前","minute":"%s 分钟前","hour":"%s 小时前","day":"%s 天前","week":"%s 周前","month":"%s 月前","year":"%s 年前"};
   </script>
@@ -398,7 +398,7 @@
 
 <ul>
 <li>对于第一种设置样式的方式来说，浏览器只需要找到页面中所有的 <code>span</code> 标签然后设置颜色，但是对于第二种设置样式的方式来说，浏览器首先需要找到所有的 <code>span</code> 标签，然后找到 <code>span</code> 标签上的 <code>a</code> 标签，最后再去找到 <code>div</code> 标签，然后给符合这种条件的 <code>span</code> 标签设置颜色，这样的递归过程就很复杂。所以我们应该尽可能的避免写过于具体的 CSS 选择器，然后对于 HTML 来说也尽量少的添加无意义标签，保证层级扁平。</li>
-<li>将动画效果应用到<code>position</code>属性为<code>absolute</code>或<code>fixed</code>的元素上，避免影响其他元素的布局，这样只是一个重绘，而不是回流，同时，控制动画速度可以选择 <code>requestAnimationFrame</code>，详见<a href="https://github.com/LuNaHaiJiao/blog/issues/30">探讨 requestAnimationFrame</a>。</li>
+<li>将动画效果应用到<code>position</code>属性为<code>absolute</code>或<code>fixed</code>的元素上，避免影响其他元素的布局，这样只是一个重绘，而不是回流，同时，控制动画速度可以选择 <code>requestAnimationFrame</code>，详见<a class="link"   target="_blank" rel="noopener" href="https://github.com/LuNaHaiJiao/blog/issues/30" >探讨 requestAnimationFrame<i class="fas fa-external-link-alt"></i></a>。</li>
 <li>避免使用<code>CSS</code>表达式，可能会引发回流。</li>
 <li>将频繁重绘或者回流的节点设置为图层，图层能够阻止该节点的渲染行为影响别的节点，例如<code>will-change</code>、<code>video</code>、<code>iframe</code>等标签，浏览器会自动将该节点变为图层。</li>
 <li>CSS3 硬件加速（GPU加速），使用css3硬件加速，可以让<code>transform</code>、<code>opacity</code>、<code>filters</code>这些动画不会引起回流重绘 。但是对于动画的其它属性，比如<code>background-color</code>这些，还是会引起回流重绘的，不过它还是可以提升这些动画的性能。</li>
