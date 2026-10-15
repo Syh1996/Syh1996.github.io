@@ -1020,7 +1020,7 @@ pre .javascript .function {
   position: relative;
   box-sizing: border-box;
   width: 80%;
-  max-width: 920px;
+  max-width: none !important;
   height: 100%;
 }
 @media (max-width: 780px) {
@@ -2071,7 +2071,6 @@ pre .javascript .function {
 .home-content-container .home-timeline {
   position: relative;
   padding: 20px 0;
-  max-width: 900px;
   margin: 0 auto;
 }
 .home-content-container .home-timeline .timeline-line {
@@ -2341,37 +2340,368 @@ pre .javascript .function {
     transform: rotate(360deg);
   }
 }
-.archive-container {
-  padding: 30px;
-  border-radius: 5px;
-  box-sizing: border-box;
+.archive-v2 {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 20px 0;
+}
+.archive-overview {
+  text-align: center;
+  margin-bottom: 40px;
+  padding: 36px 24px;
+  background: linear-gradient(135deg, rgba(0,102,204,0.06) 0%, rgba(0,102,204,0.02) 100%);
+  border-radius: 20px;
+  border: 1px solid rgba(0,102,204,0.08);
+}
+.archive-overview .overview-title {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 8px;
+}
+.archive-overview .overview-title .overview-icon {
+  font-size: 32px;
+}
+.archive-overview .overview-title h1 {
+  font-size: 28px;
+  font-weight: 800;
+  color: var(--first-text-color);
+  margin: 0;
+  letter-spacing: 1px;
+}
+.archive-overview .overview-desc {
+  color: var(--third-text-color);
+  font-size: 14px;
+  margin-bottom: 24px;
+}
+.archive-overview .overview-desc strong {
+  color: var(--primary-color);
+  font-weight: 700;
+}
+.archive-overview .overview-stats {
+  display: flex;
+  justify-content: center;
+  gap: 48px;
+}
+.archive-overview .overview-stats .stat-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.archive-overview .overview-stats .stat-item .stat-number {
+  font-size: 36px;
+  font-weight: 800;
+  color: var(--primary-color);
+  line-height: 1.2;
+  font-variant-numeric: tabular-nums;
+}
+.archive-overview .overview-stats .stat-item .stat-label {
+  font-size: 13px;
+  color: var(--third-text-color);
+  margin-top: 4px;
+}
+.archive-year-cards {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+.year-card {
   background: var(--background-color);
-  margin-bottom: 30px;
-  box-shadow: 2px 2px 5px var(--shadow-color);
+  border-radius: 16px;
+  border: 1px solid var(--border-color);
+  overflow: hidden;
+  transition: all 0.3s ease;
+  animation: archiveCardIn 0.5s ease both;
 }
-@media (max-width: 780px) {
-  .archive-container {
+.year-card:hover {
+  box-shadow: 0 8px 30px var(--shadow-color);
+  border-color: var(--primary-color);
+}
+.year-card.open {
+  border-color: var(--primary-color);
+  box-shadow: 0 4px 20px rgba(0,102,204,0.1);
+}
+.year-card.open .expand-icon {
+  transform: rotate(180deg);
+}
+.year-card.open .year-badge {
+  background: var(--primary-color);
+  color: #fff;
+}
+.year-card-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px 24px;
+  cursor: pointer;
+  user-select: none;
+  transition: background 0.2s ease;
+}
+.year-card-header:hover {
+  background: var(--second-background-color);
+}
+.year-card-left {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+.year-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 72px;
+  height: 40px;
+  padding: 0 16px;
+  background: var(--second-background-color);
+  color: var(--primary-color);
+  font-size: 18px;
+  font-weight: 800;
+  border-radius: 10px;
+  transition: all 0.3s ease;
+  letter-spacing: 1px;
+}
+.year-info {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+.year-info .year-count {
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--first-text-color);
+}
+.year-info .year-range {
+  font-size: 12px;
+  color: var(--third-text-color);
+}
+.year-card-right {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+.year-mini-chart {
+  display: flex;
+  align-items: flex-end;
+  gap: 3px;
+  height: 32px;
+  padding: 2px 0;
+}
+.year-mini-chart .mini-bar {
+  width: 6px;
+  min-height: 4px;
+  background: var(--primary-color);
+  border-radius: 3px 3px 1px 1px;
+  transition: all 0.3s ease;
+}
+.expand-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  color: var(--third-text-color);
+  transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+  flex-shrink: 0;
+}
+.year-card-body {
+  height: 0;
+  overflow: hidden;
+  transition: height 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.year-card-body-inner {
+  padding: 0 24px 20px 24px;
+  border-top: 1px solid var(--border-color);
+}
+.post-item {
+  display: flex;
+  align-items: center;
+  padding: 12px 12px;
+  margin: 0 -12px;
+  border-radius: 10px;
+  text-decoration: none;
+  transition: all 0.2s ease;
+  animation: postFadeIn 0.35s ease both;
+}
+.post-item:first-child {
+  margin-top: 12px;
+}
+.post-item:hover {
+  background: var(--second-background-color);
+}
+.post-item:hover .post-title {
+  color: var(--primary-color);
+}
+.post-item:hover .post-dot {
+  transform: scale(1.6);
+  background: var(--primary-color);
+  box-shadow: 0 0 0 3px rgba(0,102,204,0.15);
+}
+.post-item .post-date {
+  flex-shrink: 0;
+  width: 52px;
+  font-size: 13px;
+  color: var(--third-text-color);
+  font-weight: 500;
+  font-variant-numeric: tabular-nums;
+}
+.post-item .post-dot {
+  flex-shrink: 0;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--border-color);
+  margin: 0 14px;
+  transition: all 0.25s ease;
+}
+.post-item .post-title {
+  flex: 1;
+  font-size: 14.5px;
+  color: var(--default-text-color);
+  font-weight: 500;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  transition: color 0.2s ease;
+}
+@media (max-width: 768px) {
+  .archive-v2 {
+    padding: 12px 0;
+  }
+  .archive-overview {
+    padding: 24px 16px;
     margin-bottom: 24px;
+    border-radius: 14px;
+  }
+  .archive-overview .overview-title h1 {
+    font-size: 22px;
+  }
+  .archive-overview .overview-stats {
+    gap: 24px;
+  }
+  .archive-overview .overview-stats .stat-item .stat-number {
+    font-size: 28px;
+  }
+  .year-card-header {
+    padding: 16px 16px;
+  }
+  .year-card-left {
+    gap: 12px;
+  }
+  .year-badge {
+    min-width: 60px;
+    height: 36px;
+    font-size: 16px;
+    padding: 0 12px;
+  }
+  .year-mini-chart {
+    display: none;
+  }
+  .year-card-body-inner {
+    padding: 0 16px 16px 16px;
+  }
+  .post-item {
+    padding: 10px 8px;
+    margin: 0 -8px;
+  }
+  .post-item .post-date {
+    width: 46px;
+    font-size: 12px;
+  }
+  .post-item .post-dot {
+    margin: 0 10px;
+  }
+  .post-item .post-title {
+    font-size: 13.5px;
   }
 }
 @media (max-width: 500px) {
-  .archive-container {
-    margin-bottom: 18px;
+  .archive-overview .overview-stats {
+    flex-direction: column;
+    gap: 12px;
+  }
+  .year-info .year-range {
+    display: none;
   }
 }
-.archive-container:hover {
-  box-shadow: 2px 2px 8px var(--shadow-hover-color);
-}
-@media (max-width: 780px) {
-  .archive-container {
-    padding: 24px;
-    border-radius: 4px;
+@-moz-keyframes archiveCardIn {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
 }
-@media (max-width: 500px) {
-  .archive-container {
-    padding: 18px;
-    border-radius: 3px;
+@-webkit-keyframes archiveCardIn {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+@-o-keyframes archiveCardIn {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+@keyframes archiveCardIn {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+@-moz-keyframes postFadeIn {
+  from {
+    opacity: 0;
+    transform: translateX(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+@-webkit-keyframes postFadeIn {
+  from {
+    opacity: 0;
+    transform: translateX(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+@-o-keyframes postFadeIn {
+  from {
+    opacity: 0;
+    transform: translateX(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+@keyframes postFadeIn {
+  from {
+    opacity: 0;
+    transform: translateX(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
   }
 }
 .article-content-container {

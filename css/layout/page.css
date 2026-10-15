@@ -46,7 +46,7 @@ keep-mobile()
   position: relative;
   box-sizing: border-box;
   width: $main-content-width;
-  max-width: $content-max-width;
+  max-width: none !important;
   height: 100%;
 keep-tablet()
 keep-mobile()
